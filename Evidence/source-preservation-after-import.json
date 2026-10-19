@@ -1,0 +1,11 @@
+{
+  "check": "Original meta and compute file byte preservation",
+  "checked": 597,
+  "status": "FAILED",
+  "failures": [
+    "Changed: Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+    "Changed: Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+    "Changed: Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+  ],
+  "limitation": "Does not validate compilation, shader includes, GPU execution, graphics, physics or performance."
+}

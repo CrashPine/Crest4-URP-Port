@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-18 21:29:16Z" end-time="2026-10-18 21:29:18Z" duration="1,9200724">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-18 21:29:16Z" end-time="2026-10-18 21:29:18Z" duration="1.920072" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1010" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/work/diagnostic-6000.6/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-18 21:29:16Z" end-time="2026-10-18 21:29:18Z" duration="1.905249" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="196824" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1001" name="OceanGraphicsTests" fullname="OceanGraphicsTests" classname="OceanGraphicsTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-18 21:29:16Z" end-time="2026-10-18 21:29:18Z" duration="1.903203" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1003" name="UnderwaterRendersAndQueries" fullname="OceanGraphicsTests.UnderwaterRendersAndQueries" methodname="UnderwaterRendersAndQueries" classname="OceanGraphicsTests" runstate="Runnable" seed="1390520095" result="Passed" start-time="2026-10-18 21:29:16Z" end-time="2026-10-18 21:29:18Z" duration="1.879633" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
