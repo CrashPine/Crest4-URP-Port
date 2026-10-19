@@ -465,15 +465,15 @@ namespace Crest
 
         public void UpdateQueries()
         {
+            // Preserve pending registrars until their readback completes. Dropping an
+            // in-flight request loses the matching ring-buffer release and eventually
+            // overwrites the mapping used to interpret results when CPU frames outrun GPU.
+            // Queries remain registered in Current and are submitted after capacity returns.
+            if (_requests.Count >= s_maxRequests) return;
+
             if (_segmentRegistrarRingBuffer.Current._numQueries > 0)
             {
                 ExecuteQueries();
-
-                // Remove oldest requests if we have hit the limit
-                while (_requests.Count >= s_maxRequests)
-                {
-                    _requests.RemoveAt(0);
-                }
 
                 ReadbackRequest request;
                 request._dataTimestamp = Time.time;

@@ -1,0 +1,18 @@
+param(
+    [Parameter(Mandatory=$true)][string]$Player,
+    [ValidateSet('DX11','DX12')][string]$GraphicsAPI='DX11',
+    [string]$Label='Development'
+)
+$ErrorActionPreference='Stop'
+$project=Split-Path $PSScriptRoot
+$evidence=Join-Path $project ('Evidence/Player-'+$Label+'-'+$GraphicsAPI)
+New-Item -ItemType Directory -Force $evidence | Out-Null
+$arguments=@('-batchmode','-crestSmoke','-screen-width','960','-screen-height','540','-crestEvidence',('"'+$evidence+'"'),'-logFile',('"'+(Join-Path $evidence 'Player.log')+'"'))
+$arguments += $(if($GraphicsAPI -eq 'DX12'){'-force-d3d12'}else{'-force-d3d11'})
+$run=Start-Process -FilePath (Resolve-Path $Player) -ArgumentList $arguments -WindowStyle Hidden -PassThru
+if(!$run.WaitForExit(180000)) { Stop-Process -Id $run.Id; throw 'Player smoke run exceeded 180 seconds.' }
+if($run.ExitCode -ne 0) { throw "Player smoke exited with $($run.ExitCode). Inspect $evidence" }
+if(!(Test-Path (Join-Path $evidence 'player-smoke.txt'))) { throw 'Player produced no smoke report.' }
+$images=@(Get-ChildItem $evidence -Filter Ocean_*.png)
+if($images.Count -ne 7) { throw "Expected 7 scene captures; received $($images.Count)." }
+Get-Content (Join-Path $evidence 'player-smoke.txt')
