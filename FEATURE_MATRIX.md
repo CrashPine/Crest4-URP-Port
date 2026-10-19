@@ -44,13 +44,8 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Debug visualization | OceanDebugGUI.cs; VisualiseCollisionArea.cs | Retained | NOT TESTED |
 | Seven demonstration scenes | Assets/CrestPortDemos | Seven-scene queries/captures passed in both builds/APIs; complete feature demonstrations pending | NOT TESTED |
 | Windows Development/Release | URP/Editor/PortAutomation.cs | Both builds succeed; each runs seven-scene smoke checks on DX11 and DX12 | PASSED (build/launch/smoke scope only) |
-| Performance/resource lifetime | All GPU owners and graph pass | No profiling or leak acceptance yet | NOT TESTED |
+| Performance/resource lifetime | All GPU owners and graph pass | 12 scene reloads keep tracked texture footprint stable on both APIs; total VRAM, buffers, GC and timings pending | NOT TESTED |
 
 BLOCKED rows identify missing port implementations or environmental requirements;
 these are not claims that source functionality was absent. No required feature has
 been marked PASSED merely because its files survived import.
-
-
-
-
-

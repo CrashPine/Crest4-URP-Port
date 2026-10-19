@@ -20,6 +20,19 @@ switch ($Action) {
  'PlayMode' { $arguments += @('-runTests','-testPlatform','PlayMode','-testResults',('"'+(Join-Path $evidence "PlayMode-$GraphicsAPI.xml")+'"')) }
  default { $arguments += '-quit' }
 }
+$startedUtc = [DateTime]::UtcNow
 $process = Start-Process -FilePath $Editor -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
 if ($process.ExitCode -ne 0) { throw "Unity exited with $($process.ExitCode); inspect Evidence logs." }
+if ($Action -in @('EditMode','PlayMode')) {
+    $resultsPath = Join-Path $evidence "$Action-$GraphicsAPI.xml"
+    if (!(Test-Path -LiteralPath $resultsPath) -or (Get-Item -LiteralPath $resultsPath).LastWriteTimeUtc -lt $startedUtc) {
+        throw 'Unity produced no fresh test report. An earlier report is not evidence for this run.'
+    }
+    [xml]$results = Get-Content -Raw -LiteralPath $resultsPath
+    $run = $results.'test-run'
+    if ($run.result -ne 'Passed' -or [int]$run.total -lt 1 -or [int]$run.failed -ne 0 -or [int]$run.skipped -ne 0) {
+        throw "Tests not fully passed: result=$($run.result), total=$($run.total), failed=$($run.failed), skipped=$($run.skipped)"
+    }
+    Write-Output "$($run.passed)/$($run.total) tests passed on $GraphicsAPI."
+}
 Write-Output 'Unity command exited successfully. This alone does not establish visual correctness or feature acceptance.'

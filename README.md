@@ -1,7 +1,7 @@
 # Crest 4 → Unity 6.6 URP: work in progress
 
 This is an isolated port of MIT Crest 4.23.0, not a completed or production-accepted release.
-The target is Unity 6000.6.5f1 + URP 17.6, as explicitly requested on 2026-10-19. The deliverable passes 13 Editor tests on both DX11/DX12 and seven-scene smoke runs in both Development and Release players. Full feature acceptance remains incomplete.
+The target is Unity 6000.6.5f1 + URP 17.6, as explicitly requested on 2026-10-19. The deliverable passes 14 Editor tests on both DX11/DX12 and seven-scene smoke runs in both Development and Release players. Full feature acceptance remains incomplete.
 
 ## Current implementation
 

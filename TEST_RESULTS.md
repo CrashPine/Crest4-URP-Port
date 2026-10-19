@@ -6,13 +6,13 @@ Target: Unity **6000.6.5f1** (3ff58d469c8a), URP **17.6.0**, Windows x64, NVIDIA
 
 | Check | DX11 | DX12 | Evidence |
 |---|---|---|---|
-| Editor test suite | PASSED: 13/13 | PASSED: 13/13 | EditMode-DX11.xml / EditMode-DX12.xml |
+| Editor test suite | PASSED: 14/14 | PASSED: 14/14 | EditMode-DX11.xml / EditMode-DX12.xml |
 | Development player, seven scenes | PASSED: Errors=0 | PASSED: Errors=0 | Player-Development-DX11 / DX12 |
 | Release player, seven scenes | PASSED: Errors=0 | PASSED: Errors=0 | Player-Release-DX11 / DX12 |
 
 Both Windows builds succeeded. Development was built with the DX11 Editor, Release with DX12; each executable was launched with both APIs. All four runs produced seven PNGs and changing, finite GPU height-query results in every scene. These are smoke checks, not complete feature or performance acceptance. Latest test-only additions do not change the player runtime.
 
-## Scope of the 13 tests
+## Scope of the 14 tests
 
 - Three deterministic spectrum cases, including wavelength ordering/bounds.
 - Three scene capture/query checks: FFT surface, underwater, planar reflection path.
@@ -37,3 +37,11 @@ Planar reflection still emits the unsupported Camera.layerCullSpherical warning.
 The original strict byte check passed for 597 meta/compute files before import. Unity upgraded three sprite metadata files (ArrowLeft, ArrowRight, Flask); their GUIDs are unchanged. The separate final GUID/compute check passes for all 597 files and explicitly lists metadata changes in guid-compute-preservation.json. The strict byte check must not be described as passing after importer normalization.
 
 Raw logs and the large failed player attempt remain on disk and are excluded from Git. Structured reports, XML and current captures provide checked-in evidence. Earlier work-copy evidence is historical and does not supersede these deliverable results.
+
+## Scene lifecycle check
+
+ResourceLifecycleTests reloads Ocean_Underwater 12 times, requests a real URP render, waits for GPU readback and checks that height queries recover on each load. Both DX11 and DX12 report exactly 22 tracked Crest RenderTextures and 51,848,342 native texture bytes on every cycle. No explicit UnloadUnusedAssets call is used to mask retained owners. Evidence: ResourceLifecycle-Direct3D11.txt and ResourceLifecycle-Direct3D12.txt.
+
+This check uses named Crest simulation, FFT, depth and graph textures. Unity Profiler native size is not a total VRAM measurement. Compute buffers, unrelated renderer allocations, GC, long-running frame timing, multiple resolutions and all camera configurations remain outside this test.
+
+Run scripts now reject stale/empty player captures, stale test reports, empty test suites, skipped tests and nonzero smoke errors, even if an executable exits with code zero. Updated Run-Player passed a repeat Release DX11 run; updated Run-Unity validated the 14-test DX12 run.
