@@ -4,6 +4,8 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEditor;
 
 namespace Crest
@@ -148,8 +150,20 @@ namespace Crest
 
         void OnDestroy()
         {
-            if (_camDepthCache != null) Helpers.Destroy(_camDepthCache.gameObject);
-            if (_drawCacheQuad != null) Helpers.Destroy(_drawCacheQuad);
+            if (_camDepthCache != null)
+            {
+                var depth = _camDepthCache.targetTexture;
+                _camDepthCache.targetTexture = null;
+                if (depth != null) { depth.Release(); Helpers.Destroy(depth); }
+                Helpers.Destroy(_camDepthCache.gameObject);
+            }
+            if (_cacheTexture != null) { _cacheTexture.Release(); Helpers.Destroy(_cacheTexture); }
+            if (_copyDepthMaterial != null) Helpers.Destroy(_copyDepthMaterial);
+            if (_drawCacheQuad != null)
+            {
+                Helpers.Destroy(_drawCacheQuad.GetComponent<Renderer>().sharedMaterial);
+                Helpers.Destroy(_drawCacheQuad);
+            }
         }
 
 #if UNITY_EDITOR
@@ -213,6 +227,7 @@ namespace Crest
             {
                 // Destroy the texture so it can be recreated.
                 _cacheTexture.Release();
+                Helpers.Destroy(_cacheTexture);
                 _cacheTexture = null;
             }
 
@@ -261,6 +276,7 @@ namespace Crest
             {
                 // Destroy the texture so it can be recreated.
                 _camDepthCache.targetTexture.Release();
+                Helpers.Destroy(_camDepthCache.targetTexture);
                 _camDepthCache.targetTexture = null;
             }
 
@@ -367,7 +383,20 @@ namespace Crest
             try
             {
                 // Render scene, saving depths in depth buffer.
-                _camDepthCache.Render();
+                if (GraphicsSettings.currentRenderPipeline is UniversalRenderPipelineAsset)
+                {
+                    var data = _camDepthCache.GetUniversalAdditionalCameraData();
+                    data.renderShadows = false;
+                    data.renderPostProcessing = false;
+                    var request = new UniversalRenderPipeline.SingleCameraRequest
+                    {
+                        destination = _camDepthCache.targetTexture,
+                    };
+                    if (!RenderPipeline.SupportsRenderRequest(_camDepthCache, request))
+                        throw new InvalidOperationException("Crest: URP cannot render the depth-cache camera.");
+                    RenderPipeline.SubmitRenderRequest(_camDepthCache, request);
+                }
+                else _camDepthCache.Render();
             }
             finally
             {

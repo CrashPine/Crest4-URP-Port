@@ -1,4 +1,4 @@
-﻿// Crest Ocean System
+// Crest Ocean System
 
 // This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
 
@@ -10,12 +10,12 @@ Shader "Hidden/Crest/Helpers/Utility"
 	#pragma vertex Vertex
 	#pragma fragment Fragment
 
-	#include "UnityCG.cginc"
+	#include "../URP/Core.hlsl"
 
-	#include "../BIRP/Core.hlsl"
-	#include "../BIRP/InputsDriven.hlsl"
 
-	#include "../../FullScreenTriangle.hlsl"
+
+
+
 
 	#include "../../OceanShaderHelpers.hlsl"
 

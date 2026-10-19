@@ -6,13 +6,13 @@ Shader "Hidden/Crest/Water Volume Geometry"
 {
 	SubShader
 	{
-		CGINCLUDE
+		HLSLINCLUDE
 		#pragma vertex Vert
 		#pragma fragment Frag
 
 		// #pragma enable_d3d11_debug_symbols
 
-		#include "UnityCG.cginc"
+		#include "../../Helpers/URP/Core.hlsl"
 
 		struct Attributes
 		{
@@ -33,7 +33,7 @@ Shader "Hidden/Crest/Water Volume Geometry"
 			UNITY_SETUP_INSTANCE_ID(input);
 			UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-			o.positionCS = UnityObjectToClipPos(input.positionOS);
+			o.positionCS = TransformObjectToHClip(input.positionOS);
 
 			return o;
 		}
@@ -42,7 +42,7 @@ Shader "Hidden/Crest/Water Volume Geometry"
 		{
 			return 1.0;
 		}
-		ENDCG
+		ENDHLSL
 
 		Pass
 		{
@@ -57,8 +57,8 @@ Shader "Hidden/Crest/Water Volume Geometry"
 				Pass Replace
 			}
 
-			CGPROGRAM
-			ENDCG
+			HLSLPROGRAM
+			ENDHLSL
 		}
 
 		Pass
@@ -74,8 +74,8 @@ Shader "Hidden/Crest/Water Volume Geometry"
 				Pass Replace
 			}
 
-			CGPROGRAM
-			ENDCG
+			HLSLPROGRAM
+			ENDHLSL
 		}
 	}
 }

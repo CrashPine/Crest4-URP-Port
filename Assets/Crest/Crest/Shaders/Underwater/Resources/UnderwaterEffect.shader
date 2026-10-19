@@ -1,4 +1,4 @@
-﻿// Crest Ocean System
+// Crest Ocean System
 
 // This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
 
@@ -7,6 +7,7 @@ Shader "Hidden/Crest/Underwater/Underwater Effect"
 	HLSLINCLUDE
 	#pragma vertex Vert
 	#pragma fragment Frag
+    #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
 
 	// #pragma enable_d3d11_debug_symbols
 
@@ -24,13 +25,13 @@ Shader "Hidden/Crest/Underwater/Underwater Effect"
 	#pragma multi_compile_fragment _ CREST_UNDERWATER_BEFORE_TRANSPARENT
 	#pragma multi_compile_fragment _ CREST_FLOATING_ORIGIN
 
-	#include "UnityCG.cginc"
-	#include "Lighting.cginc"
+	#include "../../Helpers/URP/Core.hlsl"
 
-	#include "../../Helpers/BIRP/Core.hlsl"
-	#include "../../Helpers/BIRP/InputsDriven.hlsl"
-	#include "../../FullScreenTriangle.hlsl"
-	#include "../../Helpers/BIRP/Lighting.hlsl"
+
+
+
+
+
 	ENDHLSL
 
 	SubShader

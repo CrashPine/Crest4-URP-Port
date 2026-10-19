@@ -14,7 +14,7 @@ namespace Crest
     /// Stores shadowing data to use during ocean shading. Shadowing is persistent and supports sampling across
     /// many frames and jittered sampling for (very) soft shadows.
     /// </summary>
-    public class LodDataMgrShadow : LodDataMgr
+    public partial class LodDataMgrShadow : LodDataMgr
     {
         public override string SimName => "Shadow";
         protected override GraphicsFormat RequestedTextureFormat => GraphicsFormat.R8G8_UNorm;
@@ -133,6 +133,7 @@ namespace Crest
         internal override void Disable()
         {
             base.Disable();
+            ReleaseUrpHandles();
 
             CleanUpShadowCommandBuffers();
 
@@ -360,6 +361,7 @@ namespace Crest
             BufCopyShadowMap = new CommandBuffer();
             BufCopyShadowMap.name = "Crest Shadow Data";
 
+            if (GraphicsSettings.currentRenderPipeline == null)
             {
                 // Call this regardless of rendering path as it has no negative consequences for forward.
                 SetUpDeferredShadows();

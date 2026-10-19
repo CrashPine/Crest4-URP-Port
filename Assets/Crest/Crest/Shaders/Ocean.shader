@@ -208,16 +208,14 @@ Shader "Crest/Ocean"
 			// out the gbuffer data and do post processing before running it. Discussion of this in issue #53.
 			"Queue"="Geometry+510"
 			"IgnoreProjector"="True"
+			"RenderPipeline"="UniversalPipeline"
 			// RenderType is used for shader replacement which will never work well.
 			// Transparent prevents water being rendered into depth+normals which fixes SAO.
 			"RenderType"="Transparent"
 			"DisableBatching"="True"
 		}
 
-		GrabPass
-		{
-			"_BackgroundTexture"
-		}
+
 
 		Pass
 		{
@@ -230,15 +228,17 @@ Shader "Crest/Ocean"
 			{
 				// Tell Unity we're going to render water in forward manner and we're going to do lighting and it will set
 				// the appropriate uniforms.
-				"LightMode"="ForwardBase"
+				"LightMode"="UniversalForwardOnly"
 			}
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex Vert
 			#pragma fragment Frag
 			// for VFACE
-			#pragma target 3.0
+			#pragma target 4.5
 			#pragma multi_compile_fog
+			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+			#pragma multi_compile_fragment _ _SHADOWS_SOFT
 
 			// #pragma enable_d3d11_debug_symbols
 
@@ -275,11 +275,11 @@ Shader "Crest/Ocean"
 
 			#pragma multi_compile _ CREST_FLOATING_ORIGIN
 
-			#include "UnityCG.cginc"
-			#include "Lighting.cginc"
+			#include "Helpers/URP/Core.hlsl"
 
-			#include "Helpers/BIRP/Core.hlsl"
-			#include "Helpers/BIRP/InputsDriven.hlsl"
+
+
+
 
 			#include "ShaderLibrary/Common.hlsl"
 
@@ -319,7 +319,7 @@ Shader "Crest/Ocean"
 				float4 grabPos : TEXCOORD9;
 				float2 seaLevelDerivs : TEXCOORD10;
 
-				UNITY_FOG_COORDS(3)
+				half fogFactor : TEXCOORD3;
 
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
@@ -453,12 +453,12 @@ Shader "Crest/Ocean"
 				// view-projection
 				o.positionCS = mul(UNITY_MATRIX_VP, float4(o.worldPos, 1.));
 
-				UNITY_TRANSFER_FOG(o, o.positionCS);
+				o.fogFactor = ComputeFogFactor(o.positionCS.z);
 
 				// unfortunate hoop jumping - this is inputs for refraction. depending on whether HDR is on or off, the grabbed scene
 				// colours may or may not come from the backbuffer, which means they may or may not be flipped in y. use these macros
 				// to get the right results, every time.
-				o.grabPos = ComputeGrabScreenPos(o.positionCS);
+				o.grabPos = ComputeScreenPos(o.positionCS);
 				o.screenPosXYW = ComputeScreenPos(o.positionCS).xyw;
 				return o;
 			}
@@ -545,7 +545,7 @@ Shader "Crest/Ocean"
 				float3 lightDir = WaveHarmonic::Crest::WorldSpaceLightDir(input.worldPos);
 				half3 lightCol = _LightColor0;
 				// Soft shadow, hard shadow
-				fixed2 shadow = (fixed2)1.0
+				half2 shadow = (half2)1.0
 				#if _SHADOWS_ON
 					- input.flow_shadow.zw
 				#endif
@@ -760,7 +760,7 @@ Shader "Crest/Ocean"
 				if (!underwater)
 				{
 					// Above water - do atmospheric fog. If you are using a third party sky package such as Azure, replace this with their stuff!
-					UNITY_APPLY_FOG(input.fogCoord, col);
+					col = MixFog(col, input.fogFactor);
 				}
 #if CREST_UNDERWATER_BEFORE_TRANSPARENT
 				else
@@ -809,7 +809,7 @@ Shader "Crest/Ocean"
 				return half4(col, reflAlpha);
 			}
 
-			ENDCG
+			ENDHLSL
 		}
 
 		Pass
@@ -817,19 +817,19 @@ Shader "Crest/Ocean"
 			Name "SceneSelectionPass"
 			Tags { "LightMode" = "SceneSelectionPass" }
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex Vert
 			#pragma fragment Frag
 			// for VFACE
-			#pragma target 3.0
+			#pragma target 4.5
 
-			#include "UnityCG.cginc"
+			#include "Helpers/URP/Core.hlsl"
 
-			#include "Helpers/BIRP/Core.hlsl"
-			#include "Helpers/BIRP/InputsDriven.hlsl"
+
+
 
 			#include "Underwater/UnderwaterMaskShared.hlsl"
-			ENDCG
+			ENDHLSL
 		}
 	}
 

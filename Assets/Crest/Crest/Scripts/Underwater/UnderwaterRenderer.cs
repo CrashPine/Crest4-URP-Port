@@ -292,7 +292,8 @@ namespace Crest
             }
 #endif
 
-            if (_enableShaderAPI != _currentEnableShaderAPI && _underwaterEffectCommandBuffer != null)
+            if (GraphicsSettings.currentRenderPipeline == null &&
+                _enableShaderAPI != _currentEnableShaderAPI && _underwaterEffectCommandBuffer != null)
             {
                 _camera.RemoveCommandBuffer(CameraEvent.BeforeForwardAlpha, _underwaterEffectCommandBuffer);
                 _camera.RemoveCommandBuffer(CameraEvent.AfterForwardAlpha, _underwaterEffectCommandBuffer);
@@ -333,6 +334,7 @@ namespace Crest
 
         void AddCommandBuffers(Camera camera)
         {
+            if (GraphicsSettings.currentRenderPipeline != null) return;
             // Handle both forward and deferred.
             if (_oceanMaskCommandBuffer != null)
             {
@@ -368,6 +370,7 @@ namespace Crest
 
         void OnPreRender()
         {
+            if (GraphicsSettings.currentRenderPipeline != null) return;
 #if UNITY_EDITOR
             // Do not execute when editor is not active to conserve power and prevent possible leaks.
             if (!UnityEditorInternal.InternalEditorUtility.isApplicationActive)

@@ -1,50 +1,40 @@
-﻿// Crest Ocean System
-
-// This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
-
-// Soft shadow term is red, hard shadow term is green.
-
+// Crest Ocean System. MIT; see LICENSE.
+// URP sampling adapter. The original temporal/jittered accumulation lives in UpdateShadow.hlsl.
 Shader "Hidden/Crest/Simulation/Update Shadow"
 {
-	SubShader
-	{
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex Vert
-			#pragma fragment Frag
+    SubShader
+    {
+        Tags { "RenderPipeline" = "UniversalPipeline" }
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma target 4.5
+            #pragma vertex Vert
+            #pragma fragment Frag
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+            #define _SURFACE_TYPE_TRANSPARENT 1
+            #define CREST_SAMPLE_SHADOW_HARD
+            #include "../Helpers/URP/Core.hlsl"
+            #include "../ShaderLibrary/UpdateShadow.hlsl"
 
-			#pragma multi_compile_shadowcollector
-
-			// #pragma enable_d3d11_debug_symbols
-
-			#define CREST_SAMPLE_SHADOW_HARD
-
-			#include "UnityCG.cginc"
-
-			#include "../FullScreenTriangle.hlsl"
-			#include "../Helpers/BIRP/ScreenSpaceShadows.hlsl"
-			#include "../ShaderLibrary/UpdateShadow.hlsl"
-
-			half CrestSampleShadows(const float4 i_positionWS)
-			{
-				// NOTE: "Shadow Projection > Close Fit" can still produce artefacts when away from caster, but this
-				// appears to be an improvement over the compute shader.
-				float4 shadowCoord = GET_SHADOW_COORDINATES(i_positionWS);
-				half shadows = UNITY_SAMPLE_SHADOW(_ShadowMapTexture, shadowCoord);
-				shadows = lerp(_LightShadowData.r, 1.0, shadows);
-
-				return shadows;
-			}
-
-			half CrestComputeShadowFade(const float4 i_positionWS)
-			{
-				float z = dot(i_positionWS.xyz - _WorldSpaceCameraPos.xyz, unity_CameraToWorld._m02_m12_m22);
-				float fadeDistance = UnityComputeShadowFadeDistance(i_positionWS.xyz, z);
-				float fade = UnityComputeShadowFade(fadeDistance);
-				return fade;
-			}
-			ENDHLSL
-		}
-	}
+            half CrestSampleShadows(const float4 positionWS)
+            {
+                #if defined(MAIN_LIGHT_CALCULATE_SHADOWS)
+                float4 coordinates = TransformWorldToShadowCoord(positionWS.xyz);
+                // Crest applies its own world-space jitter and temporal softening.
+                half4 parameters = GetMainLightShadowParams();
+                parameters.y = 0;
+                return SampleShadowmap(TEXTURE2D_SHADOW_ARGS(_MainLightShadowmapTexture, sampler_LinearClampCompare),
+                    coordinates, GetMainLightShadowSamplingData(), parameters, false);
+                #else
+                return 1;
+                #endif
+            }
+            half CrestComputeShadowFade(const float4 positionWS)
+            {
+                return GetMainLightShadowFade(positionWS.xyz);
+            }
+            ENDHLSL
+        }
+    }
 }

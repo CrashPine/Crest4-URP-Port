@@ -25,21 +25,21 @@ Shader "Hidden/Crest/Underwater/Ocean Mask"
 				Comp Equal
 			}
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex Vert
 			#pragma fragment Frag
 			// for VFACE
-			#pragma target 3.0
+			#pragma target 4.5
 
 			#pragma multi_compile_local _ CREST_WATER_VOLUME
 
-			#include "UnityCG.cginc"
+			#include "../../Helpers/URP/Core.hlsl"
 
-			#include "../../Helpers/BIRP/Core.hlsl"
-			#include "../../Helpers/BIRP/InputsDriven.hlsl"
+
+
 
 			#include "../UnderwaterMaskShared.hlsl"
-			ENDCG
+			ENDHLSL
 		}
 
 		Pass
@@ -56,18 +56,18 @@ Shader "Hidden/Crest/Underwater/Ocean Mask"
 				Comp Equal
 			}
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex Vert
 			#pragma fragment Frag
 
-			#include "UnityCG.cginc"
+			#include "../../Helpers/URP/Core.hlsl"
 
-			#include "../../Helpers/BIRP/Core.hlsl"
-			#include "../../Helpers/BIRP/InputsDriven.hlsl"
-			#include "../../FullScreenTriangle.hlsl"
+
+
+
 
 			#include "../UnderwaterMaskHorizonShared.hlsl"
-			ENDCG
+			ENDHLSL
 		}
 	}
 }

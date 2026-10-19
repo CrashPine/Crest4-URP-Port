@@ -277,7 +277,9 @@ namespace Crest
             ForceDistanceCulling(_farClipPlane);
 
             // We do not want the water plane when rendering planar reflections.
-            OceanRenderer.Instance.Root.gameObject.SetActive(false);
+            var oceanRoot = OceanRenderer.Instance.Root.gameObject;
+            var wasOceanActive = oceanRoot.activeSelf;
+            oceanRoot.SetActive(false);
 
             // Invert culling because view is mirrored
             bool oldCulling = GL.invertCulling;
@@ -293,7 +295,24 @@ namespace Crest
 
             try
             {
-                _camReflections.Render();
+                if (UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline is UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset)
+                {
+                    var data = UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(_camReflections);
+                    data.renderShadows = !_disableShadows;
+                    var request = new UnityEngine.Rendering.Universal.UniversalRenderPipeline.SingleCameraRequest
+                    {
+                        destination = _reflectionTexture,
+                    };
+                    if (!UnityEngine.Rendering.RenderPipeline.SupportsRenderRequest(_camReflections, request))
+                    {
+                        throw new InvalidOperationException("Crest: active URP does not support reflection camera requests.");
+                    }
+                    UnityEngine.Rendering.RenderPipeline.SubmitRenderRequest(_camReflections, request);
+                }
+                else
+                {
+                    _camReflections.Render();
+                }
             }
             finally
             {
@@ -301,9 +320,8 @@ namespace Crest
                 GL.invertCulling = oldCulling;
                 if (_disableShadows) QualitySettings.shadows = oldShadowQuality;
                 if (_disablePixelLights) QualitySettings.pixelLightCount = oldPixelLightCount;
+                oceanRoot.SetActive(wasOceanActive);
             }
-
-            OceanRenderer.Instance.Root.gameObject.SetActive(true);
 
             // Remember this frame as last refreshed.
             Refreshed(Time.renderedFrameCount);

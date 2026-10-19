@@ -138,10 +138,21 @@ void ApplyCaustics
 	{
 		// Apply shadow maps to caustics.
 		{
+#if defined(CREST_URP)
+#if defined(MAIN_LIGHT_CALCULATE_SHADOWS)
+            // Sample at the refracted scene position, not the water surface. URP's
+            // screen-space shadow texture is not guaranteed for transparent receivers.
+            float4 shadowCoord = TransformWorldToShadowCoord(i_scenePos);
+            half shadow = SampleShadowmap(TEXTURE2D_SHADOW_ARGS(_MainLightShadowmapTexture, sampler_LinearClampCompare),
+                shadowCoord, GetMainLightShadowSamplingData(), GetMainLightShadowParams(), false);
+            causticsStrength *= lerp(shadow, 1.0, GetMainLightShadowFade(i_scenePos));
+#endif
+#else
 			// Normally, we would use SHADOW_ATTENUATION(), but SHADOWS_SCREEN and UNITY_NO_SCREENSPACE_SHADOWS are not
 			// handled for the transparent pass.
 			// Null texture is a small white texture which will be smaller than the screen size.
 			causticsStrength *= LOAD_TEXTURE2D_X(_CrestScreenSpaceShadowTexture,  min(i_positionSS, (int2)_CrestScreenSpaceShadowTexture_TexelSize.zw - 1)).r;
+#endif
 		}
 	}
 #endif // _SHADOWS_ON

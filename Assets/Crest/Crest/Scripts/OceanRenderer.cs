@@ -493,7 +493,11 @@ namespace Crest
         /// <summary>
         /// Is runtime environment without graphics card
         /// </summary>
-        public static bool RunningHeadless => Application.isBatchMode || (Instance != null ? Instance._debug._forceBatchMode : false);
+        /// <summary>Opt in to visual simulations during graphics-enabled automated batch tests.
+        /// Does not override RunningWithoutGPU; dedicated-server defaults are unchanged.</summary>
+        public static bool EnableGraphicsInBatchMode { get; set; }
+
+        public static bool RunningHeadless => (Application.isBatchMode && !EnableGraphicsInBatchMode) || (Instance != null ? Instance._debug._forceBatchMode : false);
 
         // We are computing these values to be optimal based on the base mesh vertex density.
         float _lodAlphaBlackPointFade;
@@ -719,12 +723,19 @@ namespace Crest
 
             Camera.onPreRender -= OnPreRenderCamera;
             Camera.onPreRender += OnPreRenderCamera;
+            RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
+            RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
             Camera.onPostRender -= OnPostRenderCamera;
             Camera.onPostRender += OnPostRenderCamera;
             RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
             RenderPipelineManager.endCameraRendering += OnEndCameraRendering;
 
             Container.SetActive(true);
+        }
+
+        void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+        {
+            OnPreRenderCamera(camera);
         }
 
         void OnPreRenderCamera(Camera camera)
@@ -1608,6 +1619,7 @@ namespace Crest
             }
 
             Camera.onPreRender -= OnPreRenderCamera;
+            RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
             Camera.onPostRender -= OnPostRenderCamera;
             RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
 
