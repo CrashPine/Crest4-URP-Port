@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-20T16:23:00.4303658Z",
+  "recordedUtc": "2026-10-20T21:33:29.0013235Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1242,
+  "fileCount": 1244,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -32,19 +32,27 @@
   ],
   "currentTestReports": [
     {
-      "file": "EditMode-DX11.xml",
-      "start": "2026-10-20 16:18:49Z",
+      "file": "EditMode-DX11-focused.xml",
+      "start": "2026-10-20 21:25:45Z",
       "result": "Passed",
-      "total": "18",
-      "passed": "18",
+      "total": "1",
+      "passed": "1",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX11.xml",
+      "start": "2026-10-20 21:26:27Z",
+      "result": "Passed",
+      "total": "21",
+      "passed": "21",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-20 16:20:52Z",
+      "start": "2026-10-20 21:27:10Z",
       "result": "Passed",
-      "total": "18",
-      "passed": "18",
+      "total": "21",
+      "passed": "21",
       "failed": "0"
     }
   ],
@@ -1621,8 +1629,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs",
-      "bytes": 24936,
-      "sha256": "9BB3552F596484EBF2D10FDC11F66E7CE9BF734BA4B5ABB0C5827C438AED5187"
+      "bytes": 25093,
+      "sha256": "B17C7D2E06EBB3E148F0A233C41773BBF76A62881A69D9E8CE4FB26D689A913C"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs.meta",
@@ -5695,6 +5703,16 @@
       "sha256": "E0CCFC35E884D72FFC5BF6823507F0C9DE2804AF163BD9E476B94E17F0A51A49"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/UnderwaterBoundaryTests.cs",
+      "bytes": 10276,
+      "sha256": "699F194E1D69634A8B6F2CA71F008E21B14866E52BDAF31BCB71F2E462A6F0AD"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/UnderwaterBoundaryTests.cs.meta",
+      "bytes": 59,
+      "sha256": "C3E4D89B23F05339CB73293F7EB72D51EEBA1AA75087F59EC0C4A2C6A1F1A7E5"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/UnderwaterVolumeTests.cs",
       "bytes": 5134,
       "sha256": "217D584058218B8026F0993ACC4812A11FAF3C591B361EE7F942A8113A029B5B"
@@ -6156,8 +6174,8 @@
     },
     {
       "path": "ProjectSettings/TimeManager.asset",
-      "bytes": 202,
-      "sha256": "1A83E54ADBBDA7C9F4851103A0C6AB7F6448A3343D4EA5B7620452FA08416ECD"
+      "bytes": 305,
+      "sha256": "3396F52FDC16D445024E01D7A2D99DB6F0A37569D1D73C0302E9FFB857D90287"
     },
     {
       "path": "ProjectSettings/UnityConnectSettings.asset",
@@ -6216,8 +6234,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 7357,
-      "sha256": "F0734294DA8BE58FB27BD2197A7BDF66A0CE40A67D35688BEBAC60FFA5008C49"
+      "bytes": 7462,
+      "sha256": "EA8B10EAE2636B5660D3AD50EF299B99E1DE96C94897C0E5E6BCE2B6218B5814"
     },
     {
       "path": "LICENSE.Crest",
@@ -6226,18 +6244,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 3398,
-      "sha256": "BB9FF2E91120D1FB766D872F3194D8EDCA6F989E97FCC41D6F818A8A71BF37F3"
+      "bytes": 3943,
+      "sha256": "B8E40FF5494A4CF27D5F257FF4EFDC49B3B1CA877D5F36C4B622C5ADE68D5B4C"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 8516,
-      "sha256": "725DD04ECF98796CFAEA0ADFB3D55B76BC1028EDED8B1F39A774466905DC79EE"
+      "bytes": 8693,
+      "sha256": "876F0E6F853275D6B589468657AECA17382C4D6463A4BAA36B9074002F81EBB3"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 4309,
-      "sha256": "4DBF3603E12CA18770A207C8B8A269AFE7384CD66446AD4D4A49560A846C3983"
+      "bytes": 5190,
+      "sha256": "52A2BBB855CDFBB286B91BE146A0F92494F82BF9384E75954389E3871E099E35"
     },
     {
       "path": "README.md",
@@ -6251,8 +6269,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 9297,
-      "sha256": "E858692528D3CFD08B08BF5E2859DE0F72052F7204F5F257DAB08EBE13C95C50"
+      "bytes": 12734,
+      "sha256": "38AE91B3C39CD658D25D8374520173A8A7788AC1A1E9BDE430A73F6D770D049A"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

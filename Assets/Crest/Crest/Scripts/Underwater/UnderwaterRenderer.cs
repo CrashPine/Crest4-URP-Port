@@ -347,6 +347,8 @@ namespace Crest
 
         void RemoveCommandBuffers(Camera camera)
         {
+            // SRP uses graph passes and never attaches these CameraEvent buffers.
+            if (GraphicsSettings.currentRenderPipeline != null) return;
             if (_oceanMaskCommandBuffer != null)
             {
                 // Handle both forward and deferred.

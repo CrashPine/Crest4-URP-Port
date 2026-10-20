@@ -1,0 +1,24 @@
+{
+  "recordedUtc": "2026-10-20T21:31:17.4440631Z",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "changedRuntimeSource": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs",
+  "changedSourceSha256": "B17C7D2E06EBB3E148F0A233C41773BBF76A62881A69D9E8CE4FB26D689A913C",
+  "builds": [
+    {
+      "configuration": "Development",
+      "assembly": "CrestPort_Data/Managed/Crest.dll",
+      "bytes": 280064,
+      "modifiedUtc": "2026-10-20T21:28:37.6296947Z",
+      "sha256": "7A08662842B96E639FA0A98FE5086DC8D39693627899394E21E9246BEA49075C"
+    },
+    {
+      "configuration": "Release",
+      "assembly": "CrestPort_Data/Managed/Crest.dll",
+      "bytes": 275968,
+      "modifiedUtc": "2026-10-20T21:29:46.4163950Z",
+      "sha256": "12C36EC75070C1455B1801A242B55E159A2A587E8CF03A3DA7303AE93EE3D17B"
+    }
+  ],
+  "limitation": "Build completion is recorded in Development-DX11.log and Release-DX12.log. Native launcher timestamps can be preserved by incremental builds; managed runtime assembly fingerprints identify this checkpoint."
+}

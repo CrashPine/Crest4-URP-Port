@@ -27,7 +27,7 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Shadows/temporal soft shadows | Scripts/LodData/Shadows/LodDataMgrShadow.cs | Graph accumulation and matrix restore implemented; DX11/DX12 occlusion readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Caustics | OceanEmission.hlsl | URP atlas sampling at refracted world position added; visual acceptance pending | NOT TESTED |
 | Underwater mask/composite | Scripts/Underwater/UnderwaterRenderer.* | Graph mask, artifact correction and composite added | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
-| Underwater volumes/meniscus | Shaders/Underwater; Helpers/WaterVolume.hlsl | Portal/Volume confinement and Fly-Through inside-view fixtures added; see current per-API results in TEST_RESULTS.md. Meniscus/surface crossings remain untested | NOT TESTED |
+| Underwater volumes/meniscus | Shaders/Underwater; Helpers/WaterVolume.hlsl | Portal/Volume confinement and Fly-Through inside-view fixtures added; see current per-API results in TEST_RESULTS.md. Fixed-time surface crossing/meniscus and overlay/order tests passed on DX11/DX12; storm transitions, MSAA/XR and standalone variants remain pending | NOT TESTED |
 | GPU height/normal/velocity queries | Scripts/Collision/QueryDisplacements.cs; SamplingHelpers.cs | Retained; graphics test added | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Baked FFT CPU queries | CollProviderBakedFFT.cs; FFTBaker.cs; FFTBakedData.cs | Retained | NOT TESTED |
 | Ray queries | RayTraceHelper.cs | Retained | NOT TESTED |

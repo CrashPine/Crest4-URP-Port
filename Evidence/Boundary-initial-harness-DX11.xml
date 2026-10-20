@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Failed(Child)" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-20 21:23:03Z" end-time="2026-10-20 21:23:06Z" duration="2,3024456">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="21" result="Failed" site="Child" start-time="2026-10-20 21:23:03Z" end-time="2026-10-20 21:23:06Z" duration="2.302446" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1032" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="21" result="Failed" site="Child" start-time="2026-10-20 21:23:03Z" end-time="2026-10-20 21:23:06Z" duration="2.288486" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="92848" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1024" name="UnderwaterBoundaryTests" fullname="UnderwaterBoundaryTests" classname="UnderwaterBoundaryTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-10-20 21:23:03Z" end-time="2026-10-20 21:23:06Z" duration="2.285523" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1027" name="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" fullname="UnderwaterBoundaryTests.EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" methodname="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="226970671" result="Failed" start-time="2026-10-20 21:23:03Z" end-time="2026-10-20 21:23:05Z" duration="2.018439" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently'. Use UnityEngine.TestTools.LogAssert.Expect
+TearDown : Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Object:Destroy (UnityEngine.Object)
+UnderwaterBoundaryTests/<RestoreState>d__15:MoveNext () (at Assets/Crest/URP/Tests/Editor/UnderwaterBoundaryTests.cs:188)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently
+]]></output>
+        </test-case>
+        <test-case id="1026" name="OverlayFogsGeometryAndPreservesBackground" fullname="UnderwaterBoundaryTests.OverlayFogsGeometryAndPreservesBackground" methodname="OverlayFogsGeometryAndPreservesBackground" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1908058442" result="Failed" start-time="2026-10-20 21:23:05Z" end-time="2026-10-20 21:23:06Z" duration="0.134805" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently'. Use UnityEngine.TestTools.LogAssert.Expect
+TearDown : Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Object:Destroy (UnityEngine.Object)
+UnderwaterBoundaryTests/<RestoreState>d__15:MoveNext () (at Assets/Crest/URP/Tests/Editor/UnderwaterBoundaryTests.cs:188)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently
+]]></output>
+        </test-case>
+        <test-case id="1025" name="SurfaceCrossingAndMeniscusRespondAtFixedTime" fullname="UnderwaterBoundaryTests.SurfaceCrossingAndMeniscusRespondAtFixedTime" methodname="SurfaceCrossingAndMeniscusRespondAtFixedTime" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1467376317" result="Failed" start-time="2026-10-20 21:23:06Z" end-time="2026-10-20 21:23:06Z" duration="0.104636" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently'. Use UnityEngine.TestTools.LogAssert.Expect
+TearDown : Unhandled log message: '[Error] Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Object:Destroy (UnityEngine.Object)
+UnderwaterBoundaryTests/<RestoreState>d__15:MoveNext () (at Assets/Crest/URP/Tests/Editor/UnderwaterBoundaryTests.cs:188)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.RemoveCommandBuffer only with the built-in renderer.
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Destroy may not be called from edit mode! Use DestroyImmediate instead.
+Destroying an object in edit mode destroys it permanently
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
