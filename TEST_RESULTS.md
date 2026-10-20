@@ -1,47 +1,60 @@
-# Test results — 2026-10-19
+# Результаты проверок
 
-Target: Unity **6000.6.5f1** (3ff58d469c8a), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU. The user selected this installed Editor. Render Graph is enabled.
+Актуальная сверка: **2026-10-20**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
-## Deliverable checkout results
+## Текущие подтверждённые результаты
 
-| Check | DX11 | DX12 | Evidence |
+| Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Editor test suite | PASSED: 14/14 | PASSED: 14/14 | EditMode-DX11.xml / EditMode-DX12.xml |
-| Development player, seven scenes | PASSED: Errors=0 | PASSED: Errors=0 | Player-Development-DX11 / DX12 |
-| Release player, seven scenes | PASSED: Errors=0 | PASSED: Errors=0 | Player-Release-DX11 / DX12 |
+| Полный Editor suite | PASSED, 18/18 | PASSED, 18/18 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-20 |
+| Development Player, 7 сцен | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; сборки предыдущего runtime checkpoint |
+| Release Player, 7 сцен | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; сборки предыдущего runtime checkpoint |
+| Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
 
-Both Windows builds succeeded. Development was built with the DX11 Editor, Release with DX12; each executable was launched with both APIs. All four runs produced seven PNGs and changing, finite GPU height-query results in every scene. These are smoke checks, not complete feature or performance acceptance. Latest test-only additions do not change the player runtime.
+После сборок добавлялись тесты/инструменты/документация, runtime-код в этом этапе не менялся. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Scope of the 14 tests
+## Что именно проверяют 18 тестов
 
-- Three deterministic spectrum cases, including wavelength ordering/bounds.
-- Three scene capture/query checks: FFT surface, underwater, planar reflection path.
-- Known-height depth cache: measured 3.000003 m for a 3 m surface.
-- Shadow atlas: nonzero occlusion readback after accumulation. Camera matrix/viewport restoration prevents LOD shadow drawing from changing subsequent camera projection.
-- Buoyancy: 10 simulated seconds, masses 10/100/1000 kg, widths 1/2/3 m; bounded positions, water contact and velocity. Original SimpleFloatingObject uses ForceMode.Acceleration; this is not a mass-dependent displacement model.
-- GPU query pressure: 128 submissions without readback callbacks, bounded outstanding requests, then recovery. The original queue discarded in-flight requests without releasing their registrars; the port applies backpressure before submitting more work. The initial player failure remains locally in Player-Development-DX11-attempt1.
-- Flow: a 3 m/s input sampled through the original GPU provider; changing direction from +X to +Z yields 120 matching readbacks in each direction on both APIs, within 0.1 m/s. Visual advection and splines are not covered.
-- Gerstner: FFT disabled, original ShapeGerstner enabled, fixed simulation timestep. Changing heights span about -2.96 to +1.41 m on DX12. This covers GPU generation/readback, not every analytic-wave option.
-- Dynamic waves: FFT disabled, zero initial dynamic field, a 2 m sphere moves at 3 m/s. Height-field peak rises from 0 to 0.06384277 on DX11 and 0.06378174 on DX12; all readback values are finite. Long-term stability, damping accuracy and visual wake quality are not established.
+| Область | Количество | Проверенный результат | Что этим не доказано |
+|---|---:|---|---|
+| Spectrum | 3 | Детерминизм seed, порядок и границы длин волн | Все настройки спектра и визуальная эквивалентность |
+| FFT/underwater/reflection scene smoke | 3 | Конечные изменяющиеся GPU heights, реальные кадры | Полная корректность изображения |
+| Depth cache | 1 | Известная высота 3 м возвращается с допуском 0.05 м | Baking/reload всех форматов |
+| Shadow atlas | 1 | Ненулевая окклюзия, восстановление матриц камеры после LOD draw | Convergence/cascades/caustics |
+| Buoyancy | 1 | 10 секунд симуляции, массы 10/100/1000 кг, ширины 1/2/3 м, ограниченные позиции/скорости и контакт с водой | BoatProbes; новая mass-dependent модель не вводилась (оригинал использует ForceMode.Acceleration) |
+| Query pressure | 1 | 128 вызовов без callbacks, ограниченная очередь и восстановление | Все сценарии задержки/нагрузки |
+| Flow | 1 | 3 м/с, смена +X на +Z, 120 совпадающих ответов в каждом направлении с допуском 0.1 м/с | Visual advection и splines |
+| Gerstner | 1 | FFT отключён, изменяющиеся конечные высоты при fixed timestep | Все варианты analytic waves |
+| Dynamic waves | 1 | Нулевое поле до движения сферы; ненулевое поле после, finite GPU readback | Долговременная устойчивость/точность затухания |
+| Scene lifecycle | 1 | 12 reload cycles, запросы восстанавливаются; 22 отслеживаемые RT и 51,848,342 native bytes без роста | Общая VRAM, ComputeBuffers, GC, длительный profiling |
+| Planar object visibility | 1 | В RT отражения 1908 magenta pixels при видимом объекте, 0 после скрытия; оба API | Spherical culling, pixel-light option, все варианты clipping/HDR/MSAA |
+| Underwater volumes | 3 | Portal/Volume/Fly-Through меняют центр и сохраняют border; Fly-Through имеет эффект изнутри | Surface crossings, meniscus, overlay, before-transparent, XR, standalone stripping |
 
-The initial flow test used too few ticks for asynchronous GPU completion; it now allows five real seconds while retaining numerical and sample-count requirements. Gerstner timing now uses a fixed simulation timestep instead of machine speed. Failed fixture runs are retained as Flow-initial-DX11.xml and Gerstner-initial-DX11.xml.
+Численные результаты каждого запуска находятся в соответствующих `Evidence/*-Direct3D11.txt` и `*-Direct3D12.txt`; XML содержит фактические start/end timestamps UTC. Таблица описывает область проверки, а не заменяет отчёты.
 
-## Visual review and limitations
+## Новые графические проверки и просмотр PNG
 
-All seven Development DX11 captures were inspected. Surface, underwater and reflection captures from Release DX12 were also inspected. They contain rendered content rather than the earlier black batch-mode screen captures. Current captures use an explicit URP camera render request. This is smoke-level review, not a side-by-side comparison with Built-in Crest.
+Volume fixture размещён глубоко под поверхностью, чтобы сравнивать именно ограничение тумана: режим объёма намеренно меняет также clipping поверхности океана, поэтому исходный стенд у поверхности не изолировал проверяемое поведение. Численные пороги не снижались. На DX11: Portal — 12996 changed pixels, Volume и Fly-Through — по 12100; border changed pixels = 0. Изображения Portal/Volume снаружи и Fly-Through изнутри просмотрены. Результат DX12 записан отдельно, а не выведен из DX11.
 
-Planar reflection still emits the unsupported Camera.layerCullSpherical warning. Spherical distance-culling and the old pixel-light quality option need URP equivalents. Underwater volume/portal/meniscus transitions, shadow convergence/cascade stability, caustic occlusion comparison, baking/reload, BoatProbes, clip/albedo/local-height fixtures, baked FFT CPU queries, LOD/seam stress, long-running GPU/native-memory profiling and full feature equivalence remain NOT TESTED.
+Ранее просмотрены все семь Development DX11 captures и surface/underwater/reflection Release DX12 captures. Reflection RT с контрольным объектом также просмотрен. Это не side-by-side сравнение с Built-in Crest.
 
-## Source preservation
+## История ошибок — не путать с текущим результатом
 
-The original strict byte check passed for 597 meta/compute files before import. Unity upgraded three sprite metadata files (ArrowLeft, ArrowRight, Flask); their GUIDs are unchanged. The separate final GUID/compute check passes for all 597 files and explicitly lists metadata changes in guid-compute-preservation.json. The strict byte check must not be described as passing after importer normalization.
+- `UnderwaterVolume-initial-DX11.xml`: 15/18, три первоначальные проверки границы не прошли из-за изменения поверхности вне тестируемого тумана; исправлен стенд, не ослаблены пороги. Последний полный XML — 18/18.
+- `Flow-initial-DX11.xml`, `Gerstner-initial-DX11.xml`: исправлены ожидание асинхронного GPU и fixed timestep.
+- `Player-Development-DX11-attempt1`: первоначальная ошибка переполнения очереди; runtime исправлен backpressure в QueryBase, последующие Player runs проходят.
+- `diagnostic-6000.6`, `Target-DX11.xml`: исторические результаты более раннего состояния. Не использовать как текущую приёмку.
 
-Raw logs and the large failed player attempt remain on disk and are excluded from Git. Structured reports, XML and current captures provide checked-in evidence. Earlier work-copy evidence is historical and does not supersede these deliverable results.
+Raw logs и большой failed player run сохранены локально, исключены из Git. Скрипты отвергают старые XML/PNG, пустые suites, skipped tests и ненулевые smoke errors. Focused tests пишут `*-focused.xml`, не заменяя полный отчёт.
 
-## Scene lifecycle check
+## Аудит файлов
 
-ResourceLifecycleTests reloads Ocean_Underwater 12 times, requests a real URP render, waits for GPU readback and checks that height queries recover on each load. Both DX11 and DX12 report exactly 22 tracked Crest RenderTextures and 51,848,342 native texture bytes on every cycle. No explicit UnloadUnusedAssets call is used to mask retained owners. Evidence: ResourceLifecycle-Direct3D11.txt and ResourceLifecycle-Direct3D12.txt.
+`Tools/Audit-Workspace.ps1` инвентаризирует и хеширует все файлы Assets, Packages, ProjectSettings, Tools и корня репозитория; сравнивает наличие всех оригинальных файлов, ищет missing meta и duplicate GUID. Library/Builds/исторические work-копии исключены как генерируемые/вспомогательные. Это структурная проверка, не построчное семантическое ревью всего upstream-кода.
 
-This check uses named Crest simulation, FFT, depth and graph textures. Unity Profiler native size is not a total VRAM measurement. Compute buffers, unrelated renderer allocations, GC, long-running frame timing, multiple resolutions and all camera configurations remain outside this test.
+`Verify-GuidAndCompute.ps1`: 597 оригинальных meta/compute файлов, GUID сохранены, compute bytes не изменены. Строгая `Verify-Source.ps1` остаётся FAILED для трёх Unity-normalized sprite meta (ArrowLeft, ArrowRight, Flask); это явно записано в source-preservation-after-import.json. Исторический source-preservation.json отражает состояние до импорта.
 
-Run scripts now reject stale/empty player captures, stale test reports, empty test suites, skipped tests and nonzero smoke errors, even if an executable exits with code zero. Updated Run-Player passed a repeat Release DX11 run; updated Run-Unity validated the 14-test DX12 run.
+В рабочем дереве обнаружены также нормализация Ocean.mat и новые LightingData/ReflectionProbe файлы исходных example scenes. Они сохранены и перечислены в аудите; не удалены и не выданы за изменения данной доработки. Их дальнейшая оценка относится к P09.
+
+## Оставшиеся ограничения
+
+Полная приёмка незавершена. В частности, Camera.layerCullSpherical всё ещё выдаёт предупреждение URP; эквиваленты culling/pixel-light опций не реализованы. Остальные пробелы перечислены по подсистемам в FEATURE_MATRIX.md, а порядок устранения — в PORT_PLAN.md. Успешные 18 тестов не закрывают эти пункты.

@@ -1,47 +1,50 @@
-# Crest 4 → Unity 6.6 URP: work in progress
+# Crest 4 → Unity 6000.6.5f1 / URP 17.6.0
 
-This is an isolated port of MIT Crest 4.23.0, not a completed or production-accepted release.
-The target is Unity 6000.6.5f1 + URP 17.6, as explicitly requested on 2026-10-19. The deliverable passes 14 Editor tests on both DX11/DX12 and seven-scene smoke runs in both Development and Release players. Full feature acceptance remains incomplete.
+Рабочий порт открытого Crest 4.23.0. **Полная приёмка не завершена.** Версия выбрана пользователем; установка Unity 6.3 больше не требуется.
 
-## Current implementation
+## Навигация — у каждого документа одна роль
 
-Original FFT, simulation compute assets, LOD geometry, physics/query code and GUIDs are retained.
-The ocean surface uses URP lighting, fog and environment sampling. `CrestBackgroundFeature`
-provides Render Graph background color, underwater mask/composite and temporal-shadow scheduling.
-Planar reflections and runtime depth capture use URP camera render requests.
+| Документ | Что в нём искать |
+|---|---|
+| [PORT_PROGRESS.md](PORT_PROGRESS.md) | Начать здесь: текущая задача и точный следующий шаг. |
+| [PORT_PLAN.md](PORT_PLAN.md) | Единственный упорядоченный план с ID задач и критериями закрытия. |
+| [FEATURE_MATRIX.md](FEATURE_MATRIX.md) | Статус функциональной приёмки каждой исходной подсистемы. |
+| [TEST_RESULTS.md](TEST_RESULTS.md) | Фактические проверки, измерения, версии и ограничения. |
+| [MIGRATION.md](MIGRATION.md) | Подключение renderer feature и сохранённые API. |
+| [SOURCE_BASELINE.md](SOURCE_BASELINE.md) | Исходный tag/SHA и история начального импорта. |
+| [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [LICENSE.Crest](LICENSE.Crest) | Лицензии и атрибуция. |
 
-Seven scene fixtures are in `Assets/CrestPortDemos`. They are not yet accepted demonstrations
-of the complete original feature set. See FEATURE_MATRIX.md and TEST_RESULTS.md for actual coverage.
+Исходное задание требует план, прогресс, матрицу, результаты, миграцию и notices; поэтому они сохранены как разные представления, а не дублирующие журналы. История изменений хранится в Git. Не создавать новые status/roadmap/checkpoint Markdown-файлы.
 
-## Reproduce
+## Папки
 
-Open this folder with Unity 6000.6.5f1. Allow package resolution/import before testing.
-Use the generated `Pipeline.asset` and `Renderer.asset` in Assets/CrestPortDemos.
-The active renderer must include CrestBackgroundFeature; camera depth/intermediate color are required.
+- `Assets/Crest/Crest`: исходное ядро и изменения порта.
+- `Assets/Crest/URP`: Render Graph feature, automation, demos controller, тесты.
+- `Assets/CrestPortDemos`: семь сцен и их настройки URP; не перегенерировать поверх ручных изменений.
+- `Tools`: воспроизводимые команды проверки и сборки.
+- `Evidence`: XML, численные отчёты, PNG и локальные raw logs. Старые/failed результаты не являются текущей приёмкой.
+- `Builds/Development` и `Builds/Release`: локальные Windows builds; состояние относительно текущего кода указано в PORT_PROGRESS.
+- `Library`, `Temp`, `Logs`: генерируемые Unity файлы, не исходники.
 
-From PowerShell, `Tools/Run-Unity.ps1 -Editor <absolute Unity.exe path> -Action EditMode -GraphicsAPI DX11`
-runs the tests with a real graphics device. DX12 is a separate run. Actions ValidateAssets,
-Development and Release perform the corresponding checks/builds. The script enforces the target Editor.
-`Tools/Verify-Source.ps1 -Upstream <official source checkout>` verifies original meta/compute bytes.
-`Tools/Verify-GuidAndCompute.ps1 -Upstream <official source checkout>` separately verifies preserved GUIDs and compute bytes, reporting importer metadata changes explicitly.
+Соседние `work/crest-upstream` и `work/diagnostic-6000.6` — оригинал для сравнения и историческая диагностическая копия. Продолжать разработку только здесь, в `outputs/Crest4-URP-Port`.
 
-Do not regenerate fixtures over customized scenes: Generate validation scenes currently recreates
-its generated assets. No main game project was modified.
+## Воспроизведение
 
-## Documents
+Открыть проект Unity 6000.6.5f1. Renderer в `Assets/CrestPortDemos` содержит CrestBackgroundFeature; Render Graph, depth и intermediate camera color необходимы.
 
-- SOURCE_BASELINE.md: source tag, commit and licensing.
-- PORT_PLAN.md / PORT_PROGRESS.md: implementation plan and current checkpoint.
-- FEATURE_MATRIX.md: subsystem preservation and acceptance gaps.
-- MIGRATION.md: integration and retained extension contracts.
-- TEST_RESULTS.md / Evidence: measured results and limitations.
-- THIRD_PARTY_NOTICES.md / LICENSE.Crest: license notices.
+PowerShell из этого каталога:
 
+```powershell
+$editor = 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe'
+./Tools/Run-Unity.ps1 -Editor $editor -Action EditMode -GraphicsAPI DX11
+./Tools/Run-Unity.ps1 -Editor $editor -Action EditMode -GraphicsAPI DX12 -TestFilter UnderwaterVolumeTests
+./Tools/Run-Unity.ps1 -Editor $editor -Action Development -GraphicsAPI DX11
+./Tools/Run-Unity.ps1 -Editor $editor -Action Release -GraphicsAPI DX12
+./Tools/Run-Player.ps1 -Player ./Builds/Release/CrestPort.exe -Label Release -GraphicsAPI DX12
+./Tools/Audit-Workspace.ps1 -Upstream ../../work/crest-upstream
+./Tools/Verify-GuidAndCompute.ps1 -Upstream ../../work/crest-upstream
+```
 
+Focused XML не заменяет полный набор. `Verify-Source.ps1` — отдельная строгая побайтовая проверка: Unity нормализовала три sprite meta, поэтому её результат отличается от проверки GUID/compute; это не скрывается.
 
-Standalone builds provide scene navigation, wind/sea-level sliders and camera height controls.
-`Tools/Run-Player.ps1 -Player <absolute CrestPort.exe path> -GraphicsAPI DX11`
-runs seven scene smoke captures and GPU queries. Results are written under Evidence/Player-Development-DX11.
-This is a smoke test, not full rendering or performance acceptance.
-For the Release executable, pass `-Label Release`; use `-GraphicsAPI DX12` for DirectX 12.
-Executables are available at `Builds/Development/CrestPort.exe` and `Builds/Release/CrestPort.exe`.
+Player предоставляет переключение сцен, ветер, уровень моря и высоту камеры. Smoke-проверка не доказывает полную визуальную эквивалентность или производительность.

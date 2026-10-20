@@ -1,7 +1,6 @@
 # Migration notes — unfinished implementation
 
-Do not integrate this checkout into a production project yet. Import and graphics
-acceptance under Unity 6000.6.5f1 are outstanding; see FEATURE_MATRIX.md.
+Do not integrate this checkout into a production project yet. Import/build and scoped graphics tests under Unity 6000.6.5f1 pass. Full functional acceptance is still incomplete; see FEATURE_MATRIX.md.
 
 The original ocean shader asset and GUID remain in place, so original ocean
 materials resolve to the ported shader. The surface now uses `UniversalForwardOnly`,
@@ -42,4 +41,4 @@ No FishNet, Steam, weather, flooding or vessel-gameplay dependency has been adde
 
 ## Outstanding breaking rendering differences
 
-Underwater rendering now records graph mask/composite passes and reuses the original volume and artifact-fix algorithms. Temporal shadows import the original ping-pong arrays and sample the URP main-light atlas. Simulation matrices are restored before subsequent camera passes. Depth-cache capture uses a depth-only URP render request. Original example materials outside the ocean have not all been migrated. Spherical reflection culling emits an SRP warning and needs a supported equivalent. Full volume, XR, visual-equivalence and resource-lifetime acceptance remain outstanding.
+Underwater rendering now records graph mask/composite passes and reuses the original volume and artifact-fix algorithms. Temporal shadows import the original ping-pong arrays and sample the URP main-light atlas. Simulation matrices are restored before subsequent camera passes. Depth-cache capture uses a depth-only URP render request. Original example materials outside the ocean have not all been migrated. Spherical reflection culling emits an SRP warning and needs a supported equivalent. Basic volume confinement/fly-through and bounded scene-reload tests are recorded in TEST_RESULTS.md; full transition, XR, visual-equivalence and sustained resource acceptance remain outstanding. Task ordering belongs only in PORT_PLAN.md.

@@ -16,18 +16,18 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Foam simulation | LodDataMgrFoam.cs; UpdateFoam.compute | Retained; explicit graphical batch opt-in | NOT TESTED |
 | Flow data and queries | LodDataMgrFlow.cs; QueryFlow.cs | Known 3 m/s vector and runtime direction change passed on DX11/DX12; visual advection/splines pending | NOT TESTED |
 | Sea floor depth inputs | RegisterSeaFloorDepthInput.cs | Retained | NOT TESTED |
-| Runtime depth cache/baking | Scripts/LodData/OceanDepthCache.cs | URP request added; diagnostic height readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
+| Runtime depth cache/baking | Scripts/LodData/OceanDepthCache.cs | URP request added; deliverable known-height readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Local water height | RegisterHeightInput.cs; OceanHelpersNew.hlsl | Retained | NOT TESTED |
 | Object displacement/interactions | Scripts/Interaction/SphereWaterInteraction.cs | Retained | NOT TESTED |
-| Surface shading | Shaders/Ocean.shader | URP surface port implemented, validation pending | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
+| Surface shading | Shaders/Ocean.shader | URP surface smoke captures inspected; original-renderer comparison pending | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Normal maps, scattering, Fresnel | OceanNormalMapping/Emission/Reflection.hlsl | Original equations retained | NOT TESTED |
 | Reflection probes | OceanReflection.hlsl | URP environment lookup added | NOT TESTED |
-| Planar reflection | Scripts/Reflection/OceanPlanarReflection.cs | URP render request, exception-safe root restoration | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
+| Planar reflection | Scripts/Reflection/OceanPlanarReflection.cs | URP render request, exception-safe root restoration; object visibility/readback fixture added. Culling/light options incomplete | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Refraction/background | OceanEmission.hlsl; URP/CrestBackgroundFeature.cs | Graph color copy replaces named GrabPass | NOT TESTED |
 | Shadows/temporal soft shadows | Scripts/LodData/Shadows/LodDataMgrShadow.cs | Graph accumulation and matrix restore implemented; DX11/DX12 occlusion readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Caustics | OceanEmission.hlsl | URP atlas sampling at refracted world position added; visual acceptance pending | NOT TESTED |
 | Underwater mask/composite | Scripts/Underwater/UnderwaterRenderer.* | Graph mask, artifact correction and composite added | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
-| Underwater volumes/meniscus | Shaders/Underwater; Helpers/WaterVolume.hlsl | Original volume/meniscus algorithms reused by graph; no volume coverage yet | NOT TESTED |
+| Underwater volumes/meniscus | Shaders/Underwater; Helpers/WaterVolume.hlsl | Portal/Volume confinement and Fly-Through inside-view fixtures added; see current per-API results in TEST_RESULTS.md. Meniscus/surface crossings remain untested | NOT TESTED |
 | GPU height/normal/velocity queries | Scripts/Collision/QueryDisplacements.cs; SamplingHelpers.cs | Retained; graphics test added | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Baked FFT CPU queries | CollProviderBakedFFT.cs; FFTBaker.cs; FFTBakedData.cs | Retained | NOT TESTED |
 | Ray queries | RayTraceHelper.cs | Retained | NOT TESTED |
@@ -49,3 +49,15 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 BLOCKED rows identify missing port implementations or environmental requirements;
 these are not claims that source functionality was absent. No required feature has
 been marked PASSED merely because its files survived import.
+
+## Связь с планом (без дублирования очереди)
+
+- P04: underwater mask/composite/volume/meniscus.
+- P05: planar reflections и их параметры.
+- P06: foam, flow/splines, clip, albedo, local height, depth baking.
+- P07: queries, baked FFT, ray tests, buoyancy/boats, time/wind contracts.
+- P08: geometry/LOD, water bodies, floating origin, cameras/MSAA/resolution/XR.
+- P09: surface/refraction/probes/caustics/shadows/визуальная эквивалентность и материалы примеров.
+- P10: performance/resource lifetime; P11: финальная регрессия/builds; P12: итоговая приёмка.
+
+NOT TESTED в последнем столбце означает незавершённую **полную** приёмку строки. Уже пройденные ограниченные проверки перечислены отдельно и не должны повторяться без причины. Источник очередности — только PORT_PLAN.md, актуальные измерения — только TEST_RESULTS.md.

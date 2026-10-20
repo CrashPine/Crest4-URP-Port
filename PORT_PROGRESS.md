@@ -1,13 +1,29 @@
-# Port progress — 2026-10-19
+# Точка продолжения
 
-Required target: the user's installed **Unity 6000.6.5f1**, URP **17.6.0**, branch `port/unity-6.6-urp`. Unity 6.3 is no longer required. The Unity CLI install path was restored to its original Program Files directory.
+Обновлено: **2026-10-20**. Цель: Unity **6000.6.5f1**, URP **17.6.0**. Разработка только в `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
-Implemented: URP ocean surface/background copy; SRP camera callback; planar reflection render request; graph underwater masks, original artifact-fix compute and composite/volume passes; depth-only URP cache capture and owned-resource cleanup; temporal-shadow graph accumulation with original jitter/history and camera matrix restoration; caustic occlusion using the URP shadow atlas. GPU queries apply backpressure to preserve in-flight registrars under CPU submission bursts.
+## Текущая задача: P04
 
-Verified in the deliverable checkout: **14/14 Editor tests on DX11 and DX12**; Windows **Development and Release** builds; all seven scenes in each executable on both APIs with **Errors=0** and seven captures per run. Extended tests cover a known flow vector and runtime direction change, Gerstner generation without FFT, and dynamic-wave injection from a moving sphere. Details and limits are in TEST_RESULTS.md.
+Basic Portal/Volume/Fly-Through fixtures завершены на DX11 и DX12. Planar object visibility fixture тоже прошёл на обоих API. Полный набор — 18/18; подробности и границы только в TEST_RESULTS.md. Удалять эти тесты или начинать их заново не требуется.
 
-All 597 original meta/compute files pass the dedicated GUID/compute check. Three sprite importer metadata files were normalized by Unity; this is disclosed separately from strict byte preservation.
+**Следующее действие:** расширить UnderwaterVolumeTests отдельным тестом пересечения поверхности и meniscus на фиксированной камере/времени; затем проверить overlay и before/after-transparent. Начать с чтения текущего fixture и оригинальных UnderwaterRenderer.Mask.cs / Effect.cs. Сначала focused DX11, при новой runtime-правке — полный набор обоих API. После закрытия всех критериев P04 переходить к P05, не перескакивать на повторную генерацию демо.
 
-Next work: reflection culling/lighting equivalence, remaining volume/portal and simulation-input fixtures, foam and LOD transition measurements, baked queries and BoatProbes, sustained resource/performance profiling, and comparison with the original renderer. XR remains NOT TESTED. The port is incomplete and is not production-accepted.
+## Что сделано в последнем этапе
 
-Additional checkpoint: 12 underwater scene reloads pass on DX11 and DX12 with stable tracked texture count/native size (22; 51,848,342 bytes). This adds bounded lifecycle coverage, not a blanket no-leak claim. Launch scripts reject stale reports/captures.
+- Добавлены PlanarReflectionTests и UnderwaterVolumeTests; у volume fixture исправлена изоляция поверхности (камера/объём глубоко под водой).
+- Подтверждены 18/18 на DX11/DX12, сохранены PNG и failed initial XML.
+- Документы получили одну роль: PORT_PLAN — единственная очередь задач P00–P12; этот файл — только checkpoint; TEST_RESULTS — только доказательства; FEATURE_MATRIX — приёмка.
+- Добавлены правила продолжения в `../../AGENTS.md` и структурный аудит Tools/Audit-Workspace.ps1. Новые status/roadmap Markdown больше не создавать.
+- Run-Unity поддерживает TestFilter и отдельный focused XML; полный отчёт не заменяется частичной выборкой.
+
+## Операции и состояние файлов
+
+- Текущие Unity тестовые процессы завершены; перед следующей командой всё равно проверить процессы и git status.
+- Runtime/shader/scene код этого этапа не менялся. Пересборка Player только ради документации/Editor tests не нужна. Новые volume scenarios в standalone ещё не проверены (P11).
+- Нормализация `Assets/Crest/Crest/Materials/Ocean.mat` и новые папки baked LightingData/ReflectionProbe в исходных example scenes появились между продолжениями. Они **сохранены, не включены в коммит данной доработки**; не делать blanket reset/clean/add. Для P09 проверить назначение и референсы до принятия решения.
+- `Evidence/*initial*`, `diagnostic-6000.6`, `Target-DX11.xml` — исторические; текущие полные результаты только `EditMode-DX11.xml` / `EditMode-DX12.xml`.
+- Коммиты предыдущих этапов: b02a049 (рендер), 9bcf32f (query backpressure/tests), 2480dda (evidence), cbefd4e (lifecycle). Последний актуальный коммит смотреть через `git log -1`, не считать эти SHA HEAD.
+
+## Не повторять
+
+Не устанавливать 6.3, не скачивать Crest заново, не продолжать в work/diagnostic-6000.6, не запускать GenerateScenes поверх готовых сцен, не считать warning-free compilation полной приёмкой. Полный порядок и критерии — PORT_PLAN.md, без параллельного списка здесь.

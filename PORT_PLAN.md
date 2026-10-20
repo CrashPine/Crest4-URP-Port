@@ -1,58 +1,48 @@
-# Crest 4.23.0 → Unity 6.6 URP
+# План выполнения порта Crest 4
 
-## Source and architecture
+Единственный список задач и их очередности. Дата ревизии: 2026-10-20.
+Цель: полный перенос открытого Crest 4.23.0 на **Unity 6000.6.5f1 / URP 17.6.0**, Windows x64, DX11/DX12, Render Graph. Пользователь заменил исходную цель 6.3 на свою установленную версию. Полная приёмка пока не достигнута.
 
-Source: https://github.com/wave-harmonic/crest at tag `4.23.0`, commit
-`db0658ff0b2e93e4a9e28cc2867509658b0ecc00` (2026-06-18).
-The official remote's 4.x tags were inspected before choosing this release.
-`Assets/Crest/Crest` contains the runtime, editor tools, shaders and resources;
-`Assets/Crest/Crest-Examples` contains the original sample assets and components.
-Original GUIDs and paths are retained. The baseline commit precedes all port changes.
+## Как продолжать
 
-`OceanRenderer.RunUpdate` flips LOD buffers, updates viewpoint/scale, writes global
-shader data, and executes `BuildCommandBuffer.BuildAndExecute`. FFT, Gerstner,
-foam, dynamic waves and GPU queries do not need to become per-camera Render Graph
-passes. Preserve their dispatch sequence and public API. GPU validation must still
-check texture-array formats, readback latency, barriers and disposal.
+1. Прочитать PORT_PROGRESS.md и проверить фактические изменения Git/процессы Unity.
+2. Выполнить первый незакрытый пункт ниже. Изменять его статус только по указанному критерию.
+3. Записать результаты в TEST_RESULTS.md, границы приёмки — в FEATURE_MATRIX.md.
+4. Обновить PORT_PROGRESS.md: следующий конкретный шаг, незавершённые команды, ограничения и коммит.
 
-## Rendering dependencies found by source audit
+Статусы задач: DONE — конкретный этап выполнен; ACTIVE — текущая работа; TODO — впереди. DONE этапа не означает PASSED всей подсистемы: функциональная приёмка ведётся только в FEATURE_MATRIX.md.
 
-* `Shaders/Ocean.shader`: named GrabPass, ForwardBase tag, UnityCG and Lighting includes,
-  legacy fog macros; original vertex displacement and shading are reusable.
-* `OceanReflection.hlsl`: Built-in reflection probes; retain Fresnel, planar blending
-  and directional highlight and adapt only the environment lookup.
-* `OceanShaderHelpers.hlsl`: single-argument LinearEyeDepth; preserve orthographic path.
-* `UnderwaterRenderer.cs`, `.Mask.cs`, `.Effect.cs`: CameraEvent injection, camera
-  target/depth built-ins, mask and stencil volumes, temporary color texture lifetime.
-  These require explicit graph resources and graph-scheduled mask/composite passes.
-  Do not wrap the old buffers blindly: CameraTarget is not a graph texture handle.
-* `LodDataMgrShadow`: LightEvent callbacks and Built-in shadow maps. Needs URP
-  main-light shadow sampling while retaining temporal/soft-shadow data behavior.
-* `OceanPlanarReflection`: manual Camera.Render; requires supported SRP camera request,
-  recursion protection, reflection matrix, oblique clip plane and exception-safe state restore.
-* `OceanDepthCache`: replacement-camera rendering. Needs URP depth renderer pass or
-  explicit supported render request with equivalent depth semantics.
-* Simulation input shaders use direct command-buffer draws. Do not mechanically
-  replace their passes or shader tags just because they contain CGPROGRAM.
+## Выполненные этапы — не начинать заново
 
-## Implementation order and acceptance
+| ID | Статус | Результат / проверка |
+|---|---|---|
+| P00 | DONE | Изолированный репозиторий, исходный tag/SHA и лицензии зафиксированы. Установлена требуемая Unity. Не скачивать исходники и не устанавливать 6.3 повторно. |
+| P01 | DONE | Реализованы URP surface/background, SRP callbacks, depth capture, graph underwater/shadows, reflection camera request. Это реализация, а не полная визуальная приёмка. |
+| P02 | DONE | Исправлено переполнение GPU-query очереди; regression test и реальные player runs подтвердили восстановление. |
+| P03 | DONE | Созданы 7 демо; Development/Release собраны и проверены на DX11/DX12. Проверены spectrum, FFT, Gerstner, flow, dynamic input, buoyancy, depth, shadow readback, 12 reload cycles. Точные результаты — TEST_RESULTS.md. |
 
-1. Pin source, preserve assets and establish reproducible Unity 6000.6.5f1 import.
-2. Compile core and verify compute resources; keep algorithms intact.
-3. Port full surface shader and graph background capture. Compare displaced geometry,
-   refraction, normal mapping, foam, scattering and lighting with original.
-4. Port depth cache, planar reflections, shadows, underwater mask/composite/volumes.
-5. Generate all seven requested scenes. Exercise queries/buoyancy with different
-   rigidbody sizes/masses; vary spectra in Play Mode using original supported controls.
-6. Run DX11 and DX12 graphics tests, capture and inspect images, profile resources and
-   frame times. Test repeated enable/disable and camera/quality/resolution changes.
-7. Build and run Windows Development and Release players; fill feature matrix from evidence.
+## Оставшаяся работа — выполнять в этом порядке
 
-Successful import is not successful rendering. Every missing check stays NOT TESTED;
-environment impediments are BLOCKED with an explicit reason. No completion claim until
-the full matrix passes.
+| ID | Статус | Конкретное действие | Критерий закрытия / зависимости |
+|---|---|---|---|
+| P04 | ACTIVE | Изолировать и завершить UnderwaterVolumeTests: Portal, Volume, Fly-Through; затем переходы через поверхность, meniscus, overlay и порядок before/after transparents. | Численные сравнения кадров и просмотр PNG на DX11/DX12; ошибки исправлены в реализации, а не скрыты ослаблением проверки. Для полного закрытия нужны все перечисленные варианты. |
+| P05 | TODO | Завершить planar reflections: spherical distance culling, pixel-light option, clipping, HDR/MSAA/resize, отсутствие рекурсии и восстановление состояния. Начать с уже добавленного PlanarReflectionTests на DX12. | Видимый/скрытый объект меняет RT; отдельные проверки дистанции и опций; нет неподдерживаемых вызовов. Не удалять функции ради отсутствия предупреждений. |
+| P06 | TODO | Проверить оставшиеся входы симуляции: foam generation/decay, flow visual advection и splines, clip, albedo, local height, depth baking/reload. | Для каждого входа известный численный результат либо контрольное изображение; включение/выключение и повторная загрузка. Существующие flow/Gerstner/dynamic smoke tests не повторять без причины. |
+| P07 | TODO | Проверить нормали/скорости и задержку queries, baked FFT CPU provider, ray queries, BoatProbes/watercraft; управление временем/ветром. | Сравнение с исходной моделью, finite/stability bounds, сценарии изменения параметров; не вводить новую физику или FishNet. |
+| P08 | TODO | Стресс LOD/движения камеры, швы, floating origin, water bodies, несколько камер, MSAA, качество/разрешение/dynamic resolution. XR отдельно при доступности устройства. | Проверки границ и снимки; корректное восстановление ресурсов/камер. Недоступный XR явно BLOCKED с причиной, не PASSED. |
+| P09 | TODO | Визуальное сравнение с исходным Built-in Crest и миграция необходимых материалов примеров. | Сопоставимые условия/камеры, зафиксированные расхождения по foam/refraction/scattering/caustics/shadows/underwater. Проверка материалов не равна успешной компиляции. |
+| P10 | TODO | Длительное профилирование CPU/GPU, draw calls, GC, RT/ComputeBuffer/VRAM и shader variants. | Отчёт с настройками, длительностью и измерениями на одном API за запуск. 12 reload cycles — только ограниченная предварительная проверка, не итоговый leak test. |
+| P11 | TODO | Финальная регрессия и пересборка Development/Release после runtime/shader/scene изменений. | Полный набор DX11/DX12, 4 player runs, свежие PNG/XML, отсутствие критических ошибок; проверки исходных GUID/compute. Зависит от P04–P10. |
+| P12 | TODO | Финальная упаковка, документы, матрица и Git checkpoint. | Каждый обязательный пункт исходного задания имеет подтверждённый PASSED; никаких незаявленных FAILED/BLOCKED/NOT TESTED. Только тогда объявлять порт завершённым. |
 
-## Target revision — 2026-10-19
+## Архитектурные ограничения
 
-The user explicitly changed the target to their installed Unity 6000.6.5f1. The project now pins that Editor and URP 17.6.0; no 6.3 installation is required. The previous 6.3 installer download completed but installation required UAC. The CLI install directory has been restored to C:/Program Files/Unity/Hub/Editor. Existing 6000.6 diagnostic evidence remains valid for its recorded revision, with acceptance repeated in the deliverable checkout.
+Сохранять FFT/compute dispatch и оригинальные алгоритмы; не переносить их механически в per-camera Render Graph. Simulation input shaders с CGPROGRAM могут работать через прямые command-buffer draws — менять только доказанную несовместимость. CameraEvent/GrabPass и BIRP camera rendering требуют URP путей с явными ресурсами. Сохранять GUID, публичные контракты, лицензии и оригинальную модель плавучести.
 
+## Правило выбора проверки
+
+- Исправление одного тестового стенда: сначала `Run-Unity.ps1 -Action EditMode -GraphicsAPI DX11 -TestFilter UnderwaterVolumeTests` (отдельный focused XML).
+- Изменение runtime/shader или закрытие этапа: полный набор DX11 и DX12.
+- Только документация: структурный аудит и проверка ссылок/статусов, без повторной сборки Player.
+- Runtime/shader/scene изменены после сборки: обязательно пересобрать оба Player перед итоговой приёмкой.
+- Не запускать GenerateScenes поверх готовых сцен. Не запускать два Editor на одном проекте.
