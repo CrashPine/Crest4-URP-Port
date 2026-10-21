@@ -13,7 +13,7 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Wave spectrum | Scripts/Shapes/OceanWaveSpectrum.cs | Retained; sampling tests added | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Animated waves/combine | LodDataMgrAnimWaves.cs; ShapeCombine.compute | Retained | NOT TESTED |
 | Dynamic waves | LodDataMgrDynWaves.cs; UpdateDynWaves.compute | Zero-to-nonzero GPU height field from moving sphere passed on DX11/DX12 | NOT TESTED (long-term/visual acceptance) |
-| Foam simulation | LodDataMgrFoam.cs; UpdateFoam.compute | Retained; explicit graphical batch opt-in | NOT TESTED |
+| Foam simulation | LodDataMgrFoam.cs; UpdateFoam.compute | Wave-generated foam and original discrete decay fixture added with actual substep counting; shoreline, flow advection, toggles/reload and visual coverage remain pending; per-API results in TEST_RESULTS.md | NOT TESTED (full acceptance) |
 | Flow data and queries | LodDataMgrFlow.cs; QueryFlow.cs | Known 3 m/s vector and runtime direction change passed on DX11/DX12; visual advection/splines pending | NOT TESTED |
 | Sea floor depth inputs | RegisterSeaFloorDepthInput.cs | Retained | NOT TESTED |
 | Runtime depth cache/baking | Scripts/LodData/OceanDepthCache.cs | URP request added; deliverable known-height readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
@@ -22,7 +22,7 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Surface shading | Shaders/Ocean.shader | URP surface smoke captures inspected; original-renderer comparison pending | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Normal maps, scattering, Fresnel | OceanNormalMapping/Emission/Reflection.hlsl | Original equations retained | NOT TESTED |
 | Reflection probes | OceanReflection.hlsl | URP environment lookup added | NOT TESTED |
-| Planar reflection | Scripts/Reflection/OceanPlanarReflection.cs; OceanPlanarReflection.URP.cs | Distance/light, oblique clipping, HDR/stencil/4× MSAA/resize, recursion and normal-path state restore pass on DX11/DX12. Distance/light also pass in both Player configurations/APIs with strict shader matching after stripping fix; remaining coverage in P05 | NOT TESTED (full acceptance); scoped checks passed |
+| Planar reflection | Scripts/Reflection/OceanPlanarReflection.cs; OceanPlanarReflection.URP.cs | P05 targeted fixtures pass on DX11/DX12: distance/light/shadow options with independent main view, clipping, HDR/stencil/4× MSAA/resize and surface binding, recursion/exception recovery, persistent renderer, UI/Terrain state and Forward/Forward+/Deferred renderer selection. Both Player configurations/APIs pass distance/light smoke with strict matching. Full visual/stress/performance/standalone combinations remain P08–P11 | NOT TESTED (full acceptance); scoped checks passed |
 | Refraction/background | OceanEmission.hlsl; URP/CrestBackgroundFeature.cs | Graph color copy replaces named GrabPass | NOT TESTED |
 | Shadows/temporal soft shadows | Scripts/LodData/Shadows/LodDataMgrShadow.cs | Graph accumulation and matrix restore implemented; DX11/DX12 occlusion readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Caustics | OceanEmission.hlsl | URP atlas sampling at refracted world position added; visual acceptance pending | NOT TESTED |

@@ -1,0 +1,1 @@
+Forward+ viewpoint -> forced Forward reflection; per-pixel inherits Forward+ and Deferred; vertex option routes to Forward; viewpoint renderer unchanged. Magenta pixels: forced=606, ForwardPlus=606, Deferred=606, vertexForward=606. Deferred reflection rendering may fall back internally according to URP camera support.

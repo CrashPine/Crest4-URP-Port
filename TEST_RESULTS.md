@@ -6,14 +6,14 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor suite | PASSED, 25/25 | PASSED, 25/25 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 10:34:54Z / 10:35:39Z |
+| Полный Editor suite | PASSED, 30/30 | PASSED, 30/30 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 2026-10-21 15:33:31Z / 2026-10-21 15:34:43Z |
 | Development Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Release Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
 
 Добавлены UnderwaterBoundaryTests. Runtime cleanup исправлен: RemoveCommandBuffers больше не вызывает CameraEvent API под URP, где буферы не подключались. Полные DX11/DX12 suites проходят; предупреждений Camera.RemoveCommandBuffer в новых логах нет. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Что именно проверяют 25 тестов
+## Что именно проверяют 30 тестов
 
 | Область | Количество | Проверенный результат | Что этим не доказано |
 |---|---:|---|---|
@@ -28,10 +28,15 @@
 | Dynamic waves | 1 | Нулевое поле до движения сферы; ненулевое поле после, finite GPU readback | Долговременная устойчивость/точность затухания |
 | Scene lifecycle | 1 | 12 reload cycles, запросы восстанавливаются; 22 отслеживаемые RT и 51,848,342 native bytes без роста | Общая VRAM, ComputeBuffers, GC, длительный profiling |
 | Planar object visibility | 1 | В RT отражения 1908 magenta pixels при видимом объекте, 0 после скрытия; оба API | Spherical culling, pixel-light option, все варианты clipping/HDR/MSAA |
-| Planar distance | 1 | На обоих API дальний magenta: 606 → 0 при 100 → 20 м; ближний green: 661; view projection/far сохранены | Terrain, world-space UI, persistent objects, стоимость обхода |
-| Planar additional lights | 1 | На обоих API ROI 16×16: pixel mean 147.3867, vertex mean 0; активный URP asset остаётся PerPixel | Основной view readback; другие renderer modes; standalone проверяется отдельно |
-| Planar target options | 1 | 128 LDR/1 sample → HDR/stencil при том же размере → 256 HDR/4× MSAA; стабильный descriptor сохраняет тот же объект RT | Привязка RT в океанском material property block после resize и длительное потребление памяти |
-| Planar clipping/recursion/restore | 1 | Надводный marker виден, подводный отсечён; recursive camera callback даёт ровно один запрос; far renderer, заранее скрытый renderer, GL и ocean root восстановлены | Исключения во время camera rendering; все типы renderer |
+| Planar distance | 1 | На обоих API дальний magenta: 606 → 0 при 100 → 20 м; ближний green: 661; view projection/far сохранены | Стоимость обхода и масштабные сцены |
+| Planar additional lights | 1 | На обоих API ROI 16×16: pixel mean 147.3867, vertex mean 0; main view 150.2266 → 150.2266; активный URP asset остаётся PerPixel | Все lighting configurations и визуальная эквивалентность |
+| Planar target options | 1 | 128 LDR/1 sample → HDR/stencil при том же размере → 256 HDR/4× MSAA; стабильный descriptor сохраняет тот же объект RT; все 60 surface chunks получают новую RT | Длительное потребление памяти и стресс изменения параметров |
+| Planar clipping/recursion/restore | 1 | Надводный marker виден, подводный отсечён; recursive callback даёт ровно один запрос; far renderer, заранее скрытый renderer, GL и ocean root восстановлены | Все типы renderer и camera stacks |
+| Planar exception/persistent renderer | 1 | Исключение внутри reflection camera callback, включая скрытый ocean root и два distance-culled renderer; нормальная сцена и DontDestroyOnLoad, GL/quality/guard восстановлены; следующий запрос выполнен | Исключения на каждой стадии URP или разрушение всех владельцев |
+| Planar shadows | 1 | Shadow ROI 1.3945 → 45.9375 при выключении теней отражения; основной view 48 → 48; оба API | Все shadow configurations, дополнительный свет с тенями, cascades |
+| Planar renderer routing | 1 | Forced Forward, inherited Forward+/Deferred и vertex-forced Forward: по 606 magenta pixels; renderer основной камеры сохранён; оба API | Внутренний Deferred reflection fallback принадлежит URP; все варианты в Player и визуальная эквивалентность |
+| Planar world UI/Terrain | 1 | Дальний world UI marker: 289 → 0; ближний green: 394; Terrain draw flags восстановлены (heightmap=true, trees=false); оба API | Визуальная полнота Terrain, все UI layouts и изменяемые иерархии |
+| Foam generation/decay | 1 | FFT off, фиксированная фаза Gerstner, исходная генерация whitecaps; считались выполненные substeps, а не enumerator ticks; per-API значения ниже | Shoreline, flow advection, prewarm, toggle/reload, визуальная эквивалентность |
 | Underwater volumes | 3 | Portal/Volume/Fly-Through меняют центр и сохраняют border; Fly-Through имеет эффект изнутри | XR, standalone stripping; surface/meniscus/overlay/order covered by the separate fixtures below |
 | Surface crossing / meniscus | 1 | Fixed ocean time, FFT off: камера 3 → -3 → 0.1 → 3 м; submerged effect меняет 57600 pixels, meniscus — 1920, surfacing восстанавливает исходный кадр | Storm/wave-driven transition stress и side-by-side сравнение |
 | Overlay | 1 | 5208 pixels геометрии изменены, 0 фоновых; Ocean surface исключена из камеры для изоляции нулевой глубины | Настоящий URP camera stack и MSAA (P08) |
@@ -64,7 +69,7 @@ Raw logs и большой failed player run сохранены локально
 
 ## Оставшиеся ограничения
 
-Полная приёмка незавершена. URP больше не вызывает Camera.layerCullSpherical, а distance/light адаптеры проходят указанные Editor fixtures. Это не полная эквивалентность исходным опциям во всех режимах рендеринга. Пробелы перечислены в FEATURE_MATRIX.md, порядок — PORT_PLAN.md; 25 тестов не закрывают всю матрицу.
+Полная приёмка незавершена. URP больше не вызывает Camera.layerCullSpherical, а distance/light адаптеры проходят указанные Editor fixtures. Это не полная эквивалентность исходным опциям во всех режимах рендеринга. Пробелы перечислены в FEATURE_MATRIX.md, порядок — PORT_PLAN.md; 30 тестов не закрывают всю матрицу.
 
 ## P04 — дополнительные результаты
 
@@ -84,4 +89,20 @@ Editor DX11/DX12: пять PlanarReflectionTests прошли в полном н
 
 После исправления Development и Release пересобраны. Все четыре запуска на DX11/DX12 прошли с Errors=0, семью свежими Ocean PNG и четырьмя ReflectionOptions PNG каждый. Во всех: FarChanged=256 / NearChanged=0 (ROI 16×16); PixelMean=147.3867 / VertexMean=0; PipelineMode=PerPixel. Strict matching остаётся включённым. Fingerprints Crest.dll, Crest.URP.dll и изменённых runtime sources — Evidence/Build-checkpoint.json. Три последних запуска выполнялись параллельно и не являются профилированием. Development DX11 выбрал Intel Iris Xe, остальные три Player и Editor использовали NVIDIA RTX 3050 Ti; это функциональная проверка, не сравнение производительности адаптеров. Distance PNG Development DX11 и lighting/Ocean_Reflections PNG Release DX12 просмотрены.
 
-Остаются непроверенными exception-path cleanup, отдельный main-camera lighting readback, shadow option, renderer mode/force-forward contract, terrain/world-space UI/DontDestroyOnLoad, привязка заменённого RT в surface draw и стоимость обхода сцены. Поэтому P05 и полная planar acceptance не закрыты.
+Перечисленные выше пробелы P05 закрыты следующими targeted fixtures; полная planar acceptance по-прежнему требует P08–P11 (stress, визуальная эквивалентность, стоимость, standalone-варианты всех стендов).
+
+## P05 — завершение целевых проверок
+
+Основной view имеет независимый pixel-light readback (150.2266 до/после), shadow option меняет только отражение (1.3945 → 45.9375; основной view 48 → 48). После resize 60 surface chunks привязывают текущую RT. Контролируемое исключение в beginCameraRendering проходит через native boundary как ожидаемый LogType.Exception; LogAssert разрешает только сообщение этого стенда. Renderer flags обеих сцен, ocean root, GL/quality и recursion guard восстанавливаются; следующий render request проходит.
+
+Обнаружены и исправлены две runtime-проблемы: Camera.renderingPath не выбирал URP Forward renderer, теперь используется публичный SetRenderer; Terrain мог повторно попадать в список восстановления во время обхода обычной/persistent scene и затирать исходный флаг второй записью false. Списки обхода явно очищаются, уже скрытый Terrain повторно не регистрируется. Неудачный XML сохранён в ReflectionCanvasTerrain-initial-DX11.xml. Временная диагностика также выявила compile error на запрещённом в этой конфигурации GetInstanceID; диагностический вызов заменён, затем диагностические логи убраны.
+
+Known-object кадры маршрутов Forward/Forward+/Deferred, main-light, shadow и world UI просмотрены. До добавления пены checkpoint 29/29 прошёл на обоих API. После runtime-правок оба Player пересобраны и четыре свежих runs с -ReflectionOptions прошли Errors=0; сейчас все четыре выбрали NVIDIA RTX 3050 Ti. Это заменяет прежний checkpoint с Intel для Development DX11. Последующие изменения P06 и стабилизация shadow fixture затрагивают только Editor tests, повторная сборка Player из-за них не нужна.
+
+## P06 — первый численный стенд пены
+
+FoamSimulationTests отключает FFT, flow и shoreline generation, фиксирует фазу исходного Gerstner и проверяет исходную whitecap generation. После отключения источника сравнивает один interior pixel с `foam * (1 - fadeRate / frequency)^30`, fadeRate=2, frequency=30; R16 quantization допускается в пределах 0.005. На DX11: baseline=0, generated peak=1, после 30 substeps=0.124939, ожидается=0.1262128. Первоначальный стенд ошибочно считал 30 yield ticks за 30 simulation steps; исправлен через BuildCommandBufferBase._lastUpdateFrame / LastUpdateSubstepCount. Порог не ослаблялся, compute не менялся. Исходный failed XML и числа — Foam-initial-DX11.xml / .txt.
+
+Первая полная регрессия с новым стендом дала 29/30: сама пена прошла, но старый ShadowAtlasAccumulatesOcclusion получил нулевой R8 readback на очень малом Time.deltaTime. Отчёт сохранён в Foam-suite-initial-DX11.xml. Исходный temporal filter умножает вес на deltaTime; при неограниченной batch-частоте вклад квантовался в ноль. Только shadow fixture теперь задаёт captureFramerate=60 и восстанавливает его в teardown; порог >0, runtime weights и R8 format сохранены. Focused DX11 дал PeakOcclusionByte=8.
+
+Итоговая полная регрессия: 30/30 на обоих API. DX12 повторил baseline=0, generated peak=1, decayed sample=0.124939 при expected=0.1262128. Shadow readback на обоих API — 8. Пена пока проверена только в области whitecaps и decay; полный P06 не закрыт. Порядок новых тестов и очистка состояния проверены именно в полном наборе, не выведены из focused запуска.

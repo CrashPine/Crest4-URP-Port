@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-21 10:53:33Z" end-time="2026-10-21 10:53:34Z" duration="0,9827745">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="29" result="Failed" site="Child" start-time="2026-10-21 10:53:33Z" end-time="2026-10-21 10:53:34Z" duration="0.982775" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1040" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="29" result="Failed" site="Child" start-time="2026-10-21 10:53:33Z" end-time="2026-10-21 10:53:34Z" duration="0.975969" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="251816" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1013" name="PlanarReflectionTests" fullname="PlanarReflectionTests" classname="PlanarReflectionTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-10-21 10:53:33Z" end-time="2026-10-21 10:53:34Z" duration="0.970944" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1014" name="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" fullname="PlanarReflectionTests.ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" methodname="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" classname="PlanarReflectionTests" runstate="Runnable" seed="1275321453" result="Failed" start-time="2026-10-21 10:53:33Z" end-time="2026-10-21 10:53:34Z" duration="0.958157" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at PlanarReflectionTests+<ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags>d__2.MoveNext () [0x00355] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\PlanarReflectionTests.cs:61
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

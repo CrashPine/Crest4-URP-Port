@@ -1,16 +1,16 @@
 {
-  "recordedUtc": "2026-10-21T10:45:06.3689284Z",
+  "recordedUtc": "2026-10-21T15:32:42.2595664Z",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
   "strictShaderVariantMatching": true,
   "runtimeSources": [
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs",
-      "sha256": "F5DE53B0B5192A6C65F73272A493CC0E33E012E02329271839771B44EA0D383B"
+      "sha256": "C6A6BD0FC89525B1D90A08BA8B486369065C82745BC76B22517B1238E7E07B9C"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs",
-      "sha256": "F15C00EABED204D8DA4BF5600CE9BB161CAFD82E59C94D206AF3132CD41F66CE"
+      "sha256": "72CED08CD6288A56F2FD9CFEF588ACB477BE2C4294AAF8D8DBBF42F5E06E5BE4"
     },
     {
       "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
@@ -29,9 +29,9 @@
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "bytes": 284672,
-      "modifiedUtc": "2026-10-21T10:37:18.3578478Z",
-      "sha256": "BCAA5D6C370E868155023C3DC5355F8E53CF474A4A5622806223CF2986A8031D"
+      "bytes": 285696,
+      "modifiedUtc": "2026-10-21T10:58:03.5264076Z",
+      "sha256": "8761054A32FC21E5223BBDFB78A24CF1DA62BCC51B74EFD6D0C8731EEB0587A8"
     },
     {
       "configuration": "Development",
@@ -43,9 +43,9 @@
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "bytes": 280576,
-      "modifiedUtc": "2026-10-21T10:38:42.7686684Z",
-      "sha256": "202444FE8435A7F7CA177AF05FA3C3192D8172F9715882593C78C609D57D2ABD"
+      "bytes": 282112,
+      "modifiedUtc": "2026-10-21T10:58:50.6586279Z",
+      "sha256": "F4F561A7A9CD32C25BA2E1E6C0B492137E6BCDDFE9FE1B9269D50F0184E19901"
     },
     {
       "configuration": "Release",
@@ -55,5 +55,5 @@
       "sha256": "7C5FF114E7E1723436E7453B7D0CF983D989473BABE0C9120E2F674012CD2742"
     }
   ],
-  "limitation": "Fingerprints identify this P05 checkpoint. Player functional reports record actual API and GPU. Concurrent runs are not performance measurements."
+  "limitation": "P05 renderer selection and Terrain restoration checkpoint. Both rebuilt Players passed four fresh API runs with strict matching. Subsequent P06 changes affect Editor tests only. Concurrent Player runs are not performance measurements."
 }

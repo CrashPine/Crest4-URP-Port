@@ -11,6 +11,7 @@ using UnityEngine.TestTools;
 
 public class OceanGraphicsTests
 {
+    int? _previousCaptureRate;
     [UnityTest]
     public IEnumerator WavesProduceChangingGpuQueriesAndCapture()
         => CaptureAndQuery("Ocean_Waves");
@@ -69,6 +70,10 @@ public class OceanGraphicsTests
         OceanRenderer.EnableGraphicsInBatchMode = true;
         if (shadows)
         {
+            // The original temporal filter uses Time.deltaTime and an R8 target.
+            // Unbounded batch frame rates can quantize each contribution to zero.
+            _previousCaptureRate = Time.captureFramerate;
+            Time.captureFramerate = 60;
             var caster = GameObject.Find("Reflection reference");
             caster.transform.position = new Vector3(0, 6, 0);
             caster.transform.localScale = new Vector3(12, 12, 12);
@@ -118,7 +123,7 @@ public class OceanGraphicsTests
                 byte peak = 0;
                 foreach (var value in readback.GetData<byte>()) peak = System.Math.Max(peak, value);
                 Directory.CreateDirectory("Evidence");
-                File.WriteAllText("Evidence/Shadows-" + SystemInfo.graphicsDeviceType + ".txt", $"Unity={Application.unityVersion}\nPeakOcclusionByte={peak}\n");
+                File.WriteAllText("Evidence/Shadows-" + SystemInfo.graphicsDeviceType + ".txt", $"Unity={Application.unityVersion}\nPeakOcclusionByte={peak}\nCaptureFramerate=60; original temporal weights and R8 target retained.\n");
                 Assert.That(peak, Is.GreaterThan(0), "Shadow LOD array contains no accumulated occlusion.");
             }
             RenderTexture.active = target;
@@ -147,6 +152,11 @@ public class OceanGraphicsTests
     public IEnumerator RestorePlayMode()
     {
         OceanRenderer.EnableGraphicsInBatchMode = false;
+        if (_previousCaptureRate.HasValue)
+        {
+            Time.captureFramerate = _previousCaptureRate.Value;
+            _previousCaptureRate = null;
+        }
         if (Application.isPlaying) yield return new ExitPlayMode();
     }
 }

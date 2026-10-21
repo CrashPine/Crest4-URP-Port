@@ -59,7 +59,17 @@ its cost and all renderer types have not yet received full acceptance.
 refresh. The light option sets per-camera URP additional-light data through
 `CrestBackgroundFeature`; the tested rendering mode is Forward. The active pipeline
 asset and Built-in quality settings are not changed for URP reflection requests.
-Forward+, Deferred and the legacy force-forward option require separate validation.
+The force-forward option now selects a Forward renderer from the active URP asset
+through `UniversalAdditionalCameraData.SetRenderer`; `Camera.renderingPath` alone
+does not select a URP renderer. The vertex-light option also selects Forward,
+because Forward+/Deferred lighting cannot use this per-vertex policy. Include a
+Forward Universal Renderer with `CrestBackgroundFeature` in the asset's renderer
+list when using either option. Missing Forward configuration produces an explicit
+error. With both options disabled, reflection inherits the viewpoint's renderer,
+including a non-default selection. Editor fixtures render a known object through
+Forward, inherited Forward+ and inherited Deferred; URP may internally fall back
+for reflection camera types. This does not claim full visual equivalence between
+these renderer modes or standalone coverage of each combination.
 
 Player builds must retain both per-pixel and per-vertex additional-light variants.
 `Crest.URP.Editor.ReflectionVariantSetup.Configure()` creates an auxiliary URP asset

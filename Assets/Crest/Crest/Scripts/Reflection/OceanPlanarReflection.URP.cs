@@ -30,6 +30,42 @@ namespace Crest
         public static bool UsesVertexLightingForUrpCamera(Camera camera)
             => s_UrpRequestOwner != null && s_UrpRequestOwner._camReflections == camera && s_UrpRequestOwner._disablePixelLights;
 
+        void ConfigureUrpRenderer(UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset pipeline,
+            UnityEngine.Rendering.Universal.UniversalAdditionalCameraData reflectionData)
+        {
+            // Camera.renderingPath is ignored by SRP. URP chooses the path through
+            // a renderer asset; clustered/deferred lighting cannot use vertex lights.
+            if (_forceForwardRenderingPath || _disablePixelLights)
+            {
+                var renderers = pipeline.rendererDataList;
+                for (int index = 0; index < renderers.Length; index++)
+                {
+                    if (renderers[index] is UnityEngine.Rendering.Universal.UniversalRendererData renderer &&
+                        renderer.renderingMode == UnityEngine.Rendering.Universal.RenderingMode.Forward)
+                    {
+                        reflectionData.SetRenderer(index);
+                        return;
+                    }
+                }
+                throw new System.InvalidOperationException("Crest: planar force-forward/vertex-light reflection requires a Forward Universal Renderer in the active URP asset renderer list, with CrestBackgroundFeature enabled.");
+            }
+
+            var viewpointData = UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(_camViewpoint);
+            var viewpointRenderer = viewpointData.scriptableRenderer;
+            if (pipeline.GetRenderer(-1) == viewpointRenderer)
+            {
+                reflectionData.SetRenderer(-1);
+                return;
+            }
+            for (int index = 0; index < pipeline.rendererDataList.Length; index++)
+            {
+                if (pipeline.GetRenderer(index) != viewpointRenderer) continue;
+                reflectionData.SetRenderer(index);
+                return;
+            }
+            throw new System.InvalidOperationException("Crest: viewpoint renderer is not registered in the active URP asset.");
+        }
+
         void BeginUrpDistanceCulling()
         {
             using var marker = s_DistanceCulling.Auto();
@@ -57,10 +93,12 @@ namespace Crest
         {
             if (!scene.IsValid() || !scene.isLoaded) return;
             if (_sceneRoots.Capacity < scene.rootCount) _sceneRoots.Capacity = scene.rootCount;
+            _sceneRoots.Clear();
             scene.GetRootGameObjects(_sceneRoots);
             foreach (var root in _sceneRoots)
             {
                 if (!root.activeInHierarchy) continue;
+                _sceneRenderers.Clear();
                 root.GetComponentsInChildren(false, _sceneRenderers);
                 foreach (var renderer in _sceneRenderers)
                 {
@@ -69,10 +107,14 @@ namespace Crest
                     _distanceHiddenRenderers.Add(renderer);
                     renderer.forceRenderingOff = true;
                 }
+                _sceneTerrains.Clear();
                 root.GetComponentsInChildren(false, _sceneTerrains);
                 foreach (var terrain in _sceneTerrains)
                 {
                     if (!terrain.enabled || terrain.terrainData == null || !InReflectionLayer(terrain.gameObject)) continue;
+                    // Do not record an already-hidden terrain again if hierarchy/scene
+                    // enumeration exposes it twice during the synchronous request.
+                    if (!terrain.drawHeightmap && !terrain.drawTreesAndFoliage) continue;
                     var local = terrain.terrainData.bounds;
                     var matrix = terrain.transform.localToWorldMatrix;
                     var x = matrix.MultiplyVector(Vector3.right * local.extents.x);
@@ -85,6 +127,7 @@ namespace Crest
                     terrain.drawHeightmap = false;
                     terrain.drawTreesAndFoliage = false;
                 }
+                _sceneCanvases.Clear();
                 root.GetComponentsInChildren(false, _sceneCanvases);
                 foreach (var renderer in _sceneCanvases)
                 {

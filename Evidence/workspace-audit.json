@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-21T10:46:15.7121790Z",
+  "recordedUtc": "2026-10-21T15:36:08.4737917Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1252,
+  "fileCount": 1254,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -33,26 +33,26 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-21 10:33:54Z",
+      "start": "2026-10-21 15:32:49Z",
       "result": "Passed",
-      "total": "5",
-      "passed": "5",
+      "total": "1",
+      "passed": "1",
       "failed": "0"
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-10-21 10:34:54Z",
+      "start": "2026-10-21 15:33:31Z",
       "result": "Passed",
-      "total": "25",
-      "passed": "25",
+      "total": "30",
+      "passed": "30",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-21 10:35:39Z",
+      "start": "2026-10-21 15:34:43Z",
       "result": "Passed",
-      "total": "25",
-      "passed": "25",
+      "total": "30",
+      "passed": "30",
       "failed": "0"
     }
   ],
@@ -1434,8 +1434,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs",
-      "bytes": 24538,
-      "sha256": "F5DE53B0B5192A6C65F73272A493CC0E33E012E02329271839771B44EA0D383B"
+      "bytes": 24711,
+      "sha256": "C6A6BD0FC89525B1D90A08BA8B486369065C82745BC76B22517B1238E7E07B9C"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs.meta",
@@ -1444,8 +1444,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs",
-      "bytes": 7185,
-      "sha256": "F15C00EABED204D8DA4BF5600CE9BB161CAFD82E59C94D206AF3132CD41F66CE"
+      "bytes": 9586,
+      "sha256": "72CED08CD6288A56F2FD9CFEF588ACB477BE2C4294AAF8D8DBBF42F5E06E5BE4"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs.meta",
@@ -5674,8 +5674,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef",
-      "bytes": 223,
-      "sha256": "589CFC769DF2E941EBF88BE71239E1FA97F27123CF3050AE01F55ADC542BF675"
+      "bytes": 241,
+      "sha256": "CBB9B330FA16DC507752FAD223C430ED0E07860661309C17E1992F0C5751AF16"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef.meta",
@@ -5683,9 +5683,19 @@
       "sha256": "5A70D277A737F3ED7934E9314D18532BC04EF141D995EABECED981032F59CA01"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/FoamSimulationTests.cs",
+      "bytes": 5463,
+      "sha256": "A6769E8CE1026219966FC6384C0745C75CF4F6BD41DF4E8699CD000F95306ADF"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/FoamSimulationTests.cs.meta",
+      "bytes": 59,
+      "sha256": "7D7B3D74BEC56928AEE97BF49AB1515577199BD7FC3BCFFD178E6038550B9EAF"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/OceanGraphicsTests.cs",
-      "bytes": 7281,
-      "sha256": "0964758CC2BB554000A2B150FBFAAC01E26EE4B620845F287F2D231E6C2B7794"
+      "bytes": 7815,
+      "sha256": "50BE274A7F2B190B5311B3C729F763A2286157E3C43D735A0F5C1C2196D45EAD"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/OceanGraphicsTests.cs.meta",
@@ -5694,8 +5704,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs",
-      "bytes": 17000,
-      "sha256": "DE366AFA04929ED8F448440E027E9CF7A7DA32D0739EEE1D3A08B0E9EA872351"
+      "bytes": 34360,
+      "sha256": "0B1197A27B3068A9EFC99F195B60D3AE33A4E901EF2AB787AAB6D99D30F378F4"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs.meta",
@@ -6274,8 +6284,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 7597,
-      "sha256": "FEFD9F6C3283F4675D1601C187B1BF6092F9D6975ED64D6D70DDD5C7DDAC1DB5"
+      "bytes": 7949,
+      "sha256": "E5954B40723E151BA162821EFAF3D127948CDCFF32544BF322EB4CDCF24B673B"
     },
     {
       "path": "LICENSE.Crest",
@@ -6284,18 +6294,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 5741,
-      "sha256": "19E84C9E559305FE1D62AB6545B8C9763FD390188A1ACEFF8799304522BC540F"
+      "bytes": 6531,
+      "sha256": "113A3E9AE95E0A8592C17AFE6435D0553D924B4BB9EFF7A4903AEB968325C878"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 10406,
-      "sha256": "0A3FDF5BA6A941CA954E1D6450A88C98DFB3647502BDCE5192839FC4BD887EB4"
+      "bytes": 10408,
+      "sha256": "AD6899F6BDFB1A1027FAB7A0A2A4EA0E1C5895635AA0410C21A0F16DED4F1F84"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 5186,
-      "sha256": "D75BFDB9C647F1ED7F080F28ECC3B9F3AF5C3DF4A8CDCE907070CEB4609C12BE"
+      "bytes": 4423,
+      "sha256": "4E87ED22E8A80F705E0CE0F547599B49AA6746A30EBE6E67D064AC80BDEACE6A"
     },
     {
       "path": "README.md",
@@ -6309,8 +6319,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 17777,
-      "sha256": "83E8785BB06C4B99B82083873439C98899AB7BB47F118A86B6FB7A1E000FF0B4"
+      "bytes": 24109,
+      "sha256": "6E3D2E80A266D1B405C7819D57C4C2CBF5F8A3BBCE843F07956ACC741892542E"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

@@ -314,6 +314,7 @@ namespace Crest
                     s_UrpRequestOwner = this;
                     BeginUrpDistanceCulling();
                     var data = UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(_camReflections);
+                    ConfigureUrpRenderer((UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset)UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline, data);
                     data.renderShadows = !_disableShadows;
                     var request = new UnityEngine.Rendering.Universal.UniversalRenderPipeline.SingleCameraRequest
                     {
