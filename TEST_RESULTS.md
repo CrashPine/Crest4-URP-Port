@@ -7,7 +7,7 @@
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
 | Полный Editor checkpoint до добавления shoreline fixture | PASSED, 30/30 | PASSED, 30/30 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 15:33:31Z / 15:34:43Z |
-| Новый shoreline/toggle fixture, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditMode-DX11-focused.xml / EditMode-DX12-focused.xml; это дополнительная проверка, не замена полному checkpoint |
+| FoamSimulationTests, focused (3 сценария) | PASSED, 3/3 | PASSED, 3/3 | Evidence/EditMode-DX11-focused.xml / EditMode-DX12-focused.xml; whitecaps/decay, shoreline/toggle, two-axis flow transport; не замена полному checkpoint |
 | Development Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Release Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
@@ -62,6 +62,8 @@ Raw logs и большой failed player run сохранены локально
 
 ## Аудит файлов
 
+Markdown-аудит активной рабочей области: в deliverable ровно 8 документов — README, PORT_PLAN, PORT_PROGRESS, FEATURE_MATRIX, TEST_RESULTS, MIGRATION, SOURCE_BASELINE и THIRD_PARTY_NOTICES. На уровне workspace отдельно находится AGENTS.md с правилами продолжения. Одинаковых по назначению дополнительных progress/status/roadmap файлов не найдено; удалять эти документы не требуется. Исторические work-копии не являются активным источником плана.
+
 `Tools/Audit-Workspace.ps1` инвентаризирует и хеширует все файлы Assets, Packages, ProjectSettings, Tools и корня репозитория; сравнивает наличие всех оригинальных файлов, ищет missing meta и duplicate GUID. Library/Builds/исторические work-копии исключены как генерируемые/вспомогательные. Это структурная проверка, не построчное семантическое ревью всего upstream-кода.
 
 `Verify-GuidAndCompute.ps1`: 597 оригинальных meta/compute файлов, GUID сохранены, compute bytes не изменены. Строгая `Verify-Source.ps1` остаётся FAILED для трёх Unity-normalized sprite meta (ArrowLeft, ArrowRight, Flask); это явно записано в source-preservation-after-import.json. Исторический source-preservation.json отражает состояние до импорта.
@@ -110,4 +112,14 @@ FoamSimulationTests отключает FFT, flow и shoreline generation, фик
 
 После этого добавлен отдельный shoreline/toggle fixture. Focused 1/1 прошёл на DX11 и DX12: плоский floor через реальный OceanDepthCache дал height=-0.4999933 м; при maxDepth=1, strength=1, fade=0 и 30 substeps по 1/30 с ожидается foam=0.5, получено 0.4985352 на обоих API (допуск 0.005). При выключении CreateFoamSim менеджер исчезает и старая RT уничтожается; после включения создаётся новый пустой target, foam=0. Отчёты — FoamShoreline-Direct3D11.txt / Direct3D12.txt. Полные 30-test XML предшествуют добавлению этого 31-го теста; их не заменяли focused результатами. Runtime/shader/scene для этой проверки не менялись.
 
-Оставшаяся область foam acceptance: flow transport/visual advection, prewarm, перезагрузка, разные качества/разрешения и сравнение поверхности с исходным Crest. Успех этих численных fixtures не переводит всю строку пены в PASSED.
+Оставшаяся область foam acceptance: prewarm, перезагрузка, surface visual advection, разные качества/разрешения и сравнение поверхности с исходным Crest. Транспорт данных проверен дополнительным стендом ниже. Успех численных fixtures не переводит всю строку пены в PASSED.
+
+### Перенос локального пятна пены течением
+
+Новый `KnownFlowTransportsFoamPatchByThreeMetres` использует исходные RegisterFoamInput/Override Foam и RegisterFlowInput/Fixed Direction shaders. FFT, wave/shoreline generation и fade выключены. После однократного засева источник удалён из регистрации; измеряются центр массы и сумма interior LOD0, проверяются finite values и [0,1] bounds; RT до/после каждого направления сохранены в PNG.
+
+На DX11 и DX12: flow readback=(3,0), за 30 шагов по 1/30 с ShiftX=2.998027 м / ShiftZ=0. После смены направления readback=(0,3), второй участок ShiftX=0 / ShiftZ=2.998032 м. Суммарная масса: 2304 → 2303.919 после первого участка; после обоих MassRatio=0.9999497. Позиционный допуск 0.1 м, mass bounds 0.95–1.05 не менялись. Снимки обоих API просмотрены: перенос и ожидаемая фильтрационная диффузия видны. Это транспорт данных симуляции, не полная приёмка flow rendering/нормалей поверхности или splines.
+
+Первоначальные неудачные стенды сохранены: FoamFlow-initial-DX12.xml/.txt и PNG (ShiftX=3.197887), FoamFlow-turn-initial-DX11.xml/.txt (ShiftZ=3.997425), FoamFlow-clock-initial-DX11.xml (time pulse не потреблялся). Включение flow через настройки перестраивало OceanRenderer и сбрасывало ранее установленный временный provider; это исходное поведение Crest подтверждено в upstream, не ошибка переноса compute. Clock устанавливается после завершения настройки и проверяется через публичный TimeProvider. Для точного шага тестовый ITimeProvider выдаёт 1/30 только одному реально потребившему его кадру и 0 остальным; перед snapshot проходят три обновления с нулевым dt для стабилизации ping-pong textures. Runtime и исходные алгоритмы не менялись, пороги не ослаблялись. Контракт rebuild/time provider уточнён в MIGRATION.md.
+
+После исправления стенда весь FoamSimulationTests прошёл 3/3 на DX11 и DX12, включая очистку между flow, shoreline/toggle и whitecap/decay сценариями. Теперь в исходниках 32 теста; полный сохранённый checkpoint по-прежнему 30/30 до добавления shoreline/flow, дополнительные проверки отражены отдельными focused XML. В этой сессии менялись только Editor test и документы: runtime/shader/scene не менялись, повторять Player builds не требуется.

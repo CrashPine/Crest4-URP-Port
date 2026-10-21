@@ -28,6 +28,10 @@ Dedicated-server behavior remains the default.
 
 * Simulation time: `ITimeProvider`, `PushTimeProvider`, `PopTimeProvider`; retain a
   monotonic time source and appropriate delta times for persistent simulations.
+  Rebuilding an ocean resets its stack to the default and serialized provider,
+  as in the original Crest. Apply feature/quality configuration before pushing a
+  temporary provider, or reapply it after a rebuild. Check `TimeProvider` when
+  coordinating configuration changes with external simulation time.
 * Wind: `_globalWindZone`, `_globalWindSpeed` (km/h), `_globalWindDirectionAngle`,
   `_globalWindTurbulence`; individual shapes also support overrides.
 * Wave shape: original `OceanWaveSpectrum` and `ShapeWaves` APIs/settings. Spectrum

@@ -13,8 +13,8 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Wave spectrum | Scripts/Shapes/OceanWaveSpectrum.cs | Retained; sampling tests added | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Animated waves/combine | LodDataMgrAnimWaves.cs; ShapeCombine.compute | Retained | NOT TESTED |
 | Dynamic waves | LodDataMgrDynWaves.cs; UpdateDynWaves.compute | Zero-to-nonzero GPU height field from moving sphere passed on DX11/DX12 | NOT TESTED (long-term/visual acceptance) |
-| Foam simulation | LodDataMgrFoam.cs; UpdateFoam.compute | Wave whitecaps and discrete decay pass in the 30-test checkpoint; subsequent focused shoreline/toggle fixture passes on both APIs: known 0.5 m depth, expected foam=0.5, measured=0.4985352; old RT released and empty target recreated. Flow transport/visual advection, prewarm, reload and visual coverage remain pending | NOT TESTED (full acceptance) |
-| Flow data and queries | LodDataMgrFlow.cs; QueryFlow.cs | Known 3 m/s vector and runtime direction change passed on DX11/DX12; visual advection/splines pending | NOT TESTED |
+| Foam simulation | LodDataMgrFoam.cs; UpdateFoam.compute | Whitecaps/decay and focused shoreline/toggle pass on both APIs; known-flow patch transport also passes: 2.998 m along X then Z, final mass ratio 0.9999497; RT images inspected. Prewarm, reload, surface visual coverage and stress remain pending | NOT TESTED (full acceptance) |
+| Flow data and queries | LodDataMgrFlow.cs; QueryFlow.cs | Known 3 m/s vector and direction change pass; spatial foam transport now checked on both APIs with field readback and images. Surface shader visual advection and splines pending | NOT TESTED |
 | Sea floor depth inputs | RegisterSeaFloorDepthInput.cs | Retained | NOT TESTED |
 | Runtime depth cache/baking | Scripts/LodData/OceanDepthCache.cs | URP request added; deliverable known-height readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Local water height | RegisterHeightInput.cs; OceanHelpersNew.hlsl | Retained | NOT TESTED |
