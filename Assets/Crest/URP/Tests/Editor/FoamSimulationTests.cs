@@ -273,6 +273,111 @@ public class FoamSimulationTests
             $"ToggleDisabled=True; OldTargetReleased=True; NewTargetCreated=True; RestartedFoam={restarted}\n");
     }
 
+    [UnityTest]
+    public IEnumerator ShorelinePrewarmAtZeroDeltaSurvivesSceneReload()
+    {
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        float previousTimeScale = Time.timeScale;
+        RenderTexture previousFoam = null, previousDepth = null;
+        string report = $"Evidence/FoamPrewarm-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "ExpectedFoam=0.25; FloorHeight=-0.5; MaxDepth=1; ShorelineStrength=1; Fade=2; Delta=0; Tolerance=0.005\n");
+        try
+        {
+            // A feature rebuild resets the temporary provider stack. Keep Unity's
+            // fallback clock paused too, including the first frame after reload.
+            Time.timeScale = 0;
+            for (int cycle = 0; cycle < 2; cycle++)
+            {
+                if (cycle > 0)
+                {
+                    yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Ocean_Calm");
+                    Assert.That(previousFoam == null, Is.True, "Reload must destroy the old foam target.");
+                    Assert.That(previousDepth == null, Is.True, "Reload must destroy the old cache target.");
+                    Object.DestroyImmediate(_settings);
+                }
+                var ocean = OceanRenderer.Instance;
+                Assert.That(ocean, Is.Not.Null);
+                foreach (var fft in Object.FindObjectsByType<ShapeFFT>(FindObjectsSortMode.None)) fft.enabled = false;
+                _settings = ScriptableObject.CreateInstance<SimSettingsFoam>();
+                _settings._prewarm = false;
+                _settings._waveFoamStrength = 0;
+                _settings._shorelineFoamStrength = 1;
+                _settings._shorelineFoamMaxDepth = 1;
+                _settings._foamFadeRate = 2;
+                _settings._simulationFrequency = 30;
+                ocean._simSettingsFoam = _settings;
+                SetFoamEnabled(ocean, false);
+                yield return WaitForOceanUpdates(3);
+                Assert.That(ocean._lodDataFoam, Is.Null);
+
+                var floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                floor.name = "Prewarm reference floor";
+                floor.layer = 30;
+                floor.transform.position = new Vector3(0, -.6f, 0);
+                floor.transform.localScale = new Vector3(1000, .2f, 1000);
+                floor.GetComponent<Renderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Reference.mat");
+                var owner = new GameObject("Prewarm reference cache");
+                owner.transform.localScale = new Vector3(1000, 1, 1000);
+                var cache = owner.AddComponent<OceanDepthCache>();
+                cache._resolution = 64;
+                cache._layers = 1 << 30;
+                cache._cameraMaxTerrainHeight = 20;
+                cache._cameraFarClipPlane = 100;
+                cache.PopulateCache();
+                yield return WaitForOceanUpdates(4);
+                var depth = AsyncGPUReadback.Request(cache.CacheTexture, 0, TextureFormat.RFloat);
+                while (!depth.done) yield return null;
+                Assert.That(depth.hasError, Is.False);
+                float height = depth.GetData<float>()[32 * 64 + 32];
+                Assert.That(height, Is.EqualTo(-.5f).Within(.01f));
+
+                // Negative control: depth alone cannot generate foam at dt=0.
+                SetFoamEnabled(ocean, true);
+                yield return WaitForOceanUpdates(4);
+                var clock = new StepClock();
+                ocean.PushTimeProvider(clock);
+                var control = AsyncGPUReadback.Request(ocean._lodDataFoam.DataTexture, 0, TextureFormat.RFloat);
+                while (!control.done) yield return null;
+                Assert.That(control.hasError, Is.False);
+                float unprewarmed = InteriorPeak(control, ocean._lodDataFoam.DataTexture.width, out _);
+                Assert.That(unprewarmed, Is.LessThan(.0001f));
+                SetFoamEnabled(ocean, false);
+                yield return WaitForOceanUpdates(3);
+                _settings._prewarm = true;
+                SetFoamEnabled(ocean, true);
+                yield return WaitForOceanUpdates(4);
+                ocean.PushTimeProvider(clock);
+                Assert.That(ocean.TimeProvider, Is.SameAs(clock));
+                Assert.That(ocean.DeltaTime, Is.EqualTo(0));
+                var warm = AsyncGPUReadback.Request(ocean._lodDataFoam.DataTexture, 0, TextureFormat.RFloat);
+                while (!warm.done) yield return null;
+                Assert.That(warm.hasError, Is.False);
+                float prewarmed = InteriorPeak(warm, ocean._lodDataFoam.DataTexture.width, out _);
+                File.AppendAllText(report, $"Cycle={cycle}; FloorHeight={height}; Unprewarmed={unprewarmed}; Prewarmed={prewarmed}\n");
+                Assert.That(prewarmed, Is.EqualTo(.25f).Within(.005f));
+                yield return WaitForOceanUpdates(8);
+                var held = AsyncGPUReadback.Request(ocean._lodDataFoam.DataTexture, 0, TextureFormat.RFloat);
+                while (!held.done) yield return null;
+                Assert.That(held.hasError, Is.False);
+                float retained = InteriorPeak(held, ocean._lodDataFoam.DataTexture.width, out _);
+                Assert.That(retained, Is.EqualTo(prewarmed).Within(.0001f), "Prewarm must run once, not accumulate on paused frames.");
+                File.AppendAllText(report, $"Cycle={cycle}; HeldAfterEightUpdates={retained}; OldReloadTargetsReleased={(cycle > 0)}\n");
+                previousFoam = ocean._lodDataFoam.DataTexture;
+                previousDepth = cache.CacheTexture;
+            }
+        }
+        finally { Time.timeScale = previousTimeScale; }
+    }
+
+    static void SetFoamEnabled(OceanRenderer ocean, bool enabled)
+    {
+        var configuration = new SerializedObject(ocean);
+        configuration.FindProperty("_createFoamSim").boolValue = enabled;
+        configuration.ApplyModifiedPropertiesWithoutUndo();
+    }
+
     static IEnumerator WaitForOceanUpdates(int requested)
     {
         int last = BuildCommandBufferBase._lastUpdateFrame, completed = 0;

@@ -6,8 +6,8 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor checkpoint до добавления shoreline fixture | PASSED, 30/30 | PASSED, 30/30 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 15:33:31Z / 15:34:43Z |
-| FoamSimulationTests, focused (3 сценария) | PASSED, 3/3 | PASSED, 3/3 | Evidence/EditMode-DX11-focused.xml / EditMode-DX12-focused.xml; whitecaps/decay, shoreline/toggle, two-axis flow transport; не замена полному checkpoint |
+| Полный Editor checkpoint, включая четыре foam fixtures | PASSED, 33/33 | PASSED, 33/33 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 16:00:32Z / 16:01:23Z |
+| Foam prewarm/reload, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditMode-DX11-focused.xml / EditMode-DX12-focused.xml; затем включён в полную регрессию |
 | Development Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Release Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
@@ -37,7 +37,7 @@
 | Planar shadows | 1 | Shadow ROI 1.3945 → 45.9375 при выключении теней отражения; основной view 48 → 48; оба API | Все shadow configurations, дополнительный свет с тенями, cascades |
 | Planar renderer routing | 1 | Forced Forward, inherited Forward+/Deferred и vertex-forced Forward: по 606 magenta pixels; renderer основной камеры сохранён; оба API | Внутренний Deferred reflection fallback принадлежит URP; все варианты в Player и визуальная эквивалентность |
 | Planar world UI/Terrain | 1 | Дальний world UI marker: 289 → 0; ближний green: 394; Terrain draw flags восстановлены (heightmap=true, trees=false); оба API | Визуальная полнота Terrain, все UI layouts и изменяемые иерархии |
-| Foam generation/decay | 1 | FFT off, фиксированная фаза Gerstner, исходная генерация whitecaps; считались выполненные substeps, а не enumerator ticks; per-API значения ниже | Shoreline, flow advection, prewarm, toggle/reload, визуальная эквивалентность |
+| Foam simulation | 4 | Whitecaps/decay, shallow-depth generation/toggle, two-axis transport, zero-delta prewarm/reload; per-API значения ниже | Surface visual advection, stress/quality coverage, визуальная эквивалентность |
 | Underwater volumes | 3 | Portal/Volume/Fly-Through меняют центр и сохраняют border; Fly-Through имеет эффект изнутри | XR, standalone stripping; surface/meniscus/overlay/order covered by the separate fixtures below |
 | Surface crossing / meniscus | 1 | Fixed ocean time, FFT off: камера 3 → -3 → 0.1 → 3 м; submerged effect меняет 57600 pixels, meniscus — 1920, surfacing восстанавливает исходный кадр | Storm/wave-driven transition stress и side-by-side сравнение |
 | Overlay | 1 | 5208 pixels геометрии изменены, 0 фоновых; Ocean surface исключена из камеры для изоляции нулевой глубины | Настоящий URP camera stack и MSAA (P08) |
@@ -112,7 +112,7 @@ FoamSimulationTests отключает FFT, flow и shoreline generation, фик
 
 После этого добавлен отдельный shoreline/toggle fixture. Focused 1/1 прошёл на DX11 и DX12: плоский floor через реальный OceanDepthCache дал height=-0.4999933 м; при maxDepth=1, strength=1, fade=0 и 30 substeps по 1/30 с ожидается foam=0.5, получено 0.4985352 на обоих API (допуск 0.005). При выключении CreateFoamSim менеджер исчезает и старая RT уничтожается; после включения создаётся новый пустой target, foam=0. Отчёты — FoamShoreline-Direct3D11.txt / Direct3D12.txt. Полные 30-test XML предшествуют добавлению этого 31-го теста; их не заменяли focused результатами. Runtime/shader/scene для этой проверки не менялись.
 
-Оставшаяся область foam acceptance: prewarm, перезагрузка, surface visual advection, разные качества/разрешения и сравнение поверхности с исходным Crest. Транспорт данных проверен дополнительным стендом ниже. Успех численных fixtures не переводит всю строку пены в PASSED.
+Оставшаяся область foam acceptance: surface visual advection, разные качества/разрешения и сравнение поверхности с исходным Crest. Транспорт данных и prewarm/reload проверены дополнительными стендами ниже. Успех численных fixtures не переводит всю строку пены в PASSED.
 
 ### Перенос локального пятна пены течением
 
@@ -123,3 +123,11 @@ FoamSimulationTests отключает FFT, flow и shoreline generation, фик
 Первоначальные неудачные стенды сохранены: FoamFlow-initial-DX12.xml/.txt и PNG (ShiftX=3.197887), FoamFlow-turn-initial-DX11.xml/.txt (ShiftZ=3.997425), FoamFlow-clock-initial-DX11.xml (time pulse не потреблялся). Включение flow через настройки перестраивало OceanRenderer и сбрасывало ранее установленный временный provider; это исходное поведение Crest подтверждено в upstream, не ошибка переноса compute. Clock устанавливается после завершения настройки и проверяется через публичный TimeProvider. Для точного шага тестовый ITimeProvider выдаёт 1/30 только одному реально потребившему его кадру и 0 остальным; перед snapshot проходят три обновления с нулевым dt для стабилизации ping-pong textures. Runtime и исходные алгоритмы не менялись, пороги не ослаблялись. Контракт rebuild/time provider уточнён в MIGRATION.md.
 
 После исправления стенда весь FoamSimulationTests прошёл 3/3 на DX11 и DX12, включая очистку между flow, shoreline/toggle и whitecap/decay сценариями. Теперь в исходниках 32 теста; полный сохранённый checkpoint по-прежнему 30/30 до добавления shoreline/flow, дополнительные проверки отражены отдельными focused XML. В этой сессии менялись только Editor test и документы: runtime/shader/scene не менялись, повторять Player builds не требуется.
+
+## P06 — prewarm при нулевом времени и scene reload
+
+`ShorelinePrewarmAtZeroDeltaSurvivesSceneReload` использует исходный OceanDepthCache с floor height=-0.4999933 м. При maxDepth=1, shoreline strength=1, fade=2 исходная формула prewarm даёт `(1 - 0.5 / 1) / 2 = 0.25`. На обоих API без prewarm при dt=0 измерено 0; после пересоздания foam с prewarm=true — ровно 0.25. Через восемь дополнительных ocean updates при dt=0 остаётся 0.25: начальный вклад не повторяется каждый кадр.
+
+Сцена действительно перезагружается через LoadSceneAsync. Старые foam/depth RT уничтожаются; тест заново создаёт известные floor/cache/settings и повторяет контроль и prewarm с теми же результатами. Это проверка жизненного цикла сцены и воспроизводимости симуляции; сохранение пользовательских настроек/профилей на диск этим не доказано. Time.timeScale временно равен нулю, чтобы fallback clock при rebuild тоже не продвигал симуляцию; значение восстанавливается в finally. Алгоритмы runtime/compute и сцены не менялись.
+
+Измерения — FoamPrewarm-Direct3D11.txt / Direct3D12.txt. Focused 1/1 на каждом API, затем свежая полная регрессия **33/33 на DX11 и DX12**, failed=0, skipped=0. Полные XML теперь включают все четыре foam fixtures и заменяют прежний 30-test checkpoint; исторические результаты выше описывают предыдущие этапы. Свежие smoke PNG волн, отражений и underwater просмотрены; это не сравнение с Built-in. Новых Markdown-файлов и Player builds для Editor-only изменений не создавалось.
