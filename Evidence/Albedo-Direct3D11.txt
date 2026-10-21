@@ -1,0 +1,25 @@
+Original Albedo/Color shader; SrcAlpha/OneMinusSrcAlpha blend; RGBA tolerance=2/255; cutoff=0.5; fixed ocean time/delta=0
+Phase=Red; Resolution=768; TexelMetres=0,04166667
+Position=(0.00, 0.00); Expected=RGBA(1.000, 0.000, 0.000, 1.000); Actual=RGBA(1.000, 0.000, 0.000, 1.000)
+Position=(8.00, 0.00); Expected=RGBA(0.000, 0.000, 0.000, 0.000); Actual=RGBA(0.000, 0.000, 0.000, 0.000)
+SurfaceRedPixels=4096; SurfaceBluePixels=0; RequireEmpty=False
+Phase=Blue; Resolution=768; TexelMetres=0,04166667
+Position=(0.00, 0.00); Expected=RGBA(0.000, 0.000, 1.000, 1.000); Actual=RGBA(0.000, 0.000, 1.000, 1.000)
+SurfaceRedPixels=0; SurfaceBluePixels=4096; RequireEmpty=False
+Phase=Moved; Resolution=768; TexelMetres=0,04166667
+Position=(0.00, 0.00); Expected=RGBA(0.000, 0.000, 0.000, 0.000); Actual=RGBA(0.000, 0.000, 0.000, 0.000)
+Position=(6.00, 0.00); Expected=RGBA(0.000, 0.000, 1.000, 1.000); Actual=RGBA(0.000, 0.000, 1.000, 1.000)
+SurfaceRedPixels=0; SurfaceBluePixels=4096; RequireEmpty=False
+Phase=Blended; Resolution=768; TexelMetres=0,04166667
+Position=(6.00, 0.00); Expected=RGBA(0.750, 0.000, 0.000, 0.563); Actual=RGBA(0.749, 0.000, 0.000, 0.561)
+SurfaceRedPixels=0; SurfaceBluePixels=0; RequireEmpty=False
+BlendSurfaceExpected=RGBA(0.682, 0.048, 0.137, 0.754); Actual=RGBA(0.682, 0.051, 0.137, 1.000); TargetSRGB=True; Pixel=18383; RGBTolerance=0.03
+Phase=BelowCutoff; Resolution=768; TexelMetres=0,04166667
+Position=(6.00, 0.00); Expected=RGBA(0.000, 0.000, 0.000, 0.000); Actual=RGBA(0.000, 0.000, 0.000, 0.000)
+SurfaceRedPixels=0; SurfaceBluePixels=0; RequireEmpty=True
+Phase=Disabled; Resolution=768; TexelMetres=0,04166667
+Position=(6.00, 0.00); Expected=RGBA(0.000, 0.000, 0.000, 0.000); Actual=RGBA(0.000, 0.000, 0.000, 0.000)
+SurfaceRedPixels=0; SurfaceBluePixels=0; RequireEmpty=True
+Phase=Reenabled; Resolution=768; TexelMetres=0,04166667
+Position=(6.00, 0.00); Expected=RGBA(0.000, 0.000, 1.000, 1.000); Actual=RGBA(0.000, 0.000, 1.000, 1.000)
+SurfaceRedPixels=0; SurfaceBluePixels=4096; RequireEmpty=False

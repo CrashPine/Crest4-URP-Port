@@ -6,7 +6,8 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor checkpoint, включая foam, surface flow, spline и clip | PASSED, 37/37 | PASSED, 37/37 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 21:01:07Z / 21:02:10Z |
+| Полный Editor checkpoint до добавления albedo/local height | PASSED, 37/37 | PASSED, 37/37 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 21:01:07Z / 21:02:10Z |
+| SurfaceInputTests, focused (clip/albedo/local height) | PASSED, 3/3 | PASSED, 3/3 | Evidence/SurfaceInputs-DX11.xml / SurfaceInputs-DX12.xml, также актуальные focused XML; start 21:11:57Z / 21:11:22Z |
 | Surface flow normals/foam, focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/FlowSurface-DX11.xml / FlowSurface-DX12.xml; start 20:50:10Z / 20:50:37Z; сохранены отдельно от следующих focused runs |
 | Flow spline, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/FlowSpline-DX11.xml / FlowSpline-DX12.xml; six field states |
 | Clip surface, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/ClipSurface-DX11.xml / ClipSurface-DX12.xml; cube/sphere/geometry and deregistration |
@@ -43,6 +44,8 @@
 | Surface flow | 2 | Изолированные normals/foam, фиксированное время, reversible 0→3→0 м/с и keyword-off negative control | Все surface configurations и Built-in equivalence |
 | Spline flow | 1 | Исходный прямой ribbon: поворот, скорость/знак, перенос точек, outside=0, deregistration/re-registration | Curved/closed, Unity Splines adapter, Editor gestures, serialization |
 | Clip surface | 1 | Cube/sphere SDF, geometry mask, видимые отверстия, unchanged border, cleared field/restored image при deregistration | Inversion/overlaps, hulls/textures, reload, waves, standalone |
+| Albedo input | 1 | Red/blue, перенос, исходный SrcAlpha blend и surface composition, cutoff, disable/re-enable | Textured/overlapping inputs, reload/serialization, standalone |
+| Local water height | 1 | RGFloat offset, public GPU query heights, bounds, +2/−1 м, перенос, global sea level +3 м, disable/re-enable | Sloped/spline input, rendered transitions, reload/serialization, standalone |
 | Underwater volumes | 3 | Portal/Volume/Fly-Through меняют центр и сохраняют border; Fly-Through имеет эффект изнутри | XR, standalone stripping; surface/meniscus/overlay/order covered by the separate fixtures below |
 | Surface crossing / meniscus | 1 | Fixed ocean time, FFT off: камера 3 → -3 → 0.1 → 3 м; submerged effect меняет 57600 pixels, meniscus — 1920, surfacing восстанавливает исходный кадр | Storm/wave-driven transition stress и side-by-side сравнение |
 | Overlay | 1 | 5208 pixels геометрии изменены, 0 фоновых; Ocean surface исключена из камеры для изоляции нулевой глубины | Настоящий URP camera stack и MSAA (P08) |
@@ -166,3 +169,17 @@ Cube и geometry открывают 4096 magenta pixels, sphere — 3220; сто
 Отчёты — ClipSurface-Direct3D11.txt / Direct3D12.txt, ClipSurface-DX11.xml / DX12.xml. Focused 1/1 на каждом API. Новых Markdown нет. Audit после добавления SurfaceInputTests.cs/.meta: 1258 files, missing meta=0, duplicate GUIDs=0, missing upstream=0.
 
 После добавления spline/clip выполнена полная интеграционная регрессия: **37/37 DX11 и 37/37 DX12**, failed=0/skipped=0. Все четыре foam, два surface flow, новый spline и clip fixtures включены в общий набор. Полные XML действительно обновлены полными runs, не focused. Изменения этой сессии относятся только к Editor tests/документам/evidence; runtime, shader и demo scene не менялись, актуальность Player по runtime сохраняется.
+
+## P06 — albedo и локальный уровень воды
+
+`AlbedoColorBlendCutoffAndRegistrationAffectSurface` использует исходные RegisterAlbedoInput и Albedo/Color shader. При фиксированных time/delta=0, FFT off, без normal mapping/foam/transparency/post-processing/fog проверяются RGBA32 LOD0 (768×768, отдельно от общего разрешения океана 384) и URP surface capture 192×192. Непрозрачные red/blue дают точные значения поля и по 4096 соответствующих pixels поверхности. Перенос patch на +6 м по X очищает старый центр и даёт blue в новом.
+
+Исходный SrcAlpha/OneMinusSrcAlpha применяется ко всем RGBA: при red alpha=0.75 ожидается field=(0.75,0,0,0.5625), получено (0.7490196,0,0,0.5607843), допуск 2/255. Для итогового RGB поверхность сравнивается с `lerp(baselineLinear, measuredAlbedo.rgb, measuredAlbedo.a)` с обратным sRGB преобразованием. Expected RGB≈(0.682,0.048,0.137), actual≈(0.682,0.051,0.137), допуск 0.03. Alpha итоговой непрозрачной поверхности остаётся 1; сравнение здесь относится к RGB, не к промежуточному alpha из Color.Lerp в диагностической записи.
+
+При alpha=0.25 и cutoff=0.5 всё поле RGBA очищено; surface changed pixels относительно baseline=0. Снятие input с регистрации при возвращённой alpha=1 даёт тот же нулевой результат; включение восстанавливает blue patch. Оба API дали одинаковые результаты, PNG просмотрены. Измерения — Albedo-Direct3D11.txt / Direct3D12.txt, первоначальные отдельные passed XML — Albedo-DX11.xml / DX12.xml.
+
+`LocalWaterHeightUpdatesGpuQueriesAndHeightBounds` использует исходный RegisterHeightInput, Set Base Water Height Using Geometry, SimSettingsSeaFloorDepth с allowVaryingWaterLevel=true и публичный SampleHeightHelper. Проверен формат R32G32_SFloat; только канал Y содержит local offset, канал X без floor input законно содержит исходный -infinity sentinel. Все Y в LOD0 проверяются на finite values; контрольные offsets имеют допуск 0.01 м. Публичные queries должны восемь последовательных ocean frames совпадать с ожидаемой высотой в пределах 0.05 м, с ожиданием реальной async готовности.
+
+На обоих API input даёт +2 м, затем −1 м; bounds reporter возвращает соответствующие min/max. Перенос на +6 м очищает старую область. При global sea level=+3 м локальная геометрия остаётся на −1 м: field offset=−4 м, query height=−1 м; вне неё query=+3 м. Отключение даёт peak offset=0 и query=+3 м везде, удаляет input из HeightReporters; включение возвращает offset=−4 м/query=−1 м и регистрацию bounds reporter. Измерения — LocalHeight-Direct3D11.txt / Direct3D12.txt.
+
+Оба новых сценария прошли на обоих API. Весь SurfaceInputTests (clip/albedo/local height) прошёл **3/3 на DX11 и DX12**, failed=0/skipped=0, включая очистку между тестами. Теперь в исходниках **39 тестов**; полный checkpoint остаётся **37/37**, предшествует этим двум новым Editor-only сценариям и не подменялся focused XML. Runtime/shader/demo assets не менялись; Player builds не повторялись. Saved-profile/depth-cache round-trip остаётся отдельной незавершённой областью P06. Новых Markdown нет.

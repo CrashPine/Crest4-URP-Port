@@ -17,6 +17,273 @@ public class SurfaceInputTests
     RenderTexture _target;
     Camera _camera;
     float _timeScale = 1;
+    Color32[] _albedoImage;
+    Color _albedoSample;
+    SimSettingsSeaFloorDepth _depthSettings;
+
+    [UnityTest]
+    public IEnumerator LocalWaterHeightUpdatesGpuQueriesAndHeightBounds()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        _timeScale = Time.timeScale;
+        Time.timeScale = 0;
+        var ocean = OceanRenderer.Instance;
+        Camera.main.transform.position = new Vector3(0, 10, 0);
+        foreach (var fft in Object.FindObjectsByType<ShapeFFT>(FindObjectsSortMode.None)) fft.enabled = false;
+        _depthSettings = ScriptableObject.CreateInstance<SimSettingsSeaFloorDepth>();
+        _depthSettings._allowVaryingWaterLevel = true;
+        ocean._simSettingsSeaFloorDepth = _depthSettings;
+        yield return WaitForOceanUpdates(5);
+        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = true;
+        clock._time = clock._deltaTime = 0;
+        ocean.PushTimeProvider(clock);
+        var owner = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        owner.name = "Known local water level";
+        owner.transform.localScale = Vector3.one * .8f;
+        owner.transform.position = Vector3.up * 2;
+        var material = Track(new Material(Shader.Find("Crest/Inputs/Sea Floor Depth/Set Base Water Height Using Geometry")));
+        owner.GetComponent<Renderer>().sharedMaterial = material;
+        var input = owner.AddComponent<RegisterHeightInput>();
+        var helpers = new[] { new SampleHeightHelper(), new SampleHeightHelper(), new SampleHeightHelper() };
+        string report = $"Evidence/LocalHeight-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "Original RegisterHeightInput; RGFloat depth offset and public SampleHeightHelper; offset tolerance=0.01m; height tolerance=0.05m; eight consecutive matching query frames\n");
+        yield return WaitForOceanUpdates(4);
+        Assert.That(ocean._lodDataSeaDepths.DataTexture.graphicsFormat,
+            Is.EqualTo(UnityEngine.Experimental.Rendering.GraphicsFormat.R32G32_SFloat));
+        yield return CheckLocalHeight("Raised", new[] { Vector2.zero, new Vector2(-8, 0) }, new[] { 2f, 0f }, helpers);
+        var bounds = new Rect(-2, -2, 4, 4);
+        float minimum = 0, maximum = 0;
+        Assert.That(input.ReportHeight(ref bounds, ref minimum, ref maximum), Is.True);
+        Assert.That(minimum, Is.EqualTo(2).Within(.001f));
+        Assert.That(maximum, Is.EqualTo(2).Within(.001f));
+        File.AppendAllText(report, $"RaisedBoundsMin={minimum}; Max={maximum}\n");
+        owner.transform.position = Vector3.down;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckLocalHeight("Lowered", new[] { Vector2.zero, new Vector2(-8, 0) }, new[] { -1f, 0f }, helpers);
+        Assert.That(input.ReportHeight(ref bounds, ref minimum, ref maximum), Is.True);
+        Assert.That(minimum, Is.EqualTo(-1).Within(.001f));
+        Assert.That(maximum, Is.EqualTo(-1).Within(.001f));
+        owner.transform.position += Vector3.right * 6;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckLocalHeight("Moved", new[] { Vector2.zero, new Vector2(6, 0), new Vector2(-8, 0) }, new[] { 0f, -1f, 0f }, helpers);
+        ocean.transform.position = Vector3.up * 3;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckLocalHeight("SeaLevelThree", new[] { Vector2.zero, new Vector2(6, 0), new Vector2(-8, 0) }, new[] { 3f, -1f, 3f }, helpers);
+        Assert.That(ocean.SeaLevel, Is.EqualTo(3));
+        input.enabled = false;
+        Assert.That(OceanChunkRenderer.HeightReporters.Contains(input), Is.False);
+        yield return WaitForOceanUpdates(4);
+        yield return CheckLocalHeight("Disabled", new[] { Vector2.zero, new Vector2(6, 0), new Vector2(-8, 0) }, new[] { 3f, 3f, 3f }, helpers, requireEmpty: true);
+        input.enabled = true;
+        Assert.That(OceanChunkRenderer.HeightReporters.Contains(input), Is.True);
+        yield return WaitForOceanUpdates(4);
+        yield return CheckLocalHeight("Reenabled", new[] { new Vector2(6, 0), new Vector2(-8, 0) }, new[] { -1f, 3f }, helpers);
+        Assert.That(ocean.TimeProvider, Is.SameAs(clock));
+    }
+
+    static IEnumerator CheckLocalHeight(string phase, Vector2[] positions, float[] expectedHeights, SampleHeightHelper[] helpers, bool requireEmpty = false)
+    {
+        var ocean = OceanRenderer.Instance;
+        var target = ocean._lodDataSeaDepths.DataTexture;
+        var transform = ocean._lodTransform._renderData[0].Current;
+        var center = new Vector2(transform._posSnapped.x, transform._posSnapped.z);
+        float texel = 4 * ocean.CalcLodScale(0) / target.width;
+        var request = AsyncGPUReadback.Request(target, 0, TextureFormat.RGFloat);
+        while (!request.done) yield return null;
+        Assert.That(request.hasError, Is.False);
+        var values = request.GetData<Vector2>(0);
+        float peakOffset = 0;
+        for (int i = 0; i < target.width * target.height; i++)
+        {
+            // X legitimately contains Crest's -infinity sentinel without floor
+            // inputs. The varying water-level offset is exclusively channel Y.
+            float offset = values[i].y;
+            Assert.That(float.IsNaN(offset) || float.IsInfinity(offset), Is.False);
+            peakOffset = Mathf.Max(peakOffset, Mathf.Abs(offset));
+        }
+        string report = $"Evidence/LocalHeight-{SystemInfo.graphicsDeviceType}.txt";
+        File.AppendAllText(report, $"Phase={phase}; SeaLevel={ocean.SeaLevel}; PeakOffset={peakOffset}\n");
+        for (int i = 0; i < positions.Length; i++)
+        {
+            var coordinate = (positions[i] - center) / texel + Vector2.one * (target.width * .5f);
+            int x = Mathf.FloorToInt(coordinate.x), y = Mathf.FloorToInt(coordinate.y);
+            Assert.That(x, Is.InRange(0, target.width - 1));
+            Assert.That(y, Is.InRange(0, target.height - 1));
+            float offset = values[y * target.width + x].y;
+            float expectedOffset = expectedHeights[i] - ocean.SeaLevel;
+            File.AppendAllText(report, $"Position={positions[i]}; ExpectedOffset={expectedOffset}; Offset={offset}\n");
+            Assert.That(offset, Is.EqualTo(expectedOffset).Within(.01f));
+        }
+        if (requireEmpty) Assert.That(peakOffset, Is.LessThan(.0001f));
+        var heights = new float[positions.Length];
+        int consecutive = 0, previousFrame = -1;
+        float deadline = Time.realtimeSinceStartup + 20;
+        while (consecutive < 8 && Time.realtimeSinceStartup < deadline)
+        {
+            int frame = OceanRenderer.FrameCount;
+            if (frame == previousFrame) { yield return null; continue; }
+            previousFrame = frame;
+            bool matching = true;
+            for (int i = 0; i < positions.Length; i++)
+            {
+                helpers[i].Init(new Vector3(positions[i].x, 0, positions[i].y));
+                matching &= helpers[i].Sample(out heights[i]) &&
+                    !float.IsNaN(heights[i]) && !float.IsInfinity(heights[i]) && Mathf.Abs(heights[i] - expectedHeights[i]) < .05f;
+            }
+            consecutive = matching ? consecutive + 1 : 0;
+            yield return null;
+        }
+        File.AppendAllText(report, $"QueryHeights={string.Join(", ", heights)}; ConsecutiveMatchingFrames={consecutive}\n");
+        Assert.That(consecutive, Is.EqualTo(8), phase + " must propagate local and global water level changes through the original GPU query provider.");
+    }
+
+    [UnityTest]
+    public IEnumerator AlbedoColorBlendCutoffAndRegistrationAffectSurface()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        _timeScale = Time.timeScale;
+        Time.timeScale = 0;
+        var ocean = OceanRenderer.Instance;
+        foreach (var fft in Object.FindObjectsByType<ShapeFFT>(FindObjectsSortMode.None)) fft.enabled = false;
+        _camera = Camera.main;
+        _camera.transform.SetPositionAndRotation(new Vector3(0, 10, 0), Quaternion.Euler(90, 0, 0));
+        _camera.orthographic = true;
+        _camera.orthographicSize = 12;
+        _camera.GetUniversalAdditionalCameraData().renderPostProcessing = false;
+        RenderSettings.fog = false;
+        var underwater = _camera.GetComponent<UnderwaterRenderer>();
+        if (underwater != null) underwater.enabled = false;
+        _target = new RenderTexture(Size, Size, 24, RenderTextureFormat.ARGB32);
+        _target.Create();
+        var surface = Track(new Material(ocean.OceanMaterial));
+        foreach (string keyword in new[] { "_APPLYNORMALMAPPING_ON", "_FOAM_ON", "_TRANSPARENCY_ON", "_CAUSTICS_ON" }) surface.DisableKeyword(keyword);
+        surface.SetFloat("_Foam", 0);
+        surface.SetFloat("_ApplyNormalMapping", 0);
+        surface.EnableKeyword("_ALBEDO_ON");
+        surface.SetFloat("_Albedo", 1);
+        ocean.OceanMaterial = surface;
+        var configuration = new SerializedObject(ocean);
+        configuration.FindProperty("_createFoamSim").boolValue = false;
+        configuration.FindProperty("_createAlbedoData").boolValue = true;
+        configuration.ApplyModifiedPropertiesWithoutUndo();
+        yield return WaitForOceanUpdates(5);
+        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = true;
+        clock._time = clock._deltaTime = 0;
+        ocean.PushTimeProvider(clock);
+        yield return WaitForOceanUpdates(4);
+        Assert.That(ocean.Root.GetComponentsInChildren<OceanChunkRenderer>().Length, Is.GreaterThan(0));
+        var baseline = Capture("Baseline", "Albedo");
+        File.WriteAllText($"Evidence/Albedo-{SystemInfo.graphicsDeviceType}.txt",
+            "Original Albedo/Color shader; SrcAlpha/OneMinusSrcAlpha blend; RGBA tolerance=2/255; cutoff=0.5; fixed ocean time/delta=0\n");
+        var owner = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        owner.name = "Known albedo patch";
+        owner.transform.localScale = Vector3.one * .8f;
+        var material = Track(new Material(Shader.Find("Crest/Inputs/Albedo/Color")));
+        material.SetColor("_Color", Color.red);
+        owner.GetComponent<Renderer>().sharedMaterial = material;
+        var input = owner.AddComponent<RegisterAlbedoInput>();
+        Assert.That(material.GetInt("_BlendModeSource"), Is.EqualTo((int)BlendMode.SrcAlpha));
+        Assert.That(material.GetInt("_BlendModeTarget"), Is.EqualTo((int)BlendMode.OneMinusSrcAlpha));
+        yield return WaitForOceanUpdates(4);
+        yield return CheckAlbedo("Red", new[] { Vector2.zero, new Vector2(8, 0) }, new[] { Color.red, Color.clear });
+        Assert.That(CountColor(_albedoImage, red: true), Is.InRange(1000, 8000));
+        material.SetColor("_Color", Color.blue);
+        yield return WaitForOceanUpdates(4);
+        yield return CheckAlbedo("Blue", new[] { Vector2.zero }, new[] { Color.blue });
+        Assert.That(CountColor(_albedoImage, red: false), Is.InRange(1000, 8000));
+        owner.transform.position = Vector3.right * 6;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckAlbedo("Moved", new[] { Vector2.zero, new Vector2(6, 0) }, new[] { Color.clear, Color.blue });
+        int sample = ColorCentroid(_albedoImage, red: false);
+        Assert.That(CountColor(_albedoImage, red: false), Is.InRange(1000, 8000));
+        Assert.That(RgbError(_albedoImage[Size * (Size / 2) + Size / 2], baseline[Size * (Size / 2) + Size / 2]), Is.LessThan(.01f));
+        material.SetColor("_Color", new Color(1, 0, 0, .75f));
+        yield return WaitForOceanUpdates(4);
+        // The original input shader uses the same blend factors for RGBA:
+        // red=alpha and stored alpha=alpha squared over a clear target.
+        yield return CheckAlbedo("Blended", new[] { new Vector2(6, 0) }, new[] { new Color(.75f, 0, 0, .75f * .75f) });
+        Color baseColor = baseline[sample];
+        if (_target.sRGB) baseColor = baseColor.linear;
+        Color expectedSurface = Color.Lerp(baseColor, _albedoSample, _albedoSample.a);
+        if (_target.sRGB) expectedSurface = expectedSurface.gamma;
+        Color actualSurface = _albedoImage[sample];
+        File.AppendAllText($"Evidence/Albedo-{SystemInfo.graphicsDeviceType}.txt",
+            $"BlendSurfaceExpected={expectedSurface}; Actual={actualSurface}; TargetSRGB={_target.sRGB}; Pixel={sample}; RGBTolerance=0.03\n");
+        Assert.That(RgbError(actualSurface, expectedSurface), Is.LessThan(.03f), "Surface must composite the measured albedo field over the baseline in linear space.");
+        material.SetColor("_Color", new Color(1, 0, 0, .25f));
+        yield return WaitForOceanUpdates(4);
+        yield return CheckAlbedo("BelowCutoff", new[] { new Vector2(6, 0) }, new[] { Color.clear }, requireEmpty: true);
+        Assert.That(Different(baseline, _albedoImage), Is.EqualTo(0));
+        material.SetColor("_Color", Color.blue);
+        input.enabled = false;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckAlbedo("Disabled", new[] { new Vector2(6, 0) }, new[] { Color.clear }, requireEmpty: true);
+        Assert.That(Different(baseline, _albedoImage), Is.EqualTo(0));
+        input.enabled = true;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckAlbedo("Reenabled", new[] { new Vector2(6, 0) }, new[] { Color.blue });
+        Assert.That(CountColor(_albedoImage, red: false), Is.InRange(1000, 8000));
+        Assert.That(ocean.TimeProvider, Is.SameAs(clock));
+    }
+
+    IEnumerator CheckAlbedo(string phase, Vector2[] positions, Color[] expected, bool requireEmpty = false)
+    {
+        var ocean = OceanRenderer.Instance;
+        var target = ocean._lodDataAlbedo.DataTexture;
+        var transform = ocean._lodTransform._renderData[0].Current;
+        var center = new Vector2(transform._posSnapped.x, transform._posSnapped.z);
+        // Albedo may override resolution independently of the ocean simulation.
+        float texel = 4 * ocean.CalcLodScale(0) / target.width;
+        var request = AsyncGPUReadback.Request(target, 0, TextureFormat.RGBA32);
+        while (!request.done) yield return null;
+        Assert.That(request.hasError, Is.False);
+        var values = request.GetData<Color32>(0);
+        string report = $"Evidence/Albedo-{SystemInfo.graphicsDeviceType}.txt";
+        File.AppendAllText(report, $"Phase={phase}; Resolution={target.width}; TexelMetres={texel}\n");
+        for (int i = 0; i < positions.Length; i++)
+        {
+            var coordinate = (positions[i] - center) / texel + Vector2.one * (target.width * .5f);
+            int x = Mathf.FloorToInt(coordinate.x), y = Mathf.FloorToInt(coordinate.y);
+            Assert.That(x, Is.InRange(0, target.width - 1));
+            Assert.That(y, Is.InRange(0, target.height - 1));
+            _albedoSample = values[y * target.width + x];
+            File.AppendAllText(report, $"Position={positions[i]}; Expected={expected[i]}; Actual={_albedoSample}\n");
+            Assert.That(RgbError(_albedoSample, expected[i]), Is.LessThanOrEqualTo(2f / 255));
+            Assert.That(Mathf.Abs(_albedoSample.a - expected[i].a), Is.LessThanOrEqualTo(2f / 255));
+        }
+        if (requireEmpty)
+        {
+            foreach (var value in values) Assert.That(value, Is.EqualTo(new Color32(0, 0, 0, 0)));
+        }
+        _albedoImage = Capture(phase, "Albedo");
+        File.AppendAllText(report, $"SurfaceRedPixels={CountColor(_albedoImage, true)}; SurfaceBluePixels={CountColor(_albedoImage, false)}; RequireEmpty={requireEmpty}\n");
+    }
+
+    static float RgbError(Color a, Color b) => Mathf.Max(Mathf.Abs(a.r - b.r), Mathf.Abs(a.g - b.g), Mathf.Abs(a.b - b.b));
+    static int CountColor(Color32[] pixels, bool red)
+    {
+        int count = 0;
+        foreach (var p in pixels) if (red ? p.r > 200 && p.g < 50 && p.b < 50 : p.b > 200 && p.r < 50 && p.g < 50) count++;
+        return count;
+    }
+    static int ColorCentroid(Color32[] pixels, bool red)
+    {
+        int count = 0; long sumX = 0, sumY = 0;
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            var p = pixels[i];
+            if (!(red ? p.r > 200 && p.g < 50 && p.b < 50 : p.b > 200 && p.r < 50 && p.g < 50)) continue;
+            sumX += i % Size; sumY += i / Size; count++;
+        }
+        Assert.That(count, Is.GreaterThan(1000));
+        return (int)(sumY / count) * Size + (int)(sumX / count);
+    }
 
     [UnityTest]
     public IEnumerator CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly()
@@ -160,7 +427,7 @@ public class SurfaceInputTests
     }
 
     Material Track(Material material) { _materials.Add(material); return material; }
-    Color32[] Capture(string label)
+    Color32[] Capture(string label, string prefix = "ClipSurface")
     {
         RenderPipeline.SubmitRenderRequest(_camera, new UniversalRenderPipeline.SingleCameraRequest { destination = _target });
         var previous = RenderTexture.active;
@@ -170,7 +437,7 @@ public class SurfaceInputTests
             RenderTexture.active = _target;
             texture.ReadPixels(new Rect(0, 0, Size, Size), 0, 0);
             texture.Apply();
-            File.WriteAllBytes($"Evidence/ClipSurface-{label}-{SystemInfo.graphicsDeviceType}.png", texture.EncodeToPNG());
+            File.WriteAllBytes($"Evidence/{prefix}-{label}-{SystemInfo.graphicsDeviceType}.png", texture.EncodeToPNG());
             return texture.GetPixels32();
         }
         finally { RenderTexture.active = previous; Object.Destroy(texture); }
@@ -202,6 +469,7 @@ public class SurfaceInputTests
         if (_target != null) { _target.Release(); Object.Destroy(_target); }
         OceanRenderer.EnableGraphicsInBatchMode = false;
         if (Application.isPlaying) yield return new ExitPlayMode();
+        if (_depthSettings != null) Object.DestroyImmediate(_depthSettings);
         foreach (var material in _materials) if (material != null) Object.DestroyImmediate(material);
         _materials.Clear();
     }
