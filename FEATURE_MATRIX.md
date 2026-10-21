@@ -22,7 +22,7 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | Surface shading | Shaders/Ocean.shader | URP surface smoke captures inspected; original-renderer comparison pending | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Normal maps, scattering, Fresnel | OceanNormalMapping/Emission/Reflection.hlsl | Original equations retained | NOT TESTED |
 | Reflection probes | OceanReflection.hlsl | URP environment lookup added | NOT TESTED |
-| Planar reflection | Scripts/Reflection/OceanPlanarReflection.cs | URP render request, exception-safe root restoration; object visibility/readback fixture added. Culling/light options incomplete | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
+| Planar reflection | Scripts/Reflection/OceanPlanarReflection.cs; OceanPlanarReflection.URP.cs | Distance/light, oblique clipping, HDR/stencil/4× MSAA/resize, recursion and normal-path state restore pass on DX11/DX12. Distance/light also pass in both Player configurations/APIs with strict shader matching after stripping fix; remaining coverage in P05 | NOT TESTED (full acceptance); scoped checks passed |
 | Refraction/background | OceanEmission.hlsl; URP/CrestBackgroundFeature.cs | Graph color copy replaces named GrabPass | NOT TESTED |
 | Shadows/temporal soft shadows | Scripts/LodData/Shadows/LodDataMgrShadow.cs | Graph accumulation and matrix restore implemented; DX11/DX12 occlusion readback passed | NOT TESTED (full acceptance); scoped checks passed — see TEST_RESULTS.md |
 | Caustics | OceanEmission.hlsl | URP atlas sampling at refracted world position added; visual acceptance pending | NOT TESTED |

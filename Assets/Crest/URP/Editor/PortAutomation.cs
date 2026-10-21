@@ -161,6 +161,8 @@ namespace Crest.URP.Editor
         {
             if (Application.unityVersion != "6000.6.5f1")
                 throw new InvalidOperationException("Acceptance builds require Unity 6000.6.5f1.");
+            ReflectionVariantSetup.Configure();
+            PlayerSettings.strictShaderVariantMatching = true;
             var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
                 scenes = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray(),
                 target = BuildTarget.StandaloneWindows64, locationPathName = path, options = options

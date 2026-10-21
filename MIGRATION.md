@@ -41,6 +41,34 @@ No FishNet, Steam, weather, flooding or vessel-gameplay dependency has been adde
 
 ## Outstanding breaking rendering differences
 
-Underwater rendering now records graph mask/composite passes and reuses the original volume and artifact-fix algorithms. Temporal shadows import the original ping-pong arrays and sample the URP main-light atlas. Simulation matrices are restored before subsequent camera passes. Depth-cache capture uses a depth-only URP render request. Original example materials outside the ocean have not all been migrated. Spherical reflection culling emits an SRP warning and needs a supported equivalent. Basic volume confinement/fly-through and bounded scene-reload tests are recorded in TEST_RESULTS.md; full transition, XR, visual-equivalence and sustained resource acceptance remain outstanding. Task ordering belongs only in PORT_PLAN.md.
+Underwater rendering now records graph mask/composite passes and reuses the original volume and artifact-fix algorithms. Temporal shadows import the original ping-pong arrays and sample the URP main-light atlas. Simulation matrices are restored before subsequent camera passes. Depth-cache capture uses a depth-only URP render request. Original example materials outside the ocean have not all been migrated. Basic volume confinement/fly-through and bounded scene-reload tests are recorded in TEST_RESULTS.md; wave-driven transitions, XR, visual-equivalence and sustained resource acceptance remain outstanding. Task ordering belongs only in PORT_PLAN.md.
 
 URP teardown skips legacy Camera.RemoveCommandBuffer because graph passes are registered by the renderer feature, not camera events. Built-in retains its matching add/remove path. Fixed-time Editor fixtures now cover surface crossings in both directions, a localized meniscus, geometry-only overlay and before/after-transparent scheduling. A standard transparent shader without the Crest fog API is intentionally drawn after the before-transparent composite; integrations using that mode must apply underwater fog in their transparent shader.
+
+## Planar reflection options
+
+URP skips the Built-in-only spherical layer-culling switch. During the synchronous
+reflection request, a conservative bounding-sphere distance adapter temporarily
+excludes distant scene renderers, terrains and world-space canvases; its `finally`
+restores only the states it changed. Loaded scenes and DontDestroyOnLoad are searched.
+This scene traversal has a profiling marker `Crest.Reflection.DistanceCulling`;
+its cost and all renderer types have not yet received full acceptance.
+
+`OceanPlanarReflection.ReflectionDistance`, `DisablePixelLights` and
+`RefreshReflection()` expose the existing distance/light controls and immediate
+refresh. The light option sets per-camera URP additional-light data through
+`CrestBackgroundFeature`; the tested rendering mode is Forward. The active pipeline
+asset and Built-in quality settings are not changed for URP reflection requests.
+Forward+, Deferred and the legacy force-forward option require separate validation.
+
+Player builds must retain both per-pixel and per-vertex additional-light variants.
+`Crest.URP.Editor.ReflectionVariantSetup.Configure()` creates an auxiliary URP asset
+and includes it using the official `IncludeAdditionalRPAssets` label setting.
+The supplied build commands call this method. Integrators using another build
+entry point must run it before building and retain the auxiliary labeled asset.
+The renderer feature also declares a `ShaderKeywordFilter.SelectIf` rule for both
+lighting modes: the auxiliary asset alone does not retain them during early
+engine keyword prefiltering. Supplied builds enable strict shader variant matching
+to report missing variants instead of silently substituting another lighting mode.
+It is not selected as an active runtime quality pipeline. HDR/stencil/MSAA and
+size changes recreate the reflection target; unchanged descriptors reuse it.

@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-20T21:33:29.0013235Z",
+  "recordedUtc": "2026-10-21T10:46:15.7121790Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1244,
+  "fileCount": 1252,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -33,26 +33,26 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-20 21:25:45Z",
+      "start": "2026-10-21 10:33:54Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "5",
+      "passed": "5",
       "failed": "0"
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-10-20 21:26:27Z",
+      "start": "2026-10-21 10:34:54Z",
       "result": "Passed",
-      "total": "21",
-      "passed": "21",
+      "total": "25",
+      "passed": "25",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-20 21:27:10Z",
+      "start": "2026-10-21 10:35:39Z",
       "result": "Passed",
-      "total": "21",
-      "passed": "21",
+      "total": "25",
+      "passed": "25",
       "failed": "0"
     }
   ],
@@ -1434,13 +1434,23 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs",
-      "bytes": 22264,
-      "sha256": "19286D92E38A5379CBBB7616912B3043606B04EB23238A74CD0E120B570A8192"
+      "bytes": 24538,
+      "sha256": "F5DE53B0B5192A6C65F73272A493CC0E33E012E02329271839771B44EA0D383B"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs.meta",
       "bytes": 256,
       "sha256": "2B599838B7627FFE847004673B6AD8A208203CF952506D8C2E9F72B0BC835AB9"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs",
+      "bytes": 7185,
+      "sha256": "F15C00EABED204D8DA4BF5600CE9BB161CAFD82E59C94D206AF3132CD41F66CE"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs.meta",
+      "bytes": 59,
+      "sha256": "0F9484E28994AD4B5232A77AC271B28C17D2F4959BF46BFCB1094286A1962077"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Shapes/FFT.meta",
@@ -5579,13 +5589,23 @@
     },
     {
       "path": "Assets/Crest/URP/Editor/PortAutomation.cs",
-      "bytes": 9439,
-      "sha256": "299AE85781FDAA6E57BED25613662E757D2B1764A5F15B49C5E384848F8D9758"
+      "bytes": 9550,
+      "sha256": "2BF16FCA67C7B72C49F0EAB33F79BC5F7A891C5243C7270BB6EB68644766D472"
     },
     {
       "path": "Assets/Crest/URP/Editor/PortAutomation.cs.meta",
       "bytes": 59,
       "sha256": "D87DC000C3496A996A8FF6785D1BF9FF4EA3DEAB337CDD855B0B5A1722068EF0"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/ReflectionVariantSetup.cs",
+      "bytes": 2175,
+      "sha256": "50630B395A25912081C1DDE7BE5571C4DF3D0B194A3A4B9E6D071411A4D1D402"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/ReflectionVariantSetup.cs.meta",
+      "bytes": 59,
+      "sha256": "D301A782CD4C86DC713E232B09F7F0CF3144DCF71677EDA6DDC3E468F74E18DF"
     },
     {
       "path": "Assets/Crest/URP/Runtime/Crest.URP.asmdef",
@@ -5599,8 +5619,8 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
-      "bytes": 5018,
-      "sha256": "14E0932F0473C2B3380D04EFB4ED0EACCAA5EF099F64D6F405BED52B2291250F"
+      "bytes": 5707,
+      "sha256": "1D1AF3322642743A2FA627C5E30F1526F31147D492A695319D46D64B540D051E"
     },
     {
       "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs.meta",
@@ -5609,13 +5629,23 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
-      "bytes": 6388,
-      "sha256": "FB62CFCE1D57AC510CA5EDDC830ADFFA78C2EC0501B70D80FDD2141861B7147A"
+      "bytes": 6543,
+      "sha256": "B5CBC462B89D53FE3A70C4893E92CB7BF83397317AA56B9BC6A14F11A721CE42"
     },
     {
       "path": "Assets/Crest/URP/Runtime/PortDemoController.cs.meta",
       "bytes": 59,
       "sha256": "C0278DE20F7A39ECF720CA185EB595469D404B32D885BFC0494BB470B689B5FC"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs",
+      "bytes": 6996,
+      "sha256": "E480CC602822626E1BEB109755C668FA239B48E456CDE446315EB2136E5BA38F"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs.meta",
+      "bytes": 59,
+      "sha256": "94D04A6AE9F7EC10C3717F7C4F77017A817F7BD360C814E7A2E447803BBB7A01"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor.meta",
@@ -5664,8 +5694,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs",
-      "bytes": 3645,
-      "sha256": "6ADDCCECED7E9523E4858B9B58D5E5DE9F62E87FD6866A28CF74E7B7D859657F"
+      "bytes": 17000,
+      "sha256": "DE366AFA04929ED8F448440E027E9CF7A7DA32D0739EEE1D3A08B0E9EA872351"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs.meta",
@@ -5883,6 +5913,16 @@
       "sha256": "B2A1C0824E151BBE13845607746A6892B0791B128EEBBE227D05B873C2ED5926"
     },
     {
+      "path": "Assets/CrestPortDemos/ReflectionVertexVariants.asset",
+      "bytes": 4928,
+      "sha256": "DD0C32F7B0EF6C0B7F07518E628737DBFAD44E313B0416B9C0ECB3867AD58AA4"
+    },
+    {
+      "path": "Assets/CrestPortDemos/ReflectionVertexVariants.asset.meta",
+      "bytes": 220,
+      "sha256": "41E29BB9AEAE95036093824F9E9F557B5DEBED077E0FD21D89D19070EBC52FF3"
+    },
+    {
       "path": "Assets/CrestPortDemos/Renderer.asset",
       "bytes": 2341,
       "sha256": "E3FCB7BD1D58BB03EA616E2200C0797686B663736CA6903EA1223BC25C7C26CC"
@@ -5964,8 +6004,8 @@
     },
     {
       "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
-      "bytes": 29693,
-      "sha256": "DE16216797B7D4212762916335811C880FF5E7F6A2BD066882137B949BD13AF1"
+      "bytes": 29716,
+      "sha256": "39682086FF8032861E3D2023A1BBAF0FCDDAD732F7AF22B5488BEB445FADBB70"
     },
     {
       "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset.meta",
@@ -6145,7 +6185,7 @@
     {
       "path": "ProjectSettings/ProjectSettings.asset",
       "bytes": 26452,
-      "sha256": "56DC39FCD701009F63633A2E2B6D47A61E438E65B237F0EE56CEA2EB1BE6548F"
+      "sha256": "2F37573DA54823E705EE5F3F33C2F3A6596101593AACB0077C6B054B1DB49169"
     },
     {
       "path": "ProjectSettings/ProjectVersion.txt",
@@ -6209,8 +6249,8 @@
     },
     {
       "path": "Tools/Run-Player.ps1",
-      "bytes": 1694,
-      "sha256": "2D8FC8941EEA9CD21A72FD916884E7D8BF5416E70B860CF211D4EF8A046BDFFF"
+      "bytes": 2259,
+      "sha256": "ED0F24B92FCBF82805E9381FF4378802F065BBB2FDB736C385868195106279C7"
     },
     {
       "path": "Tools/Run-Unity.ps1",
@@ -6234,8 +6274,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 7462,
-      "sha256": "EA8B10EAE2636B5660D3AD50EF299B99E1DE96C94897C0E5E6BCE2B6218B5814"
+      "bytes": 7597,
+      "sha256": "FEFD9F6C3283F4675D1601C187B1BF6092F9D6975ED64D6D70DDD5C7DDAC1DB5"
     },
     {
       "path": "LICENSE.Crest",
@@ -6244,23 +6284,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 3943,
-      "sha256": "B8E40FF5494A4CF27D5F257FF4EFDC49B3B1CA877D5F36C4B622C5ADE68D5B4C"
+      "bytes": 5741,
+      "sha256": "19E84C9E559305FE1D62AB6545B8C9763FD390188A1ACEFF8799304522BC540F"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 8693,
-      "sha256": "876F0E6F853275D6B589468657AECA17382C4D6463A4BAA36B9074002F81EBB3"
+      "bytes": 10406,
+      "sha256": "0A3FDF5BA6A941CA954E1D6450A88C98DFB3647502BDCE5192839FC4BD887EB4"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 5190,
-      "sha256": "52A2BBB855CDFBB286B91BE146A0F92494F82BF9384E75954389E3871E099E35"
+      "bytes": 5186,
+      "sha256": "D75BFDB9C647F1ED7F080F28ECC3B9F3AF5C3DF4A8CDCE907070CEB4609C12BE"
     },
     {
       "path": "README.md",
-      "bytes": 4544,
-      "sha256": "C8AB3A624BB5B476FF01A7FE69659EE7301ECFF28A41951A9FED083F1BFA0B29"
+      "bytes": 5052,
+      "sha256": "9DD558AE6B9D5B107F7BAD2F7C8B8FE1C2CD5D7351DC8315CC9B97B5C7236AC0"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6269,8 +6309,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 12734,
-      "sha256": "38AE91B3C39CD658D25D8374520173A8A7788AC1A1E9BDE430A73F6D770D049A"
+      "bytes": 17777,
+      "sha256": "83E8785BB06C4B99B82083873439C98899AB7BB47F118A86B6FB7A1E000FF0B4"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

@@ -40,11 +40,13 @@ $editor = 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe'
 ./Tools/Run-Unity.ps1 -Editor $editor -Action EditMode -GraphicsAPI DX12 -TestFilter UnderwaterVolumeTests
 ./Tools/Run-Unity.ps1 -Editor $editor -Action Development -GraphicsAPI DX11
 ./Tools/Run-Unity.ps1 -Editor $editor -Action Release -GraphicsAPI DX12
-./Tools/Run-Player.ps1 -Player ./Builds/Release/CrestPort.exe -Label Release -GraphicsAPI DX12
+./Tools/Run-Player.ps1 -Player ./Builds/Release/CrestPort.exe -Label Release -GraphicsAPI DX12 -ReflectionOptions
 ./Tools/Audit-Workspace.ps1 -Upstream ../../work/crest-upstream
 ./Tools/Verify-GuidAndCompute.ps1 -Upstream ../../work/crest-upstream
 ```
 
 Focused XML не заменяет полный набор. `Verify-Source.ps1` — отдельная строгая побайтовая проверка: Unity нормализовала три sprite meta, поэтому её результат отличается от проверки GUID/compute; это не скрывается.
+
+`-ReflectionOptions` добавляет к семи сценам контролируемую проверку дистанции и pixel/vertex lighting отражения с отдельными PNG и `reflection-options.txt`. Скрипт проверяет свежесть этих файлов. Сборка автоматически сохраняет необходимые lighting variants; контракт для другого build pipeline описан в MIGRATION.md.
 
 Player предоставляет переключение сцен, ветер, уровень моря и высоту камеры. Smoke-проверка не доказывает полную визуальную эквивалентность или производительность.

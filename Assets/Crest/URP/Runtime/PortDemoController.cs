@@ -10,7 +10,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Crest.URP
 {
-    public sealed class PortDemoController : MonoBehaviour
+    public sealed partial class PortDemoController : MonoBehaviour
     {
         bool _smoke;
         int _errors;
@@ -82,6 +82,8 @@ namespace Crest.URP
                 yield return null;
                 yield return null;
             }
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestReflectionOptions") >= 0)
+                yield return ReflectionOptions();
             _results.Add($"Errors={_errors}. Smoke checks do not establish full visual or performance acceptance.");
             File.WriteAllLines(Path.Combine(_evidence, "player-smoke.txt"), _results);
             Application.Quit(_errors == 0 ? 0 : 1);

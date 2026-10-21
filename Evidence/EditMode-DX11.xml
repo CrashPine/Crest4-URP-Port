@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="21" result="Passed" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-20 21:26:27Z" end-time="2026-10-20 21:26:45Z" duration="17,0646463">
-  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-10-20 21:26:27Z" end-time="2026-10-20 21:26:45Z" duration="17.064646" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="25" result="Passed" total="25" passed="25" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-21 10:34:54Z" end-time="2026-10-21 10:35:11Z" duration="17,4460234">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="25" result="Passed" start-time="2026-10-21 10:34:54Z" end-time="2026-10-21 10:35:11Z" duration="17.446023" total="25" passed="25" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1032" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="21" result="Passed" start-time="2026-10-20 21:26:28Z" end-time="2026-10-20 21:26:45Z" duration="17.053426" total="21" passed="21" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1036" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="25" result="Passed" start-time="2026-10-21 10:34:54Z" end-time="2026-10-21 10:35:11Z" duration="17.431208" total="25" passed="25" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="52028" />
+        <property name="_PID" value="194668" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestFixture" id="1001" name="AdditionalSimulationTests" fullname="AdditionalSimulationTests" classname="AdditionalSimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-20 21:26:28Z" end-time="2026-10-20 21:26:35Z" duration="7.330895" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1001" name="AdditionalSimulationTests" fullname="AdditionalSimulationTests" classname="AdditionalSimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-21 10:34:54Z" end-time="2026-10-21 10:35:01Z" duration="6.994953" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1003" name="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" fullname="AdditionalSimulationTests.FlowQueriesMatchKnownInputAndRuntimeDirectionChange" methodname="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" classname="AdditionalSimulationTests" runstate="Runnable" seed="1677870887" result="Passed" start-time="2026-10-20 21:26:28Z" end-time="2026-10-20 21:26:29Z" duration="1.192577" asserts="0">
+        <test-case id="1003" name="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" fullname="AdditionalSimulationTests.FlowQueriesMatchKnownInputAndRuntimeDirectionChange" methodname="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" classname="AdditionalSimulationTests" runstate="Runnable" seed="669259918" result="Passed" start-time="2026-10-21 10:34:54Z" end-time="2026-10-21 10:34:55Z" duration="1.025558" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1004" name="GerstnerProducesChangingHeightsWithoutFft" fullname="AdditionalSimulationTests.GerstnerProducesChangingHeightsWithoutFft" methodname="GerstnerProducesChangingHeightsWithoutFft" classname="AdditionalSimulationTests" runstate="Runnable" seed="664533387" result="Passed" start-time="2026-10-20 21:26:29Z" end-time="2026-10-20 21:26:29Z" duration="0.596665" asserts="0">
+        <test-case id="1004" name="GerstnerProducesChangingHeightsWithoutFft" fullname="AdditionalSimulationTests.GerstnerProducesChangingHeightsWithoutFft" methodname="GerstnerProducesChangingHeightsWithoutFft" classname="AdditionalSimulationTests" runstate="Runnable" seed="816577383" result="Passed" start-time="2026-10-21 10:34:55Z" end-time="2026-10-21 10:34:55Z" duration="0.447602" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1002" name="MovingSphereInjectsDynamicWaveEnergy" fullname="AdditionalSimulationTests.MovingSphereInjectsDynamicWaveEnergy" methodname="MovingSphereInjectsDynamicWaveEnergy" classname="AdditionalSimulationTests" runstate="Runnable" seed="403187941" result="Passed" start-time="2026-10-20 21:26:29Z" end-time="2026-10-20 21:26:35Z" duration="5.515336" asserts="0">
+        <test-case id="1002" name="MovingSphereInjectsDynamicWaveEnergy" fullname="AdditionalSimulationTests.MovingSphereInjectsDynamicWaveEnergy" methodname="MovingSphereInjectsDynamicWaveEnergy" classname="AdditionalSimulationTests" runstate="Runnable" seed="461061767" result="Passed" start-time="2026-10-21 10:34:55Z" end-time="2026-10-21 10:35:01Z" duration="5.497971" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -35,9 +35,9 @@
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1005" name="BuoyancyGraphicsTests" fullname="BuoyancyGraphicsTests" classname="BuoyancyGraphicsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-20 21:26:35Z" end-time="2026-10-20 21:26:36Z" duration="1.197594" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1005" name="BuoyancyGraphicsTests" fullname="BuoyancyGraphicsTests" classname="BuoyancyGraphicsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-21 10:35:01Z" end-time="2026-10-21 10:35:02Z" duration="1.156624" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1006" name="DifferentBodiesRemainBuoyant" fullname="BuoyancyGraphicsTests.DifferentBodiesRemainBuoyant" methodname="DifferentBodiesRemainBuoyant" classname="BuoyancyGraphicsTests" runstate="Runnable" seed="120209266" result="Passed" start-time="2026-10-20 21:26:35Z" end-time="2026-10-20 21:26:36Z" duration="1.195613" asserts="0">
+        <test-case id="1006" name="DifferentBodiesRemainBuoyant" fullname="BuoyancyGraphicsTests.DifferentBodiesRemainBuoyant" methodname="DifferentBodiesRemainBuoyant" classname="BuoyancyGraphicsTests" runstate="Runnable" seed="2079488508" result="Passed" start-time="2026-10-21 10:35:01Z" end-time="2026-10-21 10:35:02Z" duration="1.155340" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -45,209 +45,16 @@
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1007" name="OceanGraphicsTests" fullname="OceanGraphicsTests" classname="OceanGraphicsTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-20 21:26:36Z" end-time="2026-10-20 21:26:39Z" duration="3.389905" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1007" name="OceanGraphicsTests" fullname="OceanGraphicsTests" classname="OceanGraphicsTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-21 10:35:02Z" end-time="2026-10-21 10:35:05Z" duration="3.365991" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1011" name="DepthCacheCapturesKnownHeight" fullname="OceanGraphicsTests.DepthCacheCapturesKnownHeight" methodname="DepthCacheCapturesKnownHeight" classname="OceanGraphicsTests" runstate="Runnable" seed="1521840955" result="Passed" start-time="2026-10-20 21:26:36Z" end-time="2026-10-20 21:26:37Z" duration="0.671971" asserts="0">
+        <test-case id="1011" name="DepthCacheCapturesKnownHeight" fullname="OceanGraphicsTests.DepthCacheCapturesKnownHeight" methodname="DepthCacheCapturesKnownHeight" classname="OceanGraphicsTests" runstate="Runnable" seed="1112283645" result="Passed" start-time="2026-10-21 10:35:02Z" end-time="2026-10-21 10:35:02Z" duration="0.636728" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1010" name="ReflectionsRenderAndQuery" fullname="OceanGraphicsTests.ReflectionsRenderAndQuery" methodname="ReflectionsRenderAndQuery" classname="OceanGraphicsTests" runstate="Runnable" seed="336388577" result="Passed" start-time="2026-10-20 21:26:37Z" end-time="2026-10-20 21:26:38Z" duration="0.885590" asserts="0">
-          <properties>
-            <property name="_JOINTYPE" value="UnityCombinatorial" />
-            <property name="retryIteration" value="0" />
-            <property name="repeatIteration" value="0" />
-          </properties>
-          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
-Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-]]></output>
-        </test-case>
-        <test-case id="1012" name="ShadowAtlasAccumulatesOcclusion" fullname="OceanGraphicsTests.ShadowAtlasAccumulatesOcclusion" methodname="ShadowAtlasAccumulatesOcclusion" classname="OceanGraphicsTests" runstate="Runnable" seed="840892851" result="Passed" start-time="2026-10-20 21:26:38Z" end-time="2026-10-20 21:26:38Z" duration="0.781267" asserts="0">
+        <test-case id="1010" name="ReflectionsRenderAndQuery" fullname="OceanGraphicsTests.ReflectionsRenderAndQuery" methodname="ReflectionsRenderAndQuery" classname="OceanGraphicsTests" runstate="Runnable" seed="674142137" result="Passed" start-time="2026-10-21 10:35:02Z" end-time="2026-10-21 10:35:03Z" duration="0.852126" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -255,192 +62,19 @@ Your project uses a scriptable render pipeline. You can use Camera.layerCullSphe
           </properties>
           <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
 ]]></output>
         </test-case>
-        <test-case id="1009" name="UnderwaterRendersAndQueries" fullname="OceanGraphicsTests.UnderwaterRendersAndQueries" methodname="UnderwaterRendersAndQueries" classname="OceanGraphicsTests" runstate="Runnable" seed="1693150048" result="Passed" start-time="2026-10-20 21:26:38Z" end-time="2026-10-20 21:26:39Z" duration="0.530153" asserts="0">
+        <test-case id="1012" name="ShadowAtlasAccumulatesOcclusion" fullname="OceanGraphicsTests.ShadowAtlasAccumulatesOcclusion" methodname="ShadowAtlasAccumulatesOcclusion" classname="OceanGraphicsTests" runstate="Runnable" seed="2029887258" result="Passed" start-time="2026-10-21 10:35:03Z" end-time="2026-10-21 10:35:04Z" duration="0.721088" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1009" name="UnderwaterRendersAndQueries" fullname="OceanGraphicsTests.UnderwaterRendersAndQueries" methodname="UnderwaterRendersAndQueries" classname="OceanGraphicsTests" runstate="Runnable" seed="255540547" result="Passed" start-time="2026-10-21 10:35:04Z" end-time="2026-10-21 10:35:05Z" duration="0.676023" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -450,7 +84,7 @@ Your project uses a scriptable render pipeline. You can use Camera.layerCullSphe
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1008" name="WavesProduceChangingGpuQueriesAndCapture" fullname="OceanGraphicsTests.WavesProduceChangingGpuQueriesAndCapture" methodname="WavesProduceChangingGpuQueriesAndCapture" classname="OceanGraphicsTests" runstate="Runnable" seed="490287002" result="Passed" start-time="2026-10-20 21:26:39Z" end-time="2026-10-20 21:26:39Z" duration="0.517234" asserts="0">
+        <test-case id="1008" name="WavesProduceChangingGpuQueriesAndCapture" fullname="OceanGraphicsTests.WavesProduceChangingGpuQueriesAndCapture" methodname="WavesProduceChangingGpuQueriesAndCapture" classname="OceanGraphicsTests" runstate="Runnable" seed="892624037" result="Passed" start-time="2026-10-21 10:35:05Z" end-time="2026-10-21 10:35:05Z" duration="0.475154" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -458,9 +92,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1013" name="PlanarReflectionTests" fullname="PlanarReflectionTests" classname="PlanarReflectionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-20 21:26:39Z" end-time="2026-10-20 21:26:40Z" duration="0.373902" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1013" name="PlanarReflectionTests" fullname="PlanarReflectionTests" classname="PlanarReflectionTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-21 10:35:05Z" end-time="2026-10-21 10:35:06Z" duration="1.375685" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1014" name="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" fullname="PlanarReflectionTests.ReflectionContainsVisibleObjectAndUpdatesWhenHidden" methodname="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" classname="PlanarReflectionTests" runstate="Runnable" seed="1355053055" result="Passed" start-time="2026-10-20 21:26:39Z" end-time="2026-10-20 21:26:40Z" duration="0.372475" asserts="0">
+        <test-case id="1017" name="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" fullname="PlanarReflectionTests.PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" methodname="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" classname="PlanarReflectionTests" runstate="Runnable" seed="631934644" result="Passed" start-time="2026-10-21 10:35:05Z" end-time="2026-10-21 10:35:05Z" duration="0.292720" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -468,35 +102,52 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </properties>
           <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
-Your project uses a scriptable render pipeline. You can use Camera.layerCullSpherical only with the built-in renderer.
+]]></output>
+        </test-case>
+        <test-case id="1015" name="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" fullname="PlanarReflectionTests.ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" methodname="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" classname="PlanarReflectionTests" runstate="Runnable" seed="333562096" result="Passed" start-time="2026-10-21 10:35:05Z" end-time="2026-10-21 10:35:06Z" duration="0.275107" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1018" name="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" fullname="PlanarReflectionTests.ReflectionContainsVisibleObjectAndUpdatesWhenHidden" methodname="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" classname="PlanarReflectionTests" runstate="Runnable" seed="989985801" result="Passed" start-time="2026-10-21 10:35:06Z" end-time="2026-10-21 10:35:06Z" duration="0.343843" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1016" name="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" fullname="PlanarReflectionTests.ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" methodname="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" classname="PlanarReflectionTests" runstate="Runnable" seed="444907834" result="Passed" start-time="2026-10-21 10:35:06Z" end-time="2026-10-21 10:35:06Z" duration="0.256637" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1014" name="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" fullname="PlanarReflectionTests.ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" methodname="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" classname="PlanarReflectionTests" runstate="Runnable" seed="208118826" result="Passed" start-time="2026-10-21 10:35:06Z" end-time="2026-10-21 10:35:06Z" duration="0.204316" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1015" name="QueryPressureTests" fullname="QueryPressureTests" classname="QueryPressureTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-20 21:26:40Z" end-time="2026-10-20 21:26:40Z" duration="0.454160" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1019" name="QueryPressureTests" fullname="QueryPressureTests" classname="QueryPressureTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-21 10:35:06Z" end-time="2026-10-21 10:35:07Z" duration="0.463366" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1016" name="QueriesRecoverAfterCpuBurst" fullname="QueryPressureTests.QueriesRecoverAfterCpuBurst" methodname="QueriesRecoverAfterCpuBurst" classname="QueryPressureTests" runstate="Runnable" seed="1024374375" result="Passed" start-time="2026-10-20 21:26:40Z" end-time="2026-10-20 21:26:40Z" duration="0.452497" asserts="0">
+        <test-case id="1020" name="QueriesRecoverAfterCpuBurst" fullname="QueryPressureTests.QueriesRecoverAfterCpuBurst" methodname="QueriesRecoverAfterCpuBurst" classname="QueryPressureTests" runstate="Runnable" seed="461274451" result="Passed" start-time="2026-10-21 10:35:06Z" end-time="2026-10-21 10:35:07Z" duration="0.462253" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -504,9 +155,9 @@ Your project uses a scriptable render pipeline. You can use Camera.layerCullSphe
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1017" name="ResourceLifecycleTests" fullname="ResourceLifecycleTests" classname="ResourceLifecycleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-20 21:26:40Z" end-time="2026-10-20 21:26:42Z" duration="2.111675" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1021" name="ResourceLifecycleTests" fullname="ResourceLifecycleTests" classname="ResourceLifecycleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-21 10:35:07Z" end-time="2026-10-21 10:35:09Z" duration="1.987294" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1018" name="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" fullname="ResourceLifecycleTests.RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" methodname="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" classname="ResourceLifecycleTests" runstate="Runnable" seed="551015867" result="Passed" start-time="2026-10-20 21:26:40Z" end-time="2026-10-20 21:26:42Z" duration="2.110338" asserts="0">
+        <test-case id="1022" name="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" fullname="ResourceLifecycleTests.RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" methodname="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" classname="ResourceLifecycleTests" runstate="Runnable" seed="2011853842" result="Passed" start-time="2026-10-21 10:35:07Z" end-time="2026-10-21 10:35:09Z" duration="1.985911" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -529,23 +180,23 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1019" name="SpectrumTests" fullname="SpectrumTests" classname="SpectrumTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:42Z" duration="0.008304" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1023" name="SpectrumTests" fullname="SpectrumTests" classname="SpectrumTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:09Z" duration="0.008645" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1023" name="SpectrumGenerationIsRepeatableForFixedSeed" fullname="SpectrumTests.SpectrumGenerationIsRepeatableForFixedSeed" methodname="SpectrumGenerationIsRepeatableForFixedSeed" classname="SpectrumTests" runstate="Runnable" seed="49428247" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:42Z" duration="0.003656" asserts="0">
+        <test-case id="1027" name="SpectrumGenerationIsRepeatableForFixedSeed" fullname="SpectrumTests.SpectrumGenerationIsRepeatableForFixedSeed" methodname="SpectrumGenerationIsRepeatableForFixedSeed" classname="SpectrumTests" runstate="Runnable" seed="534598549" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:09Z" duration="0.003991" asserts="0">
           <properties>
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-suite type="ParameterizedMethod" id="1022" name="SpectrumSamplingIsOrderedAndInsideOctaves" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:42Z" duration="0.002871" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="ParameterizedMethod" id="1026" name="SpectrumSamplingIsOrderedAndInsideOctaves" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:09Z" duration="0.002931" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
           <properties />
-          <test-case id="1020" name="SpectrumSamplingIsOrderedAndInsideOctaves(1)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(1)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="1246634348" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:42Z" duration="0.001306" asserts="0">
+          <test-case id="1024" name="SpectrumSamplingIsOrderedAndInsideOctaves(1)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(1)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="935712499" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:09Z" duration="0.001107" asserts="0">
             <properties>
               <property name="retryIteration" value="0" />
               <property name="repeatIteration" value="0" />
             </properties>
           </test-case>
-          <test-case id="1021" name="SpectrumSamplingIsOrderedAndInsideOctaves(8)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(8)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="816906109" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:42Z" duration="0.000673" asserts="0">
+          <test-case id="1025" name="SpectrumSamplingIsOrderedAndInsideOctaves(8)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(8)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="1890171909" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:09Z" duration="0.000688" asserts="0">
             <properties>
               <property name="retryIteration" value="0" />
               <property name="repeatIteration" value="0" />
@@ -553,9 +204,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </test-case>
         </test-suite>
       </test-suite>
-      <test-suite type="TestFixture" id="1024" name="UnderwaterBoundaryTests" fullname="UnderwaterBoundaryTests" classname="UnderwaterBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:44Z" duration="1.197820" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1028" name="UnderwaterBoundaryTests" fullname="UnderwaterBoundaryTests" classname="UnderwaterBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:10Z" duration="1.096142" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1027" name="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" fullname="UnderwaterBoundaryTests.EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" methodname="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1860835966" result="Passed" start-time="2026-10-20 21:26:42Z" end-time="2026-10-20 21:26:43Z" duration="0.369582" asserts="0">
+        <test-case id="1031" name="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" fullname="UnderwaterBoundaryTests.EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" methodname="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="169884737" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:09Z" duration="0.338616" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -567,7 +218,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1026" name="OverlayFogsGeometryAndPreservesBackground" fullname="UnderwaterBoundaryTests.OverlayFogsGeometryAndPreservesBackground" methodname="OverlayFogsGeometryAndPreservesBackground" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1258013028" result="Passed" start-time="2026-10-20 21:26:43Z" end-time="2026-10-20 21:26:43Z" duration="0.340164" asserts="0">
+        <test-case id="1030" name="OverlayFogsGeometryAndPreservesBackground" fullname="UnderwaterBoundaryTests.OverlayFogsGeometryAndPreservesBackground" methodname="OverlayFogsGeometryAndPreservesBackground" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1544203618" result="Passed" start-time="2026-10-21 10:35:09Z" end-time="2026-10-21 10:35:10Z" duration="0.304926" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -578,7 +229,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1025" name="SurfaceCrossingAndMeniscusRespondAtFixedTime" fullname="UnderwaterBoundaryTests.SurfaceCrossingAndMeniscusRespondAtFixedTime" methodname="SurfaceCrossingAndMeniscusRespondAtFixedTime" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1513907793" result="Passed" start-time="2026-10-20 21:26:43Z" end-time="2026-10-20 21:26:44Z" duration="0.486266" asserts="0">
+        <test-case id="1029" name="SurfaceCrossingAndMeniscusRespondAtFixedTime" fullname="UnderwaterBoundaryTests.SurfaceCrossingAndMeniscusRespondAtFixedTime" methodname="SurfaceCrossingAndMeniscusRespondAtFixedTime" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="678249789" result="Passed" start-time="2026-10-21 10:35:10Z" end-time="2026-10-21 10:35:10Z" duration="0.450659" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -591,9 +242,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1028" name="UnderwaterVolumeTests" fullname="UnderwaterVolumeTests" classname="UnderwaterVolumeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-20 21:26:44Z" end-time="2026-10-20 21:26:45Z" duration="0.985320" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1032" name="UnderwaterVolumeTests" fullname="UnderwaterVolumeTests" classname="UnderwaterVolumeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-21 10:35:10Z" end-time="2026-10-21 10:35:11Z" duration="0.978903" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1031" name="FlyThroughRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.FlyThroughRestrictsFogToGeometry" methodname="FlyThroughRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="377977887" result="Passed" start-time="2026-10-20 21:26:44Z" end-time="2026-10-20 21:26:44Z" duration="0.335010" asserts="0">
+        <test-case id="1035" name="FlyThroughRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.FlyThroughRestrictsFogToGeometry" methodname="FlyThroughRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="1395224584" result="Passed" start-time="2026-10-21 10:35:10Z" end-time="2026-10-21 10:35:10Z" duration="0.403959" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -604,7 +255,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1029" name="PortalRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.PortalRestrictsFogToGeometry" methodname="PortalRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="1769311410" result="Passed" start-time="2026-10-20 21:26:44Z" end-time="2026-10-20 21:26:44Z" duration="0.321007" asserts="0">
+        <test-case id="1033" name="PortalRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.PortalRestrictsFogToGeometry" methodname="PortalRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="72509722" result="Passed" start-time="2026-10-21 10:35:10Z" end-time="2026-10-21 10:35:11Z" duration="0.286532" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -615,7 +266,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1030" name="VolumeRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.VolumeRestrictsFogToGeometry" methodname="VolumeRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="858126570" result="Passed" start-time="2026-10-20 21:26:44Z" end-time="2026-10-20 21:26:45Z" duration="0.326554" asserts="0">
+        <test-case id="1034" name="VolumeRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.VolumeRestrictsFogToGeometry" methodname="VolumeRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="920140809" result="Passed" start-time="2026-10-21 10:35:11Z" end-time="2026-10-21 10:35:11Z" duration="0.285079" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />

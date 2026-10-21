@@ -8,6 +8,14 @@ namespace Crest.URP
 {
     public sealed class CrestBackgroundFeature : ScriptableRendererFeature
     {
+#if UNITY_EDITOR
+        // Per-camera reflection lighting needs both modes even when the active asset
+        // requests only per-pixel lights. AdditionalRPAssets covers the later URP
+        // stripper; this rule also retains the modes during engine prefiltering.
+        [UnityEditor.ShaderKeywordFilter.SelectIf(true, overridePriority: true,
+            keywordNames: new[] { "_ADDITIONAL_LIGHTS_VERTEX", "_ADDITIONAL_LIGHTS" })]
+        const bool k_RequiresReflectionLightingVariants = true;
+#endif
         BackgroundPass _pass;
         ShadowPass _shadows;
         UnderwaterPass _mask, _effectBefore, _effectAfter;
@@ -24,6 +32,8 @@ namespace Crest.URP
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             if (renderingData.cameraData.cameraType == CameraType.Preview) return;
+            if (OceanPlanarReflection.UsesVertexLightingForUrpCamera(renderingData.cameraData.camera))
+                renderingData.lightData.shadeAdditionalLightsPerVertex = true;
             var target = renderingData.cameraData.camera.targetTexture;
             if (target != null && target.graphicsFormat == UnityEngine.Experimental.Rendering.GraphicsFormat.None) return;
             if (OceanRenderer.Instance?._lodDataShadow != null) renderer.EnqueuePass(_shadows);

@@ -1,19 +1,19 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-20**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-10-21**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
 ## Текущие подтверждённые результаты
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor suite | PASSED, 21/21 | PASSED, 21/21 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-20 |
-| Development Player, 7 сцен | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный runtime checkpoint 2026-10-20 |
-| Release Player, 7 сцен | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный runtime checkpoint 2026-10-20 |
+| Полный Editor suite | PASSED, 25/25 | PASSED, 25/25 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 10:34:54Z / 10:35:39Z |
+| Development Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
+| Release Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
 
 Добавлены UnderwaterBoundaryTests. Runtime cleanup исправлен: RemoveCommandBuffers больше не вызывает CameraEvent API под URP, где буферы не подключались. Полные DX11/DX12 suites проходят; предупреждений Camera.RemoveCommandBuffer в новых логах нет. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Что именно проверяет 21 тест
+## Что именно проверяют 25 тестов
 
 | Область | Количество | Проверенный результат | Что этим не доказано |
 |---|---:|---|---|
@@ -28,6 +28,10 @@
 | Dynamic waves | 1 | Нулевое поле до движения сферы; ненулевое поле после, finite GPU readback | Долговременная устойчивость/точность затухания |
 | Scene lifecycle | 1 | 12 reload cycles, запросы восстанавливаются; 22 отслеживаемые RT и 51,848,342 native bytes без роста | Общая VRAM, ComputeBuffers, GC, длительный profiling |
 | Planar object visibility | 1 | В RT отражения 1908 magenta pixels при видимом объекте, 0 после скрытия; оба API | Spherical culling, pixel-light option, все варианты clipping/HDR/MSAA |
+| Planar distance | 1 | На обоих API дальний magenta: 606 → 0 при 100 → 20 м; ближний green: 661; view projection/far сохранены | Terrain, world-space UI, persistent objects, стоимость обхода |
+| Planar additional lights | 1 | На обоих API ROI 16×16: pixel mean 147.3867, vertex mean 0; активный URP asset остаётся PerPixel | Основной view readback; другие renderer modes; standalone проверяется отдельно |
+| Planar target options | 1 | 128 LDR/1 sample → HDR/stencil при том же размере → 256 HDR/4× MSAA; стабильный descriptor сохраняет тот же объект RT | Привязка RT в океанском material property block после resize и длительное потребление памяти |
+| Planar clipping/recursion/restore | 1 | Надводный marker виден, подводный отсечён; recursive camera callback даёт ровно один запрос; far renderer, заранее скрытый renderer, GL и ocean root восстановлены | Исключения во время camera rendering; все типы renderer |
 | Underwater volumes | 3 | Portal/Volume/Fly-Through меняют центр и сохраняют border; Fly-Through имеет эффект изнутри | XR, standalone stripping; surface/meniscus/overlay/order covered by the separate fixtures below |
 | Surface crossing / meniscus | 1 | Fixed ocean time, FFT off: камера 3 → -3 → 0.1 → 3 м; submerged effect меняет 57600 pixels, meniscus — 1920, surfacing восстанавливает исходный кадр | Storm/wave-driven transition stress и side-by-side сравнение |
 | Overlay | 1 | 5208 pixels геометрии изменены, 0 фоновых; Ocean surface исключена из камеры для изоляции нулевой глубины | Настоящий URP camera stack и MSAA (P08) |
@@ -60,7 +64,7 @@ Raw logs и большой failed player run сохранены локально
 
 ## Оставшиеся ограничения
 
-Полная приёмка незавершена. В частности, Camera.layerCullSpherical всё ещё выдаёт предупреждение URP; эквиваленты culling/pixel-light опций не реализованы. Остальные пробелы перечислены по подсистемам в FEATURE_MATRIX.md, а порядок устранения — в PORT_PLAN.md. Успешный 21 тест не закрывают эти пункты.
+Полная приёмка незавершена. URP больше не вызывает Camera.layerCullSpherical, а distance/light адаптеры проходят указанные Editor fixtures. Это не полная эквивалентность исходным опциям во всех режимах рендеринга. Пробелы перечислены в FEATURE_MATRIX.md, порядок — PORT_PLAN.md; 25 тестов не закрывают всю матрицу.
 
 ## P04 — дополнительные результаты
 
@@ -69,3 +73,15 @@ UnderwaterBoundaryTests прошёл в составе полного 21-test su
 Первые запуски нового стенда сохранены: Boundary-initial-harness-DX11.xml (EnterPlayMode из вложенного enumerator не выполнился), Boundary-background-fixture-DX11.xml и Boundary-ocean-background-fixture-DX11.xml (в проверяемом фоне оставалась независимо затеняемая поверхность океана). EnterPlayMode вынесен в тесты с явной проверкой Application.isPlaying; overlay fixture исключает ocean layer из камеры и использует соответствующий слой эффекта. Численные критерии не ослаблялись. Overlay-focused-DX11.xml — отдельный успешный focused run, не замена полным suites.
 
 Оба Windows Player пересобраны после runtime cleanup. Свежие Development/Release runs на DX11 и DX12 дали Errors=0, каждый с семью новыми PNG и изменяющимися GPU heights. Fingerprints управляемых Crest.dll и изменённого исходника сохранены в Evidence/Build-checkpoint.json; дата native launcher сама по себе не доказывает свежесть инкрементальной сборки. Дополнительные три запуска выполнялись параллельно для smoke-регрессии и не являются измерением производительности. Проверки всех новых boundary/overlay вариантов в standalone ещё относятся к P11.
+
+## P05 — диагностика и область проверки
+
+Editor DX11/DX12: пять PlanarReflectionTests прошли в полном наборе, новые clipping/distance/light PNG просмотрены. Первоначальный lighting fixture усреднял весь кадр и получал 2.08, включая пустой фон; исправлена область измерения на 16×16 у проекции центра панели. Порог освещённости >5 и отношение vertex/pixel <0.25 сохранены. `ReflectionOptions-initial-DX11.xml` и `ReflectionOptions-no-spherical-call-DX11.xml` сохраняют неудачные эксперименты: простое удаление spherical flag при сохранении layer distances приводило к пустым RT из-за oblique projection.
+
+Первая проверка Player на обоих API выявила реальную ошибку: distance FarChanged=256 / NearChanged=0, но PixelMean=VertexMean=147.3867. Отчёты `ReflectionOptions-Player-initial-DX11.txt` / DX12.txt сохранены. Строгий диагностический Player подтвердил отсутствующие `_ADDITIONAL_LIGHTS_VERTEX` variants (Errors=2771, magenta mean=170); полный отчёт — `ReflectionOptions-Player-strict-initial-DX11.txt`, raw log сохранён локально. Одного дополнительного labeled URP asset недостаточно: ранний engine prefilter уже исключал vertex mode.
+
+В renderer feature добавлено точечное правило ShaderKeywordFilter.SelectIf с overridePriority для обоих lighting modes; официальный IncludeAdditionalRPAssets сохраняет их на позднем URP stripping этапе. Build pipeline включает strictShaderVariantMatching, чтобы отсутствующий вариант давал ошибку вместо незаметной подстановки. Итоговые Player результаты после исправления записываются отдельно от этой истории.
+
+После исправления Development и Release пересобраны. Все четыре запуска на DX11/DX12 прошли с Errors=0, семью свежими Ocean PNG и четырьмя ReflectionOptions PNG каждый. Во всех: FarChanged=256 / NearChanged=0 (ROI 16×16); PixelMean=147.3867 / VertexMean=0; PipelineMode=PerPixel. Strict matching остаётся включённым. Fingerprints Crest.dll, Crest.URP.dll и изменённых runtime sources — Evidence/Build-checkpoint.json. Три последних запуска выполнялись параллельно и не являются профилированием. Development DX11 выбрал Intel Iris Xe, остальные три Player и Editor использовали NVIDIA RTX 3050 Ti; это функциональная проверка, не сравнение производительности адаптеров. Distance PNG Development DX11 и lighting/Ocean_Reflections PNG Release DX12 просмотрены.
+
+Остаются непроверенными exception-path cleanup, отдельный main-camera lighting readback, shadow option, renderer mode/force-forward contract, terrain/world-space UI/DontDestroyOnLoad, привязка заменённого RT в surface draw и стоимость обхода сцены. Поэтому P05 и полная planar acceptance не закрыты.

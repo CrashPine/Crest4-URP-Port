@@ -1,24 +1,59 @@
 {
-  "recordedUtc": "2026-10-20T21:31:17.4440631Z",
+  "recordedUtc": "2026-10-21T10:45:06.3689284Z",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
-  "changedRuntimeSource": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs",
-  "changedSourceSha256": "B17C7D2E06EBB3E148F0A233C41773BBF76A62881A69D9E8CE4FB26D689A913C",
+  "strictShaderVariantMatching": true,
+  "runtimeSources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs",
+      "sha256": "F5DE53B0B5192A6C65F73272A493CC0E33E012E02329271839771B44EA0D383B"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs",
+      "sha256": "F15C00EABED204D8DA4BF5600CE9BB161CAFD82E59C94D206AF3132CD41F66CE"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
+      "sha256": "1D1AF3322642743A2FA627C5E30F1526F31147D492A695319D46D64B540D051E"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
+      "sha256": "B5CBC462B89D53FE3A70C4893E92CB7BF83397317AA56B9BC6A14F11A721CE42"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs",
+      "sha256": "E480CC602822626E1BEB109755C668FA239B48E456CDE446315EB2136E5BA38F"
+    }
+  ],
   "builds": [
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "bytes": 280064,
-      "modifiedUtc": "2026-10-20T21:28:37.6296947Z",
-      "sha256": "7A08662842B96E639FA0A98FE5086DC8D39693627899394E21E9246BEA49075C"
+      "bytes": 284672,
+      "modifiedUtc": "2026-10-21T10:37:18.3578478Z",
+      "sha256": "BCAA5D6C370E868155023C3DC5355F8E53CF474A4A5622806223CF2986A8031D"
+    },
+    {
+      "configuration": "Development",
+      "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
+      "bytes": 19968,
+      "modifiedUtc": "2026-10-21T10:42:38.4875952Z",
+      "sha256": "9323D9908E4AC44F32636AD7AB9E57EB904397CD4745BF8AA45005A917340874"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "bytes": 275968,
-      "modifiedUtc": "2026-10-20T21:29:46.4163950Z",
-      "sha256": "12C36EC75070C1455B1801A242B55E159A2A587E8CF03A3DA7303AE93EE3D17B"
+      "bytes": 280576,
+      "modifiedUtc": "2026-10-21T10:38:42.7686684Z",
+      "sha256": "202444FE8435A7F7CA177AF05FA3C3192D8172F9715882593C78C609D57D2ABD"
+    },
+    {
+      "configuration": "Release",
+      "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
+      "bytes": 19968,
+      "modifiedUtc": "2026-10-21T10:43:30.4104648Z",
+      "sha256": "7C5FF114E7E1723436E7453B7D0CF983D989473BABE0C9120E2F674012CD2742"
     }
   ],
-  "limitation": "Build completion is recorded in Development-DX11.log and Release-DX12.log. Native launcher timestamps can be preserved by incremental builds; managed runtime assembly fingerprints identify this checkpoint."
+  "limitation": "Fingerprints identify this P05 checkpoint. Player functional reports record actual API and GPU. Concurrent runs are not performance measurements."
 }

@@ -56,6 +56,7 @@ namespace Crest
                 if (currentcollection[i].Key == instanceId)
                 {
                     currentcollection[i] = new KeyValuePair<int, RenderTexture>(instanceId, reflectionTexture);
+                    if (_referenceCameraInstanceId == instanceId) _currentreflectiontexture = reflectionTexture;
                     return;
                 }
             }
@@ -122,7 +123,17 @@ namespace Crest
         Skybox _camViewpointSkybox;
         Camera _camReflections;
         public Camera ReflectionCamera => _camReflections;
+        public bool DisablePixelLights { get => _disablePixelLights; set => _disablePixelLights = value; }
+        public float ReflectionDistance { get => _farClipPlane; set => _farClipPlane = Mathf.Max(0, value); }
         Skybox _camReflectionsSkybox;
+
+        /// <summary>Refresh the texture immediately, independently of the frame-refresh interval.</summary>
+        public void RefreshReflection()
+        {
+            if (!isActiveAndEnabled) return;
+            _lastRefreshOnFrame = -1;
+            LateUpdate();
+        }
 
         private long _lastRefreshOnFrame = -1;
 
@@ -167,6 +178,8 @@ namespace Crest
 
         void LateUpdate()
         {
+            // A render callback can request an update recursively. Do not nest reflection requests.
+            if (s_UrpRequestOwner != null) return;
             if (!RequestRefresh(Time.renderedFrameCount))
                 return; // Skip if not need to refresh on this frame
 
@@ -287,16 +300,19 @@ namespace Crest
 
             // Optionally disable pixel lights for reflection/refraction
             int oldPixelLightCount = QualitySettings.pixelLightCount;
-            if (_disablePixelLights) QualitySettings.pixelLightCount = 0;
+            bool isUrp = UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline is UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset;
+            if (_disablePixelLights && !isUrp) QualitySettings.pixelLightCount = 0;
 
             // Optionally disable shadows for reflection/refraction
             var oldShadowQuality = QualitySettings.shadows;
-            if (_disableShadows) QualitySettings.shadows = UnityEngine.ShadowQuality.Disable;
+            if (_disableShadows && !isUrp) QualitySettings.shadows = UnityEngine.ShadowQuality.Disable;
 
             try
             {
-                if (UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline is UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset)
+                if (isUrp)
                 {
+                    s_UrpRequestOwner = this;
+                    BeginUrpDistanceCulling();
                     var data = UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(_camReflections);
                     data.renderShadows = !_disableShadows;
                     var request = new UnityEngine.Rendering.Universal.UniversalRenderPipeline.SingleCameraRequest
@@ -316,11 +332,19 @@ namespace Crest
             }
             finally
             {
-                // Restore global settings.
-                GL.invertCulling = oldCulling;
-                if (_disableShadows) QualitySettings.shadows = oldShadowQuality;
-                if (_disablePixelLights) QualitySettings.pixelLightCount = oldPixelLightCount;
-                oceanRoot.SetActive(wasOceanActive);
+                try
+                {
+                    if (isUrp) EndUrpDistanceCulling();
+                }
+                finally
+                {
+                    // Restore camera/global state even if an object is destroyed in a render callback.
+                    if (isUrp) s_UrpRequestOwner = null;
+                    GL.invertCulling = oldCulling;
+                    if (_disableShadows && !isUrp) QualitySettings.shadows = oldShadowQuality;
+                    if (_disablePixelLights && !isUrp) QualitySettings.pixelLightCount = oldPixelLightCount;
+                    if (oceanRoot != null) oceanRoot.SetActive(wasOceanActive);
+                }
             }
 
             // Remember this frame as last refreshed.
@@ -349,6 +373,7 @@ namespace Crest
         /// <param name="farClipPlane">reflection far clip distance</param>
         private void ForceDistanceCulling(float farClipPlane)
         {
+            if (UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline != null) return;
             if (_cullDistances == null || _cullDistances.Length != CULL_DISTANCE_COUNT)
                 _cullDistances = new float[CULL_DISTANCE_COUNT];
             for (var i = 0; i < _cullDistances.Length; i++)
@@ -392,6 +417,7 @@ namespace Crest
             _camReflections.fieldOfView = _camViewpoint.fieldOfView;
             _camReflections.orthographicSize = _camViewpoint.orthographicSize;
             _camReflections.allowMSAA = _allowMSAA;
+            _camReflections.allowHDR = _hdr;
             _camReflections.aspect = _camViewpoint.aspect;
             _camReflections.useOcclusionCulling = !_disableOcclusionCulling && _camViewpoint.useOcclusionCulling;
         }
@@ -399,17 +425,27 @@ namespace Crest
         // On-demand create any objects we need for water
         void CreateWaterObjects(Camera currentCamera)
         {
+            var format = _hdr ? RenderTextureFormat.ARGBHalf : RenderTextureFormat.ARGB32;
+            var pipeline = UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline as UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset;
+            int samples = _allowMSAA ? (pipeline != null ? pipeline.msaaSampleCount : Mathf.Max(1, QualitySettings.antiAliasing)) : 1;
+            var descriptor = new RenderTextureDescriptor(Mathf.Max(1, _textureSize), Mathf.Max(1, _textureSize), format, _stencil ? 24 : 16)
+            {
+                msaaSamples = samples,
+            };
+            descriptor.msaaSamples = SystemInfo.GetRenderTextureSupportedMSAASampleCount(descriptor);
             // Reflection render texture
-            if (!_reflectionTexture || _reflectionTexture.width != _textureSize)
+            if (!_reflectionTexture || _reflectionTexture.width != descriptor.width || _reflectionTexture.height != descriptor.height ||
+                _reflectionTexture.format != format || _reflectionTexture.depth != descriptor.depthBufferBits ||
+                _reflectionTexture.antiAliasing != descriptor.msaaSamples)
             {
                 if (_reflectionTexture)
                 {
+                    _reflectionTexture.Release();
                     Helpers.Destroy(_reflectionTexture);
                 }
 
-                var format = _hdr ? RenderTextureFormat.ARGBHalf : RenderTextureFormat.ARGB32;
                 Debug.Assert(SystemInfo.SupportsRenderTextureFormat(format), "Crest: The graphics device does not support the render texture format " + format.ToString());
-                _reflectionTexture = new RenderTexture(_textureSize, _textureSize, _stencil ? 24 : 16, format)
+                _reflectionTexture = new RenderTexture(descriptor)
                 {
                     name = "__WaterReflection" + GetHashCode(),
                     isPowerOfTwo = true,
