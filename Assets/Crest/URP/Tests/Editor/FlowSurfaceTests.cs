@@ -40,6 +40,120 @@ public class FlowSurfaceTests
         yield return CheckSurface(true);
     }
 
+    [UnityTest]
+    public IEnumerator SplineFlowUpdatesDirectionSpeedPositionAndRegistration()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        _timeScale = Time.timeScale;
+        Time.timeScale = 0;
+        var ocean = OceanRenderer.Instance;
+        Camera.main.transform.position = new Vector3(0, 4, 0);
+        foreach (var fft in Object.FindObjectsByType<ShapeFFT>(FindObjectsSortMode.None)) fft.enabled = false;
+        _surface = Track(new Material(ocean.OceanMaterial));
+        _surface.EnableKeyword("_FLOW_ON");
+        _surface.SetFloat("_Flow", 1);
+        ocean.OceanMaterial = _surface;
+        var configuration = new SerializedObject(ocean);
+        configuration.FindProperty("_createFlowSim").boolValue = true;
+        configuration.ApplyModifiedPropertiesWithoutUndo();
+        yield return WaitForOceanUpdates(4);
+        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = true;
+        clock._time = clock._deltaTime = 0;
+        ocean.PushTimeProvider(clock);
+
+        var owner = new GameObject("Known flow ribbon");
+        var spline = owner.AddComponent<Crest.Spline.Spline>();
+        spline.Radius = 8;
+        spline.Subdivisions = 2;
+        var points = new Transform[2];
+        var speeds = new SplinePointDataFlow[2];
+        for (int i = 0; i < 2; i++)
+        {
+            points[i] = new GameObject("Flow point " + i).transform;
+            points[i].SetParent(owner.transform, false);
+            points[i].position = new Vector3(i == 0 ? -12 : 12, 0, 0);
+            points[i].gameObject.AddComponent<Crest.Spline.SplinePoint>();
+            speeds[i] = points[i].gameObject.AddComponent<SplinePointDataFlow>();
+            speeds[i].FlowVelocity = 3;
+        }
+        var input = owner.AddComponent<RegisterFlowInput>();
+        spline.UpdateSpline();
+        string report = $"Evidence/FlowSpline-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "Original spline mesh generator and FlowSplineGeometry shader; Radius=8; Delta=0; VectorTolerance=0.05\n");
+        yield return WaitForOceanUpdates(4);
+        yield return CheckSplineField("AlongX", new[] { Vector2.zero, new Vector2(0, 8) }, new[] { new Vector2(3, 0), Vector2.zero });
+        points[0].position = new Vector3(0, 0, -12);
+        points[1].position = new Vector3(0, 0, 12);
+        spline.UpdateSpline();
+        yield return WaitForOceanUpdates(4);
+        yield return CheckSplineField("AlongZ", new[] { Vector2.zero, new Vector2(8, 0) }, new[] { new Vector2(0, 3), Vector2.zero });
+        foreach (var speed in speeds) speed.FlowVelocity = -2;
+        spline.UpdateSpline();
+        yield return WaitForOceanUpdates(4);
+        yield return CheckSplineField("Reversed", new[] { Vector2.zero }, new[] { new Vector2(0, -2) });
+        foreach (var point in points) point.position += Vector3.right * 6;
+        spline.UpdateSpline();
+        yield return WaitForOceanUpdates(4);
+        yield return CheckSplineField("Moved", new[] { Vector2.zero, new Vector2(6, 0) }, new[] { Vector2.zero, new Vector2(0, -2) });
+        input.enabled = false;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckSplineField("Disabled", new[] { new Vector2(6, 0) }, new[] { Vector2.zero }, requireEmpty: true);
+        input.enabled = true;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckSplineField("Reenabled", new[] { new Vector2(6, 0) }, new[] { new Vector2(0, -2) });
+        Assert.That(ocean.TimeProvider, Is.SameAs(clock));
+        Assert.That(ocean.DeltaTime, Is.EqualTo(0));
+    }
+
+    static IEnumerator CheckSplineField(string phase, Vector2[] positions, Vector2[] expected, bool requireEmpty = false)
+    {
+        var ocean = OceanRenderer.Instance;
+        var target = ocean._lodDataFlow.DataTexture;
+        var transform = ocean._lodTransform._renderData[0].Current;
+        var center = new Vector2(transform._posSnapped.x, transform._posSnapped.z);
+        float texel = transform._texelWidth;
+        var request = AsyncGPUReadback.Request(target, 0, TextureFormat.RGFloat);
+        while (!request.done) yield return null;
+        Assert.That(request.hasError, Is.False);
+        var values = request.GetData<Vector2>(0);
+        var pixels = new Color32[target.width * target.height];
+        float peak = 0;
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            var value = values[i];
+            Assert.That(float.IsNaN(value.x) || float.IsInfinity(value.x) || float.IsNaN(value.y) || float.IsInfinity(value.y), Is.False);
+            peak = Mathf.Max(peak, value.magnitude);
+            pixels[i] = new Color(value.x / 6 + .5f, value.y / 6 + .5f, .5f, 1);
+        }
+        var image = new Texture2D(target.width, target.height, TextureFormat.RGBA32, false);
+        try
+        {
+            image.SetPixels32(pixels);
+            image.Apply();
+            File.WriteAllBytes($"Evidence/FlowSpline-{phase}-{SystemInfo.graphicsDeviceType}.png", image.EncodeToPNG());
+        }
+        finally { Object.Destroy(image); }
+        string report = $"Evidence/FlowSpline-{SystemInfo.graphicsDeviceType}.txt";
+        File.AppendAllText(report, $"Phase={phase}; PeakSpeed={peak}; LOD0Center={center}; TexelMetres={texel}\n");
+        for (int i = 0; i < positions.Length; i++)
+        {
+            var coordinate = (positions[i] - center) / texel + Vector2.one * (target.width * .5f);
+            int x = Mathf.FloorToInt(coordinate.x), y = Mathf.FloorToInt(coordinate.y);
+            Assert.That(x, Is.InRange(1, target.width - 2));
+            Assert.That(y, Is.InRange(1, target.height - 2));
+            Vector2 actual = Vector2.zero;
+            for (int dy = -1; dy <= 1; dy++)
+            for (int dx = -1; dx <= 1; dx++) actual += values[(y + dy) * target.width + x + dx] / 9;
+            File.AppendAllText(report, $"Sample={positions[i]}; Expected={expected[i]}; Actual={actual}\n");
+            Assert.That(Vector2.Distance(actual, expected[i]), Is.LessThan(.05f), phase + " world sample " + positions[i]);
+        }
+        Assert.That(peak, Is.LessThanOrEqualTo(3.01f));
+        if (requireEmpty) Assert.That(peak, Is.LessThan(.0001f), "Deregistered spline must leave the whole flow slice empty.");
+    }
+
     IEnumerator CheckSurface(bool foam)
     {
         OceanRenderer.EnableGraphicsInBatchMode = true;

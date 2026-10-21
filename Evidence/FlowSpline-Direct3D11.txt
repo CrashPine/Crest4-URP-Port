@@ -1,0 +1,16 @@
+Original spline mesh generator and FlowSplineGeometry shader; Radius=8; Delta=0; VectorTolerance=0.05
+Phase=AlongX; PeakSpeed=3; LOD0Center=(0.00, 0.00); TexelMetres=0,08333334
+Sample=(0.00, 0.00); Expected=(3.00, 0.00); Actual=(3.00, 0.00)
+Sample=(0.00, 8.00); Expected=(0.00, 0.00); Actual=(0.00, 0.00)
+Phase=AlongZ; PeakSpeed=3; LOD0Center=(0.00, 0.00); TexelMetres=0,08333334
+Sample=(0.00, 0.00); Expected=(0.00, 3.00); Actual=(0.00, 3.00)
+Sample=(8.00, 0.00); Expected=(0.00, 0.00); Actual=(0.00, 0.00)
+Phase=Reversed; PeakSpeed=2; LOD0Center=(0.00, 0.00); TexelMetres=0,08333334
+Sample=(0.00, 0.00); Expected=(0.00, -2.00); Actual=(0.00, -2.00)
+Phase=Moved; PeakSpeed=2; LOD0Center=(0.00, 0.00); TexelMetres=0,08333334
+Sample=(0.00, 0.00); Expected=(0.00, 0.00); Actual=(0.00, 0.00)
+Sample=(6.00, 0.00); Expected=(0.00, -2.00); Actual=(0.00, -2.00)
+Phase=Disabled; PeakSpeed=0; LOD0Center=(0.00, 0.00); TexelMetres=0,08333334
+Sample=(6.00, 0.00); Expected=(0.00, 0.00); Actual=(0.00, 0.00)
+Phase=Reenabled; PeakSpeed=2; LOD0Center=(0.00, 0.00); TexelMetres=0,08333334
+Sample=(6.00, 0.00); Expected=(0.00, -2.00); Actual=(0.00, -2.00)

@@ -6,8 +6,10 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor checkpoint, включая четыре foam fixtures | PASSED, 33/33 | PASSED, 33/33 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 16:00:32Z / 16:01:23Z |
-| Surface flow normals/foam, focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/EditMode-DX11-focused.xml / EditMode-DX12-focused.xml; start 20:50:10Z / 20:50:37Z; полный 33-test checkpoint предшествует этим двум тестам |
+| Полный Editor checkpoint, включая foam, surface flow, spline и clip | PASSED, 37/37 | PASSED, 37/37 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 21:01:07Z / 21:02:10Z |
+| Surface flow normals/foam, focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/FlowSurface-DX11.xml / FlowSurface-DX12.xml; start 20:50:10Z / 20:50:37Z; сохранены отдельно от следующих focused runs |
+| Flow spline, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/FlowSpline-DX11.xml / FlowSpline-DX12.xml; six field states |
+| Clip surface, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/ClipSurface-DX11.xml / ClipSurface-DX12.xml; cube/sphere/geometry and deregistration |
 | Development Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Release Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
@@ -37,7 +39,10 @@
 | Planar shadows | 1 | Shadow ROI 1.3945 → 45.9375 при выключении теней отражения; основной view 48 → 48; оба API | Все shadow configurations, дополнительный свет с тенями, cascades |
 | Planar renderer routing | 1 | Forced Forward, inherited Forward+/Deferred и vertex-forced Forward: по 606 magenta pixels; renderer основной камеры сохранён; оба API | Внутренний Deferred reflection fallback принадлежит URP; все варианты в Player и визуальная эквивалентность |
 | Planar world UI/Terrain | 1 | Дальний world UI marker: 289 → 0; ближний green: 394; Terrain draw flags восстановлены (heightmap=true, trees=false); оба API | Визуальная полнота Terrain, все UI layouts и изменяемые иерархии |
-| Foam simulation | 4 | Whitecaps/decay, shallow-depth generation/toggle, two-axis transport, zero-delta prewarm/reload; per-API значения ниже | Surface visual advection, stress/quality coverage, визуальная эквивалентность |
+| Foam simulation | 4 | Whitecaps/decay, shallow-depth generation/toggle, two-axis transport, zero-delta prewarm/reload; per-API значения ниже | Все surface configurations, stress/quality coverage, визуальная эквивалентность |
+| Surface flow | 2 | Изолированные normals/foam, фиксированное время, reversible 0→3→0 м/с и keyword-off negative control | Все surface configurations и Built-in equivalence |
+| Spline flow | 1 | Исходный прямой ribbon: поворот, скорость/знак, перенос точек, outside=0, deregistration/re-registration | Curved/closed, Unity Splines adapter, Editor gestures, serialization |
+| Clip surface | 1 | Cube/sphere SDF, geometry mask, видимые отверстия, unchanged border, cleared field/restored image при deregistration | Inversion/overlaps, hulls/textures, reload, waves, standalone |
 | Underwater volumes | 3 | Portal/Volume/Fly-Through меняют центр и сохраняют border; Fly-Through имеет эффект изнутри | XR, standalone stripping; surface/meniscus/overlay/order covered by the separate fixtures below |
 | Surface crossing / meniscus | 1 | Fixed ocean time, FFT off: камера 3 → -3 → 0.1 → 3 м; submerged effect меняет 57600 pixels, meniscus — 1920, surfacing восстанавливает исходный кадр | Storm/wave-driven transition stress и side-by-side сравнение |
 | Overlay | 1 | 5208 pixels геометрии изменены, 0 фоновых; Ocean surface исключена из камеры для изоляции нулевой глубины | Настоящий URP camera stack и MSAA (P08) |
@@ -140,4 +145,24 @@ FoamSimulationTests отключает FFT, flow и shoreline generation, фик
 
 Failed harness reports сохранены как FlowSurface-*-DX11.xml и initial numerical reports/PNG. Сначала получены validation errors из-за несогласованного foam toggle и выключенного flow keyword при teardown; настройки и очистка исправлены, ошибки не подавлялись. Вариант без foam также выявил пустой root: графический batch opt-in устанавливался после загрузки сцены, а feature changes не обязаны перестраивать геометрию. Белый кадр не был принятым результатом; теперь opt-in задаётся до OpenScene, наличие видимых chunks и правильного материала явно проверяется. Поиск chunks идёт от Root, поскольку они HideAndDontSave; проверка материала ограничена frustum, так как Crest обновляет материал в OnWillRenderObject. Пороги image assertions не ослаблялись; процедурный градиент сам по себе не устранял пустой root.
 
-Итог: focused 2/2 на DX11 и DX12, failed=0/skipped=0. В исходниках теперь 35 тестов; полный checkpoint остаётся 33/33 и предшествует этим двум Editor-only fixtures. Полные XML не заменялись focused отчётами. Runtime/shader/scene не менялись, Player не пересобирался. Структурный audit после добавления .cs/.meta: 1256 files, missing meta=0, duplicate GUIDs=0, missing upstream=0.
+На этом этапе focused прошёл 2/2 на DX11 и DX12, failed=0/skipped=0; в исходниках было 35 тестов, полный checkpoint ещё оставался 33/33. Эти отчёты сохранены отдельно как FlowSurface-DX11.xml / DX12.xml. Позднейшая общая регрессия 37/37 описана ниже. Runtime/shader/scene не менялись, Player не пересобирался. Структурный audit после добавления .cs/.meta: 1256 files, missing meta=0, duplicate GUIDs=0, missing upstream=0.
+
+## P06 — сплайн течения
+
+`SplineFlowUpdatesDirectionSpeedPositionAndRegistration` использует исходные Crest.Spline.Spline, SplinePointDataFlow, RegisterFlowInput, GenerateMeshFromSpline и FlowSplineGeometry.shader. Две точки −12…12 м, ширина ribbon Radius=8 м, subdivisions=2. LOD0 RGFloat readback проверяет реальные world-space позиции по snapped cascade transform; каждая контрольная скорость усредняется по 3×3 texels. Все значения поля должны быть конечными, peak ≤3.01 м/с; векторный допуск 0.05 м/с.
+
+Оба API дали одинаковый результат во всех шести состояниях: начальное течение (3,0), после поворота точек — (0,3), после изменения FlowVelocity — (0,−2). Перенос обеих точек на +6 м по X оставляет 0 в старом центре и (0,−2) в новом. Снаружи ribbon — 0. Отключение RegisterFlowInput даёт peak=0 по всему LOD0; повторное включение восстанавливает (0,−2). PNG полей просмотрены на обоих API. Это проверка прямого ribbon, программного изменения точек/скорости и регистрации, а не приёмка curved/closed сплайнов, Unity Splines adapter, Editor gestures или serialization.
+
+Отчёты — FlowSpline-Direct3D11.txt / Direct3D12.txt, отдельные FlowSpline-DX11.xml / DX12.xml. Focused 1/1 на каждом API. Исходные runtime/compute/shader не менялись.
+
+## P06 — вырезание поверхности
+
+`CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly` проверяет исходные RegisterClipSurfaceInput и clip shaders на плоском океане с фиксированными time/delta=0. Ортографическая камера сверху, RT 192×192, под непрозрачной водой magenta floor. Cube/sphere scale=(8,4,8), геометрический Plane размером 8×8 м. Сравниваются R8 clip field и итоговый URP surface image.
+
+Примитивы сохраняют **градиент**, а не бинарную маску. Для cube ожидается `saturate(1-max(abs(x),abs(z))/8)`, для sphere — `saturate(1-length(x,z)/8)` при y=0; surface clips при >0.5. Ожидание вычисляется в центре выбранного GPU texel. На обоих API cube center=0.9960785, corner=0.6196079 (expected 0.9947917/0.6197916), sphere center=0.9921569, corner=0.4627451 (expected 0.9926343/0.4623042); геометрический input даёт 1 внутри и 0 снаружи. Допуск 0.005 учитывает R8 quantization. Исходный failed report с неверным предположением о бинарном значении примитивов сохранён в ClipSurface-binary-assumption-DX11.xml/.txt; runtime не менялся, image assertions не ослаблялись.
+
+Cube и geometry открывают 4096 magenta pixels, sphere — 3220; столько же pixels отличаются от baseline, border остаётся неизменным. После снятия каждого input с регистрации peak clip field=0 и restored changed pixels=0. PNG baseline/holes/restored просмотрены на обоих API. Overlaps/inversion, convex hull/texture modes, wave-driven clipping, reload и standalone coverage остаются открытыми; строка clip не объявлена полностью PASSED.
+
+Отчёты — ClipSurface-Direct3D11.txt / Direct3D12.txt, ClipSurface-DX11.xml / DX12.xml. Focused 1/1 на каждом API. Новых Markdown нет. Audit после добавления SurfaceInputTests.cs/.meta: 1258 files, missing meta=0, duplicate GUIDs=0, missing upstream=0.
+
+После добавления spline/clip выполнена полная интеграционная регрессия: **37/37 DX11 и 37/37 DX12**, failed=0/skipped=0. Все четыре foam, два surface flow, новый spline и clip fixtures включены в общий набор. Полные XML действительно обновлены полными runs, не focused. Изменения этой сессии относятся только к Editor tests/документам/evidence; runtime, shader и demo scene не менялись, актуальность Player по runtime сохраняется.

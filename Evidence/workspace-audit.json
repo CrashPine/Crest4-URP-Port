@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-21T20:45:12.3685415Z",
+  "recordedUtc": "2026-10-21T21:00:48.6133941Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1256,
+  "fileCount": 1258,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -33,11 +33,11 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-21 20:45:07Z",
-      "result": "Failed(Child)",
-      "total": "2",
+      "start": "2026-10-21 21:00:10Z",
+      "result": "Passed",
+      "total": "1",
       "passed": "1",
-      "failed": "1"
+      "failed": "0"
     },
     {
       "file": "EditMode-DX11.xml",
@@ -49,7 +49,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-21 16:00:10Z",
+      "start": "2026-10-21 21:00:36Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -5692,8 +5692,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/FlowSurfaceTests.cs",
-      "bytes": 9340,
-      "sha256": "1E631CC6D71899F1D42C3E702BD34E29C630B992DAA8D64CDBF71DCEAE2233E8"
+      "bytes": 18053,
+      "sha256": "7F23FFD65C57F2EB59EBB1B38A3EDDE165769A36CDCFABAFAB370195B69A2C2A"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/FlowSurfaceTests.cs.meta",
@@ -5759,6 +5759,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/SpectrumTests.cs.meta",
       "bytes": 59,
       "sha256": "E0CCFC35E884D72FFC5BF6823507F0C9DE2804AF163BD9E476B94E17F0A51A49"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs",
+      "bytes": 10793,
+      "sha256": "1739964E506DF3E018E1AE8FBC11BD565974F223A6A165B81BECEE623BD6D0B7"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs.meta",
+      "bytes": 60,
+      "sha256": "1AA873D6DA735A816BD9D56F65ACDA3E485634A45F4A1D387C4655094AAAA775"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/UnderwaterBoundaryTests.cs",
@@ -6302,8 +6312,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 8139,
-      "sha256": "AC6259898AE7604FAFFDAA2235F811CD5587FC1625EC8680D80930A20F095587"
+      "bytes": 8432,
+      "sha256": "308487568FDEF5B58A6E3D6E784517CA6DB1E763332B09D375E980826084A82F"
     },
     {
       "path": "LICENSE.Crest",
@@ -6312,8 +6322,8 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 6838,
-      "sha256": "10FC35F2BFDEF55CB8916341FEF1A4BDCD8AF770C4F2EC3D97C22F590B788568"
+      "bytes": 7164,
+      "sha256": "5FB140E3BF0D53C2FD42451174498C40B3CC8E6EBF0428157B5AC84F7655F08B"
     },
     {
       "path": "PORT_PLAN.md",
@@ -6322,8 +6332,8 @@
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 7506,
-      "sha256": "FDE3C04254F5564C15D28D327B50C9CE52B7433C45D1CDC7771D4DB64556705F"
+      "bytes": 8887,
+      "sha256": "A4275561193EFE877F0958574AA9566E2751A7EA4B455AABE33630C51903F24D"
     },
     {
       "path": "README.md",
@@ -6337,8 +6347,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 31804,
-      "sha256": "1267DCA30958054EA8EE5F282A8ACE85DE662CBC35745AA4E55DE26BB2A97098"
+      "bytes": 35648,
+      "sha256": "9D255D6A0FDBDFB544BA0AB0D3E5B1BD043A32C5232A0D7062E2C3EAF6CC9497"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

@@ -1,0 +1,10 @@
+Fixed ocean time/delta=0; FFT off; 192x192 top-down orthographic view; magenta floor under opaque ocean; clip tolerance=0.005; primitives store signed-distance gradients, surface clips at >0.5
+Mode=Cube; Center=0,9960785; Corner=0,6196079; Outside=0; MagentaPixels=4096; ChangedPixels=4096
+ExpectedCenter=0,9947917; ExpectedCorner=0,6197916; ExpectedOutside=0; CornerWorldTexel=(3.04, 3.04)
+Mode=Cube; DisabledPeak=0; RestoredChangedPixels=0
+Mode=Sphere; Center=0,9921569; Corner=0,4627451; Outside=0; MagentaPixels=3220; ChangedPixels=3220
+ExpectedCenter=0,9926343; ExpectedCorner=0,4623042; ExpectedOutside=0; CornerWorldTexel=(3.04, 3.04)
+Mode=Sphere; DisabledPeak=0; RestoredChangedPixels=0
+Mode=Geometry; Center=1; Corner=1; Outside=0; MagentaPixels=4096; ChangedPixels=4096
+ExpectedCenter=1; ExpectedCorner=1; ExpectedOutside=0; CornerWorldTexel=(3.04, 3.04)
+Mode=Geometry; DisabledPeak=0; RestoredChangedPixels=0
