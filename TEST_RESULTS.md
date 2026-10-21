@@ -6,7 +6,8 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor suite | PASSED, 30/30 | PASSED, 30/30 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 2026-10-21 15:33:31Z / 2026-10-21 15:34:43Z |
+| Полный Editor checkpoint до добавления shoreline fixture | PASSED, 30/30 | PASSED, 30/30 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-21, start 15:33:31Z / 15:34:43Z |
+| Новый shoreline/toggle fixture, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditMode-DX11-focused.xml / EditMode-DX12-focused.xml; это дополнительная проверка, не замена полному checkpoint |
 | Development Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Development-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Release Player, 7 сцен + reflection options | PASSED, Errors=0 | PASSED, Errors=0 | Evidence/Player-Release-DX11 и DX12; пересобранный checkpoint 2026-10-21, strict variant matching |
 | Состав проекта / GUID | PASSED в указанной структурной области | — | Evidence/workspace-audit.json и guid-compute-preservation.json |
@@ -106,3 +107,7 @@ FoamSimulationTests отключает FFT, flow и shoreline generation, фик
 Первая полная регрессия с новым стендом дала 29/30: сама пена прошла, но старый ShadowAtlasAccumulatesOcclusion получил нулевой R8 readback на очень малом Time.deltaTime. Отчёт сохранён в Foam-suite-initial-DX11.xml. Исходный temporal filter умножает вес на deltaTime; при неограниченной batch-частоте вклад квантовался в ноль. Только shadow fixture теперь задаёт captureFramerate=60 и восстанавливает его в teardown; порог >0, runtime weights и R8 format сохранены. Focused DX11 дал PeakOcclusionByte=8.
 
 Итоговая полная регрессия: 30/30 на обоих API. DX12 повторил baseline=0, generated peak=1, decayed sample=0.124939 при expected=0.1262128. Shadow readback на обоих API — 8. Пена пока проверена только в области whitecaps и decay; полный P06 не закрыт. Порядок новых тестов и очистка состояния проверены именно в полном наборе, не выведены из focused запуска.
+
+После этого добавлен отдельный shoreline/toggle fixture. Focused 1/1 прошёл на DX11 и DX12: плоский floor через реальный OceanDepthCache дал height=-0.4999933 м; при maxDepth=1, strength=1, fade=0 и 30 substeps по 1/30 с ожидается foam=0.5, получено 0.4985352 на обоих API (допуск 0.005). При выключении CreateFoamSim менеджер исчезает и старая RT уничтожается; после включения создаётся новый пустой target, foam=0. Отчёты — FoamShoreline-Direct3D11.txt / Direct3D12.txt. Полные 30-test XML предшествуют добавлению этого 31-го теста; их не заменяли focused результатами. Runtime/shader/scene для этой проверки не менялись.
+
+Оставшаяся область foam acceptance: flow transport/visual advection, prewarm, перезагрузка, разные качества/разрешения и сравнение поверхности с исходным Crest. Успех этих численных fixtures не переводит всю строку пены в PASSED.
