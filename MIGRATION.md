@@ -22,6 +22,10 @@ are unchanged. Ocean-root active state is restored in `finally`, including excep
 The graphical batch-mode control is `OceanRenderer.EnableGraphicsInBatchMode`.
 It defaults to false and explicitly enables visual simulations in GPU-enabled batch
 tests; it does not create a graphics device or override `RunningWithoutGPU`.
+Set it before loading/creating a scene's ocean. Setting it after ocean initialization
+does not itself rebuild a headless-created root, which has no surface meshes.
+Graphical fixtures should verify that visible ocean chunks exist before interpreting
+camera captures; simulation data alone does not establish surface rendering.
 Dedicated-server behavior remains the default.
 
 ## Existing extension contracts retained

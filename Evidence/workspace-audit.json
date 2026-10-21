@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-21T15:55:51.6843012Z",
+  "recordedUtc": "2026-10-21T20:45:12.3685415Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1254,
+  "fileCount": 1256,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -33,34 +33,34 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-21 15:53:44Z",
-      "result": "Passed",
-      "total": "3",
-      "passed": "3",
-      "failed": "0"
+      "start": "2026-10-21 20:45:07Z",
+      "result": "Failed(Child)",
+      "total": "2",
+      "passed": "1",
+      "failed": "1"
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-10-21 15:33:31Z",
+      "start": "2026-10-21 16:00:32Z",
       "result": "Passed",
-      "total": "30",
-      "passed": "30",
+      "total": "33",
+      "passed": "33",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-21 15:54:52Z",
+      "start": "2026-10-21 16:00:10Z",
       "result": "Passed",
-      "total": "3",
-      "passed": "3",
+      "total": "1",
+      "passed": "1",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-21 15:34:43Z",
+      "start": "2026-10-21 16:01:23Z",
       "result": "Passed",
-      "total": "30",
-      "passed": "30",
+      "total": "33",
+      "passed": "33",
       "failed": "0"
     }
   ],
@@ -5691,9 +5691,19 @@
       "sha256": "5A70D277A737F3ED7934E9314D18532BC04EF141D995EABECED981032F59CA01"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/FlowSurfaceTests.cs",
+      "bytes": 9340,
+      "sha256": "1E631CC6D71899F1D42C3E702BD34E29C630B992DAA8D64CDBF71DCEAE2233E8"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/FlowSurfaceTests.cs.meta",
+      "bytes": 60,
+      "sha256": "F7DB20805843112B5E5A768ACAFAA89B5A33BBBF9A0A2414B94E560E90632A49"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/FoamSimulationTests.cs",
-      "bytes": 20673,
-      "sha256": "D10F474658CF5BB2F721D4F89D7162E279DF8BBBAA8CEE42BBEEB647EED1D4D3"
+      "bytes": 26830,
+      "sha256": "359B6C6C1769C77A8DA84EC6612D732C106CA75684905657EE45F6773F3EC53C"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/FoamSimulationTests.cs.meta",
@@ -6292,8 +6302,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 8064,
-      "sha256": "690AB23FCCD2B7A102DE11D700C72B3C9BDADF4BB3C80817DF442B6F8592C194"
+      "bytes": 8139,
+      "sha256": "AC6259898AE7604FAFFDAA2235F811CD5587FC1625EC8680D80930A20F095587"
     },
     {
       "path": "LICENSE.Crest",
@@ -6312,8 +6322,8 @@
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 6660,
-      "sha256": "45832F75A8B983FA91D6C8CCC3902D6DC87B554FDA6470A971808CECA94D048A"
+      "bytes": 7506,
+      "sha256": "FDE3C04254F5564C15D28D327B50C9CE52B7433C45D1CDC7771D4DB64556705F"
     },
     {
       "path": "README.md",
@@ -6327,8 +6337,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 29734,
-      "sha256": "FCE1F077646C2C0F48AB142676F76DB23F4AAED2AA2850C00AC2FECDA07B6DD3"
+      "bytes": 31804,
+      "sha256": "1267DCA30958054EA8EE5F282A8ACE85DE662CBC35745AA4E55DE26BB2A97098"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Failed(Child)" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-21 20:44:15Z" end-time="2026-10-21 20:44:20Z" duration="4,4124336">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="35" result="Failed" site="Child" start-time="2026-10-21 20:44:15Z" end-time="2026-10-21 20:44:20Z" duration="4.412434" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1048" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="35" result="Failed" site="Child" start-time="2026-10-21 20:44:15Z" end-time="2026-10-21 20:44:20Z" duration="4.397232" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="50424" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1007" name="FlowSurfaceTests" fullname="FlowSurfaceTests" classname="FlowSurfaceTests" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-10-21 20:44:15Z" end-time="2026-10-21 20:44:20Z" duration="4.387543" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1009" name="FlowChangesSurfaceFoamAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceFoamAtFixedTime" methodname="FlowChangesSurfaceFoamAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="372970269" result="Failed" start-time="2026-10-21 20:44:15Z" end-time="2026-10-21 20:44:18Z" duration="2.941907" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[TearDown : Unhandled log message: '[Error] Crest Validation: Flow is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Flow</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Crest.ValidatedHelper:DebugLog (string,string,Crest.ValidatedHelper/MessageType,UnityEngine.Object,System.Action`1<UnityEditor.SerializedObject>) (at Assets/Crest/Crest/Scripts/OceanValidation.cs:68)
+Crest.OceanRenderer:Validate (Crest.OceanRenderer,Crest.ValidatedHelper/ShowMessage) (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1894)
+Crest.OceanRenderer:OnEnable () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:622)
+Crest.OceanRenderer:Rebuild () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:770)
+Crest.OceanRenderer:RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1117)
+Crest.OceanRenderer:LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest Validation: Flow is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Flow</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Crest: Flow is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Flow</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component.
+]]></output>
+        </test-case>
+        <test-case id="1008" name="FlowChangesSurfaceNormalsAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceNormalsAtFixedTime" methodname="FlowChangesSurfaceNormalsAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="1886011179" result="Failed" start-time="2026-10-21 20:44:18Z" end-time="2026-10-21 20:44:20Z" duration="1.424427" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.'. Use UnityEngine.TestTools.LogAssert.Expect
+TearDown : Unhandled log message: '[Error] Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Crest.ValidatedHelper:DebugLog (string,string,Crest.ValidatedHelper/MessageType,UnityEngine.Object,System.Action`1<UnityEditor.SerializedObject>) (at Assets/Crest/Crest/Scripts/OceanValidation.cs:68)
+Crest.OceanRenderer:Validate (Crest.OceanRenderer,Crest.ValidatedHelper/ShowMessage) (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1879)
+Crest.OceanRenderer:OnEnable () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:622)
+Crest.OceanRenderer:Rebuild () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:770)
+Crest.OceanRenderer:RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1117)
+Crest.OceanRenderer:LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component.
+Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Crest: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component.
+Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Crest Validation: Flow is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Flow</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Crest: Flow is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Flow</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
