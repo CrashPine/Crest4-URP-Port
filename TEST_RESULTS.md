@@ -6,9 +6,10 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor checkpoint, включая depth persistence | PASSED, 40/40 | PASSED, 40/40 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 12:45:14Z / 17:12:43Z |
+| Полный Editor checkpoint, включая все persistence fixtures | PASSED, 42/42 | PASSED, 42/42 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 17:26:29Z / 17:27:49Z |
+| Input scene persistence, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/InputPersistence-DX11.xml / InputPersistence-DX12.xml; 2026-10-22, start 17:25:28Z / 17:25:57Z |
 | Depth persistence, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/DepthPersistence-DX11.xml / DepthPersistence-DX12.xml; EXR rebake, prefab/scene reload, owner movement, cleanup |
-| Editor profiles/spline data, focused после полного checkpoint | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditorPersistence-DX11.xml / EditorPersistence-DX12.xml; 2026-10-22, start 17:15:55Z / 17:16:21Z; не full 41/41 |
+| Editor profiles/spline data, отдельный focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditorPersistence-DX11.xml / EditorPersistence-DX12.xml; 2026-10-22, start 17:15:55Z / 17:16:21Z; также включён в новый full 42/42 |
 | SurfaceInputTests, focused (clip/albedo/local height) | PASSED, 3/3 | PASSED, 3/3 | Evidence/SurfaceInputs-DX11.xml / SurfaceInputs-DX12.xml; start 21:11:57Z / 21:11:22Z |
 | Surface flow normals/foam, focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/FlowSurface-DX11.xml / FlowSurface-DX12.xml; start 20:50:10Z / 20:50:37Z; сохранены отдельно от следующих focused runs |
 | Flow spline, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/FlowSpline-DX11.xml / FlowSpline-DX12.xml; six field states |
@@ -19,7 +20,7 @@
 
 Добавлены UnderwaterBoundaryTests. Runtime cleanup исправлен: RemoveCommandBuffers больше не вызывает CameraEvent API под URP, где буферы не подключались. Полные DX11/DX12 suites проходят; предупреждений Camera.RemoveCommandBuffer в новых логах нет. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Область 41 теста (полный checkpoint — 40, последний Editor fixture — focused)
+## Область 42 тестов
 
 | Область | Количество | Проверенный результат | Что этим не доказано |
 |---|---:|---|---|
@@ -27,6 +28,7 @@
 | FFT/underwater/reflection scene smoke | 3 | Конечные изменяющиеся GPU heights, реальные кадры | Полная корректность изображения |
 | Depth cache | 1 | Известная высота 3 м возвращается с допуском 0.05 м | Baking/reload всех форматов |
 | Depth persistence | 1 | Реальный EXR export/rebake, импорт отрицательных значений, GUID/prefab reference, scene reload без floor, relative movement, toggle и cleanup success/failure | Complex terrain, все cache modes и standalone |
+| Input persistence | 1 | Сохранённая сцена: flow/clip/albedo/local height GPU поля, material/profile/clock references после reimport/reload, старые RT освобождены, toggle после загрузки | Все виды inputs, длительный reload stress и standalone |
 | Editor persistence | 1 | Profiles/private arrays/references, spline point data и overrides, custom Editor bindings, Undo/Redo, повторное сохранение prefab | Реальные GUI gestures/drawers и curved/closed rendering |
 | Shadow atlas | 1 | Ненулевая окклюзия, восстановление матриц камеры после LOD draw | Convergence/cascades/caustics |
 | Buoyancy | 1 | 10 секунд симуляции, массы 10/100/1000 кг, ширины 1/2/3 м, ограниченные позиции/скорости и контакт с водой | BoatProbes; новая mass-dependent модель не вводилась (оригинал использует ForceMode.Acceleration) |
@@ -203,6 +205,22 @@ Cube и geometry открывают 4096 magenta pixels, sphere — 3220; сто
 
 `ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip` сохраняет отдельные foam/depth/spectrum assets и inactive prefab, выгружает профили из памяти и принудительно импортирует их и prefab повторно. Проверяет все заданные значения, private fields, spectrum arrays и asset references. Закрытый трёхточечный Crest spline сохраняет позиции, radius multipliers, signed flow speeds и input overrides. Исходные OceanWaveSpectrumEditor/SplineEditor разрешаются через Editor.CreateEditor. Undo возвращает radius 12.5, Redo — 20; повторное сохранение radius=20 сохраняет prefab GUID.
 
-Focused **1/1 на DX11 и DX12**, failed=0/skipped=0; UTC start/end 17:15:55/17:15:56 и 17:16:21/17:16:22 (2026-10-22). Отчёты — EditorPersistence-DX11.xml / DX12.xml и EditorPersistence-Direct3D11.txt / Direct3D12.txt. Первый compile error ошибочного namespace теста сохранён в EditorPersistence-compile-initial-DX11.txt; после исправления проверены свежие XML. В исходниках теперь **41 тест**, полный checkpoint выше остаётся **40/40**; focused XML его не заменяет. Это data/binding/Undo проверка, без вызова OnInspectorGUI и без интерактивных Scene view gestures; curved/closed rendering не принят.
+Focused **1/1 на DX11 и DX12**, failed=0/skipped=0; UTC start/end 17:15:55/17:15:56 и 17:16:21/17:16:22 (2026-10-22). Отчёты — EditorPersistence-DX11.xml / DX12.xml и EditorPersistence-Direct3D11.txt / Direct3D12.txt. Первый compile error ошибочного namespace теста сохранён в EditorPersistence-compile-initial-DX11.txt; после исправления проверены свежие XML. На этом этапе в исходниках был **41 тест**, полный checkpoint составлял **40/40**; focused XML его не заменял. Позднейший общий checkpoint 42/42 включает этот сценарий. Это data/binding/Undo проверка, без вызова OnInspectorGUI и без интерактивных Scene view gestures; curved/closed rendering не принят.
 
 Структурный audit 2026-10-22: 1262 files, missing meta/duplicate GUID/missing original files=0. Обе уникальные временные test-owned папки удалены. Новых Markdown нет. Изменение production code ограничено #if UNITY_EDITOR; runtime/compute/shaders/demo scenes не менялись, поэтому Player повторно не собирался. Build-checkpoint source hash OceanDepthCache.cs предшествует Editor-only изменению; это не новый runtime build checkpoint.
+
+
+## P06 — загрузка сохранённой сцены с четырьмя входами
+
+`SavedSceneRestoresInputFieldsReferencesAndRegistration` создаёт отдельную test-owned сцену на основе Ocean_Calm, сохраняет материалы и профиль, затем принудительно импортирует их и загружает сцену через LoadSceneAsyncInPlayMode. Готовые demos не изменяются. Проверяются material GUIDs, profile references, serialized TimeProviderCustom (time=0.5/delta=0), GPU поля до/после reload, уничтожение прежнего OceanRenderer и height input, освобождение четырёх прежних RT. После reload входы выключаются и снова включаются; height reporter снимается с регистрации и возвращается.
+
+Оба API: flow=(3,0) м/с; local height offset=+2 м; albedo=(0.7490196,0,0,0.5607843) при source red alpha=0.75 (expected 0.75/0.5625, допуск 2/255). Outside samples дают 0. Cube clip учитывает исходный трёхмерный SDF и локальную высоту воды: `1-max(abs(x)/8,abs(z)/8,2/4)` = 0.5 в центре, measured=0.4980392 (допуск 0.005). Это значение поля, не утверждение об отверстии: surface clipping использует >0.5. После выключения всё LOD0 flow/clip/albedo и канал Y depth равны 0; включение восстанавливает значения. Depth X без floor сохраняет допустимый negative-infinity sentinel. Все flow компоненты и height offsets проверены на finite values.
+
+Первый failed XML сохранён в InputPersistence-initial-DX11.xml: стенд искал OceanRenderer.Instance до Editor update, исправлен на поиск компонента сцены. Второе ошибочное ожидание плоского clip SDF сохранено в InputPersistence-overlap-initial-DX11.xml/.txt. Исходный shader действительно добавляет sea-level offset перед вычислением SDF; исправлена формула теста с прежним допуском, runtime/shader не менялись. Focused окончательной версии 1/1 на каждом API: DX11 start/end 17:25:28/17:25:39Z, DX12 17:25:57/17:26:08Z (2026-10-22). Числа — InputPersistence-Direct3D11.txt / Direct3D12.txt, отдельные XML — InputPersistence-DX11.xml / DX12.xml.
+
+Это восстановление конфигурации и GPU регистрации/полей, без новой проверки итоговых surface captures после reload. Textured/overlapping albedo, все clip modes, curved/closed/sloped splines и standalone варианты остаются открытыми. Production runtime/shader/scene assets не менялись; добавлен Editor fixture, Player не пересобирался.
+
+
+После добавления сохранённой сцены выполнена полная регрессия с проверкой очистки общего состояния между fixtures: **42/42 на DX11 и DX12**, failed=0/skipped=0. UTC start/end: DX11 17:26:29/17:27:25Z, DX12 17:27:49/17:29:00Z (2026-10-22). Новый общий checkpoint включает оба ранее focused-only Editor persistence fixtures; full XML заменены только полными runs. Это заменяет исторический 40-test checkpoint в текущей таблице. Обычные ocean/underwater smoke captures просмотрены; новый reload fixture численный и не заявляет surface-image equivalence.
+
+Структурный audit 2026-10-22T17:29:33.5152770Z: 1264 files, missing meta/duplicate GUID/missing original files=0. Test-owned InputRoundTrip folders удалены; активных Unity операций нет.
