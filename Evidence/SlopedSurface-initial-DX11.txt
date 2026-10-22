@@ -1,0 +1,8 @@
+World plane y=2+0.25*x, then collinear three-point height spline; RGFloat Y offset tolerance=0.01m at actual texel center; public query tolerance=0.05m, eight consecutive matching ocean frames.
+Phase=Geometry; Position=(-4.00, 0.00); ExpectedOffset=1,010417; ActualOffset=1,010406
+Phase=Geometry; Position=(0.00, 0.00); ExpectedOffset=2,010417; ActualOffset=2,010417
+Phase=Geometry; Position=(4.00, 0.00); ExpectedOffset=3,010417; ActualOffset=3,010429
+Phase=Geometry; Position=(0.00, 8.00); ExpectedOffset=0; ActualOffset=0
+Phase=Geometry; ExpectedHeights=1,2,3,0; QueryHeights=0,999988,2,3,000012,0; MatchingFrames=8
+SurfacePhase=Geometry; Marker=0; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Geometry; Marker=1; Height=1,25; MagentaPixels=0; Expected=9

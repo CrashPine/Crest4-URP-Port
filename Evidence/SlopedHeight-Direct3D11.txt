@@ -1,0 +1,67 @@
+World plane y=2+0.25*x, then collinear three-point height spline; RGFloat Y offset tolerance=0.01m at actual texel center; public query tolerance=0.05m, eight consecutive matching ocean frames.
+Phase=Geometry; Position=(-4.00, 0.00); ExpectedOffset=1,010417; ActualOffset=1,010406
+Phase=Geometry; Position=(0.00, 0.00); ExpectedOffset=2,010417; ActualOffset=2,010417
+Phase=Geometry; Position=(4.00, 0.00); ExpectedOffset=3,010417; ActualOffset=3,010429
+Phase=Geometry; Position=(0.00, 8.00); ExpectedOffset=0; ActualOffset=0
+Phase=Geometry; ExpectedHeights=1,2,3,0; QueryHeights=0,999988,2,3,000012,0; MatchingFrames=8
+SurfacePhase=Geometry; Marker=0; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Geometry; Marker=1; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=Geometry; Marker=2; Height=1,75; MagentaPixels=0; Expected=0
+SurfacePhase=Geometry; Marker=3; Height=2,25; MagentaPixels=9; Expected=9
+SurfacePhase=Geometry; Marker=4; Height=2,75; MagentaPixels=0; Expected=0
+SurfacePhase=Geometry; Marker=5; Height=3,25; MagentaPixels=9; Expected=9
+SurfacePhase=Geometry; Marker=6; Height=-0,25; MagentaPixels=0; Expected=0
+SurfacePhase=Geometry; Marker=7; Height=0,25; MagentaPixels=9; Expected=9
+GeometryBoundsMin=0,5447861; Max=3,455214
+Phase=Spline; Position=(-4.00, 0.00); ExpectedOffset=1,010417; ActualOffset=1,010417
+Phase=Spline; Position=(0.00, 0.00); ExpectedOffset=2,010417; ActualOffset=2,010417
+Phase=Spline; Position=(4.00, 0.00); ExpectedOffset=3,010417; ActualOffset=3,010417
+Phase=Spline; Position=(0.00, 8.00); ExpectedOffset=0; ActualOffset=0
+Phase=Spline; ExpectedHeights=1,2,3,0; QueryHeights=1,2,3,0; MatchingFrames=8
+SurfacePhase=Spline; Marker=0; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Spline; Marker=1; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=Spline; Marker=2; Height=1,75; MagentaPixels=0; Expected=0
+SurfacePhase=Spline; Marker=3; Height=2,25; MagentaPixels=9; Expected=9
+SurfacePhase=Spline; Marker=4; Height=2,75; MagentaPixels=0; Expected=0
+SurfacePhase=Spline; Marker=5; Height=3,25; MagentaPixels=9; Expected=9
+SurfacePhase=Spline; Marker=6; Height=-0,25; MagentaPixels=0; Expected=0
+SurfacePhase=Spline; Marker=7; Height=0,25; MagentaPixels=9; Expected=9
+Phase=SplineSeaLevelOne; Position=(-4.00, 0.00); ExpectedOffset=0,01041663; ActualOffset=0,01041722
+Phase=SplineSeaLevelOne; Position=(0.00, 0.00); ExpectedOffset=1,010417; ActualOffset=1,010417
+Phase=SplineSeaLevelOne; Position=(4.00, 0.00); ExpectedOffset=2,010417; ActualOffset=2,010417
+Phase=SplineSeaLevelOne; Position=(0.00, 8.00); ExpectedOffset=0; ActualOffset=0
+Phase=SplineSeaLevelOne; ExpectedHeights=1,2,3,1; QueryHeights=1,2,3,1; MatchingFrames=8
+SurfacePhase=SplineSeaLevelOne; Marker=0; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=SplineSeaLevelOne; Marker=1; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=SplineSeaLevelOne; Marker=2; Height=1,75; MagentaPixels=0; Expected=0
+SurfacePhase=SplineSeaLevelOne; Marker=3; Height=2,25; MagentaPixels=9; Expected=9
+SurfacePhase=SplineSeaLevelOne; Marker=4; Height=2,75; MagentaPixels=0; Expected=0
+SurfacePhase=SplineSeaLevelOne; Marker=5; Height=3,25; MagentaPixels=9; Expected=9
+SurfacePhase=SplineSeaLevelOne; Marker=6; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=SplineSeaLevelOne; Marker=7; Height=1,25; MagentaPixels=9; Expected=9
+Phase=Disabled; Position=(-4.00, 0.00); ExpectedOffset=0; ActualOffset=0
+Phase=Disabled; Position=(0.00, 0.00); ExpectedOffset=0; ActualOffset=0
+Phase=Disabled; Position=(4.00, 0.00); ExpectedOffset=0; ActualOffset=0
+Phase=Disabled; Position=(0.00, 8.00); ExpectedOffset=0; ActualOffset=0
+Phase=Disabled; ExpectedHeights=1,1,1,1; QueryHeights=1,1,1,1; MatchingFrames=8
+SurfacePhase=Disabled; Marker=0; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Disabled; Marker=1; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=Disabled; Marker=2; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Disabled; Marker=3; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=Disabled; Marker=4; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Disabled; Marker=5; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=Disabled; Marker=6; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Disabled; Marker=7; Height=1,25; MagentaPixels=9; Expected=9
+Phase=Reenabled; Position=(-4.00, 0.00); ExpectedOffset=0,01041663; ActualOffset=0,01041722
+Phase=Reenabled; Position=(0.00, 0.00); ExpectedOffset=1,010417; ActualOffset=1,010417
+Phase=Reenabled; Position=(4.00, 0.00); ExpectedOffset=2,010417; ActualOffset=2,010417
+Phase=Reenabled; Position=(0.00, 8.00); ExpectedOffset=0; ActualOffset=0
+Phase=Reenabled; ExpectedHeights=1,2,3,1; QueryHeights=1,2,3,1; MatchingFrames=8
+SurfacePhase=Reenabled; Marker=0; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Reenabled; Marker=1; Height=1,25; MagentaPixels=9; Expected=9
+SurfacePhase=Reenabled; Marker=2; Height=1,75; MagentaPixels=0; Expected=0
+SurfacePhase=Reenabled; Marker=3; Height=2,25; MagentaPixels=9; Expected=9
+SurfacePhase=Reenabled; Marker=4; Height=2,75; MagentaPixels=0; Expected=0
+SurfacePhase=Reenabled; Marker=5; Height=3,25; MagentaPixels=9; Expected=9
+SurfacePhase=Reenabled; Marker=6; Height=0,75; MagentaPixels=0; Expected=0
+SurfacePhase=Reenabled; Marker=7; Height=1,25; MagentaPixels=9; Expected=9

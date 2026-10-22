@@ -7,6 +7,7 @@
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
 | Полный Editor checkpoint, включая все persistence fixtures | PASSED, 42/42 | PASSED, 42/42 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 17:26:29Z / 17:27:49Z |
+| Curved flow/sloped height + surface, focused после full checkpoint | PASSED, 2/2 | PASSED, 2/2 | Evidence/SplineGeometry-DX11.xml / SplineGeometry-DX12.xml; 2026-10-22, start 17:37:05Z / 17:37:35Z; не full 44/44 |
 | Input scene persistence, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/InputPersistence-DX11.xml / InputPersistence-DX12.xml; 2026-10-22, start 17:25:28Z / 17:25:57Z |
 | Depth persistence, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/DepthPersistence-DX11.xml / DepthPersistence-DX12.xml; EXR rebake, prefab/scene reload, owner movement, cleanup |
 | Editor profiles/spline data, отдельный focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditorPersistence-DX11.xml / EditorPersistence-DX12.xml; 2026-10-22, start 17:15:55Z / 17:16:21Z; также включён в новый full 42/42 |
@@ -20,7 +21,7 @@
 
 Добавлены UnderwaterBoundaryTests. Runtime cleanup исправлен: RemoveCommandBuffers больше не вызывает CameraEvent API под URP, где буферы не подключались. Полные DX11/DX12 suites проходят; предупреждений Camera.RemoveCommandBuffer в новых логах нет. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Область 42 тестов
+## Область 44 тестов (full checkpoint — 42; два новых — focused)
 
 | Область | Количество | Проверенный результат | Что этим не доказано |
 |---|---:|---|---|
@@ -28,6 +29,8 @@
 | FFT/underwater/reflection scene smoke | 3 | Конечные изменяющиеся GPU heights, реальные кадры | Полная корректность изображения |
 | Depth cache | 1 | Известная высота 3 м возвращается с допуском 0.05 м | Baking/reload всех форматов |
 | Depth persistence | 1 | Реальный EXR export/rebake, импорт отрицательных значений, GUID/prefab reference, scene reload без floor, relative movement, toggle и cleanup success/failure | Complex terrain, все cache modes и standalone |
+| Curved/closed flow | 1 | Circle tangent vectors, 67 probes/seam, open gap, moved points, signed speed, empty field after disable and restored registration | Неравномерные custom data, surface equivalence и standalone |
+| Sloped height | 1 | Geometry и spline plane, bounds, публичные height queries, global sea level, toggle и 20 surface-marker pairs в пяти состояниях | Нелинейные профили, edge/LOD transitions и standalone |
 | Input persistence | 1 | Сохранённая сцена: flow/clip/albedo/local height GPU поля, material/profile/clock references после reimport/reload, старые RT освобождены, toggle после загрузки | Все виды inputs, длительный reload stress и standalone |
 | Editor persistence | 1 | Profiles/private arrays/references, spline point data и overrides, custom Editor bindings, Undo/Redo, повторное сохранение prefab | Реальные GUI gestures/drawers и curved/closed rendering |
 | Shadow atlas | 1 | Ненулевая окклюзия, восстановление матриц камеры после LOD draw | Convergence/cascades/caustics |
@@ -224,3 +227,16 @@ Focused **1/1 на DX11 и DX12**, failed=0/skipped=0; UTC start/end 17:15:55/17
 После добавления сохранённой сцены выполнена полная регрессия с проверкой очистки общего состояния между fixtures: **42/42 на DX11 и DX12**, failed=0/skipped=0. UTC start/end: DX11 17:26:29/17:27:25Z, DX12 17:27:49/17:29:00Z (2026-10-22). Новый общий checkpoint включает оба ранее focused-only Editor persistence fixtures; full XML заменены только полными runs. Это заменяет исторический 40-test checkpoint в текущей таблице. Обычные ocean/underwater smoke captures просмотрены; новый reload fixture численный и не заявляет surface-image equivalence.
 
 Структурный audit 2026-10-22T17:29:33.5152770Z: 1264 files, missing meta/duplicate GUID/missing original files=0. Test-owned InputRoundTrip folders удалены; активных Unity операций нет.
+
+
+## P06 — изогнутое/замкнутое течение и наклонная вода
+
+`CurvedClosedFlowHasTangentVectorsAndNoSeamGap` использует исходные Crest spline generator и FlowSplineGeometry shader. Четыре cardinal points на радиусе 8 м, centered ribbon width=2 м, subdivisions=5. Исходный tm=0.39 даёт близкую к кругу кривую, поэтому независимый контроль — тангенциальный вектор круга в 64 углах и дополнительно −1/0/+1° около стыка. Векторный допуск 0.12 м/с, peak ≤abs(speed)+0.01. На обоих API при speed=3 min sampled speed=2.997993 и max vector error=0.02734915 м/с. Центр и наружная область пусты. Открытый spline сохраняет arc 135°: (−2.12,−2.12), closing arc 315° становится 0. После переноса всех точек на +3 м круг переносится, прежняя крайняя левая область пуста. Speed=−2 меняет направление, max error=0.0182096; disable даёт peak=0 по всему LOD0, re-enable возвращает поле. PNG closed/open/moved/reversed/re-enabled сохранены, closed/open/reversed просмотрены на обоих API. Это GPU input rasterization, не новая проверка surface advection или неравномерной custom-data interpolation на замыкании.
+
+`SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries` проверяет плоскость y=2+0.25x сначала через наклонённый mesh, затем через collinear three-point Crest spline. Канал Y depth field сравнивается с уравнением в фактическом центре texel (допуск 0.01 м); X может содержать исходный negative-infinity sentinel. Public SampleHeightHelper должен дать восемь последовательных matching ocean frames в пределах 0.05 м. На обоих API x=−4/0/+4 даёт 1/2/3 м, outside=0; geometry readback queries=0.999988/2/3.000012, spline=1/2/3. Bounds geometry=0.5447861…3.455214 м, spline=0…4 м. При sea level=1 локальные значения остаются 1/2/3, outside=1. Disable очищает весь Y field и снимает reporter, queries=1; re-enable восстанавливает slope/reporter.
+
+Дополнительно оригинальный surface shader проверен top-down URP captures 192×192 с отключённой transparency. Для трёх внутренних точек и одной наружной создаются пары magenta markers на ±0.25 м от ожидаемой высоты. Во всех пяти состояниях (geometry, spline, sea level=1, disabled, re-enabled) каждый нижний ROI 3×3 содержит 0 magenta pixels, каждый верхний — 9. Это **20 пар / 40 marker assertions на API**, не количественное измерение полного изображения. PNG просмотрены. Первый render harness имел camera aspect 16:9 при square capture, поэтому WorldToViewportPoint читал другую область. Failed XML/.txt/.png сохранены как SlopedSurface-initial-DX11; камера явно получает aspect=1. Порог/expected visibility и runtime не менялись.
+
+Окончательный SplineGeometryTests focused прошёл **2/2 на DX11 и DX12**, failed=0/skipped=0. Измерения — CurvedFlow-Direct3D11.txt / Direct3D12.txt и SlopedHeight-Direct3D11.txt / Direct3D12.txt, XML — SplineGeometry-DX11.xml / DX12.xml. В исходниках **44 теста**, full XML по-прежнему 42/42 до добавления этих двух; focused их не заменяет. Правки только Editor fixtures/evidence/docs, Player не пересобирался. ShapeGerstnerSplineHandling.cs, SplineInterpolation.cs и FlowSplineGeometry.shader сравнили с upstream: байты совпадают. Edge/LOD transitions, локальные analytic-wave splines, реальные Editor gestures, variable closed custom data и standalone варианты ещё не приняты.
+
+Окончательные focused UTC start/end: DX11 2026-10-22 17:37:05Z / 2026-10-22 17:37:09Z; DX12 2026-10-22 17:37:35Z / 2026-10-22 17:37:39Z. Audit 2026-10-22T17:38:11.3960212Z: 1266 files, missing meta/duplicate GUID/missing original files=0.
