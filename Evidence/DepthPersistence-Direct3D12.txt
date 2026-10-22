@@ -1,0 +1,10 @@
+Known floor=-3.5m, owner=2m; original Inspector export method; EXR disk import and prefab round-trip; tolerance=0.02m
+Phase=LegacyRealtime; Expected=-3,5; Actual=-3,500006
+Phase=FirstBakeRelative; Expected=-5,5; Actual=-5,5
+Phase=RebakedRelative; Expected=-6,5; Actual=-6,5
+Phase=DiskReloadRelative; Expected=-6,5; Actual=-6,5
+Phase=ReloadWorldHeight; Expected=-4,5; Actual=-4,5
+Phase=MovedOwnerWorldHeight; Expected=-1,5; Actual=-1,5
+Phase=Disabled; Expected=-бесконечность; Actual=-бесконечность
+Phase=Reenabled; Expected=-1,5; Actual=-1,5
+TextureGUIDPreserved=True; PrefabReferenceReloaded=True; SourceGeometryAbsent=True; OldRealtimeRTReleased=True; ExportActiveTargetRestored=True; ExportCPUTextureReleased=True; FailurePathCleanup=True

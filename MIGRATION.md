@@ -90,3 +90,16 @@ engine keyword prefiltering. Supplied builds enable strict shader variant matchi
 to report missing variants instead of silently substituting another lighting mode.
 It is not selected as an active runtime quality pipeline. HDR/stencil/MSAA and
 size changes recreate the reflection target; unchanged descriptors reuse it.
+
+
+## Editor depth-cache export
+
+`Crest.OceanDepthCacheEditor.SaveCacheToFile(cache, optionalAssetPath)` runs the same
+export/import pipeline as the Inspector buttons. With no explicit path, rebaking
+updates the existing saved asset and preserves its GUID; a new cache gets a unique
+EXR asset path. The original relative-depth conversion, RGBAHalf readback,
+OutputAsFloat EXR and linear/uncompressed SingleChannel RFloat import are retained.
+The method restores the caller's active RenderTexture and releases its temporary
+CPU texture in `finally`, including write/import failures. It is inside
+`#if UNITY_EDITOR` and is unavailable in Player code. Supplying an explicit path
+selects the export destination; it does not retarget an already assigned SavedCache.

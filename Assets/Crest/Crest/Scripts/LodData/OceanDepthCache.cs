@@ -459,6 +459,91 @@ namespace Crest
     {
         readonly string[] _propertiesToExclude = new string[] { "m_Script", "_type", "_refreshMode", "_savedCache", "_layers", "_resolution", "_cameraMaxTerrainHeight", "_cameraFarClipPlane", "_forceAlwaysUpdateDebug", "_terrainPixelErrorOverride", "_relative" };
 
+        /// <summary>Runs the Inspector's depth-cache export/import pipeline without GUI input.</summary>
+        public static string SaveCacheToFile(OceanDepthCache dc, string path = null)
+        {
+            var settingsObject = new SerializedObject(dc);
+            var previousTarget = RenderTexture.active;
+            Texture2D texture = null;
+            try
+            {
+                if (!settingsObject.FindProperty("_relative").boolValue)
+                {
+                    // It is always relative except for old data which should now be new data.
+                    settingsObject.FindProperty("_relative").boolValue = true;
+                    settingsObject.ApplyModifiedProperties();
+                    Debug.Log($"Crest: {dc} depth is now relative!");
+                }
+
+                dc.PopulateCacheInternal(updateComponents: true);
+
+                var rt = dc.CacheTexture;
+                RenderTexture.active = rt;
+                texture = new Texture2D(rt.width, rt.height, TextureFormat.RGBAHalf, false)
+                {
+                    name = "Crest Depth Cache Export"
+                };
+                texture.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+                byte[] bytes = texture.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat);
+
+                path = !string.IsNullOrEmpty(path) ? path : dc.SavedCache ?
+                    AssetDatabase.GetAssetPath(dc.SavedCache) : $"Assets/OceanDepthCache_{Guid.NewGuid()}.exr";
+                System.IO.File.WriteAllBytes(path, bytes);
+                AssetDatabase.ImportAsset(path);
+
+                if (dc.SavedCache == null)
+                {
+                    settingsObject.FindProperty("_savedCache").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+                    settingsObject.FindProperty("_type").enumValueIndex = (int)OceanDepthCache.OceanDepthCacheType.Baked;
+                    settingsObject.ApplyModifiedProperties();
+                }
+
+                TextureImporter ti = AssetImporter.GetAtPath(path) as TextureImporter;
+                ti.textureShape = TextureImporterShape.Texture2D;
+                ti.textureType = TextureImporterType.SingleChannel;
+                ti.sRGBTexture = false;
+                ti.alphaSource = TextureImporterAlphaSource.None;
+                ti.mipmapEnabled = false;
+                ti.alphaIsTransparency = false;
+                // Compression will clamp negative values.
+                ti.textureCompression = TextureImporterCompression.Uncompressed;
+                ti.filterMode = FilterMode.Bilinear;
+                ti.wrapMode = TextureWrapMode.Clamp;
+                // Values are slightly different with NPOT Scale applied.
+                ti.npotScale = TextureImporterNPOTScale.None;
+
+#if UNITY_2021_3_OR_NEWER
+                // Code will compile in earlier versions, but the importer does not support this
+                // configuration.
+
+                // Set single component.
+                {
+                    var settings = new TextureImporterSettings();
+                    ti.ReadTextureSettings(settings);
+                    settings.singleChannelComponent = TextureImporterSingleChannelComponent.Red;
+                    ti.SetTextureSettings(settings);
+                }
+
+                // Set format.
+                {
+                    var settings = ti.GetDefaultPlatformTextureSettings();
+                    settings.format = TextureImporterFormat.RFloat;
+                    ti.SetPlatformTextureSettings(settings);
+                }
+#endif
+
+                ti.SaveAndReimport();
+
+                Debug.Log("Crest: Cache saved to " + path, AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path));
+                return path;
+            }
+            finally
+            {
+                RenderTexture.active = previousTarget;
+                if (texture != null) UnityEngine.Object.DestroyImmediate(texture);
+            }
+        }
+
         public override void OnInspectorGUI()
         {
             // We won't just use default inspector because we want to show some of the params conditionally based on cache type
@@ -529,74 +614,8 @@ namespace Crest
 
             if ((isBakeable && GUILayout.Button("Save Cache to File")) || (isRebakeable && GUILayout.Button("Update Saved Cache File")))
             {
-                if (!serializedObject.FindProperty("_relative").boolValue)
-                {
-                    // It is always relative except for old data which should now be new data.
-                    serializedObject.FindProperty("_relative").boolValue = true;
-                    serializedObject.ApplyModifiedProperties();
-                    Debug.Log($"Crest: {target} depth is now relative!");
-                }
-
-                dc.PopulateCacheInternal(updateComponents: true);
-
-                var rt = dc.CacheTexture;
-                RenderTexture.active = rt;
-                Texture2D tex = new Texture2D(rt.width, rt.height, TextureFormat.RGBAHalf, false);
-                tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
-                RenderTexture.active = null;
-
-                byte[] bytes;
-                bytes = tex.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat);
-
-                string path = dc.SavedCache ?
-                    AssetDatabase.GetAssetPath(dc.SavedCache) : $"Assets/OceanDepthCache_{Guid.NewGuid()}.exr";
-                System.IO.File.WriteAllBytes(path, bytes);
-                AssetDatabase.ImportAsset(path);
-
-                if (dc.SavedCache == null)
-                {
-                    serializedObject.FindProperty("_savedCache").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
-                    serializedObject.FindProperty("_type").enumValueIndex = (int)OceanDepthCache.OceanDepthCacheType.Baked;
-                    serializedObject.ApplyModifiedProperties();
-                }
-
-                TextureImporter ti = AssetImporter.GetAtPath(path) as TextureImporter;
-                ti.textureShape = TextureImporterShape.Texture2D;
-                ti.textureType = TextureImporterType.SingleChannel;
-                ti.sRGBTexture = false;
-                ti.alphaSource = TextureImporterAlphaSource.None;
-                ti.mipmapEnabled = false;
-                ti.alphaIsTransparency = false;
-                // Compression will clamp negative values.
-                ti.textureCompression = TextureImporterCompression.Uncompressed;
-                ti.filterMode = FilterMode.Bilinear;
-                ti.wrapMode = TextureWrapMode.Clamp;
-                // Values are slightly different with NPOT Scale applied.
-                ti.npotScale = TextureImporterNPOTScale.None;
-
-#if UNITY_2021_3_OR_NEWER
-                // Code will compile in earlier versions, but the importer does not support this
-                // configuration.
-
-                // Set single component.
-                {
-                    var settings = new TextureImporterSettings();
-                    ti.ReadTextureSettings(settings);
-                    settings.singleChannelComponent = TextureImporterSingleChannelComponent.Red;
-                    ti.SetTextureSettings(settings);
-                }
-
-                // Set format.
-                {
-                    var settings = ti.GetDefaultPlatformTextureSettings();
-                    settings.format = TextureImporterFormat.RFloat;
-                    ti.SetPlatformTextureSettings(settings);
-                }
-#endif
-
-                ti.SaveAndReimport();
-
-                Debug.Log("Crest: Cache saved to " + path, AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path));
+                SaveCacheToFile(dc);
+                serializedObject.Update();
             }
 
             ShowValidationMessages();
