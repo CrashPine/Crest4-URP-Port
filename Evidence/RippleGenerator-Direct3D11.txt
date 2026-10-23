@@ -1,0 +1,22 @@
+Original RippleGenerator/registration/Add Bump shader. Gate uses explicit ocean times; simulation advances only through consumed single-step pulses. Cold impulse velocity reference=dt*12/simCount*(1-rSquared)^.1, radius1.5m, LOD0 interior. Both RG channels checked, no query result used as expected. Test-only clock/step observer/readback sync, not performance.
+Gate=WarmDisabled; OceanTime=0; Enabled=False; Registered=False; SimCount=123; ExpectedCount=123; Dt=0,125; ExpectedDt=0,125
+Gate=WarmRetainsEnabled; OceanTime=2,5; Enabled=True; Registered=True; SimCount=123; ExpectedCount=123; Dt=0,125; ExpectedDt=0,125
+Gate=OnWindow; OceanTime=3,125; Enabled=True; Registered=True; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=ExactOffBoundary; OceanTime=3,25; Enabled=False; Registered=False; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=OffWindow; OceanTime=3,5; Enabled=False; Registered=False; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=PeriodWrapOn; OceanTime=4,125; Enabled=True; Registered=True; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=ManualDisabled; OceanTime=4,125; Enabled=False; Registered=False; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=ManualEnabled; OceanTime=3,5; Enabled=True; Registered=True; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=AnimationRestoredOff; OceanTime=3,5; Enabled=False; Registered=False; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+Gate=PulseOn60; OceanTime=3,125; Enabled=True; Registered=True; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+RasterProjection; Low=(174.00000000, 173.99280000); High=(210.00000000, 209.99280000)
+Impulse; Frequency=60; ActualSteps=1; SimCount=7; Grid=0,0833333358; Width=384; NonzeroReference=1020; PeakVelocity=0,0285644531; MaxRGError=2,10460275E-05; WorstPosition=(-1.20833300, 0.87500000); WorstRG=(0.00000000, 0.01806641); ExpectedG=0,0180874523
+Gate=SourceOff60; OceanTime=3,5; Enabled=False; Registered=False; SimCount=7; ExpectedCount=7; Dt=0,0166666675; ExpectedDt=0,0166666675
+FirstUnforced; Frequency=60; ActualSteps=1; HeightPeak=0,000475645065; MaxRGError=1,47633255E-05
+Propagation; Frequency=60; UnforcedSteps=60; HeightPeak=0,0271453857; OutsideRadiusPlusPoint1=0,008338928; InputEnabled=False
+Gate=PulseOn30; OceanTime=3,125; Enabled=True; Registered=True; SimCount=7; ExpectedCount=7; Dt=0,0333333351; ExpectedDt=0,0333333351
+RasterProjection; Low=(174.00000000, 173.99280000); High=(210.00000000, 209.99280000)
+Impulse; Frequency=30; ActualSteps=1; SimCount=7; Grid=0,0833333358; Width=384; NonzeroReference=1020; PeakVelocity=0,0571289063; MaxRGError=4,20920551E-05; WorstPosition=(-1.20833300, 0.87500000); WorstRG=(0.00000000, 0.03613281); ExpectedG=0,0361749046
+Gate=SourceOff30; OceanTime=3,5; Enabled=False; Registered=False; SimCount=7; ExpectedCount=7; Dt=0,0333333351; ExpectedDt=0,0333333351
+FirstUnforced; Frequency=30; ActualSteps=1; HeightPeak=0,00190067291; MaxRGError=3,04169953E-05
+Propagation; Frequency=30; UnforcedSteps=30; HeightPeak=0,0546569824; OutsideRadiusPlusPoint1=0,0168457031; InputEnabled=False

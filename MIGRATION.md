@@ -285,3 +285,19 @@ position following while LookAt can still rotate toward a moving target. The
 numerical fixture uses the original Update on an auxiliary Transform and a moving
 procedural target; saved example cameras, rendered camera transitions, waves and
 multiple-camera rendering still need separate acceptance.
+
+`RippleGenerator` uses absolute OceanRenderer.CurrentTime for warm-up, then
+enables its RegisterDynWavesInput when
+`Repeat(CurrentTime - warmUp, period) < onTime`. Before warm-up it returns without
+changing the input or its property block: start the input disabled if a quiet
+warm-up is required. With `_animate=false`, the existing manual input state is
+retained while the material parameters still update. Disabling the input removes
+the source; waves already present continue to propagate.
+
+The original Add Bump shader uses `_SimDeltaTime=1/simulationFrequency` and divides
+its velocity increment by the active sim count supplied by RippleGenerator. Source
+draws occur only on positive simulation substeps. A zero ocean delta therefore
+submits no new forces even if the input is enabled; it is different from disabling
+the time gate. Controlled60/30Hz impulse/propagation checks use the original
+component, shader and compute solver. They do not establish long-term stability,
+all grid/LOD ranges or performance.
