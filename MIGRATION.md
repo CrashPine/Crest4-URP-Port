@@ -254,3 +254,34 @@ against scalar samples of combined ocean RT snapshots at dispatch timestamps.
 Using only the continuous equation, or only generator interpolation, skips LOD
 resampling and can produce false normal/height failures. This fixture uses a
 GPU readback fence for a controlled reference and proves no unpaced latency.
+
+## BoatDev example components
+
+`BoatAlignNormal` retains its acceleration-based cubic buoyancy:
+`acceleration = buoyancyCoeff * bottomDepth^3`, where
+`bottomDepth = waterHeight - rootY - bottomH`. Its flat-water equilibrium is
+`rootY = waterHeight - bottomH - cbrt(gravityMagnitude / buoyancyCoeff)`,
+independent of mass. Despite its name, `_maximumBuoyancyForce` clamps this
+acceleration before ForceMode.Acceleration; cap3 means3m/s² and therefore
+3000N/15000N at1000kg/5000kg. This differs from BoatProbes' per-probe Newton cap.
+At bottomDepth<=0 the example is dry and returns before thrust/steering/drag.
+
+With `_useBoatLength`, the original controller adds two projected-normal torques.
+Do not expect its final up vector always to equal a single sampled normal. On a
+uniform X slope at fixed heading, its equilibrium is along the summed projected
+normals: the tested slope.25 gives approximately atan(.125) roll in dual-normal
+mode, versus atan(.25) in single-normal mode. Both modes are preserved.
+
+The original example reads raw keyboard input even with `_playerControlled=false`.
+The batch fixture provides a temporary Input System keyboard if none exists,
+uses only biases and removes its device afterward. This is not proof that the
+example is safe on a focused headless process with no keyboard, or keyboard-input
+acceptance. The production component was not rewritten for the test environment.
+
+`LerpCam` clamps the target Y to sampled water height plus its minimum offset,
+then interpolates by `clamp01(lerpAlpha * OceanDeltaTime * 60)`. This is not an
+instantaneous clamp of the follower's actual height. Zero ocean delta freezes
+position following while LookAt can still rotate toward a moving target. The
+numerical fixture uses the original Update on an auxiliary Transform and a moving
+procedural target; saved example cameras, rendered camera transitions, waves and
+multiple-camera rendering still need separate acceptance.

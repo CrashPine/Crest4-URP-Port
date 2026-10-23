@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-23T16:13:43.9186690Z",
+  "recordedUtc": "2026-10-23T17:59:55.9649795Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1290,
+  "fileCount": 1294,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -34,7 +34,7 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-23 16:09:27Z",
+      "start": "2026-10-23 17:55:56Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -50,7 +50,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-23 16:10:06Z",
+      "start": "2026-10-23 17:56:33Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -5692,6 +5692,16 @@
       "sha256": "0AE9BD040F3F82A2686C0A88DD51B308740A4B45000116280FF902A322DDBF07"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/BoatAlignNormalTests.cs",
+      "bytes": 15359,
+      "sha256": "F28AFD5105C88B953EB0AEB5B5AE98B5C6A3C1A6239911813F15F901AE5DB981"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BoatAlignNormalTests.cs.meta",
+      "bytes": 60,
+      "sha256": "F1828498286FD530326017516F49440E2E7E0068CC4C7BD0739FE7A066D80EDD"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/BoatProbesControlsTests.cs",
       "bytes": 12353,
       "sha256": "CCDA929BB0BEE2F57F9DBB8C0A69EE4E705B1D731457508F62D516549715D96F"
@@ -5723,8 +5733,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef",
-      "bytes": 344,
-      "sha256": "7FB170F9DA0307288B05842DF98196612B26960DEB775D8AE83E3D629B86DF8A"
+      "bytes": 393,
+      "sha256": "A8332C0C7E6E0C2FD90AFC8CCEF3083D18F7AAA85415E94128BCC154931584E0"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef.meta",
@@ -5800,6 +5810,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/InputPersistenceTests.cs.meta",
       "bytes": 62,
       "sha256": "F05F60FB7B0B609629E2C0370BE6E8D84F5D549DFFB19359808653567CD5DD72"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LerpCamTests.cs",
+      "bytes": 8572,
+      "sha256": "4BA4DD850B528E6424BBBC00230E5BAFF5CF17C8E885EE6C789FC7C3055F217E"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LerpCamTests.cs.meta",
+      "bytes": 60,
+      "sha256": "EABF5DD1CF4E06D8AC911B87F654B163435E08725F5770B1E73FD2B7B435B545"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/LocalWaveSplineTests.cs",
@@ -6473,8 +6493,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 15156,
-      "sha256": "5CB099269C0F96C9F031A0CEE8DDF879DCCA7FCDF9B5AA33B6ED0FA2FA3E6AF5"
+      "bytes": 15846,
+      "sha256": "27D1B2CEC3D39B945A5B7403991C6DFF804454D9AEBFE2BF4D3B16D39F5FA9C6"
     },
     {
       "path": "LICENSE.Crest",
@@ -6483,18 +6503,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 17639,
-      "sha256": "BD9ECDA2B366FF1DABEC2B544081F9BDC1A8D78E38ECC79C665953E8811C53D4"
+      "bytes": 19615,
+      "sha256": "AC6959A7C248C8FFE04004812730D468BBFCBD003ED9EDF4B4117EB99D175140"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 11917,
-      "sha256": "033FCB5412192A2B9827BC49FEDB3D7845419E07D8D79A5B7489DE10824A193D"
+      "bytes": 12031,
+      "sha256": "C0FD4883971892C26B90E9398C136EEB994747F4476FC38B91AD380E7B75C997"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 10679,
-      "sha256": "BB5726D12443EC0B6A704996C3CAF2A62643FDDF1058AB8862F8D8161A5F5989"
+      "bytes": 10930,
+      "sha256": "72D0B0E083A8F8AE0C58A28667B673A6CF0EDF2171B2FF9A5774413CCC71799B"
     },
     {
       "path": "README.md",
@@ -6508,8 +6528,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 109631,
-      "sha256": "9902E4DCF11E0CA2E6454D083D661EA0785F5820538582CE65F43ACCFEEA5886"
+      "bytes": 116437,
+      "sha256": "0DBED491C1492A4CADDB45D906173DD8540E52D2FEDD2F7456B92855DD2C16E3"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

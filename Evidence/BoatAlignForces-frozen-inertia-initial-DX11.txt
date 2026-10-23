@@ -1,0 +1,56 @@
+Original BoatAlignNormal; masses1000/5000kg, widths2/4m, lengths4/8m. Actual Start/FixedUpdate/physics. Test-only readback fence and passive force observer; no performance claim. Owned test keyboard=True; playerControlled=false, no injected keys.
+WarmReady=8
+Unlimited; Sample=1; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=1; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=2; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=2; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=3; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=3; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=4; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=4; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=5; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=5; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=6; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=6; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=7; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=7; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Unlimited; Sample=8; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 12000.000000, 0.000000); Expected=(0.000000, 12000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,0009765625; AlphaError=не число
+Unlimited; Sample=8; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 60000.000000, 0.000000); Expected=(0.000000, 60000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Summary=Unlimited; Samples=8; MaxForceError=0,0009765625; MaxAlphaError=не число
+CapAcceleration3; Sample=1; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=1; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=2; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=2; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=3; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=3; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=4; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=4; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=5; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=5; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=6; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=6; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=7; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=7; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+CapAcceleration3; Sample=8; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 3000.000000, 0.000000); Expected=(0.000000, 3000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,000244140625; AlphaError=не число
+CapAcceleration3; Sample=8; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 15000.000000, 0.000000); Expected=(0.000000, 15000.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Summary=CapAcceleration3; Samples=8; MaxForceError=0,000244140625; MaxAlphaError=не число
+ZeroCap; Sample=1; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=1; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=2; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=2; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=3; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=3; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=4; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=4; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=5; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=5; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=6; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=6; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=7; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=7; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=8; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ZeroCap; Sample=8; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 0.000000); Expected=(0.000000, 0.000000, 0.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+Summary=ZeroCap; Samples=8; MaxForceError=0; MaxAlphaError=не число
+ForwardAndSteer; Sample=1; Boat=0; Mass=1000; InWater=True; Force=(0.000000, 0.000000, 5500.000000); Expected=(0.000000, 0.000000, 5500.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0,00048828125; AlphaError=не число
+ForwardAndSteer; Sample=1; Boat=1; Mass=5000; InWater=True; Force=(0.000000, 0.000000, 27500.000000); Expected=(0.000000, 0.000000, 27500.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=0; AlphaError=не число
+ForwardAndSteer; Sample=2; Boat=0; Mass=1000; InWater=True; Force=(1.098239, 0.000000, 5500.000000); Expected=(0.000000, 0.000000, 5500.000000); DerivedAlpha=(NaN, NaN, NaN); ForceError=1,09823918; AlphaError=не число
