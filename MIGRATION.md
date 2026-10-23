@@ -142,6 +142,39 @@ requested length and a returned intersection may do so too. This inherited
 behavior is preserved and explicitly characterized in RayQueryTests; callers
 requiring a strict range should reject distances greater than their range.
 
+At most128 samples are used. Larger requested counts produce a warning and
+replace the step with `length / 127`, so the last sample then reaches the requested
+endpoint. Exact zero is treated as positive by the retained sign-change test:
+on flat water a ray starting on the surface hits at distance0 when pointing up,
+but misses when pointing down; ending exactly on the surface hits from above
+and misses from below. A ray lying in the surface also misses. These inherited
+endpoint conventions are explicitly tested, not a general geometric contact test.
+
+Changing a ray's origin/direction retains the original asynchronous query
+semantics. A ready result can combine heights sampled at the previous XZ positions
+with the current ray positions. On the tested slope, moving the origin returned
+4.50005m immediately when the current intersection was3.5m, then recovered with
+fresh data. A true return value therefore does not establish an intersection with
+the current ray at the current instant. Continuous fast movement and waves need
+their own error/latency budget.
+
+## Public time pause and resume
+
+Assign a custom clock with `OceanRenderer.PushTimeProvider(clock)` and restore
+the previous clock with `PopTimeProvider(clock)`. In Play Mode,
+`TimeProviderCustom._paused=true` stops its accumulated CurrentTime while its
+DeltaTime still follows Unity. To stop the delta supplied to dynamic simulations
+as well, set `_overrideDeltaTime=true` and `_deltaTime=0`. Resume with
+`_paused=false` and `_overrideDeltaTime=false`; the accumulated ocean clock
+continues from its paused value without catching up the elapsed Unity time.
+
+Pausing Unity with `Time.timeScale=0` also stops query timestamps. After pending
+readbacks settle, GPU height retrieval remains valid but a query requesting
+velocity returns `InvalidDtForVelocity` (16). Require the full status to return0
+after time resumes before using velocity. Default/custom clock pause/resume and
+real Gerstner/query response are tested; Timeline/networked clocks, arbitrary
+time jumps and full dynamic-wave/foam pause integration remain separate coverage.
+
 ## Offline FFT baking in the Editor
 
 `FFTBaker.BakeShapeFFT(shape, "Assets/ExistingFolder/Waves.asset")` performs the

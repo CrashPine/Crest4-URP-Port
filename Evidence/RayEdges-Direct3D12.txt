@@ -1,0 +1,141 @@
+Original RayTraceHelper: flat exact endpoints, cap128, then changed origin/direction on y=2+.25*x. Readiness observed with identical public Query, not private owner gates. Eight distinct successful timestamps per state. Distance tolerance .005m. Test-only fence; no latency/performance claim.
+StartDown; Attempt=1; Status=1; Timestamp=0,15; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=2; Status=0; Timestamp=0,166666672; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=3; Status=0; Timestamp=0,183333337; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=4; Status=0; Timestamp=0,2; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=5; Status=0; Timestamp=0,216666669; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=6; Status=0; Timestamp=0,233333334; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=7; Status=0; Timestamp=0,25; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=8; Status=0; Timestamp=0,266666681; Hit=False; Distance=-1; Expected=-1
+StartDown; Attempt=9; Status=0; Timestamp=0,283333331; Hit=False; Distance=-1; Expected=-1
+Summary=StartDown; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+StartUp; Attempt=1; Status=1; Timestamp=0,3; Hit=False; Distance=-1; Expected=0
+StartUp; Attempt=2; Status=0; Timestamp=0,316666663; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=3; Status=0; Timestamp=0,333333343; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=4; Status=0; Timestamp=0,35; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=5; Status=0; Timestamp=0,366666675; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=6; Status=0; Timestamp=0,383333325; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=7; Status=0; Timestamp=0,4; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=8; Status=0; Timestamp=0,416666657; Hit=True; Distance=0; Expected=0
+StartUp; Attempt=9; Status=0; Timestamp=0,433333337; Hit=True; Distance=0; Expected=0
+Summary=StartUp; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+EndDown; Attempt=1; Status=1; Timestamp=0,45; Hit=False; Distance=-1; Expected=4
+EndDown; Attempt=2; Status=0; Timestamp=0,466666669; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=3; Status=0; Timestamp=0,483333319; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=4; Status=0; Timestamp=0,5; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=5; Status=0; Timestamp=0,516666651; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=6; Status=0; Timestamp=0,533333361; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=7; Status=0; Timestamp=0,55; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=8; Status=0; Timestamp=0,566666663; Hit=True; Distance=4; Expected=4
+EndDown; Attempt=9; Status=0; Timestamp=0,5833333; Hit=True; Distance=4; Expected=4
+Summary=EndDown; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+EndUp; Attempt=1; Status=1; Timestamp=0,6; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=2; Status=0; Timestamp=0,6166667; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=3; Status=0; Timestamp=0,6333333; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=4; Status=0; Timestamp=0,65; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=5; Status=0; Timestamp=0,6666667; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=6; Status=0; Timestamp=0,683333337; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=7; Status=0; Timestamp=0,7; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=8; Status=0; Timestamp=0,716666639; Hit=False; Distance=-1; Expected=-1
+EndUp; Attempt=9; Status=0; Timestamp=0,733333349; Hit=False; Distance=-1; Expected=-1
+Summary=EndUp; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+TangentOnSurface; Attempt=1; Status=1; Timestamp=0,75; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=2; Status=0; Timestamp=0,766666651; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=3; Status=0; Timestamp=0,783333361; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=4; Status=0; Timestamp=0,8; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=5; Status=0; Timestamp=0,816666663; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=6; Status=0; Timestamp=0,8333333; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=7; Status=0; Timestamp=0,85; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=8; Status=0; Timestamp=0,8666667; Hit=False; Distance=-1; Expected=-1
+TangentOnSurface; Attempt=9; Status=0; Timestamp=0,8833333; Hit=False; Distance=-1; Expected=-1
+Summary=TangentOnSurface; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+JustInsideDown; Attempt=1; Status=1; Timestamp=0,9; Hit=False; Distance=-1; Expected=3,99
+JustInsideDown; Attempt=2; Status=0; Timestamp=0,9166667; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=3; Status=0; Timestamp=0,933333337; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=4; Status=0; Timestamp=0,95; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=5; Status=0; Timestamp=0,966666639; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=6; Status=0; Timestamp=0,983333349; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=7; Status=0; Timestamp=1; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=8; Status=0; Timestamp=1,01666665; Hit=True; Distance=3,99; Expected=3,99
+JustInsideDown; Attempt=9; Status=0; Timestamp=1,0333333; Hit=True; Distance=3,99; Expected=3,99
+Summary=JustInsideDown; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+JustOutsideDown; Attempt=1; Status=1; Timestamp=1,05; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=2; Status=0; Timestamp=1,06666672; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=3; Status=0; Timestamp=1,08333337; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=4; Status=0; Timestamp=1,1; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=5; Status=0; Timestamp=1,11666667; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=6; Status=0; Timestamp=1,13333333; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=7; Status=0; Timestamp=1,15; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=8; Status=0; Timestamp=1,16666663; Hit=False; Distance=-1; Expected=-1
+JustOutsideDown; Attempt=9; Status=0; Timestamp=1,18333328; Hit=False; Distance=-1; Expected=-1
+Summary=JustOutsideDown; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+JustInsideUp; Attempt=1; Status=1; Timestamp=1,2; Hit=False; Distance=-1; Expected=3,99
+JustInsideUp; Attempt=2; Status=0; Timestamp=1,2166667; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=3; Status=0; Timestamp=1,23333335; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=4; Status=0; Timestamp=1,25; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=5; Status=0; Timestamp=1,26666665; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=6; Status=0; Timestamp=1,2833333; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=7; Status=0; Timestamp=1,3; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=8; Status=0; Timestamp=1,31666672; Hit=True; Distance=3,99; Expected=3,99
+JustInsideUp; Attempt=9; Status=0; Timestamp=1,33333337; Hit=True; Distance=3,99; Expected=3,99
+Summary=JustInsideUp; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+JustOutsideUp; Attempt=1; Status=1; Timestamp=1,35; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=2; Status=0; Timestamp=1,36666667; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=3; Status=0; Timestamp=1,38333333; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=4; Status=0; Timestamp=1,4; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=5; Status=0; Timestamp=1,41666663; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=6; Status=0; Timestamp=1,43333328; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=7; Status=0; Timestamp=1,45; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=8; Status=0; Timestamp=1,4666667; Hit=False; Distance=-1; Expected=-1
+JustOutsideUp; Attempt=9; Status=0; Timestamp=1,48333335; Hit=False; Distance=-1; Expected=-1
+Summary=JustOutsideUp; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+CappedDown; Attempt=1; Status=1; Timestamp=1,5; Hit=False; Distance=-1; Expected=3
+CappedDown; Attempt=2; Status=0; Timestamp=1,51666665; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=3; Status=0; Timestamp=1,5333333; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=4; Status=0; Timestamp=1,55; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=5; Status=0; Timestamp=1,56666672; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=6; Status=0; Timestamp=1,58333337; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=7; Status=0; Timestamp=1,6; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=8; Status=0; Timestamp=1,61666667; Hit=True; Distance=3; Expected=3
+CappedDown; Attempt=9; Status=0; Timestamp=1,63333333; Hit=True; Distance=3; Expected=3
+Summary=CappedDown; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+CappedUp; Attempt=1; Status=1; Timestamp=1,65; Hit=False; Distance=-1; Expected=3
+CappedUp; Attempt=2; Status=0; Timestamp=1,66666663; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=3; Status=0; Timestamp=1,68333328; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=4; Status=0; Timestamp=1,7; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=5; Status=0; Timestamp=1,7166667; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=6; Status=0; Timestamp=1,73333335; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=7; Status=0; Timestamp=1,75; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=8; Status=0; Timestamp=1,76666665; Hit=True; Distance=3; Expected=3
+CappedUp; Attempt=9; Status=0; Timestamp=1,7833333; Hit=True; Distance=3; Expected=3
+Summary=CappedUp; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=0
+BeforeMove; Attempt=1; Status=1; Timestamp=1,93333328; Hit=False; Distance=-1; Expected=4,5
+BeforeMove; Attempt=2; Status=0; Timestamp=1,95; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=3; Status=0; Timestamp=1,9666667; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=4; Status=0; Timestamp=1,98333335; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=5; Status=0; Timestamp=2; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=6; Status=0; Timestamp=2,01666665; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=7; Status=0; Timestamp=2,0333333; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=8; Status=0; Timestamp=2,05; Hit=True; Distance=4,50004673; Expected=4,5
+BeforeMove; Attempt=9; Status=0; Timestamp=2,0666666; Hit=True; Distance=4,50004673; Expected=4,5
+Summary=BeforeMove; Accepted=8; Attempts=9; Stale=0; MaxDistanceError=4,673004E-05
+OriginChangedImmediate; Status=0; Hit=True; Distance=4,50004673; ExpectedOldPacket=4,5; CurrentIntersection=3,5
+OriginChangedRecovery; Attempt=1; Status=0; Timestamp=2,08333325; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=2; Status=0; Timestamp=2,1; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=3; Status=0; Timestamp=2,11666656; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=4; Status=0; Timestamp=2,13333344; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=5; Status=0; Timestamp=2,15; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=6; Status=0; Timestamp=2,16666675; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=7; Status=0; Timestamp=2,1833334; Hit=True; Distance=3,49995351; Expected=3,5
+OriginChangedRecovery; Attempt=8; Status=0; Timestamp=2,2; Hit=True; Distance=3,49995351; Expected=3,5
+Summary=OriginChangedRecovery; Accepted=8; Attempts=8; Stale=0; MaxDistanceError=4,64916229E-05
+DirectionChangedImmediate; Status=0; Hit=True; Distance=4,374942; ExpectedOldPacket=4,375; CurrentIntersection=4,73684168
+DirectionChangedRecovery; Attempt=1; Status=0; Timestamp=2,2166667; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=2; Status=0; Timestamp=2,23333335; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=3; Status=0; Timestamp=2,25; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=4; Status=0; Timestamp=2,26666665; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=5; Status=0; Timestamp=2,2833333; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=6; Status=0; Timestamp=2,3; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=7; Status=0; Timestamp=2,3166666; Hit=True; Distance=4,736749; Expected=4,73684168
+DirectionChangedRecovery; Attempt=8; Status=0; Timestamp=2,33333325; Hit=True; Distance=4,736749; Expected=4,73684168
+Summary=DirectionChangedRecovery; Accepted=8; Attempts=8; Stale=0; MaxDistanceError=9,250641E-05

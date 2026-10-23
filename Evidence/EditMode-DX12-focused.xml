@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-23 15:49:20Z" end-time="2026-10-23 15:49:21Z" duration="0,6871919">
-  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-10-23 15:49:20Z" end-time="2026-10-23 15:49:21Z" duration="0.687192" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-23 16:10:06Z" end-time="2026-10-23 16:10:16Z" duration="10,5248622">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-10-23 16:10:06Z" end-time="2026-10-23 16:10:16Z" duration="10.524862" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1082" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="55" result="Passed" start-time="2026-10-23 15:49:20Z" end-time="2026-10-23 15:49:21Z" duration="0.680392" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1086" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-10-23 16:10:06Z" end-time="2026-10-23 16:10:16Z" duration="10.516153" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="10684" />
+        <property name="_PID" value="317036" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestFixture" id="1054" name="QueryLayoutTests" fullname="QueryLayoutTests" classname="QueryLayoutTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-23 15:49:20Z" end-time="2026-10-23 15:49:21Z" duration="0.678626" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1052" name="PublicTimeControlTests" fullname="PublicTimeControlTests" classname="PublicTimeControlTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-23 16:10:06Z" end-time="2026-10-23 16:10:16Z" duration="10.514453" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1055" name="OwnersCountsAndOptionalOutputsKeepResultsSeparated" fullname="QueryLayoutTests.OwnersCountsAndOptionalOutputsKeepResultsSeparated" methodname="OwnersCountsAndOptionalOutputsKeepResultsSeparated" classname="QueryLayoutTests" runstate="Runnable" seed="1722959252" result="Passed" start-time="2026-10-23 15:49:20Z" end-time="2026-10-23 15:49:21Z" duration="0.667434" asserts="0">
+        <test-case id="1053" name="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" fullname="PublicTimeControlTests.PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" methodname="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" classname="PublicTimeControlTests" runstate="Runnable" seed="520361998" result="Passed" start-time="2026-10-23 16:10:06Z" end-time="2026-10-23 16:10:16Z" duration="10.503150" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
