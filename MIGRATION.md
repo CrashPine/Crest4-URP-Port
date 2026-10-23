@@ -149,9 +149,12 @@ object. FFT compute algorithms, frame layout, half precision, time sampling,
 GUIDs and CPU provider equations are unchanged. The CPU provider's original
 velocity output is **vertical only**, derived from its 0.06-second backward
 height difference. Baked data loops in ocean time and represents the baked FFT,
-not arbitrary live local-height or dynamic-wave inputs. The scoped P07 fixture
-checks the direct CPU provider with chop=0; automatic scene provider selection,
-choppy displacement inversion and the wider combinations remain unaccepted.
+not arbitrary live local-height or dynamic-wave inputs. The scoped P07 fixtures
+check chop=0 direct CPU queries and chop=1.6 through automatic OceanRenderer
+settings selection. Choppy heights are compared with independent Newton inversion
+of saved frames. Strongly folded mappings and wider configurations remain open.
+Temporal interpolation follows the original per-keyframe inversion contract;
+it is not inversion of a newly interpolated continuous GPU field.
 
 
 ## Original BoatProbes force and contact contracts
@@ -172,3 +175,28 @@ added to production. Its results do not establish unpaced query performance.
 Public wind/spectrum and custom ocean-time controls were exercised with runtime
 spectrum updates enabled (`_spectrumFixedAtRuntime=false` in the Inspector
 configuration); the default fixed-spectrum setting is not a live-edit contract.
+
+
+`_engineBias` and `_turnBias` work with `_playerControlled=false`, without a
+keyboard. Engine/drag use ForceMode.Acceleration: on flat water with fixed
+orientation, terminal forward velocity is enginePower*engineBias/dragForward,
+independent of Rigidbody mass. Steering adds angular acceleration along
+`transform.up + _turningHeel * transform.forward`. The cap remains Newtons per
+probe: four fully immersed probes capped at1000N produce4000N total; infinity
+restores the original weighted force and zero disables buoyancy.
+
+`SimSettingsAnimatedWaves.CollisionSource` participates in the ocean settings
+hash. Switching source through BakedFFT/None/ComputeShaderQueries rebuilds the
+provider and releases the previous buffers/jobs. Assign `_bakedFFTData` before
+selecting BakedFFT, preserve its asset reference and match its wind configuration.
+This test does not prove hot-swapping only the data reference, nor persistence
+of a scene binding: after scene reload the fixture explicitly reassigns settings.
+A rebuild resets temporary time-provider stack entries; push the custom clock
+after selection. CPU queries then use that clock, including the ocean sea-level
+offset for heights; raw displacement queries remain relative and uninverted.
+
+
+Probe weight totals are calculated in Start in Player code. The original Editor
+also recalculates them in each FixedUpdate for Inspector edits. Configure weights
+before Start for Player use; the Editor's live weight edits are not proof of a
+runtime weight-update API.

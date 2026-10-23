@@ -1,0 +1,48 @@
+Real FFT bake chop1.6, settings asset unload/reimport, automatic OceanRenderer provider selection. SettingsGuid=d22e95c9ff94c32449d39bbbe541564f; DataGuid=212e2f8b6f79fa041a4e7f36a7d5b2b0. CPU reference uses scalar raw baked frames and independent Newton inversion, never FFTBakedData.SampleHeightXZT. Time.timeScale=0 is valid for the CPU provider's ocean-time derivative, not GPU velocity.
+Selection=CPU; OldGPUBufferReleased=True
+InitialCPU; Time=0; Point=0; Height=-0,0598813929; ExpectedHeight=-0,05988138; HeightError=1,11758709E-08; NormalError=3,008877E-06; VelocityError=6,78002834E-07; DisplacementError=0
+InitialCPU; Time=0; Point=1; Height=-0,05279758; ExpectedHeight=-0,0527975075; HeightError=7,07805157E-08; NormalError=4,386727E-07; VelocityError=8,698553E-07; DisplacementError=0
+InitialCPU; Time=0; Point=2; Height=-0,0683256; ExpectedHeight=-0,06832562; HeightError=1,49011612E-08; NormalError=5,21540642E-07; VelocityError=1,68383121E-06; DisplacementError=0
+InitialCPU; Time=0; Point=3; Height=0,0162242912; ExpectedHeight=0,016221296; HeightError=2,9951334E-06; NormalError=3,660147E-06; VelocityError=1,35656446E-05; DisplacementError=5,58793545E-09
+InitialCPU; Time=0; Point=4; Height=0,0928026438; ExpectedHeight=0,09280246; HeightError=1,86264515E-07; NormalError=2,14215925E-06; VelocityError=9,909272E-07; DisplacementError=1,86264515E-09
+InitialCPU; Time=0,125; Point=0; Height=-0,060737513; ExpectedHeight=-0,0607371628; HeightError=3,501773E-07; NormalError=1,60653769E-06; VelocityError=2,79396772E-06; DisplacementError=0
+InitialCPU; Time=0,125; Point=1; Height=-0,0428963155; ExpectedHeight=-0,04289611; HeightError=2,04890966E-07; NormalError=1,07076664E-06; VelocityError=1,05798244E-06; DisplacementError=0
+InitialCPU; Time=0,125; Point=2; Height=-0,0734538138; ExpectedHeight=-0,07345384; HeightError=2,98023224E-08; NormalError=1,53307008E-06; VelocityError=2,4586916E-07; DisplacementError=0
+InitialCPU; Time=0,125; Point=3; Height=0,00762536; ExpectedHeight=0,00762391463; HeightError=1,44541264E-06; NormalError=1,31081663E-06; VelocityError=1,24052167E-05; DisplacementError=8,33000247E-09
+InitialCPU; Time=0,125; Point=4; Height=0,0528899431; ExpectedHeight=0,05288984; HeightError=1,04308128E-07; NormalError=1,14348813E-06; VelocityError=6,2584877E-07; DisplacementError=4,16500123E-09
+InitialCPU; Time=1; Point=0; Height=0,0501027256; ExpectedHeight=0,05010286; HeightError=1,34110451E-07; NormalError=1,26287341E-06; VelocityError=1,25169754E-06; DisplacementError=0
+InitialCPU; Time=1; Point=1; Height=0,05146768; ExpectedHeight=0,05146762; HeightError=5,96046448E-08; NormalError=8,466823E-07; VelocityError=1,61491334E-06; DisplacementError=0
+InitialCPU; Time=1; Point=2; Height=0,06813951; ExpectedHeight=0,06813945; HeightError=5,96046448E-08; NormalError=5,398523E-07; VelocityError=2,17556953E-06; DisplacementError=0
+InitialCPU; Time=1; Point=3; Height=-0,0258908346; ExpectedHeight=-0,0258882716; HeightError=2,56299973E-06; NormalError=3,32042828E-06; VelocityError=1,13006681E-05; DisplacementError=5,58793545E-09
+InitialCPU; Time=1; Point=4; Height=-0,09329668; ExpectedHeight=-0,09329672; HeightError=4,47034836E-08; NormalError=2,441984E-07; VelocityError=1,2665987E-07; DisplacementError=1,86264515E-09
+InitialCPU; Time=3,875; Point=0; Height=-0,04584593; ExpectedHeight=-0,045846; HeightError=7,07805157E-08; NormalError=2,975558E-06; VelocityError=6,78002834E-07; DisplacementError=0
+InitialCPU; Time=3,875; Point=1; Height=-0,04941008; ExpectedHeight=-0,0494098961; HeightError=1,82539225E-07; NormalError=5,600339E-07; VelocityError=8,08388E-07; DisplacementError=0
+InitialCPU; Time=3,875; Point=2; Height=-0,0456490777; ExpectedHeight=-0,04564888; HeightError=1,97440386E-07; NormalError=2,70077123E-07; VelocityError=1,68383121E-06; DisplacementError=2,32830644E-10
+InitialCPU; Time=3,875; Point=3; Height=0,0188883319; ExpectedHeight=0,0188870337; HeightError=1,29826367E-06; NormalError=3,90245E-06; VelocityError=1,359731E-05; DisplacementError=3,226196E-09
+InitialCPU; Time=3,875; Point=4; Height=0,105224118; ExpectedHeight=0,105224043; HeightError=7,4505806E-08; NormalError=7,47438435E-07; VelocityError=9,983778E-07; DisplacementError=2,32830644E-09
+InitialCPU; Time=4,125; Point=0; Height=-0,060737513; ExpectedHeight=-0,0607371628; HeightError=3,501773E-07; NormalError=1,60653769E-06; VelocityError=2,731569E-06; DisplacementError=0
+InitialCPU; Time=4,125; Point=1; Height=-0,0428963155; ExpectedHeight=-0,04289611; HeightError=2,04890966E-07; NormalError=1,07076664E-06; VelocityError=1,05798244E-06; DisplacementError=0
+InitialCPU; Time=4,125; Point=2; Height=-0,0734538138; ExpectedHeight=-0,07345384; HeightError=2,98023224E-08; NormalError=1,53307008E-06; VelocityError=1,2293458E-07; DisplacementError=0
+InitialCPU; Time=4,125; Point=3; Height=0,00762536; ExpectedHeight=0,00762391463; HeightError=1,44541264E-06; NormalError=1,31081663E-06; VelocityError=1,23977661E-05; DisplacementError=8,33000247E-09
+InitialCPU; Time=4,125; Point=4; Height=0,0528899431; ExpectedHeight=0,05288984; HeightError=1,04308128E-07; NormalError=1,14348813E-06; VelocityError=6,2584877E-07; DisplacementError=4,16500123E-09
+InitialCPU; Time=-0,125; Point=0; Height=-0,04584593; ExpectedHeight=-0,045846; HeightError=7,07805157E-08; NormalError=2,975558E-06; VelocityError=6,78002834E-07; DisplacementError=0
+InitialCPU; Time=-0,125; Point=1; Height=-0,04941008; ExpectedHeight=-0,0494098961; HeightError=1,82539225E-07; NormalError=5,600339E-07; VelocityError=8,08388E-07; DisplacementError=0
+InitialCPU; Time=-0,125; Point=2; Height=-0,0456490777; ExpectedHeight=-0,04564888; HeightError=1,97440386E-07; NormalError=2,70077123E-07; VelocityError=1,68383121E-06; DisplacementError=2,32830644E-10
+InitialCPU; Time=-0,125; Point=3; Height=0,0188883319; ExpectedHeight=0,0188870337; HeightError=1,29826367E-06; NormalError=3,90245E-06; VelocityError=1,359731E-05; DisplacementError=3,226196E-09
+InitialCPU; Time=-0,125; Point=4; Height=0,105224118; ExpectedHeight=0,105224043; HeightError=7,4505806E-08; NormalError=7,47438435E-07; VelocityError=9,983778E-07; DisplacementError=2,32830644E-09
+Summary=InitialCPU; Samples=30; MaxHeightError=2,9951334E-06; MaxNormalError=3,90245E-06; MaxVelocityError=1,359731E-05; MaxDisplacementError=8,33000247E-09; HorizontalDisplacementPeak=0,103657439
+Selection=None; OldCPUPositionArraysReleased=True
+Selection=GPU; QueryDisplacementsCreated=True
+ReturnedCPUSeaLevel125; Time=0,125; Point=0; Height=1,18926251; ExpectedHeight=1,18926287; HeightError=3,27825546E-07; NormalError=1,60653769E-06; VelocityError=2,79396772E-06; DisplacementError=0
+ReturnedCPUSeaLevel125; Time=0,125; Point=1; Height=1,20710373; ExpectedHeight=1,20710385; HeightError=1,60187483E-07; NormalError=1,07076664E-06; VelocityError=1,05798244E-06; DisplacementError=0
+ReturnedCPUSeaLevel125; Time=0,125; Point=2; Height=1,17654622; ExpectedHeight=1,1765461; HeightError=5,96046448E-08; NormalError=1,53307008E-06; VelocityError=2,4586916E-07; DisplacementError=0
+ReturnedCPUSeaLevel125; Time=0,125; Point=3; Height=1,25762534; ExpectedHeight=1,25762391; HeightError=1,42678618E-06; NormalError=1,31081663E-06; VelocityError=1,24052167E-05; DisplacementError=8,33000247E-09
+ReturnedCPUSeaLevel125; Time=0,125; Point=4; Height=1,30289; ExpectedHeight=1,30288982; HeightError=1,04308128E-07; NormalError=1,14348813E-06; VelocityError=6,2584877E-07; DisplacementError=4,16500123E-09
+Summary=ReturnedCPUSeaLevel125; Samples=5; MaxHeightError=1,42678618E-06; MaxNormalError=1,60653769E-06; MaxVelocityError=1,24052167E-05; MaxDisplacementError=8,33000247E-09; HorizontalDisplacementPeak=0,08877485
+ReloadedOcean; Time=0,125; Point=0; Height=-0,060737513; ExpectedHeight=-0,0607371628; HeightError=3,501773E-07; NormalError=1,60653769E-06; VelocityError=2,79396772E-06; DisplacementError=0
+ReloadedOcean; Time=0,125; Point=1; Height=-0,0428963155; ExpectedHeight=-0,04289611; HeightError=2,04890966E-07; NormalError=1,07076664E-06; VelocityError=1,05798244E-06; DisplacementError=0
+ReloadedOcean; Time=0,125; Point=2; Height=-0,0734538138; ExpectedHeight=-0,07345384; HeightError=2,98023224E-08; NormalError=1,53307008E-06; VelocityError=2,4586916E-07; DisplacementError=0
+ReloadedOcean; Time=0,125; Point=3; Height=0,00762536; ExpectedHeight=0,00762391463; HeightError=1,44541264E-06; NormalError=1,31081663E-06; VelocityError=1,24052167E-05; DisplacementError=8,33000247E-09
+ReloadedOcean; Time=0,125; Point=4; Height=0,0528899431; ExpectedHeight=0,05288984; HeightError=1,04308128E-07; NormalError=1,14348813E-06; VelocityError=6,2584877E-07; DisplacementError=4,16500123E-09
+Summary=ReloadedOcean; Samples=5; MaxHeightError=1,44541264E-06; MaxNormalError=1,60653769E-06; MaxVelocityError=1,24052167E-05; MaxDisplacementError=8,33000247E-09; HorizontalDisplacementPeak=0,08877485
+Ocean reloaded and settings reassigned; reference asset preserved. This is not saved-scene binding acceptance.

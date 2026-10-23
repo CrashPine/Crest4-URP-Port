@@ -1,0 +1,49 @@
+Original BoatProbes, automatic FixedUpdate physics, flat GPU water, no image assertions. Observer reads accumulated force/torque after controller and adds no force.
+Forward; Time=0,499999821; Mass=1000; Velocity=(0.000000, 0.000000, 1.387873); ForceZ=2155,23145; ExpectedForceZ=2155,23169
+Forward; Time=0,999999642; Mass=1000; Velocity=(0.000000, 0.000000, 2.225405); ForceZ=1300,60669; ExpectedForceZ=1300,60669
+Forward; Time=1,49999952; Mass=1000; Velocity=(0.000000, 0.000000, 2.730827); ForceZ=784,8706; ExpectedForceZ=784,8706
+Forward; Time=1,9999994; Mass=1000; Velocity=(0.000000, 0.000000, 3.035831); ForceZ=473,6416; ExpectedForceZ=473,641632
+Forward; Time=2,499999; Mass=1000; Velocity=(0.000000, 0.000000, 3.219890); ForceZ=285,8262; ExpectedForceZ=285,8262
+Forward; Time=2,999999; Mass=1000; Velocity=(0.000000, 0.000000, 3.330964); ForceZ=172,486053; ExpectedForceZ=172,486069
+Forward; Time=3,49999857; Mass=1000; Velocity=(0.000000, 0.000000, 3.397993); ForceZ=104,089256; ExpectedForceZ=104,089264
+Forward; Time=3,99999857; Mass=1000; Velocity=(0.000000, 0.000000, 3.438442); ForceZ=62,81399; ExpectedForceZ=62,8139954
+Forward; Time=4,49999857; Mass=1000; Velocity=(0.000000, 0.000000, 3.462852); ForceZ=37,90593; ExpectedForceZ=37,90593
+Forward; Time=4,99999857; Mass=1000; Velocity=(0.000000, 0.000000, 3.477582); ForceZ=22,8753071; ExpectedForceZ=22,875309
+Forward; Time=5,499998; Mass=1000; Velocity=(0.000000, 0.000000, 3.486472); ForceZ=13,8041964; ExpectedForceZ=13,8041973
+Forward; Time=5,999998; Mass=1000; Velocity=(0.000000, 0.000000, 3.491836); ForceZ=8,330344; ExpectedForceZ=8,330345
+Summary=Forward; Ticks=301; SimulatedSeconds=6,019998; FinalVelocityZ=3,49199963; Target=3,5; MaxForceErrorN=0,00048828125; DeltaZ=17,647831
+Coast; Time=0,499999523; Mass=1000; Velocity=(0.000000, 0.000000, 2.107299); ForceZ=-2150,30542; ExpectedForceZ=-2150,30542
+Coast; Time=0,9999995; Mass=1000; Velocity=(0.000000, 0.000000, 1.271681); ForceZ=-1297,63354; ExpectedForceZ=-1297,63367
+Coast; Time=1,49999952; Mass=1000; Velocity=(0.000000, 0.000000, 0.767415); ForceZ=-783,07605; ExpectedForceZ=-783,0761
+Coast; Time=1,99999952; Mass=1000; Velocity=(0.000000, 0.000000, 0.463108); ForceZ=-472,55896; ExpectedForceZ=-472,55896
+Coast; Time=2,49999857; Mass=1000; Velocity=(0.000000, 0.000000, 0.279469); ForceZ=-285,1727; ExpectedForceZ=-285,172729
+Coast; Time=2,99999857; Mass=1000; Velocity=(0.000000, 0.000000, 0.168650); ForceZ=-172,0917; ExpectedForceZ=-172,091721
+Coast; Time=3,49999857; Mass=1000; Velocity=(0.000000, 0.000000, 0.101774); ForceZ=-103,851311; ExpectedForceZ=-103,851318
+Coast; Time=3,99999857; Mass=1000; Velocity=(0.000000, 0.000000, 0.061417); ForceZ=-62,67061; ExpectedForceZ=-62,6706123
+Summary=Coast; Ticks=201; SimulatedSeconds=4,019998; FinalVelocityZ=0,060188856; Target=0; MaxForceErrorN=0,000244140625; DeltaZ=3,36317253
+ReverseAtDoubleMass; Time=0,5; Mass=2000; Velocity=(0.000000, 0.110002, -1.351551); ForceZ=-4384,589; ExpectedForceZ=-4384,58936
+ReverseAtDoubleMass; Time=1; Mass=2000; Velocity=(0.000000, -0.095956, -2.203487); ForceZ=-2645,94482; ExpectedForceZ=-2645,945
+ReverseAtDoubleMass; Time=1,5; Mass=2000; Velocity=(0.000000, 0.060283, -2.717600); ForceZ=-1596,73535; ExpectedForceZ=-1596,73547
+ReverseAtDoubleMass; Time=2; Mass=2000; Velocity=(0.000000, -0.032156, -3.027849); ForceZ=-963,5734; ExpectedForceZ=-963,5735
+ReverseAtDoubleMass; Time=2,5; Mass=2000; Velocity=(0.000000, 0.015215, -3.215073); ForceZ=-581,483337; ExpectedForceZ=-581,483337
+ReverseAtDoubleMass; Time=2,999999; Mass=2000; Velocity=(0.000000, -0.006426, -3.328057); ForceZ=-350,904449; ExpectedForceZ=-350,90448
+ReverseAtDoubleMass; Time=3,499999; Mass=2000; Velocity=(0.000000, 0.002366, -3.396238); ForceZ=-211,759079; ExpectedForceZ=-211,7591
+ReverseAtDoubleMass; Time=3,999999; Mass=2000; Velocity=(0.000000, -0.000696, -3.437383); ForceZ=-127,789009; ExpectedForceZ=-127,789017
+ReverseAtDoubleMass; Time=4,499999; Mass=2000; Velocity=(0.000000, 0.000103, -3.462213); ForceZ=-77,11553; ExpectedForceZ=-77,11554
+ReverseAtDoubleMass; Time=4,999999; Mass=2000; Velocity=(0.000000, 0.000058, -3.477197); ForceZ=-46,5373955; ExpectedForceZ=-46,5374
+ReverseAtDoubleMass; Time=5,499998; Mass=2000; Velocity=(0.000000, -0.000073, -3.486239); ForceZ=-28,0833225; ExpectedForceZ=-28,0833244
+ReverseAtDoubleMass; Time=5,999998; Mass=2000; Velocity=(0.000000, 0.000051, -3.491696); ForceZ=-16,9477444; ExpectedForceZ=-16,9477463
+Summary=ReverseAtDoubleMass; Ticks=301; SimulatedSeconds=6,01999855; FinalVelocityZ=-3,49186182; Target=-3,5; MaxForceErrorN=0,0009765625; DeltaZ=-17,588974
+StopBeforeTurn; Time=0,5; Mass=2000; Velocity=(0.000000, -0.000029, -2.107215); ForceZ=4300,439; ExpectedForceZ=4300,43945
+StopBeforeTurn; Time=1; Mass=2000; Velocity=(0.000000, 0.000014, -1.271630); ForceZ=2595,16357; ExpectedForceZ=2595,16382
+StopBeforeTurn; Time=1,5; Mass=2000; Velocity=(0.000000, -0.000006, -0.767384); ForceZ=1566,09021; ExpectedForceZ=1566,09033
+StopBeforeTurn; Time=1,99999809; Mass=2000; Velocity=(0.000000, 0.000003, -0.463089); ForceZ=945,0803; ExpectedForceZ=945,0804
+StopBeforeTurn; Time=2,499998; Mass=2000; Velocity=(0.000000, -0.000001, -0.279458); ForceZ=570,3228; ExpectedForceZ=570,3229
+StopBeforeTurn; Time=2,999998; Mass=2000; Velocity=(0.000000, 0.000001, -0.168643); ForceZ=344,169739; ExpectedForceZ=344,169769
+StopBeforeTurn; Time=3,499998; Mass=2000; Velocity=(0.000000, -0.000001, -0.101770); ForceZ=207,694321; ExpectedForceZ=207,694336
+StopBeforeTurn; Time=3,999998; Mass=2000; Velocity=(0.000000, -0.000001, -0.061415); ForceZ=125,33622; ExpectedForceZ=125,336227
+Summary=StopBeforeTurn; Ticks=201; SimulatedSeconds=4,01999855; FinalVelocityZ=-0,0601864569; Target=0; MaxForceErrorN=0,00048828125; DeltaZ=-3,36304188
+SteeringFirstStep; Torque=(0.000000, 666.666700, 85.866650); Inertia=(3226.667000, 3333.333000, 1226.667000); DerivedAngularAcceleration=(0.000000, 0.200000, 0.070000); Expected=(0.000000, 0.200000, 0.070000)
+Summary=TurnPositive; Ticks=201; YawChangeDegrees=19,5776653; AngularVelocity=(-0.000003, 0.095975, -0.000008); MaxTilt=0,128204256
+Summary=TurnNegative; Ticks=201; YawChangeDegrees=-16,8333359; AngularVelocity=(-0.000001, -0.095948, -0.000028); MaxTilt=0,178041145
+Summary=TurnReleased; Ticks=201; YawChangeDegrees=-2,63796926; AngularVelocity=(0.000000, -0.000026, 0.000014); MaxTilt=0,07912937

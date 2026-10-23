@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-23T10:57:22.7274485Z",
+  "recordedUtc": "2026-10-23T15:14:28.9016017Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1278,
+  "fileCount": 1282,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -34,10 +34,10 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-23 10:54:56Z",
+      "start": "2026-10-23 11:19:12Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "2",
+      "passed": "2",
       "failed": "0"
     },
     {
@@ -50,10 +50,10 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-23 10:55:48Z",
+      "start": "2026-10-23 15:13:16Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "2",
+      "passed": "2",
       "failed": "0"
     },
     {
@@ -5672,6 +5672,16 @@
       "sha256": "197DE6A2113446BAACD2F5F6D2A792D4895A513A8E0C683DDD3C5F1F96E4009B"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs",
+      "bytes": 14979,
+      "sha256": "19F747841CCE75ABFD7FFC96DFF5E3D0A8F34B872D540403F40A062A94C056A1"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs.meta",
+      "bytes": 61,
+      "sha256": "90955DFBA7E7A9E1F15BCCADF3D6149FD45AD9946FB3D19488F15EC33C454B0D"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTTests.cs",
       "bytes": 11034,
       "sha256": "F6FA0E11B0745484089C0D38E5823034A0C5F98DA912001807E9D4FB7052FC96"
@@ -5680,6 +5690,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTTests.cs.meta",
       "bytes": 61,
       "sha256": "0AE9BD040F3F82A2686C0A88DD51B308740A4B45000116280FF902A322DDBF07"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BoatProbesControlsTests.cs",
+      "bytes": 12353,
+      "sha256": "CCDA929BB0BEE2F57F9DBB8C0A69EE4E705B1D731457508F62D516549715D96F"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BoatProbesControlsTests.cs.meta",
+      "bytes": 61,
+      "sha256": "0457E06CB6B920367D561E5E25243FD3509C9CA2C56A524EA6098982827DF36F"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/BoatProbesTests.cs",
@@ -6353,8 +6373,8 @@
     },
     {
       "path": "ProjectSettings/TimeManager.asset",
-      "bytes": 305,
-      "sha256": "3396F52FDC16D445024E01D7A2D99DB6F0A37569D1D73C0302E9FFB857D90287"
+      "bytes": 319,
+      "sha256": "04C070E2F9716503B8014933B8603D21EDBF3784AFB00E32A2633A0ECEE075F2"
     },
     {
       "path": "ProjectSettings/UnityConnectSettings.asset",
@@ -6413,8 +6433,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 13109,
-      "sha256": "86E5B43FE9F1753EB7D89E91C24EED733EC4E594D84387CB87AA1FCB1A6697E4"
+      "bytes": 13865,
+      "sha256": "71E3A470D3F653FC2D992087C694A3D3CF7A857C3058BB570A2C16D315B34791"
     },
     {
       "path": "LICENSE.Crest",
@@ -6423,18 +6443,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 11001,
-      "sha256": "F8B6BB2FE6E081092BD81D59F9DCDD9913A94BC27AC06A8283032C8B840E95AC"
+      "bytes": 14033,
+      "sha256": "8F8CC8198EAB6234F6F8BDEBE7787176F0579F2E773E3C53EC398D16160FA19A"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 10865,
-      "sha256": "685E7E88243865E1BF2C99604611D9ADA50902A4E5BBB8A87E09F93BCFDDD9FB"
+      "bytes": 11616,
+      "sha256": "CD941BAD3967C682834AA182A2ABBAB141B99A2D3A121DBC5F585FD0907660F4"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 18983,
-      "sha256": "7E4A2518ED6E18BDD90A67BE359DD5BE89F3D91FFB95A12B20F02D131C98ADED"
+      "bytes": 10781,
+      "sha256": "2101A7A6C13A3E10FBA445058E7896F7585407EA702F3DBD697BE0A296C2DE58"
     },
     {
       "path": "README.md",
@@ -6448,8 +6468,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 82875,
-      "sha256": "CEFF614B42F785C44E152314E814562D8E9D426DEE5C60FEE75C1C1790930BC9"
+      "bytes": 94874,
+      "sha256": "FB25D576B1B063811286C5D481B55E3899759D8EA08528BE7DB24AEC44973D9F"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
