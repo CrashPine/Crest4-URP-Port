@@ -103,3 +103,18 @@ The method restores the caller's active RenderTexture and releases its temporary
 CPU texture in `finally`, including write/import failures. It is inside
 `#if UNITY_EDITOR` and is unavailable in Player code. Supplying an explicit path
 selects the export destination; it does not retarget an already assigned SavedCache.
+
+
+## Query readiness and velocity timestamps
+
+The retained `QueryBase.RetrieveSucceeded` checks only the `RetrieveFailed` bit.
+Consequently, `SampleHeightHelper.Sample(..., out velocity)` returning true does
+not establish that a fresh velocity was calculated. Integrations requiring valid
+velocity should inspect the full `ICollProvider.Query` status, including
+`NotEnoughDataForVels`, `VelocityDataInvalidated` and `InvalidDtForVelocity`.
+The original velocity finite difference timestamps readbacks with Unity
+`Time.time`, rather than the ocean's custom time provider. Freezing Unity time or
+advancing only a custom ocean clock is therefore not a valid velocity test. A
+height-only query does not need velocity history. Numerical acceptance of normals,
+velocities and latency is the next P07 task; these source contracts are not a new
+claim that those outputs have passed validation.

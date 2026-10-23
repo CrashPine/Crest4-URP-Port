@@ -1,0 +1,60 @@
+{
+  "scope": "Real Unity 6000.6.5f1 DX11 UI via @oai/sky: original spline/spline-point/spectrum inspectors, mouse handle drag, Undo/Redo, Ctrl+S. Helper only prepares/selects/records/reloads a fixture; no backend edit substitutes. This is a representative Editor workflow, not all controls or a DX12 GUI run.",
+  "checks": {
+    "radius_ui_undo_redo": true,
+    "add_point_ui_undo_redo": true,
+    "scene_drag_ui_undo_redo": true,
+    "scene_guid_preserved": true,
+    "spectrum_guid_preserved": true,
+    "ui_errors_empty": true,
+    "owned_fixture_cleaned": true,
+    "saved_values_reloaded": true
+  },
+  "snapshotCount": 24,
+  "finalReload": {
+    "phase": "Reloaded",
+    "utc": "2026-10-22T22:20:39.9985686Z",
+    "sceneGuid": "e37b06e091b7a504e9fb41fca6d484e1",
+    "spectrumGuid": "f28930faaf0f4d048a37aec36e653095",
+    "selected": "Crest UI Spline",
+    "radius": 20.0,
+    "spectrumMultiplier": 1.25,
+    "closed": true,
+    "sceneDirty": false,
+    "spectrumDirty": false,
+    "positions": [
+      {
+        "x": -6.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.0
+      },
+      {
+        "x": 8.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      {
+        "x": 16.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    ],
+    "speeds": [
+      -2.0,
+      3.0,
+      3.0,
+      0.0
+    ],
+    "hasFlowData": [
+      true,
+      true,
+      true,
+      false
+    ]
+  }
+}

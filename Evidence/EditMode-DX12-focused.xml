@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-22 17:37:35Z" end-time="2026-10-22 17:37:39Z" duration="4,5318435">
-  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="44" result="Passed" start-time="2026-10-22 17:37:35Z" end-time="2026-10-22 17:37:39Z" duration="4.531844" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-22 22:24:03Z" end-time="2026-10-22 22:24:06Z" duration="2,7489102">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-10-22 22:24:03Z" end-time="2026-10-22 22:24:06Z" duration="2.748910" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1062" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="44" result="Passed" start-time="2026-10-22 17:37:35Z" end-time="2026-10-22 17:37:39Z" duration="4.503996" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1064" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-10-22 22:24:03Z" end-time="2026-10-22 22:24:06Z" duration="2.739742" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="346332" />
+        <property name="_PID" value="32280" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestFixture" id="1047" name="SplineGeometryTests" fullname="SplineGeometryTests" classname="SplineGeometryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-22 17:37:35Z" end-time="2026-10-22 17:37:39Z" duration="4.501452" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1022" name="LocalWaveSplineTests" fullname="LocalWaveSplineTests" classname="LocalWaveSplineTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-22 22:24:03Z" end-time="2026-10-22 22:24:06Z" duration="2.734505" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1048" name="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" fullname="SplineGeometryTests.CurvedClosedFlowHasTangentVectorsAndNoSeamGap" methodname="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" classname="SplineGeometryTests" runstate="Runnable" seed="1900907058" result="Passed" start-time="2026-10-22 17:37:35Z" end-time="2026-10-22 17:37:37Z" duration="1.750815" asserts="0">
-          <properties>
-            <property name="_JOINTYPE" value="UnityCombinatorial" />
-            <property name="retryIteration" value="0" />
-            <property name="repeatIteration" value="0" />
-          </properties>
-        </test-case>
-        <test-case id="1049" name="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" fullname="SplineGeometryTests.SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" methodname="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" classname="SplineGeometryTests" runstate="Runnable" seed="600658765" result="Passed" start-time="2026-10-22 17:37:37Z" end-time="2026-10-22 17:37:39Z" duration="2.730810" asserts="0">
+        <test-case id="1023" name="LocalGerstnerSplineWeightsFeatherMovementAndQueries" fullname="LocalWaveSplineTests.LocalGerstnerSplineWeightsFeatherMovementAndQueries" methodname="LocalGerstnerSplineWeightsFeatherMovementAndQueries" classname="LocalWaveSplineTests" runstate="Runnable" seed="1767649945" result="Passed" start-time="2026-10-22 22:24:03Z" end-time="2026-10-22 22:24:06Z" duration="2.719949" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />

@@ -30,14 +30,27 @@ public class ResourceLifecycleTests
         {
             yield return SceneManager.LoadSceneAsync("Ocean_Underwater");
             var sample = new SampleHeightHelper();
-            int ready = 0;
-            for (int frame = 0; frame < 60; frame++)
+            int ready = 0, attempts = 0, consecutive = 0;
+            float started = Time.realtimeSinceStartup;
+            // Simulated WaitForSeconds ticks are not a wall-clock GPU deadline
+            // in an unthrottled Editor. Keep the original 60 attempts and also
+            // require sustained recovery before measuring resources.
+            float deadline = started + 10;
+            while ((attempts < 60 || consecutive < 8) && Time.realtimeSinceStartup < deadline)
             {
                 yield return new WaitForSeconds(.02f);
                 sample.Init(Vector3.zero, 1, true);
-                if (sample.Sample(out float height) && !float.IsNaN(height) && !float.IsInfinity(height)) ready++;
+                attempts++;
+                bool valid = sample.Sample(out float height) && !float.IsNaN(height) && !float.IsInfinity(height);
+                if (valid) ready++;
+                consecutive = valid ? consecutive + 1 : 0;
             }
+            float elapsed = Time.realtimeSinceStartup - started;
+            File.WriteAllText("Evidence/ResourceLifecycle-QueryRecovery-" + SystemInfo.graphicsDeviceType + ".txt",
+                $"Cycle={cycle}; Attempts={attempts}; Ready={ready}; Consecutive={consecutive}; WallSeconds={elapsed}\n");
             Assert.That(ready, Is.GreaterThan(0), "Queries must recover after scene reload.");
+            Assert.That(attempts, Is.GreaterThanOrEqualTo(60));
+            Assert.That(consecutive, Is.GreaterThanOrEqualTo(8), "Query recovery must persist across eight successive samples.");
             RenderPipeline.SubmitRenderRequest(Camera.main,
                 new UniversalRenderPipeline.SingleCameraRequest { destination = _capture });
             var completion = AsyncGPUReadback.Request(_capture);
@@ -52,7 +65,7 @@ public class ResourceLifecycleTests
                 count++;
                 bytes += Profiler.GetRuntimeMemorySizeLong(texture);
             }
-            report.AppendLine($"Cycle={cycle}; Textures={count}; NativeTextureBytes={bytes}; Queries={ready}");
+            report.AppendLine($"Cycle={cycle}; Textures={count}; NativeTextureBytes={bytes}; Queries={ready}; Attempts={attempts}; Consecutive={consecutive}; WallSeconds={elapsed}");
             File.WriteAllText("Evidence/ResourceLifecycle-" + SystemInfo.graphicsDeviceType + ".txt", report.ToString());
             if (cycle < 3)
             {

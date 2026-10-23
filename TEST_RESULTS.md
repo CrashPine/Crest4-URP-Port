@@ -6,8 +6,10 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| Полный Editor checkpoint, включая все persistence fixtures | PASSED, 42/42 | PASSED, 42/42 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 17:26:29Z / 17:27:49Z |
-| Curved flow/sloped height + surface, focused после full checkpoint | PASSED, 2/2 | PASSED, 2/2 | Evidence/SplineGeometry-DX11.xml / SplineGeometry-DX12.xml; 2026-10-22, start 17:37:05Z / 17:37:35Z; не full 44/44 |
+| Полный P06 milestone, все 45 tests | PASSED, 45/45 | PASSED, 45/45 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 22:28:30Z / 22:29:48Z |
+| Local Gerstner spline + scene reload, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/LocalWaveSpline-DX11.xml / LocalWaveSpline-DX12.xml; окончательная версия с prefab/profile reload |
+| Реальные Inspector/Scene view edits, сохранение/reload | PASSED в описанном UI scope | Не запускался GUI на DX12 | Evidence/EditorInteraction.jsonl и EditorInteraction-validation.json; не NUnit test count |
+| Curved flow/sloped height + surface, отдельный focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/SplineGeometry-DX11.xml / SplineGeometry-DX12.xml; 2026-10-22, start 17:37:05Z / 17:37:35Z; включены в новый full 45/45 |
 | Input scene persistence, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/InputPersistence-DX11.xml / InputPersistence-DX12.xml; 2026-10-22, start 17:25:28Z / 17:25:57Z |
 | Depth persistence, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/DepthPersistence-DX11.xml / DepthPersistence-DX12.xml; EXR rebake, prefab/scene reload, owner movement, cleanup |
 | Editor profiles/spline data, отдельный focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/EditorPersistence-DX11.xml / EditorPersistence-DX12.xml; 2026-10-22, start 17:15:55Z / 17:16:21Z; также включён в новый full 42/42 |
@@ -21,7 +23,7 @@
 
 Добавлены UnderwaterBoundaryTests. Runtime cleanup исправлен: RemoveCommandBuffers больше не вызывает CameraEvent API под URP, где буферы не подключались. Полные DX11/DX12 suites проходят; предупреждений Camera.RemoveCommandBuffer в новых логах нет. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Область 44 тестов (full checkpoint — 42; два новых — focused)
+## Область 45 тестов (текущий full checkpoint указан в таблице)
 
 | Область | Количество | Проверенный результат | Что этим не доказано |
 |---|---:|---|---|
@@ -29,6 +31,7 @@
 | FFT/underwater/reflection scene smoke | 3 | Конечные изменяющиеся GPU heights, реальные кадры | Полная корректность изображения |
 | Depth cache | 1 | Известная высота 3 м возвращается с допуском 0.05 м | Baking/reload всех форматов |
 | Depth persistence | 1 | Реальный EXR export/rebake, импорт отрицательных значений, GUID/prefab reference, scene reload без floor, relative movement, toggle и cleanup success/failure | Complex terrain, все cache modes и standalone |
+| Local wave spline | 1 | FFT off: footprint, point/global weights, feather до combine, время/перенос, queries, toggle и prefab/profile reload с уничтожением старых RT | Все спектры/blend modes, нелинейные/замкнутые local waves, полная визуальная эквивалентность и standalone |
 | Curved/closed flow | 1 | Circle tangent vectors, 67 probes/seam, open gap, moved points, signed speed, empty field after disable and restored registration | Неравномерные custom data, surface equivalence и standalone |
 | Sloped height | 1 | Geometry и spline plane, bounds, публичные height queries, global sea level, toggle и 20 surface-marker pairs в пяти состояниях | Нелинейные профили, edge/LOD transitions и standalone |
 | Input persistence | 1 | Сохранённая сцена: flow/clip/albedo/local height GPU поля, material/profile/clock references после reimport/reload, старые RT освобождены, toggle после загрузки | Все виды inputs, длительный reload stress и standalone |
@@ -240,3 +243,39 @@ Focused **1/1 на DX11 и DX12**, failed=0/skipped=0; UTC start/end 17:15:55/17
 Окончательный SplineGeometryTests focused прошёл **2/2 на DX11 и DX12**, failed=0/skipped=0. Измерения — CurvedFlow-Direct3D11.txt / Direct3D12.txt и SlopedHeight-Direct3D11.txt / Direct3D12.txt, XML — SplineGeometry-DX11.xml / DX12.xml. В исходниках **44 теста**, full XML по-прежнему 42/42 до добавления этих двух; focused их не заменяет. Правки только Editor fixtures/evidence/docs, Player не пересобирался. ShapeGerstnerSplineHandling.cs, SplineInterpolation.cs и FlowSplineGeometry.shader сравнили с upstream: байты совпадают. Edge/LOD transitions, локальные analytic-wave splines, реальные Editor gestures, variable closed custom data и standalone варианты ещё не приняты.
 
 Окончательные focused UTC start/end: DX11 2026-10-22 17:37:05Z / 2026-10-22 17:37:09Z; DX12 2026-10-22 17:37:35Z / 2026-10-22 17:37:39Z. Audit 2026-10-22T17:38:11.3960212Z: 1266 files, missing meta/duplicate GUID/missing original files=0.
+
+
+## P06 — локальные Gerstner waves вдоль сплайна
+
+`LocalGerstnerSplineWeightsFeatherMovementAndQueries` использует исходные ShapeGerstner/ShapeWaves, Gerstner.compute и Gerstner Geometry shader. FFT выключен, seed=13, spectrum octaves 4/5 power=−1 (остальные disabled), wind=60 км/ч, chop=0, время=0.5/delta=0. Прямой centered ribbon x=−12…12 м, width=8 м, subdivisions=4. До регистрации peak=0; после — peak height=5.558594 м, horizontal=0. Это амплитуда данного исходного Gerstner spectrum/fudge, не новая модель волн. Далёкая область вне |x|<13,|z|<5 м пуста; переходная полоса у края не объявлена zero-width boundary.
+
+Оба API дали одинаковые результаты. Point weights=0.5 дают peak=2.779297 м, additional global weight=0.5 — 1.389648 м; max error относительно 0.5/0.25 reference=2.980232e−8 м (допуск 0.002 м). При point weights 0/1 на мировой X=0 ожидается 0.5 исходного поля: max error=0.003417969 м, допуск 0.01 м с bilinear sampling между texel columns. Все point weights=0 очищают поле. FeatherWidth=0.5 проверяется **до оригинального multi-LOD combine**: по 5328 raster samples в трёх активных слоях `1-abs(z)/4`, max error=0.0009765625 м при допуске 0.01 м. Для этого тест читает существующую private raster RT через reflection и не меняет pipeline. Принимается инициализация feather через disable/re-enable; горячее изменение этого serialized параметра без reinitialization не заявлено.
+
+Смена time 0.5→1.75 меняет поле, возврат восстанавливает его точно. Перенос точек на +8 м по Z очищает прежний центр и переносит footprint; peak moved=1.854492 м. Public SampleHeightHelper восемь последовательных matching ocean frames совпадает с GPU field в активной точке и outside (допуск 0.05 м): before move −3.822266/0 м, moved 1.841797/0 м. Disable снимает displacement reporter и очищает поле/queries до 0; re-enable даёт max error=0 относительно сохранённого moved field.
+
+Реальный LoadSceneAsync уничтожает прежний owner, generated Gerstner RT и combined wave RT. Spectrum asset и prefab принудительно импортируются заново, сохранены GUID/references, seed, components count, feather width, позиции обеих точек и их веса. После instantiate восстановленное поле совпадает с moved reference **точно**, query=1.841797/0 м, matching frames=8. Уникальная owned папка удаляется после ExitPlayMode с проверкой пути и GUID. PNG Full/Feathered/Moved/Reloaded просмотрены. ShapeGerstner.cs, ShapeWaves.cs, Gerstner Geometry shader и Gerstner.compute совпадают побайтово с upstream; runtime/compute не менялись.
+
+Failed runs сохранены. LocalWaveSpline-center-initial-DX11.xml/.txt: ожидание 0.5 применялось к соседним texels вместо точного X=0, исправлено положение bilinear samples без ослабления допуска. LocalWaveSpline-combined-feather-initial-DX11.xml/.txt: формула feather ошибочно применялась после multi-LOD filtering (error=0.1385904 м), проверка перенесена в реальную raster stage до combine с прежним допуском. LocalWaveSpline-reload-probe-initial-DX11.xml/.txt: тест пытался получить публичную generated RT как private field, исправлен на исходное public поле.
+
+Окончательный focused с reload: DX11 2026-10-22 22:22:59Z — 2026-10-22 22:23:02Z, DX12 2026-10-22 22:24:03Z — 2026-10-22 22:24:06Z; 1/1 на обоих API, failed/skipped=0. Общая full регрессия фиксируется отдельно, focused её не заменяет.
+
+
+## P06 — реальные действия в Editor
+
+В обычном Unity 6000.6.5f1 DX11 через Windows computer-use @oai/sky проверены исходные custom inspectors, а не вызов Editor.CreateEditor. На test-owned empty scene: radius 12.5→20, Undo→12.5, Redo→20; кнопка Add point (extend) даёт 3→4 points, Undo→3, Redo→4; Closed checkbox замыкает контур. Кнопка Select first point выбирает исходный SplinePoint Inspector. Настоящее mouse drag X-handle в Scene view перемещает первую точку −8→−6 м; Undo→−8 и Redo→−6. Через исходные custom drawers введены FlowVelocity=−2 и spectrum multiplier=1.25. Ctrl+S сохраняет scene/asset; force import и повторное открытие возвращают radius=20, Closed=true, 4 points, x₀=−6, speed₀=−2, multiplier=1.25, те же scene/spectrum GUID, dirty=false. Это bare-spline editing и profile workflow; live GPU regeneration из GUI, все component-specific controls и GUI на DX12 не заявлены.
+
+CrestEditorInteractionProbe только создаёт fixture, выбирает объекты, записывает фактическое состояние и повторно открывает сохранённый файл; перечисленные edits выполнялись вводом мыши/клавиатуры в исходных Inspector/Scene view. JSONL observer отмечает changes и dirty flags; проверенные последовательности и final reload — EditorInteraction-validation.json. UI errors file пуст. Первый сеанс был прерван и Editor закрылся; продолжение повторно открыло owned сцену, не пересоздав её. Конфликт вспомогательного F9 с Unity Profiler устранён удалением shortcut bindings, настройки пользователя не менялись. Observer/validation menu отключены без owner metadata, все generated assets удалены защищённым batch Cleanup после закрытия Editor.
+
+
+### P06 milestone — восстановление queries после reload
+
+Первая новая полная DX11 регрессия дала **44/45**: на пятом цикле ResourceLifecycleTests получил ready=0 за 60 simulated WaitForSeconds ticks. До него ready снижался 55→50→24→12, а tracked RT footprint оставался 22 / 51,848,342 bytes. Неудачный полный XML сохранён в P06-milestone-initial-DX11.xml, частичные измерения — ResourceLifecycle-frame-window-initial-DX11.txt. Это не скрыто под focused результатом.
+
+Ожидание старого стенда исправлено на bounded wall-clock deadline=10 с: сохранены минимум 60 query attempts, finite-value проверка и требование ready>0; дополнительно нужны восемь последовательных готовых samples. Проверки числа/объёма RT не изменены. До этого в неограниченном batch режиме 60 simulated ticks могли пройти намного быстрее готовности GPU. Focused после исправления проходит 12 cycles со стабильными 22 RT / 51,848,342 bytes; последний diagnostic snapshot — ResourceLifecycle-QueryRecovery-API.txt, полные cycle rows — ResourceLifecycle-API.txt. Runtime/query queue и numeric assertions не ослаблялись.
+
+
+## Итоговый checkpoint P06
+
+После исправления асинхронного ожидания выполнены **полные 45/45 на DX11 и DX12**, failed=0/skipped=0. Полные XML обновлены именно full runs, включают два SplineGeometryTests и LocalWaveSplineTests с reload. Это заменяет прежний 42-test checkpoint; неудачная первая 45-test попытка сохранена отдельно. ResourceLifecycle на обоих API: все 12 cycles проходят с 22 tracked RT / 51,848,342 bytes, query recovery ≥8 consecutive samples и ≥60 attempts. Это ограниченная resource acceptance, не общее VRAM/GC/GPU profiling. UI workflow остаётся отдельной DX11 проверкой и не прибавляет NUnit test case.
+
+UTC start/end full: DX11 2026-10-22 22:28:30Z / 2026-10-22 22:29:07Z; DX12 2026-10-22 22:29:48Z / 2026-10-22 22:30:30Z. Audit 2026-10-22T22:32:00.9291910Z: 1270 files, missing meta/duplicate GUID/missing original files=0. Owned folders удалены, Unity операций нет. Production runtime/shader/scene не менялись, Player builds не повторялись. P06 закрыт в области, определённой PORT_PLAN.md; P07 ACTIVE и полная приёмка всех features ещё не достигнута.

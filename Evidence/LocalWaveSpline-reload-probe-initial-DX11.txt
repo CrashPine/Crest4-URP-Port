@@ -1,0 +1,24 @@
+Original ShapeGerstner + spline geometry shader; FFT off; fixed seed=13, time=0.5/delta=0, chop=0, straight centered ribbon x=-12..12/width=8. Spectrum octaves 4/5 power=-1, other octaves disabled. Weight tolerance=0.002m, feather tolerance=0.01m, public query tolerance=0.05m/eight matching ocean frames.
+Phase=Empty; PeakHeight=0; PeakHorizontal=0; OceanTime=0,5
+Phase=Full; PeakHeight=5,558594; PeakHorizontal=0; OceanTime=0,5
+ExteriorPeak=0
+QueryPhase=Full; Position=(-7.96, 1.96); Expected=-3,822266,0; Actual=-3,822266,0; MatchingFrames=8
+Phase=HalfPointWeights; PeakHeight=2,779297; PeakHorizontal=0; OceanTime=0,5
+Phase=HalfPointWeights; ExpectedScale=0,5; MaxHeightError=2,980232E-08
+Phase=QuarterCombinedWeight; PeakHeight=1,389648; PeakHorizontal=0; OceanTime=0,5
+Phase=QuarterCombinedWeight; ExpectedScale=0,25; MaxHeightError=2,980232E-08
+Phase=PointRamp; PeakHeight=5,546875; PeakHorizontal=0; OceanTime=0,5
+PointRampCenterMaxError=0,003417969
+Phase=ZeroPointWeights; PeakHeight=0; PeakHorizontal=0; OceanTime=0,5
+Phase=Feathered; PeakHeight=2,589844; PeakHorizontal=0; OceanTime=0,5
+RawRasterFeatherMaxError=0,0009765625; Samples=5328; ActiveLayers=3
+Phase=LaterTime; PeakHeight=2,183594; PeakHorizontal=0; OceanTime=1,75
+Phase=TimeRestored; PeakHeight=2,589844; PeakHorizontal=0; OceanTime=0,5
+Phase=TimeRestored; ExpectedScale=1; MaxHeightError=0
+Phase=Moved; PeakHeight=1,854492; PeakHorizontal=0; OceanTime=0,5
+ExteriorPeak=0
+QueryPhase=Moved; Position=(-7.96, 6.71); Expected=1,841797,0; Actual=1,841797,0; MatchingFrames=8
+Phase=Disabled; PeakHeight=0; PeakHorizontal=0; OceanTime=0,5
+QueryPhase=Disabled; Position=(0.00, 8.00); Expected=0,0; Actual=0,0; MatchingFrames=8
+Phase=Reenabled; PeakHeight=1,854492; PeakHorizontal=0; OceanTime=0,5
+Phase=Reenabled; ExpectedScale=1; MaxHeightError=0
