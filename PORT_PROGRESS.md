@@ -1,18 +1,22 @@
 # Точка продолжения
 
-Обновлено: **2026-10-22**. Цель: Unity **6000.6.5f1**, URP **17.6.0**. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-10-23**. Цель: Unity **6000.6.5f1**, URP **17.6.0**. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущая задача: P07
 
 P05 и P06 закрыты в описанной целевой области; не повторять fixtures без изменений или новой причины. Полная визуальная/стресс/производительная приёмка отражений остаётся P08–P11. Очередь и критерии только PORT_PLAN.md.
 
-**Следующее действие:** P07 — численные normal/velocity/latency contracts. Прочитать Collision/SamplingHelpers.cs и QueryBase.CalculateVelocities/UpdateQueries/RetrieveSucceeded, QueryDisplacements.compute. Начать с известной плоскости y=2+0.25x, FFT off: ожидать normal=normalize(−0.25,1,0), затем при движении input вверх с известной скоростью сравнить velocity и измерить задержку ответа. Для velocities проверять полный status из CollisionProvider.Query, а не только SampleHeightHelper.Sample: RetrieveSucceeded игнорирует velocity error flags (NotEnoughDataForVels, VelocityDataInvalidated, InvalidDtForVelocity). Timestamp запросов — **Unity Time.time**, не OceanRenderer.CurrentTime. Не использовать Time.timeScale=0/замороженный Time.time как доказательство корректной скорости; контролировать положительный dt (например captureFramerate с восстановлением), монотонность и реальную готовность GPU. Затем остальные пункты P07 по PORT_PLAN.md: baked FFT CPU/rays и BoatProbes. Закрытые P06 fixtures и GUI workflow не повторять без причины.
+**Следующее действие:** P07 — RayTraceHelper на известной sloped/moving plane: downward/oblique ray hit distance и no-hit с исходными шагами/интерполяцией, затем baked FFT CPU provider (CollProviderBakedFFT / FFTBakedData / FFTBaker). Сначала прочитать их API и TEST_RESULTS.md: QueryContractTests уже прошёл отдельным focused 1/1 на DX11/DX12, повторять этот fixture без изменений не нужно. Полный P06 checkpoint остаётся 45/45; новый P07 тест пока не включён в свежий полный run. Для настоящего FFT bake проверить SaveBakedDataAsset: не открывать неконтролируемый Save dialog в batch и не выдавать синтетические данные за реальный bake. Затем BoatProbes/watercraft и остальные критерии P07 из PORT_PLAN.md.
 
 Depth baking/reload и Editor profile/spline data round-trip завершены в указанной ниже области. Не начинать их заново. Принимается реальный export/import pipeline Inspector, но автоматический вызов метода не доказывает нажатие кнопки или Scene view gestures.
 
 Важный контекст стендов: serialized feature changes могут перестроить OceanRenderer и сбросить временный time-provider stack (как в оригинале). Устанавливать clock после настройки, проверять `ocean.TimeProvider`. Для точного транспорта уже есть StepClock / AdvanceExactSteps: импульс 1/30 на один реально потребивший его кадр, 0 на остальные. После импульсов при dt=0 дождаться трёх ocean updates перед snapshot ping-pong textures. Не возвращаться к подсчёту только yield ticks или предположению о следующем Unity frame.
 
 Для visual batch fixtures задавать EnableGraphicsInBatchMode=true **до OpenScene**, иначе headless-created Root может остаться без meshes. Проверять видимые Root.GetComponentsInChildren<OceanChunkRenderer>(); глобальный FindObjects пропускает HideAndDontSave. Off-screen chunks могут сохранять предыдущий материал до OnWillRenderObject. FlowSurfaceTests уже учитывает эти контракты; failed harness evidence сохранён. Контракт также в MIGRATION.md.
+
+## P07: последний шаг (2026-10-23)
+
+QueryContractTests: 12 разных GPU result timestamps на static и moving phase, по 3 точки. Полный Query status=0, положительный dt двух результатов; plane y=2+0.25x движется вверх 2 м/с через Update до Ocean LateUpdate. DX11/DX12 focused 1/1: max height error <0.000013 м, normal vector error <0.000199, velocity error <0.000022 м/с. Max observed age в Unity simulation clock: DX11 static/moving 0.03334/0.73334 s, DX12 0.05001/0.05001 s. Это задержка асинхронного ответа в данном batch run, не GPU milliseconds и не real-time performance. Runtime/compute не менялись; Player rebuild не требуется. Подробности — TEST_RESULTS.md, Evidence/QueryContract-*. P06 сохранён коммитом 40f31de. P07 остаётся ACTIVE; волны/CPU/rays/лодки ещё не приняты. Новый audit 2026-10-23T10:20:05Z: 1272 files, missing meta/duplicate GUID/missing upstream=0. Активных Editor после focused runs нет.
 
 ## Последний проверенный этап
 

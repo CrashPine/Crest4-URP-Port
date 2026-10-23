@@ -6,6 +6,7 @@
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
+| GPU normals/velocity/latency, P07 focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/QueryContract-DX11.xml / QueryContract-DX12.xml; 2026-10-23; ещё не включён в full 45/45 |
 | Полный P06 milestone, все 45 tests | PASSED, 45/45 | PASSED, 45/45 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 22:28:30Z / 22:29:48Z |
 | Local Gerstner spline + scene reload, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/LocalWaveSpline-DX11.xml / LocalWaveSpline-DX12.xml; окончательная версия с prefab/profile reload |
 | Реальные Inspector/Scene view edits, сохранение/reload | PASSED в описанном UI scope | Не запускался GUI на DX12 | Evidence/EditorInteraction.jsonl и EditorInteraction-validation.json; не NUnit test count |
@@ -279,3 +280,13 @@ CrestEditorInteractionProbe только создаёт fixture, выбирае�
 После исправления асинхронного ожидания выполнены **полные 45/45 на DX11 и DX12**, failed=0/skipped=0. Полные XML обновлены именно full runs, включают два SplineGeometryTests и LocalWaveSplineTests с reload. Это заменяет прежний 42-test checkpoint; неудачная первая 45-test попытка сохранена отдельно. ResourceLifecycle на обоих API: все 12 cycles проходят с 22 tracked RT / 51,848,342 bytes, query recovery ≥8 consecutive samples и ≥60 attempts. Это ограниченная resource acceptance, не общее VRAM/GC/GPU profiling. UI workflow остаётся отдельной DX11 проверкой и не прибавляет NUnit test case.
 
 UTC start/end full: DX11 2026-10-22 22:28:30Z / 2026-10-22 22:29:07Z; DX12 2026-10-22 22:29:48Z / 2026-10-22 22:30:30Z. Audit 2026-10-22T22:32:00.9291910Z: 1270 files, missing meta/duplicate GUID/missing original files=0. Owned folders удалены, Unity операций нет. Production runtime/shader/scene не менялись, Player builds не повторялись. P06 закрыт в области, определённой PORT_PLAN.md; P07 ACTIVE и полная приёмка всех features ещё не достигнута.
+
+## P07 — normal/velocity/latency contract (2026-10-23)
+
+`QueryContractTests.SlopedNormalsMovingVelocityAndReadbackLatency` проходит focused 1/1 на обоих API. Waves выключены, local-height geometry задаёт y=2+0.25x. Три query points x=−2/0/+2; normal=normalize(−0.25,1,0). Затем оригинальный height input движется вверх со скоростью 2 м/с: test-only Update устанавливает Y до Ocean LateUpdate. Time.timeScale=1, captureFramerate=60; оба значения восстанавливаются. Timestamp берётся test-only reflection из QueryBase, чтобы сравнивать высоту с **моментом dispatch**, а не более поздним кадром получения. Вычисления production QueryBase/compute не менялись.
+
+На каждую фазу требуются 12 **различных** timestamps при полном status=0 и positive dt двух результатов, а не повтор cached result или только RetrieveSucceeded. Проверены 72 height/normal/velocity triples на API. Максимальные ошибки DX11: height=0.000012398 м, normal vector distance=0.000198832, moving velocity=0.000005484 м/с; DX12: height=0.000011921 м, normal=0.000198832, moving velocity=0.000021458 м/с. Static velocity=0. Допуски заранее заданы 0.05 м / 0.015 vector distance / 0.08 м/с. Первый запуск прошёл, failed runs нет.
+
+Max observed age `Time.time-resultTimestamp`: DX11 static=0.03333335 s, moving=0.73333335 s; DX12 static=0.05000000 s, moving=0.05000001 s. Это **симулируемое время** при captureFramerate=60 в unthrottled batch, не wall-clock GPU time, не производительная приёмка и не обещание такой задержки в игре. Fixture требует nonnegative age <5 simulated seconds и recovery за 15 wall-clock seconds, отдельно проверяет точность старого результата. Числа/полные statuses/timestamps — Evidence/QueryContract-Direct3D11.txt и Direct3D12.txt, XML — QueryContract-DX11.xml и DX12.xml. Render images для этого численного контракта не требуются.
+
+Последний полный milestone по-прежнему 45/45 с 2026-10-22; focused P07 не заменяет full evidence и не объявляет 46/46. Реальные FFT/Gerstner velocities, смена размеров/ownership queries, rays, baked FFT CPU, BoatProbes и storm physics остаются открытыми P07. Изменены только Editor tests; Player не пересобирался.

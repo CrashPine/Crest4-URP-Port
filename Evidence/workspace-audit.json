@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-22T22:32:00.9291910Z",
+  "recordedUtc": "2026-10-23T10:20:05.3653437Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1270,
+  "fileCount": 1272,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -33,7 +33,7 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-22 22:27:19Z",
+      "start": "2026-10-23 10:18:53Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -49,7 +49,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-22 22:24:03Z",
+      "start": "2026-10-23 10:19:29Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -3073,7 +3073,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat/LightingData.asset",
       "bytes": 19281,
-      "sha256": "AE5BC8839C7194C7AE9C1D1961F7248680F6B47C0503AFB80F0B75070265A052"
+      "sha256": "08CE781CDFEBFCB200AD18425A203A92610C32FB96B21BBC20BE74AD07F39312"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat/LightingData.asset.meta",
@@ -3093,7 +3093,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes/LightingData.asset",
       "bytes": 19281,
-      "sha256": "EBC514103D80F56CA9C159299C55E4D4CDA249607053BEC9F4F27ED5A145D146"
+      "sha256": "20F55DCA44DBC7761FE681C681FCB6690FC08321AB23E8C119B107B4CBE57596"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes/LightingData.asset.meta",
@@ -3173,7 +3173,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats/LightingData.asset",
       "bytes": 19281,
-      "sha256": "AE35D03242E7BC792DB7CB3FBD7EFAE6A0910AAF63523E15B1A7C7237D1E8D95"
+      "sha256": "72CA9F6D164FF2FFE6E1C9EC8AC26533A1BD3BE04A9934E663C22C0D70349499"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats/LightingData.asset.meta",
@@ -4988,7 +4988,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/Main/Scenes/main/LightingData.asset",
       "bytes": 19281,
-      "sha256": "AF07A8FF852BC0023E66341E2D13D45F83A7CC7BF5DEA8060CCD0849FF6B06FF"
+      "sha256": "ABA7472E9991C05EB9A3443425479D6D5D8B4FB5FAD81C70CA749BD538E124F0"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Main/Scenes/main/LightingData.asset.meta",
@@ -5508,7 +5508,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool/LightingData.asset",
       "bytes": 19281,
-      "sha256": "ADD3B338605B893725CE9A6EDA958FEF64573D2215D0ED8AAFC142902F8A2770"
+      "sha256": "52FF8C37507B5B79DF9EAB565F6AA181B63DB68BBD60D8FAFBDADA404E1330F5"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool/LightingData.asset.meta",
@@ -5779,6 +5779,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs.meta",
       "bytes": 59,
       "sha256": "F9047CBD8AFB3EF85F134075E308452A0B9FC416D1624F121443119C9CCD7C5E"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/QueryContractTests.cs",
+      "bytes": 6691,
+      "sha256": "1477509A37D4DC35E2BD595FCA0FFB229C0D1AD2053671617A7BD41FA247FD22"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/QueryContractTests.cs.meta",
+      "bytes": 61,
+      "sha256": "D47B480BF58B82CE46F1E897424393D39451A6CBE1D4540AF9CC7477C0534EE7"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/QueryPressureTests.cs",
@@ -6373,7 +6383,7 @@
     {
       "path": "FEATURE_MATRIX.md",
       "bytes": 12111,
-      "sha256": "702CA565F65E74D9B5538FA0474775D75083058019C813DA51879EA26036716C"
+      "sha256": "F227651C29EE66073C4FF126A54E19B44996226E48512A8C2F48DA053613101D"
     },
     {
       "path": "LICENSE.Crest",
@@ -6382,18 +6392,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 8028,
-      "sha256": "FA9583578F0CC9A153D9E55275A8F505BAB328D872CF0BCCBF7F3E0BC6EAB0E3"
+      "bytes": 8929,
+      "sha256": "7E411A71A06391E569177FED3BEA01B56A150C75B4E95CBF51835484E991AF75"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 10408,
-      "sha256": "AD6899F6BDFB1A1027FAB7A0A2A4EA0E1C5895635AA0410C21A0F16DED4F1F84"
+      "bytes": 10624,
+      "sha256": "41A0DFE658911D552B60DF9FA97B2E67F8D9BE80B44A785C05F4EBBFD65E4C26"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 15643,
-      "sha256": "193D4DA54845A3697E2E8155DB7C5FE11297B9010C207A6E002479FCB9E70F65"
+      "bytes": 15864,
+      "sha256": "483FBAF44B987E8B4582715F4B2DFEE4B9C261352F0DECB45EFB8102B70A1B7E"
     },
     {
       "path": "README.md",
@@ -6407,8 +6417,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 72006,
-      "sha256": "970A366BD9B3AF7400D6E6141BA07B6A525AD4A2783FA38948613A48C348E8DA"
+      "bytes": 73415,
+      "sha256": "CC65DD3568413267186430FD0C2540FA43DAFA8CA360E85BDD7A45EB160F1A09"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
