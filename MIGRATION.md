@@ -115,6 +115,40 @@ velocity should inspect the full `ICollProvider.Query` status, including
 The original velocity finite difference timestamps readbacks with Unity
 `Time.time`, rather than the ocean's custom time provider. Freezing Unity time or
 advancing only a custom ocean clock is therefore not a valid velocity test. A
-height-only query does not need velocity history. Numerical acceptance of normals,
-velocities and latency is the next P07 task; these source contracts are not a new
-claim that those outputs have passed validation.
+height-only query does not need velocity history. P07 now has scoped numerical
+acceptance on a known static/moving plane (see TEST_RESULTS.md); real-wave and
+broader ownership/latency coverage remain open.
+
+
+## Ray sampling contract
+
+The original `RayTraceHelper.Trace` returns false both while GPU results are
+unavailable and when a ready ray misses. A false value alone does not prove a
+miss. Supply a normalized direction and initialize/query each frame. The helper
+interpolates sign changes between sampled heights, including crossings from
+below the surface. Its original sample count is `ceil(length / step) + 1`:
+when length is not a multiple of step, the final sample extends beyond the
+requested length and a returned intersection may do so too. This inherited
+behavior is preserved and explicitly characterized in RayQueryTests; callers
+requiring a strict range should reject distances greater than their range.
+
+## Offline FFT baking in the Editor
+
+`FFTBaker.BakeShapeFFT(shape, "Assets/ExistingFolder/Waves.asset")` performs the
+original FFT generation, multi-resolution compute copy and RGBAHalf bake using
+an explicit new asset destination. It is Editor-only and requires the existing
+mathematics package. The destination must be a new `.asset` inside an existing
+Assets folder; existing files/assets and traversal paths are rejected before
+baking. The original one-argument call retains the interactive Save dialog;
+in batch mode, callers must supply the explicit path.
+
+During generation/readback, a `finally` restores the caller's active
+RenderTexture and releases temporary GPU/CPU textures; the command buffer is
+disposed. Cancellation or save exceptions discard an unsaved generated data
+object. FFT compute algorithms, frame layout, half precision, time sampling,
+GUIDs and CPU provider equations are unchanged. The CPU provider's original
+velocity output is **vertical only**, derived from its 0.06-second backward
+height difference. Baked data loops in ocean time and represents the baked FFT,
+not arbitrary live local-height or dynamic-wave inputs. The scoped P07 fixture
+checks the direct CPU provider with chop=0; automatic scene provider selection,
+choppy displacement inversion and the wider combinations remain unaccepted.

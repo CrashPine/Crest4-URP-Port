@@ -1,13 +1,16 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-22**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-10-23**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
 ## Текущие подтверждённые результаты
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
-| GPU normals/velocity/latency, P07 focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/QueryContract-DX11.xml / QueryContract-DX12.xml; 2026-10-23; ещё не включён в full 45/45 |
-| Полный P06 milestone, все 45 tests | PASSED, 45/45 | PASSED, 45/45 | Evidence/EditMode-DX11.xml, EditMode-DX12.xml; 2026-10-22, start 22:28:30Z / 22:29:48Z |
+| GPU normals/velocity/latency, P07 focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/QueryContract-DX11.xml / QueryContract-DX12.xml; 2026-10-23; теперь включён в full 48/48 |
+| Полная регрессия P07 checkpoint, 48 tests | PASSED, 48/48 | PASSED, 48/48 | Evidence/EditMode-DX11.xml / DX12.xml; 2026-10-23, UTC start 10:36:57Z / 10:38:48Z |
+| Rays, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/RayQuery-DX11.xml / DX12.xml; scoped intersections/ready misses |
+| Real FFT bake + CPU jobs, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/BakedFFT-DX11.xml / DX12.xml; independent GPU reference |
+| Предыдущий P06 milestone, все 45 tests | PASSED, 45/45 | PASSED, 45/45 | Исторический checkpoint 40f31de: XML на тот момент 2026-10-22, start 22:28:30Z / 22:29:48Z; текущие full XML заменены новым 48/48 |
 | Local Gerstner spline + scene reload, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/LocalWaveSpline-DX11.xml / LocalWaveSpline-DX12.xml; окончательная версия с prefab/profile reload |
 | Реальные Inspector/Scene view edits, сохранение/reload | PASSED в описанном UI scope | Не запускался GUI на DX12 | Evidence/EditorInteraction.jsonl и EditorInteraction-validation.json; не NUnit test count |
 | Curved flow/sloped height + surface, отдельный focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/SplineGeometry-DX11.xml / SplineGeometry-DX12.xml; 2026-10-22, start 17:37:05Z / 17:37:35Z; включены в новый full 45/45 |
@@ -289,4 +292,22 @@ UTC start/end full: DX11 2026-10-22 22:28:30Z / 2026-10-22 22:29:07Z; DX12 2026-
 
 Max observed age `Time.time-resultTimestamp`: DX11 static=0.03333335 s, moving=0.73333335 s; DX12 static=0.05000000 s, moving=0.05000001 s. Это **симулируемое время** при captureFramerate=60 в unthrottled batch, не wall-clock GPU time, не производительная приёмка и не обещание такой задержки в игре. Fixture требует nonnegative age <5 simulated seconds и recovery за 15 wall-clock seconds, отдельно проверяет точность старого результата. Числа/полные statuses/timestamps — Evidence/QueryContract-Direct3D11.txt и Direct3D12.txt, XML — QueryContract-DX11.xml и DX12.xml. Render images для этого численного контракта не требуются.
 
-Последний полный milestone по-прежнему 45/45 с 2026-10-22; focused P07 не заменяет full evidence и не объявляет 46/46. Реальные FFT/Gerstner velocities, смена размеров/ownership queries, rays, baked FFT CPU, BoatProbes и storm physics остаются открытыми P07. Изменены только Editor tests; Player не пересобирался.
+На момент первого QueryContract focused последний full был 45/45 с 2026-10-22; тот focused не объявлял 46/46. Новый полный checkpoint ниже включает все 48 тестов. Реальные FFT/Gerstner velocities, смена размеров/ownership queries, rays, baked FFT CPU, BoatProbes и storm physics остаются открытыми P07. Изменены только Editor tests; Player не пересобирался.
+
+
+## P07 — ray intersections and baked FFT CPU (2026-10-23)
+
+`RayQueryTests` прошёл focused 1/1 на DX11/DX12: восемь distinct owner-ready GPU result timestamps в каждом из восьми состояний. Down/oblique/from-below rays пересекают исходный local-height input y=2+0.25x; horizontal parallel и слишком короткий ray дают miss только после подтверждённой готовности результатов конкретного owner. Повторено для поверхности, движущейся вверх 0.5 м/с; expected distance вычислен на dispatch timestamp, не на текущем кадре. Максимальная ошибка focused DX11=0.000070811 м, DX12=0.000068665 м при допуске 0.05 м. Отчёты — RayQuery-DX11.xml / DX12.xml и RayQuery-Direct3D11.txt / Direct3D12.txt.
+
+Отдельный characterization сохраняет исходное поведение: length=3.1 м, step=2 м создаёт samples до 4 м и возвращает hit=3.5 м. Это **не доказательство строгого ограничения длины**; унаследованная особенность записана в MIGRATION.md. В тесте нет нового ray algorithm. 128-sample cap, реальные волны, changing ray endpoints и edge cases не заявлены принятыми.
+
+`BakedFFTTests` прошёл focused 1/1 на обоих API. Используется настоящий original FFTCompute → FFTBakeMultiRes → RGBAHalf asset, unload и force import с сохранением asset GUID и повторной инициализацией native data. Resolution=16, period=4 s, 4 fps, один octave index7, chop=0, firstLOD=7, lodCount=2: 16 frames / 32768 half values. Независимо повторно генерируются и читаются **все 16 keyframes** оригинальной GPU Texture2DArray; сравниваются 24,576 RGB scalars двух baked cascades. Peak=0.388427734 м и GPU-to-asset max error=0 на обоих API. Допуск half storage — 0.0025 м, пустые данные отвергаются peak>0.001.
+
+Прямой `CollProviderBakedFFT` исполняет оригинальные CPU jobs для пяти точек (пятая проверяет хвост SIMD quad), time=0/0.125/1.375/3.875/4.125/−0.125 s. Reference — spatial/temporal interpolation независимых GPU readbacks, не вызов FFTBakedData.SampleHeightXZT. Проверяются 30 height/normal/vertical-velocity triples на API, including period seam/negative time. Max height difference <4e−9 м, normal vector distance <1.3e−7 в focused runs; допуски 0.005 м / 0.01 normal distance / 0.02 м/с. CPU velocity **только вертикальная**, как в оригинале, backward difference dt=0.06 s; 3D velocity не заявлена. Отчёты — BakedFFT-DX11.xml / DX12.xml и BakedFFT-Direct3D11.txt / Direct3D12.txt. Automatic provider selection, choppy inversion, live height/dynamic inputs и масштабные bake configurations ещё не приняты.
+
+Editor-only `FFTBaker.BakeShapeFFT(shape, assetPath)` даёт явный новый destination без file dialog. Проверены отказ перезаписывать existing asset и traversal path, отказ one-argument batch call и восстановление активной RT после реального bake. Оригинальный Inspector overload сохраняет dialog. CommandBuffer теперь disposed, generation/readback textures освобождаются и active RT восстанавливается в finally; несохранённый generated data object удаляется при cancel/save exception. Нельзя считать все исключительные cleanup paths проверенными отдельным failure-injection fixture: здесь подтверждён successful bake и preflight validation. Compute/frame layout/CPU equations не менялись, GUID сохранены; это #if UNITY_EDITOR, Player rebuild не требуется.
+
+Первая BakedFFT DX11 попытка завершилась IndexOutOfRange в **стенде**: GetData<Color>() читает один layer Texture2DArray. Отчёт и header сохранены в BakedFFT-layer-readback-initial-DX11.xml/.txt. Исправлено чтение GetData<Color>(layer) для всех layers с проверкой размера, без изменения допусков/compute. Временный owned asset folder удалён с проверкой абсолютного parent и GUID.
+
+
+Полная регрессия после Editor FFTBaker изменений: **48/48 DX11 и 48/48 DX12**, failed=0/skipped=0. UTC DX11 2026-10-23 10:36:57Z–10:38:02Z; DX12 10:38:48Z–10:40:08Z. Прочитаны XML, новые QueryContract/RayQuery/BakedFFT cases присутствуют и PASSED; Ocean_Waves PNG обоих API просмотрены. ResourceLifecycle сохраняет 22 tracked RT / 51,848,342 bytes во всех 12 reloads. После full в fixture добавлен guard Application.isBatchMode вокруг assertion, ожидающего отказ от dialog: вне batch он иначе сам открыл бы Save dialog. Batch branch идентична; дополнительный focused DX11 подтверждает fixture-only correction, full XML сохранены. Это не GUI bake acceptance. Проверка 597 original GUID/meta/compute снова PASSED; три известные normalized sprite meta остаются раскрыты.

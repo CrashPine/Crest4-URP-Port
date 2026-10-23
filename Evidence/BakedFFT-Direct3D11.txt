@@ -1,0 +1,33 @@
+Real original FFTCompute -> FFTBake -> RGBAHalf project asset -> unload/reimport -> CPU jobs. Resolution16, period4s,4fps, one spectrum octave, chop0. GPU reference regenerated independently at all16 keyframes; CPU comparisons use spatial/temporal interpolation of those GPU readbacks.
+Bake; Guid=4eef0d62a4ee1a74e97963d8def7a560; NativeHalfCount=32768; Peak=0,388427734; MaxGPUToAssetError=0; ActiveRTRestored=True; Reloaded=True
+CPU; Time=0; Point=0; Status=0; Height=-0,0549518727; ExpectedHeight=-0,0549518727; NormalError=1,2105761E-07; Velocity=(0.000000, -0.131800, 0.000000); ExpectedVerticalVelocity=-0,131800026
+CPU; Time=0; Point=1; Status=0; Height=-0,05215788; ExpectedHeight=-0,05215788; NormalError=0; Velocity=(0.000000, -0.028112, 0.000000); ExpectedVerticalVelocity=-0,0281124078
+CPU; Time=0; Point=2; Status=0; Height=-0,06823495; ExpectedHeight=-0,06823495; NormalError=2,08250062E-09; Velocity=(0.000000, -0.187551, 0.000000); ExpectedVerticalVelocity=-0,187551111
+CPU; Time=0; Point=3; Status=0; Height=0,0215230957; ExpectedHeight=0,0215230975; NormalError=6,244724E-08; Velocity=(0.000000, 0.000862, 0.000000); ExpectedVerticalVelocity=0,0008615976
+CPU; Time=0; Point=4; Status=0; Height=0,09307137; ExpectedHeight=0,09307137; NormalError=1,19920216E-07; Velocity=(0.000000, -0.100824, 0.000000); ExpectedVerticalVelocity=-0,100824118
+CPU; Time=0,125; Point=0; Status=0; Height=-0,0553123; ExpectedHeight=-0,0553123; NormalError=9,541399E-08; Velocity=(0.000000, -0.002883, 0.000000); ExpectedVerticalVelocity=-0,00288337469
+CPU; Time=0,125; Point=1; Status=0; Height=-0,0403831; ExpectedHeight=-0,0403831; NormalError=1,86264515E-09; Velocity=(0.000000, 0.094198, 0.000000); ExpectedVerticalVelocity=0,09419825
+CPU; Time=0,125; Point=2; Status=0; Height=-0,0716759041; ExpectedHeight=-0,0716759041; NormalError=1,19267483E-07; Velocity=(0.000000, -0.027528, 0.000000); ExpectedVerticalVelocity=-0,02752766
+CPU; Time=0,125; Point=3; Status=0; Height=0,0153320264; ExpectedHeight=0,0153320264; NormalError=6,664002E-08; Velocity=(0.000000, -0.049529, 0.000000); ExpectedVerticalVelocity=-0,0495285727
+CPU; Time=0,125; Point=4; Status=0; Height=0,0531864427; ExpectedHeight=0,0531864427; NormalError=7,955043E-08; Velocity=(0.000000, -0.319079, 0.000000); ExpectedVerticalVelocity=-0,3190795
+CPU; Time=1,375; Point=0; Status=0; Height=0,03973905; ExpectedHeight=0,03973905; NormalError=7,82310963E-08; Velocity=(0.000000, -0.127469, 0.000000); ExpectedVerticalVelocity=-0,127469316
+CPU; Time=1,375; Point=1; Status=0; Height=0,00845527649; ExpectedHeight=0,00845527649; NormalError=7,598131E-08; Velocity=(0.000000, -0.161224, 0.000000); ExpectedVerticalVelocity=-0,1612242
+CPU; Time=1,375; Point=2; Status=0; Height=0,05656161; ExpectedHeight=0,05656161; NormalError=7,972469E-08; Velocity=(0.000000, -0.148442, 0.000000); ExpectedVerticalVelocity=-0,148441777
+CPU; Time=1,375; Point=3; Status=0; Height=-0,000257535838; ExpectedHeight=-0,000257532578; NormalError=1,27220162E-07; Velocity=(0.000000, 0.071067, 0.000000); ExpectedVerticalVelocity=0,07106731
+CPU; Time=1,375; Point=4; Status=0; Height=0,03045526; ExpectedHeight=0,0304552615; NormalError=7,224206E-08; Velocity=(0.000000, 0.350054, 0.000000); ExpectedVerticalVelocity=0,3500539
+CPU; Time=3,875; Point=0; Status=0; Height=-0,0384768546; ExpectedHeight=-0,0384768546; NormalError=3,35276127E-08; Velocity=(0.000000, -0.131800, 0.000000); ExpectedVerticalVelocity=-0,131800056
+CPU; Time=3,875; Point=1; Status=0; Height=-0,0486438274; ExpectedHeight=-0,0486438274; NormalError=1,19211109E-07; Velocity=(0.000000, -0.028112, 0.000000); ExpectedVerticalVelocity=-0,0281124078
+CPU; Time=3,875; Point=2; Status=0; Height=-0,0447910428; ExpectedHeight=-0,0447910428; NormalError=3,7252903E-08; Velocity=(0.000000, -0.187551, 0.000000); ExpectedVerticalVelocity=-0,187551111
+CPU; Time=3,875; Point=3; Status=0; Height=0,0214153957; ExpectedHeight=0,0214153975; NormalError=4,165001E-08; Velocity=(0.000000, 0.000862, 0.000000); ExpectedVerticalVelocity=0,0008615976
+CPU; Time=3,875; Point=4; Status=0; Height=0,105674386; ExpectedHeight=0,105674386; NormalError=7,4505806E-08; Velocity=(0.000000, -0.100824, 0.000000); ExpectedVerticalVelocity=-0,100824118
+CPU; Time=4,125; Point=0; Status=0; Height=-0,0553123; ExpectedHeight=-0,0553123; NormalError=9,541399E-08; Velocity=(0.000000, -0.002883, 0.000000); ExpectedVerticalVelocity=-0,00288337469
+CPU; Time=4,125; Point=1; Status=0; Height=-0,0403831; ExpectedHeight=-0,0403831; NormalError=1,86264515E-09; Velocity=(0.000000, 0.094198, 0.000000); ExpectedVerticalVelocity=0,09419813
+CPU; Time=4,125; Point=2; Status=0; Height=-0,0716759041; ExpectedHeight=-0,0716759041; NormalError=1,19267483E-07; Velocity=(0.000000, -0.027528, 0.000000); ExpectedVerticalVelocity=-0,02752766
+CPU; Time=4,125; Point=3; Status=0; Height=0,0153320264; ExpectedHeight=0,0153320264; NormalError=6,664002E-08; Velocity=(0.000000, -0.049529, 0.000000); ExpectedVerticalVelocity=-0,0495285131
+CPU; Time=4,125; Point=4; Status=0; Height=0,0531864427; ExpectedHeight=0,0531864427; NormalError=7,955043E-08; Velocity=(0.000000, -0.319079, 0.000000); ExpectedVerticalVelocity=-0,319079131
+CPU; Time=-0,125; Point=0; Status=0; Height=-0,0384768546; ExpectedHeight=-0,0384768546; NormalError=3,35276127E-08; Velocity=(0.000000, -0.131800, 0.000000); ExpectedVerticalVelocity=-0,131800056
+CPU; Time=-0,125; Point=1; Status=0; Height=-0,0486438274; ExpectedHeight=-0,0486438274; NormalError=1,19211109E-07; Velocity=(0.000000, -0.028112, 0.000000); ExpectedVerticalVelocity=-0,0281124078
+CPU; Time=-0,125; Point=2; Status=0; Height=-0,0447910428; ExpectedHeight=-0,0447910428; NormalError=3,7252903E-08; Velocity=(0.000000, -0.187551, 0.000000); ExpectedVerticalVelocity=-0,187551111
+CPU; Time=-0,125; Point=3; Status=0; Height=0,0214153957; ExpectedHeight=0,0214153975; NormalError=4,165001E-08; Velocity=(0.000000, 0.000862, 0.000000); ExpectedVerticalVelocity=0,0008615976
+CPU; Time=-0,125; Point=4; Status=0; Height=0,105674386; ExpectedHeight=0,105674386; NormalError=7,4505806E-08; Velocity=(0.000000, -0.100824, 0.000000); ExpectedVerticalVelocity=-0,100824118
+CPU jobs cleaned up; 30 height/normal/vertical-velocity triples including negative time, period seam and fifth SIMD-tail point passed.

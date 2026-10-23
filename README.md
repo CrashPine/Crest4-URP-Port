@@ -55,3 +55,12 @@ Player предоставляет переключение сцен, ветер,
 ## Воспроизведение Editor UI стенда
 
 При закрытом Editor запуск `Unity.exe -projectPath <этот проект> -force-d3d11 -executeMethod CrestEditorInteractionProbe.Prepare` создаёт отдельную owned scene/profile в Tests/Editor. Редактировать исходные spline/spline-point/spectrum inspectors и Scene view; меню `Crest > Port Validation` выбирает объекты, записывает checkpoint и повторно открывает saved fixture. Observer записывает изменения в Evidence/EditorInteraction.jsonl, но не выполняет проверяемые edits. Горячих клавиш стенд не назначает. После Ctrl+S и закрытия Editor запуск `Unity.exe -batchmode -quit -projectPath <этот проект> -executeMethod CrestEditorInteractionProbe.Cleanup` проверяет owner path/GUID и удаляет только временную папку. Не запускать Prepare повторно, пока существует EditorInteraction-owner.json; для прерванного стенда использовать ReloadSavedFixture.
+
+
+Для автоматического FFT bake в Editor используется
+`Crest.FFTBaker.BakeShapeFFT(shape, "Assets/ExistingFolder/Waves.asset")`:
+папка должна существовать, asset — быть новым. Исходный Inspector сохраняет
+диалог выбора файла; batch требует явный путь. Контракты и ограничения —
+MIGRATION.md. Воспроизведение проверки: `Run-Unity.ps1 -Action EditMode
+-GraphicsAPI DX11 -TestFilter BakedFFTTests` с тем же обязательным `-Editor`,
+что в командах выше (аналогично DX12).

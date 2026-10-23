@@ -1,0 +1,1 @@
+Real original FFTCompute -> FFTBake -> RGBAHalf project asset -> unload/reimport -> CPU jobs. Resolution16, period4s,4fps, one spectrum octave, chop0. GPU reference regenerated independently at all16 keyframes; CPU comparisons use spatial/temporal interpolation of those GPU readbacks.

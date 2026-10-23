@@ -7,6 +7,7 @@
 #if UNITY_EDITOR
 #if CREST_UNITY_MATHEMATICS
 
+using System;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEditor;
@@ -33,8 +34,33 @@ namespace Crest
         /// <summary>
         /// Bakes FFT data for a ShapeFFT component
         /// </summary>
-        public static FFTBakedData BakeShapeFFT(ShapeFFT fftWaves)
+        public static FFTBakedData BakeShapeFFT(ShapeFFT fftWaves) => BakeShapeFFT(fftWaves, null);
+
+        /// <summary>
+        /// Bakes into a new project asset without a file dialog when assetPath is supplied.
+        /// Existing assets are never overwritten. The original overload keeps its Inspector dialog.
+        /// </summary>
+        public static FFTBakedData BakeShapeFFT(ShapeFFT fftWaves, string assetPath)
         {
+            if (fftWaves == null) throw new ArgumentNullException(nameof(fftWaves));
+            if (string.IsNullOrEmpty(assetPath))
+            {
+                assetPath = null;
+                if (Application.isBatchMode)
+                    throw new InvalidOperationException("Crest: Batch FFT baking requires an explicit asset path.");
+            }
+            else
+            {
+                assetPath = assetPath.Replace('\\', '/');
+                var parent = System.IO.Path.GetDirectoryName(assetPath)?.Replace('\\', '/');
+                if (!assetPath.StartsWith("Assets/", StringComparison.Ordinal) ||
+                    assetPath.Split('/').Any(part => part == ".." || part == ".") ||
+                    !assetPath.EndsWith(".asset", StringComparison.OrdinalIgnoreCase) ||
+                    !AssetDatabase.IsValidFolder(parent))
+                    throw new ArgumentException("Crest: FFT bake path must be an .asset in an existing Assets folder.", nameof(assetPath));
+                if (System.IO.File.Exists(assetPath) || AssetDatabase.LoadMainAssetAtPath(assetPath) != null)
+                    throw new ArgumentException("Crest: FFT bake destination already exists.", nameof(assetPath));
+            }
             // Compute how many cascades are needed. Both the spectrum octaves and the wave cascades increase
             // in powers of 2, so use the spectrum count.
             ComputeRequiredOctaves(fftWaves._spectrum, fftWaves._smallestWavelengthRequired, out var smallestOctaveIndex, out var largestOctaveIndex);
@@ -57,7 +83,7 @@ namespace Crest
             // is the following:
             var lodCount = largestOctaveIndex - smallestOctaveIndex + 2;
 
-            var baked = BakeFFT(fftWaves, firstLod, lodCount, fftWaves._timeResolution, fftWaves.LoopPeriod);
+            var baked = BakeFFT(fftWaves, firstLod, lodCount, fftWaves._timeResolution, fftWaves.LoopPeriod, assetPath);
 
             return baked;
         }
@@ -65,7 +91,7 @@ namespace Crest
         /// <summary>
         /// Runs FFT for a bunch of time steps and saves all the resulting data to a scriptable object
         /// </summary>
-        static FFTBakedData BakeFFT(ShapeFFT fftWaves, int firstLod, int lodCount, int resolutionTime, float loopPeriod)
+        static FFTBakedData BakeFFT(ShapeFFT fftWaves, int firstLod, int lodCount, int resolutionTime, float loopPeriod, string assetPath)
         {
             // Need min scale, maybe max too - unlikely to need 16 orders of magnitude
 
@@ -74,7 +100,7 @@ namespace Crest
             // works well. So we can take 16 slices, and in the future we know that the period
             // of a bunch of the lods was much smaller, so we could take much denser samples.
 
-            var buf = new CommandBuffer();
+            using var buf = new CommandBuffer();
 
             var waveCombineShader = Resources.Load<ComputeShader>("FFT/FFTBake");
             var kernel = waveCombineShader.FindKernel("FFTBakeMultiRes");
@@ -90,47 +116,55 @@ namespace Crest
             var frameCount = (int)(resolutionTime * loopPeriod);
             var frames = new half[frameCount][];
 
-            for (int timeIndex = 0; timeIndex < frameCount; timeIndex++) // this means resolutionTime is actually FPS
+            var previousActive = RenderTexture.active;
+            try
             {
-                float t = timeIndex / (float)resolutionTime;
+                for (int timeIndex = 0; timeIndex < frameCount; timeIndex++) // this means resolutionTime is actually FPS
+                {
+                    float t = timeIndex / (float)resolutionTime;
 
-                buf.Clear();
+                    buf.Clear();
 
-                // Generate multi-res FFT into a texture array
-                var fftWaveDataTA = FFTCompute.GenerateDisplacements(buf, fftWaves._resolution, loopPeriod,
-                    fftWaves.WindTurbulence, fftWaves.WindDirRadForFFT, fftWaves.WindSpeed, t,
-                    fftWaves._spectrum, true);
+                    // Generate multi-res FFT into a texture array
+                    var fftWaveDataTA = FFTCompute.GenerateDisplacements(buf, fftWaves._resolution, loopPeriod,
+                        fftWaves.WindTurbulence, fftWaves.WindDirRadForFFT, fftWaves.WindSpeed, t,
+                        fftWaves._spectrum, true);
 
-                // Compute shader generates the final waves
-                buf.SetComputeFloatParam(waveCombineShader, ShaderIDs.s_BakeTime, t);
-                buf.SetComputeIntParam(waveCombineShader, ShaderIDs.s_MinSlice, firstLod);
-                buf.SetComputeTextureParam(waveCombineShader, kernel, ShaderIDs.s_InFFTWaves, fftWaveDataTA);
-                buf.SetComputeTextureParam(waveCombineShader, kernel, ShaderIDs.s_OutDisplacements, bakedWaves);
-                buf.DispatchCompute(waveCombineShader, kernel, bakedWaves.width / 8, bakedWaves.height / 8, 1);
+                    // Compute shader generates the final waves
+                    buf.SetComputeFloatParam(waveCombineShader, ShaderIDs.s_BakeTime, t);
+                    buf.SetComputeIntParam(waveCombineShader, ShaderIDs.s_MinSlice, firstLod);
+                    buf.SetComputeTextureParam(waveCombineShader, kernel, ShaderIDs.s_InFFTWaves, fftWaveDataTA);
+                    buf.SetComputeTextureParam(waveCombineShader, kernel, ShaderIDs.s_OutDisplacements, bakedWaves);
+                    buf.DispatchCompute(waveCombineShader, kernel, bakedWaves.width / 8, bakedWaves.height / 8, 1);
 
-                Graphics.ExecuteCommandBuffer(buf);
+                    Graphics.ExecuteCommandBuffer(buf);
 
-                // Readback data to CPU
-                RenderTexture.active = bakedWaves;
-                stagingTexture.ReadPixels(new Rect(0, 0, bakedWaves.width, bakedWaves.height), 0, 0);
+                    // Readback data to CPU
+                    RenderTexture.active = bakedWaves;
+                    stagingTexture.ReadPixels(new Rect(0, 0, bakedWaves.width, bakedWaves.height), 0, 0);
 
 #if CREST_DEBUG_DUMP_EXRS
-                const string folderName = "FFTBaker";
-                if (Directory.Exists(folderName))
-                {
-                    Directory.Delete(folderName, true);
-                }
-                Directory.CreateDirectory(folderName);
-                var encodedTexture = stagingTexture.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat);
-                File.WriteAllBytes($"{folderName}/test_{timeIndex}.exr", encodedTexture);
+                    const string folderName = "FFTBaker";
+                    if (Directory.Exists(folderName))
+                    {
+                        Directory.Delete(folderName, true);
+                    }
+                    Directory.CreateDirectory(folderName);
+                    var encodedTexture = stagingTexture.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat);
+                    File.WriteAllBytes($"{folderName}/test_{timeIndex}.exr", encodedTexture);
 #endif
 
-                frames[timeIndex] = stagingTexture.GetRawTextureData<half>().ToArray();
-            }
+                    frames[timeIndex] = stagingTexture.GetRawTextureData<half>().ToArray();
+                }
 
-            bakedWaves.Release();
-            Helpers.Destroy(bakedWaves);
-            Helpers.Destroy(stagingTexture);
+            }
+            finally
+            {
+                RenderTexture.active = previousActive;
+                bakedWaves.Release();
+                Helpers.Destroy(bakedWaves);
+                Helpers.Destroy(stagingTexture);
+            }
 
             var framesFlattened = frames.SelectMany(x => x).ToArray();
             //Debug.Log($"Crest: Width: {fftWaves._resolution}, frame count: {frameCount}, slices: {lodCount}, floats per frame: {frames[0].Length}, total floats: {framesFlattened.Length}");
@@ -148,15 +182,23 @@ namespace Crest
                 new half(framesAsFloats.Max()),
                 framesFlattened);
 
-            if (!SaveBakedDataAsset(bakedDataSO, fftWaves.gameObject.scene.name, fftWaves.gameObject.name))
+            try
             {
-                return null;
+                if (!SaveBakedDataAsset(bakedDataSO, fftWaves.gameObject.scene.name, fftWaves.gameObject.name, assetPath))
+                {
+                    Helpers.Destroy(bakedDataSO);
+                    return null;
+                }
+                return bakedDataSO;
             }
-
-            return bakedDataSO;
+            catch
+            {
+                if (!AssetDatabase.Contains(bakedDataSO)) Helpers.Destroy(bakedDataSO);
+                throw;
+            }
         }
 
-        private static bool SaveBakedDataAsset(ScriptableObject bakedDataSO, string sceneName, string shapeFFTName)
+        private static bool SaveBakedDataAsset(ScriptableObject bakedDataSO, string sceneName, string shapeFFTName, string assetPath)
         {
             // Default folder
             if (string.IsNullOrEmpty(s_bakeFolder))
@@ -167,7 +209,7 @@ namespace Crest
             var filename = $"{sceneName}-{shapeFFTName}-BakedData.asset";
 
             // Select file name
-            var path = EditorUtility.SaveFilePanelInProject("Save baked data to asset", filename, "asset", "");
+            var path = assetPath ?? EditorUtility.SaveFilePanelInProject("Save baked data to asset", filename, "asset", "");
 
             if (string.IsNullOrEmpty(path))
             {
