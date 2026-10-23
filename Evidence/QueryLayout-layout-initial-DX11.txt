@@ -1,0 +1,22 @@
+Static y=2+.25*x. Every public successful retrieval is checked, including immediately after a layout change. Eight distinct successful timestamps per phase. Test-only fence; no latency claim. Height tolerance .05m; normal .015; velocity .05m/s.
+Phase=Warm; Attempt=1; Status=1; Timestamp=0,13333334; Count=1
+Phase=Warm; Attempt=2; Status=4; Timestamp=0,15; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=3; Status=0; Timestamp=0,166666672; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=4; Status=0; Timestamp=0,183333337; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=5; Status=0; Timestamp=0,2; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=6; Status=0; Timestamp=0,216666669; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=7; Status=0; Timestamp=0,233333334; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=8; Status=0; Timestamp=0,25; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=9; Status=0; Timestamp=0,266666681; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=10; Status=0; Timestamp=0,283333331; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=Warm; Accepted=8; Attempts=10; NotReady=1
+Phase=SamePacketDifferentLayout; Attempt=1; Status=0; Timestamp=0,3; Count=4

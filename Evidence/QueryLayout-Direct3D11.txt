@@ -1,0 +1,257 @@
+Static y=2+.25*x. Every public successful retrieval is checked, including immediately after a layout change. Eight distinct successful timestamps per phase. Test-only fence; no latency claim. Height tolerance .05m; normal .015; velocity .05m/s.
+Phase=Warm; Attempt=1; Status=1; Timestamp=0,13333334; Count=1
+Phase=Warm; Attempt=2; Status=4; Timestamp=0,15; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=3; Status=0; Timestamp=0,166666672; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=4; Status=0; Timestamp=0,183333337; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=5; Status=0; Timestamp=0,2; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=6; Status=0; Timestamp=0,216666669; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=7; Status=0; Timestamp=0,233333334; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=8; Status=0; Timestamp=0,25; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=9; Status=0; Timestamp=0,266666681; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Warm; Attempt=10; Status=0; Timestamp=0,283333331; Count=1
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=Warm; Accepted=8; Attempts=10; NotReady=1; OtherReady=9; MaxHeightError=1,168251E-05; MaxNormalError=0,000197718124; MaxVelocity=0
+Phase=SamePacketDifferentLayout; Attempt=1; Status=9; Timestamp=0,3; Count=4
+Phase=SamePacketDifferentLayout; Attempt=2; Status=8; Timestamp=0,316666663; Count=4
+Phase=SamePacketDifferentLayout; Attempt=3; Status=0; Timestamp=0,333333343; Count=4
+Phase=SamePacketDifferentLayout; Attempt=4; Status=0; Timestamp=0,35; Count=4
+Phase=SamePacketDifferentLayout; Attempt=5; Status=0; Timestamp=0,366666675; Count=4
+Phase=SamePacketDifferentLayout; Attempt=6; Status=0; Timestamp=0,383333325; Count=4
+Phase=SamePacketDifferentLayout; Attempt=7; Status=0; Timestamp=0,4; Count=4
+Phase=SamePacketDifferentLayout; Attempt=8; Status=0; Timestamp=0,416666657; Count=4
+Phase=SamePacketDifferentLayout; Attempt=9; Status=0; Timestamp=0,433333337; Count=4
+Phase=SamePacketDifferentLayout; Attempt=10; Status=0; Timestamp=0,45; Count=4
+Summary=SamePacketDifferentLayout; Accepted=8; Attempts=10; NotReady=1; OtherReady=10; MaxHeightError=2,336502E-05; MaxNormalError=0; MaxVelocity=0
+Phase=Grow; Attempt=1; Status=9; Timestamp=0,466666669; Count=5
+Phase=Grow; Attempt=2; Status=8; Timestamp=0,483333319; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=3; Status=0; Timestamp=0,5; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=4; Status=0; Timestamp=0,516666651; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=5; Status=0; Timestamp=0,533333361; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=6; Status=0; Timestamp=0,55; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=7; Status=0; Timestamp=0,566666663; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=8; Status=0; Timestamp=0,5833333; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=9; Status=0; Timestamp=0,6; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Grow; Attempt=10; Status=0; Timestamp=0,6166667; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=Grow; Accepted=8; Attempts=10; NotReady=1; OtherReady=10; MaxHeightError=2,336502E-05; MaxNormalError=0,000198831272; MaxVelocity=0
+Phase=Shrink; Attempt=1; Status=9; Timestamp=0,6333333; Count=2
+Phase=Shrink; Attempt=2; Status=8; Timestamp=0,65; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=3; Status=0; Timestamp=0,6666667; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=4; Status=0; Timestamp=0,683333337; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=5; Status=0; Timestamp=0,7; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=6; Status=0; Timestamp=0,716666639; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=7; Status=0; Timestamp=0,733333349; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=8; Status=0; Timestamp=0,75; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=9; Status=0; Timestamp=0,766666651; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Shrink; Attempt=10; Status=0; Timestamp=0,783333361; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=Shrink; Accepted=8; Attempts=10; NotReady=1; OtherReady=10; MaxHeightError=2,336502E-05; MaxNormalError=0,000197718124; MaxVelocity=0
+Phase=NormalsOnly; Attempt=1; Status=0; Timestamp=0,8; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=2; Status=0; Timestamp=0,816666663; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=3; Status=0; Timestamp=0,8333333; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=4; Status=0; Timestamp=0,85; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=5; Status=0; Timestamp=0,8666667; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=6; Status=0; Timestamp=0,8833333; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=7; Status=0; Timestamp=0,9; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=NormalsOnly; Attempt=8; Status=0; Timestamp=0,9166667; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=NormalsOnly; Accepted=8; Attempts=8; NotReady=0; OtherReady=8; MaxHeightError=0; MaxNormalError=0,000197718124; MaxVelocity=0
+Phase=HeightsOnly; Attempt=1; Status=1; Timestamp=0,933333337; Count=2
+Phase=HeightsOnly; Attempt=2; Status=0; Timestamp=0,95; Count=2
+Phase=HeightsOnly; Attempt=3; Status=0; Timestamp=0,966666639; Count=2
+Phase=HeightsOnly; Attempt=4; Status=0; Timestamp=0,983333349; Count=2
+Phase=HeightsOnly; Attempt=5; Status=0; Timestamp=1; Count=2
+Phase=HeightsOnly; Attempt=6; Status=0; Timestamp=1,01666665; Count=2
+Phase=HeightsOnly; Attempt=7; Status=0; Timestamp=1,0333333; Count=2
+Phase=HeightsOnly; Attempt=8; Status=0; Timestamp=1,05; Count=2
+Phase=HeightsOnly; Attempt=9; Status=0; Timestamp=1,06666672; Count=2
+Summary=HeightsOnly; Accepted=8; Attempts=9; NotReady=1; OtherReady=9; MaxHeightError=2,336502E-05; MaxNormalError=0; MaxVelocity=0
+Phase=VelocityOnly; Attempt=1; Status=0; Timestamp=1,08333337; Count=2
+Phase=VelocityOnly; Attempt=2; Status=0; Timestamp=1,1; Count=2
+Phase=VelocityOnly; Attempt=3; Status=0; Timestamp=1,11666667; Count=2
+Phase=VelocityOnly; Attempt=4; Status=0; Timestamp=1,13333333; Count=2
+Phase=VelocityOnly; Attempt=5; Status=0; Timestamp=1,15; Count=2
+Phase=VelocityOnly; Attempt=6; Status=0; Timestamp=1,16666663; Count=2
+Phase=VelocityOnly; Attempt=7; Status=0; Timestamp=1,18333328; Count=2
+Phase=VelocityOnly; Attempt=8; Status=0; Timestamp=1,2; Count=2
+Summary=VelocityOnly; Accepted=8; Attempts=8; NotReady=0; OtherReady=8; MaxHeightError=0; MaxNormalError=0; MaxVelocity=0
+Phase=VelocityOnlyGrow; Attempt=1; Status=9; Timestamp=1,2166667; Count=5
+Phase=VelocityOnlyGrow; Attempt=2; Status=8; Timestamp=1,23333335; Count=5
+Phase=VelocityOnlyGrow; Attempt=3; Status=0; Timestamp=1,25; Count=5
+Phase=VelocityOnlyGrow; Attempt=4; Status=0; Timestamp=1,26666665; Count=5
+Phase=VelocityOnlyGrow; Attempt=5; Status=0; Timestamp=1,2833333; Count=5
+Phase=VelocityOnlyGrow; Attempt=6; Status=0; Timestamp=1,3; Count=5
+Phase=VelocityOnlyGrow; Attempt=7; Status=0; Timestamp=1,31666672; Count=5
+Phase=VelocityOnlyGrow; Attempt=8; Status=0; Timestamp=1,33333337; Count=5
+Phase=VelocityOnlyGrow; Attempt=9; Status=0; Timestamp=1,35; Count=5
+Phase=VelocityOnlyGrow; Attempt=10; Status=0; Timestamp=1,36666667; Count=5
+Summary=VelocityOnlyGrow; Accepted=8; Attempts=10; NotReady=1; OtherReady=10; MaxHeightError=0; MaxNormalError=0; MaxVelocity=0
+Phase=Displacements; Attempt=1; Status=9; Timestamp=1,38333333; Count=2
+Phase=Displacements; Attempt=2; Status=8; Timestamp=1,4; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=3; Status=0; Timestamp=1,41666663; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=4; Status=0; Timestamp=1,43333328; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=5; Status=0; Timestamp=1,45; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=6; Status=0; Timestamp=1,4666667; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=7; Status=0; Timestamp=1,48333335; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=8; Status=0; Timestamp=1,5; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=9; Status=0; Timestamp=1,51666665; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=Displacements; Attempt=10; Status=0; Timestamp=1,5333333; Count=2
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=Displacements; Accepted=8; Attempts=10; NotReady=1; OtherReady=10; MaxHeightError=2,336502E-05; MaxNormalError=0,000197718124; MaxVelocity=0
+Phase=OwnerReadded; Attempt=1; Status=1; Timestamp=1,75; Count=5
+Phase=OwnerReadded; Attempt=2; Status=4; Timestamp=1,76666665; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=3; Status=0; Timestamp=1,7833333; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=4; Status=0; Timestamp=1,8; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=5; Status=0; Timestamp=1,81666672; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=6; Status=0; Timestamp=1,83333337; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=7; Status=0; Timestamp=1,85; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=8; Status=0; Timestamp=1,86666667; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=9; Status=0; Timestamp=1,88333333; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Phase=OwnerReadded; Attempt=10; Status=0; Timestamp=1,9; Count=5
+Point=0; Normal=(-0.24234380, 0.97019050, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=1; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=2; Normal=(-0.24240910, 0.97017410, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=3; Normal=(-0.24240810, 0.97017440, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Point=4; Normal=(-0.24234270, 0.97019070, 0.00000000); Expected=(-0.24253560, 0.97014250, 0.00000000)
+Summary=OwnerReadded; Accepted=8; Attempts=10; NotReady=1; OtherReady=9; MaxHeightError=2,336502E-05; MaxNormalError=0,000198831272; MaxVelocity=0

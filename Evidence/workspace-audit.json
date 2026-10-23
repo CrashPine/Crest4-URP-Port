@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-23T15:29:03.5187362Z",
+  "recordedUtc": "2026-10-23T15:51:38.8104774Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1284,
+  "fileCount": 1286,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -34,7 +34,7 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-23 15:25:56Z",
+      "start": "2026-10-23 15:48:49Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -42,15 +42,15 @@
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-10-23 10:36:57Z",
+      "start": "2026-10-23 15:44:23Z",
       "result": "Passed",
-      "total": "48",
-      "passed": "48",
+      "total": "55",
+      "passed": "55",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-23 15:28:13Z",
+      "start": "2026-10-23 15:49:20Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -58,10 +58,10 @@
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-23 10:38:48Z",
+      "start": "2026-10-23 15:45:30Z",
       "result": "Passed",
-      "total": "48",
-      "passed": "48",
+      "total": "55",
+      "passed": "55",
       "failed": "0"
     }
   ],
@@ -593,8 +593,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Collision/QueryBase.cs",
-      "bytes": 24242,
-      "sha256": "3970E5EB3E578DC651FED3969BBE472B4AAAE2CEA2E24ED56AA284D44C9D5D76"
+      "bytes": 25407,
+      "sha256": "03426F6EDC957F6F5C9D66795B7642B337A79F7CC67E2C810640BC3251472AA6"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Collision/QueryBase.cs.meta",
@@ -5783,8 +5783,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/GerstnerQueryAccuracyTests.cs",
-      "bytes": 13007,
-      "sha256": "BB6376B577B9F4D71DE21C4FF9971B16CDCE370AF100941DF28AAF7F47C87BB0"
+      "bytes": 13047,
+      "sha256": "D414E4E6C91FD564D4587C81BF7532956035A8D6F9842616E8B028C552BF364C"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/GerstnerQueryAccuracyTests.cs.meta",
@@ -5840,6 +5840,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/QueryContractTests.cs.meta",
       "bytes": 61,
       "sha256": "D47B480BF58B82CE46F1E897424393D39451A6CBE1D4540AF9CC7477C0534EE7"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/QueryLayoutTests.cs",
+      "bytes": 8418,
+      "sha256": "674ABFA01FF6C9A9EC2A2DF1B7B93CA0645400E751CB31819721E9CE672691D2"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/QueryLayoutTests.cs.meta",
+      "bytes": 60,
+      "sha256": "76D324DCA64FE2195947F0402A7D9F8EAF00078ADB9BC52155B0F069687CDF4A"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/QueryPressureTests.cs",
@@ -6083,8 +6093,8 @@
     },
     {
       "path": "Assets/CrestPortDemos/ReflectionVertexVariants.asset",
-      "bytes": 4928,
-      "sha256": "DD0C32F7B0EF6C0B7F07518E628737DBFAD44E313B0416B9C0ECB3867AD58AA4"
+      "bytes": 5076,
+      "sha256": "F96A1C399F34C9CEF9930F149CC0B633CF039F3152C7A5A8B67FD9BE3C106810"
     },
     {
       "path": "Assets/CrestPortDemos/ReflectionVertexVariants.asset.meta",
@@ -6443,8 +6453,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 13865,
-      "sha256": "71E3A470D3F653FC2D992087C694A3D3CF7A857C3058BB570A2C16D315B34791"
+      "bytes": 14307,
+      "sha256": "29FEEB9EC7964015EA2A5C9FCF09620667D7D3E98FDB8907623B04EC266EB1D3"
     },
     {
       "path": "LICENSE.Crest",
@@ -6453,18 +6463,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 14033,
-      "sha256": "8F8CC8198EAB6234F6F8BDEBE7787176F0579F2E773E3C53EC398D16160FA19A"
+      "bytes": 15500,
+      "sha256": "02D041FB6407D895E1B12EA99D56330E25F9DF6DA05BB80D39844A8E64F422F3"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 11616,
-      "sha256": "CD941BAD3967C682834AA182A2ABBAB141B99A2D3A121DBC5F585FD0907660F4"
+      "bytes": 11788,
+      "sha256": "7308F64DAA48F95F13C06FA9F9F61BE6DF3AAF57788A43A6CE75A9221D85DA3A"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 10781,
-      "sha256": "CB96E6768102D202875842BA5C2358FC16F65D5F052C71101D3A975E315F15A9"
+      "bytes": 9842,
+      "sha256": "E5C528C0DD8D392F2A477CD60DF01E7722EFF156132833AAB612C686B00C02F9"
     },
     {
       "path": "README.md",
@@ -6478,8 +6488,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 94874,
-      "sha256": "FB25D576B1B063811286C5D481B55E3899759D8EA08528BE7DB24AEC44973D9F"
+      "bytes": 103347,
+      "sha256": "5FDD3154D20A3F5222E7C191B70DA6EA12808678FA0CBD25910967A642F545C3"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

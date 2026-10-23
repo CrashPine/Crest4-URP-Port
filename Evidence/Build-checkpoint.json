@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-10-21T15:32:42.2595664Z",
+  "recordedUtc": "2026-10-23T15:50:22.5815552Z",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
   "strictShaderVariantMatching": true,
@@ -23,37 +23,41 @@
     {
       "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs",
       "sha256": "E480CC602822626E1BEB109755C668FA239B48E456CDE446315EB2136E5BA38F"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Collision/QueryBase.cs",
+      "sha256": "03426F6EDC957F6F5C9D66795B7642B337A79F7CC67E2C810640BC3251472AA6"
     }
   ],
   "builds": [
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "bytes": 285696,
-      "modifiedUtc": "2026-10-21T10:58:03.5264076Z",
-      "sha256": "8761054A32FC21E5223BBDFB78A24CF1DA62BCC51B74EFD6D0C8731EEB0587A8"
+      "bytes": 286208,
+      "modifiedUtc": "2026-10-23T15:46:53.5701522Z",
+      "sha256": "810B2C8A5356E53E3E7C00C644CFDC65E2085185CA9BEAFB5DE978769E9BD5A6"
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
       "bytes": 19968,
-      "modifiedUtc": "2026-10-21T10:42:38.4875952Z",
-      "sha256": "9323D9908E4AC44F32636AD7AB9E57EB904397CD4745BF8AA45005A917340874"
+      "modifiedUtc": "2026-10-23T15:46:53.9008144Z",
+      "sha256": "9B3533B5250EF3E25DABFCFF1C7EE9D4D792B135173A571440A40B5BEE1A0F95"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
       "bytes": 282112,
-      "modifiedUtc": "2026-10-21T10:58:50.6586279Z",
-      "sha256": "F4F561A7A9CD32C25BA2E1E6C0B492137E6BCDDFE9FE1B9269D50F0184E19901"
+      "modifiedUtc": "2026-10-23T15:47:25.3392105Z",
+      "sha256": "70DAE5071A295EE469742C2C5556050EE9B6012908E9FB4BB1A2225D0FBBD9AB"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
       "bytes": 19968,
-      "modifiedUtc": "2026-10-21T10:43:30.4104648Z",
-      "sha256": "7C5FF114E7E1723436E7453B7D0CF983D989473BABE0C9120E2F674012CD2742"
+      "modifiedUtc": "2026-10-23T15:47:25.3441359Z",
+      "sha256": "F749729DAC26F2BEB1DC7C71A127CE1885382FA40E6470007980A2C7FBE5966A"
     }
   ],
-  "limitation": "P05 renderer selection and Terrain restoration checkpoint. Both rebuilt Players passed four fresh API runs with strict matching. Subsequent P06 changes affect Editor tests only. Concurrent Player runs are not performance measurements."
+  "limitation": "P07 QueryBase layout/count/normal-offset runtime fix. Selected source fingerprints, not a complete source manifest. Rebuilt Development/Release with strict matching. Player smoke is integration coverage, not the Editor query-layout numerical fixture or performance acceptance. Some Player runs overlapped."
 }

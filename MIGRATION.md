@@ -117,7 +117,17 @@ The original velocity finite difference timestamps readbacks with Unity
 advancing only a custom ocean clock is therefore not a valid velocity test. A
 height-only query does not need velocity history. P07 now has scoped numerical
 acceptance on a known static/moving plane and original Gerstner waves (see
-TEST_RESULTS.md); broader ownership/layout/latency coverage remains open.
+TEST_RESULTS.md); broader latency coverage remains open.
+
+GPU readbacks retain their point and normal counts. Changing a caller's count or
+normal-output layout makes old packets unavailable (`RetrieveFailed`) until a
+matching packet returns; velocity also needs matching history. Null point outputs
+are supported: a normals-only query reads normal samples after the dispatched
+point block. This fixes two inherited cases that previously returned successful
+status with data interpreted using the wrong layout. Keep output array lengths
+equal to the input point count. Positions within an unchanged layout still have
+the original asynchronous semantics; these checks do not make queries synchronous.
+`RemoveQueryPoints` leaves in-flight packets intact, as in the original implementation.
 
 
 ## Ray sampling contract

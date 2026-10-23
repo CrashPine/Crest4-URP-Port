@@ -54,10 +54,18 @@ namespace Crest
         /// <summary>
         /// Holds information about all query points. Maps from unique hash code to position in point array.
         /// </summary>
+        struct QuerySegment
+        {
+            public int x, y, z;
+            public int PointCount, NormalCount;
+
+            public bool SameLayout(QuerySegment other) => PointCount == other.PointCount && NormalCount == other.NormalCount;
+        }
+
         class SegmentRegistrar
         {
             // Map from guids to (segment start index, segment end index, frame number when query was made)
-            public Dictionary<int, Vector3Int> _segments = new Dictionary<int, Vector3Int>();
+            public Dictionary<int, QuerySegment> _segments = new Dictionary<int, QuerySegment>();
             public int _numQueries = 0;
         }
 
@@ -191,17 +199,17 @@ namespace Crest
 
         NativeArray<Vector3> _queryResults;
         float _queryResultsTime = -1f;
-        Dictionary<int, Vector3Int> _resultSegments;
+        Dictionary<int, QuerySegment> _resultSegments;
 
         NativeArray<Vector3> _queryResultsLast;
         float _queryResultsTimeLast = -1f;
-        Dictionary<int, Vector3Int> _resultSegmentsLast;
+        Dictionary<int, QuerySegment> _resultSegmentsLast;
 
         struct ReadbackRequest
         {
             public AsyncGPUReadbackRequest _request;
             public float _dataTimestamp;
-            public Dictionary<int, Vector3Int> _segments;
+            public Dictionary<int, QuerySegment> _segments;
         }
 
         List<ReadbackRequest> _requests = new List<ReadbackRequest>();
@@ -265,8 +273,7 @@ namespace Crest
 
             if (_segmentRegistrarRingBuffer.Current._segments.TryGetValue(i_ownerHash, out var segment))
             {
-                var segmentSize = segment.y - segment.x + 1;
-                if (segmentSize == countTotal)
+                if (segment.PointCount == countPts && segment.NormalCount == countNorms)
                 {
                     // Update frame count
                     segment.z = Time.frameCount;
@@ -297,6 +304,8 @@ namespace Crest
                 segment.x = _segmentRegistrarRingBuffer.Current._numQueries;
                 segment.y = segment.x + countTotal - 1;
                 segment.z = Time.frameCount;
+                segment.PointCount = countPts;
+                segment.NormalCount = countNorms;
                 _segmentRegistrarRingBuffer.Current._segments.Add(i_ownerHash, segment);
 
                 _segmentRegistrarRingBuffer.Current._numQueries += countTotal;
@@ -378,6 +387,17 @@ namespace Crest
                 return false;
             }
 
+            // Readbacks describe the packet that was dispatched, not necessarily the
+            // layout just posted by this caller. Never copy across owner boundaries.
+            if (!_segmentRegistrarRingBuffer.Current._segments.TryGetValue(guid, out var current) ||
+                !segment.SameLayout(current) ||
+                (displacements != null && displacements.Length != segment.PointCount) ||
+                (heights != null && heights.Length != segment.PointCount) ||
+                (normals != null && normals.Length != segment.NormalCount))
+            {
+                return false;
+            }
+
             var countPoints = 0;
             if (displacements != null) countPoints = displacements.Length;
             if (heights != null) countPoints = heights.Length;
@@ -402,7 +422,7 @@ namespace Crest
 
             if (countNorms > 0)
             {
-                int firstNorm = segment.x + countPoints;
+                int firstNorm = segment.x + segment.PointCount;
 
                 var dx = -Vector3.right * s_finiteDiffDx;
                 var dz = -Vector3.forward * s_finiteDiffDx;
@@ -442,7 +462,9 @@ namespace Crest
                 return (int)QueryStatus.NotEnoughDataForVels;
             }
 
-            if ((segment.y - segment.x) != (segmentLast.y - segmentLast.x))
+            if (!_segmentRegistrarRingBuffer.Current._segments.TryGetValue(i_ownerHash, out var current) ||
+                !segment.SameLayout(current) || !segment.SameLayout(segmentLast) ||
+                results.Length != segment.PointCount)
             {
                 // Number of queries changed - can't handle that
                 return (int)QueryStatus.VelocityDataInvalidated;
