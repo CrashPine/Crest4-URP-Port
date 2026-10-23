@@ -1,0 +1,194 @@
+Original ShapeGerstner global, octave9, seed27, two components/octave, chop0, heading0. Active scalar modes=6. Two independent stages: source generator texels versus double cosine sum, then public query versus scalar bilinear sampling of combined ocean RT readbacks with dispatch timestamps. Test-only GPU fence, not performance/latency acceptance. Normal uses original .1m forward difference, velocity uses distinct request timestamps.
+Source; Timestamp=0,0833333358; Cascade=1; Actual=-9,614229E-05; Expected=-9,6168171138838877E-05; Error=2,5879116133799111E-08
+Source; Timestamp=0,0833333358; Cascade=9; Actual=-0,3828125; Expected=-0,3829322957801285; Error=0,00011979578012849545
+Source; Timestamp=0,0833333358; Cascade=10; Actual=0,00983429; Expected=0,0098373201457602442; Error=3,0305949789942443E-06
+Result=0; Point=0; Status=0; Timestamp=0,0833333358; Previous=0,06666667; Age=0; Height=0,395263672; Expected=0,3951416; HeightError=0,000122070313; NormalError=0,0021942975; VelocityError=0
+Result=0; Point=1; Status=0; Timestamp=0,0833333358; Previous=0,06666667; Age=0; Height=0,425048828; Expected=0,424926758; HeightError=0,000122070313; NormalError=0,0009762311; VelocityError=0
+Result=0; Point=2; Status=0; Timestamp=0,0833333358; Previous=0,06666667; Age=0; Height=0,437011719; Expected=0,436889648; HeightError=0,000122070313; NormalError=0,00122070243; VelocityError=0
+Source; Timestamp=0,183333337; Cascade=1; Actual=-0,0005288124; Expected=-0,00052902698302457161; Error=2,1457457730598983E-07
+Source; Timestamp=0,183333337; Cascade=9; Actual=-0,371826172; Expected=-0,37195038767975735; Error=0,00012421580475735494
+Source; Timestamp=0,183333337; Cascade=10; Actual=0,009849548; Expected=0,0098508282862772665; Error=1,2799464335164906E-06
+Result=1; Point=0; Status=0; Timestamp=0,183333337; Previous=0,166666672; Age=0; Height=0,389648438; Expected=0,389526367; HeightError=0,000122070313; NormalError=0,000730964355; VelocityError=0
+Result=1; Point=1; Status=0; Timestamp=0,183333337; Previous=0,166666672; Age=0; Height=0,424072266; Expected=0,4239502; HeightError=0,000122070313; NormalError=0,00195168646; VelocityError=0
+Result=1; Point=2; Status=0; Timestamp=0,183333337; Previous=0,166666672; Age=0; Height=0,440917969; Expected=0,4407959; HeightError=0,000122070313; NormalError=0,0021972456; VelocityError=0,007324219
+Source; Timestamp=0,3; Cascade=1; Actual=0,0004968643; Expected=0,0004971583856846506; Error=2,9406683699434791E-07
+Source; Timestamp=0,3; Cascade=9; Actual=-0,350097656; Expected=-0,35015609114104923; Error=5,84348910492305E-05
+Source; Timestamp=0,3; Cascade=10; Actual=0,009681702; Expected=0,0096842921643277343; Error=2,5905041714843063E-06
+Result=2; Point=0; Status=0; Timestamp=0,3; Previous=0,283333331; Age=0; Height=0,373291016; Expected=0,373291016; HeightError=0; NormalError=0,000487105659; VelocityError=0,007324204
+Result=2; Point=1; Status=0; Timestamp=0,3; Previous=0,283333331; Age=0; Height=0,412597656; Expected=0,4124756; HeightError=0,000122070313; NormalError=0,00121961324; VelocityError=0
+Result=2; Point=2; Status=0; Timestamp=0,3; Previous=0,283333331; Age=0; Height=0,4345703; Expected=0,434448242; HeightError=0,000122070313; NormalError=0,0007324252; VelocityError=0
+Source; Timestamp=0,416666657; Cascade=1; Actual=-0,0004014969; Expected=-0,000401570325647305; Error=7,3438440273735327E-08
+Source; Timestamp=0,416666657; Cascade=9; Actual=-0,3190918; Expected=-0,31923601837239035; Error=0,00014422149739035106
+Source; Timestamp=0,416666657; Cascade=10; Actual=0,00932312; Expected=0,0093249690665217263; Error=1,848949334226288E-06
+Result=3; Point=0; Status=0; Timestamp=0,416666657; Previous=0,4; Age=0; Height=0,3474121; Expected=0,347290039; HeightError=0,000122070313; NormalError=0,00170506153; VelocityError=0
+Result=3; Point=1; Status=0; Timestamp=0,416666657; Previous=0,4; Age=0; Height=0,390380859; Expected=0,3902588; HeightError=0,000122070313; NormalError=0,0021942975; VelocityError=0
+Result=3; Point=2; Status=0; Timestamp=0,416666657; Previous=0,4; Age=0; Height=0,4169922; Expected=0,416870117; HeightError=0,000122070313; NormalError=0,00170845457; VelocityError=0
+Source; Timestamp=0,533333361; Cascade=1; Actual=0,000299692154; Expected=0,00029972466231970024; Error=3,250838903618011E-08
+Source; Timestamp=0,533333361; Cascade=9; Actual=-0,279785156; Expected=-0,27999345096218176; Error=0,00020829471218175577
+Source; Timestamp=0,533333361; Cascade=10; Actual=0,008773804; Expected=0,0087802784529266587; Error=6,4747419891587193E-06
+Result=4; Point=0; Status=0; Timestamp=0,533333361; Previous=0,516666651; Age=0; Height=0,312255859; Expected=0,3121338; HeightError=0,000122070313; NormalError=0,0009739565; VelocityError=0
+Result=4; Point=1; Status=0; Timestamp=0,533333361; Previous=0,516666651; Age=0; Height=0,357666016; Expected=0,357543945; HeightError=0,000122070313; NormalError=0,000731109; VelocityError=0
+Result=4; Point=2; Status=0; Timestamp=0,533333361; Previous=0,516666651; Age=0; Height=0,388427734; Expected=0,388305664; HeightError=0,000122070313; NormalError=0,0009762311; VelocityError=0
+Source; Timestamp=0,65; Cascade=1; Actual=-0,000248193741; Expected=-0,00024829473397897832; Error=1,0099313425175963E-07
+Source; Timestamp=0,65; Cascade=9; Actual=-0,233398438; Expected=-0,23344859415680705; Error=5,0156656807048838E-05
+Source; Timestamp=0,65; Cascade=10; Actual=0,008056641; Expected=0,0080613401813798939; Error=4,6995563798939155E-06
+Result=5; Point=0; Status=0; Timestamp=0,65; Previous=0,6333333; Age=0; Height=0,269042969; Expected=0,2689209; HeightError=0,000122070313; NormalError=0,000243438175; VelocityError=0
+Result=5; Point=1; Status=0; Timestamp=0,65; Previous=0,6333333; Age=0; Height=0,315917969; Expected=0,3157959; HeightError=0,000122070313; NormalError=0,000730964355; VelocityError=0
+Result=5; Point=2; Status=0; Timestamp=0,65; Previous=0,6333333; Age=0; Height=0,349609375; Expected=0,3494873; HeightError=0,000122070313; NormalError=0,000243934468; VelocityError=0
+Source; Timestamp=0,75; Cascade=1; Actual=0,000621795654; Expected=0,00062222555592579228; Error=4,2990162891728446E-07
+Source; Timestamp=0,75; Cascade=9; Actual=-0,188598633; Expected=-0,18865401407933746; Error=5,5381266837462029E-05
+Source; Timestamp=0,75; Cascade=10; Actual=0,00731658936; Expected=0,0073173922203577761; Error=8,02864889026117E-07
+Result=6; Point=0; Status=0; Timestamp=0,75; Previous=0,733333349; Age=0; Height=0,22644043; Expected=0,2263794; HeightError=6,10351563E-05; NormalError=0,000365202635; VelocityError=0
+Result=6; Point=1; Status=0; Timestamp=0,75; Previous=0,733333349; Age=0; Height=0,2734375; Expected=0,27331543; HeightError=0,000122070313; NormalError=0,000730964355; VelocityError=0
+Result=6; Point=2; Status=0; Timestamp=0,75; Previous=0,733333349; Age=0; Height=0,309082031; Expected=0,308959961; HeightError=0,000122070313; NormalError=0,00121978461; VelocityError=0
+Source; Timestamp=0,85; Cascade=1; Actual=-0,00102138519; Expected=-0,001021461860945809; Error=7,6668074715235957E-08
+Source; Timestamp=0,85; Cascade=9; Actual=-0,140136719; Expected=-0,14023797345565991; Error=0,00010125470565991446
+Source; Timestamp=0,85; Cascade=10; Actual=0,006465912; Expected=0,0064671544710378113; Error=1,2426058034363183E-06
+Result=7; Point=0; Status=0; Timestamp=0,85; Previous=0,8333333; Age=0; Height=0,179321289; Expected=0,179260254; HeightError=6,10351563E-05; NormalError=0,0003652482; VelocityError=0,00366210938
+Result=7; Point=1; Status=0; Timestamp=0,85; Previous=0,8333333; Age=0; Height=0,225585938; Expected=0,2255249; HeightError=6,10351563E-05; NormalError=0,0009747594; VelocityError=0
+Result=7; Point=2; Status=0; Timestamp=0,85; Previous=0,8333333; Age=0; Height=0,2626953; Expected=0,262573242; HeightError=0,000122070313; NormalError=0,00121961324; VelocityError=0,007324189
+Source; Timestamp=0,966666639; Cascade=1; Actual=0,00126647949; Expected=0,0012669525569453824; Error=4,7306475788239967E-07
+Source; Timestamp=0,966666639; Cascade=9; Actual=-0,0803833; Expected=-0,080414313816241326; Error=3,1013034991325683E-05
+Source; Timestamp=0,966666639; Cascade=10; Actual=0,005355835; Expected=0,0053577762278430637; Error=1,9412669055637183E-06
+Result=8; Point=0; Status=0; Timestamp=0,966666639; Previous=0,95; Age=0; Height=0,119995117; Expected=0,1199646; HeightError=3,05175781E-05; NormalError=0,000365353539; VelocityError=0,00183105469
+Result=8; Point=1; Status=0; Timestamp=0,966666639; Previous=0,95; Age=0; Height=0,164428711; Expected=0,164367676; HeightError=6,10351563E-05; NormalError=0,0009747594; VelocityError=0
+Result=8; Point=2; Status=0; Timestamp=0,966666639; Previous=0,95; Age=0; Height=0,201782227; Expected=0,201782227; HeightError=0; NormalError=0,000487661455; VelocityError=0
+Source; Timestamp=1,06666672; Cascade=1; Actual=-0,00131702423; Expected=-0,001317212848532217; Error=1,8861757518579339E-07
+Source; Timestamp=1,06666672; Cascade=9; Actual=-0,0273895264; Expected=-0,027397532728500068; Error=8,0063613125680444E-06
+Source; Timestamp=1,06666672; Cascade=10; Actual=0,004322052; Expected=0,00432231806386188; Error=2,6606190875466673E-07
+Result=9; Point=0; Status=0; Timestamp=1,06666672; Previous=1,05; Age=0; Height=0,0665893555; Expected=0,0665893555; HeightError=0; NormalError=0,000243780189; VelocityError=0,00183105469
+Result=9; Point=1; Status=0; Timestamp=1,06666672; Previous=1,05; Age=0; Height=0,108398438; Expected=0,10836792; HeightError=3,05175781E-05; NormalError=0,0006092768; VelocityError=0
+Result=9; Point=2; Status=0; Timestamp=1,06666672; Previous=1,05; Age=0; Height=0,145629883; Expected=0,145568848; HeightError=6,10351563E-05; NormalError=0,00109737122; VelocityError=0
+Source; Timestamp=1,18333328; Cascade=1; Actual=0,00131130219; Expected=0,001312040935245166; Error=7,3875018657227828E-07
+Source; Timestamp=1,18333328; Cascade=9; Actual=0,03503418; Expected=0,035059846522520345; Error=2,5666835020345113E-05
+Source; Timestamp=1,18333328; Cascade=10; Actual=0,003036499; Expected=0,0030371145689441575; Error=6,1554550665745764E-07
+Result=10; Point=0; Status=0; Timestamp=1,18333328; Previous=1,16666663; Age=0; Height=0,002817154; Expected=0,002816677; HeightError=4,76837158E-07; NormalError=3,133526E-05; VelocityError=0,0002002716
+Result=10; Point=1; Status=0; Timestamp=1,18333328; Previous=1,16666663; Age=0; Height=0,04055786; Expected=0,0405426025; HeightError=1,52587891E-05; NormalError=9,13276162E-05; VelocityError=0
+Result=10; Point=2; Status=0; Timestamp=1,18333328; Previous=1,16666663; Age=0; Height=0,0765380859; Expected=0,07650757; HeightError=3,05175781E-05; NormalError=0,0004266736; VelocityError=0
+Source; Timestamp=1,2833333; Cascade=1; Actual=-0,0004632473; Expected=-0,00046330233966769736; Error=5,50404733614231E-08
+Source; Timestamp=1,2833333; Cascade=9; Actual=0,087890625; Expected=0,08794071705882936; Error=5,0092058829359631E-05
+Source; Timestamp=1,2833333; Cascade=10; Actual=0,00188732147; Expected=0,0018879543734482633; Error=6,3290128029451324E-07
+Result=11; Point=0; Status=0; Timestamp=1,2833333; Previous=1,26666665; Age=0; Height=-0,05203247; Expected=-0,0520172119; HeightError=1,52587891E-05; NormalError=0,000182984571; VelocityError=0
+Result=11; Point=1; Status=0; Timestamp=1,2833333; Previous=1,26666665; Age=0; Height=-0,0185852051; Expected=-0,0185775757; HeightError=7,62939453E-06; NormalError=4,58120921E-05; VelocityError=0,000228881836
+Result=11; Point=2; Status=0; Timestamp=1,2833333; Previous=1,26666665; Age=0; Height=0,0155792236; Expected=0,0155754089; HeightError=3,81469727E-06; NormalError=3,80354722E-05; VelocityError=0,000228881836
+Source; Timestamp=1,38333333; Cascade=1; Actual=-0,000770568848; Expected=-0,00077058256138707259; Error=1,3713730822586742E-08
+Source; Timestamp=1,38333333; Cascade=9; Actual=0,139038086; Expected=0,13914779166400176; Error=0,00010970572650176313
+Source; Timestamp=1,38333333; Cascade=10; Actual=0,0007123947; Expected=0,00071274932170034241; Error=3,5460734487365638E-07
+Result=12; Point=0; Status=0; Timestamp=1,38333333; Previous=1,36666667; Age=0; Height=-0,105957031; Expected=-0,105926514; HeightError=3,05175781E-05; NormalError=0,000183010838; VelocityError=0
+Result=12; Point=1; Status=0; Timestamp=1,38333333; Previous=1,36666667; Age=0; Height=-0,07739258; Expected=-0,07736206; HeightError=3,05175781E-05; NormalError=6,103519E-05; VelocityError=0
+Result=12; Point=2; Status=0; Timestamp=1,38333333; Previous=1,36666667; Age=0; Height=-0,0456848145; Expected=-0,0456695557; HeightError=1,52587891E-05; NormalError=0,000274455466; VelocityError=0,000915527344
+Source; Timestamp=1,48333335; Cascade=1; Actual=0,001832962; Expected=0,0018334824629707637; Error=5,2042683795121628E-07
+Source; Timestamp=1,48333335; Cascade=9; Actual=0,18762207; Expected=0,18769972390927853; Error=7,7653596778526346E-05
+Source; Timestamp=1,48333335; Cascade=10; Actual=-0,0004711151; Expected=-0,00047120049284900929; Error=8,5380544321785913E-08
+Result=13; Point=0; Status=0; Timestamp=1,48333335; Previous=1,4666667; Age=0; Height=-0,157714844; Expected=-0,157653809; HeightError=6,10351563E-05; NormalError=0,0008542269; VelocityError=0
+Result=13; Point=1; Status=0; Timestamp=1,48333335; Previous=1,4666667; Age=0; Height=-0,134643555; Expected=-0,13458252; HeightError=6,10351563E-05; NormalError=0,0010978271; VelocityError=0,00183105469
+Result=13; Point=2; Status=0; Timestamp=1,48333335; Previous=1,4666667; Age=0; Height=-0,106018066; Expected=-0,105987549; HeightError=3,05175781E-05; NormalError=6,10370553E-05; VelocityError=0
+Source; Timestamp=1,58333337; Cascade=1; Actual=-0,002166748; Expected=-0,002168562941296805; Error=1,814894421805005E-06
+Source; Timestamp=1,58333337; Cascade=9; Actual=0,232543945; Expected=0,23266567149055739; Error=0,00012172617805739083
+Source; Timestamp=1,58333337; Cascade=10; Actual=-0,00164604187; Expected=-0,0016464873923201341; Error=4,4552220294664241E-07
+Result=14; Point=0; Status=0; Timestamp=1,58333337; Previous=1,56666672; Age=0; Height=-0,2064209; Expected=-0,206359863; HeightError=6,10351563E-05; NormalError=0,000244186842; VelocityError=0
+Result=14; Point=1; Status=0; Timestamp=1,58333337; Previous=1,56666672; Age=0; Height=-0,189331055; Expected=-0,18927002; HeightError=6,10351563E-05; NormalError=0; VelocityError=0
+Result=14; Point=2; Status=0; Timestamp=1,58333337; Previous=1,56666672; Age=0; Height=-0,164428711; Expected=-0,164367676; HeightError=6,10351563E-05; NormalError=0,0006098393; VelocityError=0
+Source; Timestamp=1,7; Cascade=1; Actual=0,00208282471; Expected=0,0020831315393241303; Error=3,06832292880279E-07
+Source; Timestamp=1,7; Cascade=9; Actual=0,279296875; Expected=0,27944756264814397; Error=0,00015068764814396562
+Source; Timestamp=1,7; Cascade=10; Actual=-0,00298309326; Expected=-0,0029837016127368982; Error=6,08351018148174E-07
+Result=15; Point=0; Status=0; Timestamp=1,7; Previous=1,68333328; Age=0; Height=-0,258056641; Expected=-0,25793457; HeightError=0,000122070313; NormalError=0,000244075083; VelocityError=0
+Result=15; Point=1; Status=0; Timestamp=1,7; Previous=1,68333328; Age=0; Height=-0,248291016; Expected=-0,24822998; HeightError=6,10351563E-05; NormalError=0,000976353534; VelocityError=0
+Result=15; Point=2; Status=0; Timestamp=1,7; Previous=1,68333328; Age=0; Height=-0,228271484; Expected=-0,228210449; HeightError=6,10351563E-05; NormalError=0,00109789986; VelocityError=0
+Source; Timestamp=1,81666672; Cascade=1; Actual=-0,00181007385; Expected=-0,0018101475258417593; Error=7,3673302696756343E-08
+Source; Timestamp=1,81666672; Cascade=9; Actual=0,318847656; Expected=0,31895664584948652; Error=0,00010898959948651976
+Source; Timestamp=1,81666672; Cascade=10; Actual=-0,004257202; Expected=-0,0042589739705746433; Error=1,7718221371433238E-06
+Result=16; Point=0; Status=0; Timestamp=1,81666672; Previous=1,8; Age=0; Height=-0,3034668; Expected=-0,303344727; HeightError=0,000122070313; NormalError=0,000488158461; VelocityError=0
+Result=16; Point=1; Status=0; Timestamp=1,81666672; Previous=1,8; Age=0; Height=-0,3010254; Expected=-0,30090332; HeightError=0,000122070313; NormalError=0,00170864433; VelocityError=0
+Result=16; Point=2; Status=0; Timestamp=1,81666672; Previous=1,8; Age=0; Height=-0,286376953; Expected=-0,286254883; HeightError=0,000122070313; NormalError=0,00219612988; VelocityError=0
+Source; Timestamp=1,93333328; Cascade=1; Actual=0,00137519836; Expected=0,0013754269194528219; Error=2,2855519500944443E-07
+Source; Timestamp=1,93333328; Cascade=9; Actual=0,350097656; Expected=0,35016046262865475; Error=6,2806378654745032E-05
+Source; Timestamp=1,93333328; Cascade=10; Actual=-0,005443573; Expected=-0,0054469074027627346; Error=3,334404715859586E-06
+Result=17; Point=0; Status=0; Timestamp=1,93333328; Previous=1,91666663; Age=0; Height=-0,340332031; Expected=-0,340209961; HeightError=0,000122070313; NormalError=0,0007324252; VelocityError=0,00732421875
+Result=17; Point=1; Status=0; Timestamp=1,93333328; Previous=1,91666663; Age=0; Height=-0,345703125; Expected=-0,345581055; HeightError=0,000122070313; NormalError=0,00195321324; VelocityError=0
+Result=17; Point=2; Status=0; Timestamp=1,93333328; Previous=1,91666663; Age=0; Height=-0,336914063; Expected=-0,336792; HeightError=0,000122070313; NormalError=0,000732335844; VelocityError=0
+Source; Timestamp=2,0333333; Cascade=1; Actual=0,0001013875; Expected=0,00010141274506442298; Error=2,5244301483530311E-08
+Source; Timestamp=2,0333333; Cascade=9; Actual=0,3696289; Expected=0,36967113375113; Error=4,2227501129976641E-05
+Source; Timestamp=2,0333333; Cascade=10; Actual=-0,006374359; Expected=-0,006377670016271284; Error=3,3108854119090134E-06
+Result=18; Point=0; Status=0; Timestamp=2,0333333; Previous=2,01666665; Age=0; Height=-0,365234375; Expected=-0,3651123; HeightError=0,000122070313; NormalError=0,00170831371; VelocityError=0
+Result=18; Point=1; Status=0; Timestamp=2,0333333; Previous=2,01666665; Age=0; Height=-0,376953125; Expected=-0,376831055; HeightError=0,000122070313; NormalError=0,000488158461; VelocityError=0
+Result=18; Point=2; Status=0; Timestamp=2,0333333; Previous=2,01666665; Age=0; Height=-0,373046875; Expected=-0,3729248; HeightError=0,000122070313; NormalError=0,00170853944; VelocityError=0
+Source; Timestamp=2,13333344; Cascade=1; Actual=-0,00148677826; Expected=-0,0014876794242520029; Error=9,0116497465913409E-07
+Source; Timestamp=2,13333344; Cascade=9; Actual=0,382080078; Expected=0,38210026554969512; Error=2,0187424695117251E-05
+Source; Timestamp=2,13333344; Cascade=10; Actual=-0,007209778; Expected=-0,0072133217777893182; Error=3,5439457580681635E-06
+Result=19; Point=0; Status=0; Timestamp=2,13333344; Previous=2,11666656; Age=0; Height=-0,3828125; Expected=-0,38269043; HeightError=0,000122070313; NormalError=0,000243934468; VelocityError=0
+Result=19; Point=1; Status=0; Timestamp=2,13333344; Previous=2,11666656; Age=0; Height=-0,4008789; Expected=-0,400756836; HeightError=0,000122070313; NormalError=0,00146468868; VelocityError=0
+Result=19; Point=2; Status=0; Timestamp=2,13333344; Previous=2,11666656; Age=0; Height=-0,40234375; Expected=-0,40222168; HeightError=0,000122070313; NormalError=0,0009765371; VelocityError=0
+Source; Timestamp=2,25; Cascade=1; Actual=0,00179958344; Expected=0,0018003979134933578; Error=8,1447843476405157E-07
+Source; Timestamp=2,25; Cascade=9; Actual=0,387207031; Expected=0,38733753663240017; Error=0,00013050538240017007
+Source; Timestamp=2,25; Cascade=10; Actual=-0,008049011; Expected=-0,0080519205870010248; Error=2,9093565322747816E-06
+Result=20; Point=0; Status=0; Timestamp=2,25; Previous=2,23333335; Age=0; Height=-0,3942871; Expected=-0,394165039; HeightError=0,000122070313; NormalError=0,000487661455; VelocityError=0
+Result=20; Point=1; Status=0; Timestamp=2,25; Previous=2,23333335; Age=0; Height=-0,419189453; Expected=-0,419067383; HeightError=0,000122070313; NormalError=0,00170845457; VelocityError=0
+Result=20; Point=2; Status=0; Timestamp=2,25; Previous=2,23333335; Age=0; Height=-0,426513672; Expected=-0,4263916; HeightError=0,000122070313; NormalError=0,00195321324; VelocityError=0
+Source; Timestamp=2,36666656; Cascade=1; Actual=-0,00193309784; Expected=-0,0019332452196364472; Error=1,4738028097840278E-07
+Source; Timestamp=2,36666656; Cascade=9; Actual=0,382324219; Expected=0,38247414329077006; Error=0,00014992454077006334
+Source; Timestamp=2,36666656; Cascade=10; Actual=-0,008728027; Expected=-0,0087280799084824921; Error=5,2564732492058064E-08
+Result=21; Point=0; Status=0; Timestamp=2,36666656; Previous=2,35; Age=0; Height=-0,3955078; Expected=-0,395385742; HeightError=0,000122070313; NormalError=0,001462745; VelocityError=0
+Result=21; Point=1; Status=0; Timestamp=2,36666656; Previous=2,35; Age=0; Height=-0,426269531; Expected=-0,426147461; HeightError=0,000122070313; NormalError=0,000243961185; VelocityError=0
+Result=21; Point=2; Status=0; Timestamp=2,36666656; Previous=2,35; Age=0; Height=-0,439453125; Expected=-0,439331055; HeightError=0,000122070313; NormalError=0,000488158461; VelocityError=0
+Source; Timestamp=2,4666667; Cascade=1; Actual=0,00182628632; Expected=0,001826979841338399; Error=6,9352542043021534E-07
+Source; Timestamp=2,4666667; Cascade=9; Actual=0,3701172; Expected=0,37035229060900743; Error=0,00023510310900742848
+Source; Timestamp=2,4666667; Cascade=10; Actual=-0,009162903; Expected=-0,0091682303189992223; Error=5,3274869679723058E-06
+Result=22; Point=0; Status=0; Timestamp=2,4666667; Previous=2,45; Age=0; Height=-0,387939453; Expected=-0,387817383; HeightError=0,000122070313; NormalError=0,000730964355; VelocityError=0
+Result=22; Point=1; Status=0; Timestamp=2,4666667; Previous=2,45; Age=0; Height=-0,423583984; Expected=-0,4234619; HeightError=0,000122070313; NormalError=0,00195168646; VelocityError=0
+Result=22; Point=2; Status=0; Timestamp=2,4666667; Previous=2,45; Age=0; Height=-0,4416504; Expected=-0,44152832; HeightError=0,000122070313; NormalError=0,0021972456; VelocityError=0
+Source; Timestamp=2,58333325; Cascade=1; Actual=-0,00148391724; Expected=-0,0014843568393732294; Error=4,3960304510438572E-07
+Source; Timestamp=2,58333325; Cascade=9; Actual=0,347167969; Expected=0,34725420895929149; Error=8,6240209291488235E-05
+Source; Timestamp=2,58333325; Cascade=10; Actual=-0,009506226; Expected=-0,0095102819667897565; Error=4,0563808522565276E-06
+Result=23; Point=0; Status=0; Timestamp=2,58333325; Previous=2,5666666; Age=0; Height=-0,3696289; Expected=-0,369506836; HeightError=0,000122070313; NormalError=0,00170506153; VelocityError=0,00732423365
+Result=23; Point=1; Status=0; Timestamp=2,58333325; Previous=2,5666666; Age=0; Height=-0,4099121; Expected=-0,409790039; HeightError=0,000122070313; NormalError=0,000487661455; VelocityError=0
+Result=23; Point=2; Status=0; Timestamp=2,58333325; Previous=2,5666666; Age=0; Height=-0,433105469; Expected=-0,4329834; HeightError=0,000122070313; NormalError=0,0007324252; VelocityError=0
+Source; Timestamp=2,6833334; Cascade=1; Actual=0,000579834; Expected=0,00058005254804913272; Error=2,1856367413272335E-07
+Source; Timestamp=2,6833334; Cascade=9; Actual=0,320068359; Expected=0,32021061756783109; Error=0,00014225819283109065
+Source; Timestamp=2,6833334; Cascade=10; Actual=-0,009651184; Expected=-0,0096518225156731439; Error=6,3843364189394847E-07
+Result=24; Point=0; Status=0; Timestamp=2,6833334; Previous=2,66666675; Age=0; Height=-0,3466797; Expected=-0,346557617; HeightError=0,000122070313; NormalError=0,00170506153; VelocityError=0
+Result=24; Point=1; Status=0; Timestamp=2,6833334; Previous=2,66666675; Age=0; Height=-0,389892578; Expected=-0,3897705; HeightError=0,000122070313; NormalError=0,0021942975; VelocityError=0
+Result=24; Point=2; Status=0; Timestamp=2,6833334; Previous=2,66666675; Age=0; Height=-0,4169922; Expected=-0,416870117; HeightError=0,000122070313; NormalError=0,00170845457; VelocityError=0
+Source; Timestamp=2,8; Cascade=1; Actual=-0,000239133835; Expected=-0,00023914752998683317; Error=1,3695147965979079E-08
+Source; Timestamp=2,8; Cascade=9; Actual=0,280761719; Expected=0,2809318626356973; Error=0,00017014388569730476
+Source; Timestamp=2,8; Cascade=10; Actual=-0,009635925; Expected=-0,0096374259999974961; Error=1,5007070287460789E-06
+Result=25; Point=0; Status=0; Timestamp=2,8; Previous=2,7833333; Age=0; Height=-0,311035156; Expected=-0,3109131; HeightError=0,000122070313; NormalError=0,000243438175; VelocityError=0
+Result=25; Point=1; Status=0; Timestamp=2,8; Previous=2,7833333; Age=0; Height=-0,3569336; Expected=-0,356811523; HeightError=0,000122070313; NormalError=0,000731109; VelocityError=0
+Result=25; Point=2; Status=0; Timestamp=2,8; Previous=2,7833333; Age=0; Height=-0,3876953; Expected=-0,387573242; HeightError=0,000122070313; NormalError=0,0009762311; VelocityError=0
+Source; Timestamp=2,9; Cascade=1; Actual=-0,000475406647; Expected=-0,00047557284809790517; Error=1,6620136938954493E-07
+Source; Timestamp=2,9; Cascade=9; Actual=0,241333008; Expected=0,24137621375654225; Error=4,3205944042251643E-05
+Source; Timestamp=2,9; Cascade=10; Actual=-0,009468079; Expected=-0,00947167979669398; Error=3,601183412730094E-06
+Result=26; Point=0; Status=0; Timestamp=2,9; Previous=2,88333344; Age=0; Height=-0,274169922; Expected=-0,274047852; HeightError=0,000122070313; NormalError=0,000243438175; VelocityError=0
+Result=26; Point=1; Status=0; Timestamp=2,9; Previous=2,88333344; Age=0; Height=-0,321289063; Expected=-0,321167; HeightError=0,000122070313; NormalError=0,000730964355; VelocityError=0
+Result=26; Point=2; Status=0; Timestamp=2,9; Previous=2,88333344; Age=0; Height=-0,354736328; Expected=-0,354614258; HeightError=0,000122070313; NormalError=0,000243934468; VelocityError=0
+Source; Timestamp=3,01666665; Cascade=1; Actual=0,0004878044; Expected=0,00048789893887445871; Error=9,4526032661836068E-08
+Source; Timestamp=3,01666665; Cascade=9; Actual=0,189331055; Expected=0,18942095024627872; Error=8,9895558778724238E-05
+Source; Timestamp=3,01666665; Cascade=10; Actual=-0,009101868; Expected=-0,00910309098662626; Error=1,2233108450093039E-06
+Result=27; Point=0; Status=0; Timestamp=3,01666665; Previous=3; Age=0; Height=-0,224365234; Expected=-0,2243042; HeightError=6,10351563E-05; NormalError=0,000365202635; VelocityError=0
+Result=27; Point=1; Status=0; Timestamp=3,01666665; Previous=3; Age=0; Height=-0,271728516; Expected=-0,271606445; HeightError=0,000122070313; NormalError=0,000730964355; VelocityError=0
+Result=27; Point=2; Status=0; Timestamp=3,01666665; Previous=3; Age=0; Height=-0,307373047; Expected=-0,307250977; HeightError=0,000122070313; NormalError=0,00121978461; VelocityError=0
+Source; Timestamp=3,13333344; Cascade=1; Actual=-0,0004146099; Expected=-0,00041474126273918375; Error=1,3135368156656693E-07
+Source; Timestamp=3,13333344; Cascade=9; Actual=0,132446289; Expected=0,13250587520922461; Error=5,9586146724605049E-05
+Source; Timestamp=3,13333344; Cascade=10; Actual=-0,008552551; Expected=-0,0085533149728607739; Error=7,6370332952394038E-07
+Result=28; Point=0; Status=0; Timestamp=3,13333344; Previous=3,11666656; Age=0; Height=-0,168701172; Expected=-0,168640137; HeightError=6,10351563E-05; NormalError=0,0007305631; VelocityError=0
+Result=28; Point=1; Status=0; Timestamp=3,13333344; Previous=3,11666656; Age=0; Height=-0,21484375; Expected=-0,214782715; HeightError=6,10351563E-05; NormalError=0,0009747594; VelocityError=0
+Result=28; Point=2; Status=0; Timestamp=3,13333344; Previous=3,11666656; Age=0; Height=-0,252197266; Expected=-0,2520752; HeightError=0,000122070313; NormalError=0,00121961324; VelocityError=0
+Source; Timestamp=3,25; Cascade=1; Actual=0,000309944153; Expected=0,00031001516332869873; Error=7,1010496667479536E-08
+Source; Timestamp=3,25; Cascade=9; Actual=0,07208252; Expected=0,072114525574205335; Error=3,2006042955334824E-05
+Source; Timestamp=3,25; Cascade=10; Actual=-0,007827759; Expected=-0,0078337261031682474; Error=5,96731410574744E-06
+Result=29; Point=0; Status=0; Timestamp=3,25; Previous=3,23333335; Age=0; Height=-0,108642578; Expected=-0,108642578; HeightError=0; NormalError=0,000243507529; VelocityError=0,00183105469
+Result=29; Point=1; Status=0; Timestamp=3,25; Previous=3,23333335; Age=0; Height=-0,152709961; Expected=-0,152648926; HeightError=6,10351563E-05; NormalError=0,00012168409; VelocityError=0
+Result=29; Point=2; Status=0; Timestamp=3,25; Previous=3,23333335; Age=0; Height=-0,190185547; Expected=-0,190124512; HeightError=6,10351563E-05; NormalError=0,00109737122; VelocityError=0,00366210938
+Source; Timestamp=3,36666656; Cascade=1; Actual=-0,000232100487; Expected=-0,00023219588200836536; Error=9,5395252994266017E-08
+Source; Timestamp=3,36666656; Cascade=9; Actual=0,009819031; Expected=0,0098215781457392064; Error=2,5473840204563725E-06
+Source; Timestamp=3,36666656; Cascade=10; Actual=-0,006958008; Expected=-0,006959080808928186; Error=1,072996428186021E-06
+Result=30; Point=0; Status=0; Timestamp=3,36666656; Previous=3,35; Age=0; Height=-0,04574585; Expected=-0,04573059; HeightError=1,52587891E-05; NormalError=0,0002740989; VelocityError=0
+Result=30; Point=1; Status=0; Timestamp=3,36666656; Previous=3,35; Age=0; Height=-0,08630371; Expected=-0,08627319; HeightError=3,05175781E-05; NormalError=0,000609306; VelocityError=0
+Result=30; Point=2; Status=0; Timestamp=3,36666656; Previous=3,35; Age=0; Height=-0,123168945; Expected=-0,123138428; HeightError=3,05175781E-05; NormalError=0,0007925191; VelocityError=0,00183105469
+Source; Timestamp=3,4666667; Cascade=1; Actual=0,0005540848; Expected=0,00055423826365015225; Error=1,5348581812099898E-07
+Source; Timestamp=3,4666667; Cascade=9; Actual=-0,04385376; Expected=-0,043854552241127706; Error=7,9247550270611367E-07
+Source; Timestamp=3,4666667; Cascade=10; Actual=-0,006095886; Expected=-0,0060994177532893807; Error=3,5315228206307323E-06
+Result=31; Point=0; Status=0; Timestamp=3,4666667; Previous=3,45; Age=0; Height=0,00919342; Expected=0,009191513; HeightError=1,90734863E-06; NormalError=7,709663E-06; VelocityError=0,000114440918
+Result=31; Point=1; Status=0; Timestamp=3,4666667; Previous=3,45; Age=0; Height=-0,0277099609; Expected=-0,0277023315; HeightError=7,62939453E-06; NormalError=0,00015226331; VelocityError=0,000457763672
+Result=31; Point=2; Status=0; Timestamp=3,4666667; Previous=3,45; Age=0; Height=-0,06335449; Expected=-0,0633239746; HeightError=3,05175781E-05; NormalError=0,0004266736; VelocityError=0
+Summary; Accepted=32; Attempts=206; HeightSpan=0,882568359; MaxHeightError=0,000122070313; MaxNormalError=0,0021972456; MaxVelocityError=0,00732423365; MaxSimulatedReadbackAge=0

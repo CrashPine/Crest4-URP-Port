@@ -11,6 +11,7 @@
 | BoatProbes FFT/wind/spectrum/time, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/BoatProbesWaves-DX11.xml / DX12.xml; test-only GPU pacing |
 | BoatProbes controls and per-probe cap, focused | PASSED, 2/2 | PASSED, 2/2 | Evidence/BoatControls-DX11.xml / DX12.xml; automatic physics + passive force observer |
 | Baked CPU selection/choppy inversion, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/BakedIntegration-DX11.xml / DX12.xml; independent scalar/Newton reference |
+| Gerstner generator + real-wave GPU queries, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/GerstnerQuery-DX11.xml / DX12.xml; original generator/filtered field compared separately |
 | Полная регрессия P07 checkpoint, 48 tests | PASSED, 48/48 | PASSED, 48/48 | Evidence/EditMode-DX11.xml / DX12.xml; 2026-10-23, UTC start 10:36:57Z / 10:38:48Z |
 | Rays, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/RayQuery-DX11.xml / DX12.xml; scoped intersections/ready misses |
 | Real FFT bake + CPU jobs, focused | PASSED, 1/1 | PASSED, 1/1 | Evidence/BakedFFT-DX11.xml / DX12.xml; independent GPU reference |
@@ -350,3 +351,19 @@ Time.timeScale=0 is used only for this CPU contract: jobs evaluate OceanRenderer
 
 
 Fixture-only cleanup correction: assigning/restoring Time.fixedDeltaTime through float changed Unity TimeManager rational count from2822399 to2822398 at rate141120000. The generated one-count change was inspected and restored, then all fixedDeltaTime assignments removed from BoatProbesControlsTests. The fixture now asserts the configured step is≈0.02s instead. Focused2/2 reruns on DX11 (11:19:12Z) and DX12 (15:13:16Z) passed with unchanged force thresholds; final TimeManager canonical Git blob equals HEAD `2e23a1f42187cc2b6b25e899a7caaede6e8a0bd1`. No project setting change is part of this checkpoint. This does not retroactively claim other historical fixtures avoid float round-trip serialization; inspect their changes before broader regression.
+
+
+## P07 — original Gerstner GPU query accuracy (2026-10-23)
+
+`GerstnerQueryAccuracyTests.GPUHeightNormalAndVelocityMatchOriginalGerstnerModes` passed focused **1/1 DX11 and1/1 DX12**, failed=0/skipped=0. UTC DX11 15:25:56Z–15:25:59Z / DX12 15:28:13Z–15:28:16Z. FFT disabled; original global ShapeGerstner, octave9, seed27, componentsPerOctave2, heading0, spectrum chop0, no shallow attenuation. Six nonzero packed scalar modes are read from the original generator parameters, no changes to compute/source generation.
+
+Two independent reference stages avoid conflating a continuous equation with a discretized ocean:
+
+- **Generator:** at texel(3,4) of each of three active generator cascades, double-precision cosine sums reproduce the original paired forward/back waves at the native texel centres and ocean time.32 distinct timestamps give96 comparisons/API; measured max error0.000235104m, tolerance0.002m (includes half RT quantization).
+- **Queries:** after original simulation/query dispatch, a test-only LateUpdate capture reads combined ocean RT slices0/1 plus snapped centres, texel sizes and meshScaleLerp. Scalar CPU bilinear sampling reproduces the central-region LOD blend; no public query result is used as expected data.32 distinct timestamps separated by≥0.1simulated seconds ×3 fixed world points give96 height/normal/velocity triples/API. Normals use the original0.1m forward difference; velocity is the difference between matching field snapshots divided by the **two actual query timestamps**, not an instantaneous analytic derivative. Full Query status must be0 and Unity timestamp dt positive. Time.timeScale1/capture60; fixedDeltaTime is not assigned.
+
+Both APIs: measured wave height span0.882568359m, max height error0.000122070313m (tolerance0.025m), normal vector error0.0021972456 (tolerance0.015), velocity error0.00732423365m/s (tolerance0.05). Test-only `AsyncGPUReadback.WaitAllRequests` synchronizes snapshots and public readbacks, so measured simulated age0 is a property of the fence and **not evidence of zero latency or real-time performance**. Native resource/filtering behavior, not a post-hoc fitted amplitude factor, is the reference. Chop0/central LOD0/1 scope does not accept GPU choppy inversion, arbitrary LOD transitions or dynamic owner layouts.
+
+Initial reference failures retained: `GerstnerQuery-continuous-reference-initial-DX11.xml/.txt` compared a continuous surface to discretized output (first height error0.03388396m >0.025m). `GerstnerQuery-generator-grid-initial-DX11.xml/.txt` added generator bilinear sampling but omitted combined LOD filtering (normal error0.0256126672 >0.015). The reference was corrected by separating source texel validation and final-field query validation; original production code and all original height/normal/velocity thresholds stayed unchanged. No failed run removed. Final evidence GerstnerQuery-DX11.xml / DX12.xml and GerstnerQuery-Direct3D11.txt /12.txt. Formatting-only indentation cleanup followed the successful runs; no semantic change.
+
+Only Editor test .cs/.meta and existing documents/evidence changed. No new PNG/Markdown/Player build/full rerun; full48/48 remains its earlier checkpoint and six later tests have focused evidence, not a claimed full54/54. Audit1284 files, missing meta/duplicate GUID/missing upstream0; TimeManager unchanged. Next: actual query ownership/count/layout transitions, with caller-visible statuses validated rather than hiding stale layout behind private timestamp waits.

@@ -116,8 +116,8 @@ The original velocity finite difference timestamps readbacks with Unity
 `Time.time`, rather than the ocean's custom time provider. Freezing Unity time or
 advancing only a custom ocean clock is therefore not a valid velocity test. A
 height-only query does not need velocity history. P07 now has scoped numerical
-acceptance on a known static/moving plane (see TEST_RESULTS.md); real-wave and
-broader ownership/latency coverage remain open.
+acceptance on a known static/moving plane and original Gerstner waves (see
+TEST_RESULTS.md); broader ownership/layout/latency coverage remains open.
 
 
 ## Ray sampling contract
@@ -200,3 +200,14 @@ Probe weight totals are calculated in Start in Player code. The original Editor
 also recalculates them in each FixedUpdate for Inspector edits. Configure weights
 before Start for Player use; the Editor's live weight edits are not proof of a
 runtime weight-update API.
+
+
+Query normals describe the finite-difference gradient of the simulated wave
+field, including its generator texel sampling and LOD filtering. They are not the
+unfiltered continuous wave equation or the material's texture normal mapping.
+The Gerstner query fixture therefore validates two stages independently: native
+generator texels against the original cosine equations, then public query results
+against scalar samples of combined ocean RT snapshots at dispatch timestamps.
+Using only the continuous equation, or only generator interpolation, skips LOD
+resampling and can produce false normal/height failures. This fixture uses a
+GPU readback fence for a controlled reference and proves no unpaced latency.
