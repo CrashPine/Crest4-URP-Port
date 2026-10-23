@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-23T18:16:05.4660586Z",
+  "recordedUtc": "2026-10-23T18:25:01.1410639Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1296,
+  "fileCount": 1300,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -34,7 +34,7 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-23 18:10:23Z",
+      "start": "2026-10-23 18:23:00Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -50,7 +50,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-23 18:11:12Z",
+      "start": "2026-10-23 18:23:23Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -5672,6 +5672,16 @@
       "sha256": "197DE6A2113446BAACD2F5F6D2A792D4895A513A8E0C683DDD3C5F1F96E4009B"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/AsyncQueryDelayTests.cs",
+      "bytes": 9523,
+      "sha256": "0068DDCE685F5E3C0DE932CF3C1B0F339D5750DFB0CFC9C24A3F59BC5E9A5E7F"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/AsyncQueryDelayTests.cs.meta",
+      "bytes": 61,
+      "sha256": "7A5404392963BF654DBC125A5B463342F80C57E1594EAFFC44ED157DA23C2E3C"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs",
       "bytes": 14979,
       "sha256": "19F747841CCE75ABFD7FFC96DFF5E3D0A8F34B872D540403F40A062A94C056A1"
@@ -5730,6 +5740,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/BuoyancyGraphicsTests.cs.meta",
       "bytes": 59,
       "sha256": "C885E54CC4BBB2DC6CA989090186D5773C843D1E58628327EE8C6CF59B685B71"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ChoppyQueryTests.cs",
+      "bytes": 11250,
+      "sha256": "E24841B697CDFED511241EED320B93FAC9EA2AE12E090406584635C824DA47E7"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ChoppyQueryTests.cs.meta",
+      "bytes": 61,
+      "sha256": "F5415BCD392308F42497CA48C76F465DE3912F34F5B74B2D35BA6AF7F5F49943"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef",
@@ -6503,8 +6523,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 16475,
-      "sha256": "4A31EA72C552EAAFF44D291E5530D7D2CB1A8BA1EDB01702979B11E47DFD13F7"
+      "bytes": 16892,
+      "sha256": "843AEF4185B4DF16E5D7A5FFE0DC9719079E26E2E5D9F46BF30E77881CFAB574"
     },
     {
       "path": "LICENSE.Crest",
@@ -6518,13 +6538,13 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 13378,
-      "sha256": "3FB9998CD12A8B69A936F1DB0F80BA7FD00B9F51E176121443BF03F91AB28959"
+      "bytes": 13775,
+      "sha256": "A2ADC51B674CFFA5516E37FC68CDB295A2AD4E2D3BB49376FA0A51D9A4D1B67E"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 10567,
-      "sha256": "C581070F28BF45D4DA9EFC691434F4A49A78326E0B82C5DAF91B691657D03D95"
+      "bytes": 9642,
+      "sha256": "7A1B0369B8F3FCC80554665094E9A758122820FC56BDA287E68EF7F05B480A79"
     },
     {
       "path": "README.md",
@@ -6538,8 +6558,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 120931,
-      "sha256": "179A7E7EDED0DCF1043ED07203776D7649B8120AFEDF3999EBB970BF1E846A71"
+      "bytes": 125433,
+      "sha256": "E1BB56FE8471D848CDB760383E108942C22B6810CA080D8FC149503BF4B05D6F"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
