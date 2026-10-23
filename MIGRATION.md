@@ -152,3 +152,23 @@ height difference. Baked data loops in ocean time and represents the baked FFT,
 not arbitrary live local-height or dynamic-wave inputs. The scoped P07 fixture
 checks the direct CPU provider with chop=0; automatic scene provider selection,
 choppy displacement inversion and the wider combinations remain unaccepted.
+
+
+## Original BoatProbes force and contact contracts
+
+`BoatProbes` normalizes probe weights by their total and uses regular Rigidbody
+force for buoyancy. For four submerged horizontal equal-weight probes in flat
+water, equilibrium immersion is `mass / (1000 * _forceMultiplier)` metres.
+Query positions include `_centerOfMass.y` in addition to each local probe offset;
+the root height therefore includes that offset. This differs from the original
+`SimpleFloatingObject` acceleration-based behavior; the two models were retained.
+The buoyancy force cap applies separately to each probe, not to the summed force.
+
+The original `BoatProbes.InWater` always returns true. It is not a wet-contact
+sensor. The numerical fixture determines contact from the returned water height
+at the four actual query points. The new wave fixture has a test-only GPU fence
+to keep unthrottled batch physics and queries paced; no such synchronization was
+added to production. Its results do not establish unpaced query performance.
+Public wind/spectrum and custom ocean-time controls were exercised with runtime
+spectrum updates enabled (`_spectrumFixedAtRuntime=false` in the Inspector
+configuration); the default fixed-spectrum setting is not a live-edit contract.
