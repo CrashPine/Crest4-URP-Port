@@ -78,7 +78,10 @@ MIGRATION.md. Воспроизведение проверки: `Run-Unity.ps1 -A
 ```
 
 Повторить с DX12. Суффикс XML/log — `-interactive`; dedicated evidence —
-`OriginLifecycle-DX11.xml` / `OriginLifecycle-DX12.xml`. Для всего non-batch набора
+`OriginLifecycle-DX11.xml` / `OriginLifecycle-DX12.xml` сохраняют исходный lifecycle
+checkpoint. Для wave phase/foam history использовать `-TestFilter OriginWaveTransportTests`;
+численные отчёты — `OriginWaveTransport-Direct3D11.txt` / `Direct3D12.txt`.
+Для всего non-batch набора
 убрать `-TestFilter`. На milestones требуются обе assembly на обоих API: один
 batch XML не подтверждает EOF. Исходный WaitForEndOfFrame не работает в batch,
 поэтому интерактивная fixture отклоняет batch mode явным assertion.

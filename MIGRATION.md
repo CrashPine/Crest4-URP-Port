@@ -344,5 +344,20 @@ from the new world origin, not distance from the camera.
 Its original per-frame shift flags persist through LateUpdate and are cleared
 by Start's WaitForEndOfFrame coroutine. A batch run cannot establish that reset.
 Use the separate non-batch lifecycle profile in README; no manual flag clearing
-is part of the integration contract. Wave compatibility and texture history
-transport remain separately tracked in FEATURE_MATRIX.
+is part of the integration contract.
+
+For a non-periodic origin step, enable ShiftingOrigin's wave compatibility
+setting (`_waveCompatibiltyMode`, original serialized spelling). Default mode
+requires a step compatible with the repeated wave textures; it cannot preserve
+arbitrary long-wave phases. The global Gerstner input now projects the world-space
+accumulated origin offset into the same rotated wave basis as world positions
+before subtracting it. Previously, rotated headings combined two coordinate bases
+and moved the wave field even with compatibility enabled. FFT/compute algorithms,
+asset GUIDs and the original shift sign/accumulation remain unchanged.
+
+The origin fixture compares seven native animated-wave and foam layers, relative
+public queries and WindZone transform/parameters across actual X/Z shifts. Foam
+is seeded, then its source is disabled and ocean delta is zero for transport.
+This verifies retained texture contents, not positive-delta dynamic-wave evolution,
+wind-force continuity, all wave-shape types or long-distance precision limits.
+Measured scope and retained before-fix failure are in TEST_RESULTS.md.

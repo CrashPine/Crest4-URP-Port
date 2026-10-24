@@ -1,0 +1,30 @@
+NON-BATCH, original ShiftingOrigin and frozen original Gerstner, actual2048m X/Z shifts, default periodic/control incompatible/compatibility enabled at headings0/30/90/-45. Fixed scale8 isolates origin from LOD filtering. Full seven native animated-wave RGB and localized source-OFF persistent foam layers compared at corresponding relative texels, plus fresh public queries with distinct owners before/after. Tolerances wave .005m, query .025m, foam .005, foam sum1%, centres .002m. Original EOF observed, no private shifts/flag resets. WindZone transform/parameters checked, not a dynamic wind-force test.
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=0
+ActiveWaveTexture; Cascade=9; RepeatPeriod=256; ShiftRemainderTurns=0
+ActiveWaveTexture; Cascade=10; RepeatPeriod=512; ShiftRemainderTurns=0
+Case=0; Octave=9; Heading=0; Origin=(2048, 0, 0); Compatibility=False; ExpectedPreserved=True; NonIntegerTextureShiftTurns=0; WavePeak=0,413574219; MaxWaveRGBDifference=0; MaxQueryDifference=0; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12796; FoamNonzeroAfter=12796; CentreError=8,137524E-05; ShiftFrame=37; SourceEnabled=False
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=0
+ActiveWaveTexture; Cascade=13; RepeatPeriod=4096; ShiftRemainderTurns=0,5
+ActiveWaveTexture; Cascade=14; RepeatPeriod=8192; ShiftRemainderTurns=0,25
+Case=1; Octave=13; Heading=0; Origin=(2048, 0, 0); Compatibility=False; ExpectedPreserved=False; NonIntegerTextureShiftTurns=0,5; WavePeak=0,1381836; MaxWaveRGBDifference=0,151977539; MaxQueryDifference=0,129444316; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12337; FoamNonzeroAfter=12337; CentreError=8,137524E-05; ShiftFrame=94; SourceEnabled=False
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=0
+ActiveWaveTexture; Cascade=13; RepeatPeriod=4096; ShiftRemainderTurns=0,5
+ActiveWaveTexture; Cascade=14; RepeatPeriod=8192; ShiftRemainderTurns=0,25
+Case=2; Octave=13; Heading=0; Origin=(2048, 0, 0); Compatibility=True; ExpectedPreserved=True; NonIntegerTextureShiftTurns=0,5; WavePeak=0,1381836; MaxWaveRGBDifference=0; MaxQueryDifference=0; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12337; FoamNonzeroAfter=12337; CentreError=8,137524E-05; ShiftFrame=150; SourceEnabled=False
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=0,3800048828125
+ActiveWaveTexture; Cascade=13; RepeatPeriod=4096; ShiftRemainderTurns=0,4330126941204071
+ActiveWaveTexture; Cascade=14; RepeatPeriod=8192; ShiftRemainderTurns=0,21650634706020355
+Case=3; Octave=13; Heading=30; Origin=(2048, 0, 0); Compatibility=True; ExpectedPreserved=True; NonIntegerTextureShiftTurns=0,4330126941204071; WavePeak=0,200317383; MaxWaveRGBDifference=0; MaxQueryDifference=0; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12433; FoamNonzeroAfter=12433; CentreError=8,137524E-05; ShiftFrame=207; SourceEnabled=False
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=8,9520923211239278E-05
+ActiveWaveTexture; Cascade=13; RepeatPeriod=4096; ShiftRemainderTurns=0,5
+ActiveWaveTexture; Cascade=14; RepeatPeriod=8192; ShiftRemainderTurns=0,25
+Case=4; Octave=13; Heading=90; Origin=(2048, 0, 0); Compatibility=True; ExpectedPreserved=True; NonIntegerTextureShiftTurns=0,5; WavePeak=0,121582031; MaxWaveRGBDifference=0; MaxQueryDifference=0; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12436; FoamNonzeroAfter=12436; CentreError=8,137524E-05; ShiftFrame=263; SourceEnabled=False
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=0,1546630859375
+ActiveWaveTexture; Cascade=13; RepeatPeriod=4096; ShiftRemainderTurns=0,35355338454246521
+ActiveWaveTexture; Cascade=14; RepeatPeriod=8192; ShiftRemainderTurns=0,1767766922712326
+Case=5; Octave=13; Heading=-45; Origin=(2048, 0, 0); Compatibility=True; ExpectedPreserved=True; NonIntegerTextureShiftTurns=0,35355338454246521; WavePeak=0,163574219; MaxWaveRGBDifference=0,000610351563; MaxQueryDifference=0; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12385; FoamNonzeroAfter=12385; CentreError=8,137524E-05; ShiftFrame=319; SourceEnabled=False
+ActiveWaveTexture; Cascade=1; RepeatPeriod=1; ShiftRemainderTurns=0,3800048828125
+ActiveWaveTexture; Cascade=13; RepeatPeriod=4096; ShiftRemainderTurns=0,4330126941204071
+ActiveWaveTexture; Cascade=14; RepeatPeriod=8192; ShiftRemainderTurns=0,21650634706020355
+Case=6; Octave=13; Heading=30; Origin=(0, 0, 2048); Compatibility=True; ExpectedPreserved=True; NonIntegerTextureShiftTurns=0,4330126941204071; WavePeak=0,200317383; MaxWaveRGBDifference=0; MaxQueryDifference=0; MaxFoamDifference=0; FoamSumRelativeError=0; FoamNonzeroBefore=12672; FoamNonzeroAfter=12672; CentreError=8,137524E-05; ShiftFrame=375; SourceEnabled=False
+Summary; Cases=7; FreshPackets=112; Batch=False

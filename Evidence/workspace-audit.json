@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-24T15:28:21.9275891Z",
+  "recordedUtc": "2026-10-24T20:27:28.2072408Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1319,
+  "fileCount": 1321,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -22,6 +22,7 @@
     "Crest\\Shaders\\OceanReflection.hlsl",
     "Crest\\Shaders\\OceanShaderHelpers.hlsl",
     "Crest\\Shaders\\Helpers\\Resources\\Utility.shader",
+    "Crest\\Shaders\\OceanInputs\\Resources\\AnimWavesGerstner.shader",
     "Crest\\Shaders\\Resources\\UpdateShadow.shader",
     "Crest\\Shaders\\Underwater\\UnderwaterEffect.hlsl",
     "Crest\\Shaders\\Underwater\\Resources\\UnderwaterEffect.shader",
@@ -34,7 +35,7 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused-interactive.xml",
-      "start": "2026-10-24 15:18:58Z",
+      "start": "2026-10-24 15:49:05Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -49,16 +50,24 @@
       "failed": "0"
     },
     {
-      "file": "EditMode-DX11.xml",
-      "start": "2026-10-24 10:14:58Z",
+      "file": "EditMode-DX11-interactive.xml",
+      "start": "2026-10-24 15:54:27Z",
       "result": "Passed",
-      "total": "66",
-      "passed": "66",
+      "total": "2",
+      "passed": "2",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX11.xml",
+      "start": "2026-10-24 15:52:43Z",
+      "result": "Passed",
+      "total": "69",
+      "passed": "69",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12-focused-interactive.xml",
-      "start": "2026-10-24 15:22:38Z",
+      "start": "2026-10-24 15:44:57Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -73,11 +82,19 @@
       "failed": "0"
     },
     {
-      "file": "EditMode-DX12.xml",
-      "start": "2026-10-24 10:16:42Z",
+      "file": "EditMode-DX12-interactive.xml",
+      "start": "2026-10-24 15:56:58Z",
       "result": "Passed",
-      "total": "66",
-      "passed": "66",
+      "total": "2",
+      "passed": "2",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX12.xml",
+      "start": "2026-10-24 15:54:56Z",
+      "result": "Passed",
+      "total": "69",
+      "passed": "69",
       "failed": "0"
     }
   ],
@@ -2209,8 +2226,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader",
-      "bytes": 3453,
-      "sha256": "AB6E85A54F94D8E550AF8792BEF0A52839BA4A66C42E399077383BC929FAB96A"
+      "bytes": 3645,
+      "sha256": "FC83736D349C77C3A84BB70C7D940358A74F482FD526C841A9297EC5C7827BAF"
     },
     {
       "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader.meta",
@@ -6113,6 +6130,16 @@
       "sha256": "5603FECB8646C0734A07D082C78C902C8F3A733AAD78C21DC18C4F647581E37D"
     },
     {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor/OriginWaveTransportTests.cs",
+      "bytes": 17207,
+      "sha256": "1A15B19F3368B8B2E353668EE5047E8054596CC1EAADA8265CBF7CCCA7F1AC77"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor/OriginWaveTransportTests.cs.meta",
+      "bytes": 61,
+      "sha256": "B3F9984C49F3EA27543A8C62F506300895B0B2D079F30BB4789C88549D149A17"
+    },
+    {
       "path": "Assets/CrestPortDemos/Ocean_Buoyancy.mat",
       "bytes": 6927,
       "sha256": "B76E3C0FBEC24960459138A7D569EF3F58796E17326836FCD37ABB39EB834598"
@@ -6634,8 +6661,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 19812,
-      "sha256": "2D90BDCD7EC867246BBC1BE3D4E0BF87419563BB53D5BA25549035A44F7A99AC"
+      "bytes": 20338,
+      "sha256": "C9E3539D971DC8D2A249F41DD43DB75C1E77B7D2C73A04F221BEBF6704D4B609"
     },
     {
       "path": "LICENSE.Crest",
@@ -6644,23 +6671,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 23340,
-      "sha256": "2FC7753EB11BE8B6F9E91A4444B3398ECECB93C9556DD827EB49AAC648EBAC8E"
+      "bytes": 24364,
+      "sha256": "9DE90CB3873059A7171E4101E439DA15A6CD8DD58CECE9257BAB393864496F0B"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 17632,
-      "sha256": "B84F3A4F8E19A061DE7F70DDF62016F180D1023EEAA25148DB7369DBB168C9C1"
+      "bytes": 18298,
+      "sha256": "B547A961D71DA253DE047038CB50AF4C7CC194637A714802B2F6A91A327AA8CE"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 9180,
-      "sha256": "6F000C4D6269EB649C15133A6E7B47FB0AFA7F753990D9026C895A59C30D3571"
+      "bytes": 8630,
+      "sha256": "C3A4140A40C62D94920BB95382E83272D0AC4F1C7DF0C0ECC05F084B20FE9DF0"
     },
     {
       "path": "README.md",
-      "bytes": 8147,
-      "sha256": "15F09AAB674A7E7856BE2E6A73B5D03711A61B7F09A9540916413EFBF582E5FA"
+      "bytes": 8396,
+      "sha256": "36EDBA2C6B70371226E1B8D48BE30435056944A5BA0477F98C3AF99623496D09"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6669,8 +6696,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 149466,
-      "sha256": "14CB9330BF18BED92933E27382C26834D896A9E8E6466C4DEDD6E8315C0F3CF3"
+      "bytes": 154148,
+      "sha256": "FBD8D0091D1316493535019FE82B89C565CFCD861CB3D60BE3EB91116284625B"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

@@ -62,7 +62,11 @@ Shader "Hidden/Crest/Inputs/Animated Waves/Gerstner Global"
 
 				// UV coordinate into wave buffer
 				float2 wavePos = float2( dot(worldPosXZ, _AxisX), dot(worldPosXZ, float2(-_AxisX.y, _AxisX.x)) );
-				if (_CrestFloatingOriginWaveCompatibilityMode) wavePos -= _CrestFloatingOriginOffset.xz;
+				if (_CrestFloatingOriginWaveCompatibilityMode)
+				{
+					// Origin offsets are world-space; use the same wave-space basis as worldPosXZ.
+					wavePos -= float2(dot(_CrestFloatingOriginOffset.xz, _AxisX), dot(_CrestFloatingOriginOffset.xz, float2(-_AxisX.y, _AxisX.x)));
+				}
 				float scale = 0.5f * (1 << _WaveBufferSliceIndex);
 				o.uv_uvWaves.zw = wavePos / scale;
 

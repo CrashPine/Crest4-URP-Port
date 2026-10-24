@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-10-23T15:50:22.5815552Z",
+  "recordedUtc": "2026-10-24T20:26:29.030814+00:00",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
   "strictShaderVariantMatching": true,
@@ -27,6 +27,10 @@
     {
       "path": "Assets/Crest/Crest/Scripts/Collision/QueryBase.cs",
       "sha256": "03426F6EDC957F6F5C9D66795B7642B337A79F7CC67E2C810640BC3251472AA6"
+    },
+    {
+      "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader",
+      "sha256": "FC83736D349C77C3A84BB70C7D940358A74F482FD526C841A9297EC5C7827BAF"
     }
   ],
   "builds": [
@@ -34,30 +38,120 @@
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
       "bytes": 286208,
-      "modifiedUtc": "2026-10-23T15:46:53.5701522Z",
+      "modifiedUtc": "2026-10-23T15:46:53.570152+00:00",
       "sha256": "810B2C8A5356E53E3E7C00C644CFDC65E2085185CA9BEAFB5DE978769E9BD5A6"
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
       "bytes": 19968,
-      "modifiedUtc": "2026-10-23T15:46:53.9008144Z",
+      "modifiedUtc": "2026-10-23T15:46:53.900814+00:00",
       "sha256": "9B3533B5250EF3E25DABFCFF1C7EE9D4D792B135173A571440A40B5BEE1A0F95"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
       "bytes": 282112,
-      "modifiedUtc": "2026-10-23T15:47:25.3392105Z",
+      "modifiedUtc": "2026-10-23T15:47:25.339211+00:00",
       "sha256": "70DAE5071A295EE469742C2C5556050EE9B6012908E9FB4BB1A2225D0FBBD9AB"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
       "bytes": 19968,
-      "modifiedUtc": "2026-10-23T15:47:25.3441359Z",
+      "modifiedUtc": "2026-10-23T15:47:25.344136+00:00",
       "sha256": "F749729DAC26F2BEB1DC7C71A127CE1885382FA40E6470007980A2C7FBE5966A"
     }
   ],
-  "limitation": "P07 QueryBase layout/count/normal-offset runtime fix. Selected source fingerprints, not a complete source manifest. Rebuilt Development/Release with strict matching. Player smoke is integration coverage, not the Editor query-layout numerical fixture or performance acceptance. Some Player runs overlapped."
+  "limitation": "P08.3 global Gerstner floating-origin rotated-basis fix. Development/Release rebuilt after shader change with strict variant matching; build logs report Success. Selected source, assembly and packed-asset fingerprints, not a complete manifest. Player smoke is integration coverage, not standalone numerical origin transport, full visual equivalence or performance acceptance. Some Player runs overlap; smoke completion is recorded separately in TEST_RESULTS.",
+  "packedAssets": [
+    {
+      "configuration": "Development",
+      "path": "CrestPort_Data/resources.assets",
+      "bytes": 1117396,
+      "modifiedUtc": "2026-10-24T15:57:36.310255+00:00",
+      "sha256": "3A06E06A9295F5D8D2A1F0DF178EA59CCD5ED70E7C2FC8E1C0E805D545DE5A1B"
+    },
+    {
+      "configuration": "Development",
+      "path": "CrestPort_Data/sharedassets0.assets",
+      "bytes": 295008,
+      "modifiedUtc": "2026-10-24T15:57:36.309254+00:00",
+      "sha256": "8471A7EEE04318F7DCFACC82E0B24BDAA084F1A702F3F7B16EFB8A6A1FEFD838"
+    },
+    {
+      "configuration": "Development",
+      "path": "CrestPort_Data/globalgamemanagers",
+      "bytes": 95668,
+      "modifiedUtc": "2026-10-24T15:57:36.311821+00:00",
+      "sha256": "BA2F58FDBD85E0C2D8A7056AA7ADAB4B0F7381187796FD8CBFC2DF02465984B6"
+    },
+    {
+      "configuration": "Release",
+      "path": "CrestPort_Data/resources.assets",
+      "bytes": 1117396,
+      "modifiedUtc": "2026-10-24T15:58:09.593462+00:00",
+      "sha256": "3A06E06A9295F5D8D2A1F0DF178EA59CCD5ED70E7C2FC8E1C0E805D545DE5A1B"
+    },
+    {
+      "configuration": "Release",
+      "path": "CrestPort_Data/sharedassets0.assets",
+      "bytes": 295008,
+      "modifiedUtc": "2026-10-24T15:58:09.594463+00:00",
+      "sha256": "83931F46D3626BA4B126D60BF297ABC3457E338B1E37A9141ED1431B052A1F9B"
+    },
+    {
+      "configuration": "Release",
+      "path": "CrestPort_Data/globalgamemanagers",
+      "bytes": 95668,
+      "modifiedUtc": "2026-10-24T15:58:09.595970+00:00",
+      "sha256": "97AE3AD26B9C1F15376DA1C990CFBFECE81A63EC79B5F4E80E72FED00C623FE1"
+    }
+  ],
+  "smokes": [
+    {
+      "configuration": "Development",
+      "api": "DX11",
+      "report": "Evidence/Player-Development-DX11/player-smoke.txt",
+      "reportSha256": "773f2285fdc8dd13446c081766e2ba1752da5d8f248bf94ad5f340bf20bfa0f2",
+      "modifiedUtc": "2026-10-24T20:24:46.724200+00:00",
+      "images": 11,
+      "errors": 0,
+      "shutdownWarnings": []
+    },
+    {
+      "configuration": "Development",
+      "api": "DX12",
+      "report": "Evidence/Player-Development-DX12/player-smoke.txt",
+      "reportSha256": "3e0924e85bb2fab76531e01a9ad05a9ee0eb78027737a8177b7d9be3380d1e32",
+      "modifiedUtc": "2026-10-24T20:25:24.401779+00:00",
+      "images": 11,
+      "errors": 0,
+      "shutdownWarnings": [
+        "PlayerConnection::Cleanup[d3d12] Unreleased evictable resource 0000020493A74DD0 (size 2490368 B, lastUsedFence 13066) 'Proxy-BackBuffer-960-540'"
+      ]
+    },
+    {
+      "configuration": "Release",
+      "api": "DX11",
+      "report": "Evidence/Player-Release-DX11/player-smoke.txt",
+      "reportSha256": "832d514ca98b457f7d20a923ef39886cd1f153d0d9d9910bc8b212129332f034",
+      "modifiedUtc": "2026-10-24T20:25:39.987657+00:00",
+      "images": 11,
+      "errors": 0,
+      "shutdownWarnings": []
+    },
+    {
+      "configuration": "Release",
+      "api": "DX12",
+      "report": "Evidence/Player-Release-DX12/player-smoke.txt",
+      "reportSha256": "99e703c1db845b5a679622d6f9e54144cb32a4909742b15e21530f0ff67e4f32",
+      "modifiedUtc": "2026-10-24T20:26:08.088037+00:00",
+      "images": 11,
+      "errors": 0,
+      "shutdownWarnings": [
+        "[d3d12] Unreleased evictable resource 000001D815CAEC10 (size 2490368 B, lastUsedFence 16342)"
+      ]
+    }
+  ]
 }

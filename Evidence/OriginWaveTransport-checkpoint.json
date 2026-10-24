@@ -1,0 +1,79 @@
+{
+  "recordedUtc": "2026-10-24T15:57:44.178459+00:00",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "shader": {
+    "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader",
+    "sha256": "fc83736d349c77c3a84bb70c7d940358a74f482fd526c841a9297ec5c7827baf"
+  },
+  "regression": [
+    {
+      "path": "Evidence/EditMode-DX11.xml",
+      "sha256": "8d813d7aa20cd7f15fdd6233dcc8184ad80d478f7b600cfbb62916761d3dd549",
+      "api": "DX11",
+      "profile": "batch",
+      "total": 69,
+      "startUtc": "2026-10-24 15:52:43Z",
+      "endUtc": "2026-10-24 15:54:12Z"
+    },
+    {
+      "path": "Evidence/EditMode-DX11-interactive.xml",
+      "sha256": "4bcce2d6484f26d8d80e78dab17cbfd0ed8c7b86f05c005330d9ab574359b2c6",
+      "api": "DX11",
+      "profile": "non-batch",
+      "total": 2,
+      "startUtc": "2026-10-24 15:54:27Z",
+      "endUtc": "2026-10-24 15:54:43Z"
+    },
+    {
+      "path": "Evidence/EditMode-DX12.xml",
+      "sha256": "7e48017caf28f9e601ce19793ba87b2a62fb8cd7e724eb5d5b994d6fa9d13fd7",
+      "api": "DX12",
+      "profile": "batch",
+      "total": 69,
+      "startUtc": "2026-10-24 15:54:56Z",
+      "endUtc": "2026-10-24 15:56:42Z"
+    },
+    {
+      "path": "Evidence/EditMode-DX12-interactive.xml",
+      "sha256": "e7a088522f262fcd460292b5ed43b444b4b0df0bbbda4552f8a3f4ce732c32e5",
+      "api": "DX12",
+      "profile": "non-batch",
+      "total": 2,
+      "startUtc": "2026-10-24 15:56:58Z",
+      "endUtc": "2026-10-24 15:57:14Z"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/OriginWaveTransport-Direct3D11.txt",
+      "sha256": "f6e54283334af507a00d9a3a4b34c0c2113c0921bf19c859cd06018cc3d813c0"
+    },
+    {
+      "path": "Evidence/OriginWaveTransport-Direct3D12.txt",
+      "sha256": "125c386a013087ddb3be21a45a33cc2e6d228760bc02b83b9c14ebfe56ee9e06"
+    },
+    {
+      "path": "Evidence/OriginWaveTransport-rotated-beforefix-DX11.xml",
+      "sha256": "5069576647c06579dddfff8f1afa80bdc4a3c33f85de6770dc8da944ffa5034c"
+    },
+    {
+      "path": "Evidence/OriginWaveTransport-rotated-beforefix-Direct3D11.txt",
+      "sha256": "15970e6d5100dc413a418abd6d2a83a1d0c9618217395e1c7e8e6bdea6f84ce4"
+    }
+  ],
+  "casesPerAPI": 7,
+  "freshPacketsPerAPI": 112,
+  "beforeFixRGBJumpMetres": 0.296020508,
+  "afterFixMaxPreservedRGBDifferenceMetres": 0.000610351563,
+  "afterFixMaxPreservedQueryDifferenceMetres": 0,
+  "foamMaxDifference": 0,
+  "foamSumRelativeError": 0,
+  "negativeControlRGBDifferenceMetres": 0.151977539,
+  "limitations": [
+    "Frozen ocean delta during source-off foam transport; not positive-delta dynamic simulation acceptance.",
+    "WindZone state only; not wind-force continuity.",
+    "Both full batch shutdowns still report Persistent allocates 3 individual allocations; allocation owner remains P10.",
+    "Player smoke tests integration, not the numerical origin fixture in standalone."
+  ]
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-24 15:47:28Z" end-time="2026-10-24 15:47:37Z" duration="9,1730287">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="71" result="Failed" site="Child" start-time="2026-10-24 15:47:28Z" end-time="2026-10-24 15:47:37Z" duration="9.173029" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1005" name="Crest.URP.Interactive.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Interactive.Tests.dll" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-10-24 15:47:28Z" end-time="2026-10-24 15:47:37Z" duration="9.159095" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="127120" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1003" name="OriginWaveTransportTests" fullname="OriginWaveTransportTests" classname="OriginWaveTransportTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-24 15:47:28Z" end-time="2026-10-24 15:47:37Z" duration="9.157756" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1004" name="FrozenWaveCompatibilityAndUnforcedFoamHistorySurviveActualShift" fullname="OriginWaveTransportTests.FrozenWaveCompatibilityAndUnforcedFoamHistorySurviveActualShift" methodname="FrozenWaveCompatibilityAndUnforcedFoamHistorySurviveActualShift" classname="OriginWaveTransportTests" runstate="Runnable" seed="1022423058" result="Failed" start-time="2026-10-24 15:47:28Z" end-time="2026-10-24 15:47:37Z" duration="9.145632" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="60000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: less than 0.00499999989f
+  But was:  0.296020508f
+]]></message>
+            <stack-trace><![CDATA[at OriginWaveTransportTests+<FrozenWaveCompatibilityAndUnforcedFoamHistorySurviveActualShift>d__17.MoveNext () [0x009f5] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\InteractiveEditor\OriginWaveTransportTests.cs:119
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
