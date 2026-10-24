@@ -1,0 +1,86 @@
+{
+  "scope": "Sampled geometry coverage and filtered GPU query conformance; not all seam/height/normal/input-edge acceptance",
+  "runs": [
+    {
+      "api": "DX11",
+      "xml": "Evidence\\LodWaveSurface-DX11.xml",
+      "sha256": "febce085f418e728482976b5e73117a224396a57647dec81cf6d27e308abb94c",
+      "startUTC": "2026-10-24 10:33:58Z",
+      "endUTC": "2026-10-24 10:34:00Z",
+      "surfaceCaptures": 10,
+      "maxClearPixels": 0
+    },
+    {
+      "api": "DX12",
+      "xml": "Evidence\\LodWaveSurface-DX12.xml",
+      "sha256": "02a1eb13d0301f55e717939637e44a241cbe004d8fa63bd78d75e76c7d5914ed",
+      "startUTC": "2026-10-24 10:34:26Z",
+      "endUTC": "2026-10-24 10:34:28Z",
+      "surfaceCaptures": 10,
+      "maxClearPixels": 0
+    }
+  ],
+  "identicalImagePairs": [
+    {
+      "dx11": "Evidence\\LodWaveSurface-ClearControl-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-ClearControl-Direct3D12.png",
+      "sha256": "ea81a281104074d9fac1ff8a736eced743ec3023b527e8c0dd5826f9eaa03017"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State1-Tick0-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State1-Tick0-Direct3D12.png",
+      "sha256": "1ea5315000ab1803be3a593d9a7d9ac5140fdfa14834f0143def1c5e753f29ea"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State1-Tick5-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State1-Tick5-Direct3D12.png",
+      "sha256": "1ea5315000ab1803be3a593d9a7d9ac5140fdfa14834f0143def1c5e753f29ea"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State2-Tick0-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State2-Tick0-Direct3D12.png",
+      "sha256": "32ea3678c00ed139fbee7e3e0b999e4063b1a5d4a35de2b6c02f74469b9d44c7"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State2-Tick5-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State2-Tick5-Direct3D12.png",
+      "sha256": "df7225d1e76e64cad7d3922a571497cc9434a692839310d195ce01335f50e490"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State3-Tick0-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State3-Tick0-Direct3D12.png",
+      "sha256": "dfe862c5d5f7bba97489fad0f59e9deb549fe6719f716588b2b547a043b58bb8"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State3-Tick5-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State3-Tick5-Direct3D12.png",
+      "sha256": "9f19c47c128c580f647648afa9d06cccd76540db64604aedcbebc9d901c0786c"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State4-Tick0-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State4-Tick0-Direct3D12.png",
+      "sha256": "e7c7a86b567a1dcc58b3563afd56ea489dba2cf72c32ebd2bba925ccb43c6b1e"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State4-Tick5-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State4-Tick5-Direct3D12.png",
+      "sha256": "bc049db4fa31421a80552b8ee2d9713c538c49d10e6cd1997905623604baca7f"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State5-Tick0-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State5-Tick0-Direct3D12.png",
+      "sha256": "5d5cc535ff700bb25cf1b9e8acc48e70c3c90d7516d982cf6ffe2014c45011b3"
+    },
+    {
+      "dx11": "Evidence\\LodWaveSurface-State5-Tick5-Direct3D11.png",
+      "dx12": "Evidence\\LodWaveSurface-State5-Tick5-Direct3D12.png",
+      "sha256": "1ea5315000ab1803be3a593d9a7d9ac5140fdfa14834f0143def1c5e753f29ea"
+    }
+  ],
+  "limitations": [
+    "Opaque temporary material, top-down512x512, no subpixel/normal continuity proof",
+    "Cross-scale filtered field need not equal fine-scale baseline; measured difference retained",
+    "Three central query cascades; actual rendered LOD indices0/1/2",
+    "P08.2 remains active for local-height/input edges and seam displacement/normal checks"
+  ]
+}

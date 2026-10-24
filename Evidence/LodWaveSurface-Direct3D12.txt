@@ -1,0 +1,413 @@
+Original surface shader/mesh/vertex morph on frozen original Gerstner chop1.6/octave9/seed27, ocean time1. Camera top-down, opaque surface clone to isolate geometry coverage from refraction. Solid-magenta clear control, postprocessing/fog/MSAA off. Five camera states at scales8/16/32, translated/returned; capture first and sixth actual post-ocean updates. Every status0 displacement at five FIXED world points compared with independent RGB bilinear three-cascade sampling/Newton inverse at actual dispatch timestamp, tolerance .01m/residual .00005m/determinant>.1. Same-scale translation/return compared with initial frozen field, tolerance .025m. Cross-scale baseline differences recorded, not assumed invariant because representation is filtered. No private readiness gate. Each 512x512 capture must have zero magenta-clear pixels and at least three visible LOD indices; no claim about subpixel cracks, height/normal seam continuity, transparency or local-height/input edges. Numerical fence, not performance/latency.
+Capture=ClearControl; Magenta=262144; Total=262144
+Capture=State1-Tick0; Magenta=0; Total=262144
+Coverage; State=1; Tick=0; Scale=8; ShaderAlpha=0,313498974; CurrentAlpha=0,313498974; VisibleLods=0,1,2; ClearPixels=0
+Query; State=1; Tick=1; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=1; Point=0; Time=0,3; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=1; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=1; Point=1; Time=0,3; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=1; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=1; Point=2; Time=0,3; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=1; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=1; Point=3; Time=0,3; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=1; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=1; Point=4; Time=0,3; Scale=8; Error=3,70251146E-05
+Query; State=1; Tick=2; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=2; Point=0; Time=0,316666663; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=2; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=2; Point=1; Time=0,316666663; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=2; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=2; Point=2; Time=0,316666663; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=2; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=2; Point=3; Time=0,316666663; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=2; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=2; Point=4; Time=0,316666663; Scale=8; Error=3,70251146E-05
+Query; State=1; Tick=3; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=3; Point=0; Time=0,333333343; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=3; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=3; Point=1; Time=0,333333343; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=3; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=3; Point=2; Time=0,333333343; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=3; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=3; Point=3; Time=0,333333343; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=3; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=3; Point=4; Time=0,333333343; Scale=8; Error=3,70251146E-05
+Query; State=1; Tick=4; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=4; Point=0; Time=0,35; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=4; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=4; Point=1; Time=0,35; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=4; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=4; Point=2; Time=0,35; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=4; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=4; Point=3; Time=0,35; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=4; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=4; Point=4; Time=0,35; Scale=8; Error=3,70251146E-05
+Query; State=1; Tick=5; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=5; Point=0; Time=0,366666675; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=5; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=5; Point=1; Time=0,366666675; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=5; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=5; Point=2; Time=0,366666675; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=5; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=5; Point=3; Time=0,366666675; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=5; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=5; Point=4; Time=0,366666675; Scale=8; Error=3,70251146E-05
+Capture=State1-Tick5; Magenta=0; Total=262144
+Coverage; State=1; Tick=5; Scale=8; ShaderAlpha=0,313498974; CurrentAlpha=0,313498974; VisibleLods=0,1,2; ClearPixels=0
+Query; State=1; Tick=6; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=6; Point=0; Time=0,383333325; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=6; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=6; Point=1; Time=0,383333325; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=6; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=6; Point=2; Time=0,383333325; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=6; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=6; Point=3; Time=0,383333325; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=6; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=6; Point=4; Time=0,383333325; Scale=8; Error=3,70251146E-05
+Query; State=1; Tick=7; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=1; Tick=7; Point=0; Time=0,4; Scale=8; Error=5,72504032E-05
+Query; State=1; Tick=7; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=1; Tick=7; Point=1; Time=0,4; Scale=8; Error=5,15729953E-05
+Query; State=1; Tick=7; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=1; Tick=7; Point=2; Time=0,4; Scale=8; Error=2,80731074E-05
+Query; State=1; Tick=7; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=1; Tick=7; Point=3; Time=0,4; Scale=8; Error=4,422566E-05
+Query; State=1; Tick=7; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=1; Tick=7; Point=4; Time=0,4; Scale=8; Error=3,70251146E-05
+Query; State=2; Tick=0; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=2; Tick=0; Point=0; Time=0,416666657; Scale=8; Error=5,10574864E-05
+Query; State=2; Tick=0; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=2; Tick=0; Point=1; Time=0,416666657; Scale=8; Error=3,956853E-05
+Query; State=2; Tick=0; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=2; Tick=0; Point=2; Time=0,416666657; Scale=8; Error=2,80731074E-05
+Query; State=2; Tick=0; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=2; Tick=0; Point=3; Time=0,416666657; Scale=8; Error=4,422566E-05
+Query; State=2; Tick=0; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=2; Tick=0; Point=4; Time=0,416666657; Scale=8; Error=5,429271E-05
+Capture=State2-Tick0; Magenta=0; Total=262144
+Coverage; State=2; Tick=0; Scale=8; ShaderAlpha=0,313498974; CurrentAlpha=0,313498974; VisibleLods=0,1,2; ClearPixels=0
+Query; State=2; Tick=1; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=1; Point=0; Time=0,433333337; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=1; Point=1; Displacement=(0.3466797, -0.1000977, 0.0000000); Error=0,000272957521
+Reference; State=2; Tick=1; Point=1; Time=0,433333337; Scale=8; Error=4,34577632E-05
+Query; State=2; Tick=1; Point=2; Displacement=(0.3305664, 0.1276473, 0.0000000); Error=0,000122070313
+Reference; State=2; Tick=1; Point=2; Time=0,433333337; Scale=8; Error=2,80731074E-05
+Query; State=2; Tick=1; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016063833
+Reference; State=2; Tick=1; Point=3; Time=0,433333337; Scale=8; Error=4,462868E-05
+Query; State=2; Tick=1; Point=4; Displacement=(-0.3388672, 0.1098168, 0.0000000); Error=0,000494095846
+Reference; State=2; Tick=1; Point=4; Time=0,433333337; Scale=8; Error=4,3403943E-05
+Query; State=2; Tick=2; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=2; Point=0; Time=0,45; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=2; Point=1; Displacement=(0.3469238, -0.1000977, 0.0000000); Error=0,0005033088
+Reference; State=2; Tick=2; Point=1; Time=0,45; Scale=8; Error=5,05058742E-05
+Query; State=2; Tick=2; Point=2; Displacement=(0.3308105, 0.1275635, 0.0000000); Error=0,000247121323
+Reference; State=2; Tick=2; Point=2; Time=0,45; Scale=8; Error=4,684381E-05
+Query; State=2; Tick=2; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016068072
+Reference; State=2; Tick=2; Point=3; Time=0,45; Scale=8; Error=4,4536966E-05
+Query; State=2; Tick=2; Point=4; Displacement=(-0.3388672, 0.1098173, 0.0000000); Error=0,0004941759
+Reference; State=2; Tick=2; Point=4; Time=0,45; Scale=8; Error=4,2246138E-05
+Query; State=2; Tick=3; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=3; Point=0; Time=0,466666669; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=3; Point=1; Displacement=(0.3469238, -0.1000977, 0.0000000); Error=0,0005033088
+Reference; State=2; Tick=3; Point=1; Time=0,466666669; Scale=8; Error=5,05058742E-05
+Query; State=2; Tick=3; Point=2; Displacement=(0.3308105, 0.1275635, 0.0000000); Error=0,000247121323
+Reference; State=2; Tick=3; Point=2; Time=0,466666669; Scale=8; Error=4,684381E-05
+Query; State=2; Tick=3; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016068072
+Reference; State=2; Tick=3; Point=3; Time=0,466666669; Scale=8; Error=4,4536966E-05
+Query; State=2; Tick=3; Point=4; Displacement=(-0.3388672, 0.1098173, 0.0000000); Error=0,0004941759
+Reference; State=2; Tick=3; Point=4; Time=0,466666669; Scale=8; Error=4,2246138E-05
+Query; State=2; Tick=4; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=4; Point=0; Time=0,483333319; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=4; Point=1; Displacement=(0.3469238, -0.1000977, 0.0000000); Error=0,0005033088
+Reference; State=2; Tick=4; Point=1; Time=0,483333319; Scale=8; Error=5,05058742E-05
+Query; State=2; Tick=4; Point=2; Displacement=(0.3308105, 0.1275635, 0.0000000); Error=0,000247121323
+Reference; State=2; Tick=4; Point=2; Time=0,483333319; Scale=8; Error=4,684381E-05
+Query; State=2; Tick=4; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016068072
+Reference; State=2; Tick=4; Point=3; Time=0,483333319; Scale=8; Error=4,4536966E-05
+Query; State=2; Tick=4; Point=4; Displacement=(-0.3388672, 0.1098173, 0.0000000); Error=0,0004941759
+Reference; State=2; Tick=4; Point=4; Time=0,483333319; Scale=8; Error=4,2246138E-05
+Query; State=2; Tick=5; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=5; Point=0; Time=0,5; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=5; Point=1; Displacement=(0.3469238, -0.1000977, 0.0000000); Error=0,0005033088
+Reference; State=2; Tick=5; Point=1; Time=0,5; Scale=8; Error=5,05058742E-05
+Query; State=2; Tick=5; Point=2; Displacement=(0.3308105, 0.1275635, 0.0000000); Error=0,000247121323
+Reference; State=2; Tick=5; Point=2; Time=0,5; Scale=8; Error=4,684381E-05
+Query; State=2; Tick=5; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016068072
+Reference; State=2; Tick=5; Point=3; Time=0,5; Scale=8; Error=4,4536966E-05
+Query; State=2; Tick=5; Point=4; Displacement=(-0.3388672, 0.1098173, 0.0000000); Error=0,0004941759
+Reference; State=2; Tick=5; Point=4; Time=0,5; Scale=8; Error=4,2246138E-05
+Capture=State2-Tick5; Magenta=0; Total=262144
+Coverage; State=2; Tick=5; Scale=8; ShaderAlpha=0,3049655; CurrentAlpha=0,3049655; VisibleLods=0,1,2; ClearPixels=0
+Query; State=2; Tick=6; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=6; Point=0; Time=0,516666651; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=6; Point=1; Displacement=(0.3469238, -0.1000977, 0.0000000); Error=0,0005033088
+Reference; State=2; Tick=6; Point=1; Time=0,516666651; Scale=8; Error=5,05058742E-05
+Query; State=2; Tick=6; Point=2; Displacement=(0.3308105, 0.1275635, 0.0000000); Error=0,000247121323
+Reference; State=2; Tick=6; Point=2; Time=0,516666651; Scale=8; Error=4,684381E-05
+Query; State=2; Tick=6; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016068072
+Reference; State=2; Tick=6; Point=3; Time=0,516666651; Scale=8; Error=4,4536966E-05
+Query; State=2; Tick=6; Point=4; Displacement=(-0.3388672, 0.1098173, 0.0000000); Error=0,0004941759
+Reference; State=2; Tick=6; Point=4; Time=0,516666651; Scale=8; Error=4,2246138E-05
+Query; State=2; Tick=7; Point=0; Displacement=(0.0770264, -0.2354736, 0.0000000); Error=0,0002516544
+Reference; State=2; Tick=7; Point=0; Time=0,533333361; Scale=8; Error=5,1545012E-05
+Query; State=2; Tick=7; Point=1; Displacement=(0.3469238, -0.1000977, 0.0000000); Error=0,0005033088
+Reference; State=2; Tick=7; Point=1; Time=0,533333361; Scale=8; Error=5,05058742E-05
+Query; State=2; Tick=7; Point=2; Displacement=(0.3308105, 0.1275635, 0.0000000); Error=0,000247121323
+Reference; State=2; Tick=7; Point=2; Time=0,533333361; Scale=8; Error=4,684381E-05
+Query; State=2; Tick=7; Point=3; Displacement=(-0.0137687, 0.2373047, 0.0000000); Error=0,00016068072
+Reference; State=2; Tick=7; Point=3; Time=0,533333361; Scale=8; Error=4,4536966E-05
+Query; State=2; Tick=7; Point=4; Displacement=(-0.3388672, 0.1098173, 0.0000000); Error=0,0004941759
+Reference; State=2; Tick=7; Point=4; Time=0,533333361; Scale=8; Error=4,2246138E-05
+Query; State=3; Tick=0; Point=0; Displacement=(0.0699864, -0.2159424, 0.0000000); Error=0,020510938
+Reference; State=3; Tick=0; Point=0; Time=0,55; Scale=16; Error=1,49454354E-05
+Query; State=3; Tick=0; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=0; Point=1; Time=0,55; Scale=16; Error=1,68222687E-05
+Query; State=3; Tick=0; Point=2; Displacement=(0.3068848, 0.1193051, 0.0000000); Error=0,0250677075
+Reference; State=3; Tick=0; Point=2; Time=0,55; Scale=16; Error=4,868868E-05
+Query; State=3; Tick=0; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=0; Point=3; Time=0,55; Scale=16; Error=1,99239948E-05
+Query; State=3; Tick=0; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=0; Point=4; Time=0,55; Scale=16; Error=7,231327E-05
+Capture=State3-Tick0; Magenta=0; Total=262144
+Coverage; State=3; Tick=0; Scale=16; ShaderAlpha=0,3049655; CurrentAlpha=0,3134718; VisibleLods=0,1,2; ClearPixels=0
+Query; State=3; Tick=1; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=1; Point=0; Time=0,566666663; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=1; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=1; Point=1; Time=0,566666663; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=1; Point=2; Displacement=(0.3068848, 0.1193046, 0.0000000); Error=0,0250678789
+Reference; State=3; Tick=1; Point=2; Time=0,566666663; Scale=16; Error=4,851496E-05
+Query; State=3; Tick=1; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=1; Point=3; Time=0,566666663; Scale=16; Error=1,944225E-05
+Query; State=3; Tick=1; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=1; Point=4; Time=0,566666663; Scale=16; Error=7,24798156E-05
+Query; State=3; Tick=2; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=2; Point=0; Time=0,5833333; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=2; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=2; Point=1; Time=0,5833333; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=2; Point=2; Displacement=(0.3068848, 0.1193045, 0.0000000); Error=0,0250679012
+Reference; State=3; Tick=2; Point=2; Time=0,5833333; Scale=16; Error=4,848939E-05
+Query; State=3; Tick=2; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=2; Point=3; Time=0,5833333; Scale=16; Error=1,93736832E-05
+Query; State=3; Tick=2; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=2; Point=4; Time=0,5833333; Scale=16; Error=7,248245E-05
+Query; State=3; Tick=3; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=3; Point=0; Time=0,6; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=3; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=3; Point=1; Time=0,6; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=3; Point=2; Displacement=(0.3068848, 0.1193045, 0.0000000); Error=0,0250679012
+Reference; State=3; Tick=3; Point=2; Time=0,6; Scale=16; Error=4,848939E-05
+Query; State=3; Tick=3; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=3; Point=3; Time=0,6; Scale=16; Error=1,93736832E-05
+Query; State=3; Tick=3; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=3; Point=4; Time=0,6; Scale=16; Error=7,248245E-05
+Query; State=3; Tick=4; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=4; Point=0; Time=0,6166667; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=4; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=4; Point=1; Time=0,6166667; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=4; Point=2; Displacement=(0.3068848, 0.1193045, 0.0000000); Error=0,0250679012
+Reference; State=3; Tick=4; Point=2; Time=0,6166667; Scale=16; Error=4,848939E-05
+Query; State=3; Tick=4; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=4; Point=3; Time=0,6166667; Scale=16; Error=1,93736832E-05
+Query; State=3; Tick=4; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=4; Point=4; Time=0,6166667; Scale=16; Error=7,248245E-05
+Query; State=3; Tick=5; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=5; Point=0; Time=0,6333333; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=5; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=5; Point=1; Time=0,6333333; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=5; Point=2; Displacement=(0.3068848, 0.1193045, 0.0000000); Error=0,0250679012
+Reference; State=3; Tick=5; Point=2; Time=0,6333333; Scale=16; Error=4,848939E-05
+Query; State=3; Tick=5; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=5; Point=3; Time=0,6333333; Scale=16; Error=1,93736832E-05
+Query; State=3; Tick=5; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=5; Point=4; Time=0,6333333; Scale=16; Error=7,248245E-05
+Capture=State3-Tick5; Magenta=0; Total=262144
+Coverage; State=3; Tick=5; Scale=16; ShaderAlpha=0,314589977; CurrentAlpha=0,314589977; VisibleLods=0,1,2; ClearPixels=0
+Query; State=3; Tick=6; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=6; Point=0; Time=0,65; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=6; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=6; Point=1; Time=0,65; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=6; Point=2; Displacement=(0.3068848, 0.1193045, 0.0000000); Error=0,0250679012
+Reference; State=3; Tick=6; Point=2; Time=0,65; Scale=16; Error=4,848939E-05
+Query; State=3; Tick=6; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=6; Point=3; Time=0,65; Scale=16; Error=1,93736832E-05
+Query; State=3; Tick=6; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=6; Point=4; Time=0,65; Scale=16; Error=7,248245E-05
+Query; State=3; Tick=7; Point=0; Displacement=(0.0700684, -0.2159424, 0.0000000); Error=0,0204831846
+Reference; State=3; Tick=7; Point=0; Time=0,6666667; Scale=16; Error=3,67094472E-05
+Query; State=3; Tick=7; Point=1; Displacement=(0.3229980, -0.0891724, 0.0000000); Error=0,02580748
+Reference; State=3; Tick=7; Point=1; Time=0,6666667; Scale=16; Error=1,67782455E-05
+Query; State=3; Tick=7; Point=2; Displacement=(0.3068848, 0.1193045, 0.0000000); Error=0,0250679012
+Reference; State=3; Tick=7; Point=2; Time=0,6666667; Scale=16; Error=4,848939E-05
+Query; State=3; Tick=7; Point=3; Displacement=(-0.0066147, 0.2209473, 0.0000000); Error=0,0176998
+Reference; State=3; Tick=7; Point=3; Time=0,6666667; Scale=16; Error=1,93736832E-05
+Query; State=3; Tick=7; Point=4; Displacement=(-0.3117676, 0.1011353, 0.0000000); Error=0,0279682912
+Reference; State=3; Tick=7; Point=4; Time=0,6666667; Scale=16; Error=7,248245E-05
+Query; State=4; Tick=0; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=0; Point=0; Time=0,683333337; Scale=32; Error=1,0947284E-05
+Query; State=4; Tick=0; Point=1; Displacement=(0.3236537, -0.0893363, 0.0000000); Error=0,0251437686
+Reference; State=4; Tick=0; Point=1; Time=0,683333337; Scale=32; Error=8,834567E-06
+Query; State=4; Tick=0; Point=2; Displacement=(0.3076034, 0.1195260, 0.0000000); Error=0,024316337
+Reference; State=4; Tick=0; Point=2; Time=0,683333337; Scale=32; Error=6,473082E-05
+Query; State=4; Tick=0; Point=3; Displacement=(-0.0064762, 0.2214671, 0.0000000); Error=0,0172813628
+Reference; State=4; Tick=0; Point=3; Time=0,683333337; Scale=32; Error=4,27660234E-05
+Query; State=4; Tick=0; Point=4; Displacement=(-0.3128977, 0.1015975, 0.0000000); Error=0,0267508924
+Reference; State=4; Tick=0; Point=4; Time=0,683333337; Scale=32; Error=7,58274837E-05
+Capture=State4-Tick0; Magenta=0; Total=262144
+Coverage; State=4; Tick=0; Scale=32; ShaderAlpha=0,314589977; CurrentAlpha=0,318264; VisibleLods=0,1,2; ClearPixels=0
+Query; State=4; Tick=1; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=1; Point=0; Time=0,7; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=1; Point=1; Displacement=(0.3236528, -0.0893361, 0.0000000); Error=0,025144672
+Reference; State=4; Tick=1; Point=1; Time=0,7; Scale=32; Error=8,923846E-06
+Query; State=4; Tick=1; Point=2; Displacement=(0.3076062, 0.1195263, 0.0000000); Error=0,0243137013
+Reference; State=4; Tick=1; Point=2; Time=0,7; Scale=32; Error=6,470084E-05
+Query; State=4; Tick=1; Point=3; Displacement=(-0.0064747, 0.2214689, 0.0000000); Error=0,0172803588
+Reference; State=4; Tick=1; Point=3; Time=0,7; Scale=32; Error=4,28857747E-05
+Query; State=4; Tick=1; Point=4; Displacement=(-0.3128996, 0.1015986, 0.0000000); Error=0,02674882
+Reference; State=4; Tick=1; Point=4; Time=0,7; Scale=32; Error=7,513357E-05
+Query; State=4; Tick=2; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=2; Point=0; Time=0,716666639; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=2; Point=1; Displacement=(0.3236496, -0.0893353, 0.0000000); Error=0,0251478683
+Reference; State=4; Tick=2; Point=1; Time=0,716666639; Scale=32; Error=9,671726E-06
+Query; State=4; Tick=2; Point=2; Displacement=(0.3076156, 0.1195270, 0.0000000); Error=0,0243045483
+Reference; State=4; Tick=2; Point=2; Time=0,716666639; Scale=32; Error=6,512463E-05
+Query; State=4; Tick=2; Point=3; Displacement=(-0.0064694, 0.2214752, 0.0000000); Error=0,0172768664
+Reference; State=4; Tick=2; Point=3; Time=0,716666639; Scale=32; Error=4,37975941E-05
+Query; State=4; Tick=2; Point=4; Displacement=(-0.3129058, 0.1016025, 0.0000000); Error=0,026741663
+Reference; State=4; Tick=2; Point=4; Time=0,716666639; Scale=32; Error=7,305815E-05
+Query; State=4; Tick=3; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=3; Point=0; Time=0,733333349; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=3; Point=1; Displacement=(0.3236496, -0.0893353, 0.0000000); Error=0,0251478683
+Reference; State=4; Tick=3; Point=1; Time=0,733333349; Scale=32; Error=9,671726E-06
+Query; State=4; Tick=3; Point=2; Displacement=(0.3076156, 0.1195270, 0.0000000); Error=0,0243045483
+Reference; State=4; Tick=3; Point=2; Time=0,733333349; Scale=32; Error=6,512463E-05
+Query; State=4; Tick=3; Point=3; Displacement=(-0.0064694, 0.2214752, 0.0000000); Error=0,0172768664
+Reference; State=4; Tick=3; Point=3; Time=0,733333349; Scale=32; Error=4,37975941E-05
+Query; State=4; Tick=3; Point=4; Displacement=(-0.3129058, 0.1016025, 0.0000000); Error=0,026741663
+Reference; State=4; Tick=3; Point=4; Time=0,733333349; Scale=32; Error=7,305815E-05
+Query; State=4; Tick=4; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=4; Point=0; Time=0,75; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=4; Point=1; Displacement=(0.3236496, -0.0893353, 0.0000000); Error=0,0251478683
+Reference; State=4; Tick=4; Point=1; Time=0,75; Scale=32; Error=9,671726E-06
+Query; State=4; Tick=4; Point=2; Displacement=(0.3076156, 0.1195270, 0.0000000); Error=0,024304552
+Reference; State=4; Tick=4; Point=2; Time=0,75; Scale=32; Error=6,512452E-05
+Query; State=4; Tick=4; Point=3; Displacement=(-0.0064694, 0.2214752, 0.0000000); Error=0,0172768813
+Reference; State=4; Tick=4; Point=3; Time=0,75; Scale=32; Error=4,37874842E-05
+Query; State=4; Tick=4; Point=4; Displacement=(-0.3129058, 0.1016025, 0.0000000); Error=0,026741663
+Reference; State=4; Tick=4; Point=4; Time=0,75; Scale=32; Error=7,305815E-05
+Query; State=4; Tick=5; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=5; Point=0; Time=0,766666651; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=5; Point=1; Displacement=(0.3236496, -0.0893353, 0.0000000); Error=0,0251478683
+Reference; State=4; Tick=5; Point=1; Time=0,766666651; Scale=32; Error=9,671726E-06
+Query; State=4; Tick=5; Point=2; Displacement=(0.3076156, 0.1195270, 0.0000000); Error=0,024304552
+Reference; State=4; Tick=5; Point=2; Time=0,766666651; Scale=32; Error=6,512452E-05
+Query; State=4; Tick=5; Point=3; Displacement=(-0.0064694, 0.2214752, 0.0000000); Error=0,0172768813
+Reference; State=4; Tick=5; Point=3; Time=0,766666651; Scale=32; Error=4,37874842E-05
+Query; State=4; Tick=5; Point=4; Displacement=(-0.3129058, 0.1016025, 0.0000000); Error=0,026741663
+Reference; State=4; Tick=5; Point=4; Time=0,766666651; Scale=32; Error=7,305815E-05
+Capture=State4-Tick5; Magenta=0; Total=262144
+Coverage; State=4; Tick=5; Scale=32; ShaderAlpha=0,3311305; CurrentAlpha=0,3311305; VisibleLods=0,1,2; ClearPixels=0
+Query; State=4; Tick=6; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=6; Point=0; Time=0,783333361; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=6; Point=1; Displacement=(0.3236496, -0.0893353, 0.0000000); Error=0,0251478683
+Reference; State=4; Tick=6; Point=1; Time=0,783333361; Scale=32; Error=9,671726E-06
+Query; State=4; Tick=6; Point=2; Displacement=(0.3076156, 0.1195270, 0.0000000); Error=0,024304552
+Reference; State=4; Tick=6; Point=2; Time=0,783333361; Scale=32; Error=6,512452E-05
+Query; State=4; Tick=6; Point=3; Displacement=(-0.0064694, 0.2214752, 0.0000000); Error=0,0172768813
+Reference; State=4; Tick=6; Point=3; Time=0,783333361; Scale=32; Error=4,37874842E-05
+Query; State=4; Tick=6; Point=4; Displacement=(-0.3129058, 0.1016025, 0.0000000); Error=0,026741663
+Reference; State=4; Tick=6; Point=4; Time=0,783333361; Scale=32; Error=7,305815E-05
+Query; State=4; Tick=7; Point=0; Displacement=(0.0704956, -0.2165527, 0.0000000); Error=0,0197655931
+Reference; State=4; Tick=7; Point=0; Time=0,8; Scale=32; Error=1,09435741E-05
+Query; State=4; Tick=7; Point=1; Displacement=(0.3236496, -0.0893353, 0.0000000); Error=0,0251478683
+Reference; State=4; Tick=7; Point=1; Time=0,8; Scale=32; Error=9,671726E-06
+Query; State=4; Tick=7; Point=2; Displacement=(0.3076156, 0.1195270, 0.0000000); Error=0,024304552
+Reference; State=4; Tick=7; Point=2; Time=0,8; Scale=32; Error=6,512452E-05
+Query; State=4; Tick=7; Point=3; Displacement=(-0.0064694, 0.2214752, 0.0000000); Error=0,0172768813
+Reference; State=4; Tick=7; Point=3; Time=0,8; Scale=32; Error=4,37874842E-05
+Query; State=4; Tick=7; Point=4; Displacement=(-0.3129058, 0.1016025, 0.0000000); Error=0,026741663
+Reference; State=4; Tick=7; Point=4; Time=0,8; Scale=32; Error=7,305815E-05
+Query; State=5; Tick=0; Point=0; Displacement=(0.0765381, -0.2338867, 0.0000000); Error=0,001409106
+Reference; State=5; Tick=0; Point=0; Time=0,816666663; Scale=8; Error=5,73271682E-05
+Query; State=5; Tick=0; Point=1; Displacement=(0.3449707, -0.0992432, 0.0000000); Error=0,00163774507
+Reference; State=5; Tick=0; Point=1; Time=0,816666663; Scale=8; Error=3,92859738E-06
+Query; State=5; Tick=0; Point=2; Displacement=(0.3291016, 0.1270752, 0.0000000); Error=0,00153241016
+Reference; State=5; Tick=0; Point=2; Time=0,816666663; Scale=8; Error=6,56078555E-05
+Query; State=5; Tick=0; Point=3; Displacement=(-0.0132752, 0.2362061, 0.0000000); Error=0,00105120568
+Reference; State=5; Tick=0; Point=3; Time=0,816666663; Scale=8; Error=4,483149E-05
+Query; State=5; Tick=0; Point=4; Displacement=(-0.3369141, 0.1091309, 0.0000000); Error=0,00158691406
+Reference; State=5; Tick=0; Point=4; Time=0,816666663; Scale=8; Error=4,44959369E-06
+Capture=State5-Tick0; Magenta=0; Total=262144
+Coverage; State=5; Tick=0; Scale=8; ShaderAlpha=0,3311305; CurrentAlpha=0,358389854; VisibleLods=0,1,2; ClearPixels=0
+Query; State=5; Tick=1; Point=0; Displacement=(0.0769653, -0.2351074, 0.0000000); Error=0,000122070313
+Reference; State=5; Tick=1; Point=0; Time=0,8333333; Scale=8; Error=5,661952E-05
+Query; State=5; Tick=1; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=1; Point=1; Time=0,8333333; Scale=8; Error=5,075612E-05
+Query; State=5; Tick=1; Point=2; Displacement=(0.3305664, 0.1275197, 0.0000000); Error=5,48362732E-06
+Reference; State=5; Tick=1; Point=2; Time=0,8333333; Scale=8; Error=2,27429209E-05
+Query; State=5; Tick=1; Point=3; Displacement=(-0.0136490, 0.2371826, 0.0000000); Error=1,52587891E-05
+Reference; State=5; Tick=1; Point=3; Time=0,8333333; Scale=8; Error=4,46828562E-05
+Query; State=5; Tick=1; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=1; Point=4; Time=0,8333333; Scale=8; Error=4,27243722E-05
+Query; State=5; Tick=2; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=5; Tick=2; Point=0; Time=0,85; Scale=8; Error=5,72504032E-05
+Query; State=5; Tick=2; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=2; Point=1; Time=0,85; Scale=8; Error=5,15729953E-05
+Query; State=5; Tick=2; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=1,49011612E-08
+Reference; State=5; Tick=2; Point=2; Time=0,85; Scale=8; Error=2,80582371E-05
+Query; State=5; Tick=2; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=5; Tick=2; Point=3; Time=0,85; Scale=8; Error=4,4225606E-05
+Query; State=5; Tick=2; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=2; Point=4; Time=0,85; Scale=8; Error=3,70251146E-05
+Query; State=5; Tick=3; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=5; Tick=3; Point=0; Time=0,8666667; Scale=8; Error=5,72504032E-05
+Query; State=5; Tick=3; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=3; Point=1; Time=0,8666667; Scale=8; Error=5,15729953E-05
+Query; State=5; Tick=3; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=5; Tick=3; Point=2; Time=0,8666667; Scale=8; Error=2,80731074E-05
+Query; State=5; Tick=3; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=5; Tick=3; Point=3; Time=0,8666667; Scale=8; Error=4,422566E-05
+Query; State=5; Tick=3; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=3; Point=4; Time=0,8666667; Scale=8; Error=3,70251146E-05
+Query; State=5; Tick=4; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=5; Tick=4; Point=0; Time=0,8833333; Scale=8; Error=5,72504032E-05
+Query; State=5; Tick=4; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=4; Point=1; Time=0,8833333; Scale=8; Error=5,15729953E-05
+Query; State=5; Tick=4; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=5; Tick=4; Point=2; Time=0,8833333; Scale=8; Error=2,80731074E-05
+Query; State=5; Tick=4; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=5; Tick=4; Point=3; Time=0,8833333; Scale=8; Error=4,422566E-05
+Query; State=5; Tick=4; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=4; Point=4; Time=0,8833333; Scale=8; Error=3,70251146E-05
+Query; State=5; Tick=5; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=5; Tick=5; Point=0; Time=0,9; Scale=8; Error=5,72504032E-05
+Query; State=5; Tick=5; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=5; Point=1; Time=0,9; Scale=8; Error=5,15729953E-05
+Query; State=5; Tick=5; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=5; Tick=5; Point=2; Time=0,9; Scale=8; Error=2,80731074E-05
+Query; State=5; Tick=5; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=5; Tick=5; Point=3; Time=0,9; Scale=8; Error=4,422566E-05
+Query; State=5; Tick=5; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=5; Point=4; Time=0,9; Scale=8; Error=3,70251146E-05
+Capture=State5-Tick5; Magenta=0; Total=262144
+Coverage; State=5; Tick=5; Scale=8; ShaderAlpha=0,313498974; CurrentAlpha=0,313498974; VisibleLods=0,1,2; ClearPixels=0
+Query; State=5; Tick=6; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=5; Tick=6; Point=0; Time=0,9166667; Scale=8; Error=5,72504032E-05
+Query; State=5; Tick=6; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=6; Point=1; Time=0,9166667; Scale=8; Error=5,15729953E-05
+Query; State=5; Tick=6; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=5; Tick=6; Point=2; Time=0,9166667; Scale=8; Error=2,80731074E-05
+Query; State=5; Tick=6; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=5; Tick=6; Point=3; Time=0,9166667; Scale=8; Error=4,422566E-05
+Query; State=5; Tick=6; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=6; Point=4; Time=0,9166667; Scale=8; Error=3,70251146E-05
+Query; State=5; Tick=7; Point=0; Displacement=(0.0769653, -0.2352295, 0.0000000); Error=0
+Reference; State=5; Tick=7; Point=0; Time=0,933333337; Scale=8; Error=5,72504032E-05
+Query; State=5; Tick=7; Point=1; Displacement=(0.3464355, -0.0999756, 0.0000000); Error=0
+Reference; State=5; Tick=7; Point=1; Time=0,933333337; Scale=8; Error=5,15729953E-05
+Query; State=5; Tick=7; Point=2; Displacement=(0.3305664, 0.1275252, 0.0000000); Error=0
+Reference; State=5; Tick=7; Point=2; Time=0,933333337; Scale=8; Error=2,80731074E-05
+Query; State=5; Tick=7; Point=3; Displacement=(-0.0136643, 0.2371826, 0.0000000); Error=0
+Reference; State=5; Tick=7; Point=3; Time=0,933333337; Scale=8; Error=4,422566E-05
+Query; State=5; Tick=7; Point=4; Displacement=(-0.3383789, 0.1097412, 0.0000000); Error=0
+Reference; State=5; Tick=7; Point=4; Time=0,933333337; Scale=8; Error=3,70251146E-05
+Summary; States=5; Ready=39; Unready=1; Captures=11; MinVisibleLods=3; BaselineHeightSpan=0,4724121; HorizontalPeak=0,346923828; MaxCrossScaleBaselineDifference=0,0279682912; MaxSameScaleDisplacementError=0,00163774507; MaxIndependentReferenceError=7,58274837E-05

@@ -324,3 +324,10 @@ ambiguous tile snapping. Global _MeshScaleLerp is written before the current
 scale update and thus carries the previous update's altitude alpha/increase
 flag. Preserve this inherited phase until nonzero-wave seam evidence justifies
 a compatibility change; flat transform/query checks alone do not prove seams.
+
+
+Frozen ocean time does not imply identical query displacement across camera LOD
+scales: filtered/resampled representations can differ. Use the field and cascade
+metadata from the actual query dispatch when validating a result. The query's
+logarithmic cascade blend is distinct from the vertex morph's linear radius blend;
+a correct query alone cannot establish shared-edge geometry/normal continuity.
