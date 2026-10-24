@@ -1,0 +1,5 @@
+Original TimeProviderNetworked and TimeProviderCutscene; real PlayableDirector with a memory-only PlayableAsset/manual graph. No networking/FishNet/transport or Timeline UI claim. Public stack push/pop, network offsets, director seek/pause/stop/disable and component restore. Actual LateUpdate shader _CrestTime observed without GPU fence. Tolerance1e-5s. Cutscene fallback is default Unity time, not the previous network clock; delta remains Unity delta even while manual director time is frozen. Re-enable auto-push is Editor-only coverage (original retry Update is UNITY_EDITOR).
+NetworkOffset=0; Current=0,266666681; UnityTime=0,266666681
+NetworkOffset=1,25; Current=1,65; UnityTime=0,4
+NetworkOffset=-3,5; Current=-2,9666667; UnityTime=0,533333361
+NetworkOffset=30; Current=30,666666; UnityTime=0,6666667

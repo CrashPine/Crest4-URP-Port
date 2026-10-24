@@ -301,3 +301,18 @@ submits no new forces even if the input is enabled; it is different from disabli
 the time gate. Controlled60/30Hz impulse/propagation checks use the original
 component, shader and compute solver. They do not establish long-term stability,
 all grid/LOD ranges or performance.
+
+
+The original networked clock adds TimeOffsetToServer to Unity time; it does not
+implement transport. The cutscene clock uses active Playing director time plus
+its offset. Paused/stopped/disabled directors fall back to default Unity time,
+even with a networked provider below it. Its delta remains Unity delta: freezing
+a manual director time does not freeze dynamic simulation. Disabling the cutscene
+component with restore enabled exposes the exact previous provider. Automatic
+retry on re-enable lives in original Editor-only Update; Editor coverage does not
+establish Player re-enable behaviour.
+
+BoatAlignNormal responds to wave orbital velocity plus flow; its instantaneous
+hull velocity need not equal flow speed. Joint numerical coverage uses actual
+Rigidbody motion and main-camera LerpCam, without accepting saved example material
+equivalence or full camera stress.

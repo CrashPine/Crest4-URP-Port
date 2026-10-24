@@ -1,0 +1,36 @@
+{
+  "scope": "P07 functional milestone; not port completion or leak acceptance",
+  "runs": [
+    {
+      "api": "DX11",
+      "xml": "Evidence\\EditMode-DX11.xml",
+      "sha256": "e3fabcd831c5cc398f7ca0ea98d04b9d309bacb24530f64ea664498d7392cdd5",
+      "result": "Passed",
+      "total": 66,
+      "failed": 0,
+      "skipped": 0,
+      "startUTC": "2026-10-24 10:14:58Z",
+      "endUTC": "2026-10-24 10:16:19Z",
+      "shutdownWarnings": [
+        "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+      ]
+    },
+    {
+      "api": "DX12",
+      "xml": "Evidence\\EditMode-DX12.xml",
+      "sha256": "c9a91463b6216999d6e3557ecb99b7bf234025c32c0062891e653409b7092eaa",
+      "result": "Passed",
+      "total": 66,
+      "failed": 0,
+      "skipped": 0,
+      "startUTC": "2026-10-24 10:16:42Z",
+      "endUTC": "2026-10-24 10:18:20Z",
+      "shutdownWarnings": [
+        "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+      ]
+    }
+  ],
+  "openIssue": "Both Editors report Persistent allocates 3 individual allocations at shutdown. Allocation stacks/owner unknown; P10 must reproduce with NativeLeakDetection.EnabledWithStackTrace. XML success does not clear this issue.",
+  "runtimeChanged": false,
+  "playerRebuildRequired": false
+}
