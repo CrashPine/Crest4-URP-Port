@@ -1,0 +1,56 @@
+// Editor-only conformance probe. Calls unchanged Crest helpers on real tile vertices.
+#pragma kernel Probe
+#include "HLSLSupport.cginc"
+#include "Assets/Crest/Crest/Shaders/OceanGlobals.hlsl"
+#include "Assets/Crest/Crest/Shaders/OceanInputsDriven.hlsl"
+#include "Assets/Crest/Crest/Shaders/OceanHelpersNew.hlsl"
+float4x4 _ProbeObjectMatrix;
+#define UNITY_MATRIX_M _ProbeObjectMatrix
+#include "Assets/Crest/Crest/Shaders/OceanVertHelpers.hlsl"
+struct Input { float4x4 objectMatrix; float4 vertexLod; };
+struct Output { float4 base; float4 displaced; float4 normal; };
+StructuredBuffer<Input> _ProbeInputs;
+RWStructuredBuffer<Output> _ProbeOutputs;
+int _ProbeCount;
+float4 _ProbeCamera;
+[numthreads(64,1,1)]
+void Probe(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= (uint)_ProbeCount) return;
+    Input input = _ProbeInputs[id.x];
+    uint slice = (uint)input.vertexLod.w;
+    CascadeParams c0 = _CrestCascadeData[slice], c1 = _CrestCascadeData[slice+1];
+    PerCascadeInstanceData instance = _CrestPerCascadeInstanceData[slice];
+    float3 position = mul(input.objectMatrix, float4(input.vertexLod.xyz,1)).xyz;
+    float alpha;
+    SnapAndTransitionVertLayout(input.objectMatrix, instance._meshScaleLerp, c0, instance._geoGridWidth, position, alpha);
+    // Same precision expansion as Ocean.shader Vert, including tile centre/camera distance.
+    position.xz = lerp(input.objectMatrix._m03_m23, position.xz, lerp(1.0,1.01,max(abs(_ProbeCamera.x),abs(_ProbeCamera.z))*.00001));
+    Output result;
+    result.base = float4(position,alpha);
+    float2 before = position.xz;
+    float w0 = (1-alpha)*c0._weight, w1 = (1-w0)*c1._weight;
+    float2 nxz = 0;
+    float3 dummy = 0;
+    half sss = 0;
+    if (w0 > .001)
+    {
+        float3 uv = WorldToUV(before,c0,slice);
+        SampleDisplacements(_LD_TexArray_AnimatedWaves,uv,w0,position);
+        SampleDisplacementsNormals(_LD_TexArray_AnimatedWaves,uv,w0,c0._oneOverTextureRes,c0._texelWidth,dummy,nxz,sss);
+    }
+    if (w1 > .001)
+    {
+        float3 uv = WorldToUV(before,c1,slice+1);
+        SampleDisplacements(_LD_TexArray_AnimatedWaves,uv,w1,position);
+        SampleDisplacementsNormals(_LD_TexArray_AnimatedWaves,uv,w1,c1._oneOverTextureRes,c1._texelWidth,dummy,nxz,sss);
+    }
+    half depth=0, offset=0;
+    float2 derivatives=0;
+    if (w0 > .0001) SampleSeaDepth(_LD_TexArray_SeaFloorDepth,WorldToUV(position.xz,c0,slice),w0,depth,offset,c0,derivatives);
+    if (w1 > .0001) SampleSeaDepth(_LD_TexArray_SeaFloorDepth,WorldToUV(position.xz,c1,slice+1),w1,depth,offset,c1,derivatives);
+    position.y += offset;
+    result.displaced = float4(position,offset);
+    result.normal = float4(normalize(float3(nxz.x-derivatives.x,1,nxz.y-derivatives.y)),0);
+    _ProbeOutputs[id.x]=result;
+}

@@ -1,0 +1,55 @@
+{
+  "scope": "P08.2 sampled shared-vertex position/geometry-normal conformance; not all surface shading or standalone acceptance",
+  "runs": [
+    {
+      "api": "DX11",
+      "xml": "Evidence\\LodHeightSeams-DX11.xml",
+      "sha256": "9d1172a6df1fdc0807387fea746cf7dff8df93839adfef10948eb118872d1c97",
+      "startUTC": "2026-10-24 10:43:41Z",
+      "endUTC": "2026-10-24 10:43:45Z"
+    },
+    {
+      "api": "DX12",
+      "xml": "Evidence\\LodHeightSeams-DX12.xml",
+      "sha256": "19dc8dbcc9a65160fcf0824359a80ef6ee9a0b42eb4d65574c717177ba73bc1c",
+      "startUTC": "2026-10-24 10:44:42Z",
+      "endUTC": "2026-10-24 10:44:46Z"
+    }
+  ],
+  "phases": 7,
+  "actualTilesPerPhase": 40,
+  "verticesPerAPI": 53760,
+  "adjacentLODPairsPerAPI": 11766,
+  "maxPositionGapMeters": 0.000102114427,
+  "maxNormalVectorGap": 0.0003405319,
+  "maxAffineHeightErrorMeters": 3.42536368e-05,
+  "maxAffineNormalError": 4.52856439e-05,
+  "sharedVertexMatchRadiusMeters": 0.001,
+  "positionGapToleranceMeters": 0.003,
+  "normalVectorGapTolerance": 0.002,
+  "affineTolerance": 0.002,
+  "identicalImagePairs": [
+    {
+      "dx11": "Evidence\\LodHeightSeams-Affine-Direct3D11.png",
+      "dx12": "Evidence\\LodHeightSeams-Affine-Direct3D12.png",
+      "sha256": "d6250657a854bc75e36b4fd14d4ad64cb7b66d3200a44e3c222f5a8924104bc7"
+    },
+    {
+      "dx11": "Evidence\\LodHeightSeams-SmoothEdge-Direct3D11.png",
+      "dx12": "Evidence\\LodHeightSeams-SmoothEdge-Direct3D12.png",
+      "sha256": "61dd1e73e55709f18bddc9fc5f44e2840fc32a05bfb359da56b1ab999db08194"
+    },
+    {
+      "dx11": "Evidence\\LodHeightSeams-SmoothEdgeChoppy-Direct3D11.png",
+      "dx12": "Evidence\\LodHeightSeams-SmoothEdgeChoppy-Direct3D12.png",
+      "sha256": "f0e5119489b5740ec6a989f18c12a5f3f3d53753c9a6bcce3e1cfa179483064d"
+    }
+  ],
+  "remainingVisualIssue": "Patch-grid shading visible on compact-patch/choppy image; no gaps found. Controlled Built-in comparison and full shading acceptance remain P09.",
+  "limits": [
+    "Pairs from actual LOD0/1 and1/2 at scales8/16, positive/negative translated camera",
+    "Compute calls original helper functions on actual vertices; not a direct capture of production fragment normals",
+    "Geometry-derived normals before tiled normal maps; opaque512x512 captures",
+    "Compact patch is a triangulated33x33 approximation of a C1 analytic profile, not mathematically C1 mesh interpolation"
+  ]
+}

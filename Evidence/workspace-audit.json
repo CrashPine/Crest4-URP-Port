@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-24T10:37:25.6632698Z",
+  "recordedUtc": "2026-10-24T10:46:55.9086799Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1310,
+  "fileCount": 1314,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -34,7 +34,7 @@
   "currentTestReports": [
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-24 10:33:58Z",
+      "start": "2026-10-24 10:43:41Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -50,7 +50,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-24 10:34:26Z",
+      "start": "2026-10-24 10:44:42Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -5862,6 +5862,26 @@
       "sha256": "3973A57E40FCF6041AFF0FC2447F12704E44F2AB5CAE31ED8820BCAA598CABCE"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/LodHeightSeamTests.cs",
+      "bytes": 17969,
+      "sha256": "5CC64B149A6F461B3AE33735B60BCAF8FB950CE5D16C47ED22851C1FFB46B639"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LodHeightSeamTests.cs.meta",
+      "bytes": 61,
+      "sha256": "1D2F14B4C8E466655DCFCCCF604C1FA486797C598DF22C27261F810DEA25370A"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LodSeamProbe.compute",
+      "bytes": 2808,
+      "sha256": "392F88D2DD9BA148E0D43FB9075F982BE51121FF1FDE0F4D957DB51BABB5A94C"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LodSeamProbe.compute.meta",
+      "bytes": 61,
+      "sha256": "9BF6ADF0CA2A81E5825C0AA718847ECA3263A78B8338B167867BEC3E6A6690AD"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/LodTransitionTests.cs",
       "bytes": 13657,
       "sha256": "196885C32B2E82DDD5F7C188583DBBFCCE4E40AC88BAFD38BD9B41C88315DAA5"
@@ -6573,8 +6593,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 18615,
-      "sha256": "EF6D88F4A52E697AF70733772201D2DDCAA46A1AEEAA352A3781FA913B8288CF"
+      "bytes": 19183,
+      "sha256": "7E2A98D2FE605F6860EC02B58FB001958A0FF01BB3DF7C561A676A6C7EA265D7"
     },
     {
       "path": "LICENSE.Crest",
@@ -6588,13 +6608,13 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 16730,
-      "sha256": "7C862B1DF017237690419446E9664BAF19C31CC2B7E9B39A50E872FA625BEF33"
+      "bytes": 17073,
+      "sha256": "E8913CDB9943E4EEACA83D34D396387E02D5D9DEED804818A8FFB9CF6B233384"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 8635,
-      "sha256": "0FE16E140253FD6CE621787D5CABE4E6BB1528FE95990355E5BAC62FB511AA87"
+      "bytes": 9529,
+      "sha256": "1A13800B2B955B35F1437BF689B466BA352A3BFDB1E2C5A3FA176D89F437AA1B"
     },
     {
       "path": "README.md",
@@ -6608,8 +6628,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 141111,
-      "sha256": "F2C6C33B5B3C8FBB64B26E0AA0C8800DE856B12B6534180344E021F64A557931"
+      "bytes": 145719,
+      "sha256": "C2DBCE62EB11F4754688EAEA34535F6246A3BA6EC51A1077B819B5A16AC54E85"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
