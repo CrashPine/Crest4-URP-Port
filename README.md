@@ -64,3 +64,21 @@ Player предоставляет переключение сцен, ветер,
 MIGRATION.md. Воспроизведение проверки: `Run-Unity.ps1 -Action EditMode
 -GraphicsAPI DX11 -TestFilter BakedFFTTests` с тем же обязательным `-Editor`,
 что в командах выше (аналогично DX12).
+
+
+## Non-batch lifecycle проверки
+
+Обычный `Run-Unity.ps1 -Action EditMode` выбирает batch assembly
+`Crest.URP.Tests`. Для EOF/GameView lifecycle используется отдельная Editor-only
+`Crest.URP.Interactive.Tests` и non-batch автоматический запуск (ручное управление
+не требуется). При закрытом Editor:
+
+```powershell
+./Tools/Run-Unity.ps1 -Editor 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe' -Action EditMode -GraphicsAPI DX11 -TestFilter OriginShiftLifecycleTests -Interactive
+```
+
+Повторить с DX12. Суффикс XML/log — `-interactive`; dedicated evidence —
+`OriginLifecycle-DX11.xml` / `OriginLifecycle-DX12.xml`. Для всего non-batch набора
+убрать `-TestFilter`. На milestones требуются обе assembly на обоих API: один
+batch XML не подтверждает EOF. Исходный WaitForEndOfFrame не работает в batch,
+поэтому интерактивная fixture отклоняет batch mode явным assertion.

@@ -1,0 +1,44 @@
+{
+  "scope": "P08.3 original non-batch shift lifecycle/coordinates/particles/metadata only",
+  "runs": [
+    {
+      "api": "DX11",
+      "xml": "Evidence\\OriginLifecycle-DX11.xml",
+      "sha256": "6833427c5e29373f48bcd3ab61896e7b11fbb01c60b2a37a8a79609857a547a7",
+      "startUTC": "2026-10-24 15:18:58Z",
+      "endUTC": "2026-10-24 15:18:59Z",
+      "isBatchMode": false,
+      "cases": 8,
+      "shifts": 6,
+      "historyCentreChecks": 112,
+      "nativeTargetSourceCentreChecks": 112,
+      "actualMainCameraRenderEvents": 23,
+      "flagAtObservedEndOfFrame": false,
+      "observedEofMinusShiftFrame": 1
+    },
+    {
+      "api": "DX12",
+      "xml": "Evidence\\OriginLifecycle-DX12.xml",
+      "sha256": "4e1e71d52767888e5c5df2f8f6333d509d8eaefb0d49f82f828cda4b56d0fce1",
+      "startUTC": "2026-10-24 15:22:38Z",
+      "endUTC": "2026-10-24 15:22:39Z",
+      "isBatchMode": false,
+      "cases": 8,
+      "shifts": 6,
+      "historyCentreChecks": 112,
+      "nativeTargetSourceCentreChecks": 112,
+      "actualMainCameraRenderEvents": 23,
+      "flagAtObservedEndOfFrame": false,
+      "observedEofMinusShiftFrame": 1
+    }
+  ],
+  "runner": "Tools/Run-Unity.ps1 -Interactive; Crest.URP.Interactive.Tests; actual focused GameView",
+  "rawReportNote": "Reset=False is the original HasTeleportedThisFrame flag value AFTER observed EOF, indicating successful clear; not a failed assertion.",
+  "noPrivateShiftOrFlagCalls": true,
+  "remaining": [
+    "Nonzero wave phase and compatibility mode",
+    "Actual simulation texture history contents, not just cascade metadata",
+    "Particle/wind module integration beyond stationary particles",
+    "Standalone/long-duration origin stress"
+  ]
+}

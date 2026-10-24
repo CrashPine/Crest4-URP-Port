@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-24T10:46:55.9086799Z",
+  "recordedUtc": "2026-10-24T15:28:21.9275891Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1314,
+  "fileCount": 1319,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -33,11 +33,19 @@
   ],
   "currentTestReports": [
     {
-      "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-24 10:43:41Z",
+      "file": "EditMode-DX11-focused-interactive.xml",
+      "start": "2026-10-24 15:18:58Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX11-focused.xml",
+      "start": "2026-10-24 15:24:36Z",
+      "result": "Passed",
+      "total": "3",
+      "passed": "3",
       "failed": "0"
     },
     {
@@ -46,6 +54,14 @@
       "result": "Passed",
       "total": "66",
       "passed": "66",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX12-focused-interactive.xml",
+      "start": "2026-10-24 15:22:38Z",
+      "result": "Passed",
+      "total": "1",
+      "passed": "1",
       "failed": "0"
     },
     {
@@ -5662,6 +5678,11 @@
       "sha256": "8274A806CE46CF65C68A9E2E6059B9C192CC945EA0AFB7218AAC441D13A3510F"
     },
     {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor.meta",
+      "bytes": 80,
+      "sha256": "90CF3490AFF250F1367E824D18474CC96631299A313A421AADDAF9FC92F14CB3"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/AdditionalSimulationTests.cs",
       "bytes": 8029,
       "sha256": "A4DFF882B0D7AA99537938E43CDE5BF942DB8D94518A758B5D241E87123A3CC6"
@@ -6070,6 +6091,26 @@
       "path": "Assets/Crest/URP/Tests/Editor/WaveRayTests.cs.meta",
       "bytes": 61,
       "sha256": "AD001EE87592BD42403DEECA984D494DBD65DBE9DD7E26F5A4DE284001627FBE"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor/Crest.URP.Interactive.Tests.asmdef",
+      "bytes": 257,
+      "sha256": "8EDF714420DDFD1164F767B119F0669C044567DA54E1ED22EB8F4345787ACF76"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor/Crest.URP.Interactive.Tests.asmdef.meta",
+      "bytes": 62,
+      "sha256": "D913060C522CEF1FE59EEE7CF1EFDCE90EDC5D46A7863629653E9CA691DB7B6F"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor/OriginShiftLifecycleTests.cs",
+      "bytes": 13444,
+      "sha256": "AAACBFED305B075AF749D5EA88D53D9CDC47BB6E9090C32B47E789F90DD094D0"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/InteractiveEditor/OriginShiftLifecycleTests.cs.meta",
+      "bytes": 61,
+      "sha256": "5603FECB8646C0734A07D082C78C902C8F3A733AAD78C21DC18C4F647581E37D"
     },
     {
       "path": "Assets/CrestPortDemos/Ocean_Buoyancy.mat",
@@ -6573,8 +6614,8 @@
     },
     {
       "path": "Tools/Run-Unity.ps1",
-      "bytes": 2977,
-      "sha256": "565F3B20E83F53D06B7849FD476AC3B88B017ADB0F4F199721E892B6188591EC"
+      "bytes": 3438,
+      "sha256": "925564F274E5B5448D477CB4D32D17FD472940E75740CD73D9EE0F2D2B3B8DF0"
     },
     {
       "path": "Tools/Verify-GuidAndCompute.ps1",
@@ -6593,8 +6634,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 19183,
-      "sha256": "7E2A98D2FE605F6860EC02B58FB001958A0FF01BB3DF7C561A676A6C7EA265D7"
+      "bytes": 19812,
+      "sha256": "2D90BDCD7EC867246BBC1BE3D4E0BF87419563BB53D5BA25549035A44F7A99AC"
     },
     {
       "path": "LICENSE.Crest",
@@ -6603,23 +6644,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 22424,
-      "sha256": "AC959EC99567C00DC9AF0CCBB7AA415AF0FFB2E6612CDCC37D710B89AC0CDB9B"
+      "bytes": 23340,
+      "sha256": "2FC7753EB11BE8B6F9E91A4444B3398ECECB93C9556DD827EB49AAC648EBAC8E"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 17073,
-      "sha256": "E8913CDB9943E4EEACA83D34D396387E02D5D9DEED804818A8FFB9CF6B233384"
+      "bytes": 17632,
+      "sha256": "B84F3A4F8E19A061DE7F70DDF62016F180D1023EEAA25148DB7369DBB168C9C1"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 9529,
-      "sha256": "1A13800B2B955B35F1437BF689B466BA352A3BFDB1E2C5A3FA176D89F437AA1B"
+      "bytes": 9180,
+      "sha256": "6F000C4D6269EB649C15133A6E7B47FB0AFA7F753990D9026C895A59C30D3571"
     },
     {
       "path": "README.md",
-      "bytes": 7008,
-      "sha256": "A26A307069235BDA2D064BB41738796A26B4B0C56E447A8C931CAC5A4711C47E"
+      "bytes": 8147,
+      "sha256": "15F09AAB674A7E7856BE2E6A73B5D03711A61B7F09A9540916413EFBF582E5FA"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6628,8 +6669,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 145719,
-      "sha256": "C2DBCE62EB11F4754688EAEA34535F6246A3BA6EC51A1077B819B5A16AC54E85"
+      "bytes": 149466,
+      "sha256": "14CB9330BF18BED92933E27382C26834D896A9E8E6466C4DEDD6E8315C0F3CF3"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

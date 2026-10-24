@@ -331,3 +331,18 @@ scales: filtered/resampled representations can differ. Use the field and cascade
 metadata from the actual query dispatch when validating a result. The query's
 logarithmic cascade blend is distinct from the vertex morph's linear radius blend;
 a correct query alone cannot establish shared-edge geometry/normal continuity.
+
+
+ShiftingOrigin triggers only when an absolute axis exceeds its threshold; an
+exact threshold does not shift. It subtracts floor(position/threshold)*threshold
+on each exceeded axis: at threshold2048, X=-2048.25 shifts by-4096 and leaves
+X=2047.75. Root transforms move once, with children inherited. World-space
+particles are repositioned separately and preserve playing/paused state; local
+particles keep local coordinates. Physics sleep thresholds are based on distance
+from the new world origin, not distance from the camera.
+
+Its original per-frame shift flags persist through LateUpdate and are cleared
+by Start's WaitForEndOfFrame coroutine. A batch run cannot establish that reset.
+Use the separate non-batch lifecycle profile in README; no manual flag clearing
+is part of the integration contract. Wave compatibility and texture history
+transport remain separately tracked in FEATURE_MATRIX.

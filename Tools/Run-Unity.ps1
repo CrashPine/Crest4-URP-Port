@@ -2,7 +2,8 @@ param(
     [Parameter(Mandatory=$true)][string]$Editor,
     [ValidateSet('Import','Generate','ValidateAssets','EditMode','PlayMode','Development','Release')][string]$Action='Import',
     [ValidateSet('DX11','DX12')][string]$GraphicsAPI='DX11',
-    [string]$TestFilter=''
+    [string]$TestFilter='',
+    [switch]$Interactive
 )
 $ErrorActionPreference = 'Stop'
 $project = Split-Path $PSScriptRoot
@@ -11,8 +12,11 @@ if ($version -notmatch '^6000\.6\.5') { throw "Target validation requires Unity 
 $evidence = Join-Path $project 'Evidence'
 New-Item -ItemType Directory -Force $evidence | Out-Null
 if ($TestFilter -and $Action -notin @('EditMode','PlayMode')) { throw 'TestFilter requires a test action.' }
-$runName = "$Action-$GraphicsAPI" + $(if ($TestFilter) { '-focused' } else { '' })
-$arguments = @('-batchmode','-projectPath',('"'+$project+'"'),'-logFile',('"'+(Join-Path $evidence "$runName.log")+'"'))
+if ($Interactive -and $Action -ne 'EditMode') { throw 'Interactive currently supports the separate Editor lifecycle test assembly only.' }
+$runName = "$Action-$GraphicsAPI" + $(if ($TestFilter) { '-focused' } else { '' }) + $(if ($Interactive) { '-interactive' } else { '' })
+$arguments = @('-projectPath',('"'+$project+'"'),'-logFile',('"'+(Join-Path $evidence "$runName.log")+'"'))
+if (!$Interactive) { $arguments = @('-batchmode') + $arguments }
+if ($Action -eq 'EditMode') { $arguments += @('-assemblyNames', $(if ($Interactive) {'Crest.URP.Interactive.Tests'} else {'Crest.URP.Tests'})) }
 $arguments += $(if ($GraphicsAPI -eq 'DX12') {'-force-d3d12'} else {'-force-d3d11'})
 switch ($Action) {
  'Generate' { $arguments += @('-quit','-executeMethod','Crest.URP.Editor.PortAutomation.GenerateScenes') }
