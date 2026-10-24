@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-24T20:27:28.2072408Z",
+  "recordedUtc": "2026-10-24T20:49:45.1534629Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1321,
+  "fileCount": 1323,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -11,6 +11,7 @@
     "Crest\\Scripts\\Crest.asmdef",
     "Crest\\Scripts\\OceanRenderer.cs",
     "Crest\\Scripts\\Collision\\QueryBase.cs",
+    "Crest\\Scripts\\LodData\\LodDataMgrClipSurface.cs",
     "Crest\\Scripts\\LodData\\OceanDepthCache.cs",
     "Crest\\Scripts\\LodData\\Shadows\\LodDataMgrShadow.cs",
     "Crest\\Scripts\\Reflection\\OceanPlanarReflection.cs",
@@ -43,15 +44,15 @@
     },
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-24 15:24:36Z",
+      "start": "2026-10-24 20:31:30Z",
       "result": "Passed",
-      "total": "3",
-      "passed": "3",
+      "total": "1",
+      "passed": "1",
       "failed": "0"
     },
     {
       "file": "EditMode-DX11-interactive.xml",
-      "start": "2026-10-24 15:54:27Z",
+      "start": "2026-10-24 20:36:27Z",
       "result": "Passed",
       "total": "2",
       "passed": "2",
@@ -59,10 +60,10 @@
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-10-24 15:52:43Z",
+      "start": "2026-10-24 20:32:25Z",
       "result": "Passed",
-      "total": "69",
-      "passed": "69",
+      "total": "70",
+      "passed": "70",
       "failed": "0"
     },
     {
@@ -83,7 +84,7 @@
     },
     {
       "file": "EditMode-DX12-interactive.xml",
-      "start": "2026-10-24 15:56:58Z",
+      "start": "2026-10-24 20:42:36Z",
       "result": "Passed",
       "total": "2",
       "passed": "2",
@@ -91,10 +92,10 @@
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-24 15:54:56Z",
+      "start": "2026-10-24 20:37:36Z",
       "result": "Passed",
-      "total": "69",
-      "passed": "69",
+      "total": "70",
+      "passed": "70",
       "failed": "0"
     }
   ],
@@ -1131,8 +1132,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrClipSurface.cs",
-      "bytes": 5235,
-      "sha256": "E634C842B726629D5FE32BD251F7C4FA1E2756964AC07EB322F2116A30219FC8"
+      "bytes": 5345,
+      "sha256": "05977283CB3D5B4D77D38B216AD22E6A3584016EC45966B3A4D0BF52474EBC56"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrClipSurface.cs.meta",
@@ -6100,6 +6101,16 @@
       "sha256": "FC87E4AEE40405249D1FB349EF455B3F21CCEEBAF759A2A1CC52C1B6C21F5E88"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/WaterBodyTests.cs",
+      "bytes": 17675,
+      "sha256": "00F9BA3CA2F1DB00F268F7FB9346153E8BED1EBC64894727F682FCEDFF874C03"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/WaterBodyTests.cs.meta",
+      "bytes": 62,
+      "sha256": "40B2832B8E5E37CDA7E67AFBAB6B2C51242304FE92619947094AF6CF76743FE0"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/WaveRayTests.cs",
       "bytes": 12635,
       "sha256": "33AA7E2D9CF81D25786CCD1879DFAD9AD258388B9AA466B09F5BDF86B8B0D68C"
@@ -6661,8 +6672,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 20338,
-      "sha256": "C9E3539D971DC8D2A249F41DD43DB75C1E77B7D2C73A04F221BEBF6704D4B609"
+      "bytes": 21003,
+      "sha256": "8D22539D1A4DE427A0F20CEB042329AF65E46CC07E403C8EF3487F83C0F86FD9"
     },
     {
       "path": "LICENSE.Crest",
@@ -6671,23 +6682,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 24364,
-      "sha256": "9DE90CB3873059A7171E4101E439DA15A6CD8DD58CECE9257BAB393864496F0B"
+      "bytes": 26292,
+      "sha256": "B777B472C85F49BFF554B9E438B66CC4CB43772F156B88D41942B5DA6B330443"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 18298,
-      "sha256": "B547A961D71DA253DE047038CB50AF4C7CC194637A714802B2F6A91A327AA8CE"
+      "bytes": 19500,
+      "sha256": "65F905D8AD263005339AC8B98C6C5F4C8A48B6545C1CE362E97A7D71B620A79E"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 8630,
-      "sha256": "C3A4140A40C62D94920BB95382E83272D0AC4F1C7DF0C0ECC05F084B20FE9DF0"
+      "bytes": 9357,
+      "sha256": "F67F1514F60F822FFFB979BBA7A8EDFFF8D267817E70DDB213C8D9408941ACE6"
     },
     {
       "path": "README.md",
-      "bytes": 8396,
-      "sha256": "36EDBA2C6B70371226E1B8D48BE30435056944A5BA0477F98C3AF99623496D09"
+      "bytes": 8950,
+      "sha256": "07BE4E7A0CA9C129CE322E5636EAF41371AA75A1F0EDCCEA8D2A24F853D8CC9F"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6696,8 +6707,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 154148,
-      "sha256": "FBD8D0091D1316493535019FE82B89C565CFCD861CB3D60BE3EB91116284625B"
+      "bytes": 161137,
+      "sha256": "64657F3F71B7C53DAF5C0FA221FED000C975D91BFD7463DE5006A45F873F994D"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

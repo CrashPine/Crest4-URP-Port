@@ -361,3 +361,32 @@ is seeded, then its source is disabled and ocean delta is zero for transport.
 This verifies retained texture contents, not positive-delta dynamic-wave evolution,
 wind-force continuity, all wave-shape types or long-distance precision limits.
 Measured scope and retained before-fix failure are in TEST_RESULTS.md.
+
+
+## Water body bounds, culling and default clip state
+
+`WaterBody` represents an axis-aligned rectangle in XZ. Its original validation
+rejects rotation; the Y scale is not a volume-depth bound. If any bodies are
+active and `_waterBodyCulling` is enabled, ocean tiles need positive XZ overlap
+with at least one body. A boundary touch with zero area does not overlap.
+Overlapping material overrides use the largest overlap with the tile's
+unexpanded bounds; this is a tile-level assignment, not a per-pixel material blend.
+Without clip data, tile culling is coarse and does not trim water to each rectangle.
+
+To trim the rendered surface to included areas, enable clip data and the surface clip keyword and set
+`_defaultClippingState=EverythingClipped`. Original WaterBody inputs write zero
+inside their rectangles; uncovered samples remain one and are clipped. Disabling
+all bodies with this default therefore hides all water. `NothingClipped` instead
+restores the unbounded ocean when there are no inputs. The clip manager's clear
+cache now also tracks the default clear value, so changing that public setting
+with an empty input list updates the GPU texture rather than retaining stale data.
+
+Bounds are calculated on OnEnable (and by Editor gizmos). Clip-input transform
+updates live only in original Editor Update. Configure position/scale before
+enabling a body; disable/change/re-enable to refresh both bounds and clip input
+in Player code. An Editor gizmo refresh is not a general runtime movement API. Registration also
+depends on the ocean clip configuration at OnEnable. Apply that configuration
+before enabling bodies, or re-enable them after changing it; automatic registration
+updates in WaterBody.Update are Editor-only.
+Flat-water culling/override/include-area acceptance is recorded in TEST_RESULTS;
+underwater fog dominance, waved edges and broader standalone coverage remain open.

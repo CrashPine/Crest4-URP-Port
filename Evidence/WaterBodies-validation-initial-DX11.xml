@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-24 20:30:14Z" end-time="2026-10-24 20:30:15Z" duration="0,8602783">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="72" result="Failed" site="Child" start-time="2026-10-24 20:30:14Z" end-time="2026-10-24 20:30:15Z" duration="0.860278" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1116" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="70" result="Failed" site="Child" start-time="2026-10-24 20:30:14Z" end-time="2026-10-24 20:30:15Z" duration="0.847802" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="169520" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1112" name="WaterBodyTests" fullname="WaterBodyTests" classname="WaterBodyTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-24 20:30:14Z" end-time="2026-10-24 20:30:15Z" duration="0.844123" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1113" name="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" fullname="WaterBodyTests.BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" methodname="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" classname="WaterBodyTests" runstate="Runnable" seed="1042428083" result="Failed" start-time="2026-10-24 20:30:14Z" end-time="2026-10-24 20:30:15Z" duration="0.819747" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="120000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.'. Use UnityEngine.TestTools.LogAssert.Expect
+TearDown : Unhandled log message: '[Error] Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Crest.ValidatedHelper:DebugLog (string,string,Crest.ValidatedHelper/MessageType,UnityEngine.Object,System.Action`1<UnityEditor.SerializedObject>) (at Assets/Crest/Crest/Scripts/OceanValidation.cs:68)
+Crest.OceanRenderer:Validate (Crest.OceanRenderer,Crest.ValidatedHelper/ShowMessage) (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1879)
+Crest.OceanRenderer:OnEnable () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:622)
+Crest.OceanRenderer:Rebuild () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:770)
+Crest.OceanRenderer:RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1117)
+Crest.OceanRenderer:LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Crest: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component.
+Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

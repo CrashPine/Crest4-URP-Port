@@ -1,0 +1,94 @@
+{
+  "recordedUtc": "2026-10-24T20:44:05.439200+00:00",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/WaterBodyTests.cs",
+      "sha256": "00f9ba3ca2f1db00f268f7fb9346153e8bed1ebc64894727f682fcedff874c03"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrClipSurface.cs",
+      "sha256": "05977283cb3d5b4d77d38b216ad22e6a3584016ec45966b3a4d0bf52474ebc56"
+    }
+  ],
+  "regression": [
+    {
+      "path": "Evidence/EditMode-DX11.xml",
+      "api": "DX11",
+      "profile": "batch",
+      "total": 70,
+      "startUtc": "2026-10-24 20:32:25Z",
+      "endUtc": "2026-10-24 20:36:03Z",
+      "sha256": "fe9b3ba884d50c93e4bc17f9daaffe367a2eba9c265c76e9f47a6716019838b0"
+    },
+    {
+      "path": "Evidence/EditMode-DX11-interactive.xml",
+      "api": "DX11",
+      "profile": "non-batch",
+      "total": 2,
+      "startUtc": "2026-10-24 20:36:27Z",
+      "endUtc": "2026-10-24 20:37:15Z",
+      "sha256": "d474247e9f19fac85aaad7a28af3ae896ed92c8640e85b57923b0fbe2b5e9aff"
+    },
+    {
+      "path": "Evidence/EditMode-DX12.xml",
+      "api": "DX12",
+      "profile": "batch",
+      "total": 70,
+      "startUtc": "2026-10-24 20:37:36Z",
+      "endUtc": "2026-10-24 20:42:12Z",
+      "sha256": "f2675506a48859fe629fc2443ae8d6b9f7b03c27f100c45c1775784e02846f04"
+    },
+    {
+      "path": "Evidence/EditMode-DX12-interactive.xml",
+      "api": "DX12",
+      "profile": "non-batch",
+      "total": 2,
+      "startUtc": "2026-10-24 20:42:36Z",
+      "endUtc": "2026-10-24 20:43:20Z",
+      "sha256": "5de8fd4e11ea78fe8415a5cec407f905deaabad784e945c8e71b872c7be908d7"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/WaterBodies-Direct3D11.txt",
+      "sha256": "9dd1e84cd41592d4cca833c377a02bda07a8bd3f05d3e68f917a7604a63cc190"
+    },
+    {
+      "path": "Evidence/WaterBodies-Direct3D12.txt",
+      "sha256": "d6cb181e3bbaacd441a0c79249b3f294b62555777ef72836b60fef46110656f8"
+    },
+    {
+      "path": "Evidence/WaterBodies-default-beforefix-DX11.xml",
+      "sha256": "df52397c4ef5c7a97f95cb900048681f575ed50f06506e10fe0a5983246923b1"
+    },
+    {
+      "path": "Evidence/WaterBodies-default-beforefix-Direct3D11.txt",
+      "sha256": "b01c114513bf794a38a4a81cbab041d3601dd9b4f492e403efa673c9e73abbb7"
+    }
+  ],
+  "perAPI": {
+    "cullingStates": 11,
+    "tiles": 88,
+    "tileChecks": 968,
+    "fieldSamples": 130386,
+    "interiorMaskPixels": 385032,
+    "maxFieldError": 0,
+    "interiorMaskMismatches": 0
+  },
+  "binaryMaskAPIDifferences": {
+    "Baseline": 0,
+    "Empty": 0,
+    "TwoIncludedAreas": 10,
+    "OnlyAIncluded": 10,
+    "MovedIncludedArea": 0
+  },
+  "binaryMaskComparison": "System.Drawing.Bitmap.GetPixel over all256x256 PNG pixels, clear iff R>240,B>240,G<16; differences confined to excluded edge band because both interior references pass.",
+  "limitations": [
+    "Flat water only; no underwater fog dominance/waved edges/serialization GUI or standalone numerical fixture acceptance.",
+    "Original bounds/clip-transform move contract is disable/change/re-enable.",
+    "Edge band .35m fixed before first run, no pixel-identical API or subpixel-edge claim.",
+    "Both full batch shutdowns again warn Persistent allocates 3 individual allocations; allocation owner remains P10."
+  ]
+}

@@ -2,7 +2,28 @@
 
 Актуальная сверка: **2026-10-24**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
-## Текущие подтверждённые результаты
+## Актуальный checkpoint P08.4
+
+Полный порт не завершён; это результат перечисленных fixtures с ограничениями ниже и в FEATURE_MATRIX.
+
+| Проверка | DX11 | DX12 | Текущие доказательства |
+|---|---|---|---|
+| Основная batch suite | PASSED 70/70 | PASSED 70/70 | EditMode-DX11.xml /DX12.xml; snapshots WaterBodies-DX11.xml /DX12.xml |
+| GameView / настоящий EOF | PASSED 2/2 | PASSED 2/2 | EditMode-DX11-interactive.xml /DX12-interactive.xml |
+| Development,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Development-DX11 /DX12; UTC2026-10-24 20:46 |
+| Release,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Release-DX11 /DX12; UTC2026-10-24 20:47 |
+| Original GUID/compute | PASSED 597 | — | guid-compute-preservation.json;3 известных normalized sprite meta не byte-identical |
+
+WaterBodies-checkpoint.json содержит source/XML/report hashes и измеренный scope;
+Build-checkpoint.json — свежие assemblies/selected packed assets/smoke hashes и shutdown warnings.
+Persistent allocations и DX12 evictable-resource warnings остаются открытой диагностикой P10.
+
+## История focused-проверок и предыдущих checkpoints
+
+Ниже статусы на дату соответствующего запуска. Canonical `EditMode-*.xml` заменяются
+следующей полной регрессией; прежние версии находятся в Git checkpoints. Актуальное
+состояние указано в сводке выше и PORT_PROGRESS; старые счётчики
+48/66/69 не являются числом тестов текущей сборки.
 
 | Проверка | DX11 | DX12 | Доказательство |
 |---|---|---|---|
@@ -32,7 +53,7 @@
 
 Добавлены UnderwaterBoundaryTests. Runtime cleanup исправлен: RemoveCommandBuffers больше не вызывает CameraEvent API под URP, где буферы не подключались. Полные DX11/DX12 suites проходят; предупреждений Camera.RemoveCommandBuffer в новых логах нет. Существующие player runs не доказывают новые volume fixtures в standalone; перед окончательной приёмкой нужна проверка соответствующих вариантов в Player (P11). Тесты не означают полную приёмку всех исходных функций.
 
-## Область 45 тестов (текущий full checkpoint указан в таблице)
+## Историческая область 45 тестов (подмножество последующего набора)
 
 | Область | Количество | Проверенный результат | Что этим не доказано |
 |---|---:|---|---|
@@ -576,3 +597,20 @@ Final origin transport results match on DX11/DX12: preserved cases max native RG
 Required post-shader regression: batch **69/69 DX11** UTC15:52:43Z–15:54:12Z and **69/69 DX12** UTC15:54:56Z–15:56:42Z; non-batch **2/2 DX11** UTC15:54:27Z–15:54:43Z and **2/2 DX12** UTC15:56:58Z–15:57:14Z. All test-case nodes Passed, failed0/skipped0. Current EditMode-DX11.xml/DX12.xml replace previous66-test reports; historical P07 hashes/timestamps remain in P07-Milestone.json. Both batch shutdowns again report Persistent allocates3 individual allocations; owner/stacks unresolved, P10 remains open. Non-batch acceptance does not close the leak warning or P09 shading comparison.
 
 Post-fix Development/Release builds both report Success (Unity UTC15:57–15:58), strict shader variant matching enabled. Four fresh Player runs finished UTC20:24–20:26 (Development/Release ×DX11/DX12), each seven scenes +four reflection-options PNG, Errors=0. Build-checkpoint.json now includes shader/source hashes, actual managed assemblies, selected packed assets and smoke report hashes/timestamps/warnings. Some Player runs overlap; no performance inference. Reviewed DevelopmentDX11 reflections, DevelopmentDX12 underwater, ReleaseDX11 waves and ReleaseDX12 pixel-light control images: expected surface/control present, no magenta error surface. This does not establish Built-in equivalence or standalone numerical origin coverage. DX12 Player shutdown unreleased-evictable-resource messages are preserved in checkpoint warnings and remain P10 diagnosis, alongside both Editor allocation warnings.
+
+
+## P08.4 — water bodies and stale default clipping fix (2026-10-24)
+
+New Editor-only WaterBodyTests drives the original WaterBody/OceanRenderer, flat water at fixed scale8. Eleven renderer states compare all88 real tiles with independent transformed-corner bounds, positive intersection areas and largest material-overlap reference. Cases include no/one/two overlapping bodies, material dominance, disable/restore, position/scale changes through disable/re-enable, moved camera, exact zero-area touch, culling toggle and restored defaults. Default material restoration is verified through actual rendering for visible tiles; off-screen stale materials are not mistaken for failed bind callbacks.
+
+With clip data and EverythingClipped, original body inputs are checked against included rectangles using native first-cascade texels and an independent ray-to-water-plane interior pixel mask. Five bounded diagnostic images/API are produced (baseline/empty/two areas/one area/moved area); captures do not substitute for numerical assertions. Source fields tolerance.005 and mask margin.35m were chosen before the first run and unchanged; edge bands do not establish waved-edge antialiasing or visual parity.
+
+Initial harness failure WaterBodies-validation-initial-DX11.xml/.txt is retained: the fixture disabled foam on its isolated material while leaving foam simulation enabled, so original validation correctly rejected it. The fixture now disables that unrelated simulation consistently; no validation errors are suppressed. Subsequent **real runtime failure** WaterBodies-default-beforefix-DX11.xml/.txt reached DefaultVisibleRestored: expected GPU field0, actual1 (max error1). LodDataMgrClipSurface's empty-input early return remembered that the targets were cleared, but not which default value was used. The cache now tracks that value; unchanged empty state still skips redundant clears. Input drawing, formats, shaders/compute and public default-state semantics are retained.
+
+Focused first-fix DX11 **1/1** passed (WaterBodies-firstfix-DX11.xml/.txt), with968 tile comparisons,97618 field samples and319496 interior pixel checks. It was then strengthened with reverse default-state cycling and minimum interior/exterior coverage assertions before the required full regression. Final results below supersede those focused counts; no full acceptance claim from the focused report alone. Runtime movement uses OnEnable refresh; original Editor gizmo/update convenience is not a standalone API. Underwater fog dominance, waves at body edges, serialization/GUI variants and broader standalone integration remain outside this fixture.
+
+Final strengthened WaterBodyTests passes in full **70/70 batch DX11/DX12**; separate non-batch suites **2/2 on each API** also pass, all test-case nodes Passed, failed0/skipped0. Full batch UTC20:32:25Z–20:36:03Z DX11 /20:37:36Z–20:42:12Z DX12. Non-batch times and exact XML/source/report hashes are in WaterBodies-checkpoint.json. Dedicated WaterBodies-DX11.xml/DX12.xml snapshot the full70 batch suite, not a focused1-test result. Final per API:11 culling states ×88tiles=968 comparisons,130386 native first-cascade samples,385032 interior mask pixels; field max error0, interior mismatches0, final active bodies0. Override-dominance state assigns10 tiles to A and4 to B; default restores88 enabled, exact-touch state leaves the touching tile disabled. Visible pixels for two/one/moved included areas:14336/9216/4608, empty/disabled/hidden0 and restored default65536.
+
+Reviewed actual DX11/DX12 body images. Whole-image binary-mask comparison (System.Drawing, same magenta threshold as fixture) gives0 API differences for baseline/empty/moved and10 boundary pixels each for two-area/one-area captures. Both interior references pass; differences lie in the preselected excluded edge band. No pixel-identical API or subpixel-edge claim. These boundary differences remain P09 comparison work; the .35m band was not increased after observation. Both full batch shutdowns again warn Persistent allocates3 individual allocations; P10 remains open. No compute/GUID changes.
+
+Post-cache-fix Development/Release builds both Success (UTC20:44–20:45), strict variant matching. Four fresh Player runs finish UTC20:46:51Z (Development both APIs) /20:47:36Z (Release both), each seven scenes +four reflection-options PNG and Errors=0. Build-checkpoint updated to the new clip manager source, actual assemblies and selected packed assets plus all fresh report hashes. Reviewed new DevelopmentDX11 interactions, DevelopmentDX12 reflections, ReleaseDX11 underwater and ReleaseDX12 reflections: expected water/fixture, no magenta error surface. Some runs overlap; no performance or complete visual-equivalence/standalone numerical body acceptance. DX12 shutdown evictable-resource warnings persist and are captured. Build-generated ReflectionVertexVariants trailing whitespace restored to canonical; ProjectSettings unchanged. Foreign Ocean.mat/example lighting preserved; original597 GUID/compute check passes,8 root Markdown files retained. P08.4 scoped DONE; remaining acceptance follows PORT_PLAN only.

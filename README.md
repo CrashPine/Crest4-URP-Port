@@ -85,3 +85,9 @@ checkpoint. Для wave phase/foam history использовать `-TestFilter
 убрать `-TestFilter`. На milestones требуются обе assembly на обоих API: один
 batch XML не подтверждает EOF. Исходный WaitForEndOfFrame не работает в batch,
 поэтому интерактивная fixture отклоняет batch mode явным assertion.
+
+P08.4 водоёмы можно воспроизвести обычным batch-профилем с
+`-Action EditMode -GraphicsAPI DX11 -TestFilter WaterBodyTests` (повторить DX12).
+Численные отчёты — `Evidence/WaterBodies-Direct3D11.txt` / `Direct3D12.txt`;
+`WaterBodies-checkpoint.json` связывает исходники с XML и ограничениями проверки.
+После runtime-правок требуется полный набор обоих профилей, не только этот filter.

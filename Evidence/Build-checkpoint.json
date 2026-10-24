@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-10-24T20:26:29.030814+00:00",
+  "recordedUtc": "2026-10-24T20:48:13.940780+00:00",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
   "strictShaderVariantMatching": true,
@@ -31,6 +31,10 @@
     {
       "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader",
       "sha256": "FC83736D349C77C3A84BB70C7D940358A74F482FD526C841A9297EC5C7827BAF"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrClipSurface.cs",
+      "sha256": "05977283CB3D5B4D77D38B216AD22E6A3584016EC45966B3A4D0BF52474EBC56"
     }
   ],
   "builds": [
@@ -38,8 +42,8 @@
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
       "bytes": 286208,
-      "modifiedUtc": "2026-10-23T15:46:53.570152+00:00",
-      "sha256": "810B2C8A5356E53E3E7C00C644CFDC65E2085185CA9BEAFB5DE978769E9BD5A6"
+      "modifiedUtc": "2026-10-24T20:44:24.593462+00:00",
+      "sha256": "E60ABC15FAEE94764C85B9EAE65FC86A26D83A3B02DCC02C4D387609A0EEDAA5"
     },
     {
       "configuration": "Development",
@@ -52,8 +56,8 @@
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
       "bytes": 282112,
-      "modifiedUtc": "2026-10-23T15:47:25.339211+00:00",
-      "sha256": "70DAE5071A295EE469742C2C5556050EE9B6012908E9FB4BB1A2225D0FBBD9AB"
+      "modifiedUtc": "2026-10-24T20:45:19.569366+00:00",
+      "sha256": "E2D1821D29EA97FBDB217BB177B12966A750014DE3A7FB336D9ACDD2F95A5AF0"
     },
     {
       "configuration": "Release",
@@ -63,58 +67,59 @@
       "sha256": "F749729DAC26F2BEB1DC7C71A127CE1885382FA40E6470007980A2C7FBE5966A"
     }
   ],
-  "limitation": "P08.3 global Gerstner floating-origin rotated-basis fix. Development/Release rebuilt after shader change with strict variant matching; build logs report Success. Selected source, assembly and packed-asset fingerprints, not a complete manifest. Player smoke is integration coverage, not standalone numerical origin transport, full visual equivalence or performance acceptance. Some Player runs overlap; smoke completion is recorded separately in TEST_RESULTS.",
+  "limitation": "P08.3 rotated global Gerstner origin fix and P08.4 empty-input clip-clear default-state cache fix. Selected source/assembly/packed-asset fingerprints, not a complete manifest. Runtime shader/source builds use strict variant matching. Smoke tests integration, not standalone numerical origin/body fixtures, full visual equivalence or performance acceptance. Some Player runs overlap.",
   "packedAssets": [
     {
       "configuration": "Development",
       "path": "CrestPort_Data/resources.assets",
       "bytes": 1117396,
-      "modifiedUtc": "2026-10-24T15:57:36.310255+00:00",
+      "modifiedUtc": "2026-10-24T20:44:15.749753+00:00",
       "sha256": "3A06E06A9295F5D8D2A1F0DF178EA59CCD5ED70E7C2FC8E1C0E805D545DE5A1B"
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/sharedassets0.assets",
       "bytes": 295008,
-      "modifiedUtc": "2026-10-24T15:57:36.309254+00:00",
+      "modifiedUtc": "2026-10-24T20:44:15.747175+00:00",
       "sha256": "8471A7EEE04318F7DCFACC82E0B24BDAA084F1A702F3F7B16EFB8A6A1FEFD838"
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/globalgamemanagers",
       "bytes": 95668,
-      "modifiedUtc": "2026-10-24T15:57:36.311821+00:00",
+      "modifiedUtc": "2026-10-24T20:44:15.757377+00:00",
       "sha256": "BA2F58FDBD85E0C2D8A7056AA7ADAB4B0F7381187796FD8CBFC2DF02465984B6"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/resources.assets",
       "bytes": 1117396,
-      "modifiedUtc": "2026-10-24T15:58:09.593462+00:00",
-      "sha256": "3A06E06A9295F5D8D2A1F0DF178EA59CCD5ED70E7C2FC8E1C0E805D545DE5A1B"
+      "modifiedUtc": "2026-10-24T20:45:16.751819+00:00",
+      "sha256": "91943FA1BBA52B0E87BE0FEF850F8E5C71AA958A92D3A523C2879431389D16DE"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/sharedassets0.assets",
       "bytes": 295008,
-      "modifiedUtc": "2026-10-24T15:58:09.594463+00:00",
+      "modifiedUtc": "2026-10-24T20:45:16.750305+00:00",
       "sha256": "83931F46D3626BA4B126D60BF297ABC3457E338B1E37A9141ED1431B052A1F9B"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/globalgamemanagers",
       "bytes": 95668,
-      "modifiedUtc": "2026-10-24T15:58:09.595970+00:00",
-      "sha256": "97AE3AD26B9C1F15376DA1C990CFBFECE81A63EC79B5F4E80E72FED00C623FE1"
+      "modifiedUtc": "2026-10-24T20:45:16.754752+00:00",
+      "sha256": "15CC1A7CFE56B806DFC119DBEF43D8818C2347BECE74320E995CB579D644FE9E"
     }
   ],
+  "validationStatus": "Both builds succeeded after clip-clear cache fix; four fresh smokes passed with Errors=0, seven scenes plus four reflection-option images each.",
   "smokes": [
     {
       "configuration": "Development",
       "api": "DX11",
       "report": "Evidence/Player-Development-DX11/player-smoke.txt",
-      "reportSha256": "773f2285fdc8dd13446c081766e2ba1752da5d8f248bf94ad5f340bf20bfa0f2",
-      "modifiedUtc": "2026-10-24T20:24:46.724200+00:00",
+      "reportSha256": "7684dd01d299a7e2ea2513bf80f76331b980cdc3b1f638918f4772b929cedf7e",
+      "modifiedUtc": "2026-10-24T20:46:51.212052+00:00",
       "images": 11,
       "errors": 0,
       "shutdownWarnings": []
@@ -123,20 +128,20 @@
       "configuration": "Development",
       "api": "DX12",
       "report": "Evidence/Player-Development-DX12/player-smoke.txt",
-      "reportSha256": "3e0924e85bb2fab76531e01a9ad05a9ee0eb78027737a8177b7d9be3380d1e32",
-      "modifiedUtc": "2026-10-24T20:25:24.401779+00:00",
+      "reportSha256": "30da20793b96265a4c2563580974b05b156e8202aad909bdcfe929daf81196d9",
+      "modifiedUtc": "2026-10-24T20:46:51.222689+00:00",
       "images": 11,
       "errors": 0,
       "shutdownWarnings": [
-        "PlayerConnection::Cleanup[d3d12] Unreleased evictable resource 0000020493A74DD0 (size 2490368 B, lastUsedFence 13066) 'Proxy-BackBuffer-960-540'"
+        "PlayerConnection::Cleanup[d3d12] Unreleased evictable resource 000001FE135CD840 (size 2490368 B, lastUsedFence 12387) 'Proxy-BackBuffer-960-540'"
       ]
     },
     {
       "configuration": "Release",
       "api": "DX11",
       "report": "Evidence/Player-Release-DX11/player-smoke.txt",
-      "reportSha256": "832d514ca98b457f7d20a923ef39886cd1f153d0d9d9910bc8b212129332f034",
-      "modifiedUtc": "2026-10-24T20:25:39.987657+00:00",
+      "reportSha256": "5fa8e504b0a82f1d741089650e1c4c221ceee8ec17f58a6989aff20bc3d2a71f",
+      "modifiedUtc": "2026-10-24T20:47:36.934672+00:00",
       "images": 11,
       "errors": 0,
       "shutdownWarnings": []
@@ -145,12 +150,12 @@
       "configuration": "Release",
       "api": "DX12",
       "report": "Evidence/Player-Release-DX12/player-smoke.txt",
-      "reportSha256": "99e703c1db845b5a679622d6f9e54144cb32a4909742b15e21530f0ff67e4f32",
-      "modifiedUtc": "2026-10-24T20:26:08.088037+00:00",
+      "reportSha256": "dc948c172bef7a02ef04a535796031f457193b00d16627e3a3a35411dee52abb",
+      "modifiedUtc": "2026-10-24T20:47:36.972323+00:00",
       "images": 11,
       "errors": 0,
       "shutdownWarnings": [
-        "[d3d12] Unreleased evictable resource 000001D815CAEC10 (size 2490368 B, lastUsedFence 16342)"
+        "[d3d12] Unreleased evictable resource 0000029E1E672D70 (size 2490368 B, lastUsedFence 12876)"
       ]
     }
   ]
