@@ -47,6 +47,18 @@
 
 Закрытие P07: эти проверки на DX11/DX12, раскрытые inherited ограничения и полный milestone regression обоих API. Сборки Player обновлять после runtime/shader/scene изменений. Полная приёмка остальных строк матрицы остаётся в P08–P11; P07 DONE не означает завершение порта.
 
+## Приёмка P08
+
+Конечный порядок внутри текущего этапа; закрытый numerical fixture не повторять без изменения соответствующего пути. Полный P08 остаётся ACTIVE.
+
+1. **P08.1 DONE — flat LOD transforms:** signed snap boundaries/root precision nudge, height ascent/descent/min-max clamps, Current/Previous history и scale delta, finite known-zero native fields и fresh query recovery. LodTransitionTests1/1 DX11/DX12; это не приёмка визуальных швов или переноса ненулевого поля.
+2. **P08.2 NEXT — nonzero waves/LOD seams:** frozen nonzero original wave field, translation/altitude across LOD transitions, preserved world phase/query recovery и контролируемые seam images при actual surface rendering. Учитывать original previous-update MeshScaleLerp; один reference sampler запроса не доказывает отсутствие mesh seams. Проверить local-height/input edges на границах LOD.
+3. **P08.3 — floating/shifting origin:** actual shifts с сохранением относительных объектов/камер, wave phase, Current/Previous cascade data, GPU queries и particle/wind state. Обычный teleport и origin shift — разные случаи.
+4. **P08.4 — water bodies/culling:** границы/пересечение/несколько областей, enable/disable/move, camera positions и restoration; finite bounds и контролируемая geometry coverage.
+5. **P08.5 — cameras/settings:** несколько камер (включая camera stack), MSAA, quality/resolution/dynamic resolution и ресурсное восстановление. XR capability проверить; если устройства нет, явно NOT TESTED/BLOCKED, не PASSED.
+
+После этих критериев — full DX11/DX12 milestone. Memory allocation warning из P07 остаётся обязательной диагностикой P10, не считается закрытым этим этапом.
+
 ## Архитектурные ограничения
 
 Ревизия по исходному заданию: порядок P00–P12 сохранён, повторного выполнения DONE этапов не требуется. Уточнены ранее неявные обязательства P05–P07; отдельные новые планы не создаются. Полное покрытие исходных подсистем отслеживается строками FEATURE_MATRIX.md. Успешная компиляция, smoke или сохранение исходного кода не заменяют функциональную приёмку. Финальная проверка P11 включает ValidateAssets (missing references, shader errors) и Play Mode/Editor сценарии; P09 включает материалы, caustics/refraction и сравнение исходных уравнений освещения.

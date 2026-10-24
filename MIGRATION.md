@@ -316,3 +316,11 @@ BoatAlignNormal responds to wave orbital velocity plus flow; its instantaneous
 hull velocity need not equal flow speed. Joint numerical coverage uses actual
 Rigidbody motion and main-camera LerpCam, without accepting saved example material
 equivalence or full camera stress.
+
+
+LOD centres snap down to the texel grid, including negative world coordinates.
+The original ocean root nudges X/Z by.002m near multiples of1/60 to avoid
+ambiguous tile snapping. Global _MeshScaleLerp is written before the current
+scale update and thus carries the previous update's altitude alpha/increase
+flag. Preserve this inherited phase until nonzero-wave seam evidence justifies
+a compatibility change; flat transform/query checks alone do not prove seams.

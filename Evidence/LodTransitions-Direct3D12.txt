@@ -1,0 +1,159 @@
+Original OceanRenderer/LodTransform, flat known-zero field after disabling wave generators. MinScale8/max256/resolution unchanged. Passive post-ocean observer validates signed floor snapping, original root nudge, powers-of-two/clamps/band4m, Current/Previous history and scale delta. Global MeshScaleLerp retains original previous-update phase; this is disclosed, not changed. Every ready public height/normal/velocity query checked; requires fresh recovery per state. Native GPU RGB finite/zero on every cascade per state. Test-only readback fence, not latency, nonzero-wave history transport or visual seam acceptance.
+Update; Version=1; Frame=10; Camera=(-0.0834167, 4.0000000, 0.0834167); Root=(-0.0834167, 0.0000000, 0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=1; Frame=11; Camera=(-0.0834167, 4.0000000, 0.0834167); Root=(-0.0834167, 0.0000000, 0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=1; Frame=12; Camera=(-0.0834167, 4.0000000, 0.0834167); Root=(-0.0834167, 0.0000000, 0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=1; Frame=13; Camera=(-0.0834167, 4.0000000, 0.0834167); Root=(-0.0834167, 0.0000000, 0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=1; Frame=14; Camera=(-0.0834167, 4.0000000, 0.0834167); Root=(-0.0834167, 0.0000000, 0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=1; Frame=15; Camera=(-0.0834167, 4.0000000, 0.0834167); Root=(-0.0834167, 0.0000000, 0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(-0.0834167, 4.0000000, 0.0834167); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=2; Frame=16; Camera=(-0.0833333, 4.0000000, 0.0833333); Root=(-0.0813333, 0.0000000, 0.0853333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=2; Frame=17; Camera=(-0.0833333, 4.0000000, 0.0833333); Root=(-0.0813333, 0.0000000, 0.0853333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=2; Frame=18; Camera=(-0.0833333, 4.0000000, 0.0833333); Root=(-0.0813333, 0.0000000, 0.0853333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=2; Frame=19; Camera=(-0.0833333, 4.0000000, 0.0833333); Root=(-0.0813333, 0.0000000, 0.0853333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=2; Frame=20; Camera=(-0.0833333, 4.0000000, 0.0833333); Root=(-0.0813333, 0.0000000, 0.0853333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(-0.0833333, 4.0000000, 0.0833333); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=3; Frame=21; Camera=(-0.0832500, 4.0000000, 0.0832500); Root=(-0.0832500, 0.0000000, 0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=3; Frame=22; Camera=(-0.0832500, 4.0000000, 0.0832500); Root=(-0.0832500, 0.0000000, 0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=3; Frame=23; Camera=(-0.0832500, 4.0000000, 0.0832500); Root=(-0.0832500, 0.0000000, 0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=3; Frame=24; Camera=(-0.0832500, 4.0000000, 0.0832500); Root=(-0.0832500, 0.0000000, 0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=3; Frame=25; Camera=(-0.0832500, 4.0000000, 0.0832500); Root=(-0.0832500, 0.0000000, 0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(-0.0832500, 4.0000000, 0.0832500); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=4; Frame=26; Camera=(-0.0000833, 4.0000000, 0.0000833); Root=(-0.0000833, 0.0000000, 0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=4; Frame=27; Camera=(-0.0000833, 4.0000000, 0.0000833); Root=(-0.0000833, 0.0000000, 0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=4; Frame=28; Camera=(-0.0000833, 4.0000000, 0.0000833); Root=(-0.0000833, 0.0000000, 0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=4; Frame=29; Camera=(-0.0000833, 4.0000000, 0.0000833); Root=(-0.0000833, 0.0000000, 0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=4; Frame=30; Camera=(-0.0000833, 4.0000000, 0.0000833); Root=(-0.0000833, 0.0000000, 0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(-0.0000833, 4.0000000, 0.0000833); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=5; Frame=31; Camera=(0.0000000, 4.0000000, 0.0000000); Root=(0.0020000, 0.0000000, 0.0020000); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=5; Frame=32; Camera=(0.0000000, 4.0000000, 0.0000000); Root=(0.0020000, 0.0000000, 0.0020000); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=5; Frame=33; Camera=(0.0000000, 4.0000000, 0.0000000); Root=(0.0020000, 0.0000000, 0.0020000); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=5; Frame=34; Camera=(0.0000000, 4.0000000, 0.0000000); Root=(0.0020000, 0.0000000, 0.0020000); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=5; Frame=35; Camera=(0.0000000, 4.0000000, 0.0000000); Root=(0.0020000, 0.0000000, 0.0020000); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(0.0000000, 4.0000000, 0.0000000); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=6; Frame=36; Camera=(0.0000833, 4.0000000, -0.0000833); Root=(0.0000833, 0.0000000, -0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=6; Frame=37; Camera=(0.0000833, 4.0000000, -0.0000833); Root=(0.0000833, 0.0000000, -0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=6; Frame=38; Camera=(0.0000833, 4.0000000, -0.0000833); Root=(0.0000833, 0.0000000, -0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=6; Frame=39; Camera=(0.0000833, 4.0000000, -0.0000833); Root=(0.0000833, 0.0000000, -0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=6; Frame=40; Camera=(0.0000833, 4.0000000, -0.0000833); Root=(0.0000833, 0.0000000, -0.0000833); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(0.0000833, 4.0000000, -0.0000833); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=7; Frame=41; Camera=(0.0832500, 4.0000000, -0.0832500); Root=(0.0832500, 0.0000000, -0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=7; Frame=42; Camera=(0.0832500, 4.0000000, -0.0832500); Root=(0.0832500, 0.0000000, -0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=7; Frame=43; Camera=(0.0832500, 4.0000000, -0.0832500); Root=(0.0832500, 0.0000000, -0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=7; Frame=44; Camera=(0.0832500, 4.0000000, -0.0832500); Root=(0.0832500, 0.0000000, -0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=7; Frame=45; Camera=(0.0832500, 4.0000000, -0.0832500); Root=(0.0832500, 0.0000000, -0.0832500); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(0.0832500, 4.0000000, -0.0832500); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=8; Frame=46; Camera=(0.0833333, 4.0000000, -0.0833333); Root=(0.0853333, 0.0000000, -0.0813333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=8; Frame=47; Camera=(0.0833333, 4.0000000, -0.0833333); Root=(0.0853333, 0.0000000, -0.0813333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=8; Frame=48; Camera=(0.0833333, 4.0000000, -0.0833333); Root=(0.0853333, 0.0000000, -0.0813333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=8; Frame=49; Camera=(0.0833333, 4.0000000, -0.0833333); Root=(0.0853333, 0.0000000, -0.0813333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=8; Frame=50; Camera=(0.0833333, 4.0000000, -0.0833333); Root=(0.0853333, 0.0000000, -0.0813333); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(0.0833333, 4.0000000, -0.0833333); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=9; Frame=51; Camera=(0.0834167, 4.0000000, -0.0834167); Root=(0.0834167, 0.0000000, -0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=9; Frame=52; Camera=(0.0834167, 4.0000000, -0.0834167); Root=(0.0834167, 0.0000000, -0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=9; Frame=53; Camera=(0.0834167, 4.0000000, -0.0834167); Root=(0.0834167, 0.0000000, -0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=9; Frame=54; Camera=(0.0834167, 4.0000000, -0.0834167); Root=(0.0834167, 0.0000000, -0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=9; Frame=55; Camera=(0.0834167, 4.0000000, -0.0834167); Root=(0.0834167, 0.0000000, -0.0834167); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=SignedSnap; Position=(0.0834167, 4.0000000, -0.0834167); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=10; Frame=56; Camera=(0.0173770, 19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0
+Update; Version=10; Frame=57; Camera=(0.0173770, 19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+Update; Version=10; Frame=58; Camera=(0.0173770, 19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+Update; Version=10; Frame=59; Camera=(0.0173770, 19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+Update; Version=10; Frame=60; Camera=(0.0173770, 19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+State=HeightScale; Position=(0.0173770, 19.9900000, -0.0213310); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=11; Frame=61; Camera=(0.0173770, 20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=1; Alpha=0; ShaderAlpha=0,999098063
+Update; Version=11; Frame=62; Camera=(0.0173770, 20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=11; Frame=63; Camera=(0.0173770, 20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=11; Frame=64; Camera=(0.0173770, 20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=11; Frame=65; Camera=(0.0173770, 20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, 20.0000000, -0.0213310); Scale=16; Fresh=4; FieldLayers=7
+Update; Version=12; Frame=66; Camera=(0.0173770, 20.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,000901699066; ShaderAlpha=0
+Update; Version=12; Frame=67; Camera=(0.0173770, 20.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,000901699066; ShaderAlpha=0,000901699066
+Update; Version=12; Frame=68; Camera=(0.0173770, 20.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,000901699066; ShaderAlpha=0,000901699066
+Update; Version=12; Frame=69; Camera=(0.0173770, 20.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,000901699066; ShaderAlpha=0,000901699066
+Update; Version=12; Frame=70; Camera=(0.0173770, 20.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,000901699066; ShaderAlpha=0,000901699066
+State=HeightScale; Position=(0.0173770, 20.0100000, -0.0213310); Scale=16; Fresh=4; FieldLayers=7
+Update; Version=13; Frame=71; Camera=(0.0173770, 35.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,9995489; ShaderAlpha=0,000901699066
+Update; Version=13; Frame=72; Camera=(0.0173770, 35.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,9995489; ShaderAlpha=0,9995489
+Update; Version=13; Frame=73; Camera=(0.0173770, 35.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,9995489; ShaderAlpha=0,9995489
+Update; Version=13; Frame=74; Camera=(0.0173770, 35.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,9995489; ShaderAlpha=0,9995489
+Update; Version=13; Frame=75; Camera=(0.0173770, 35.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0,9995489; ShaderAlpha=0,9995489
+State=HeightScale; Position=(0.0173770, 35.9900000, -0.0213310); Scale=16; Fresh=4; FieldLayers=7
+Update; Version=14; Frame=76; Camera=(0.0173770, 36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=1; Alpha=0; ShaderAlpha=0,9995489
+Update; Version=14; Frame=77; Camera=(0.0173770, 36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=14; Frame=78; Camera=(0.0173770, 36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=14; Frame=79; Camera=(0.0173770, 36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=14; Frame=80; Camera=(0.0173770, 36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, 36.0000000, -0.0213310); Scale=32; Fresh=4; FieldLayers=7
+Update; Version=15; Frame=81; Camera=(0.0173770, 36.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,0004506111; ShaderAlpha=0
+Update; Version=15; Frame=82; Camera=(0.0173770, 36.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,0004506111; ShaderAlpha=0,0004506111
+Update; Version=15; Frame=83; Camera=(0.0173770, 36.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,0004506111; ShaderAlpha=0,0004506111
+Update; Version=15; Frame=84; Camera=(0.0173770, 36.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,0004506111; ShaderAlpha=0,0004506111
+Update; Version=15; Frame=85; Camera=(0.0173770, 36.0100000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,0004506111; ShaderAlpha=0,0004506111
+State=HeightScale; Position=(0.0173770, 36.0100000, -0.0213310); Scale=32; Fresh=4; FieldLayers=7
+Update; Version=16; Frame=86; Camera=(0.0173770, 67.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,999774456; ShaderAlpha=0,0004506111
+Update; Version=16; Frame=87; Camera=(0.0173770, 67.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,999774456; ShaderAlpha=0,999774456
+Update; Version=16; Frame=88; Camera=(0.0173770, 67.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,999774456; ShaderAlpha=0,999774456
+Update; Version=16; Frame=89; Camera=(0.0173770, 67.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,999774456; ShaderAlpha=0,999774456
+Update; Version=16; Frame=90; Camera=(0.0173770, 67.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0,999774456; ShaderAlpha=0,999774456
+State=HeightScale; Position=(0.0173770, 67.9900000, -0.0213310); Scale=32; Fresh=4; FieldLayers=7
+Update; Version=17; Frame=91; Camera=(0.0173770, 68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=1; Alpha=0; ShaderAlpha=0,999774456
+Update; Version=17; Frame=92; Camera=(0.0173770, 68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=17; Frame=93; Camera=(0.0173770, 68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=17; Frame=94; Camera=(0.0173770, 68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=17; Frame=95; Camera=(0.0173770, 68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, 68.0000000, -0.0213310); Scale=64; Fresh=4; FieldLayers=7
+Update; Version=18; Frame=96; Camera=(0.0173770, 132.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=128; DifferencePow2=1; Alpha=0; ShaderAlpha=0
+Update; Version=18; Frame=97; Camera=(0.0173770, 132.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=128; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=18; Frame=98; Camera=(0.0173770, 132.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=128; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=18; Frame=99; Camera=(0.0173770, 132.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=128; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=18; Frame=100; Camera=(0.0173770, 132.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=128; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, 132.0000000, -0.0213310); Scale=128; Fresh=4; FieldLayers=7
+Update; Version=19; Frame=101; Camera=(0.0173770, 516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=1; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=19; Frame=102; Camera=(0.0173770, 516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=19; Frame=103; Camera=(0.0173770, 516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=19; Frame=104; Camera=(0.0173770, 516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=19; Frame=105; Camera=(0.0173770, 516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, 516.0000000, -0.0213310); Scale=256; Fresh=4; FieldLayers=7
+Update; Version=20; Frame=106; Camera=(0.0173770, -516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=20; Frame=107; Camera=(0.0173770, -516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=20; Frame=108; Camera=(0.0173770, -516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=20; Frame=109; Camera=(0.0173770, -516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+Update; Version=20; Frame=110; Camera=(0.0173770, -516.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0,9927683; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, -516.0000000, -0.0213310); Scale=256; Fresh=4; FieldLayers=7
+Update; Version=21; Frame=111; Camera=(0.0173770, -260.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=21; Frame=112; Camera=(0.0173770, -260.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=21; Frame=113; Camera=(0.0173770, -260.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=21; Frame=114; Camera=(0.0173770, -260.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=21; Frame=115; Camera=(0.0173770, -260.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=256; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, -260.0000000, -0.0213310); Scale=256; Fresh=4; FieldLayers=7
+Update; Version=22; Frame=116; Camera=(0.0173770, -68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=-2; Alpha=0; ShaderAlpha=0
+Update; Version=22; Frame=117; Camera=(0.0173770, -68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=22; Frame=118; Camera=(0.0173770, -68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=22; Frame=119; Camera=(0.0173770, -68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=22; Frame=120; Camera=(0.0173770, -68.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=64; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, -68.0000000, -0.0213310); Scale=64; Fresh=4; FieldLayers=7
+Update; Version=23; Frame=121; Camera=(0.0173770, -36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=-1; Alpha=0; ShaderAlpha=0
+Update; Version=23; Frame=122; Camera=(0.0173770, -36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=23; Frame=123; Camera=(0.0173770, -36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=23; Frame=124; Camera=(0.0173770, -36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=23; Frame=125; Camera=(0.0173770, -36.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=32; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, -36.0000000, -0.0213310); Scale=32; Fresh=4; FieldLayers=7
+Update; Version=24; Frame=126; Camera=(0.0173770, -20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=-1; Alpha=0; ShaderAlpha=0
+Update; Version=24; Frame=127; Camera=(0.0173770, -20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=24; Frame=128; Camera=(0.0173770, -20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=24; Frame=129; Camera=(0.0173770, -20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=24; Frame=130; Camera=(0.0173770, -20.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=16; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, -20.0000000, -0.0213310); Scale=16; Fresh=4; FieldLayers=7
+Update; Version=25; Frame=131; Camera=(0.0173770, -19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=-1; Alpha=0,999098063; ShaderAlpha=0
+Update; Version=25; Frame=132; Camera=(0.0173770, -19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+Update; Version=25; Frame=133; Camera=(0.0173770, -19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+Update; Version=25; Frame=134; Camera=(0.0173770, -19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+Update; Version=25; Frame=135; Camera=(0.0173770, -19.9900000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0,999098063; ShaderAlpha=0,999098063
+State=HeightScale; Position=(0.0173770, -19.9900000, -0.0213310); Scale=8; Fresh=4; FieldLayers=7
+Update; Version=26; Frame=136; Camera=(0.0173770, 4.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0,999098063
+Update; Version=26; Frame=137; Camera=(0.0173770, 4.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=26; Frame=138; Camera=(0.0173770, 4.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=26; Frame=139; Camera=(0.0173770, 4.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+Update; Version=26; Frame=140; Camera=(0.0173770, 4.0000000, -0.0213310); Root=(0.0173770, 0.0000000, -0.0213310); Scale=8; DifferencePow2=0; Alpha=0; ShaderAlpha=0
+State=HeightScale; Position=(0.0173770, 4.0000000, -0.0213310); Scale=8; Fresh=4; FieldLayers=7
+Summary; States=26; ObservedUpdates=131; Scales=8,16,32,64,128,256; ScaleUps=5; ScaleDowns=4; MultiOctaveJumps=1; OriginalShaderAlphaLagFrames=8; QueryFrames=129; CheckedNativeTexels=26836992; MaxSnapError=1,1920929E-07; MaxHistoryError=0
