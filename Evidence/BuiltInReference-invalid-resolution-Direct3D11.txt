@@ -1,0 +1,35 @@
+P09 original Built-in shader reference. Original local includes recursively expanded unchanged, only shader name renamed; engine UnityCG/Lighting unchanged. Same generated meshes, simulation bindings, material properties, camera/light/target. Compilation/coverage/repeatability are asserted; scoped RGB tolerance <=2 byte/channel and mean<=.05, URP restoration exact, each feature effect>100 pixels. This is not full visual acceptance.
+
+OriginalFiles=20; ExpandedSourceSHA256=CC87962818F688C4A0E21D05F8B29E070BE246130F329463EA70D5D794AE5500; ColorSpace=Linear; Playing=True
+State=Flat-URP; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=E371662304410AA0284955821FD2BA1F6561D5460762C4FA00E937B93DF05543; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=Flat-URP; ClearPixels=0; Pipeline=Pipeline
+State=Flat-BuiltIn; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=E371662304410AA0284955821FD2BA1F6561D5460762C4FA00E937B93DF05543; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=Flat-BuiltIn; ClearPixels=0; Pipeline=BuiltIn
+
+State=Flat-URP-restored; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=E371662304410AA0284955821FD2BA1F6561D5460762C4FA00E937B93DF05543; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=Flat-URP-restored; ClearPixels=0; Pipeline=Pipeline
+Phase=Flat; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=0
+State=Compact-URP; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=Compact-URP; ClearPixels=0; Pipeline=Pipeline
+State=Compact-BuiltIn; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=Compact-BuiltIn; ClearPixels=0; Pipeline=BuiltIn
+
+State=Compact-URP-restored; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=Compact-URP-restored; ClearPixels=0; Pipeline=Pipeline
+Phase=Compact; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=99338
+State=CompactNormals-URP; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=CompactNormals-URP; ClearPixels=0; Pipeline=Pipeline
+State=CompactNormals-BuiltIn; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=CompactNormals-BuiltIn; ClearPixels=0; Pipeline=BuiltIn
+
+State=CompactNormals-URP-restored; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=CompactNormals-URP-restored; ClearPixels=0; Pipeline=Pipeline
+Phase=CompactNormals; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=14255
+State=CompactProceduralSky-URP; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=CompactProceduralSky-URP; ClearPixels=0; Pipeline=Pipeline
+State=CompactProceduralSky-BuiltIn; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=CompactProceduralSky-BuiltIn; ClearPixels=0; Pipeline=BuiltIn
+
+State=CompactProceduralSky-URP-restored; WaveHash=A76C77FE203DB862B48214C88FBDC1D5560655CCBA2F7A2C7166BAF6F846E856; DepthHash=5D129BAE63D61E948F753D7AC9E97A692FDDCBABC8BAD622A5A2F1BBB3AF2680; OceanTime=1; Scale=16; MeshAlpha=0
+Capture=CompactProceduralSky-URP-restored; ClearPixels=0; Pipeline=Pipeline
+Phase=CompactProceduralSky; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=262144

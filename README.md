@@ -100,3 +100,5 @@ P08.5 camera/target/underwater-stack coverage: обычный batch runner с
 Для actual URP stack и hardware DRS используется StandardRequest, для независимой
 одной камеры — SingleCameraRequest. Старые basic-editmode snapshots не являются
 PlayMode приёмкой; current full milestone указан в TEST_RESULTS.
+
+P09 original reference: run `Tools/Run-Unity.ps1 -Editor <6000.6.5f1 Unity.exe> -Action EditMode -GraphicsAPI DX11 -TestFilter BuiltInReferenceTests` (then DX12). Requires the existing read-only original4.23.0 checkout at `../../work/crest-upstream`;20 source hashes are verified against Evidence/P09-Reference-inspection.json. The Editor-only fixture compiles the original shader in memory, switches actual pipelines and restores URP. Results/limits: TEST_RESULTS.md and Evidence/P09-OpaqueReference-checkpoint.json. This focused check does not replace the full regression checkpoint.

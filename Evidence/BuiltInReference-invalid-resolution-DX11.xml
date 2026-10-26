@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-26 10:49:59Z" end-time="2026-10-26 10:50:04Z" duration="4,992578">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="76" result="Failed" site="Child" start-time="2026-10-26 10:49:59Z" end-time="2026-10-26 10:50:04Z" duration="4.992578" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1122" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="74" result="Failed" site="Child" start-time="2026-10-26 10:49:59Z" end-time="2026-10-26 10:50:04Z" duration="4.981026" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="81516" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1027" name="BuiltInReferenceTests" fullname="BuiltInReferenceTests" classname="BuiltInReferenceTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-26 10:49:59Z" end-time="2026-10-26 10:50:04Z" duration="4.977585" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1028" name="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" fullname="BuiltInReferenceTests.OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" methodname="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" classname="BuiltInReferenceTests" runstate="Runnable" seed="1311927821" result="Failed" start-time="2026-10-26 10:49:59Z" end-time="2026-10-26 10:50:04Z" duration="4.952994" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] IndexOutOfRangeException: Index was outside the bounds of the array.'. Use UnityEngine.TestTools.LogAssert.Expect
+TearDown : Unhandled log message: '[Exception] IndexOutOfRangeException: Index was outside the bounds of the array.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Crest.ShapeGerstner.SliceUpWaves (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:376)
+Crest.ShapeGerstner.UpdateWaveData (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:420)
+Crest.ShapeGerstner.CrestUpdate (UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:198)
+Crest.LodDataMgrAnimWaves.BuildCommandBuffer (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/LodData/LodDataMgrAnimWaves.cs:251)
+Crest.BuildCommandBuffer.BuildLodData (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:66)
+Crest.BuildCommandBuffer.BuildAndExecute () (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:112)
+Crest.OceanRenderer.RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1160)
+Crest.OceanRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[IndexOutOfRangeException: Index was outside the bounds of the array.
+Crest.ShapeGerstner.SliceUpWaves (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:376)
+Crest.ShapeGerstner.UpdateWaveData (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:420)
+Crest.ShapeGerstner.CrestUpdate (UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:198)
+Crest.LodDataMgrAnimWaves.BuildCommandBuffer (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/LodData/LodDataMgrAnimWaves.cs:251)
+Crest.BuildCommandBuffer.BuildLodData (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:66)
+Crest.BuildCommandBuffer.BuildAndExecute () (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:112)
+Crest.OceanRenderer.RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1160)
+Crest.OceanRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+IndexOutOfRangeException: Index was outside the bounds of the array.
+Crest.ShapeGerstner.SliceUpWaves (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:376)
+Crest.ShapeGerstner.UpdateWaveData (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:420)
+Crest.ShapeGerstner.CrestUpdate (UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:198)
+Crest.LodDataMgrAnimWaves.BuildCommandBuffer (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/LodData/LodDataMgrAnimWaves.cs:251)
+Crest.BuildCommandBuffer.BuildLodData (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:66)
+Crest.BuildCommandBuffer.BuildAndExecute () (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:112)
+Crest.OceanRenderer.RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1160)
+Crest.OceanRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+IndexOutOfRangeException: Index was outside the bounds of the array.
+Crest.ShapeGerstner.SliceUpWaves (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:376)
+Crest.ShapeGerstner.UpdateWaveData (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:420)
+Crest.ShapeGerstner.CrestUpdate (UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:198)
+Crest.LodDataMgrAnimWaves.BuildCommandBuffer (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/LodData/LodDataMgrAnimWaves.cs:251)
+Crest.BuildCommandBuffer.BuildLodData (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:66)
+Crest.BuildCommandBuffer.BuildAndExecute () (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:112)
+Crest.OceanRenderer.RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1160)
+Crest.OceanRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+IndexOutOfRangeException: Index was outside the bounds of the array.
+Crest.ShapeGerstner.SliceUpWaves (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:376)
+Crest.ShapeGerstner.UpdateWaveData (System.Single windSpeed) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:420)
+Crest.ShapeGerstner.CrestUpdate (UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs:198)
+Crest.LodDataMgrAnimWaves.BuildCommandBuffer (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/LodData/LodDataMgrAnimWaves.cs:251)
+Crest.BuildCommandBuffer.BuildLodData (Crest.OceanRenderer ocean, UnityEngine.Rendering.CommandBuffer buf) (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:66)
+Crest.BuildCommandBuffer.BuildAndExecute () (at Assets/Crest/Crest/Scripts/BuildCommandBuffer.cs:112)
+Crest.OceanRenderer.RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1160)
+Crest.OceanRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

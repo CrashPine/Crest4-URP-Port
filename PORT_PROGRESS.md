@@ -1,14 +1,18 @@
 # Точка продолжения
 
-Обновлено: **2026-10-25**. Цель: Unity **6000.6.5f1**, URP **17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-10-26**. Цель: Unity **6000.6.5f1**, URP **17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущая задача: P09
 
 P00–P08 DONE в определённых PORT_PLAN областях; полный порт не завершён. Единственный план — PORT_PLAN.md, acceptance/limitations — FEATURE_MATRIX/TEST_RESULTS.
 
-**Активные операции:** нет. Development/Release build Success UTC2026-10-25 21:46–21:47; все4 последующие Player smokes завершились Errors=0. Unity/Player процессов перед следующим запуском проверить снова.
+**Активные операции:** нет; оба focused reference runs завершились1/1 PASSED. Последние production builds остаются UTC2026-10-25; только Editor fixture/evidence/docs менялись, rebuild не требуется. Проверить Unity/Player процессы перед новым запуском.
 
-**Следующее действие:** P09 — реализовать изолированный Built-in reference render с original shader/include closure из Evidence/P09-Reference-inspection.json и одинаковыми waves/time/camera/light/color-space. Source dependencies прочитаны; Ocean.mat diff проверен как serialization metadata без изменения water properties. Visual acceptance ещё нет. Не изменять work/crest-upstream и не запускать GenerateScenes. Сначала решить изоляцию original shader dependencies, затем сравнить поверхность/foam/refraction/scattering/caustics/shadows/underwater и оценить материалы исходных примеров. Patch-grid shading и10 boundary pixels остаются вопросами этого этапа.
+**Следующее действие:** P09.2 — воспроизвести ТОЧНЫЕ LodHeightSeamTests SmoothEdge и SmoothEdgeChoppy captures в original Built-in reference: взять camera position/orthographicSize, scale, seed/direction/normal-map/material state из существующего fixture и сравнить с URP в frozen inputs. Новый BuiltInReferenceTests даёт reusable original shader loader и pipeline round-trip, но его шесть состояний scale16/size48 не подменяют прежние P08 условия. Затем разобрать10 body-boundary API pixels без увеличения edge band. Единственная очередь — PORT_PLAN.md. Не GenerateScenes/не acquisition; upstream read-only.
+
+**Новый результат P09.1:** BuiltInReferenceTests1/1 DX11/DX12. Actual Built-in shader compiled in memory from20 hash-verified original files; six states,18 captures/API, all pair/restore RGB errors0 and matching PNG bytes across APIs. Evidence/P09-OpaqueReference-checkpoint.json фиксирует fixture/source/XML/image hashes и ограничения. Полная P09/порт не завершены.
+
+**Контракт reference fixture:** camera(0.017,28,-0.033), top-down, size48,512², scale min=max16, time1/delta0, opaque, ambient flat. CollisionSource.None только в этом fixture исключает async viewer-height feedback; это не новая проверка queries. Settings rebuild сначала завершить, затем push custom clock. Valid Gerstner resolution64 (128 вне original maximum64 вызвала ошибку fixture). Native wave/depth/foam hashes строго одинаковы между pipeline stages, URP restoration exact, per-feature control>100 pixels. Все неудачные XML/reports сохранены. Прежний full73+2 milestone не заменён новым focused1/1; fresh full74 не заявлять.
 
 ## Последний подтверждённый checkpoint
 

@@ -1,6 +1,6 @@
 # План выполнения порта Crest 4
 
-Единственный список задач и их очередности. Дата ревизии: 2026-10-25.
+Единственный список задач и их очередности. Дата ревизии: 2026-10-26.
 Цель: полный перенос открытого Crest 4.23.0 на **Unity 6000.6.5f1 / URP 17.6.0**, Windows x64, DX11/DX12, Render Graph. Пользователь заменил исходную цель 6.3 на свою установленную версию. Полная приёмка пока не достигнута.
 
 ## Как продолжать
@@ -46,6 +46,14 @@
 5. **DONE — Совместная BoatDev integration:** original boat на волнах/известном flow и LerpCam, следующая за реальным движущимся корпусом. Сохранённые demo materials/визуальное сравнение относятся к P09, остальные input/GUI/Player variants — P11.
 
 Закрытие P07: эти проверки на DX11/DX12, раскрытые inherited ограничения и полный milestone regression обоих API. Сборки Player обновлять после runtime/shader/scene изменений. Полная приёмка остальных строк матрицы остаётся в P08–P11; P07 DONE не означает завершение порта.
+
+## Приёмка P09
+
+1. **P09.1 DONE (scoped) — original opaque reference:** BuiltInReferenceTests1/1 DX11/DX12, six states (flat, compact local height, normal maps, procedural sky, frozen choppy Gerstner, seeded foam). Actual Built-in Camera.Render vs URP SingleCameraRequest;20 original local source hashes verified, only shader name/include expansion changed in memory. All6 pairs/API and URP restoration RGB error0,36 PNG byte-identical in corresponding triplets and across APIs. This is top-down opaque512² scale16, not complete visual parity.
+2. **P09.2 ACTIVE — P08 observed artifacts:** reproduce exact LodHeightSeams SmoothEdge/SmoothEdgeChoppy camera/material/scale conditions in the original reference; determine whether grid shading is inherited or introduced. Separately bound10 DX11/DX12 water-body boundary-mask pixels using original reference/coverage; do not widen prior edge exclusion. Close only with matched conditions and a documented cause or corrective change plus focused regression.
+3. **P09.3 TODO — refraction/depth/scattering/caustics:** matched perspective views and known opaque geometry/depth under both pipelines, frozen inputs/time/light/color-space, feature-off controls. Record meaningful optical differences; fix introduced regressions. An opaque top-down result does not close this item.
+4. **P09.4 TODO — shadows and underwater original comparison:** compare original mask/effect/meniscus in corresponding surface/underwater views and light/shadow conditions. Distinguish URP integration requirements from inherited shading; preserve existing volume/stack acceptance.
+5. **P09.5 TODO — original example materials:** inventory required shader/material migrations, inspect existing Ocean.mat serialization and example lighting assets without overwriting foreign changes. Migrate necessary materials and demonstrate actual rendered results; disclose unsupported configurations. Full P09 requires all five scoped items and required milestone regression/builds after production changes.
 
 ## Приёмка P08
 

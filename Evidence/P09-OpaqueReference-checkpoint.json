@@ -1,0 +1,286 @@
+{
+  "recordedUtc": "2026-10-26T10:57:00.447656+00:00",
+  "scope": "P09.1 opaque top-down surface reference only; not complete optical/underwater/material/geometry acceptance",
+  "fixture": {
+    "path": "Assets/Crest/URP/Tests/Editor/BuiltInReferenceTests.cs",
+    "sha256": "18C84944BCA2BA8796C4BC76E2A7E4DD1F42AE7AE89B9F56E02930B0A7FD1402",
+    "modifiedUtc": "2026-10-26T10:54:33.106366+00:00"
+  },
+  "originalDependencyManifest": {
+    "path": "Evidence/P09-Reference-inspection.json",
+    "sha256": "4D1282A93F0F763994AD9749BBF52131F3410E7AAB6809790115AA5340C97CAB",
+    "modifiedUtc": "2026-10-26T10:42:48.972428+00:00"
+  },
+  "conditions": {
+    "camera": [
+      0.017,
+      28,
+      -0.033
+    ],
+    "euler": [
+      90,
+      0,
+      0
+    ],
+    "orthographicSize": 48,
+    "resolution": [
+      512,
+      512
+    ],
+    "lodScaleMinMax": 16,
+    "colorSpace": "Linear",
+    "time": 1,
+    "deltaTime": 0,
+    "msaa": 1,
+    "depthTextureMode": "Depth",
+    "transparency": false,
+    "ambientMode": "Flat",
+    "ambientRGB": [
+      0.2,
+      0.2,
+      0.2
+    ],
+    "lighting": "Same demo scene main light, environment and material properties across actual pipeline switches",
+    "collisionSource": "None in fixture to isolate asynchronous viewer-height feedback; flat collision is not wave-query acceptance",
+    "originalShader": "20 local original files hash-verified before recursive expansion, engine UnityCG/Lighting retained; only shader name renamed, in-memory compilation; upstream unmodified"
+  },
+  "apis": [
+    {
+      "graphicsAPI": "DX11",
+      "xml": {
+        "path": "Evidence/BuiltInReference-DX11.xml",
+        "sha256": "F032DFBCD0CBE38922B8519426FB6BF96228F57FE40424C10170AE636A035820",
+        "modifiedUtc": "2026-10-26T10:54:53.510836+00:00"
+      },
+      "startUtc": "2026-10-26 10:54:49Z",
+      "endUtc": "2026-10-26 10:54:53Z",
+      "report": {
+        "path": "Evidence/BuiltInReference-Direct3D11.txt",
+        "sha256": "3BBA45229F3D24EDFB954930C83A02E21BAB0BD40C62FF46C670334AEA7423ED",
+        "modifiedUtc": "2026-10-26T10:54:53.323809+00:00"
+      },
+      "metrics": [
+        "Phase=Flat; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=0",
+        "Phase=Compact; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=99338",
+        "Phase=CompactNormals; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=14255",
+        "Phase=CompactProceduralSky; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=262144",
+        "Phase=CompactChoppy; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=68940",
+        "Phase=CompactFoam; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=214483"
+      ],
+      "images": [
+        {
+          "path": "Evidence/BuiltInReference-Flat-URP-Direct3D11.png",
+          "sha256": "F73D9AD3E84F623696116A4CE03FE4261CE2518B1B3F594D545A3BBC082A6D27",
+          "modifiedUtc": "2026-10-26T10:54:50.328291+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Flat-BuiltIn-Direct3D11.png",
+          "sha256": "F73D9AD3E84F623696116A4CE03FE4261CE2518B1B3F594D545A3BBC082A6D27",
+          "modifiedUtc": "2026-10-26T10:54:50.511585+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Flat-URP-restored-Direct3D11.png",
+          "sha256": "F73D9AD3E84F623696116A4CE03FE4261CE2518B1B3F594D545A3BBC082A6D27",
+          "modifiedUtc": "2026-10-26T10:54:50.660936+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Compact-URP-Direct3D11.png",
+          "sha256": "7B6512DB289292FD424F8CF375C5E72A927194C7A9447F5E9483B8612937368A",
+          "modifiedUtc": "2026-10-26T10:54:50.805667+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Compact-BuiltIn-Direct3D11.png",
+          "sha256": "7B6512DB289292FD424F8CF375C5E72A927194C7A9447F5E9483B8612937368A",
+          "modifiedUtc": "2026-10-26T10:54:50.930043+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Compact-URP-restored-Direct3D11.png",
+          "sha256": "7B6512DB289292FD424F8CF375C5E72A927194C7A9447F5E9483B8612937368A",
+          "modifiedUtc": "2026-10-26T10:54:51.089277+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactNormals-URP-Direct3D11.png",
+          "sha256": "8C388E698E3E6A71365B615C5322E31AC3F06A27E70D997E3607ED5EBEC139A2",
+          "modifiedUtc": "2026-10-26T10:54:51.230139+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactNormals-BuiltIn-Direct3D11.png",
+          "sha256": "8C388E698E3E6A71365B615C5322E31AC3F06A27E70D997E3607ED5EBEC139A2",
+          "modifiedUtc": "2026-10-26T10:54:51.375617+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactNormals-URP-restored-Direct3D11.png",
+          "sha256": "8C388E698E3E6A71365B615C5322E31AC3F06A27E70D997E3607ED5EBEC139A2",
+          "modifiedUtc": "2026-10-26T10:54:51.540254+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactProceduralSky-URP-Direct3D11.png",
+          "sha256": "71E6C5E9E4E5D5616430228E6668DD2A9A205AC0F5F82D13C94DB577E09F91D3",
+          "modifiedUtc": "2026-10-26T10:54:51.679146+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactProceduralSky-BuiltIn-Direct3D11.png",
+          "sha256": "71E6C5E9E4E5D5616430228E6668DD2A9A205AC0F5F82D13C94DB577E09F91D3",
+          "modifiedUtc": "2026-10-26T10:54:51.833237+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactProceduralSky-URP-restored-Direct3D11.png",
+          "sha256": "71E6C5E9E4E5D5616430228E6668DD2A9A205AC0F5F82D13C94DB577E09F91D3",
+          "modifiedUtc": "2026-10-26T10:54:52.019648+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactChoppy-URP-Direct3D11.png",
+          "sha256": "0E9BFA5B1308C4AC694E6C968824577FDAD7328263C65825FED6D5492BB27D6B",
+          "modifiedUtc": "2026-10-26T10:54:52.249927+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactChoppy-BuiltIn-Direct3D11.png",
+          "sha256": "0E9BFA5B1308C4AC694E6C968824577FDAD7328263C65825FED6D5492BB27D6B",
+          "modifiedUtc": "2026-10-26T10:54:52.426002+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactChoppy-URP-restored-Direct3D11.png",
+          "sha256": "0E9BFA5B1308C4AC694E6C968824577FDAD7328263C65825FED6D5492BB27D6B",
+          "modifiedUtc": "2026-10-26T10:54:52.593523+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactFoam-URP-Direct3D11.png",
+          "sha256": "EC440B388FAC9F53F516AA73A04780FCAE1AB907713EE31443963B0C04D04CF0",
+          "modifiedUtc": "2026-10-26T10:54:52.889893+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactFoam-BuiltIn-Direct3D11.png",
+          "sha256": "EC440B388FAC9F53F516AA73A04780FCAE1AB907713EE31443963B0C04D04CF0",
+          "modifiedUtc": "2026-10-26T10:54:53.092742+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactFoam-URP-restored-Direct3D11.png",
+          "sha256": "EC440B388FAC9F53F516AA73A04780FCAE1AB907713EE31443963B0C04D04CF0",
+          "modifiedUtc": "2026-10-26T10:54:53.313834+00:00"
+        }
+      ]
+    },
+    {
+      "graphicsAPI": "DX12",
+      "xml": {
+        "path": "Evidence/BuiltInReference-DX12.xml",
+        "sha256": "4FC0A1A83D69EDFE3E11BEE64714CF1F6CCC59C0026E94D238319D1846CC655D",
+        "modifiedUtc": "2026-10-26T10:55:34.834883+00:00"
+      },
+      "startUtc": "2026-10-26 10:55:28Z",
+      "endUtc": "2026-10-26 10:55:34Z",
+      "report": {
+        "path": "Evidence/BuiltInReference-Direct3D12.txt",
+        "sha256": "3BBA45229F3D24EDFB954930C83A02E21BAB0BD40C62FF46C670334AEA7423ED",
+        "modifiedUtc": "2026-10-26T10:55:34.636517+00:00"
+      },
+      "metrics": [
+        "Phase=Flat; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=0",
+        "Phase=Compact; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=99338",
+        "Phase=CompactNormals; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=14255",
+        "Phase=CompactProceduralSky; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=262144",
+        "Phase=CompactChoppy; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=68940",
+        "Phase=CompactFoam; MeanAbsoluteRGBByteDifference=0; PixelsOverSixRGBByteDifference=0; MaxSummedRGBDifference=0; UrpRestoreChangedPixels=0; MaxChannelDifference=0; ChangedFromPreviousPhase=214483"
+      ],
+      "images": [
+        {
+          "path": "Evidence/BuiltInReference-Flat-URP-Direct3D12.png",
+          "sha256": "F73D9AD3E84F623696116A4CE03FE4261CE2518B1B3F594D545A3BBC082A6D27",
+          "modifiedUtc": "2026-10-26T10:55:30.682767+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Flat-BuiltIn-Direct3D12.png",
+          "sha256": "F73D9AD3E84F623696116A4CE03FE4261CE2518B1B3F594D545A3BBC082A6D27",
+          "modifiedUtc": "2026-10-26T10:55:30.956335+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Flat-URP-restored-Direct3D12.png",
+          "sha256": "F73D9AD3E84F623696116A4CE03FE4261CE2518B1B3F594D545A3BBC082A6D27",
+          "modifiedUtc": "2026-10-26T10:55:31.131057+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Compact-URP-Direct3D12.png",
+          "sha256": "7B6512DB289292FD424F8CF375C5E72A927194C7A9447F5E9483B8612937368A",
+          "modifiedUtc": "2026-10-26T10:55:31.401019+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Compact-BuiltIn-Direct3D12.png",
+          "sha256": "7B6512DB289292FD424F8CF375C5E72A927194C7A9447F5E9483B8612937368A",
+          "modifiedUtc": "2026-10-26T10:55:31.561752+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-Compact-URP-restored-Direct3D12.png",
+          "sha256": "7B6512DB289292FD424F8CF375C5E72A927194C7A9447F5E9483B8612937368A",
+          "modifiedUtc": "2026-10-26T10:55:31.750369+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactNormals-URP-Direct3D12.png",
+          "sha256": "8C388E698E3E6A71365B615C5322E31AC3F06A27E70D997E3607ED5EBEC139A2",
+          "modifiedUtc": "2026-10-26T10:55:31.981717+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactNormals-BuiltIn-Direct3D12.png",
+          "sha256": "8C388E698E3E6A71365B615C5322E31AC3F06A27E70D997E3607ED5EBEC139A2",
+          "modifiedUtc": "2026-10-26T10:55:32.214638+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactNormals-URP-restored-Direct3D12.png",
+          "sha256": "8C388E698E3E6A71365B615C5322E31AC3F06A27E70D997E3607ED5EBEC139A2",
+          "modifiedUtc": "2026-10-26T10:55:32.409825+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactProceduralSky-URP-Direct3D12.png",
+          "sha256": "71E6C5E9E4E5D5616430228E6668DD2A9A205AC0F5F82D13C94DB577E09F91D3",
+          "modifiedUtc": "2026-10-26T10:55:32.686723+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactProceduralSky-BuiltIn-Direct3D12.png",
+          "sha256": "71E6C5E9E4E5D5616430228E6668DD2A9A205AC0F5F82D13C94DB577E09F91D3",
+          "modifiedUtc": "2026-10-26T10:55:32.949034+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactProceduralSky-URP-restored-Direct3D12.png",
+          "sha256": "71E6C5E9E4E5D5616430228E6668DD2A9A205AC0F5F82D13C94DB577E09F91D3",
+          "modifiedUtc": "2026-10-26T10:55:33.158815+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactChoppy-URP-Direct3D12.png",
+          "sha256": "0E9BFA5B1308C4AC694E6C968824577FDAD7328263C65825FED6D5492BB27D6B",
+          "modifiedUtc": "2026-10-26T10:55:33.496953+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactChoppy-BuiltIn-Direct3D12.png",
+          "sha256": "0E9BFA5B1308C4AC694E6C968824577FDAD7328263C65825FED6D5492BB27D6B",
+          "modifiedUtc": "2026-10-26T10:55:33.682311+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactChoppy-URP-restored-Direct3D12.png",
+          "sha256": "0E9BFA5B1308C4AC694E6C968824577FDAD7328263C65825FED6D5492BB27D6B",
+          "modifiedUtc": "2026-10-26T10:55:33.889500+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactFoam-URP-Direct3D12.png",
+          "sha256": "EC440B388FAC9F53F516AA73A04780FCAE1AB907713EE31443963B0C04D04CF0",
+          "modifiedUtc": "2026-10-26T10:55:34.253093+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactFoam-BuiltIn-Direct3D12.png",
+          "sha256": "EC440B388FAC9F53F516AA73A04780FCAE1AB907713EE31443963B0C04D04CF0",
+          "modifiedUtc": "2026-10-26T10:55:34.430806+00:00"
+        },
+        {
+          "path": "Evidence/BuiltInReference-CompactFoam-URP-restored-Direct3D12.png",
+          "sha256": "EC440B388FAC9F53F516AA73A04780FCAE1AB907713EE31443963B0C04D04CF0",
+          "modifiedUtc": "2026-10-26T10:55:34.618905+00:00"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No perspective/grazing optical or transparency/refraction/caustics/shadow/underwater baseline here",
+    "Six modes do not reproduce every P08 camera/scale/material condition; exact earlier patch-grid and 10 boundary pixels remain P09.2",
+    "Original engine reflection probe/default sky paths only tested under this scene; no complete multi-probe or lighting equivalence",
+    "Only Editor tests changed; existing full73+2/Player builds remain previous runtime milestone, no fresh full74 or standalone numerical reference claim"
+  ],
+  "crossApiPngByteIdentical": true
+}
