@@ -1,0 +1,42 @@
+P09.4 shadowed original surface/underwater comparison. Independently cleared/rendered BIRP native shadow map, screen mask and original UpdateShadow LOD shaders vs URP graph/atlas. Matching opaque receiver colour with BIRP ForwardBase shadow receiver (receive strength0); caustic shadow occlusion remains active in original Crest. Predefined interior max2/mean.05 RGB byte tolerance, exact URP restoration. Analytic caster XZ margin1m, viewport margin.025; both floor and water shadow boundaries excluded for above-water interiors. Whole-frame metrics retained. Hard light, one cascade/distance100/2048, zero jitter/weights1, Time.deltaTime1/60, ocean time1/delta0, flat water, refraction strength0.
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+Phase=Above-NoCaster-NoCaustics; FogActive=False; WholeMax=0; WholeMean=0; WholeChangedOverSix=0; InteriorPixels=64049; InteriorMax=0; InteriorMean=0; OutsideInteriorChangedOverSix=0; RestoreChangedPixels=0; FrameCount=33
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+Phase=Above-Caster-NoCaustics; FogActive=False; WholeMax=1; WholeMean=0,00078125; WholeChangedOverSix=0; InteriorPixels=64049; InteriorMax=0; InteriorMean=0; OutsideInteriorChangedOverSix=0; RestoreChangedPixels=0; FrameCount=33
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+Phase=Above-Caster-Caustics; FogActive=False; WholeMax=4; WholeMean=0,001484375; WholeChangedOverSix=2; InteriorPixels=64049; InteriorMax=1; InteriorMean=0,00010408697507637382; OutsideInteriorChangedOverSix=2; RestoreChangedPixels=0; FrameCount=33
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+Phase=Above-NoCaster-Caustics; FogActive=False; WholeMax=17; WholeMean=0,071467013888888889; WholeChangedOverSix=1066; InteriorPixels=64049; InteriorMax=17; InteriorMean=0,049545400136353938; OutsideInteriorChangedOverSix=441; RestoreChangedPixels=0; FrameCount=33
+Controls=Above; Original=False; ShadowChangedPixels=1005; LitCausticChangedPixels=27746; NoCasterLitCausticChangedPixels=27712; OccludedInteriorPixels=1365; OccludedCausticChangedPixels=0
+Controls=Above; Original=True; ShadowChangedPixels=1005; LitCausticChangedPixels=27745; NoCasterLitCausticChangedPixels=27711; OccludedInteriorPixels=1365; OccludedCausticChangedPixels=0
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+Phase=Above-NoCaster-ShadowKeywordOff; FogActive=False; WholeMax=1; WholeMean=0,00012152777777777777; WholeChangedOverSix=0; InteriorPixels=64049; InteriorMax=1; InteriorMean=0,0001144956725840112; OutsideInteriorChangedOverSix=0; RestoreChangedPixels=0; FrameCount=33

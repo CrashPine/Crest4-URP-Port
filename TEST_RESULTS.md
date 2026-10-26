@@ -2,6 +2,37 @@
 
 Актуальная сверка: **2026-10-26**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.4: shadowed surface/underwater original RGB (2026-10-26)
+
+`ShadowedOpticalReferenceTests.OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors` — focused **1/1 Passed DX11 и DX12**, все testcase nodes Passed, failed0/skipped0.10 states/API: above/below ×no caster/no caustics, caster/no caustics, caster/caustics, no caster/caustics, no caster/shadow keyword off. Scoped P09.4 DONE; P09.5 original example materials ACTIVE. Full runtime75+interactive2/API остаётся предыдущим checkpoint; следующий suite ожидает78 cases, fresh full78 не запускался. Editor-only изменения не требуют Player rebuild.
+
+Нативные оригинальные `Ocean`, underwater mask/effect и `UpdateShadow` shaders созданы in-memory из31 hash-verified local source files с изменением только имени/раскрытием includes. Original light/mask/effect callbacks и buffers формируют собственные BIRP ресурсы. URP самостоятельно формирует atlas/LOD и composite. Per-stage shadow history очищается. Для below view исходный collector записывает только видимые water positions, поэтому history инициализируется реальным above-view рендером этой же pipeline и точной копией её current→previous LOD buffer с неизменёнными cascade metadata. Это не URP input для оригинала и не приёмка free-running temporal convergence. Синхронный pipeline roundtrip не меняет OceanRenderer.FrameCount, ocean time1/delta0; Unity delta1/60 для исходного shadow integration.
+
+Условия:320×240 Linear/ARGB32/1x; floor−8, flat ocean, normal maps/refraction offset off; hard directional Euler(55,−30,0), bias0/strength1,2048/distance100/one cascade в обеих pipeline, jitter0/frame weights1. Above camera(0,8,−16)→(0,−8,4); below(−1.75052,−3,3.032)→(−4.55,−8,7.88). Matched checker floor: existing unlit shader для URP, отдельный Editor-only BIRP ForwardBase receiver с dynamic receive-strength0. Он сохраняет native receiver variant/SHADOW_ATTENUATION, но одинаковый цвет дна изолирует shadow occlusion именно в Crest; original Crest caustic shadow strength остаётся активным. No-caster background/optical controls проходят full-frame max2/mean.05.
+
+| Измерение (одинаково на обеих API) | Above | Below |
+|---|---:|---:|
+| Analytic interior pixels | 64049 | 47931 |
+| Max interior RGB byte difference (все5states) | 1 | 1 |
+| Largest mean interior RGB byte difference | .000115 | .000181 |
+| URP restoration changed pixels (всеstates) | 0 | 0 |
+| Caster-caustics whole-view max difference | 4 | 21 |
+| Caster-caustics whole-view pixels over summed RGB6 | 2 | 295 |
+| Shadow-on/off feature changed pixels (обеpipeline) | 1005 | 11998 |
+| Occluded interior pixels | 1365 | 29370 |
+| Caustics-on/off changed occluded interior pixels | 0 | 0 |
+| Lit caustic changed interior pixels, URP/original | 27746 / 27745 | 14298 / 14298 |
+
+Interiors заданы до измерений: ray/floor intersection и независимая ray-box geometry с XZ contraction/expansion1m, viewport margin.025; above также исключает water-surface shadow boundary. Interior tolerance max2/mean.05 сохранён, exact restoration и feature controls обязательны. Все pixels over summed6 находятся вне interiors; границы не объявлены совпадающими.30 PNG/API (10 triples), все corresponding API pairs byte-identical. Просмотрены above caster-caustics URP, below original caster-caustics/URP no-caster и fresh DX12 counterpart; ожидаемые caustic suppression/shadow changes, без error-pink в финальных кадрах.
+
+Важное initial finding: original BIRP может сохранить global screen mask после удаления последнего caster, если LightEvent не выполнялся. Initial no-caster caustics vs shadow-keyword-off: original1066 changed pixels, URP0. Для независимых captures перед каждым BIRP render вызывается исходный `BindScreenSpaceNullToGraphicsShaders` (white default); реальный native collector его заменяет. Это initialization reference state, исходные shadow shaders/алгоритмы не исправлялись. Assertions оставлены; occluded caustic controls не дают принять отсутствующую native mask за тень.
+
+Retained failures: `ShadowedOpticalReference-compile-initial-DX11.txt` — generated string newline до выполнения тестов; `...-receiver-initial-DX11.xml`/report +4PNG — неподходящий Legacy ForwardBase test material рисовал URP error-pink, исправлено отдельным BIRP material assignment; `...-stale-mask-initial-DX11.xml`/report — inherited stale global при removal caster. Финальная evidence: `ShadowedOpticalReference-DX11.xml`/`DX12.xml`, per-API report, `P09-ShadowedOpticalReference-sources.json`/`-checkpoint.json` (fixture/receiver/driver/source/XML/report/image hashes и ограничения).
+
+Не приняты этим fixture: refracted/waved/shallow-edge scenes, arbitrary camera motion, real multi-frame convergence/jitter/soft/multicascade, original volume/overlay/MSAA/XR/standalone parity. Production code не менялся. Structural audit1343 files, missing meta/duplicate GUID/missing upstream0,8 root Markdown. P10 shutdown allocation/eviction warnings предыдущего full milestone остаются открытыми.
+
+P09.5 начат read-only inventory: `P09-ExampleMaterial-inventory.json` перечисляет7 original scenes,68 Crest materials (50 example materials), static YAML/GUID scene closures и shader groups. Это не exact AssetDatabase dependency closure и не visual acceptance: builtin/package refs оставлены unresolved для проверки в Unity. Foreign Ocean.mat comparison подтверждает только4 добавленных serialization fields, material properties/shader/texture values unchanged; файл и чужие baked lighting dirs сохранены unstaged. Следующие действия только PORT_PLAN/PORT_PROGRESS.
+
 ## P09.4: independently generated original shadow inputs (2026-10-26)
 
 `ShadowReferenceTests.OriginalLightEventsProduceIndependentMaskAndLodOcclusion` — focused **1/1 Passed на DX11 и DX12**, все testcase nodes Passed, failed0/skipped0. Это Editor-only prerequisite для shadowed optical comparison, не новый полный milestone: last full75+interactive2/API и Player builds/four smokes остаются предыдущими. Следующий полный набор ожидает77 cases; fresh full77 не запускался.

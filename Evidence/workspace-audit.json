@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-26T21:35:37.5459757Z",
+  "recordedUtc": "2026-10-26T21:46:02.5464126Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1339,
+  "fileCount": 1343,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -44,7 +44,7 @@
     },
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-26 21:34:15Z",
+      "start": "2026-10-26 21:44:16Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -76,7 +76,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-26 21:34:42Z",
+      "start": "2026-10-26 21:45:09Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -5791,6 +5791,16 @@
       "sha256": "8EBA42F4BCDCD8AD6DDCE9CBBC4CD8F3C23648C326D9968C79380F0ACE1C13BC"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/BuiltInShadowReceiver.shader",
+      "bytes": 1570,
+      "sha256": "9095C6204A5494DDFDCEA4784CEFA1330670B5415F3C0D85297E385C091DB492"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BuiltInShadowReceiver.shader.meta",
+      "bytes": 62,
+      "sha256": "3B9B98CD3E6B13ED87EA6EDC77C06672A67DB86FC4599C6ABED39463EE0501C9"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/BuoyancyGraphicsTests.cs",
       "bytes": 2625,
       "sha256": "70163F265BE5AD1F21E4B130C9C791AFA49D2DB3475C99DA04ED7D28F2648552"
@@ -6109,6 +6119,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/RippleGeneratorTests.cs.meta",
       "bytes": 60,
       "sha256": "682EC3BB1381A29D9EB57AADB1076E6D68FF4CC701BDCBF6B967F2EB01CD1A89"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ShadowedOpticalReferenceTests.cs",
+      "bytes": 22983,
+      "sha256": "F2C4BBE6454B5B896B970907E055F12A535E95933E7CB25FA2195F565859F6B8"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ShadowedOpticalReferenceTests.cs.meta",
+      "bytes": 62,
+      "sha256": "8060A0ADE555C04C1584F68672C78E636A1FB10B8F07C40BCF7E4B9F62AB5991"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/ShadowReferenceTests.cs",
@@ -6752,8 +6772,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 23889,
-      "sha256": "081333980EF66A187E0081C9C82B426EBA3AB047D3DAEBCD30A74CF9E1DA9F47"
+      "bytes": 24338,
+      "sha256": "FA03F854F3B24608C4AFA4B7278F15D07DF1A98E555DB1AAB49A8D776811E748"
     },
     {
       "path": "LICENSE.Crest",
@@ -6767,18 +6787,18 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 23084,
-      "sha256": "E4BF72FEAC5B3E256B8CD8883CFCB5D52057138832D9A84E6E4849A8FF64723E"
+      "bytes": 23391,
+      "sha256": "0F883709A0B1928795D37BAE8953CBB0A5BC0D6D26283D397B6E7961BF6226BA"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 13438,
-      "sha256": "9970071AE7E359812CB6F8877301126507706AD0B3BB48F3BE7376B0046FECCF"
+      "bytes": 14789,
+      "sha256": "2B955C8019BADC7E5FD40948BFDA73D7493FA918D618B279021B4F707ECDD068"
     },
     {
       "path": "README.md",
-      "bytes": 11517,
-      "sha256": "01F4C8E7766C36787272EF580CFED09597772151A943936869519DC629FD84A5"
+      "bytes": 12060,
+      "sha256": "D75E298DCFBBB7C24E5A59B83AB9678A105FEAE5A8CEDB0C792E151E76997AE1"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6787,8 +6807,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 182680,
-      "sha256": "31CEB1BF4BEC864AE788DEDD964AAA2BB60D19EFB63E386215923428395FB561"
+      "bytes": 187512,
+      "sha256": "4BF210D9C1FAB24CFFDF2F43FF9C9347DAFCC449EC5CB82D916EA964475172D2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

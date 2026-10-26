@@ -1,0 +1,1039 @@
+{
+  "recordedUtc": "2026-10-26T21:45:57.770393+00:00",
+  "scope": "P09.4 matched original above/below hard-shadow scattering and caustic occlusion, independent native BIRP resources; analytic interiors and unshadowed whole-frame controls",
+  "fixture": {
+    "path": "Assets/Crest/URP/Tests/Editor/ShadowedOpticalReferenceTests.cs",
+    "sha256": "F2C4BBE6454B5B896B970907E055F12A535E95933E7CB25FA2195F565859F6B8",
+    "bytes": 22983,
+    "modifiedUtc": "2026-10-26T21:44:00.048998+00:00"
+  },
+  "receiverShader": {
+    "path": "Assets/Crest/URP/Tests/Editor/BuiltInShadowReceiver.shader",
+    "sha256": "9095C6204A5494DDFDCEA4784CEFA1330670B5415F3C0D85297E385C091DB492",
+    "bytes": 1570,
+    "modifiedUtc": "2026-10-26T21:42:22.768066+00:00"
+  },
+  "urpReceiverShader": {
+    "path": "Assets/Crest/URP/Tests/Editor/DualPipelineOpaque.shader",
+    "sha256": "6119FF365EE43C60F0E2AA5746210C05F0851CEBB7F2E1E74CC40601BB8C8D48",
+    "bytes": 1117,
+    "modifiedUtc": "2026-10-26T11:09:38.481461+00:00"
+  },
+  "sourceManifest": {
+    "path": "Evidence/P09-ShadowedOpticalReference-sources.json",
+    "sha256": "52EF5BED9FD1DB7AA5CB3CCF08F51E928DCC8FCC26EFE06632770498DFC06420",
+    "bytes": 4591,
+    "modifiedUtc": "2026-10-26T21:40:32.062111+00:00"
+  },
+  "originalDriverManifests": [
+    {
+      "path": "Evidence/P09-ShadowReference-sources.json",
+      "sha256": "EAE9626B29AE22B7C3152CBBB258155D3131397DC4D74848F27813C82CD69CA2",
+      "bytes": 3438,
+      "modifiedUtc": "2026-10-26T21:36:02.512286+00:00"
+    },
+    {
+      "path": "Evidence/P09-UnderwaterReference-sources.json",
+      "sha256": "EB15BEB03D8003E17CB4B6768447E772E9009D7210E2DCDE465143376EB33FCB",
+      "bytes": 5550,
+      "modifiedUtc": "2026-10-26T16:21:27.130663+00:00"
+    }
+  ],
+  "conditions": {
+    "target": [
+      320,
+      240
+    ],
+    "floorHeight": -8,
+    "casterPosition": [
+      0,
+      5,
+      0
+    ],
+    "casterScale": [
+      8,
+      2,
+      8
+    ],
+    "lightEuler": [
+      55,
+      -30,
+      0
+    ],
+    "shadowMapResolution": 2048,
+    "shadowDistance": 100,
+    "cascades": 1,
+    "frameWeights": 1,
+    "jitter": 0,
+    "captureFramerate": 60,
+    "oceanTime": 1,
+    "oceanDeltaTime": 0,
+    "refractionStrength": 0,
+    "depthFogDensity": [
+      0.06,
+      0.035,
+      0.02
+    ],
+    "predefinedTolerance": {
+      "maxRgbByte": 2,
+      "meanRgbByte": 0.05,
+      "exactUrpRestoration": true,
+      "casterMarginXZMetres": 1,
+      "viewportMargin": 0.025
+    },
+    "aboveCamera": [
+      0,
+      8,
+      -16
+    ],
+    "aboveLookAt": [
+      0,
+      -8,
+      4
+    ],
+    "belowCamera": [
+      -1.75052,
+      -3,
+      3.032
+    ],
+    "belowLookAt": [
+      -4.55,
+      -8,
+      7.88
+    ],
+    "nativeHistory": "Below: independently clear both fields; render native above-water donor using that same pipeline; copy current native LOD to its previous buffer with identical cascade metadata; render below. No cross-pipeline shadow input. Not a real temporal-convergence simulation.",
+    "screenMaskDefault": "Before every independent Built-in render call original BindScreenSpaceNullToGraphicsShaders (white). Native AfterScreenspaceMask overwrites it when rendered. This excludes inherited stale-global state when the last caster disappears."
+  },
+  "runs": [
+    {
+      "api": "DX11",
+      "xml": {
+        "path": "Evidence/ShadowedOpticalReference-DX11.xml",
+        "sha256": "CE91FDC28DF9D51B0541B0336581DC2DCD83157484F7D27B29A8077BDD10CEA2",
+        "bytes": 20047,
+        "modifiedUtc": "2026-10-26T21:44:20.614743+00:00"
+      },
+      "report": {
+        "path": "Evidence/ShadowedOpticalReference-Direct3D11.txt",
+        "sha256": "D299D37F2224A6D4F5FD28E7430C429380170F1C3F95CCA1C1FA562BC4E61914",
+        "bytes": 5083,
+        "modifiedUtc": "2026-10-26T21:44:20.361820+00:00"
+      },
+      "phases": [
+        {
+          "Phase": "Above-NoCaster-NoCaustics",
+          "FogActive": false,
+          "WholeMax": 0,
+          "WholeMean": 0.0,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-Caster-NoCaustics",
+          "FogActive": false,
+          "WholeMax": 1,
+          "WholeMean": 0.00078125,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-Caster-Caustics",
+          "FogActive": false,
+          "WholeMax": 4,
+          "WholeMean": 0.001484375,
+          "WholeChangedOverSix": 2,
+          "InteriorPixels": 64049,
+          "InteriorMax": 1,
+          "InteriorMean": 0.00010408697507637382,
+          "OutsideInteriorChangedOverSix": 2,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-NoCaster-Caustics",
+          "FogActive": false,
+          "WholeMax": 1,
+          "WholeMean": 0.00010850694444444444,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 1,
+          "InteriorMean": 9.888262632255513e-05,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-NoCaster-ShadowKeywordOff",
+          "FogActive": false,
+          "WholeMax": 1,
+          "WholeMean": 0.00012152777777777777,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 1,
+          "InteriorMean": 0.0001144956725840112,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Below-NoCaster-NoCaustics",
+          "FogActive": true,
+          "WholeMax": 0,
+          "WholeMean": 0.0,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-Caster-NoCaustics",
+          "FogActive": true,
+          "WholeMax": 0,
+          "WholeMean": 0.0,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-Caster-Caustics",
+          "FogActive": true,
+          "WholeMax": 21,
+          "WholeMean": 0.029600694444444443,
+          "WholeChangedOverSix": 295,
+          "InteriorPixels": 47931,
+          "InteriorMax": 1,
+          "InteriorMean": 4.868109017824233e-05,
+          "OutsideInteriorChangedOverSix": 295,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-NoCaster-Caustics",
+          "FogActive": true,
+          "WholeMax": 1,
+          "WholeMean": 0.00011284722222222222,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 1,
+          "InteriorMean": 0.00013908882908069239,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-NoCaster-ShadowKeywordOff",
+          "FogActive": true,
+          "WholeMax": 1,
+          "WholeMean": 0.00014756944444444445,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 1,
+          "InteriorMean": 0.0001808154778049001,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        }
+      ],
+      "controls": [
+        {
+          "Controls": "Above",
+          "Original": false,
+          "ShadowChangedPixels": 1005,
+          "LitCausticChangedPixels": 27746,
+          "NoCasterLitCausticChangedPixels": 27712,
+          "OccludedInteriorPixels": 1365,
+          "OccludedCausticChangedPixels": 0
+        },
+        {
+          "Controls": "Above",
+          "Original": true,
+          "ShadowChangedPixels": 1005,
+          "LitCausticChangedPixels": 27745,
+          "NoCasterLitCausticChangedPixels": 27711,
+          "OccludedInteriorPixels": 1365,
+          "OccludedCausticChangedPixels": 0
+        },
+        {
+          "Controls": "Below",
+          "Original": false,
+          "ShadowChangedPixels": 11998,
+          "LitCausticChangedPixels": 14298,
+          "NoCasterLitCausticChangedPixels": 14019,
+          "OccludedInteriorPixels": 29370,
+          "OccludedCausticChangedPixels": 0
+        },
+        {
+          "Controls": "Below",
+          "Original": true,
+          "ShadowChangedPixels": 11998,
+          "LitCausticChangedPixels": 14298,
+          "NoCasterLitCausticChangedPixels": 14019,
+          "OccludedInteriorPixels": 29370,
+          "OccludedCausticChangedPixels": 0
+        }
+      ],
+      "images": [
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-Direct3D11.png",
+          "sha256": "8EDEFD1F1C8003BB18C5C5D1866AB7EBA2EEE9159C7DFEB3D7F70E798206C409",
+          "bytes": 39966,
+          "modifiedUtc": "2026-10-26T21:44:18.142230+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-BuiltIn-Direct3D11.png",
+          "sha256": "8EDEFD1F1C8003BB18C5C5D1866AB7EBA2EEE9159C7DFEB3D7F70E798206C409",
+          "bytes": 39966,
+          "modifiedUtc": "2026-10-26T21:44:18.166220+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-restored-Direct3D11.png",
+          "sha256": "8EDEFD1F1C8003BB18C5C5D1866AB7EBA2EEE9159C7DFEB3D7F70E798206C409",
+          "bytes": 39966,
+          "modifiedUtc": "2026-10-26T21:44:18.190596+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-Direct3D11.png",
+          "sha256": "D7351E317C43F6ED40F9F328C08657FE0B348CE3DC4C44CDD0CE79244D3AD432",
+          "bytes": 40550,
+          "modifiedUtc": "2026-10-26T21:44:18.327776+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-BuiltIn-Direct3D11.png",
+          "sha256": "B9091259ACBAD9CF2D69B6600A7A09AB04F74B1F311BD2D81AF694DB61246DFB",
+          "bytes": 40562,
+          "modifiedUtc": "2026-10-26T21:44:18.347542+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-restored-Direct3D11.png",
+          "sha256": "D7351E317C43F6ED40F9F328C08657FE0B348CE3DC4C44CDD0CE79244D3AD432",
+          "bytes": 40550,
+          "modifiedUtc": "2026-10-26T21:44:18.367612+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-Direct3D11.png",
+          "sha256": "4ED16D14BD53D8BE084E0A6CA70ABADBAC0856D9094738B2FA5180F1810D30A5",
+          "bytes": 122299,
+          "modifiedUtc": "2026-10-26T21:44:18.517515+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-BuiltIn-Direct3D11.png",
+          "sha256": "86222ECDB66B6C3DD447211585151519CBFF45AB925E4E3548F81143086DF491",
+          "bytes": 122267,
+          "modifiedUtc": "2026-10-26T21:44:18.552680+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-restored-Direct3D11.png",
+          "sha256": "4ED16D14BD53D8BE084E0A6CA70ABADBAC0856D9094738B2FA5180F1810D30A5",
+          "bytes": 122299,
+          "modifiedUtc": "2026-10-26T21:44:18.578170+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-Direct3D11.png",
+          "sha256": "BC9E2B9B039504148E368B42EE6BF3B04AC4139D1C199E685DC3553E487DE626",
+          "bytes": 124268,
+          "modifiedUtc": "2026-10-26T21:44:18.702504+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-BuiltIn-Direct3D11.png",
+          "sha256": "743987B286744906655055D141D436D8CB5F6F5D53585CAF0CA2D03EC5DE18B1",
+          "bytes": 124269,
+          "modifiedUtc": "2026-10-26T21:44:18.720457+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-restored-Direct3D11.png",
+          "sha256": "BC9E2B9B039504148E368B42EE6BF3B04AC4139D1C199E685DC3553E487DE626",
+          "bytes": 124268,
+          "modifiedUtc": "2026-10-26T21:44:18.747392+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-Direct3D11.png",
+          "sha256": "452898BAC52376CEE2BB99BCCE00EAAA0C5121683E1DFA6F366E687987D9B94A",
+          "bytes": 124272,
+          "modifiedUtc": "2026-10-26T21:44:19.089593+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D11.png",
+          "sha256": "743987B286744906655055D141D436D8CB5F6F5D53585CAF0CA2D03EC5DE18B1",
+          "bytes": 124269,
+          "modifiedUtc": "2026-10-26T21:44:19.106895+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-restored-Direct3D11.png",
+          "sha256": "452898BAC52376CEE2BB99BCCE00EAAA0C5121683E1DFA6F366E687987D9B94A",
+          "bytes": 124272,
+          "modifiedUtc": "2026-10-26T21:44:19.140971+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-Direct3D11.png",
+          "sha256": "5F7FEA06538990BBB60E5B0882E5C12B76661D5D52A3BE524A8A0A3CDB9B345F",
+          "bytes": 15636,
+          "modifiedUtc": "2026-10-26T21:44:19.340314+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-BuiltIn-Direct3D11.png",
+          "sha256": "5F7FEA06538990BBB60E5B0882E5C12B76661D5D52A3BE524A8A0A3CDB9B345F",
+          "bytes": 15636,
+          "modifiedUtc": "2026-10-26T21:44:19.363528+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-restored-Direct3D11.png",
+          "sha256": "5F7FEA06538990BBB60E5B0882E5C12B76661D5D52A3BE524A8A0A3CDB9B345F",
+          "bytes": 15636,
+          "modifiedUtc": "2026-10-26T21:44:19.397572+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-Direct3D11.png",
+          "sha256": "548F3D19C359D0753AFF5A2B88EB2600B1BDCBFE6114E4403566307344AA84F6",
+          "bytes": 15655,
+          "modifiedUtc": "2026-10-26T21:44:19.506695+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-BuiltIn-Direct3D11.png",
+          "sha256": "548F3D19C359D0753AFF5A2B88EB2600B1BDCBFE6114E4403566307344AA84F6",
+          "bytes": 15655,
+          "modifiedUtc": "2026-10-26T21:44:19.533842+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-restored-Direct3D11.png",
+          "sha256": "548F3D19C359D0753AFF5A2B88EB2600B1BDCBFE6114E4403566307344AA84F6",
+          "bytes": 15655,
+          "modifiedUtc": "2026-10-26T21:44:19.567250+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-Direct3D11.png",
+          "sha256": "7DC2C4A0739DB30CFE1043E19B4399CE0A6EF307E2D532338D6E1DA1ECCBF315",
+          "bytes": 70039,
+          "modifiedUtc": "2026-10-26T21:44:19.685224+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-BuiltIn-Direct3D11.png",
+          "sha256": "E4181A7569822478D506D2216E0EE25DB931397C8622366198932F654BF2F2BA",
+          "bytes": 69281,
+          "modifiedUtc": "2026-10-26T21:44:19.718326+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-restored-Direct3D11.png",
+          "sha256": "7DC2C4A0739DB30CFE1043E19B4399CE0A6EF307E2D532338D6E1DA1ECCBF315",
+          "bytes": 70039,
+          "modifiedUtc": "2026-10-26T21:44:19.745397+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-Direct3D11.png",
+          "sha256": "1597DB85E09455387E6AB6258D492EBF04B8FAA8F4AC740D219601305BB749B4",
+          "bytes": 140385,
+          "modifiedUtc": "2026-10-26T21:44:19.854215+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-BuiltIn-Direct3D11.png",
+          "sha256": "4856DBDDA55A04B8660B2847000360D8C0DE8FF3A980090A0C4D112951A4FFB3",
+          "bytes": 140376,
+          "modifiedUtc": "2026-10-26T21:44:19.874591+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-restored-Direct3D11.png",
+          "sha256": "1597DB85E09455387E6AB6258D492EBF04B8FAA8F4AC740D219601305BB749B4",
+          "bytes": 140385,
+          "modifiedUtc": "2026-10-26T21:44:19.906165+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-Direct3D11.png",
+          "sha256": "60EC47E4C15FEEA23363B3968C401995460AEF2D4A3777768B97013DE7725A3A",
+          "bytes": 140374,
+          "modifiedUtc": "2026-10-26T21:44:20.213022+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D11.png",
+          "sha256": "4856DBDDA55A04B8660B2847000360D8C0DE8FF3A980090A0C4D112951A4FFB3",
+          "bytes": 140376,
+          "modifiedUtc": "2026-10-26T21:44:20.236290+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-restored-Direct3D11.png",
+          "sha256": "60EC47E4C15FEEA23363B3968C401995460AEF2D4A3777768B97013DE7725A3A",
+          "bytes": 140374,
+          "modifiedUtc": "2026-10-26T21:44:20.269274+00:00"
+        }
+      ]
+    },
+    {
+      "api": "DX12",
+      "xml": {
+        "path": "Evidence/ShadowedOpticalReference-DX12.xml",
+        "sha256": "0CDF92DF4F5F5AB1582682C16C364242B87996C50A54F8656B298E848BC2BC93",
+        "bytes": 20047,
+        "modifiedUtc": "2026-10-26T21:45:14.707154+00:00"
+      },
+      "report": {
+        "path": "Evidence/ShadowedOpticalReference-Direct3D12.txt",
+        "sha256": "D299D37F2224A6D4F5FD28E7430C429380170F1C3F95CCA1C1FA562BC4E61914",
+        "bytes": 5083,
+        "modifiedUtc": "2026-10-26T21:45:14.425978+00:00"
+      },
+      "phases": [
+        {
+          "Phase": "Above-NoCaster-NoCaustics",
+          "FogActive": false,
+          "WholeMax": 0,
+          "WholeMean": 0.0,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-Caster-NoCaustics",
+          "FogActive": false,
+          "WholeMax": 1,
+          "WholeMean": 0.00078125,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-Caster-Caustics",
+          "FogActive": false,
+          "WholeMax": 4,
+          "WholeMean": 0.001484375,
+          "WholeChangedOverSix": 2,
+          "InteriorPixels": 64049,
+          "InteriorMax": 1,
+          "InteriorMean": 0.00010408697507637382,
+          "OutsideInteriorChangedOverSix": 2,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-NoCaster-Caustics",
+          "FogActive": false,
+          "WholeMax": 1,
+          "WholeMean": 0.00010850694444444444,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 1,
+          "InteriorMean": 9.888262632255513e-05,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Above-NoCaster-ShadowKeywordOff",
+          "FogActive": false,
+          "WholeMax": 1,
+          "WholeMean": 0.00012152777777777777,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 64049,
+          "InteriorMax": 1,
+          "InteriorMean": 0.0001144956725840112,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 33
+        },
+        {
+          "Phase": "Below-NoCaster-NoCaustics",
+          "FogActive": true,
+          "WholeMax": 0,
+          "WholeMean": 0.0,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-Caster-NoCaustics",
+          "FogActive": true,
+          "WholeMax": 0,
+          "WholeMean": 0.0,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 0,
+          "InteriorMean": 0.0,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-Caster-Caustics",
+          "FogActive": true,
+          "WholeMax": 21,
+          "WholeMean": 0.029600694444444443,
+          "WholeChangedOverSix": 295,
+          "InteriorPixels": 47931,
+          "InteriorMax": 1,
+          "InteriorMean": 4.868109017824233e-05,
+          "OutsideInteriorChangedOverSix": 295,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-NoCaster-Caustics",
+          "FogActive": true,
+          "WholeMax": 1,
+          "WholeMean": 0.00011284722222222222,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 1,
+          "InteriorMean": 0.00013908882908069239,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        },
+        {
+          "Phase": "Below-NoCaster-ShadowKeywordOff",
+          "FogActive": true,
+          "WholeMax": 1,
+          "WholeMean": 0.00014756944444444445,
+          "WholeChangedOverSix": 0,
+          "InteriorPixels": 47931,
+          "InteriorMax": 1,
+          "InteriorMean": 0.0001808154778049001,
+          "OutsideInteriorChangedOverSix": 0,
+          "RestoreChangedPixels": 0,
+          "FrameCount": 45
+        }
+      ],
+      "controls": [
+        {
+          "Controls": "Above",
+          "Original": false,
+          "ShadowChangedPixels": 1005,
+          "LitCausticChangedPixels": 27746,
+          "NoCasterLitCausticChangedPixels": 27712,
+          "OccludedInteriorPixels": 1365,
+          "OccludedCausticChangedPixels": 0
+        },
+        {
+          "Controls": "Above",
+          "Original": true,
+          "ShadowChangedPixels": 1005,
+          "LitCausticChangedPixels": 27745,
+          "NoCasterLitCausticChangedPixels": 27711,
+          "OccludedInteriorPixels": 1365,
+          "OccludedCausticChangedPixels": 0
+        },
+        {
+          "Controls": "Below",
+          "Original": false,
+          "ShadowChangedPixels": 11998,
+          "LitCausticChangedPixels": 14298,
+          "NoCasterLitCausticChangedPixels": 14019,
+          "OccludedInteriorPixels": 29370,
+          "OccludedCausticChangedPixels": 0
+        },
+        {
+          "Controls": "Below",
+          "Original": true,
+          "ShadowChangedPixels": 11998,
+          "LitCausticChangedPixels": 14298,
+          "NoCasterLitCausticChangedPixels": 14019,
+          "OccludedInteriorPixels": 29370,
+          "OccludedCausticChangedPixels": 0
+        }
+      ],
+      "images": [
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-Direct3D12.png",
+          "sha256": "8EDEFD1F1C8003BB18C5C5D1866AB7EBA2EEE9159C7DFEB3D7F70E798206C409",
+          "bytes": 39966,
+          "modifiedUtc": "2026-10-26T21:45:11.582213+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-BuiltIn-Direct3D12.png",
+          "sha256": "8EDEFD1F1C8003BB18C5C5D1866AB7EBA2EEE9159C7DFEB3D7F70E798206C409",
+          "bytes": 39966,
+          "modifiedUtc": "2026-10-26T21:45:11.699795+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-restored-Direct3D12.png",
+          "sha256": "8EDEFD1F1C8003BB18C5C5D1866AB7EBA2EEE9159C7DFEB3D7F70E798206C409",
+          "bytes": 39966,
+          "modifiedUtc": "2026-10-26T21:45:11.728103+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-Direct3D12.png",
+          "sha256": "D7351E317C43F6ED40F9F328C08657FE0B348CE3DC4C44CDD0CE79244D3AD432",
+          "bytes": 40550,
+          "modifiedUtc": "2026-10-26T21:45:11.870127+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-BuiltIn-Direct3D12.png",
+          "sha256": "B9091259ACBAD9CF2D69B6600A7A09AB04F74B1F311BD2D81AF694DB61246DFB",
+          "bytes": 40562,
+          "modifiedUtc": "2026-10-26T21:45:11.917716+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-restored-Direct3D12.png",
+          "sha256": "D7351E317C43F6ED40F9F328C08657FE0B348CE3DC4C44CDD0CE79244D3AD432",
+          "bytes": 40550,
+          "modifiedUtc": "2026-10-26T21:45:11.938859+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-Direct3D12.png",
+          "sha256": "4ED16D14BD53D8BE084E0A6CA70ABADBAC0856D9094738B2FA5180F1810D30A5",
+          "bytes": 122299,
+          "modifiedUtc": "2026-10-26T21:45:12.132040+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-BuiltIn-Direct3D12.png",
+          "sha256": "86222ECDB66B6C3DD447211585151519CBFF45AB925E4E3548F81143086DF491",
+          "bytes": 122267,
+          "modifiedUtc": "2026-10-26T21:45:12.233108+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-restored-Direct3D12.png",
+          "sha256": "4ED16D14BD53D8BE084E0A6CA70ABADBAC0856D9094738B2FA5180F1810D30A5",
+          "bytes": 122299,
+          "modifiedUtc": "2026-10-26T21:45:12.264258+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-Direct3D12.png",
+          "sha256": "BC9E2B9B039504148E368B42EE6BF3B04AC4139D1C199E685DC3553E487DE626",
+          "bytes": 124268,
+          "modifiedUtc": "2026-10-26T21:45:12.381149+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-BuiltIn-Direct3D12.png",
+          "sha256": "743987B286744906655055D141D436D8CB5F6F5D53585CAF0CA2D03EC5DE18B1",
+          "bytes": 124269,
+          "modifiedUtc": "2026-10-26T21:45:12.399048+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-restored-Direct3D12.png",
+          "sha256": "BC9E2B9B039504148E368B42EE6BF3B04AC4139D1C199E685DC3553E487DE626",
+          "bytes": 124268,
+          "modifiedUtc": "2026-10-26T21:45:12.425623+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-Direct3D12.png",
+          "sha256": "452898BAC52376CEE2BB99BCCE00EAAA0C5121683E1DFA6F366E687987D9B94A",
+          "bytes": 124272,
+          "modifiedUtc": "2026-10-26T21:45:12.832220+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D12.png",
+          "sha256": "743987B286744906655055D141D436D8CB5F6F5D53585CAF0CA2D03EC5DE18B1",
+          "bytes": 124269,
+          "modifiedUtc": "2026-10-26T21:45:12.919029+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-restored-Direct3D12.png",
+          "sha256": "452898BAC52376CEE2BB99BCCE00EAAA0C5121683E1DFA6F366E687987D9B94A",
+          "bytes": 124272,
+          "modifiedUtc": "2026-10-26T21:45:12.945804+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-Direct3D12.png",
+          "sha256": "5F7FEA06538990BBB60E5B0882E5C12B76661D5D52A3BE524A8A0A3CDB9B345F",
+          "bytes": 15636,
+          "modifiedUtc": "2026-10-26T21:45:13.202168+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-BuiltIn-Direct3D12.png",
+          "sha256": "5F7FEA06538990BBB60E5B0882E5C12B76661D5D52A3BE524A8A0A3CDB9B345F",
+          "bytes": 15636,
+          "modifiedUtc": "2026-10-26T21:45:13.260611+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-restored-Direct3D12.png",
+          "sha256": "5F7FEA06538990BBB60E5B0882E5C12B76661D5D52A3BE524A8A0A3CDB9B345F",
+          "bytes": 15636,
+          "modifiedUtc": "2026-10-26T21:45:13.294128+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-Direct3D12.png",
+          "sha256": "548F3D19C359D0753AFF5A2B88EB2600B1BDCBFE6114E4403566307344AA84F6",
+          "bytes": 15655,
+          "modifiedUtc": "2026-10-26T21:45:13.408261+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-BuiltIn-Direct3D12.png",
+          "sha256": "548F3D19C359D0753AFF5A2B88EB2600B1BDCBFE6114E4403566307344AA84F6",
+          "bytes": 15655,
+          "modifiedUtc": "2026-10-26T21:45:13.449248+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-restored-Direct3D12.png",
+          "sha256": "548F3D19C359D0753AFF5A2B88EB2600B1BDCBFE6114E4403566307344AA84F6",
+          "bytes": 15655,
+          "modifiedUtc": "2026-10-26T21:45:13.477407+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-Direct3D12.png",
+          "sha256": "7DC2C4A0739DB30CFE1043E19B4399CE0A6EF307E2D532338D6E1DA1ECCBF315",
+          "bytes": 70039,
+          "modifiedUtc": "2026-10-26T21:45:13.598255+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-BuiltIn-Direct3D12.png",
+          "sha256": "E4181A7569822478D506D2216E0EE25DB931397C8622366198932F654BF2F2BA",
+          "bytes": 69281,
+          "modifiedUtc": "2026-10-26T21:45:13.680952+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-restored-Direct3D12.png",
+          "sha256": "7DC2C4A0739DB30CFE1043E19B4399CE0A6EF307E2D532338D6E1DA1ECCBF315",
+          "bytes": 70039,
+          "modifiedUtc": "2026-10-26T21:45:13.716845+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-Direct3D12.png",
+          "sha256": "1597DB85E09455387E6AB6258D492EBF04B8FAA8F4AC740D219601305BB749B4",
+          "bytes": 140385,
+          "modifiedUtc": "2026-10-26T21:45:13.841268+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-BuiltIn-Direct3D12.png",
+          "sha256": "4856DBDDA55A04B8660B2847000360D8C0DE8FF3A980090A0C4D112951A4FFB3",
+          "bytes": 140376,
+          "modifiedUtc": "2026-10-26T21:45:13.875407+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-restored-Direct3D12.png",
+          "sha256": "1597DB85E09455387E6AB6258D492EBF04B8FAA8F4AC740D219601305BB749B4",
+          "bytes": 140385,
+          "modifiedUtc": "2026-10-26T21:45:13.909329+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-Direct3D12.png",
+          "sha256": "60EC47E4C15FEEA23363B3968C401995460AEF2D4A3777768B97013DE7725A3A",
+          "bytes": 140374,
+          "modifiedUtc": "2026-10-26T21:45:14.233483+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D12.png",
+          "sha256": "4856DBDDA55A04B8660B2847000360D8C0DE8FF3A980090A0C4D112951A4FFB3",
+          "bytes": 140376,
+          "modifiedUtc": "2026-10-26T21:45:14.301540+00:00"
+        },
+        {
+          "path": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-restored-Direct3D12.png",
+          "sha256": "60EC47E4C15FEEA23363B3968C401995460AEF2D4A3777768B97013DE7725A3A",
+          "bytes": 140374,
+          "modifiedUtc": "2026-10-26T21:45:14.343073+00:00"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Shadow boundaries are measured separately, not accepted as equal; view/margin chosen before measuring.",
+    "Flat waves, no surface normal maps/refraction offset, hard directional light, single cascade, fullscreen/1x only.",
+    "No actual multi-frame jitter/convergence, soft/multicascade/volume/overlay/MSAA/XR/standalone original parity accepted here.",
+    "Below history is initialized through native donor rendering/copy; free-running underwater shadow history is not accepted.",
+    "Built-in receiver consumes SHADOW_ATTENUATION with dynamic strength0 to retain real shadow receiver pass while isolating opaque colour. URP uses existing unlit identical checker colour; independent original Crest caustic shadow strength remains active.",
+    "Editor-only changes; no new full78, no Player rebuild. Last runtime full75+2 and builds/four smokes retained."
+  ],
+  "crossApiPairs": [
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-NoCaustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-Caster-NoCaustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-Caster-Caustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-Caustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Above-NoCaster-ShadowKeywordOff-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-NoCaustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-Caster-NoCaustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-Caster-Caustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-Caustics-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-BuiltIn-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-restored-Direct3D11.png",
+      "dx12": "Evidence/ShadowedOpticalReference-Below-NoCaster-ShadowKeywordOff-URP-restored-Direct3D12.png",
+      "byteIdentical": true
+    }
+  ],
+  "failedRuns": [
+    {
+      "path": "Evidence/ShadowedOpticalReference-compile-initial-DX11.txt",
+      "sha256": "EA1D6DB141EE848D251D8E682EC19F815C4D4E8C579CA35FA87F7AC4129021E3",
+      "bytes": 1681,
+      "modifiedUtc": "2026-10-26T21:41:27.277611+00:00"
+    },
+    {
+      "path": "Evidence/ShadowedOpticalReference-receiver-initial-DX11.xml",
+      "sha256": "807C780B2B6943199EE2B00B33357CAEF8BEB1905FD855F84C46768D516198BE",
+      "bytes": 17776,
+      "modifiedUtc": "2026-10-26T21:41:51.281045+00:00"
+    },
+    {
+      "path": "Evidence/ShadowedOpticalReference-receiver-initial-Direct3D11.txt",
+      "sha256": "5F13F6C72BA1CE2C596ED89AA73F821C9ABD29EF2DC51A748881472DAA16A790",
+      "bytes": 4718,
+      "modifiedUtc": "2026-10-26T21:41:51.015193+00:00"
+    },
+    {
+      "path": "Evidence/ShadowedOpticalReference-stale-mask-initial-DX11.xml",
+      "sha256": "6DCD8E82E9F5DA6424D219A1DF4ABAF81390B728F7D2203E06BEF80A98CC56F0",
+      "bytes": 10708,
+      "modifiedUtc": "2026-10-26T21:42:41.978443+00:00"
+    },
+    {
+      "path": "Evidence/ShadowedOpticalReference-stale-mask-initial-Direct3D11.txt",
+      "sha256": "FB70B4F4064E0A608EFF9E39EB09F1CD81EE7CF579E440BE4FED3168385340B6",
+      "bytes": 2784,
+      "modifiedUtc": "2026-10-26T21:42:41.742394+00:00"
+    }
+  ],
+  "nextStageInventory": {
+    "path": "Evidence/P09-ExampleMaterial-inventory.json",
+    "scope": "Static YAML/GUID inventory only; render and Unity shader resolution still pending"
+  }
+}
