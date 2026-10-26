@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-24T20:49:45.1534629Z",
+  "recordedUtc": "2026-10-26T10:41:52.9369282Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1323,
+  "fileCount": 1327,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -44,15 +44,15 @@
     },
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-24 20:31:30Z",
+      "start": "2026-10-25 21:34:19Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "3",
+      "passed": "3",
       "failed": "0"
     },
     {
       "file": "EditMode-DX11-interactive.xml",
-      "start": "2026-10-24 20:36:27Z",
+      "start": "2026-10-25 21:39:22Z",
       "result": "Passed",
       "total": "2",
       "passed": "2",
@@ -60,10 +60,10 @@
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-10-24 20:32:25Z",
+      "start": "2026-10-25 21:35:58Z",
       "result": "Passed",
-      "total": "70",
-      "passed": "70",
+      "total": "73",
+      "passed": "73",
       "failed": "0"
     },
     {
@@ -76,15 +76,15 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-24 10:44:42Z",
+      "start": "2026-10-25 21:35:39Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "3",
+      "passed": "3",
       "failed": "0"
     },
     {
       "file": "EditMode-DX12-interactive.xml",
-      "start": "2026-10-24 20:42:36Z",
+      "start": "2026-10-25 21:44:46Z",
       "result": "Passed",
       "total": "2",
       "passed": "2",
@@ -92,10 +92,10 @@
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-10-24 20:37:36Z",
+      "start": "2026-10-25 21:40:15Z",
       "result": "Passed",
-      "total": "70",
-      "passed": "70",
+      "total": "73",
+      "passed": "73",
       "failed": "0"
     }
   ],
@@ -1712,8 +1712,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
-      "bytes": 9075,
-      "sha256": "0199629C6BB5AFCB914F6BEACA3A6BBA18760BCD5FD67EF25DE893E29A30EBAB"
+      "bytes": 10518,
+      "sha256": "12989357C389E3A20D13C9A9E46E094359DA8849765B89DEEB263CAF3FB0C6C1"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs.meta",
@@ -5791,6 +5791,26 @@
       "sha256": "C885E54CC4BBB2DC6CA989090186D5773C843D1E58628327EE8C6CF59B685B71"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/CameraBackgroundProbe.shader",
+      "bytes": 1391,
+      "sha256": "A6C9BE751653B8200E909BE16FA83B595258B5F6372763FAE5B810708FD0A930"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/CameraBackgroundProbe.shader.meta",
+      "bytes": 62,
+      "sha256": "B5260C2754550793640D6DD3D4028A66FD06216B70651B3AFC5AD5F5387FDE0D"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/CameraSettingsTests.cs",
+      "bytes": 31945,
+      "sha256": "44CC73F6BC48A0C46A78831641D7266D2D0AA4508C68CEED8D37910C3D298DDC"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/CameraSettingsTests.cs.meta",
+      "bytes": 62,
+      "sha256": "4C37BDE6D345C15430B99B3E673E8F3FCF0DC86B3A862DBE0B923615C382938A"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/ChoppyQueryTests.cs",
       "bytes": 11250,
       "sha256": "E24841B697CDFED511241EED320B93FAC9EA2AE12E090406584635C824DA47E7"
@@ -6612,8 +6632,8 @@
     },
     {
       "path": "ProjectSettings/TimeManager.asset",
-      "bytes": 319,
-      "sha256": "04C070E2F9716503B8014933B8603D21EDBF3784AFB00E32A2633A0ECEE075F2"
+      "bytes": 305,
+      "sha256": "3396F52FDC16D445024E01D7A2D99DB6F0A37569D1D73C0302E9FFB857D90287"
     },
     {
       "path": "ProjectSettings/UnityConnectSettings.asset",
@@ -6672,8 +6692,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 21003,
-      "sha256": "8D22539D1A4DE427A0F20CEB042329AF65E46CC07E403C8EF3487F83C0F86FD9"
+      "bytes": 22121,
+      "sha256": "3875F3BB8A0A19F80D3BED4D5E45BD4ED9940029163B492C4B20C95B968DAE6A"
     },
     {
       "path": "LICENSE.Crest",
@@ -6682,23 +6702,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 26292,
-      "sha256": "B777B472C85F49BFF554B9E438B66CC4CB43772F156B88D41942B5DA6B330443"
+      "bytes": 27715,
+      "sha256": "47D77AD536F12B374897E13CF10CAD7DCEF2C0B5C9CDBAC72A4352710BBB5CCB"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 19500,
-      "sha256": "65F905D8AD263005339AC8B98C6C5F4C8A48B6545C1CE362E97A7D71B620A79E"
+      "bytes": 19768,
+      "sha256": "272AE76CDA72B346EAD2284BB8D3866087DCC951F894B2E4BB6EEE326F17B587"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 9357,
-      "sha256": "F67F1514F60F822FFFB979BBA7A8EDFFF8D267817E70DDB213C8D9408941ACE6"
+      "bytes": 8530,
+      "sha256": "1EFB41B09DD4A2CDD4EDB3CE08B777B2EEAD4EC68E00A9E814AB16EE0F6F71CC"
     },
     {
       "path": "README.md",
-      "bytes": 8950,
-      "sha256": "07BE4E7A0CA9C129CE322E5636EAF41371AA75A1F0EDCCEA8D2A24F853D8CC9F"
+      "bytes": 9800,
+      "sha256": "2FE6BCC3A3DB2428A21C8AF42214E5A69453F59154C5241900F568EA8672A5C1"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6707,8 +6727,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 161137,
-      "sha256": "64657F3F71B7C53DAF5C0FA221FED000C975D91BFD7463DE5006A45F873F994D"
+      "bytes": 167225,
+      "sha256": "83A5C931B34AB4750817D573757A89C1AF5C433BAAB2711BB94B152A46064AD2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

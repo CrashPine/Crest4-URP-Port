@@ -1,0 +1,123 @@
+{
+  "recordedUtc": "2026-10-25T21:46:35.620388+00:00",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "sources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
+      "sha256": "12989357c389e3a20d13c9a9e46e094359da8849765b89deeb263caf3fb0c6c1"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/CameraSettingsTests.cs",
+      "sha256": "44cc73f6bc48a0c46a78831641d7266d2d0aa4508c68ceed8d37910c3d298ddc"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/CameraBackgroundProbe.shader",
+      "sha256": "a6c9be751653b8200e909be16fa83b595258b5f6372763fae5b810708fd0a930"
+    }
+  ],
+  "regression": [
+    {
+      "path": "Evidence/P08-Milestone-DX11.xml",
+      "api": "DX11",
+      "profile": "batch",
+      "total": 73,
+      "startUtc": "2026-10-25 21:35:58Z",
+      "endUtc": "2026-10-25 21:38:55Z",
+      "sha256": "525fad131d57350d31a2160dc239779e79d979e6dcbe4d1e467a8e4d399fb9fc"
+    },
+    {
+      "path": "Evidence/P08-Milestone-DX11-interactive.xml",
+      "api": "DX11",
+      "profile": "non-batch",
+      "total": 2,
+      "startUtc": "2026-10-25 21:39:22Z",
+      "endUtc": "2026-10-25 21:39:56Z",
+      "sha256": "62edc339f13c096560ce81f08ec5dfa74eafae572cc2dc89f3bf25ff5bee5ab6"
+    },
+    {
+      "path": "Evidence/P08-Milestone-DX12.xml",
+      "api": "DX12",
+      "profile": "batch",
+      "total": 73,
+      "startUtc": "2026-10-25 21:40:15Z",
+      "endUtc": "2026-10-25 21:44:24Z",
+      "sha256": "b2794b10a130f7460ec4205ef054005bda5fd0695c4b7994ce431b7488bef9ba"
+    },
+    {
+      "path": "Evidence/P08-Milestone-DX12-interactive.xml",
+      "api": "DX12",
+      "profile": "non-batch",
+      "total": 2,
+      "startUtc": "2026-10-25 21:44:46Z",
+      "endUtc": "2026-10-25 21:45:22Z",
+      "sha256": "fb270fc169c4de4f4800780ce9afbdf5697cc86795209c38e83e61069d872ae0"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/CameraSettings-Cameras-Direct3D11.txt",
+      "sha256": "7dd6f1e423971a3249f8fc30305127118f3d300b69afab08f2636c028a442d1f"
+    },
+    {
+      "path": "Evidence/CameraSettings-Cameras-Direct3D12.txt",
+      "sha256": "7dd6f1e423971a3249f8fc30305127118f3d300b69afab08f2636c028a442d1f"
+    },
+    {
+      "path": "Evidence/CameraSettings-Targets-Direct3D11.txt",
+      "sha256": "6920ea70915cdc5ae5849322bdbcd6d4b8fee0a47ab4eeda884c7f6c0aff3878"
+    },
+    {
+      "path": "Evidence/CameraSettings-Targets-Direct3D12.txt",
+      "sha256": "0b1fbccb3deb662c363ebbf41c063a0f1f079ffb89155949f2fa1d4bc13d9c61"
+    },
+    {
+      "path": "Evidence/CameraSettings-Underwater-Direct3D11.txt",
+      "sha256": "21f040913668b6132b1f72ea82686f993cfe5fc1a53c2bad2c0c7700457c8e4f"
+    },
+    {
+      "path": "Evidence/CameraSettings-Underwater-Direct3D12.txt",
+      "sha256": "21f040913668b6132b1f72ea82686f993cfe5fc1a53c2bad2c0c7700457c8e4f"
+    }
+  ],
+  "underwaterCases": {
+    "Direct3D11": [
+      "UnderwaterStack; MSAA=1; BeforeTransparents=False; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0",
+      "UnderwaterStack; MSAA=1; BeforeTransparents=True; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0",
+      "UnderwaterStack; MSAA=4; BeforeTransparents=False; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0",
+      "UnderwaterStack; MSAA=4; BeforeTransparents=True; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0"
+    ],
+    "Direct3D12": [
+      "UnderwaterStack; MSAA=1; BeforeTransparents=False; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0",
+      "UnderwaterStack; MSAA=1; BeforeTransparents=True; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0",
+      "UnderwaterStack; MSAA=4; BeforeTransparents=False; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0",
+      "UnderwaterStack; MSAA=4; BeforeTransparents=True; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0"
+    ]
+  },
+  "beforeFix": {
+    "outsideProjectedQuadChanged": 40432,
+    "totalChanged": 45056
+  },
+  "simulationGuard": {
+    "nativeFoamSamplesPerSequence": 147456,
+    "sequencesPerAPI": 3,
+    "positiveDelta": 0.03333333333333333,
+    "fade": 0.8,
+    "maxError": 0
+  },
+  "shutdownWarnings": {
+    "DX11": [
+      "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+    ],
+    "DX12": [
+      "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+    ]
+  },
+  "limitations": [
+    "Scoped Editor PlayMode/offscreen acceptance, not performance or complete visual equivalence.",
+    "Uniform .75 hardware DRS via StandardRequest supported/tested DX12; SystemInfo false DX11.",
+    "Nonuniform .75/.5 not accepted; live backbuffer and rendered XR untested (0 XR displays).",
+    "New camera-colour copy cost and persistent allocation warning remain P10.",
+    "Volume/MSAA/XR combinations and broader standalone variants remain P09/P11."
+  ]
+}

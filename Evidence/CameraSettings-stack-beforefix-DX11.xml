@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Failed(Child)" total="3" passed="2" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-25 21:28:56Z" end-time="2026-10-25 21:28:59Z" duration="3,060049">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="75" result="Failed" site="Child" start-time="2026-10-25 21:28:56Z" end-time="2026-10-25 21:28:59Z" duration="3.060049" total="3" passed="2" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1120" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="73" result="Failed" site="Child" start-time="2026-10-25 21:28:56Z" end-time="2026-10-25 21:28:59Z" duration="3.047662" total="3" passed="2" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="262396" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1029" name="CameraSettingsTests" fullname="CameraSettingsTests" classname="CameraSettingsTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-10-25 21:28:56Z" end-time="2026-10-25 21:28:59Z" duration="3.044311" total="3" passed="2" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1030" name="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" fullname="CameraSettingsTests.IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" methodname="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" classname="CameraSettingsTests" runstate="Runnable" seed="2012420498" result="Passed" start-time="2026-10-25 21:28:56Z" end-time="2026-10-25 21:28:58Z" duration="1.575540" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="90000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1032" name="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" fullname="CameraSettingsTests.ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" methodname="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" classname="CameraSettingsTests" runstate="Runnable" seed="607100112" result="Passed" start-time="2026-10-25 21:28:58Z" end-time="2026-10-25 21:28:58Z" duration="0.779665" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="90000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1031" name="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" fullname="CameraSettingsTests.UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" methodname="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" classname="CameraSettingsTests" runstate="Runnable" seed="1933391227" result="Failed" start-time="2026-10-25 21:28:58Z" end-time="2026-10-25 21:28:59Z" duration="0.667845" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="90000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Adding a small overlay quad must not replace the base camera's whole-frame composite.
+  Expected: less than 32768
+  But was:  45056
+]]></message>
+            <stack-trace><![CDATA[at CameraSettingsTests+<UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa>d__23.MoveNext () [0x00696] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\CameraSettingsTests.cs:154
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

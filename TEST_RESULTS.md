@@ -1,20 +1,20 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-24**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-10-25**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
-## Актуальный checkpoint P08.4
+## Последний полный checkpoint P08 (scoped)
 
 Полный порт не завершён; это результат перечисленных fixtures с ограничениями ниже и в FEATURE_MATRIX.
 
 | Проверка | DX11 | DX12 | Текущие доказательства |
 |---|---|---|---|
-| Основная batch suite | PASSED 70/70 | PASSED 70/70 | EditMode-DX11.xml /DX12.xml; snapshots WaterBodies-DX11.xml /DX12.xml |
+| Основная batch suite | PASSED 73/73 | PASSED 73/73 | EditMode-DX11.xml /DX12.xml; snapshots P08-Milestone-DX11.xml /DX12.xml |
 | GameView / настоящий EOF | PASSED 2/2 | PASSED 2/2 | EditMode-DX11-interactive.xml /DX12-interactive.xml |
-| Development,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Development-DX11 /DX12; UTC2026-10-24 20:46 |
-| Release,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Release-DX11 /DX12; UTC2026-10-24 20:47 |
+| Development,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Development-DX11 /DX12; UTC2026-10-25 21:48 |
+| Release,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Release-DX11 /DX12; UTC2026-10-25 21:49 |
 | Original GUID/compute | PASSED 597 | — | guid-compute-preservation.json;3 известных normalized sprite meta не byte-identical |
 
-WaterBodies-checkpoint.json содержит source/XML/report hashes и измеренный scope;
+P08-Milestone.json содержит source/XML/report hashes и измеренный scope;
 Build-checkpoint.json — свежие assemblies/selected packed assets/smoke hashes и shutdown warnings.
 Persistent allocations и DX12 evictable-resource warnings остаются открытой диагностикой P10.
 
@@ -614,3 +614,22 @@ Final strengthened WaterBodyTests passes in full **70/70 batch DX11/DX12**; sepa
 Reviewed actual DX11/DX12 body images. Whole-image binary-mask comparison (System.Drawing, same magenta threshold as fixture) gives0 API differences for baseline/empty/moved and10 boundary pixels each for two-area/one-area captures. Both interior references pass; differences lie in the preselected excluded edge band. No pixel-identical API or subpixel-edge claim. These boundary differences remain P09 comparison work; the .35m band was not increased after observation. Both full batch shutdowns again warn Persistent allocates3 individual allocations; P10 remains open. No compute/GUID changes.
 
 Post-cache-fix Development/Release builds both Success (UTC20:44–20:45), strict variant matching. Four fresh Player runs finish UTC20:46:51Z (Development both APIs) /20:47:36Z (Release both), each seven scenes +four reflection-options PNG and Errors=0. Build-checkpoint updated to the new clip manager source, actual assemblies and selected packed assets plus all fresh report hashes. Reviewed new DevelopmentDX11 interactions, DevelopmentDX12 reflections, ReleaseDX11 underwater and ReleaseDX12 reflections: expected water/fixture, no magenta error surface. Some runs overlap; no performance or complete visual-equivalence/standalone numerical body acceptance. DX12 shutdown evictable-resource warnings persist and are captured. Build-generated ReflectionVertexVariants trailing whitespace restored to canonical; ProjectSettings unchanged. Foreign Ocean.mat/example lighting preserved; original597 GUID/compute check passes,8 root Markdown files retained. P08.4 scoped DONE; remaining acceptance follows PORT_PLAN only.
+
+
+## P08.5 — camera/target integration and persistent underwater stack target (2026-10-25)
+
+New Editor-only CameraSettingsTests and CameraBackgroundProbe use cloned pipeline/renderer/features, a read-only actual UniversalCameraData observer and the original ocean. A diagnostic quad inverts the camera-scoped background colour; disabling it requires the real opaque ocean to cover the magenta clear. Independent red/blue views and actual StandardRequest base/overlay/removed-stack sequences test camera isolation. Frame-data dimensions/sample counts are checked on256x256/384x192/192x384/128x128 targets, MSAA2/4/8 and render scales.5/1.5/1. GPU GetDimensions is encoded by the probe during rendering, not inferred from a stale post-graph global. Centre tolerance2/255 is unchanged; observed final normal-case error0.
+
+A nonzero localized foam field with positive ocean delta1/30 and fade.8 remains source-off. Each synchronous same-frame render sequence must preserve all147456 first-layer samples exactly, plus original texture identity, OceanRenderer.FrameCount and BuildCommandBuffer last-update stamp. This is bounded numerical non-reentrancy coverage, not unpaced performance/latency acceptance. Temporary target release, camera target/GL state and original QualitySettings pipeline/scalable factors are restored.
+
+Retained harness failures: compile-initial-errors uses read-only clearDepth as writable; default true now asserted. oracle-initial XML/reports used Unity Color.yellow (1,.9216,.0157) as pure yellow and cast a post-graph fallback Texture2D to RenderTexture. The corrected reference is explicit(1,1,0) and in-render shader dimensions. colorspace-initial expected the source target encoding instead of the temporary readback target's sRGB encoding; corrected expected conversion, same tolerance. Nonuniform dynamic-initial/control/sampler/standard snapshots are retained: .75/.5 plus procedural render paths produced black padding even without Crest, and native dimension assumptions failed. No production fix was justified by those runs. Final uniform .75/.75 is configured before target creation and uses StandardRequest, which runs URP's RTHandles.SetHardwareDynamicResolutionState(true). No-Crest control must be49152 green pixels,black0; only then the full target and expected192x144 encoded GPU background are checked. DX11 reports capability false; XR subsystem count0 on both APIs, no rendered XR acceptance. Nonuniform and live-backbuffer presentation remain explicitly unaccepted.
+
+Important harness correction: initial Setup nested EnterPlayMode did not switch the test into PlayMode. Diagnostic Playing=False/height3/IsActive=True proved why the above-water optimisation assertion was invalid in that run. Prior basic-editmode-* snapshots are Editor rendering evidence only. All three final tests now yield EnterPlayMode at the top level and assert Application.isPlaying. Underwater setup failure (missing component on Ocean_Calm), height/compile diagnostic failures are retained separately, not hidden or treated as runtime regressions.
+
+Proper PlayMode exposed a real port defect. CameraSettings-stack-projected-beforefix-DX11.xml/report and base/overlay images show the base underwater composite disappearing when a small overlay is added:45056 changed pixels, including40432 outside an independently projected68x68 quad edge band. The old effect changed only the frame-local cameraColor handle; the next camera imported URP's persistent target. UnderwaterRenderer.URP now writes the effect to a separate intermediate, then copies it back to the original target for non-final stack cameras or MSAA. Final1x uses the original swap. Input/output effect textures never alias; compute/physics/GUIDs are unchanged.
+
+The strengthened underwater fixture compares above/below views, real geometry-only overlay stack, removal/restore and both before/after-transparent modes at MSAA1/4. Each final case has4096 foreground/fog-changed pixels,0 background changes,0 changes outside the projected quad and0 above-camera differences; simulation samples remain identical. The projected-area/upper-bound guards prevent a whole-frame loss from being misclassified as overlay foreground. Focused3/3 DX11/DX12 passed; final full-suite/Player checkpoint follows after the required runtime regression.
+
+Full runtime regression after the target-preservation fix: **73/73 batch DX11** UTC2026-10-25 21:35:58Z–21:38:55Z / **73/73 DX12**21:40:15Z–21:44:24Z; **2/2 non-batch DX11**21:39:22Z–21:39:56Z / **2/2 DX12**21:44:46Z–21:45:22Z. Every test-case node Passed, failed0/skipped0. P08-Milestone.json and four snapshots retain exact hashes, source fingerprints and both shutdown Persistent allocates3 individual allocations warnings. This supersedes full70/70 as runtime functional regression; complete visual/VR/performance acceptance remains outside this milestone. Proper PlayMode camera sequences perform13 requests (camera suite),22/25 (target suite DX11/DX12) and28 (underwater suite), all147456 native foam comparisons per sequence error0. Underwater1x/4x ×before/after all four cases per API have4096 geometry/fog pixels,0 above/background/outside-quad changes and stack-removal differences0. Full-target uniform DR control49152 green,black0 on DX12; no cropped acceptance.
+
+Post-fix builds: Development Success UTC2026-10-25 21:46, Release Success21:47. All four current Player smokes have Errors=0, seven scene captures and four reflection-options captures each, fresh after builds; hashes/timestamps and shutdown warnings in Build-checkpoint.json. Reviewed Development DX11 underwater/DX12 reflections and Release DX11 underwater/DX12 reflections; expected water/fixtures, no error-pink surface. These are integration smokes, not standalone numerical stack/DR/XR acceptance or profiling. Both DX12 shutdown evictable warnings and full-suite Persistent3 allocations remain P10. Original597 preservation checks passed; known3 normalized sprite metas unchanged. P08 scoped DONE; P09 begins controlled original Built-in comparison.

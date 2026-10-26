@@ -390,3 +390,26 @@ before enabling bodies, or re-enable them after changing it; automatic registrat
 updates in WaterBody.Update are Editor-only.
 Flat-water culling/override/include-area acceptance is recorded in TEST_RESULTS;
 underwater fog dominance, waved edges and broader standalone coverage remain open.
+
+
+## Camera graphs, stacks and dynamic targets
+
+`_BackgroundTexture` is a camera-scoped Render Graph global. Consume it while
+rendering that camera; after the graph completes, a C# global-texture query can
+return a fallback instead of the graph resource. It is not a persistent owned
+RenderTexture. MSAA camera colours are sampled through a resolved background.
+
+Underwater compositing keeps source and destination separate. For a non-final
+camera in a stack, the result must be copied back into URP's original target:
+the next overlay imports that persistent target, not an arbitrary transient
+`UniversalResourceData.cameraColor` replacement. The same preservation path keeps
+the original colour sample count when MSAA is active, so later depth attachments
+remain compatible. A final single-sample camera retains the direct colour swap.
+This adds one colour copy in the preserved-target cases; its cost remains P10 profiling.
+
+Use URP `StandardRequest` for a full stack/render path. `SingleCameraRequest`
+intentionally renders one camera and bypasses full Render's RTHandle hardware
+DRS synchronisation. The P08 fixture accepts uniform .75 hardware scaling through
+StandardRequest on DX12, with a full-target no-Crest control. Nonuniform .75/.5,
+live backbuffer presentation and XR rendering are not accepted by that fixture.
+DX11 reports hardware dynamic resolution unavailable on the test device.

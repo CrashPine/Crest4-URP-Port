@@ -91,3 +91,12 @@ P08.4 водоёмы можно воспроизвести обычным batch-
 Численные отчёты — `Evidence/WaterBodies-Direct3D11.txt` / `Direct3D12.txt`;
 `WaterBodies-checkpoint.json` связывает исходники с XML и ограничениями проверки.
 После runtime-правок требуется полный набор обоих профилей, не только этот filter.
+
+P08.5 camera/target/underwater-stack coverage: обычный batch runner с
+`-Action EditMode -GraphicsAPI DX11 -TestFilter CameraSettingsTests` (также DX12).
+Все три UnityTest входят в PlayMode на верхнем уровне и проверяют этот режим явно.
+Численные отчёты — `Evidence/CameraSettings-{Cameras,Targets,Underwater}-Direct3D11.txt`
+и соответствующие Direct3D12; диагностический shader находится только в Tests/Editor.
+Для actual URP stack и hardware DRS используется StandardRequest, для независимой
+одной камеры — SingleCameraRequest. Старые basic-editmode snapshots не являются
+PlayMode приёмкой; current full milestone указан в TEST_RESULTS.

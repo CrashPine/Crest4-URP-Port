@@ -1,0 +1,36 @@
+Playing=True; Suite=Underwater; Editor-only cloned pipeline/renderer/features; original ocean + inverse-background probe, RGB center tolerance2/255. Actual URP frame-data descriptors. Full native first-layer foam is nonzero with positive delta/fade, source disabled; synchronous same-frame requests must preserve pixels/texture/history stamps. Underwater enabled only in its named suite. XR capability only, not rendered XR acceptance.
+UnderwaterSetup; Playing=True; AbovePosition=(0.00, 3.00, 0.00); BelowPosition=(0.00, -3.00, 0.00); AboveEnabled=True; AbovePrimary=False; BelowPrimary=True; AbovePrivateHeight=3; ViewerHeight=-3; AboveMode=FullScreen; DebugSkipHeight=False
+Render=Below-reset-1-beforeFalse; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Above-control-1-beforeFalse; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+Render=Below-base-1-beforeFalse; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Above-after-below-1-beforeFalse; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+Render=Overlay-control-1-beforeFalse; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+Render=Underwater-overlay-stack-1-beforeFalse; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+UnderwaterStack; MSAA=1; BeforeTransparents=False; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0
+Render=Underwater-stack-removed-1-beforeFalse; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Below-reset-1-beforeTrue; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Above-control-1-beforeTrue; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+Render=Below-base-1-beforeTrue; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Above-after-below-1-beforeTrue; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+Render=Overlay-control-1-beforeTrue; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+Render=Underwater-overlay-stack-1-beforeTrue; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+UnderwaterStack; MSAA=1; BeforeTransparents=True; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0
+Render=Underwater-stack-removed-1-beforeTrue; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Below-reset-4-beforeFalse; Camera=Main Camera; Stack=True; Records=1; Target=256x256/4
+Render=Above-control-4-beforeFalse; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/4
+Render=Below-base-4-beforeFalse; Camera=Main Camera; Stack=True; Records=1; Target=256x256/4
+Render=Above-after-below-4-beforeFalse; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/4
+Render=Overlay-control-4-beforeFalse; Camera=Main Camera; Stack=True; Records=2; Target=256x256/4
+Render=Underwater-overlay-stack-4-beforeFalse; Camera=Main Camera; Stack=True; Records=2; Target=256x256/4
+UnderwaterStack; MSAA=4; BeforeTransparents=False; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0
+Render=Underwater-stack-removed-4-beforeFalse; Camera=Main Camera; Stack=True; Records=1; Target=256x256/4
+Render=Below-reset-4-beforeTrue; Camera=Main Camera; Stack=True; Records=1; Target=256x256/4
+Render=Above-control-4-beforeTrue; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/4
+Render=Below-base-4-beforeTrue; Camera=Main Camera; Stack=True; Records=1; Target=256x256/4
+Render=Above-after-below-4-beforeTrue; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/4
+Render=Overlay-control-4-beforeTrue; Camera=Main Camera; Stack=True; Records=2; Target=256x256/4
+Render=Underwater-overlay-stack-4-beforeTrue; Camera=Main Camera; Stack=True; Records=2; Target=256x256/4
+UnderwaterStack; MSAA=4; BeforeTransparents=True; AboveChanged=0; Geometry=4096; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=0; OutsideFogChanged=0
+Render=Underwater-stack-removed-4-beforeTrue; Camera=Main Camera; Stack=True; Records=1; Target=256x256/4
+SimulationGuard; Frame=44; PositiveDelta=0,0333333351; NativeFoamSamples=147456; MaxError=0
+Summary; Requests=28; CenterPixels=0; DescriptorChecks=0

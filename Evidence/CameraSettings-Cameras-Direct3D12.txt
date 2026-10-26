@@ -1,0 +1,28 @@
+Playing=True; Suite=Cameras; Editor-only cloned pipeline/renderer/features; original ocean + inverse-background probe, RGB center tolerance2/255. Actual URP frame-data descriptors. Full native first-layer foam is nonzero with positive delta/fade, source disabled; synchronous same-frame requests must preserve pixels/texture/history stamps. Underwater enabled only in its named suite. XR capability only, not rendered XR acceptance.
+Render=Surface-control; Camera=Main Camera; Stack=False; Records=1; Target=256x256/1
+Render=A-red-background; Camera=Main Camera; Stack=False; Records=1; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Render=B-blue-background; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(255, 255, 0, 255); ActualCenter=RGBA(255, 255, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Render=A-after-B; Camera=Main Camera; Stack=False; Records=1; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Render=Base-overlay-stack; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(255, 0, 255, 255); ActualCenter=RGBA(255, 0, 255, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Render=Stack-removed; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Render=B-after-stack; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(255, 255, 0, 255); ActualCenter=RGBA(255, 255, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+SimulationGuard; Frame=20; PositiveDelta=0,0333333351; NativeFoamSamples=147456; MaxError=0
+Summary; Requests=13; CenterPixels=3072; DescriptorChecks=0

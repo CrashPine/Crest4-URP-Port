@@ -1,0 +1,62 @@
+Editor-only cloned pipeline/renderer/features; original ocean + inverse-background probe, RGB center tolerance2/255. Actual URP frame-data descriptors. Full native first-layer foam is nonzero with positive delta/fade, source disabled; synchronous same-frame requests must preserve pixels/texture/history stamps. Underwater disabled: not underwater-stack acceptance. XR capability only, not rendered XR acceptance.
+Render=Resize-256x256; Camera=Main Camera; Stack=False; Records=1; Target=256x256/1
+GPUBackgroundDimensions; Expected=256x256; ReadbackSRGB=True
+Center; Expected=RGBA(137, 137, 0, 255); ActualCenter=RGBA(137, 137, 0, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:256); MaxRGBError=0
+Descriptor; Actual=256x256/1; RenderScale=1; Dynamic=False
+Render=Resize-384x192; Camera=Main Camera; Stack=False; Records=1; Target=384x192/1
+GPUBackgroundDimensions; Expected=384x192; ReadbackSRGB=True
+Center; Expected=RGBA(165, 120, 0, 255); ActualCenter=RGBA(165, 120, 0, 255); Viewport=(x:0, y:0, width:384, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:384, height:192); MaxRGBError=0
+Descriptor; Actual=384x192/1; RenderScale=1; Dynamic=False
+Render=Resize-192x384; Camera=Main Camera; Stack=False; Records=1; Target=192x384/1
+GPUBackgroundDimensions; Expected=192x384; ReadbackSRGB=True
+Center; Expected=RGBA(120, 165, 0, 255); ActualCenter=RGBA(120, 165, 0, 255); Viewport=(x:0, y:0, width:192, height:384); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:192, height:384); MaxRGBError=0
+Descriptor; Actual=192x384/1; RenderScale=1; Dynamic=False
+Render=Resize-128x128; Camera=Main Camera; Stack=False; Records=1; Target=128x128/1
+GPUBackgroundDimensions; Expected=128x128; ReadbackSRGB=True
+Center; Expected=RGBA(99, 99, 0, 255); ActualCenter=RGBA(99, 99, 0, 255); Viewport=(x:0, y:0, width:128, height:128); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:128, height:128); MaxRGBError=0
+Descriptor; Actual=128x128/1; RenderScale=1; Dynamic=False
+MSAACapability; Requested=2; Supported=2
+Render=MSAA-2; Camera=Main Camera; Stack=False; Records=1; Target=256x192/2
+GPUBackgroundDimensions; Expected=256x192; ReadbackSRGB=True
+Center; Expected=RGBA(137, 120, 0, 255); ActualCenter=RGBA(137, 120, 0, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Descriptor; Actual=256x192/2; RenderScale=1; Dynamic=False
+MSAACapability; Requested=4; Supported=4
+Render=MSAA-4; Camera=Main Camera; Stack=False; Records=1; Target=256x192/4
+GPUBackgroundDimensions; Expected=256x192; ReadbackSRGB=True
+Center; Expected=RGBA(137, 120, 0, 255); ActualCenter=RGBA(137, 120, 0, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Descriptor; Actual=256x192/4; RenderScale=1; Dynamic=False
+MSAACapability; Requested=8; Supported=8
+Render=MSAA-8; Camera=Main Camera; Stack=False; Records=1; Target=256x192/8
+GPUBackgroundDimensions; Expected=256x192; ReadbackSRGB=True
+Center; Expected=RGBA(137, 120, 0, 255); ActualCenter=RGBA(137, 120, 0, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Descriptor; Actual=256x192/8; RenderScale=1; Dynamic=False
+Render=Scale-0,5; Camera=Main Camera; Stack=False; Records=1; Target=256x192/1
+GPUBackgroundDimensions; Expected=128x96; ReadbackSRGB=True
+Center; Expected=RGBA(99, 86, 0, 255); ActualCenter=RGBA(99, 86, 0, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Descriptor; Actual=128x96/1; RenderScale=0,5; Dynamic=False
+Render=Scale-1,5; Camera=Main Camera; Stack=False; Records=1; Target=256x192/1
+GPUBackgroundDimensions; Expected=384x288; ReadbackSRGB=True
+Center; Expected=RGBA(165, 145, 0, 255); ActualCenter=RGBA(165, 145, 0, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Descriptor; Actual=384x288/1; RenderScale=1,5; Dynamic=False
+Render=Scale-1; Camera=Main Camera; Stack=False; Records=1; Target=256x192/1
+GPUBackgroundDimensions; Expected=256x192; ReadbackSRGB=True
+Center; Expected=RGBA(137, 120, 0, 255); ActualCenter=RGBA(137, 120, 0, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Center; Expected=RGBA(0, 255, 255, 255); ActualCenter=RGBA(0, 255, 255, 255); Viewport=(x:0, y:0, width:256, height:192); MaxRGBError=0
+Descriptor; Actual=256x192/1; RenderScale=1; Dynamic=False
+Capabilities; DynamicResolution=True; XRDisplays=0; XR=NOT TESTED (no XR view rendered)
+DynamicRequested; WidthScale=0,75; HeightScale=0,5
+Render=Dynamic-without-Crest-control; Camera=Main Camera; Stack=True; Records=1; Target=256x192/1
+DynamicNoCrestControl; Green=21760; Black=16128; Total=49152
+DynamicReadbackViewport=(x:0, y:0, width:256, height:85); CalibratedWithoutCrest=True; FullTargetPresentation=NOT ACCEPTED (raw padding also occurs without Crest)
+Render=Dynamic-resolution; Camera=Main Camera; Stack=True; Records=1; Target=256x192/1
+GPUBackgroundDimensions; Expected=192x96; ReadbackSRGB=True
+Center; Expected=RGBA(120, 86, 0, 255); ActualCenter=RGBA(120, 105, 0, 255); Viewport=(x:0, y:0, width:256, height:85); MaxRGBError=19

@@ -32,6 +32,11 @@ namespace Crest
             public TextureHandle Source, Destination, SceneDepth, Stencil;
         }
 
+        sealed class RestoreCameraTargetData
+        {
+            public TextureHandle Source;
+        }
+
         MaterialPropertyBlock _urpEffectProperties;
 
         public void RecordUrpMask(RenderGraph graph, ContextContainer frameData)
@@ -104,7 +109,11 @@ namespace Crest
             var cameraData = frameData.Get<UniversalCameraData>();
             SetupUnderwaterEffect();
             _urpEffectProperties ??= new MaterialPropertyBlock();
-            var descriptor = graph.GetTextureDesc(resources.activeColorTexture);
+            var cameraColor = resources.activeColorTexture;
+            var descriptor = graph.GetTextureDesc(cameraColor);
+            // Subsequent stack cameras import URP's persistent target. MSAA also needs
+            // its original sample count to remain compatible with later depth attachments.
+            var preserveCameraTarget = !cameraData.resolveFinalTarget || descriptor.msaaSamples != MSAASamples.None;
             descriptor.name = "Crest Underwater Color";
             descriptor.clearBuffer = false;
             descriptor.depthBufferBits = DepthBits.None;
@@ -115,44 +124,57 @@ namespace Crest
                 stencil = UniversalRenderer.CreateRenderGraphTexture(graph,
                     GetMaskDepthRTD(GetMaskColorRTD(cameraData.cameraTargetDescriptor)), "Crest Effect Stencil", false);
 
-            using var builder = graph.AddUnsafePass<EffectPassData>("Crest: Underwater composite", out var data);
-            data.Owner = this; data.Camera = cameraData.camera;
-            data.Source = resources.activeColorTexture; data.Destination = destination;
-            data.SceneDepth = resources.cameraDepthTexture; data.Stencil = stencil;
-            builder.UseTexture(data.Source, AccessFlags.Read);
-            builder.UseTexture(data.Destination, AccessFlags.Write);
-            builder.UseTexture(data.SceneDepth, AccessFlags.Read);
-            if (resources.mainShadowsTexture.IsValid()) builder.UseTexture(resources.mainShadowsTexture, AccessFlags.Read);
-            builder.UseTexture(masks.Mask, AccessFlags.Read);
-            builder.UseTexture(masks.Depth, AccessFlags.Read);
-            if (masks.Front.IsValid()) { builder.UseTexture(masks.Front, AccessFlags.Read); builder.UseTexture(masks.Back, AccessFlags.Read); }
-            if (stencil.IsValid()) builder.UseTexture(stencil, AccessFlags.ReadWrite);
-            builder.UseAllGlobalTextures(true);
-            builder.AllowGlobalStateModification(true);
-            builder.AllowPassCulling(false);
-            builder.SetRenderFunc((EffectPassData pass, UnsafeGraphContext context) =>
+            using (var builder = graph.AddUnsafePass<EffectPassData>("Crest: Underwater composite", out var data))
             {
-                var owner = pass.Owner;
-                var cmd = CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);
-                UpdatePostProcessMaterial(owner, owner._mode, pass.Camera, owner._underwaterEffectMaterial,
-                    owner._sphericalHarmonicsData, owner._meniscus, owner._firstRender || owner._copyOceanMaterialParamsEachFrame,
-                    owner._debug._viewOceanMask, owner._debug._viewStencil, owner._filterOceanData,
-                    ref owner._currentOceanMaterial, owner._enableShaderAPI, owner._overlay);
-                // Preserve pixels where a volume clips the effect. Source and destination never alias.
-                Blitter.BlitCameraTexture(cmd, pass.Source, pass.Destination);
-                cmd.SetGlobalTexture("_CameraDepthTexture", pass.SceneDepth);
-                if (pass.Stencil.IsValid())
+                data.Owner = this; data.Camera = cameraData.camera;
+                data.Source = cameraColor; data.Destination = destination;
+                data.SceneDepth = resources.cameraDepthTexture; data.Stencil = stencil;
+                builder.UseTexture(data.Source, AccessFlags.Read);
+                builder.UseTexture(data.Destination, AccessFlags.Write);
+                builder.UseTexture(data.SceneDepth, AccessFlags.Read);
+                if (resources.mainShadowsTexture.IsValid()) builder.UseTexture(resources.mainShadowsTexture, AccessFlags.Read);
+                builder.UseTexture(masks.Mask, AccessFlags.Read);
+                builder.UseTexture(masks.Depth, AccessFlags.Read);
+                if (masks.Front.IsValid()) { builder.UseTexture(masks.Front, AccessFlags.Read); builder.UseTexture(masks.Back, AccessFlags.Read); }
+                if (stencil.IsValid()) builder.UseTexture(stencil, AccessFlags.ReadWrite);
+                builder.UseAllGlobalTextures(true);
+                builder.AllowGlobalStateModification(true);
+                builder.AllowPassCulling(false);
+                builder.SetRenderFunc((EffectPassData pass, UnsafeGraphContext context) =>
                 {
-                    Helpers.Blit(cmd, pass.Stencil, Helpers.UtilityMaterial, (int)Helpers.UtilityPass.CopyDepth);
-                    cmd.SetRenderTarget(pass.Destination, pass.Stencil);
-                }
-                else cmd.SetRenderTarget(pass.Destination);
-                owner._urpEffectProperties.Clear();
-                owner._urpEffectProperties.SetTexture(ShaderIDs.s_CrestCameraColorTexture, (Texture)pass.Source);
-                owner.ExecuteEffect(cmd, owner._underwaterEffectMaterial.material, owner._urpEffectProperties);
-                owner._firstRender = false;
-            });
-            resources.cameraColor = destination;
+                    var owner = pass.Owner;
+                    var cmd = CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);
+                    UpdatePostProcessMaterial(owner, owner._mode, pass.Camera, owner._underwaterEffectMaterial,
+                        owner._sphericalHarmonicsData, owner._meniscus, owner._firstRender || owner._copyOceanMaterialParamsEachFrame,
+                        owner._debug._viewOceanMask, owner._debug._viewStencil, owner._filterOceanData,
+                        ref owner._currentOceanMaterial, owner._enableShaderAPI, owner._overlay);
+                    // Preserve pixels where a volume clips the effect. Source and destination never alias.
+                    Blitter.BlitCameraTexture(cmd, pass.Source, pass.Destination);
+                    cmd.SetGlobalTexture("_CameraDepthTexture", pass.SceneDepth);
+                    if (pass.Stencil.IsValid())
+                    {
+                        Helpers.Blit(cmd, pass.Stencil, Helpers.UtilityMaterial, (int)Helpers.UtilityPass.CopyDepth);
+                        cmd.SetRenderTarget(pass.Destination, pass.Stencil);
+                    }
+                    else cmd.SetRenderTarget(pass.Destination);
+                    owner._urpEffectProperties.Clear();
+                    owner._urpEffectProperties.SetTexture(ShaderIDs.s_CrestCameraColorTexture, (Texture)pass.Source);
+                    owner.ExecuteEffect(cmd, owner._underwaterEffectMaterial.material, owner._urpEffectProperties);
+                    owner._firstRender = false;
+                });
+            }
+
+            if (preserveCameraTarget)
+            {
+                using var builder = graph.AddRasterRenderPass<RestoreCameraTargetData>("Crest: Preserve underwater camera target", out var data);
+                data.Source = destination;
+                builder.UseTexture(data.Source, AccessFlags.Read);
+                builder.SetRenderAttachment(cameraColor, 0, AccessFlags.Write);
+                builder.AllowPassCulling(false);
+                builder.SetRenderFunc((RestoreCameraTargetData pass, RasterGraphContext context) =>
+                    Blitter.BlitTexture(context.cmd, pass.Source, new Vector4(1, 1, 0, 0), 0, false));
+            }
+            else resources.cameraColor = destination;
         }
     }
 }

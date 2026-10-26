@@ -1,0 +1,8 @@
+Playing=True; Suite=Underwater; Editor-only cloned pipeline/renderer/features; original ocean + inverse-background probe, RGB center tolerance2/255. Actual URP frame-data descriptors. Full native first-layer foam is nonzero with positive delta/fade, source disabled; synchronous same-frame requests must preserve pixels/texture/history stamps. Underwater enabled only in its named suite. XR capability only, not rendered XR acceptance.
+UnderwaterSetup; Playing=True; AbovePosition=(0.00, 3.00, 0.00); BelowPosition=(0.00, -3.00, 0.00); AboveEnabled=True; AbovePrimary=False; BelowPrimary=True; AbovePrivateHeight=3; ViewerHeight=-3; AboveMode=FullScreen; DebugSkipHeight=False
+Render=Above-control-1; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+Render=Below-base-1; Camera=Main Camera; Stack=True; Records=1; Target=256x256/1
+Render=Above-after-below-1; Camera=Independent camera B; Stack=False; Records=1; Target=256x256/1
+Render=Overlay-control-1; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+Render=Underwater-overlay-stack-1; Camera=Main Camera; Stack=True; Records=2; Target=256x256/1
+UnderwaterStack; MSAA=1; AboveChanged=0; Geometry=45056; GeometryFogChanged=4096; BackgroundFogChanged=0; ProjectedQuad=(x:94.00, y:94.00, width:68.00, height:68.00); OutsideBaseChanged=40432; OutsideFogChanged=0

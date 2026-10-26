@@ -1,0 +1,17 @@
+Editor-only cloned pipeline/renderer/features; original ocean + inverse-background probe, RGB center tolerance2/255. Actual URP frame-data descriptors. Full native first-layer foam is nonzero with positive delta/fade, source disabled; synchronous same-frame requests must preserve pixels/texture/history stamps. Underwater disabled: not underwater-stack acceptance. XR capability only, not rendered XR acceptance.
+Render=Resize-256x256; Camera=Main Camera; Stack=False; Records=1; Target=256x256/1; Background=4x4
+Center; Expected=RGBA(0, 255, 255, 255); MaxRGBError=0
+Descriptor; Actual=256x256/1; RenderScale=1; Dynamic=False
+Render=Resize-384x192; Camera=Main Camera; Stack=False; Records=1; Target=384x192/1; Background=4x4
+Center; Expected=RGBA(0, 255, 255, 255); MaxRGBError=0
+Descriptor; Actual=384x192/1; RenderScale=1; Dynamic=False
+Render=Resize-192x384; Camera=Main Camera; Stack=False; Records=1; Target=192x384/1; Background=4x4
+Center; Expected=RGBA(0, 255, 255, 255); MaxRGBError=0
+Descriptor; Actual=192x384/1; RenderScale=1; Dynamic=False
+Render=Resize-128x128; Camera=Main Camera; Stack=False; Records=1; Target=128x128/1; Background=4x4
+Center; Expected=RGBA(0, 255, 255, 255); MaxRGBError=0
+Descriptor; Actual=128x128/1; RenderScale=1; Dynamic=False
+MSAACapability; Requested=2; Supported=2
+Render=MSAA-2; Camera=Main Camera; Stack=False; Records=1; Target=256x192/2; Background=4x4
+Center; Expected=RGBA(0, 255, 255, 255); MaxRGBError=0
+Descriptor; Actual=256x192/2; RenderScale=1; Dynamic=False
