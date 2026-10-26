@@ -1,0 +1,10 @@
+P09.4 independent original Built-in shadow INPUT validation, not final URP visual parity. Standard opaque receiver; separate ShadowsOnly caster; original UpdateShadow shader and LightEvent command buffers. Batch pre-cull shim bypasses focus/update guards only. No URP shadow atlas or LOD content reused. Hard directional, no jitter, frame weights1, captureFramerate60; target320x240, one cascade/distance100/2048 shadow map in both pipelines; different engine atlas fitting is not assumed identical.
+Phase=Caster-off; MaskMin=255; MaskMax=255; LodMax=0; LodNonzero=0; LodSha256=024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA; DeltaTime=0,0166666675
+Phase=Caster-on; MaskMin=0; MaskMax=255; LodMax=255; LodNonzero=30756; LodSha256=D6A82B78A97549302D606A119E5DC567F89D5DDD40A1D2949C52B0643606D10B; DeltaTime=0,0166666675
+Phase=Caster-restored-off; MaskMin=255; MaskMax=255; LodMax=0; LodNonzero=0; LodSha256=024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA; DeltaTime=0,0166666675
+ShaderErrors=
+MaskChangedPixels=2881; MaskRestoredChangedPixels=0; LodChangedChannels=30614; LodRestoredChangedChannels=0; OriginalCallbacks=3
+URPPhase=Caster-off; LodMax=0; LodNonzero=0; LodSha256=024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA
+URPPhase=Caster-on; LodMax=255; LodNonzero=30762; LodSha256=D55685D4BFF6BF5CAF6BF9817A31FA4F4F4FA2CB30764D3BEC58CE607A011405
+URPPhase=Caster-restored-off; LodMax=0; LodNonzero=0; LodSha256=024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA
+InteriorShadowSamples=9140; InteriorLitSamples=216862; BoundarySamples=13774; InteriorClassificationErrors=0; InteriorChangedChannels=0; WholeViewChangedChannels=1296; WholeViewMaxDifference=255; AnalyticMarginXZ=1m; CameraViewportMargin=.025; ExpectedShadowMin=250; ExpectedLitMax=5

@@ -2,6 +2,31 @@
 
 Актуальная сверка: **2026-10-26**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.4: independently generated original shadow inputs (2026-10-26)
+
+`ShadowReferenceTests.OriginalLightEventsProduceIndependentMaskAndLodOcclusion` — focused **1/1 Passed на DX11 и DX12**, все testcase nodes Passed, failed0/skipped0. Это Editor-only prerequisite для shadowed optical comparison, не новый полный milestone: last full75+interactive2/API и Player builds/four smokes остаются предыдущими. Следующий полный набор ожидает77 cases; fresh full77 не запускался.
+
+Оригинальный Built-in `Resources/UpdateShadow.shader` с9 hash-verified local includes создан in-memory; изменено только имя shader и раскрыты includes. `BuildCommandBuffer`, screen/deferred setup и light add/remove методы normalized-source-identical исходнику (5 method hashes в source manifest). Camera pre-cull shim обходит Editor focus/update guards и выполняет исходные light buffers/BuildCommandBuffer. Оригинал создаёт собственные shadow atlas, screen mask и очищенную7-layer LOD collection; никакой URP shadow input не используется. Затем URP независимо создаёт atlas и заново очищенный LOD field. History не переносится между pipelines/states.
+
+Условия: orthographic camera(0,24,0), looking down, size20/aspect4:3, target320×240; Standard receiver y−6 для BIRP, URP Lit receiver для URP; ShadowsOnly box(0,5,0), size8×2×8; directional hard light Euler(55,−30,0), bias/normalBias0, strength1. Обе pipeline:2048 shadow map, distance100, one cascade. Frame weights1, jitter0, captureFramerate60/delta1/60. Все семь384×384 RG8 layers прочитаны явно:2064384 bytes/state.
+
+| Измерение | DX11 | DX12 |
+|---|---:|---:|
+| Original screen-mask changed pixels, caster on/off | 2881 | 2881 |
+| Original LOD changed channels >32, caster on/off | 30614 | 30614 |
+| Screen mask / LOD off→on→off restoration differences | 0 / 0 | 0 / 0 |
+| Original callbacks | 3 | 3 |
+| Analytic shadow / lit interior samples | 9140 / 216862 | 9140 / 216862 |
+| Interior classification errors / inter-pipeline channel differences | 0 / 0 | 0 / 0 |
+| Analytic boundary samples (separate) | 13774 | 13774 |
+| Whole-view inter-pipeline changed channels / max byte difference | 1296 / 255 | 1296 / 255 |
+
+Заранее заданные interiors: ray-box intersection с XZ contraction/expansion1m, camera viewport margin.025. Внутри ожидается byte≥250, снаружи≤5; дополнительно все interior channels должны совпасть точно. Boundary differences сохранены, whole-view equality не заявляется.11 corresponding native artifacts/API (5 PNG +6 raw fields) byte-identical между DX11/DX12. Просмотрены original mask DX11 и native original/URP LOD0 DX11/DX12: ожидаемые footprint, без error-pink. После BIRP section legacy light command buffers отсоединены; URP render state восстановлен, project assets не сохранялись.
+
+Evidence: `ShadowReference-DX11.xml`, `ShadowReference-DX12.xml`, `ShadowReference-Direct3D11.txt`/`Direct3D12.txt`, `P09-ShadowReference-sources.json`, `P09-ShadowReference-checkpoint.json` с source/XML/report/native artifact fingerprints. Initial input-only DX11 и preliminary default-URP-settings reports сохранены отдельно. Неудачи: initial namespace ambiguity после adding URP import — `ShadowReference-compile-initial-DX11.txt` (raw log сохранён локально); default `AsyncGPUReadback.GetData<byte>()` прочитал только layer0, усиленный length assertion ожидал все7 и failed — `ShadowReference-layer-readback-initial-DX11.xml`/report. Исправлено явным чтением каждого layer, assertion сохранён; это harness failures, не port regressions.
+
+Ограничения: Standard/URP Lit BRDF/background RGB не сравнивались; это native shadow-input acceptance. Actual shadowed caustics/underwater RGB, perspective/waved/moving views, soft shadows/jitter/convergence/multiple cascades/other quality/XR/standalone остаются открытыми. Shadow boundaries совпадающими не объявлены. Production code не менялся, полный suite/Player rebuild не требовался. Structural audit1339 files, missing meta/duplicate GUID/missing upstream0;8 root Markdown. P10 allocation/eviction warnings предыдущего full milestone остаются открытыми.
+
 ## Последний полный checkpoint P09.3 (scoped)
 
 Полный порт не завершён; это результат перечисленных fixtures с ограничениями ниже и в FEATURE_MATRIX.

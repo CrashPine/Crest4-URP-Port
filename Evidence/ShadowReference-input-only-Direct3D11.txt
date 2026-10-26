@@ -1,0 +1,6 @@
+P09.4 independent original Built-in shadow INPUT validation, not final URP visual parity. Standard opaque receiver; separate ShadowsOnly caster; original UpdateShadow shader and LightEvent command buffers. Batch pre-cull shim bypasses focus/update guards only. No URP shadow atlas or LOD content reused. Hard directional, no jitter, frame weights1, captureFramerate60; target320x240, one cascade, distance100.
+Phase=Caster-off; MaskMin=255; MaskMax=255; LodMax=0; LodNonzero=0; LodSha256=B9C048DE34D844A2381155656D249036A85A52B60CB9FD06BF1600E44D7AA3AE; DeltaTime=0,0166666675
+Phase=Caster-on; MaskMin=0; MaskMax=255; LodMax=255; LodNonzero=23000; LodSha256=A5969B2FC3C9EA042FAC6312C9C7CBF511B46F9C3D9C8B903590344EDA1BBEEB; DeltaTime=0,0166666675
+Phase=Caster-restored-off; MaskMin=255; MaskMax=255; LodMax=0; LodNonzero=0; LodSha256=B9C048DE34D844A2381155656D249036A85A52B60CB9FD06BF1600E44D7AA3AE; DeltaTime=0,0166666675
+ShaderErrors=
+MaskChangedPixels=2881; MaskRestoredChangedPixels=0; LodChangedChannels=22880; LodRestoredChangedChannels=0; OriginalCallbacks=3

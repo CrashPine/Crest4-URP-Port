@@ -1,0 +1,325 @@
+{
+  "recordedUtc": "2026-10-26T21:36:02.512926+00:00",
+  "scope": "Original Built-in shader closure/native LightEvent mask and seven-layer LOD generation; independent URP atlas/LOD generation; hard-shadow interior comparison, not final shadowed caustic/underwater parity",
+  "fixture": {
+    "path": "Assets/Crest/URP/Tests/Editor/ShadowReferenceTests.cs",
+    "sha256": "B90056545085DA968F59F6E8BBA90F4237A02512CC396D467EBE6DBEBE81AEAA",
+    "bytes": 16991,
+    "modifiedUtc": "2026-10-26T21:33:59.391540+00:00"
+  },
+  "sources": {
+    "path": "Evidence/P09-ShadowReference-sources.json",
+    "sha256": "EAE9626B29AE22B7C3152CBBB258155D3131397DC4D74848F27813C82CD69CA2",
+    "bytes": 3438,
+    "modifiedUtc": "2026-10-26T21:36:02.512286+00:00"
+  },
+  "conditions": {
+    "cameraPosition": [
+      0,
+      24,
+      0
+    ],
+    "cameraEuler": [
+      90,
+      0,
+      0
+    ],
+    "orthographicSize": 20,
+    "viewport": [
+      320,
+      240
+    ],
+    "lightEuler": [
+      55,
+      -30,
+      0
+    ],
+    "receiverY": -6,
+    "casterPosition": [
+      0,
+      5,
+      0
+    ],
+    "casterScale": [
+      8,
+      2,
+      8
+    ],
+    "shadowMapResolutionBoth": 2048,
+    "shadowDistanceBoth": 100,
+    "cascadesBoth": 1,
+    "jitterBoth": 0,
+    "frameWeightsBoth": 1,
+    "captureFramerate": 60,
+    "lod": [
+      384,
+      384,
+      7,
+      2
+    ],
+    "marginXZMetres": 1,
+    "viewportMargin": 0.025,
+    "shadowMinByte": 250,
+    "litMaxByte": 5
+  },
+  "runs": [
+    {
+      "api": "DX11",
+      "xml": {
+        "path": "Evidence/ShadowReference-DX11.xml",
+        "sha256": "DD8B549992220040ED9DF2B3FFF31966FF3C52120AD4B43C11C3920EF02377AA",
+        "bytes": 3027,
+        "modifiedUtc": "2026-10-26T21:34:20.159267+00:00"
+      },
+      "report": {
+        "path": "Evidence/ShadowReference-Direct3D11.txt",
+        "sha256": "41B0D6384D121EB3004DC82D8237D6206764C767DA67E0ADA25507612A0B6DC5",
+        "bytes": 1814,
+        "modifiedUtc": "2026-10-26T21:34:19.972342+00:00"
+      },
+      "metrics": {
+        "MaskChangedPixels": 2881,
+        "MaskRestoredChangedPixels": 0,
+        "LodChangedChannels": 30614,
+        "LodRestoredChangedChannels": 0,
+        "OriginalCallbacks": 3,
+        "InteriorShadowSamples": 9140,
+        "InteriorLitSamples": 216862,
+        "BoundarySamples": 13774,
+        "InteriorClassificationErrors": 0,
+        "InteriorChangedChannels": 0,
+        "WholeViewChangedChannels": 1296,
+        "WholeViewMaxDifference": 255
+      },
+      "artifacts": [
+        {
+          "path": "Evidence/ShadowReference-Caster-off-mask-Direct3D11.png",
+          "sha256": "82DD73012000B5F6659FC76CF35F0AA7B45BB9A087A451D7AFCBA9BB343BB916",
+          "bytes": 1841,
+          "modifiedUtc": "2026-10-26T21:34:16.574891+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-BuiltIn-lod0-Direct3D11.png",
+          "sha256": "AD809762B215F3406B90E788610208B9177F01C81144B932B281441ED6481756",
+          "bytes": 5295,
+          "modifiedUtc": "2026-10-26T21:34:16.739918+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-mask-Direct3D11.png",
+          "sha256": "3754CF688A39E71EC4329DA3CCD6F86CC0F4DADC8ECE6CE8010CBC7B0E07E1F8",
+          "bytes": 2545,
+          "modifiedUtc": "2026-10-26T21:34:16.697568+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-URP-lod0-Direct3D11.png",
+          "sha256": "0888FAEAD8919E470F81F99146393766E48DB9ED315CA7CD7CB318AC63F769DC",
+          "bytes": 6217,
+          "modifiedUtc": "2026-10-26T21:34:17.619429+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-restored-off-mask-Direct3D11.png",
+          "sha256": "82DD73012000B5F6659FC76CF35F0AA7B45BB9A087A451D7AFCBA9BB343BB916",
+          "bytes": 1841,
+          "modifiedUtc": "2026-10-26T21:34:16.835926+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-off-lod-Direct3D11.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:16.599533+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-off-URP-lod-Direct3D11.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:17.502718+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-lod-Direct3D11.bin",
+          "sha256": "D6A82B78A97549302D606A119E5DC567F89D5DDD40A1D2949C52B0643606D10B",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:16.708225+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-URP-lod-Direct3D11.bin",
+          "sha256": "D55685D4BFF6BF5CAF6BF9817A31FA4F4F4FA2CB30764D3BEC58CE607A011405",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:17.609844+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-restored-off-lod-Direct3D11.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:16.843031+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-restored-off-URP-lod-Direct3D11.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:17.722551+00:00"
+        }
+      ]
+    },
+    {
+      "api": "DX12",
+      "xml": {
+        "path": "Evidence/ShadowReference-DX12.xml",
+        "sha256": "DF1E67884B27B2E9D076610C56108DE2418164A9994C157E9CD77E6B74B774C4",
+        "bytes": 3026,
+        "modifiedUtc": "2026-10-26T21:34:47.216450+00:00"
+      },
+      "report": {
+        "path": "Evidence/ShadowReference-Direct3D12.txt",
+        "sha256": "41B0D6384D121EB3004DC82D8237D6206764C767DA67E0ADA25507612A0B6DC5",
+        "bytes": 1814,
+        "modifiedUtc": "2026-10-26T21:34:46.973617+00:00"
+      },
+      "metrics": {
+        "MaskChangedPixels": 2881,
+        "MaskRestoredChangedPixels": 0,
+        "LodChangedChannels": 30614,
+        "LodRestoredChangedChannels": 0,
+        "OriginalCallbacks": 3,
+        "InteriorShadowSamples": 9140,
+        "InteriorLitSamples": 216862,
+        "BoundarySamples": 13774,
+        "InteriorClassificationErrors": 0,
+        "InteriorChangedChannels": 0,
+        "WholeViewChangedChannels": 1296,
+        "WholeViewMaxDifference": 255
+      },
+      "artifacts": [
+        {
+          "path": "Evidence/ShadowReference-Caster-off-mask-Direct3D12.png",
+          "sha256": "82DD73012000B5F6659FC76CF35F0AA7B45BB9A087A451D7AFCBA9BB343BB916",
+          "bytes": 1841,
+          "modifiedUtc": "2026-10-26T21:34:43.295109+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-BuiltIn-lod0-Direct3D12.png",
+          "sha256": "AD809762B215F3406B90E788610208B9177F01C81144B932B281441ED6481756",
+          "bytes": 5295,
+          "modifiedUtc": "2026-10-26T21:34:43.467873+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-mask-Direct3D12.png",
+          "sha256": "3754CF688A39E71EC4329DA3CCD6F86CC0F4DADC8ECE6CE8010CBC7B0E07E1F8",
+          "bytes": 2545,
+          "modifiedUtc": "2026-10-26T21:34:43.426121+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-URP-lod0-Direct3D12.png",
+          "sha256": "0888FAEAD8919E470F81F99146393766E48DB9ED315CA7CD7CB318AC63F769DC",
+          "bytes": 6217,
+          "modifiedUtc": "2026-10-26T21:34:44.483510+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-restored-off-mask-Direct3D12.png",
+          "sha256": "82DD73012000B5F6659FC76CF35F0AA7B45BB9A087A451D7AFCBA9BB343BB916",
+          "bytes": 1841,
+          "modifiedUtc": "2026-10-26T21:34:43.555971+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-off-lod-Direct3D12.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:43.324541+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-off-URP-lod-Direct3D12.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:44.353141+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-lod-Direct3D12.bin",
+          "sha256": "D6A82B78A97549302D606A119E5DC567F89D5DDD40A1D2949C52B0643606D10B",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:43.448161+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-on-URP-lod-Direct3D12.bin",
+          "sha256": "D55685D4BFF6BF5CAF6BF9817A31FA4F4F4FA2CB30764D3BEC58CE607A011405",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:44.472438+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-restored-off-lod-Direct3D12.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:43.576435+00:00"
+        },
+        {
+          "path": "Evidence/ShadowReference-Caster-restored-off-URP-lod-Direct3D12.bin",
+          "sha256": "024DABC27BDAC40EBB475323823FA25FAA3D4CEFBC3EE10237085C88B4891FFA",
+          "bytes": 2064384,
+          "modifiedUtc": "2026-10-26T21:34:44.593837+00:00"
+        }
+      ]
+    }
+  ],
+  "crossApiPairs": [
+    {
+      "dx11": "Evidence/ShadowReference-Caster-off-lod-Direct3D11.bin",
+      "dx12": "Evidence/ShadowReference-Caster-off-lod-Direct3D12.bin",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-off-mask-Direct3D11.png",
+      "dx12": "Evidence/ShadowReference-Caster-off-mask-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-off-URP-lod-Direct3D11.bin",
+      "dx12": "Evidence/ShadowReference-Caster-off-URP-lod-Direct3D12.bin",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-on-BuiltIn-lod0-Direct3D11.png",
+      "dx12": "Evidence/ShadowReference-Caster-on-BuiltIn-lod0-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-on-lod-Direct3D11.bin",
+      "dx12": "Evidence/ShadowReference-Caster-on-lod-Direct3D12.bin",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-on-mask-Direct3D11.png",
+      "dx12": "Evidence/ShadowReference-Caster-on-mask-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-on-URP-lod-Direct3D11.bin",
+      "dx12": "Evidence/ShadowReference-Caster-on-URP-lod-Direct3D12.bin",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-on-URP-lod0-Direct3D11.png",
+      "dx12": "Evidence/ShadowReference-Caster-on-URP-lod0-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-restored-off-lod-Direct3D11.bin",
+      "dx12": "Evidence/ShadowReference-Caster-restored-off-lod-Direct3D12.bin",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-restored-off-mask-Direct3D11.png",
+      "dx12": "Evidence/ShadowReference-Caster-restored-off-mask-Direct3D12.png",
+      "byteIdentical": true
+    },
+    {
+      "dx11": "Evidence/ShadowReference-Caster-restored-off-URP-lod-Direct3D11.bin",
+      "dx12": "Evidence/ShadowReference-Caster-restored-off-URP-lod-Direct3D12.bin",
+      "byteIdentical": true
+    }
+  ],
+  "limitations": [
+    "No final surface/caustics/underwater RGB comparison yet. Original native screen mask is independent and receiver is Standard; URP receiver uses URP Lit. Receiver BRDF equivalence is not claimed.",
+    "No jitter/temporal convergence acceptance: frame weights1 at delta1/60 with cleared history. Whole-view atlas/edge mismatch1296 channels/max255 retained; interior tests do not prove subpixel parity.",
+    "Single directional hard shadow, flat water, orthographic camera, single cascade. Soft/multicascade/other views/quality/XR/standalone remain pending.",
+    "Editor-only fixture; last full runtime milestone75+2 per API and both builds/four smokes retained; no new full77 or Player rebuild.",
+    "Initial compile ambiguity and default-layer-only readback failure retained separately; neither used as acceptance."
+  ]
+}

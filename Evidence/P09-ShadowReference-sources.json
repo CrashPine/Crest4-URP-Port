@@ -1,0 +1,84 @@
+{
+  "scope": "Original Built-in shader closure/native LightEvent mask and seven-layer LOD generation; independent URP atlas/LOD generation; hard-shadow interior comparison, not final shadowed caustic/underwater parity",
+  "entry": "Resources/UpdateShadow.shader",
+  "files": [
+    {
+      "path": "FullScreenTriangle.hlsl",
+      "sha256": "724D2746961BC72601F9499664D668C43EECF668CB316DAA76FCBB0F772A2A67"
+    },
+    {
+      "path": "GPUNoise/GPUNoise.hlsl",
+      "sha256": "EC1846D1B23920D52BEAF157E74013108A542B4560AA2ABFE0CF4779D4920D3E"
+    },
+    {
+      "path": "Helpers/BIRP/ScreenSpaceShadows.hlsl",
+      "sha256": "E5952A5F8295451E4C643696F7B2E24CCB0E127CE3CE3F9339B07D318C8585F2"
+    },
+    {
+      "path": "OceanConstants.hlsl",
+      "sha256": "5A1656E3F447FF206D45E18D0201580E006B6C78F9BB330F9BB02D138CBB8239"
+    },
+    {
+      "path": "OceanGlobals.hlsl",
+      "sha256": "DE4F88CF12A57D04F5A11EB6335430B8A7D29A17C1D45C8DE934B2DF286869AD"
+    },
+    {
+      "path": "OceanHelpersNew.hlsl",
+      "sha256": "03E0270005A8CAA8C9B49F080D9D08099C8DCB3C71E22FEDC35352B1A89E65C3"
+    },
+    {
+      "path": "OceanInputsDriven.hlsl",
+      "sha256": "BB03A2B77E00552FE89AD545C51FE45FE56183CA12F17791C0001EF8EA6C5CFE"
+    },
+    {
+      "path": "Resources/UpdateShadow.shader",
+      "sha256": "48C65DA93324C083D5FA75AB02A25298375BBB4589769FFEC4D375156AD46A08"
+    },
+    {
+      "path": "ShaderLibrary/UpdateShadow.hlsl",
+      "sha256": "34F959466E3B22C2FF4B1844985ABB5F17AEC3EBE8E96F9BDA13B7F3DD7CC6A6"
+    }
+  ],
+  "driver": {
+    "originalFile": {
+      "path": "../../work/crest-upstream/crest/Assets/Crest/Crest/Scripts/LodData/Shadows/LodDataMgrShadow.cs",
+      "sha256": "DCF1C655FAEF199F43D288304ADF35F80ED41270C75CDD45BEBA8FA660287F89",
+      "bytes": 22364,
+      "modifiedUtc": "2026-10-18T15:58:57.170668+00:00"
+    },
+    "portedFile": {
+      "path": "Assets/Crest/Crest/Scripts/LodData/Shadows/LodDataMgrShadow.cs",
+      "sha256": "A42D633D00AF9EC407345BCE23BBBE87B43E6CB51BD2FE8AFBF5AF801EFD4AD0",
+      "bytes": 22471,
+      "modifiedUtc": "2026-10-18T21:29:56.042198+00:00"
+    },
+    "retainedMethods": [
+      {
+        "method": "BuildCommandBuffer",
+        "normalizedSourceIdentical": true,
+        "sha256": "C61476A0F88A087DF9F4DB180F61D72B3411E458968FFFB396849E1D643D3B6C"
+      },
+      {
+        "method": "SetUpScreenSpaceShadows",
+        "normalizedSourceIdentical": true,
+        "sha256": "C499EDDAA4DA4BC962660531088470223FB66F06C28F9BE9D4EC42C598CE275C"
+      },
+      {
+        "method": "SetUpDeferredShadows",
+        "normalizedSourceIdentical": true,
+        "sha256": "9B9908ACAA9FDA7B129BAC09FBC368D419DBBD8459C277776B084AAE41452948"
+      },
+      {
+        "method": "AddCommandBufferToPrimaryLight",
+        "normalizedSourceIdentical": true,
+        "sha256": "5F506841CE3560590ECC46E774D308B939385395415B7F1A08CC59C2A33411B5"
+      },
+      {
+        "method": "RemoveCommandBufferFromPrimaryLight",
+        "normalizedSourceIdentical": true,
+        "sha256": "C393CA9E29E79A07A8AD26780D241FFA02BC667158C52C9273FE1AF7BCA9E925"
+      }
+    ],
+    "integrationDifferences": "partial class; URP handle release; pipeline guard around BIRP setup. Batch fixture explicitly adds/removes original light buffers and calls retained BuildCommandBuffer, bypassing only Editor focus/update guards."
+  }
+}
