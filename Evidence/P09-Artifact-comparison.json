@@ -1,0 +1,634 @@
+{
+  "scope": "P09.2 exact prior surface captures and whole-image water-body masks; native clip fields across APIs",
+  "bodies": [
+    {
+      "phase": "Baseline",
+      "originalVsUrp": [
+        {
+          "api": "Direct3D11",
+          "visible": 65536,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        },
+        {
+          "api": "Direct3D12",
+          "visible": 65536,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        }
+      ],
+      "crossApiMaskDifferences": 0,
+      "differentPixels": []
+    },
+    {
+      "phase": "Empty",
+      "originalVsUrp": [
+        {
+          "api": "Direct3D11",
+          "visible": 0,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        },
+        {
+          "api": "Direct3D12",
+          "visible": 0,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        }
+      ],
+      "crossApiMaskDifferences": 0,
+      "differentPixels": [],
+      "nativeClip": {
+        "width": 384,
+        "height": 384,
+        "layers": 7,
+        "sampleCount": 1032192,
+        "sha256DX11": "FB306BBEC295C8F474991D67F60E5D1CE4E42DE81D3290D13648C397FB9051E2",
+        "sha256DX12": "FB306BBEC295C8F474991D67F60E5D1CE4E42DE81D3290D13648C397FB9051E2",
+        "differentSamples": 0,
+        "maxAbsoluteError": 0.0
+      }
+    },
+    {
+      "phase": "TwoIncludedAreas",
+      "originalVsUrp": [
+        {
+          "api": "Direct3D11",
+          "visible": 14336,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        },
+        {
+          "api": "Direct3D12",
+          "visible": 14326,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        }
+      ],
+      "crossApiMaskDifferences": 10,
+      "differentPixels": [
+        {
+          "x": 32,
+          "y": 80,
+          "worldX": -11.9375,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 34,
+          "y": 80,
+          "worldX": -11.6875,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 35,
+          "y": 80,
+          "worldX": -11.5625,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 36,
+          "y": 80,
+          "worldX": -11.4375,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 37,
+          "y": 80,
+          "worldX": -11.3125,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 32,
+          "y": 175,
+          "worldX": -11.9375,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 34,
+          "y": 175,
+          "worldX": -11.6875,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 35,
+          "y": 175,
+          "worldX": -11.5625,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 36,
+          "y": 175,
+          "worldX": -11.4375,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 37,
+          "y": 175,
+          "worldX": -11.3125,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        }
+      ],
+      "nativeClip": {
+        "width": 384,
+        "height": 384,
+        "layers": 7,
+        "sampleCount": 1032192,
+        "sha256DX11": "D4166372C475D5860A6007FB6D2C43DE813FFF8BB7440FC61C3E93A6207FCCA3",
+        "sha256DX12": "D4166372C475D5860A6007FB6D2C43DE813FFF8BB7440FC61C3E93A6207FCCA3",
+        "differentSamples": 0,
+        "maxAbsoluteError": 0.0
+      }
+    },
+    {
+      "phase": "OnlyAIncluded",
+      "originalVsUrp": [
+        {
+          "api": "Direct3D11",
+          "visible": 9216,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        },
+        {
+          "api": "Direct3D12",
+          "visible": 9206,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        }
+      ],
+      "crossApiMaskDifferences": 10,
+      "differentPixels": [
+        {
+          "x": 32,
+          "y": 80,
+          "worldX": -11.9375,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 34,
+          "y": 80,
+          "worldX": -11.6875,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 35,
+          "y": 80,
+          "worldX": -11.5625,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 36,
+          "y": 80,
+          "worldX": -11.4375,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 37,
+          "y": 80,
+          "worldX": -11.3125,
+          "worldZ": 5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 32,
+          "y": 175,
+          "worldX": -11.9375,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 34,
+          "y": 175,
+          "worldX": -11.6875,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 35,
+          "y": 175,
+          "worldX": -11.5625,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 36,
+          "y": 175,
+          "worldX": -11.4375,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        },
+        {
+          "x": 37,
+          "y": 175,
+          "worldX": -11.3125,
+          "worldZ": -5.9375,
+          "distanceToNearestRectangleEdgeMetres": 0.0625
+        }
+      ],
+      "nativeClip": {
+        "width": 384,
+        "height": 384,
+        "layers": 7,
+        "sampleCount": 1032192,
+        "sha256DX11": "1EEFA200886914402B20403BC435E40FE0827C11C6D715D923E48FDC46AF6E8D",
+        "sha256DX12": "1EEFA200886914402B20403BC435E40FE0827C11C6D715D923E48FDC46AF6E8D",
+        "differentSamples": 0,
+        "maxAbsoluteError": 0.0
+      }
+    },
+    {
+      "phase": "MovedIncludedArea",
+      "originalVsUrp": [
+        {
+          "api": "Direct3D11",
+          "visible": 4608,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        },
+        {
+          "api": "Direct3D12",
+          "visible": 4608,
+          "fullMaskMismatches": 0,
+          "restoreMaskMismatches": 0
+        }
+      ],
+      "crossApiMaskDifferences": 0,
+      "differentPixels": [],
+      "nativeClip": {
+        "width": 384,
+        "height": 384,
+        "layers": 7,
+        "sampleCount": 1032192,
+        "sha256DX11": "2BF285707AE73659AE432D1BBFDC3F5A629F85CC56B960AB418F27E27B305948",
+        "sha256DX12": "2BF285707AE73659AE432D1BBFDC3F5A629F85CC56B960AB418F27E27B305948",
+        "differentSamples": 0,
+        "maxAbsoluteError": 0.0
+      }
+    }
+  ],
+  "seams": [
+    {
+      "phase": "Affine",
+      "apis": [
+        {
+          "api": "Direct3D11",
+          "priorP08PngByteIdentical": true,
+          "maxChannelError": 0,
+          "meanChannelByteError": 0.0,
+          "changedPixels": 0,
+          "restoredChangedPixels": 0
+        },
+        {
+          "api": "Direct3D12",
+          "priorP08PngByteIdentical": true,
+          "maxChannelError": 0,
+          "meanChannelByteError": 0.0,
+          "changedPixels": 0,
+          "restoredChangedPixels": 0
+        }
+      ]
+    },
+    {
+      "phase": "SmoothEdge",
+      "apis": [
+        {
+          "api": "Direct3D11",
+          "priorP08PngByteIdentical": true,
+          "maxChannelError": 1,
+          "meanChannelByteError": 1.2715657552083333e-06,
+          "changedPixels": 1,
+          "restoredChangedPixels": 0
+        },
+        {
+          "api": "Direct3D12",
+          "priorP08PngByteIdentical": true,
+          "maxChannelError": 1,
+          "meanChannelByteError": 1.2715657552083333e-06,
+          "changedPixels": 1,
+          "restoredChangedPixels": 0
+        }
+      ]
+    },
+    {
+      "phase": "SmoothEdgeChoppy",
+      "apis": [
+        {
+          "api": "Direct3D11",
+          "priorP08PngByteIdentical": true,
+          "maxChannelError": 0,
+          "meanChannelByteError": 0.0,
+          "changedPixels": 0,
+          "restoredChangedPixels": 0
+        },
+        {
+          "api": "Direct3D12",
+          "priorP08PngByteIdentical": true,
+          "maxChannelError": 0,
+          "meanChannelByteError": 0.0,
+          "changedPixels": 0,
+          "restoredChangedPixels": 0
+        }
+      ]
+    }
+  ],
+  "recordedUtc": "2026-10-26T11:06:36.759967+00:00",
+  "priorP08Commit": "49df3f0",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BuiltInReferenceTests.cs",
+      "sha256": "D2461DDDD8E3E13A72B0EAF494AB2E0173792EB7E115B21409D0996EE8FDB3F8"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LodHeightSeamTests.cs",
+      "sha256": "BE2D0881EBEC711D05A0861E4CAF988B38EF8656534A8C3B536A45ED02365872"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/WaterBodyTests.cs",
+      "sha256": "54C7783ED278E1B5695D09D85543E2CAECAD168F5DEBA50068FE2288238A5549"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/P09-SeamReference-DX11.xml",
+      "sha256": "BC3532EB129A55B39AB3EFDB25C198D7888C7004ABE3B01F40890300F6AC1029",
+      "startUtc": "2026-10-26 11:00:49Z",
+      "endUtc": "2026-10-26 11:00:57Z"
+    },
+    {
+      "path": "Evidence/P09-SeamReference-DX12.xml",
+      "sha256": "A4FB7A8169D752F978EF612485FA46F3739A5E5C7038CE3B77015BC6CC537A5A",
+      "startUtc": "2026-10-26 11:01:31Z",
+      "endUtc": "2026-10-26 11:01:40Z"
+    },
+    {
+      "path": "Evidence/P09-BodyReference-DX11.xml",
+      "sha256": "B04BAC8311FA67D61C90E0549746C5489608AFBE72A969239541040D79087E01",
+      "startUtc": "2026-10-26 11:03:33Z",
+      "endUtc": "2026-10-26 11:03:38Z"
+    },
+    {
+      "path": "Evidence/P09-BodyReference-DX12.xml",
+      "sha256": "5CD6DBEF33D321CE4A90CEEDB5AF939E059DBFC0371EA1DE3AE18B63BB5FF125",
+      "startUtc": "2026-10-26 11:04:14Z",
+      "endUtc": "2026-10-26 11:04:21Z"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Affine-BuiltIn-Direct3D11.png",
+      "sha256": "D6250657A854BC75E36B4FD14D4AD64CB7B66D3200A44E3C222F5A8924104BC7"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Affine-BuiltIn-Direct3D12.png",
+      "sha256": "D6250657A854BC75E36B4FD14D4AD64CB7B66D3200A44E3C222F5A8924104BC7"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Affine-Direct3D11.png",
+      "sha256": "D6250657A854BC75E36B4FD14D4AD64CB7B66D3200A44E3C222F5A8924104BC7"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Affine-Direct3D12.png",
+      "sha256": "D6250657A854BC75E36B4FD14D4AD64CB7B66D3200A44E3C222F5A8924104BC7"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Affine-URP-restored-Direct3D11.png",
+      "sha256": "D6250657A854BC75E36B4FD14D4AD64CB7B66D3200A44E3C222F5A8924104BC7"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Affine-URP-restored-Direct3D12.png",
+      "sha256": "D6250657A854BC75E36B4FD14D4AD64CB7B66D3200A44E3C222F5A8924104BC7"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdge-BuiltIn-Direct3D11.png",
+      "sha256": "EAE78C5E2AD2554BEC131C4033E495F8130574383353F4A20D597805655645AA"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdge-BuiltIn-Direct3D12.png",
+      "sha256": "EAE78C5E2AD2554BEC131C4033E495F8130574383353F4A20D597805655645AA"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdge-Direct3D11.png",
+      "sha256": "61DD1E73E55709F18BDDC9FC5F44E2840FC32A05BFB359DA56B1AB999DB08194"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdge-Direct3D12.png",
+      "sha256": "61DD1E73E55709F18BDDC9FC5F44E2840FC32A05BFB359DA56B1AB999DB08194"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdge-URP-restored-Direct3D11.png",
+      "sha256": "61DD1E73E55709F18BDDC9FC5F44E2840FC32A05BFB359DA56B1AB999DB08194"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdge-URP-restored-Direct3D12.png",
+      "sha256": "61DD1E73E55709F18BDDC9FC5F44E2840FC32A05BFB359DA56B1AB999DB08194"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdgeChoppy-BuiltIn-Direct3D11.png",
+      "sha256": "F0E5119489B5740EC6A989F18C12A5F3F3D53753C9A6BCCE3E1CFA179483064D"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdgeChoppy-BuiltIn-Direct3D12.png",
+      "sha256": "F0E5119489B5740EC6A989F18C12A5F3F3D53753C9A6BCCE3E1CFA179483064D"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdgeChoppy-Direct3D11.png",
+      "sha256": "F0E5119489B5740EC6A989F18C12A5F3F3D53753C9A6BCCE3E1CFA179483064D"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdgeChoppy-Direct3D12.png",
+      "sha256": "F0E5119489B5740EC6A989F18C12A5F3F3D53753C9A6BCCE3E1CFA179483064D"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdgeChoppy-URP-restored-Direct3D11.png",
+      "sha256": "F0E5119489B5740EC6A989F18C12A5F3F3D53753C9A6BCCE3E1CFA179483064D"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-SmoothEdgeChoppy-URP-restored-Direct3D12.png",
+      "sha256": "F0E5119489B5740EC6A989F18C12A5F3F3D53753C9A6BCCE3E1CFA179483064D"
+    },
+    {
+      "path": "Evidence/WaterBodies-Baseline-BuiltIn-Direct3D11.png",
+      "sha256": "51C6FC1F8CEE63BF9906E34415F2BE7B0978081723E5BABF4D640E06982AF3CD"
+    },
+    {
+      "path": "Evidence/WaterBodies-Baseline-BuiltIn-Direct3D12.png",
+      "sha256": "51C6FC1F8CEE63BF9906E34415F2BE7B0978081723E5BABF4D640E06982AF3CD"
+    },
+    {
+      "path": "Evidence/WaterBodies-Baseline-Direct3D11.png",
+      "sha256": "51C6FC1F8CEE63BF9906E34415F2BE7B0978081723E5BABF4D640E06982AF3CD"
+    },
+    {
+      "path": "Evidence/WaterBodies-Baseline-Direct3D12.png",
+      "sha256": "51C6FC1F8CEE63BF9906E34415F2BE7B0978081723E5BABF4D640E06982AF3CD"
+    },
+    {
+      "path": "Evidence/WaterBodies-Baseline-URP-restored-Direct3D11.png",
+      "sha256": "51C6FC1F8CEE63BF9906E34415F2BE7B0978081723E5BABF4D640E06982AF3CD"
+    },
+    {
+      "path": "Evidence/WaterBodies-Baseline-URP-restored-Direct3D12.png",
+      "sha256": "51C6FC1F8CEE63BF9906E34415F2BE7B0978081723E5BABF4D640E06982AF3CD"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-BuiltIn-Direct3D11.png",
+      "sha256": "825F93F2640B76C4A916A561F70F38E36B5A2108540978E78AB3F57A5F653411"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-BuiltIn-Direct3D12.png",
+      "sha256": "825F93F2640B76C4A916A561F70F38E36B5A2108540978E78AB3F57A5F653411"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-Direct3D11.png",
+      "sha256": "825F93F2640B76C4A916A561F70F38E36B5A2108540978E78AB3F57A5F653411"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-Direct3D12.png",
+      "sha256": "825F93F2640B76C4A916A561F70F38E36B5A2108540978E78AB3F57A5F653411"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-URP-restored-Direct3D11.png",
+      "sha256": "825F93F2640B76C4A916A561F70F38E36B5A2108540978E78AB3F57A5F653411"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-URP-restored-Direct3D12.png",
+      "sha256": "825F93F2640B76C4A916A561F70F38E36B5A2108540978E78AB3F57A5F653411"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-BuiltIn-Direct3D11.png",
+      "sha256": "99A32E0D6DBC4CE5CA04EE36B00FC8FFCB0F0ADDF0976DEFB62B0A679DC233C0"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-BuiltIn-Direct3D12.png",
+      "sha256": "99A32E0D6DBC4CE5CA04EE36B00FC8FFCB0F0ADDF0976DEFB62B0A679DC233C0"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-Direct3D11.png",
+      "sha256": "99A32E0D6DBC4CE5CA04EE36B00FC8FFCB0F0ADDF0976DEFB62B0A679DC233C0"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-Direct3D12.png",
+      "sha256": "99A32E0D6DBC4CE5CA04EE36B00FC8FFCB0F0ADDF0976DEFB62B0A679DC233C0"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-URP-restored-Direct3D11.png",
+      "sha256": "99A32E0D6DBC4CE5CA04EE36B00FC8FFCB0F0ADDF0976DEFB62B0A679DC233C0"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-URP-restored-Direct3D12.png",
+      "sha256": "99A32E0D6DBC4CE5CA04EE36B00FC8FFCB0F0ADDF0976DEFB62B0A679DC233C0"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-BuiltIn-Direct3D11.png",
+      "sha256": "C691DF2C75CAE6EEE9C1C335342DFE68E97D731EDD592738DD1961397FC08EE7"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-BuiltIn-Direct3D12.png",
+      "sha256": "C6139CC0C319658D856F69B9F4B42D77B79AAD39C86E8DDCED5E02B85136456E"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-Direct3D11.png",
+      "sha256": "C691DF2C75CAE6EEE9C1C335342DFE68E97D731EDD592738DD1961397FC08EE7"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-Direct3D12.png",
+      "sha256": "C6139CC0C319658D856F69B9F4B42D77B79AAD39C86E8DDCED5E02B85136456E"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-URP-restored-Direct3D11.png",
+      "sha256": "C691DF2C75CAE6EEE9C1C335342DFE68E97D731EDD592738DD1961397FC08EE7"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-URP-restored-Direct3D12.png",
+      "sha256": "C6139CC0C319658D856F69B9F4B42D77B79AAD39C86E8DDCED5E02B85136456E"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-BuiltIn-Direct3D11.png",
+      "sha256": "7F9593E09851FF7D5007AA89345756681D350F3D4CBDC635199A22B70F93DF62"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-BuiltIn-Direct3D12.png",
+      "sha256": "805EFDB538532FE447CEB1D49223E98896BF0CA81EF3DB309D010AD5008B7BB7"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-Direct3D11.png",
+      "sha256": "7F9593E09851FF7D5007AA89345756681D350F3D4CBDC635199A22B70F93DF62"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-Direct3D12.png",
+      "sha256": "805EFDB538532FE447CEB1D49223E98896BF0CA81EF3DB309D010AD5008B7BB7"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-URP-restored-Direct3D11.png",
+      "sha256": "7F9593E09851FF7D5007AA89345756681D350F3D4CBDC635199A22B70F93DF62"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-URP-restored-Direct3D12.png",
+      "sha256": "805EFDB538532FE447CEB1D49223E98896BF0CA81EF3DB309D010AD5008B7BB7"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-Direct3D11.clip-f32.gz",
+      "sha256": "A5971D4710D795AE7E1D791198BC6661476D99DAB97CE282D15E3D83B9B9F5C2"
+    },
+    {
+      "path": "Evidence/WaterBodies-Empty-Direct3D12.clip-f32.gz",
+      "sha256": "A5971D4710D795AE7E1D791198BC6661476D99DAB97CE282D15E3D83B9B9F5C2"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-Direct3D11.clip-f32.gz",
+      "sha256": "E79EF73A5836E4F117318368683E81ED3394B6069316E1E3666D4C8564627AD1"
+    },
+    {
+      "path": "Evidence/WaterBodies-MovedIncludedArea-Direct3D12.clip-f32.gz",
+      "sha256": "E79EF73A5836E4F117318368683E81ED3394B6069316E1E3666D4C8564627AD1"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-Direct3D11.clip-f32.gz",
+      "sha256": "14748D922CE7A6E56ED1BEFA2E2538CD4AEB285C32EDA1DC153260FCB680E5D4"
+    },
+    {
+      "path": "Evidence/WaterBodies-OnlyAIncluded-Direct3D12.clip-f32.gz",
+      "sha256": "14748D922CE7A6E56ED1BEFA2E2538CD4AEB285C32EDA1DC153260FCB680E5D4"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-Direct3D11.clip-f32.gz",
+      "sha256": "781E788445CF2018FD2E8D70CD1D04129550CC2705F99B87075A51B4948E62DA"
+    },
+    {
+      "path": "Evidence/WaterBodies-TwoIncludedAreas-Direct3D12.clip-f32.gz",
+      "sha256": "781E788445CF2018FD2E8D70CD1D04129550CC2705F99B87075A51B4948E62DA"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Direct3D11.txt",
+      "sha256": "75655FC8D1315AA5EA7A820D072C6FC6BEBE6779226CBB7EECA20E434267F5B3"
+    },
+    {
+      "path": "Evidence/LodHeightSeams-Direct3D12.txt",
+      "sha256": "75655FC8D1315AA5EA7A820D072C6FC6BEBE6779226CBB7EECA20E434267F5B3"
+    },
+    {
+      "path": "Evidence/WaterBodies-Direct3D11.txt",
+      "sha256": "042EC3E1F53083A45343FD93338F7D6A42F66F017E59A0B7E456799E987D0CA5"
+    },
+    {
+      "path": "Evidence/WaterBodies-Direct3D12.txt",
+      "sha256": "27FA17D2553F68593B1D40AD5420B44CA916501642532576E875C62889D72006"
+    }
+  ],
+  "interpretation": {
+    "grid": "Identical prior P08 input captures and original Built-in reproduce the grid. SmoothEdge differs only one RGB byte in one pixel, choppy and affine exactly. Inherited in these cases, not a new URP shading defect.",
+    "boundaries": "Full masks match original per API including all edges; 10 cross-API differences in two states reproduce with original shader and bit-identical 7-layer native clip fields. Localized to surface sampling/clip/raster boundary stage, not changed input data. Exact GPU instruction/rounding mechanism not established.",
+    "limitations": "No artifact-free claim, no new full regression or Player builds. P09.3 optical comparison next. Existing P10 warnings remain."
+  }
+}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Crest;
 using NUnit.Framework;
@@ -21,7 +22,8 @@ public class LodHeightSeamTests
     struct Owner { public int Tile, Lod; }
     readonly Dictionary<Mesh,int[]> _boundaries = new Dictionary<Mesh,int[]>();
     readonly List<Mesh> _meshes = new List<Mesh>();
-    Material _inputMaterial, _surface;
+    Material _inputMaterial, _surface, _originalMaterial;
+    Shader _originalShader;
     SimSettingsSeaFloorDepth _depth;
     OceanWaveSpectrum _spectrum;
     ShapeGerstner _waves;
@@ -203,8 +205,67 @@ public class LodHeightSeamTests
             RenderTexture.active=_target; texture.ReadPixels(new Rect(0,0,512,512),0,0); texture.Apply(); File.WriteAllBytes($"Evidence/LodHeightSeams-{phase}-{SystemInfo.graphicsDeviceType}.png",texture.EncodeToPNG());
             int holes=0; foreach(var pixel in texture.GetPixels32()) if(pixel.r>240&&pixel.b>240&&pixel.g<16) holes++;
             File.AppendAllText(_report,$"Capture={phase}; ClearPixels={holes}\n"); Assert.That(holes,Is.Zero); _captures++;
+            CompareOriginal(phase,texture.GetPixels32());
         }
         finally { RenderTexture.active=previous; Object.DestroyImmediate(texture); }
+    }
+    void CompareOriginal(string phase,Color32[] expected)
+    {
+        // No yield or simulation update between the three renders: retain the exact P08 camera/LOD state.
+        if(_originalShader==null) _originalShader=BuiltInReferenceTests.CreateVerifiedOriginalShader(_report);
+        if(_originalMaterial==null) _originalMaterial=new Material(_surface){shader=_originalShader};
+        _originalMaterial.CopyPropertiesFromMaterial(_surface);
+        var pipeline=GraphicsSettings.defaultRenderPipeline; var quality=QualitySettings.renderPipeline;
+        var ocean=OceanRenderer.Instance; int frame=OceanRenderer.FrameCount;
+        string fields=NativeFields(ocean);
+        Color32[] original=null,restored=null;
+        try
+        {
+            GraphicsSettings.defaultRenderPipeline=null; QualitySettings.renderPipeline=null;
+            Assert.That(GraphicsSettings.currentRenderPipeline,Is.Null);
+            ocean.OceanMaterial=_originalMaterial;
+            _camera.targetTexture=_target;
+            try {_camera.Render();} finally {_camera.targetTexture=null;}
+            original=ReadReference(phase+"-BuiltIn");
+        }
+        finally
+        {
+            GraphicsSettings.defaultRenderPipeline=pipeline; QualitySettings.renderPipeline=quality;
+            ocean.OceanMaterial=_surface;
+        }
+        RenderPipeline.SubmitRenderRequest(_camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});
+        restored=ReadReference(phase+"-URP-restored");
+        Assert.That(OceanRenderer.FrameCount,Is.EqualTo(frame));
+        Assert.That(NativeFields(ocean),Is.EqualTo(fields),"Exact original P08 native wave/depth fields must remain frozen.");
+        long total=0;int max=0,repeat=0;
+        for(int i=0;i<expected.Length;i++)
+        {
+            int r=Math.Abs(expected[i].r-original[i].r),g=Math.Abs(expected[i].g-original[i].g),b=Math.Abs(expected[i].b-original[i].b);
+            total+=r+g+b;max=Math.Max(max,Math.Max(r,Math.Max(g,b)));
+            if(!expected[i].Equals(restored[i])) repeat++;
+        }
+        double mean=(double)total/(expected.Length*3);
+        File.AppendAllText(_report,$"OriginalReference={phase}; Camera={_camera.transform.position}; OrthoSize={_camera.orthographicSize:R}; Scale={ocean.Scale:R}; ViewerAlpha={ocean.ViewerAltitudeLevelAlpha:R}; NativeFields={fields}; FrameCount={frame}; MaxChannelDifference={max}; MeanAbsoluteRgbByteDifference={mean:R}; RestoredPixelsChanged={repeat}\n");
+        Assert.That(max,Is.LessThanOrEqualTo(2)); Assert.That(mean,Is.LessThanOrEqualTo(.05)); Assert.That(repeat,Is.Zero);
+    }
+    static string NativeFields(OceanRenderer ocean)
+    {
+        var wave=AsyncGPUReadback.Request(ocean._lodDataAnimWaves.DataTexture,0);wave.WaitForCompletion();
+        var depth=AsyncGPUReadback.Request(ocean._lodDataSeaDepths.DataTexture,0);depth.WaitForCompletion();
+        Assert.That(wave.hasError||depth.hasError,Is.False);
+        using(var hash=System.Security.Cryptography.SHA256.Create())
+            return BitConverter.ToString(hash.ComputeHash(wave.GetData<byte>().ToArray()))+"/"+BitConverter.ToString(hash.ComputeHash(depth.GetData<byte>().ToArray()));
+    }
+    Color32[] ReadReference(string phase)
+    {
+        var previous=RenderTexture.active;var cpu=new Texture2D(512,512,TextureFormat.RGBA32,false);
+        try
+        {
+            RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,512,512),0,0);cpu.Apply();
+            File.WriteAllBytes($"Evidence/LodHeightSeams-{phase}-{SystemInfo.graphicsDeviceType}.png",cpu.EncodeToPNG());
+            return cpu.GetPixels32();
+        }
+        finally {RenderTexture.active=previous;Object.DestroyImmediate(cpu);}
     }
     [UnityTearDown]
     public IEnumerator Cleanup()
@@ -214,6 +275,7 @@ public class LodHeightSeamTests
         if(_target!=null) { _target.Release(); Object.DestroyImmediate(_target); }
         foreach(var mesh in _meshes) if(mesh!=null) Object.DestroyImmediate(mesh); _meshes.Clear(); _boundaries.Clear();
         if(_inputMaterial!=null) Object.DestroyImmediate(_inputMaterial); if(_surface!=null) Object.DestroyImmediate(_surface);
+        if(_originalMaterial!=null) Object.DestroyImmediate(_originalMaterial); if(_originalShader!=null) Object.DestroyImmediate(_originalShader);
         if(_depth!=null) Object.DestroyImmediate(_depth); if(_spectrum!=null) Object.DestroyImmediate(_spectrum);
     }
 }

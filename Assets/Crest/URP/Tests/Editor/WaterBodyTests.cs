@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.IO.Compression;
 using Crest;
 using NUnit.Framework;
 using UnityEditor;
@@ -15,6 +17,7 @@ using Object = UnityEngine.Object;
 public class WaterBodyTests
 {
     const int Size = 256;
+    Shader _originalShader;
     readonly List<Object> _owned = new List<Object>();
     Camera _camera;
     RenderTexture _target;
@@ -260,9 +263,70 @@ public class WaterBodyTests
                 Assert.That(checkedOutside, Is.GreaterThan(100));
                 if (WaterBody.WaterBodies.Count > 0) Assert.That(checkedInside, Is.GreaterThan(100));
             }
-            Assert.That(mismatches, Is.Zero); return visible;
+            Assert.That(mismatches, Is.Zero);
+            if(save) CompareOriginalMask(phase,pixels);
+            return visible;
         }
         finally { RenderTexture.active = previous; Object.DestroyImmediate(texture); }
+    }
+    static bool Covered(Color32 pixel) => !(pixel.r>240&&pixel.b>240&&pixel.g<16);
+    void CompareOriginalMask(string phase,Color32[] expected)
+    {
+        if(_originalShader==null) _originalShader=Own(BuiltInReferenceTests.CreateVerifiedOriginalShader(_report));
+        var ocean=OceanRenderer.Instance;int frame=OceanRenderer.FrameCount;
+        var pipeline=GraphicsSettings.defaultRenderPipeline;var quality=QualitySettings.renderPipeline;
+        var materials=new[]{_surface,_a!=null?_a._overrideMaterial:null,_b!=null?_b._overrideMaterial:null}.Where(x=>x!=null).Distinct().ToArray();
+        var shaders=materials.Select(x=>x.shader).ToArray();var keywords=materials.Select(x=>x.shaderKeywords).ToArray();
+        Color32[] original=null;
+        try
+        {
+            GraphicsSettings.defaultRenderPipeline=null;QualitySettings.renderPipeline=null;
+            Assert.That(GraphicsSettings.currentRenderPipeline,Is.Null);
+            for(int i=0;i<materials.Length;i++) {materials[i].shader=_originalShader;materials[i].shaderKeywords=keywords[i];}
+            _camera.targetTexture=_target;try {_camera.Render();} finally {_camera.targetTexture=null;}
+            original=ReadReference(phase+"-BuiltIn");
+        }
+        finally
+        {
+            for(int i=0;i<materials.Length;i++) {materials[i].shader=shaders[i];materials[i].shaderKeywords=keywords[i];}
+            GraphicsSettings.defaultRenderPipeline=pipeline;QualitySettings.renderPipeline=quality;
+        }
+        RenderPipeline.SubmitRenderRequest(_camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});
+        var restored=ReadReference(phase+"-URP-restored");
+        int mask=0,repeat=0,colors=0;
+        for(int i=0;i<expected.Length;i++)
+        {
+            if(Covered(expected[i])!=Covered(original[i])) mask++;
+            if(Covered(expected[i])!=Covered(restored[i])) repeat++;
+            if(!expected[i].Equals(restored[i])) colors++;
+        }
+        Assert.That(OceanRenderer.FrameCount,Is.EqualTo(frame));
+        File.AppendAllText(_report,$"OriginalReference={phase}; MaskMismatches={mask}; RestoredMaskMismatches={repeat}; RestoredColorPixelsChanged={colors}; FrameCount={frame}\n");
+        Assert.That(mask,Is.Zero,"All mask pixels, including the previously excluded edge band, must match original.");
+        Assert.That(repeat,Is.Zero);Assert.That(colors,Is.Zero);
+        if(ocean._lodDataClipSurface!=null)
+        {
+            var rt=ocean._lodDataClipSurface.DataTexture;
+            var request=AsyncGPUReadback.Request(rt,0,TextureFormat.RFloat);request.WaitForCompletion();Assert.That(request.hasError,Is.False);
+            using(var file=File.Create($"Evidence/WaterBodies-{phase}-{SystemInfo.graphicsDeviceType}.clip-f32.gz"))
+            using(var gzip=new GZipStream(file,System.IO.Compression.CompressionLevel.Optimal))
+            for(int layer=0;layer<request.layerCount;layer++)
+            {
+                var values=request.GetData<float>(layer).ToArray();var bytes=new byte[values.Length*sizeof(float)];
+                Buffer.BlockCopy(values,0,bytes,0,bytes.Length);gzip.Write(bytes,0,bytes.Length);
+            }
+            File.AppendAllText(_report,$"ClipSnapshot={phase}; Width={rt.width}; Height={rt.height}; Layers={request.layerCount}; Format=float32-little-endian\n");
+        }
+    }
+    Color32[] ReadReference(string phase)
+    {
+        var previous=RenderTexture.active;var cpu=new Texture2D(Size,Size,TextureFormat.RGBA32,false);
+        try
+        {
+            RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,Size,Size),0,0);cpu.Apply();
+            File.WriteAllBytes($"Evidence/WaterBodies-{phase}-{SystemInfo.graphicsDeviceType}.png",cpu.EncodeToPNG());return cpu.GetPixels32();
+        }
+        finally {RenderTexture.active=previous;Object.DestroyImmediate(cpu);}
     }
     [UnityTearDown]
     public IEnumerator Cleanup()

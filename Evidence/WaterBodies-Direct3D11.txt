@@ -1,6 +1,8 @@
 Original WaterBody/OceanRenderer, fixed scale8, flat water, actual renderer states and URP surface. Independent corner bounds/positive intersection area reference; source bounds tolerance .0001m. Movement uses disable/change/re-enable (no private bounds refresh); live Editor transform changes are not a Player API. Clip field tolerance .005, interior mask excludes .35m edge band. No performance/underwater-volume acceptance.
 State=NoBodies; Bodies=0; Enabled=88; Total=88; MaterialA=0; MaterialB=0
 Image=Baseline; Visible=65536; InteriorInside=0; InteriorOutside=0; Mismatches=0
+
+OriginalReference=Baseline; MaskMismatches=0; RestoredMaskMismatches=0; RestoredColorPixelsChanged=0; FrameCount=98
 State=OneBody; Bodies=1; Enabled=12; Total=88; MaterialA=0; MaterialB=0
 State=OverlappingMaterials; Bodies=2; Enabled=14; Total=88; MaterialA=10; MaterialB=4
 State=OnlyB; Bodies=1; Enabled=6; Total=88; MaterialA=0; MaterialB=6
@@ -12,14 +14,22 @@ State=CullingOff; Bodies=1; Enabled=88; Total=88; MaterialA=1; MaterialB=0
 State=CullingRestored; Bodies=0; Enabled=88; Total=88; MaterialA=0; MaterialB=0
 Field=NoIncludedAreas; Inside=0; Outside=16384; MaxError=0
 Image=Empty; Visible=0; InteriorInside=0; InteriorOutside=65536; Mismatches=0
+OriginalReference=Empty; MaskMismatches=0; RestoredMaskMismatches=0; RestoredColorPixelsChanged=0; FrameCount=925
+ClipSnapshot=Empty; Width=384; Height=384; Layers=7; Format=float32-little-endian
 State=TwoIncludedAreas; Bodies=2; Enabled=8; Total=88; MaterialA=0; MaterialB=0
 Field=TwoIncludedAreas; Inside=3371; Outside=12663; MaxError=0
 Image=TwoIncludedAreas; Visible=14336; InteriorInside=11852; InteriorOutside=49532; Mismatches=0
+OriginalReference=TwoIncludedAreas; MaskMismatches=0; RestoredMaskMismatches=0; RestoredColorPixelsChanged=0; FrameCount=1016
+ClipSnapshot=TwoIncludedAreas; Width=384; Height=384; Layers=7; Format=float32-little-endian
 Field=OnlyAIncluded; Inside=2209; Outside=13983; MaxError=0
 Image=OnlyAIncluded; Visible=9216; InteriorInside=8100; InteriorOutside=55132; Mismatches=0
+OriginalReference=OnlyAIncluded; MaskMismatches=0; RestoredMaskMismatches=0; RestoredColorPixelsChanged=0; FrameCount=1107
+ClipSnapshot=OnlyAIncluded; Width=384; Height=384; Layers=7; Format=float32-little-endian
 State=MovedIncludedArea; Bodies=1; Enabled=4; Total=88; MaterialA=0; MaterialB=0
 Field=MovedIncludedArea; Inside=1081; Outside=15159; MaxError=0
 Image=MovedIncludedArea; Visible=4608; InteriorInside=3780; InteriorOutside=60028; Mismatches=0
+OriginalReference=MovedIncludedArea; MaskMismatches=0; RestoredMaskMismatches=0; RestoredColorPixelsChanged=0; FrameCount=1198
+ClipSnapshot=MovedIncludedArea; Width=384; Height=384; Layers=7; Format=float32-little-endian
 Field=IncludedAreasDisabled; Inside=0; Outside=16384; MaxError=0
 Image=Disabled; Visible=0; InteriorInside=0; InteriorOutside=65536; Mismatches=0
 Field=DefaultVisibleRestored; Inside=0; Outside=16384; MaxError=0

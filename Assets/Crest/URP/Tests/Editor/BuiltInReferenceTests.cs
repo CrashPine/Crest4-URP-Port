@@ -128,6 +128,19 @@ public class BuiltInReferenceTests
         File.AppendAllText(_report,"Result=Reference renders completed; visual parity remains subject to inspection and measured differences.\n");
     }
 
+    // A synchronous reference lets existing fixtures compare their exact captured simulation frame.
+    public static Shader CreateVerifiedOriginalShader(string report)
+    {
+        var loader=new BuiltInReferenceTests {_report=report};
+        string original=Path.GetFullPath("../../work/crest-upstream/crest/Assets/Crest/Crest/Shaders/Ocean.shader");
+        loader._originalRoot=Path.GetDirectoryName(original);
+        loader._expected=JsonUtility.FromJson<Manifest>(File.ReadAllText("Evidence/P09-Reference-inspection.json")).originalShaderDependencies.ToDictionary(x=>x.path,x=>x.sha256);
+        string code=loader.Expand(original).Replace("Shader \"Crest/Ocean\"","Shader \"Hidden/Crest/Tests/OriginalBuiltInOcean\"");
+        Assert.That(loader._sources.Count,Is.EqualTo(loader._expected.Count));
+        loader._shader=ShaderUtil.CreateShaderAsset(code,false); loader.CheckShader();
+        return loader._shader;
+    }
+
     string Expand(string file)
     {
         file=Path.GetFullPath(file); _sources.Add(file);

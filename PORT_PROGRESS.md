@@ -6,9 +6,11 @@
 
 P00–P08 DONE в определённых PORT_PLAN областях; полный порт не завершён. Единственный план — PORT_PLAN.md, acceptance/limitations — FEATURE_MATRIX/TEST_RESULTS.
 
-**Активные операции:** нет; оба focused reference runs завершились1/1 PASSED. Последние production builds остаются UTC2026-10-25; только Editor fixture/evidence/docs менялись, rebuild не требуется. Проверить Unity/Player процессы перед новым запуском.
+**Активные операции:** нет. P09.2 seam/body focused1/1 на обеих API завершены;4 XML Passed. Последние production builds UTC2026-10-25; runtime/shaders/scenes не менялись, rebuild не требуется.
 
-**Следующее действие:** P09.2 — воспроизвести ТОЧНЫЕ LodHeightSeamTests SmoothEdge и SmoothEdgeChoppy captures в original Built-in reference: взять camera position/orthographicSize, scale, seed/direction/normal-map/material state из существующего fixture и сравнить с URP в frozen inputs. Новый BuiltInReferenceTests даёт reusable original shader loader и pipeline round-trip, но его шесть состояний scale16/size48 не подменяют прежние P08 условия. Затем разобрать10 body-boundary API pixels без увеличения edge band. Единственная очередь — PORT_PLAN.md. Не GenerateScenes/не acquisition; upstream read-only.
+**Следующее действие:** P09.3 — matched perspective/refraction/depth/scattering/caustics reference. Создать известную непрозрачную геометрию под водой с шейдером, работающим в обоих pipelines, проверить independent opaque control, затем original GrabPass против URP background и depth с выключенными/включенными оптическими функциями. Reuse original verified shader loader and synchronous same-frame pipeline switch (работает без yield, сохраняет actual simulation/LOD inputs). Не менять исходные demo scenes/GenerateScenes; upstream read-only. Очередь только PORT_PLAN.
+
+**Новый результат P09.2:** точные прежние P08 captures воспроизведены byte-identical. Original Built-in показывает ту же сетку: affine/choppy RGB0, smooth one1-byte channel at1pixel/API; URP restoration exact. Full masks5states/API совпали с original без edge exclusions. Native clip7layers×384²×4states побитно одинаковы между API; оригинал также воспроизводит10 boundary pixels в2states. Это inherited surface sampling/clip/raster behaviour; точная GPU rounding instruction не установлена, artifact-free claim нет. Evidence/P09-Artifact-comparison.json содержит hashes/coords/coverage/limits. P09.2 scoped DONE; source changes только Editor tests/helper.
 
 **Новый результат P09.1:** BuiltInReferenceTests1/1 DX11/DX12. Actual Built-in shader compiled in memory from20 hash-verified original files; six states,18 captures/API, all pair/restore RGB errors0 and matching PNG bytes across APIs. Evidence/P09-OpaqueReference-checkpoint.json фиксирует fixture/source/XML/image hashes и ограничения. Полная P09/порт не завершены.
 
@@ -22,7 +24,7 @@ P00–P08 DONE в определённых PORT_PLAN областях; полн�
 - Обе сборки после runtime fix и4 fresh smokes7 scenes+4 reflection PNG, Errors=0; Build-checkpoint.json содержит source/assembly/packed asset/report/image hashes. Выбранные fresh Dev/Release underwater/reflection PNG просмотрены. Не повторять эти smokes без соответствующего изменения.
 - Предыдущие P08.1–4 результаты сохранены в TEST_RESULTS: LOD seams geometry scope, rotated Gerstner origin fix и stale clip-default fix. Их проверки входят в новый full73 checkpoint.
 - P10 открыт: обе full batch shutdown Persistent allocates3 individual allocations; DX12 Player evictable-resource warnings. Owners/stacks неизвестны; leak-free/performance claim отсутствует. Extra underwater copy cost ещё не профилировалась.
-- Original GUID/compute597 PASSED; известные3 normalized sprite meta не byte-identical. Structural audit1327 files, missing meta/duplicate GUID/missing upstream0; root Markdown8. Чужие Ocean.mat/example baked lighting сохранены; не stage/reset/delete. ProjectSettings content unchanged. Commit — git log -1.
+- Original GUID/compute597 PASSED; известные3 normalized sprite meta не byte-identical. Structural audit1329 files, missing meta/duplicate GUID/missing upstream0; root Markdown8. Чужие Ocean.mat/example baked lighting сохранены; не stage/reset/delete. ProjectSettings content unchanged. Commit — git log -1.
 
 ## Контракты, которые уже выяснены
 
