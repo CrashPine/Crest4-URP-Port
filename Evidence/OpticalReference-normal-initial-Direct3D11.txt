@@ -1,0 +1,6 @@
+P09.3 perspective optical reference; actual original Built-in vs URP with synchronous pipeline switch/no simulation tick.512x384 Linear/ARGB32/1x, camera(0,8,-12) looking at(0,-2,4), FOV60, sea floor-6. Independent opaque-control shader works in both pipelines and has a ShadowCaster for Built-in camera depth. RGB tolerance max2 byte/channel/mean.05; exact URP restoration, each feature effect>100 pixels.
+
+Phase=OpaqueGeometryControl; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21
+Phase=OpaqueWater; MaxChannelDifference=1; MeanRgbByteDifference=3,3908420138888887E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=0; FrameCount=21
+Phase=TransparentZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=0,00033060709635416668; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=161198; OpaqueControlColorPixels=5012; FrameCount=21
+Phase=NormalRefraction; MaxChannelDifference=13; MeanRgbByteDifference=0,036282009548611112; PixelsOverSix=449; RestoreChangedPixels=0; FeatureChangedPixels=68702; OpaqueControlColorPixels=5026; FrameCount=21

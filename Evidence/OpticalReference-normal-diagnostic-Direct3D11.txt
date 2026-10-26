@@ -1,0 +1,10 @@
+P09.3 perspective optical reference; actual original Built-in vs URP with synchronous pipeline switch/no simulation tick.512x384 Linear/ARGB32/1x, camera(0,8,-12) looking at(0,-2,4), FOV60, sea floor-6. Independent opaque-control shader works in both pipelines and has a ShadowCaster for Built-in camera depth. RGB tolerance max2 byte/channel/mean.05; exact URP restoration, each feature effect>100 pixels.
+
+Phase=OpaqueGeometryControl; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21
+Phase=OpaqueWater; MaxChannelDifference=1; MeanRgbByteDifference=3,3908420138888887E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=0; FrameCount=21
+Phase=TransparentZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=0,00033060709635416668; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=161198; OpaqueControlColorPixels=5012; FrameCount=21
+Phase=NormalsZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=0,00033230251736111112; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=55327; OpaqueControlColorPixels=5012; FrameCount=21
+Phase=NormalRefraction; MaxChannelDifference=13; MeanRgbByteDifference=0,036282009548611112; PixelsOverSix=449; RestoreChangedPixels=0; FeatureChangedPixels=15108; OpaqueControlColorPixels=5026; FrameCount=21
+Phase=ConstantNormalRefraction; MaxChannelDifference=7; MeanRgbByteDifference=0,0018530951605902778; PixelsOverSix=39; RestoreChangedPixels=0; FeatureChangedPixels=99291; OpaqueControlColorPixels=5012; FrameCount=21
+Phase=ShallowScattering; MaxChannelDifference=13; MeanRgbByteDifference=0,036282009548611112; PixelsOverSix=449; RestoreChangedPixels=0; FeatureChangedPixels=99291; OpaqueControlColorPixels=5026; FrameCount=21
+Phase=Caustics; MaxChannelDifference=12; MeanRgbByteDifference=0,035846286349826388; PixelsOverSix=401; RestoreChangedPixels=0; FeatureChangedPixels=68217; OpaqueControlColorPixels=5180; FrameCount=21

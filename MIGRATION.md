@@ -413,3 +413,7 @@ DRS synchronisation. The P08 fixture accepts uniform .75 hardware scaling throug
 StandardRequest on DX12, with a full-target no-Crest control. Nonuniform .75/.5,
 live backbuffer presentation and XR rendering are not accepted by that fixture.
 DX11 reports hardware dynamic resolution unavailable on the test device.
+
+### Refraction background sampling
+
+The URP graph background copy is sampled with an explicit linear-clamp sampler at LOD0 through `CrestSampleBackground`. The copy is a single-mip screen image. Implicit gradient/texture-associated sampling was not equivalent to Built-in GrabPass at distorted UVs, even with zero global mip bias: perspective reference max13 RGB byte steps before, max1 after. Normal, UV, depth and refraction-offset float controls were identical. Keep mask/depth sampling contracts separate; the generic screen-space macro is unchanged. The helper retains the original Built-in sample in its non-URP branch. This does not change original wave/foam/compute algorithms. P09.3 accepts fixed perspective/flat-water optics with normal-map distortion; other quality/XR/standalone combinations retain their own coverage limits.

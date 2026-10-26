@@ -5,6 +5,19 @@
 #ifndef CREST_OCEAN_EMISSION_INCLUDED
 #define CREST_OCEAN_EMISSION_INCLUDED
 
+#if _TRANSPARENCY_ON
+half3 CrestSampleBackground(const float2 uv)
+{
+#if defined(CREST_URP)
+    // The graph copy has one mip. Match GrabPass bilinear sampling without implicit
+    // gradients, camera mip bias, or texture-associated sampler state.
+    return SAMPLE_TEXTURE2D_X_LOD(_BackgroundTexture, sampler_LinearClamp, UnityStereoTransformScreenSpaceTex(uv), 0).rgb;
+#else
+    return UNITY_SAMPLE_SCREENSPACE_TEXTURE(_BackgroundTexture, uv).rgb;
+#endif
+}
+#endif
+
 half3 ScatterColour
 (
 	in const half i_surfaceOceanDepth,
@@ -252,7 +265,7 @@ half3 OceanEmission
 			depthFogDistance = max(sceneZ - i_pixelZ, 0.0);
 		}
 
-		sceneColour = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_BackgroundTexture, uvBackgroundRefract).rgb;
+		sceneColour = CrestSampleBackground(uvBackgroundRefract);
 #if _CAUSTICS_ON
 #if CREST_WATER_VOLUME_HAS_BACKFACE
 		if (caustics)
@@ -267,7 +280,7 @@ half3 OceanEmission
 	else
 	{
 		const float2 uvBackgroundRefract = rawDepth < i_rawPixelZ ? uvBackground + refractOffset : uvBackground;
-		sceneColour = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_BackgroundTexture, uvBackgroundRefract).rgb;
+		sceneColour = CrestSampleBackground(uvBackgroundRefract);
 		depthFogDistance = i_pixelZ;
 		// keep alpha at 0 as UnderwaterReflection shader handles the blend
 		// appropriately when looking at water from below

@@ -1,0 +1,729 @@
+{
+  "recordedUtc": "2026-10-26T16:04:24.143891+00:00",
+  "scope": "P09.3 scoped perspective flat-water optics accepted; full75+2 per API and rebuilt Development/Release four integration smokes passed. Full port not complete.",
+  "source": {
+    "path": "Assets/Crest/Crest/Shaders/OceanEmission.hlsl",
+    "sha256": "276FE46BA3DDBF518CFB9BF9708779495586CE3E2805A83CE2C6C19B50E86293",
+    "modifiedUtc": "2026-10-26T15:49:34.861203+00:00"
+  },
+  "fixture": {
+    "path": "Assets/Crest/URP/Tests/Editor/OpticalReferenceTests.cs",
+    "sha256": "8574322434761844E969FA0DD5C4C4A966406FF3A327426227952C3F32F1E4BF",
+    "modifiedUtc": "2026-10-26T15:50:57.217869+00:00"
+  },
+  "diagnosticShaders": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/DualPipelineOpaque.shader",
+      "sha256": "6119FF365EE43C60F0E2AA5746210C05F0851CEBB7F2E1E74CC40601BB8C8D48",
+      "modifiedUtc": "2026-10-26T11:09:38.481461+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/DualPipelineDepthProbe.shader",
+      "sha256": "55409E3ED18C3093639A5334D6EDF91D3506399BCA7701EDFA63759141D3E2C6",
+      "modifiedUtc": "2026-10-26T11:24:21.733054+00:00"
+    }
+  ],
+  "beforeFix": [
+    {
+      "path": "Evidence/OpticalReference-sampler-beforefix-DX11.xml",
+      "sha256": "4B46C27DA52C46EA3F38D0D0442E54A471D4090305A8E998C6A9FEEF5FCE3FD4",
+      "modifiedUtc": "2026-10-26T15:48:33.198279+00:00"
+    },
+    {
+      "path": "Evidence/OpticalReference-sampler-beforefix-Direct3D11.txt",
+      "sha256": "9A17F5C2F4B81650DB91BDA06A08E8CF8F613AC067BD0D0276602A0A49369706",
+      "modifiedUtc": "2026-10-26T15:48:33.050004+00:00"
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-Optical-Milestone-DX11.xml",
+      "sha256": "F9E8C73A27CC132FD1830654F86A095102A72C6B0ACF171ECA322B491F42E5BE",
+      "modifiedUtc": "2026-10-26T15:53:05.047292+00:00",
+      "passed": 75,
+      "failed": 0,
+      "skipped": 0,
+      "startUtc": "2026-10-26 15:51:21Z",
+      "endUtc": "2026-10-26 15:53:05Z"
+    },
+    {
+      "path": "Evidence/P09-Optical-Milestone-DX11-interactive.xml",
+      "sha256": "B6520AD5BA22192FEC64398DA3521FCF1EDC1767C8515AF57A1157533E31A978",
+      "modifiedUtc": "2026-10-26T15:53:34.592140+00:00",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "startUtc": "2026-10-26 15:53:19Z",
+      "endUtc": "2026-10-26 15:53:34Z"
+    },
+    {
+      "path": "Evidence/P09-Optical-Milestone-DX12.xml",
+      "sha256": "D043654EB772910C48EFBC5024751520CB6436E420BF4D70A9B96D46748D7CC3",
+      "modifiedUtc": "2026-10-26T15:55:40.851468+00:00",
+      "passed": 75,
+      "failed": 0,
+      "skipped": 0,
+      "startUtc": "2026-10-26 15:53:45Z",
+      "endUtc": "2026-10-26 15:55:40Z"
+    },
+    {
+      "path": "Evidence/P09-Optical-Milestone-DX12-interactive.xml",
+      "sha256": "658BC982C14B275BA94278A30A2A5C9604ABFB0D1A847CEA397D823C2A08FCC4",
+      "modifiedUtc": "2026-10-26T15:56:10.448450+00:00",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "startUtc": "2026-10-26 15:55:53Z",
+      "endUtc": "2026-10-26 15:56:10Z"
+    }
+  ],
+  "optical": [
+    {
+      "api": "Direct3D11",
+      "report": {
+        "path": "Evidence/OpticalReference-Direct3D11.txt",
+        "sha256": "0E8A334FC85298CDC36AFDB8F891C16C4714FAB51EB3EC16B418447705BD45C8",
+        "modifiedUtc": "2026-10-26T15:52:24.557533+00:00"
+      },
+      "metrics": [
+        "Phase=OpaqueGeometryControl; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=BackgroundZero; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=BackgroundSubpixel; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=57343; OpaqueControlColorPixels=173084; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=OpaqueWater; MaxChannelDifference=1; MeanRgbByteDifference=3,3908420138888887E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=0; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=TransparentZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=161198; OpaqueControlColorPixels=5012; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=NormalsZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=5,0862630208333331E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=55331; OpaqueControlColorPixels=5012; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=NormalRefraction; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=14194; OpaqueControlColorPixels=5026; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=ConstantNormalRefraction; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=98711; OpaqueControlColorPixels=5012; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=NormalRefractionRestored; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=98711; OpaqueControlColorPixels=5026; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=ShallowScattering; MaxChannelDifference=1; MeanRgbByteDifference=6,7816840277777774E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=78977; OpaqueControlColorPixels=5021; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=Caustics; MaxChannelDifference=1; MeanRgbByteDifference=5,5948893229166664E-05; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=66901; OpaqueControlColorPixels=5088; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)"
+      ],
+      "images": [
+        {
+          "path": "Evidence/OpticalReference-OpaqueGeometryControl-URP-Direct3D11.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:52:22.328149+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueGeometryControl-BuiltIn-Direct3D11.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:52:22.337129+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueGeometryControl-URP-restored-Direct3D11.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:52:22.346730+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundZero-URP-Direct3D11.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:52:22.841889+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundZero-BuiltIn-Direct3D11.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:52:22.851535+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundZero-URP-restored-Direct3D11.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:52:22.858961+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundSubpixel-URP-Direct3D11.png",
+          "sha256": "C323058DC44AAA05CA52E94F604CC083102B0838AF5CDF10C9B78A6EEB707512",
+          "modifiedUtc": "2026-10-26T15:52:22.869572+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundSubpixel-BuiltIn-Direct3D11.png",
+          "sha256": "C323058DC44AAA05CA52E94F604CC083102B0838AF5CDF10C9B78A6EEB707512",
+          "modifiedUtc": "2026-10-26T15:52:22.877742+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundSubpixel-URP-restored-Direct3D11.png",
+          "sha256": "C323058DC44AAA05CA52E94F604CC083102B0838AF5CDF10C9B78A6EEB707512",
+          "modifiedUtc": "2026-10-26T15:52:22.885850+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueWater-URP-Direct3D11.png",
+          "sha256": "F92A1D1684E8A0B44A86426C49BC32E7D406789E150BA86962B024BE0C3E0580",
+          "modifiedUtc": "2026-10-26T15:52:22.896185+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueWater-BuiltIn-Direct3D11.png",
+          "sha256": "DCF05E3E20759D23B817E61C8862ACF45771FA62751C31F5D9B44B6B245E8991",
+          "modifiedUtc": "2026-10-26T15:52:22.904675+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueWater-URP-restored-Direct3D11.png",
+          "sha256": "F92A1D1684E8A0B44A86426C49BC32E7D406789E150BA86962B024BE0C3E0580",
+          "modifiedUtc": "2026-10-26T15:52:22.916707+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-TransparentZeroOffset-URP-Direct3D11.png",
+          "sha256": "77EDA73EE87E75AF341FD7899A0A9F0537B1D77B1112C6C280417DC471898A1A",
+          "modifiedUtc": "2026-10-26T15:52:22.932046+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-TransparentZeroOffset-BuiltIn-Direct3D11.png",
+          "sha256": "6C8C97F8354367F57DBDB0CD599ECC68705FE247C8372E50DBCC845934041318",
+          "modifiedUtc": "2026-10-26T15:52:22.941948+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-TransparentZeroOffset-URP-restored-Direct3D11.png",
+          "sha256": "77EDA73EE87E75AF341FD7899A0A9F0537B1D77B1112C6C280417DC471898A1A",
+          "modifiedUtc": "2026-10-26T15:52:22.950606+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalsZeroOffset-URP-Direct3D11.png",
+          "sha256": "8A04845E4660CC10733C42715877459B1001DCDE412E5C177E2F583D3D63E5B9",
+          "modifiedUtc": "2026-10-26T15:52:22.965912+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalsZeroOffset-BuiltIn-Direct3D11.png",
+          "sha256": "E8B2A1FBC49078ECEFE7DFCC6ACA76743C7EDAF247770696991A1298BE2A8D63",
+          "modifiedUtc": "2026-10-26T15:52:22.978415+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalsZeroOffset-URP-restored-Direct3D11.png",
+          "sha256": "8A04845E4660CC10733C42715877459B1001DCDE412E5C177E2F583D3D63E5B9",
+          "modifiedUtc": "2026-10-26T15:52:22.991005+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefraction-URP-Direct3D11.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:52:23.008109+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefraction-BuiltIn-Direct3D11.png",
+          "sha256": "8792869E72DDA458C72C304118578EE843CA22DE522BCC46DE7B321ABDCB92C8",
+          "modifiedUtc": "2026-10-26T15:52:23.024617+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefraction-URP-restored-Direct3D11.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:52:23.039345+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ConstantNormalRefraction-URP-Direct3D11.png",
+          "sha256": "7BF919D6A9207E69FC7DA45D20E3BD6FEDA2196A02FA3F1A19F3DB29E14F5F2E",
+          "modifiedUtc": "2026-10-26T15:52:24.371044+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ConstantNormalRefraction-BuiltIn-Direct3D11.png",
+          "sha256": "E93339757681498B2FF745A3E3F830622CF08A5DE74DB65F653903E99830E19F",
+          "modifiedUtc": "2026-10-26T15:52:24.391177+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ConstantNormalRefraction-URP-restored-Direct3D11.png",
+          "sha256": "7BF919D6A9207E69FC7DA45D20E3BD6FEDA2196A02FA3F1A19F3DB29E14F5F2E",
+          "modifiedUtc": "2026-10-26T15:52:24.409261+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefractionRestored-URP-Direct3D11.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:52:24.423829+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefractionRestored-BuiltIn-Direct3D11.png",
+          "sha256": "8792869E72DDA458C72C304118578EE843CA22DE522BCC46DE7B321ABDCB92C8",
+          "modifiedUtc": "2026-10-26T15:52:24.438591+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefractionRestored-URP-restored-Direct3D11.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:52:24.453185+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ShallowScattering-URP-Direct3D11.png",
+          "sha256": "E3BE668614491A5BC5A819B6F041FF66BD31085CDAF8DD3711226A31D17E8101",
+          "modifiedUtc": "2026-10-26T15:52:24.469151+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ShallowScattering-BuiltIn-Direct3D11.png",
+          "sha256": "8B2DD6FB0BA906E0E250BE247F87313F024B51321E0816FCFD0663BB80F6C059",
+          "modifiedUtc": "2026-10-26T15:52:24.483433+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ShallowScattering-URP-restored-Direct3D11.png",
+          "sha256": "E3BE668614491A5BC5A819B6F041FF66BD31085CDAF8DD3711226A31D17E8101",
+          "modifiedUtc": "2026-10-26T15:52:24.497703+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Caustics-URP-Direct3D11.png",
+          "sha256": "B7DC9180D7392F3ED7915C9F1BB04F1DF03E33C43F9343647D2F8A137FEAF377",
+          "modifiedUtc": "2026-10-26T15:52:24.520023+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Caustics-BuiltIn-Direct3D11.png",
+          "sha256": "1B3B93A556CC73EB3908C7A16ACB2E7C0564E278ACE3ECB1310928AF7C742090",
+          "modifiedUtc": "2026-10-26T15:52:24.536896+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Caustics-URP-restored-Direct3D11.png",
+          "sha256": "B7DC9180D7392F3ED7915C9F1BB04F1DF03E33C43F9343647D2F8A137FEAF377",
+          "modifiedUtc": "2026-10-26T15:52:24.555549+00:00"
+        }
+      ],
+      "floatProbes": [
+        {
+          "path": "Evidence/OpticalReference-DepthSubpixel-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:52:22.636419+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-DepthSubpixel-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:52:22.578577+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-DepthZero-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:52:22.485507+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-DepthZero-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:52:22.421271+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal1-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "0B2190CBC2406FE34C842809057AD83A7A2CDC3E02D47958993F6726A169DAD7",
+          "modifiedUtc": "2026-10-26T15:52:23.502581+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal1-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "0B2190CBC2406FE34C842809057AD83A7A2CDC3E02D47958993F6726A169DAD7",
+          "modifiedUtc": "2026-10-26T15:52:23.314121+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal2-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "D31326B2606EC2768D256E945ADE44AAC26F00CA7FF531945D9993AAF4FDBB92",
+          "modifiedUtc": "2026-10-26T15:52:23.675917+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal2-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "D31326B2606EC2768D256E945ADE44AAC26F00CA7FF531945D9993AAF4FDBB92",
+          "modifiedUtc": "2026-10-26T15:52:23.602373+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal3-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "5F4E94C13F08F2A115F731CB2B240E0F3D1B32BBD9450A008ADCCA3D18A2EA31",
+          "modifiedUtc": "2026-10-26T15:52:23.869619+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal3-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "5F4E94C13F08F2A115F731CB2B240E0F3D1B32BBD9450A008ADCCA3D18A2EA31",
+          "modifiedUtc": "2026-10-26T15:52:23.778601+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal4-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "113843C665566F683B86A2A04E57787B5061D557483232DBC01322CD609E1739",
+          "modifiedUtc": "2026-10-26T15:52:24.033230+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal4-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "113843C665566F683B86A2A04E57787B5061D557483232DBC01322CD609E1739",
+          "modifiedUtc": "2026-10-26T15:52:23.947032+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal5-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "707FE8A80DE08FE8F45DE97E44B690969AC06C6A6AAC15C527EA3EE7652E7816",
+          "modifiedUtc": "2026-10-26T15:52:24.120882+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal5-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "707FE8A80DE08FE8F45DE97E44B690969AC06C6A6AAC15C527EA3EE7652E7816",
+          "modifiedUtc": "2026-10-26T15:52:24.081357+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal6-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:52:24.195528+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal6-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:52:24.164262+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal7-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:52:24.270034+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal7-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "69BBACD7315575EC2FAF3E5ABA731C4ED4413933B82E5F4CC994D76FEE78D74F",
+          "modifiedUtc": "2026-10-26T15:52:24.239804+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal8-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:52:24.343419+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal8-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "FA3F931F56DE8B7D56E8BF30DB68D2CF0F17CA09D506DBA42C4FB1F6587074BD",
+          "modifiedUtc": "2026-10-26T15:52:24.313078+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ScreenGrabUv-BuiltIn-Direct3D11.rgba-f32.gz",
+          "sha256": "FDD612C36658401E2420E8CBE5C1442585B59D479AF7BCFE1DEE084795597678",
+          "modifiedUtc": "2026-10-26T15:52:22.796512+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ScreenGrabUv-URP-Direct3D11.rgba-f32.gz",
+          "sha256": "FDD612C36658401E2420E8CBE5C1442585B59D479AF7BCFE1DEE084795597678",
+          "modifiedUtc": "2026-10-26T15:52:22.731163+00:00"
+        }
+      ],
+      "floatMetrics": [
+        "DepthControl=DepthZero; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0",
+        "DepthControl=DepthSubpixel; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0",
+        "DepthControl=ScreenGrabUv; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0",
+        "OceanInternal=1; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=2; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=3; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=4; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=5; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=6; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=7; MaxR=0,22140871; MaxG=0,1660707; MaxB=0,13195309; MaxA=0; Changed=52996",
+        "OceanInternal=8; MaxR=0,05990553; MaxG=0,0339469239; MaxB=0,0459836423; MaxA=0; Changed=23942"
+      ]
+    },
+    {
+      "api": "Direct3D12",
+      "report": {
+        "path": "Evidence/OpticalReference-Direct3D12.txt",
+        "sha256": "0E8A334FC85298CDC36AFDB8F891C16C4714FAB51EB3EC16B418447705BD45C8",
+        "modifiedUtc": "2026-10-26T15:54:54.489598+00:00"
+      },
+      "metrics": [
+        "Phase=OpaqueGeometryControl; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=BackgroundZero; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=BackgroundSubpixel; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=57343; OpaqueControlColorPixels=173084; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=OpaqueWater; MaxChannelDifference=1; MeanRgbByteDifference=3,3908420138888887E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=0; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=TransparentZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=161198; OpaqueControlColorPixels=5012; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=NormalsZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=5,0862630208333331E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=55331; OpaqueControlColorPixels=5012; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=NormalRefraction; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=14194; OpaqueControlColorPixels=5026; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=ConstantNormalRefraction; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=98711; OpaqueControlColorPixels=5012; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=NormalRefractionRestored; MaxChannelDifference=1; MeanRgbByteDifference=1,6954210069444444E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=98711; OpaqueControlColorPixels=5026; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=ShallowScattering; MaxChannelDifference=1; MeanRgbByteDifference=6,7816840277777774E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=78977; OpaqueControlColorPixels=5021; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)",
+        "Phase=Caustics; MaxChannelDifference=1; MeanRgbByteDifference=5,5948893229166664E-05; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=66901; OpaqueControlColorPixels=5088; FrameCount=21; GlobalMipBias=(0.00, 1.00, 0.00, 0.00)"
+      ],
+      "images": [
+        {
+          "path": "Evidence/OpticalReference-OpaqueGeometryControl-URP-Direct3D12.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:54:52.164671+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueGeometryControl-BuiltIn-Direct3D12.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:54:52.174884+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueGeometryControl-URP-restored-Direct3D12.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:54:52.184377+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundZero-URP-Direct3D12.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:54:52.688315+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundZero-BuiltIn-Direct3D12.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:54:52.700427+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundZero-URP-restored-Direct3D12.png",
+          "sha256": "BFB102C92BCF4741EA08CC3F9A53D752B424DB82EC0531C4D42F7317E6D5883A",
+          "modifiedUtc": "2026-10-26T15:54:52.709091+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundSubpixel-URP-Direct3D12.png",
+          "sha256": "9E4D8F57DFEA1F37A0E4E3348B9BB4E63C3B51A4D9F9924B34D6FABA49761E21",
+          "modifiedUtc": "2026-10-26T15:54:52.721196+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundSubpixel-BuiltIn-Direct3D12.png",
+          "sha256": "9E4D8F57DFEA1F37A0E4E3348B9BB4E63C3B51A4D9F9924B34D6FABA49761E21",
+          "modifiedUtc": "2026-10-26T15:54:52.730792+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-BackgroundSubpixel-URP-restored-Direct3D12.png",
+          "sha256": "9E4D8F57DFEA1F37A0E4E3348B9BB4E63C3B51A4D9F9924B34D6FABA49761E21",
+          "modifiedUtc": "2026-10-26T15:54:52.740473+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueWater-URP-Direct3D12.png",
+          "sha256": "F92A1D1684E8A0B44A86426C49BC32E7D406789E150BA86962B024BE0C3E0580",
+          "modifiedUtc": "2026-10-26T15:54:52.753150+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueWater-BuiltIn-Direct3D12.png",
+          "sha256": "DCF05E3E20759D23B817E61C8862ACF45771FA62751C31F5D9B44B6B245E8991",
+          "modifiedUtc": "2026-10-26T15:54:52.762272+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-OpaqueWater-URP-restored-Direct3D12.png",
+          "sha256": "F92A1D1684E8A0B44A86426C49BC32E7D406789E150BA86962B024BE0C3E0580",
+          "modifiedUtc": "2026-10-26T15:54:52.779440+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-TransparentZeroOffset-URP-Direct3D12.png",
+          "sha256": "77EDA73EE87E75AF341FD7899A0A9F0537B1D77B1112C6C280417DC471898A1A",
+          "modifiedUtc": "2026-10-26T15:54:52.794205+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-TransparentZeroOffset-BuiltIn-Direct3D12.png",
+          "sha256": "6C8C97F8354367F57DBDB0CD599ECC68705FE247C8372E50DBCC845934041318",
+          "modifiedUtc": "2026-10-26T15:54:52.809956+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-TransparentZeroOffset-URP-restored-Direct3D12.png",
+          "sha256": "77EDA73EE87E75AF341FD7899A0A9F0537B1D77B1112C6C280417DC471898A1A",
+          "modifiedUtc": "2026-10-26T15:54:52.820363+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalsZeroOffset-URP-Direct3D12.png",
+          "sha256": "8A04845E4660CC10733C42715877459B1001DCDE412E5C177E2F583D3D63E5B9",
+          "modifiedUtc": "2026-10-26T15:54:52.840091+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalsZeroOffset-BuiltIn-Direct3D12.png",
+          "sha256": "E8B2A1FBC49078ECEFE7DFCC6ACA76743C7EDAF247770696991A1298BE2A8D63",
+          "modifiedUtc": "2026-10-26T15:54:52.856648+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalsZeroOffset-URP-restored-Direct3D12.png",
+          "sha256": "8A04845E4660CC10733C42715877459B1001DCDE412E5C177E2F583D3D63E5B9",
+          "modifiedUtc": "2026-10-26T15:54:52.870957+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefraction-URP-Direct3D12.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:54:52.892125+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefraction-BuiltIn-Direct3D12.png",
+          "sha256": "8792869E72DDA458C72C304118578EE843CA22DE522BCC46DE7B321ABDCB92C8",
+          "modifiedUtc": "2026-10-26T15:54:52.906738+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefraction-URP-restored-Direct3D12.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:54:52.920545+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ConstantNormalRefraction-URP-Direct3D12.png",
+          "sha256": "7BF919D6A9207E69FC7DA45D20E3BD6FEDA2196A02FA3F1A19F3DB29E14F5F2E",
+          "modifiedUtc": "2026-10-26T15:54:54.283558+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ConstantNormalRefraction-BuiltIn-Direct3D12.png",
+          "sha256": "E93339757681498B2FF745A3E3F830622CF08A5DE74DB65F653903E99830E19F",
+          "modifiedUtc": "2026-10-26T15:54:54.296617+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ConstantNormalRefraction-URP-restored-Direct3D12.png",
+          "sha256": "7BF919D6A9207E69FC7DA45D20E3BD6FEDA2196A02FA3F1A19F3DB29E14F5F2E",
+          "modifiedUtc": "2026-10-26T15:54:54.308748+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefractionRestored-URP-Direct3D12.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:54:54.326078+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefractionRestored-BuiltIn-Direct3D12.png",
+          "sha256": "8792869E72DDA458C72C304118578EE843CA22DE522BCC46DE7B321ABDCB92C8",
+          "modifiedUtc": "2026-10-26T15:54:54.345197+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-NormalRefractionRestored-URP-restored-Direct3D12.png",
+          "sha256": "4045A7109FC3C5E06B8E924A4AD647D290070371799AE184231BBF4B68F1EC91",
+          "modifiedUtc": "2026-10-26T15:54:54.359470+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ShallowScattering-URP-Direct3D12.png",
+          "sha256": "E3BE668614491A5BC5A819B6F041FF66BD31085CDAF8DD3711226A31D17E8101",
+          "modifiedUtc": "2026-10-26T15:54:54.381247+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ShallowScattering-BuiltIn-Direct3D12.png",
+          "sha256": "8B2DD6FB0BA906E0E250BE247F87313F024B51321E0816FCFD0663BB80F6C059",
+          "modifiedUtc": "2026-10-26T15:54:54.401154+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ShallowScattering-URP-restored-Direct3D12.png",
+          "sha256": "E3BE668614491A5BC5A819B6F041FF66BD31085CDAF8DD3711226A31D17E8101",
+          "modifiedUtc": "2026-10-26T15:54:54.416878+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Caustics-URP-Direct3D12.png",
+          "sha256": "B7DC9180D7392F3ED7915C9F1BB04F1DF03E33C43F9343647D2F8A137FEAF377",
+          "modifiedUtc": "2026-10-26T15:54:54.439879+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Caustics-BuiltIn-Direct3D12.png",
+          "sha256": "1B3B93A556CC73EB3908C7A16ACB2E7C0564E278ACE3ECB1310928AF7C742090",
+          "modifiedUtc": "2026-10-26T15:54:54.463343+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Caustics-URP-restored-Direct3D12.png",
+          "sha256": "B7DC9180D7392F3ED7915C9F1BB04F1DF03E33C43F9343647D2F8A137FEAF377",
+          "modifiedUtc": "2026-10-26T15:54:54.487083+00:00"
+        }
+      ],
+      "floatProbes": [
+        {
+          "path": "Evidence/OpticalReference-DepthSubpixel-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:54:52.473852+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-DepthSubpixel-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:54:52.414949+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-DepthZero-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:54:52.322572+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-DepthZero-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "E2F2228E48B6B3540061BD579C3AA8DD6D3F5EE2EECA7918ED365AF93738E623",
+          "modifiedUtc": "2026-10-26T15:54:52.258299+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal1-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "0B2190CBC2406FE34C842809057AD83A7A2CDC3E02D47958993F6726A169DAD7",
+          "modifiedUtc": "2026-10-26T15:54:53.379763+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal1-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "0B2190CBC2406FE34C842809057AD83A7A2CDC3E02D47958993F6726A169DAD7",
+          "modifiedUtc": "2026-10-26T15:54:53.198572+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal2-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "D31326B2606EC2768D256E945ADE44AAC26F00CA7FF531945D9993AAF4FDBB92",
+          "modifiedUtc": "2026-10-26T15:54:53.554249+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal2-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "D31326B2606EC2768D256E945ADE44AAC26F00CA7FF531945D9993AAF4FDBB92",
+          "modifiedUtc": "2026-10-26T15:54:53.479353+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal3-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "5F4E94C13F08F2A115F731CB2B240E0F3D1B32BBD9450A008ADCCA3D18A2EA31",
+          "modifiedUtc": "2026-10-26T15:54:53.746726+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal3-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "5F4E94C13F08F2A115F731CB2B240E0F3D1B32BBD9450A008ADCCA3D18A2EA31",
+          "modifiedUtc": "2026-10-26T15:54:53.653911+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal4-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "113843C665566F683B86A2A04E57787B5061D557483232DBC01322CD609E1739",
+          "modifiedUtc": "2026-10-26T15:54:53.915063+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal4-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "113843C665566F683B86A2A04E57787B5061D557483232DBC01322CD609E1739",
+          "modifiedUtc": "2026-10-26T15:54:53.832024+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal5-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "707FE8A80DE08FE8F45DE97E44B690969AC06C6A6AAC15C527EA3EE7652E7816",
+          "modifiedUtc": "2026-10-26T15:54:54.010002+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal5-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "707FE8A80DE08FE8F45DE97E44B690969AC06C6A6AAC15C527EA3EE7652E7816",
+          "modifiedUtc": "2026-10-26T15:54:53.967759+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal6-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:54:54.098144+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal6-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:54:54.051601+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal7-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:54:54.167830+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal7-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "69BBACD7315575EC2FAF3E5ABA731C4ED4413933B82E5F4CC994D76FEE78D74F",
+          "modifiedUtc": "2026-10-26T15:54:54.134592+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal8-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "B69EE81D07A1E911F71FA5066517E7630143632BF152DB9934AF5B39D2AD4D61",
+          "modifiedUtc": "2026-10-26T15:54:54.247838+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-Internal8-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "FA3F931F56DE8B7D56E8BF30DB68D2CF0F17CA09D506DBA42C4FB1F6587074BD",
+          "modifiedUtc": "2026-10-26T15:54:54.213508+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ScreenGrabUv-BuiltIn-Direct3D12.rgba-f32.gz",
+          "sha256": "FDD612C36658401E2420E8CBE5C1442585B59D479AF7BCFE1DEE084795597678",
+          "modifiedUtc": "2026-10-26T15:54:52.640390+00:00"
+        },
+        {
+          "path": "Evidence/OpticalReference-ScreenGrabUv-URP-Direct3D12.rgba-f32.gz",
+          "sha256": "FDD612C36658401E2420E8CBE5C1442585B59D479AF7BCFE1DEE084795597678",
+          "modifiedUtc": "2026-10-26T15:54:52.571890+00:00"
+        }
+      ],
+      "floatMetrics": [
+        "DepthControl=DepthZero; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0",
+        "DepthControl=DepthSubpixel; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0",
+        "DepthControl=ScreenGrabUv; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0",
+        "OceanInternal=1; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=2; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=3; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=4; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=5; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=6; MaxR=0; MaxG=0; MaxB=0; MaxA=0; Changed=0",
+        "OceanInternal=7; MaxR=0,22140871; MaxG=0,1660707; MaxB=0,13195309; MaxA=0; Changed=52996",
+        "OceanInternal=8; MaxR=0,05990553; MaxG=0,0339469239; MaxB=0,0459836423; MaxA=0; Changed=23942"
+      ]
+    }
+  ],
+  "limits": [
+    "Original algorithm equations/compute retained; targeted background sample uses explicit linear clamp LOD0 only in URP",
+    "Perspective512x384, FOV60, camera(0,8,-12) looking at(0,-2,4), flat ocean8, time1/delta0, LinearARGB32/1x, known sea floor-6",
+    "Shadowed caustics/underwater originals/P09.4, example materials/P09.5, wider XR/quality/standalone/P11 remain",
+    "Post-graph texture globals are fallback and not resource evidence; actual float probes sample during rendering",
+    "Probe mode5 actual background,6 explicit linear,7 deliberately point,8 old implicit sampling control. In-memory probe blend disabled and original named GrabPass isolated to its float buffer.",
+    "Full-suite shutdown persistent allocation warnings and DX12 Player evictable warnings remain P10; no leak-free claim"
+  ],
+  "shutdownWarnings": {
+    "DX11": [
+      "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+    ],
+    "DX12": [
+      "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+    ]
+  },
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "4F24A924D57A8D44E03E0DCFCB1DB0BEB1BDE36EE917B6D6CA0A7EE2E4E49C86",
+    "modifiedUtc": "2026-10-26T16:03:34.406190+00:00"
+  }
+}

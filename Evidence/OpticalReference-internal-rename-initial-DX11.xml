@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-26 15:45:43Z" end-time="2026-10-26 15:45:45Z" duration="2,8765715">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="77" result="Failed" site="Child" start-time="2026-10-26 15:45:43Z" end-time="2026-10-26 15:45:45Z" duration="2.876572" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1124" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="75" result="Failed" site="Child" start-time="2026-10-26 15:45:43Z" end-time="2026-10-26 15:45:45Z" duration="2.869584" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="163956" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1070" name="OpticalReferenceTests" fullname="OpticalReferenceTests" classname="OpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-26 15:45:43Z" end-time="2026-10-26 15:45:45Z" duration="2.867060" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1071" name="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" fullname="OpticalReferenceTests.OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" methodname="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" classname="OpticalReferenceTests" runstate="Runnable" seed="257483870" result="Failed" start-time="2026-10-26 15:45:43Z" end-time="2026-10-26 15:45:45Z" duration="2.853911" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Shader error in 'Hidden/Crest/Tests/OpticalInternalBuiltIn': undeclared identifier '_BackgroundTexture' at /(3149) (on dx11)
+
+Compiling Subshader: 0, Pass: <Unnamed Pass 1>, Vertex program with _APPLYNORMALMAPPING_ON _COMPUTEDIRECTIONALLIGHT_ON _DEBUGVISUALISE_NONE _FOAM3DLIGHTING_ON _TRANSPARENCY_ON
+Platform defines: SHADER_API_DESKTOP UNITY_ENABLE_DETAIL_NORMALMAP UNITY_ENABLE_REFLECTION_BUFFERS UNITY_LIGHTMAP_FULL_HDR UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_PASS_FORWARDBASE UNITY_PBS_USE_BRDF1 UNITY_PLATFORM_SUPPORTS_DEPTH_FETCH UNITY_SPECCUBE_BLENDING UNITY_SPECCUBE_BOX_PROJECTION UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS
+Disabled keywords: CREST_FLOATING_ORIGIN CREST_UNDERWATER_BEFORE_TRANSPARENT CREST_WATER_VOLUME_2D CREST_WATER_VOLUME_HAS_BACKFACE FOG_EXP FOG_EXP2 FOG_LINEAR SHADER_API_GLES30 SHADER_API_GLES31 SHADER_API_GLES32 UNITY_ASTC_NORMALMAP_ENCODING UNITY_COLORSPACE_GAMMA UNITY_FRAMEBUFFER_FETCH_AVAILABLE UNITY_HARDWARE_TIER1 UNITY_HARDWARE_TIER2 UNITY_HARDWARE_TIER3 UNITY_LIGHTMAP_DLDR_ENCODING UNITY_LIGHTMAP_RGBM_ENCODING UNITY_METAL_SHADOWS_USE_POINT_FILTERING UNITY_NO_DXT5nm UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 UNITY_PBS_USE_BRDF3 UNITY_PRETRANSFORM_TO_DISPLAY_ORIENTATION UNITY_UNIFIED_SHADER_PRECISION_MODEL UNITY_VIRTUAL_TEXTURING _ALBEDO_ON _CAUSTICS_ON _CLIPSURFACE_ON _CLIPUNDERTERRAIN_ON _DEBUGDISABLESHAPETEXTURES_ON _DEBUGDISABLESMOOTHLOD_ON _DEBUGVISUALISE_ANIMATEDWAVES _DEBUGVISUALISE_FLOW _DEBUGVISUALISE_FOAM _DEBUGVISUALISE_SHADOWS _DEBUGVISUALISE_SHAPESAMPLE _DIRECTIONALLIGHTVARYROUGHNESS_ON _FLOW_ON _FOAM_ON _OVERRIDEREFLECTIONCUBEMAP_ON _PLANARREFLECTIONS_ON _PROCEDURALSKY_ON _PROJECTION_ORTHOGRAPHIC _PROJECTION_PERSPECTIVE _SHADOWS_ON _SUBSURFACESCATTERING_ON _SUBSURFACESHALLOWCOLOUR_ON _UNDERWATER_ON'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+Shader error in 'Hidden/Crest/Tests/OpticalInternalBuiltIn': undeclared identifier '_BackgroundTexture' at /(3149) (on dx11)
+
+Compiling Subshader: 0, Pass: <Unnamed Pass 1>, Vertex program with _APPLYNORMALMAPPING_ON _COMPUTEDIRECTIONALLIGHT_ON _DEBUGVISUALISE_NONE _FOAM3DLIGHTING_ON _TRANSPARENCY_ON
+Platform defines: SHADER_API_DESKTOP UNITY_ENABLE_DETAIL_NORMALMAP UNITY_ENABLE_REFLECTION_BUFFERS UNITY_LIGHTMAP_FULL_HDR UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_PASS_FORWARDBASE UNITY_PBS_USE_BRDF1 UNITY_PLATFORM_SUPPORTS_DEPTH_FETCH UNITY_SPECCUBE_BLENDING UNITY_SPECCUBE_BOX_PROJECTION UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS
+Disabled keywords: CREST_FLOATING_ORIGIN CREST_UNDERWATER_BEFORE_TRANSPARENT CREST_WATER_VOLUME_2D CREST_WATER_VOLUME_HAS_BACKFACE FOG_EXP FOG_EXP2 FOG_LINEAR SHADER_API_GLES30 SHADER_API_GLES31 SHADER_API_GLES32 UNITY_ASTC_NORMALMAP_ENCODING UNITY_COLORSPACE_GAMMA UNITY_FRAMEBUFFER_FETCH_AVAILABLE UNITY_HARDWARE_TIER1 UNITY_HARDWARE_TIER2 UNITY_HARDWARE_TIER3 UNITY_LIGHTMAP_DLDR_ENCODING UNITY_LIGHTMAP_RGBM_ENCODING UNITY_METAL_SHADOWS_USE_POINT_FILTERING UNITY_NO_DXT5nm UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 UNITY_PBS_USE_BRDF3 UNITY_PRETRANSFORM_TO_DISPLAY_ORIENTATION UNITY_UNIFIED_SHADER_PRECISION_MODEL UNITY_VIRTUAL_TEXTURING _ALBEDO_ON _CAUSTICS_ON _CLIPSURFACE_ON _CLIPUNDERTERRAIN_ON _DEBUGDISABLESHAPETEXTURES_ON _DEBUGDISABLESMOOTHLOD_ON _DEBUGVISUALISE_ANIMATEDWAVES _DEBUGVISUALISE_FLOW _DEBUGVISUALISE_FOAM _DEBUGVISUALISE_SHADOWS _DEBUGVISUALISE_SHAPESAMPLE _DIRECTIONALLIGHTVARYROUGHNESS_ON _FLOW_ON _FOAM_ON _OVERRIDEREFLECTIONCUBEMAP_ON _PLANARREFLECTIONS_ON _PROCEDURALSKY_ON _PROJECTION_ORTHOGRAPHIC _PROJECTION_PERSPECTIVE _SHADOWS_ON _SUBSURFACESCATTERING_ON _SUBSURFACESHALLOWCOLOUR_ON _UNDERWATER_ON
+Shader error in 'Hidden/Crest/Tests/OpticalInternalBuiltIn': undeclared identifier '_BackgroundTexture' at /(3149) (on dx11)
+
+Compiling Subshader: 0, Pass: <Unnamed Pass 1>, Vertex program with _APPLYNORMALMAPPING_ON _COMPUTEDIRECTIONALLIGHT_ON _DEBUGVISUALISE_NONE _FOAM3DLIGHTING_ON _TRANSPARENCY_ON
+Platform defines: SHADER_API_DESKTOP UNITY_ENABLE_DETAIL_NORMALMAP UNITY_ENABLE_REFLECTION_BUFFERS UNITY_LIGHTMAP_FULL_HDR UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_PASS_FORWARDBASE UNITY_PBS_USE_BRDF1 UNITY_PLATFORM_SUPPORTS_DEPTH_FETCH UNITY_SPECCUBE_BLENDING UNITY_SPECCUBE_BOX_PROJECTION UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS
+Disabled keywords: CREST_FLOATING_ORIGIN CREST_UNDERWATER_BEFORE_TRANSPARENT CREST_WATER_VOLUME_2D CREST_WATER_VOLUME_HAS_BACKFACE FOG_EXP FOG_EXP2 FOG_LINEAR SHADER_API_GLES30 SHADER_API_GLES31 SHADER_API_GLES32 UNITY_ASTC_NORMALMAP_ENCODING UNITY_COLORSPACE_GAMMA UNITY_FRAMEBUFFER_FETCH_AVAILABLE UNITY_HARDWARE_TIER1 UNITY_HARDWARE_TIER2 UNITY_HARDWARE_TIER3 UNITY_LIGHTMAP_DLDR_ENCODING UNITY_LIGHTMAP_RGBM_ENCODING UNITY_METAL_SHADOWS_USE_POINT_FILTERING UNITY_NO_DXT5nm UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 UNITY_PBS_USE_BRDF3 UNITY_PRETRANSFORM_TO_DISPLAY_ORIENTATION UNITY_UNIFIED_SHADER_PRECISION_MODEL UNITY_VIRTUAL_TEXTURING _ALBEDO_ON _CAUSTICS_ON _CLIPSURFACE_ON _CLIPUNDERTERRAIN_ON _DEBUGDISABLESHAPETEXTURES_ON _DEBUGDISABLESMOOTHLOD_ON _DEBUGVISUALISE_ANIMATEDWAVES _DEBUGVISUALISE_FLOW _DEBUGVISUALISE_FOAM _DEBUGVISUALISE_SHADOWS _DEBUGVISUALISE_SHAPESAMPLE _DIRECTIONALLIGHTVARYROUGHNESS_ON _FLOW_ON _FOAM_ON _OVERRIDEREFLECTIONCUBEMAP_ON _PLANARREFLECTIONS_ON _PROCEDURALSKY_ON _PROJECTION_ORTHOGRAPHIC _PROJECTION_PERSPECTIVE _SHADOWS_ON _SUBSURFACESCATTERING_ON _SUBSURFACESHALLOWCOLOUR_ON _UNDERWATER_ON
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

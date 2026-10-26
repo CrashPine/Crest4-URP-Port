@@ -2,19 +2,19 @@
 
 Актуальная сверка: **2026-10-26**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
-## Последний полный checkpoint P08 (scoped)
+## Последний полный checkpoint P09.3 (scoped)
 
 Полный порт не завершён; это результат перечисленных fixtures с ограничениями ниже и в FEATURE_MATRIX.
 
 | Проверка | DX11 | DX12 | Текущие доказательства |
 |---|---|---|---|
-| Основная batch suite | PASSED 73/73 | PASSED 73/73 | EditMode-DX11.xml /DX12.xml; snapshots P08-Milestone-DX11.xml /DX12.xml |
+| Основная batch suite | PASSED 75/75 | PASSED 75/75 | P09-Optical-Milestone-DX11.xml /DX12.xml |
 | GameView / настоящий EOF | PASSED 2/2 | PASSED 2/2 | EditMode-DX11-interactive.xml /DX12-interactive.xml |
-| Development,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Development-DX11 /DX12; UTC2026-10-25 21:48 |
-| Release,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Release-DX11 /DX12; UTC2026-10-25 21:49 |
+| Development,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Development-DX11 /DX12; UTC2026-10-26, после новых сборок |
+| Release,7 сцен +reflection options | PASSED Errors=0 | PASSED Errors=0 | Player-Release-DX11 /DX12; UTC2026-10-26, после новых сборок |
 | Original GUID/compute | PASSED 597 | — | guid-compute-preservation.json;3 известных normalized sprite meta не byte-identical |
 
-P08-Milestone.json содержит source/XML/report hashes и измеренный scope;
+P09-Optical-checkpoint.json содержит source/XML/report hashes и измеренный scope;
 Build-checkpoint.json — свежие assemblies/selected packed assets/smoke hashes и shutdown warnings.
 Persistent allocations и DX12 evictable-resource warnings остаются открытой диагностикой P10.
 
@@ -659,3 +659,15 @@ All six fresh URP seam PNG (3/API) are byte-identical to prior committed P08 cap
 Five whole-image water-body masks/API (baseline, empty, two areas, one area, moved area) match original at ALL65536 pixels each, including the pre-existing .35m excluded band. All restored color pixels exact. Existing11 renderer states/968 tile checks/130386 native field samples/385032 interior checks remain unchanged and pass. Eight gzip snapshots retain full7-layer384² float32 clip fields (four states/API):4,128,768 cross-API sample pairs are bit-identical. Despite identical inputs, original and URP both have exactly10 cross-API binary-mask differences in TwoIncludedAreas and OnlyAIncluded; other masks0. Coordinates/world positions/distances in P09-Artifact-comparison.json, all within original .35m band. This localizes the inherited difference to surface sampling/clip/raster boundary processing; exact GPU rounding instruction not established. Original half clipValue and clip(.5-clipValue) threshold retained. No tolerance widened, no production change to hide boundary differences.
 
 P09.2 closes these observed-artifact comparisons with documented inherited behaviour. P09.3–5 remain. P09-Artifact-comparison.json retains source/four XML/report/image/native hashes and metrics. Body reference initial compile error (ambiguous CompressionLevel) retained separately, fixed with fully qualified System.IO.Compression.CompressionLevel; no assertions suppressed. Foreign Ocean.mat/example lighting remain unstaged; settings content unchanged; P10 shutdown warnings remain unresolved.
+
+## P09.3 — perspective optical reference and explicit background sampler (scoped validated,2026-10-26)
+
+New OpticalReferenceTests builds temporary underwater checker floor(y=-6), colored opaque boxes and a partly exposed object; camera(0,8,-12) looks at(0,-2,4), perspective60 degrees,512x384, Linear ARGB32/MSAA1, flat frozen ocean time1/delta0. DualPipelineOpaque is Editor-only, renders in both pipelines and supplies a Built-in camera-depth ShadowCaster. Effective animated settings use flat collision for isolated optical matching, constant LOD8; settings rebuild settles before custom clock. Native sea-floor centreR=-6 asserted. Independent opaque control173250 colored pixels/API matches exactly, zero/subpixel background probes match exactly, all depth raw/linear/UV float controls match exactly. Post-graph URP texture globals are fallback/null and are explicitly not a resource observation.
+
+Before fix: normal refraction max13 RGB bytes,449 pixels over summed6; constant-normal refraction max7/39 pixels. RGB mean.036282 is small but predefined max2 assertion correctly fails. Zero-offset transparency/normal shading max1. Failed initial/diagnostic XML/reports retained. Explicit bilinear texture descriptor and legacy normal-decoder candidates produced unchanged failure metrics and were reverted; no accepted production change from them. Zero camera TAA/global mip bias also leaves the original failure unchanged. Legacy shared GrabPass probe was invalid (restoration failed) and was removed; its XML/report/context retained. Initial Assert.Multiple compile failure (bundled NUnit lacks it) was replaced with error collection and final assertion, preserving max2/mean.05 limits and reporting all phases; no weakened pass criteria. One failed Python source-preparation caused a redundant unchanged Editor startup; it was explicitly stopped, no acceptance from that run.
+
+Instrumented in-memory shader variants output unblended float data: normals/water depth, background/depth UV, refract offset/scene depth and refracted depth/background UV are exact. Original diagnostic uses a distinct named GrabPass to avoid per-frame reuse of the earlier8-bit target. Initial diagnostic blended its outputs, then a rename/late-compile error produced invalid output; those XML/reports retained and not accepted. Corrected probe checks shader errors after rendering. Implicit background sampling differs up to .05990553 linear R; explicit linear-clamp LOD0 matches original exactly, point-clamp deliberately differs. These isolate the background sampling path; exact driver instruction/filtering implementation is not claimed. Production OceanEmission now calls CrestSampleBackground in the two above/below surface branches; only URP uses explicit linear-clamp LOD0, original non-URP branch unchanged. Mask/depth generic sampling and original compute algorithms unchanged.
+
+Post-fix focused DX11/DX12 each1/1 Passed, all main optical modes max1 RGB byte/zero pixels over6, exact URP restoration. Normal refraction mean1.6954210069444444e-6, shallow scattering6.7816840277777774e-6, unshadowed caustics5.5948893229166664e-5. Shallow fixture enables both subsurface scattering and shallow-color keywords; normal-map restoration is a separate control before measuring shallow effect. Source changed since old full73+2/Player checkpoint. Full75/75 batch +2/2 non-batch per API now verified Passed, failed0/skipped0. All four rebuilt Player smokes finished Errors=0; current hashes/timestamps in Build-checkpoint.json. Focused DX11 firstfix snapshot predates the added floor/diagnostic assertions; final full75 contains the current fixture.
+
+Final P09.3 validation: Development/Release build Success after the shader fix, strict variant matching. Four fresh Player runs each7 scenes +4 reflection-option captures, Errors=0; all reports/images newer than corresponding build logs. Reviewed fresh Development DX11 underwater/DX12 reflections and Release DX11 underwater/DX12 reflections, expected water/fixtures without error-pink surfaces. Overlapping Players are integration smokes, not profiling or standalone numerical optical acceptance. Both full batch shutdowns again report Persistent allocates3 individual allocations; DX12 Player evictable-resource warnings retained, P10 remains open. Original597 GUID/compute checks pass; known3 normalized sprite metas remain non-byte-identical. Runtime change only OceanEmission background helper; rejected descriptor/Core candidates have no Git content diff. Build variant serialization whitespace restored to canonical; ProjectSettings content unchanged, foreign Ocean.mat/example lighting preserved. P09.3 scoped DONE; P09.4/P09.5/P10–12 remain.

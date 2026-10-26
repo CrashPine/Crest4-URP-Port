@@ -1,0 +1,10 @@
+P09.3 perspective optical reference; actual original Built-in vs URP with synchronous pipeline switch/no simulation tick.512x384 Linear/ARGB32/1x, camera(0,8,-12) looking at(0,-2,4), FOV60, sea floor-6. Independent opaque-control shader works in both pipelines and has a ShadowCaster for Built-in camera depth. RGB tolerance max2 byte/channel/mean.05; exact URP restoration, each feature effect>100 pixels.
+
+ObservedAfterRender=OpaqueGeometryControl-URP; Background=Texture2D; Width=4; Format=R8G8B8A8_SRGB; Filter=Bilinear; TargetFormat=R8G8B8A8_SRGB
+ObservedAfterRender=OpaqueGeometryControl-BuiltIn; Background=Texture2D; Width=4; Format=R8G8B8A8_SRGB; Filter=Bilinear; TargetFormat=R8G8B8A8_SRGB
+ObservedAfterRender=OpaqueGeometryControl-URP-restored; Background=Texture2D; Width=4; Format=R8G8B8A8_SRGB; Filter=Bilinear; TargetFormat=R8G8B8A8_SRGB
+Phase=OpaqueGeometryControl; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21
+ObservedAfterRender=BackgroundZeroOffset-URP; Background=Texture2D; Width=4; Format=R8G8B8A8_SRGB; Filter=Bilinear; TargetFormat=R8G8B8A8_SRGB
+ObservedAfterRender=BackgroundZeroOffset-BuiltIn; Background=RenderTexture; Width=512; Format=R8G8B8A8_SRGB; Filter=Bilinear; TargetFormat=R8G8B8A8_SRGB
+ObservedAfterRender=BackgroundZeroOffset-URP-restored; Background=Texture2D; Width=4; Format=R8G8B8A8_SRGB; Filter=Bilinear; TargetFormat=R8G8B8A8_SRGB
+Phase=BackgroundZeroOffset; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=196608; FeatureChangedPixels=196608; OpaqueControlColorPixels=0; FrameCount=21

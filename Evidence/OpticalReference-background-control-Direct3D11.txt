@@ -1,0 +1,49 @@
+P09.3 perspective optical reference; actual original Built-in vs URP with synchronous pipeline switch/no simulation tick.512x384 Linear/ARGB32/1x, camera(0,8,-12) looking at(0,-2,4), FOV60, sea floor-6. Independent opaque-control shader works in both pipelines and has a ShadowCaster for Built-in camera depth. RGB tolerance max2 byte/channel/mean.05; exact URP restoration, each feature effect>100 pixels.
+
+PostRenderDepth=OpaqueGeometryControl-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=OpaqueGeometryControl-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=OpaqueGeometryControl-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=OpaqueGeometryControl; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21
+DepthControl=DepthZero; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0
+DepthControl=DepthSubpixel; MaxRawDifference=0; MaxEyeMetresDifference=0; EyeDifferenceOverCm=0; MaxUvDifference=0
+PostRenderDepth=BackgroundZero-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=BackgroundZero-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=BackgroundZero-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=BackgroundZero; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=173250; FrameCount=21
+BackgroundMatchesOpaqueControlChangedPixels=0
+PostRenderDepth=BackgroundSubpixel-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=BackgroundSubpixel-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=BackgroundSubpixel-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=BackgroundSubpixel; MaxChannelDifference=0; MeanRgbByteDifference=0; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=57343; OpaqueControlColorPixels=173084; FrameCount=21
+PostRenderDepth=OpaqueWater-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=OpaqueWater-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=OpaqueWater-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=OpaqueWater; MaxChannelDifference=1; MeanRgbByteDifference=3,3908420138888887E-06; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=0; OpaqueControlColorPixels=0; FrameCount=21
+PostRenderDepth=TransparentZeroOffset-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=TransparentZeroOffset-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=TransparentZeroOffset-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=TransparentZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=0,00033060709635416668; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=161198; OpaqueControlColorPixels=5012; FrameCount=21
+PostRenderDepth=NormalsZeroOffset-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=NormalsZeroOffset-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=NormalsZeroOffset-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=NormalsZeroOffset; MaxChannelDifference=1; MeanRgbByteDifference=0,00033230251736111112; PixelsOverSix=0; RestoreChangedPixels=0; FeatureChangedPixels=55327; OpaqueControlColorPixels=5012; FrameCount=21
+PostRenderDepth=NormalRefraction-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=NormalRefraction-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=NormalRefraction-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=NormalRefraction; MaxChannelDifference=13; MeanRgbByteDifference=0,036282009548611112; PixelsOverSix=449; RestoreChangedPixels=0; FeatureChangedPixels=15108; OpaqueControlColorPixels=5026; FrameCount=21
+PostRenderDepth=ConstantNormalRefraction-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=ConstantNormalRefraction-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=ConstantNormalRefraction-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=ConstantNormalRefraction; MaxChannelDifference=7; MeanRgbByteDifference=0,0018530951605902778; PixelsOverSix=39; RestoreChangedPixels=0; FeatureChangedPixels=99291; OpaqueControlColorPixels=5012; FrameCount=21
+PostRenderDepth=NormalRefractionRestored-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=NormalRefractionRestored-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=NormalRefractionRestored-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=NormalRefractionRestored; MaxChannelDifference=13; MeanRgbByteDifference=0,036282009548611112; PixelsOverSix=449; RestoreChangedPixels=0; FeatureChangedPixels=99291; OpaqueControlColorPixels=5026; FrameCount=21
+PostRenderDepth=ShallowScattering-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=ShallowScattering-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=ShallowScattering-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=ShallowScattering; MaxChannelDifference=13; MeanRgbByteDifference=0,03564453125; PixelsOverSix=430; RestoreChangedPixels=0; FeatureChangedPixels=78967; OpaqueControlColorPixels=5021; FrameCount=21
+PostRenderDepth=Caustics-URP; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+PostRenderDepth=Caustics-BuiltIn; Type=; Size=x; Format=; Filter=; TexelSize=(0.00, 0.00, 512.00, 384.00)
+PostRenderDepth=Caustics-URP-restored; Type=; Size=x; Format=; Filter=; TexelSize=(0.25, 0.25, 4.00, 4.00)
+Phase=Caustics; MaxChannelDifference=12; MeanRgbByteDifference=0,034868028428819448; PixelsOverSix=406; RestoreChangedPixels=0; FeatureChangedPixels=66898; OpaqueControlColorPixels=5087; FrameCount=21
