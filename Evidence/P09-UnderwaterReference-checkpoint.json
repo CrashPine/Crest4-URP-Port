@@ -1,0 +1,270 @@
+{
+  "recordedUtc": "2026-10-26T16:29:14.333297+00:00",
+  "scope": "P09.4 unshadowed fullscreen original underwater mask/fog/meniscus reference only. Shadowed caustics/underwater remain; full port incomplete.",
+  "source": {
+    "path": "Assets/Crest/URP/Tests/Editor/UnderwaterReferenceTests.cs",
+    "sha256": "94F775B53D0BDB0ECB28905D72A0F39B598DEC8740F68857795452EC18ABF7A2",
+    "modifiedUtc": "2026-10-26T16:21:27.133359+00:00"
+  },
+  "originalManifest": {
+    "path": "Evidence/P09-UnderwaterReference-sources.json",
+    "sha256": "EB15BEB03D8003E17CB4B6768447E772E9009D7210E2DCDE465143376EB33FCB",
+    "modifiedUtc": "2026-10-26T16:21:27.130663+00:00"
+  },
+  "apis": [
+    {
+      "graphicsAPI": "DX11",
+      "xml": {
+        "path": "Evidence/UnderwaterReference-DX11.xml",
+        "sha256": "5A3D65D2B7CAEEF93905320B5BF59B38C4EB5AE53D3CE460E1ECD690DD5B83A2",
+        "modifiedUtc": "2026-10-26T16:21:39.226178+00:00"
+      },
+      "startUtc": "2026-10-26 16:21:36Z",
+      "endUtc": "2026-10-26 16:21:39Z",
+      "report": {
+        "path": "Evidence/UnderwaterReference-Direct3D11.txt",
+        "sha256": "AAE04FBE26EE836BE5CC5B077B79C9E3DA793C43ACF5A4920C18630CF2741911",
+        "modifiedUtc": "2026-10-26T16:21:39.118282+00:00"
+      },
+      "metrics": [
+        "Phase=Below-effect; Active=True; Camera=(0.00, -3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=21",
+        "Phase=Below-mask; Active=True; Camera=(0.00, -3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=21",
+        "Phase=Near-mask; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33",
+        "Phase=Near-no-meniscus; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33",
+        "Phase=Near-meniscus; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33",
+        "Phase=Above-optimised; Active=False; Camera=(0.00, 3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=45"
+      ],
+      "images": [
+        {
+          "path": "Evidence/UnderwaterReference-Below-effect-URP-Direct3D11.png",
+          "sha256": "A9E66584D26FB762AE86B1229F8F4769F17D51DD51F81AF56D196D8B15399F6C",
+          "modifiedUtc": "2026-10-26T16:21:38.514124+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-effect-BuiltIn-Direct3D11.png",
+          "sha256": "A9E66584D26FB762AE86B1229F8F4769F17D51DD51F81AF56D196D8B15399F6C",
+          "modifiedUtc": "2026-10-26T16:21:38.716850+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-effect-URP-restored-Direct3D11.png",
+          "sha256": "A9E66584D26FB762AE86B1229F8F4769F17D51DD51F81AF56D196D8B15399F6C",
+          "modifiedUtc": "2026-10-26T16:21:38.727895+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-mask-URP-Direct3D11.png",
+          "sha256": "429B1275CC515CA549FD946B553A5A4E1AC298A1A1FAD962D4BA87379F0F6DB5",
+          "modifiedUtc": "2026-10-26T16:21:38.807937+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-mask-BuiltIn-Direct3D11.png",
+          "sha256": "429B1275CC515CA549FD946B553A5A4E1AC298A1A1FAD962D4BA87379F0F6DB5",
+          "modifiedUtc": "2026-10-26T16:21:38.833681+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-mask-URP-restored-Direct3D11.png",
+          "sha256": "429B1275CC515CA549FD946B553A5A4E1AC298A1A1FAD962D4BA87379F0F6DB5",
+          "modifiedUtc": "2026-10-26T16:21:38.841155+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-mask-URP-Direct3D11.png",
+          "sha256": "12FB0699FE7D6D299F53B8D38792E3408FAC62F7C474EE5C060FF7DA0307BF55",
+          "modifiedUtc": "2026-10-26T16:21:38.929937+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-mask-BuiltIn-Direct3D11.png",
+          "sha256": "12FB0699FE7D6D299F53B8D38792E3408FAC62F7C474EE5C060FF7DA0307BF55",
+          "modifiedUtc": "2026-10-26T16:21:38.954100+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-mask-URP-restored-Direct3D11.png",
+          "sha256": "12FB0699FE7D6D299F53B8D38792E3408FAC62F7C474EE5C060FF7DA0307BF55",
+          "modifiedUtc": "2026-10-26T16:21:38.964656+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-no-meniscus-URP-Direct3D11.png",
+          "sha256": "5469F4693540A47973AAE1749343598CA5575772CFD678B4C09DFA847E81181B",
+          "modifiedUtc": "2026-10-26T16:21:38.981791+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-no-meniscus-BuiltIn-Direct3D11.png",
+          "sha256": "5469F4693540A47973AAE1749343598CA5575772CFD678B4C09DFA847E81181B",
+          "modifiedUtc": "2026-10-26T16:21:39.012123+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-no-meniscus-URP-restored-Direct3D11.png",
+          "sha256": "5469F4693540A47973AAE1749343598CA5575772CFD678B4C09DFA847E81181B",
+          "modifiedUtc": "2026-10-26T16:21:39.020458+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-meniscus-URP-Direct3D11.png",
+          "sha256": "3E5A9470E3E2A528B841327507A0E2F8DD6BE3A48B0E07517D5839F0C9831F12",
+          "modifiedUtc": "2026-10-26T16:21:39.035798+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-meniscus-BuiltIn-Direct3D11.png",
+          "sha256": "3E5A9470E3E2A528B841327507A0E2F8DD6BE3A48B0E07517D5839F0C9831F12",
+          "modifiedUtc": "2026-10-26T16:21:39.073471+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-meniscus-URP-restored-Direct3D11.png",
+          "sha256": "3E5A9470E3E2A528B841327507A0E2F8DD6BE3A48B0E07517D5839F0C9831F12",
+          "modifiedUtc": "2026-10-26T16:21:39.081520+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Above-optimised-URP-Direct3D11.png",
+          "sha256": "22F7D1ABFF7FD37E47862FBBE8AB50BE7B9B44B533251432FDA7051D3786C209",
+          "modifiedUtc": "2026-10-26T16:21:39.105708+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Above-optimised-BuiltIn-Direct3D11.png",
+          "sha256": "22F7D1ABFF7FD37E47862FBBE8AB50BE7B9B44B533251432FDA7051D3786C209",
+          "modifiedUtc": "2026-10-26T16:21:39.110219+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Above-optimised-URP-restored-Direct3D11.png",
+          "sha256": "22F7D1ABFF7FD37E47862FBBE8AB50BE7B9B44B533251432FDA7051D3786C209",
+          "modifiedUtc": "2026-10-26T16:21:39.118282+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-no-fog-Direct3D11.png",
+          "sha256": "30D654E106BD61C92F217176C71233104C4D544868738617A2F49BC77B98A707",
+          "modifiedUtc": "2026-10-26T16:21:38.486988+00:00"
+        }
+      ],
+      "originalUrpRestoredPngByteIdentical": true,
+      "fogChangedPixels": 76800,
+      "meniscusChangedPixels": 960
+    },
+    {
+      "graphicsAPI": "DX12",
+      "xml": {
+        "path": "Evidence/UnderwaterReference-DX12.xml",
+        "sha256": "5F44FB2B56B395048AD327867B8F53B3878928E11B29B0AB7D162D75B36EA1B6",
+        "modifiedUtc": "2026-10-26T16:23:41.558105+00:00"
+      },
+      "startUtc": "2026-10-26 16:23:40Z",
+      "endUtc": "2026-10-26 16:23:41Z",
+      "report": {
+        "path": "Evidence/UnderwaterReference-Direct3D12.txt",
+        "sha256": "AAE04FBE26EE836BE5CC5B077B79C9E3DA793C43ACF5A4920C18630CF2741911",
+        "modifiedUtc": "2026-10-26T16:23:41.443188+00:00"
+      },
+      "metrics": [
+        "Phase=Below-effect; Active=True; Camera=(0.00, -3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=21",
+        "Phase=Below-mask; Active=True; Camera=(0.00, -3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=21",
+        "Phase=Near-mask; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33",
+        "Phase=Near-no-meniscus; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33",
+        "Phase=Near-meniscus; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33",
+        "Phase=Above-optimised; Active=False; Camera=(0.00, 3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=45"
+      ],
+      "images": [
+        {
+          "path": "Evidence/UnderwaterReference-Below-effect-URP-Direct3D12.png",
+          "sha256": "A9E66584D26FB762AE86B1229F8F4769F17D51DD51F81AF56D196D8B15399F6C",
+          "modifiedUtc": "2026-10-26T16:23:41.153755+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-effect-BuiltIn-Direct3D12.png",
+          "sha256": "A9E66584D26FB762AE86B1229F8F4769F17D51DD51F81AF56D196D8B15399F6C",
+          "modifiedUtc": "2026-10-26T16:23:41.228141+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-effect-URP-restored-Direct3D12.png",
+          "sha256": "A9E66584D26FB762AE86B1229F8F4769F17D51DD51F81AF56D196D8B15399F6C",
+          "modifiedUtc": "2026-10-26T16:23:41.238759+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-mask-URP-Direct3D12.png",
+          "sha256": "429B1275CC515CA549FD946B553A5A4E1AC298A1A1FAD962D4BA87379F0F6DB5",
+          "modifiedUtc": "2026-10-26T16:23:41.254942+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-mask-BuiltIn-Direct3D12.png",
+          "sha256": "429B1275CC515CA549FD946B553A5A4E1AC298A1A1FAD962D4BA87379F0F6DB5",
+          "modifiedUtc": "2026-10-26T16:23:41.266144+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-mask-URP-restored-Direct3D12.png",
+          "sha256": "429B1275CC515CA549FD946B553A5A4E1AC298A1A1FAD962D4BA87379F0F6DB5",
+          "modifiedUtc": "2026-10-26T16:23:41.275230+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-mask-URP-Direct3D12.png",
+          "sha256": "12FB0699FE7D6D299F53B8D38792E3408FAC62F7C474EE5C060FF7DA0307BF55",
+          "modifiedUtc": "2026-10-26T16:23:41.303108+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-mask-BuiltIn-Direct3D12.png",
+          "sha256": "12FB0699FE7D6D299F53B8D38792E3408FAC62F7C474EE5C060FF7DA0307BF55",
+          "modifiedUtc": "2026-10-26T16:23:41.311209+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-mask-URP-restored-Direct3D12.png",
+          "sha256": "12FB0699FE7D6D299F53B8D38792E3408FAC62F7C474EE5C060FF7DA0307BF55",
+          "modifiedUtc": "2026-10-26T16:23:41.321325+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-no-meniscus-URP-Direct3D12.png",
+          "sha256": "5469F4693540A47973AAE1749343598CA5575772CFD678B4C09DFA847E81181B",
+          "modifiedUtc": "2026-10-26T16:23:41.334255+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-no-meniscus-BuiltIn-Direct3D12.png",
+          "sha256": "5469F4693540A47973AAE1749343598CA5575772CFD678B4C09DFA847E81181B",
+          "modifiedUtc": "2026-10-26T16:23:41.342277+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-no-meniscus-URP-restored-Direct3D12.png",
+          "sha256": "5469F4693540A47973AAE1749343598CA5575772CFD678B4C09DFA847E81181B",
+          "modifiedUtc": "2026-10-26T16:23:41.350795+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-meniscus-URP-Direct3D12.png",
+          "sha256": "3E5A9470E3E2A528B841327507A0E2F8DD6BE3A48B0E07517D5839F0C9831F12",
+          "modifiedUtc": "2026-10-26T16:23:41.367227+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-meniscus-BuiltIn-Direct3D12.png",
+          "sha256": "3E5A9470E3E2A528B841327507A0E2F8DD6BE3A48B0E07517D5839F0C9831F12",
+          "modifiedUtc": "2026-10-26T16:23:41.386293+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Near-meniscus-URP-restored-Direct3D12.png",
+          "sha256": "3E5A9470E3E2A528B841327507A0E2F8DD6BE3A48B0E07517D5839F0C9831F12",
+          "modifiedUtc": "2026-10-26T16:23:41.395159+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Above-optimised-URP-Direct3D12.png",
+          "sha256": "22F7D1ABFF7FD37E47862FBBE8AB50BE7B9B44B533251432FDA7051D3786C209",
+          "modifiedUtc": "2026-10-26T16:23:41.427438+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Above-optimised-BuiltIn-Direct3D12.png",
+          "sha256": "22F7D1ABFF7FD37E47862FBBE8AB50BE7B9B44B533251432FDA7051D3786C209",
+          "modifiedUtc": "2026-10-26T16:23:41.433464+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Above-optimised-URP-restored-Direct3D12.png",
+          "sha256": "22F7D1ABFF7FD37E47862FBBE8AB50BE7B9B44B533251432FDA7051D3786C209",
+          "modifiedUtc": "2026-10-26T16:23:41.442205+00:00"
+        },
+        {
+          "path": "Evidence/UnderwaterReference-Below-no-fog-Direct3D12.png",
+          "sha256": "30D654E106BD61C92F217176C71233104C4D544868738617A2F49BC77B98A707",
+          "modifiedUtc": "2026-10-26T16:23:41.117435+00:00"
+        }
+      ],
+      "originalUrpRestoredPngByteIdentical": true,
+      "fogChangedPixels": 76800,
+      "meniscusChangedPixels": 960
+    }
+  ],
+  "limits": [
+    "Frozen flat ocean, mono perspective320x240/MSAA1/LDR/Linear, time1/delta0, sun shadows disabled",
+    "Original mask/effect C# files normalized-source-identical, original shader27-file contextual include closure hash-verified before in-memory compilation",
+    "Camera.onPreRender shim bypasses original Editor focus guard; invokes unchanged original mask/effect methods and original inverse VP/state setup, BIRP CameraEvent resources created independently",
+    "No original volume/portal/fly-through/overlay/before-transparent/MSAA/XR/shadowed reference acceptance here; prior URP integration acceptance remains scoped",
+    "Only Editor fixture and docs/evidence changed; last runtime milestone full75+2/four rebuilt Player smokes remains valid, no fresh full76 or Player rebuild claimed"
+  ],
+  "crossApiAllImagesByteIdentical": true
+}

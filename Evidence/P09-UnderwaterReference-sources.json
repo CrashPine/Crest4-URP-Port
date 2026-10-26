@@ -1,0 +1,139 @@
+{
+  "recordedUtc": "2026-10-26T16:19:03.360645+00:00",
+  "scope": "Original BIRP shader closure and retained unchanged mask/effect callbacks; first reference targets fullscreen/meniscus without shadows, not all underwater acceptance",
+  "entries": [
+    "Ocean.shader",
+    "Underwater/Resources/UnderwaterEffect.shader",
+    "Underwater/Resources/UnderwaterMask.shader"
+  ],
+  "files": [
+    {
+      "path": "FullScreenTriangle.hlsl",
+      "sha256": "724D2746961BC72601F9499664D668C43EECF668CB316DAA76FCBB0F772A2A67"
+    },
+    {
+      "path": "Helpers/BIRP/Common.hlsl",
+      "sha256": "E80430559B286FC0D325F8D3D322ACF90E30E498403CD4AA8E912050D5C67B84"
+    },
+    {
+      "path": "Helpers/BIRP/Core.hlsl",
+      "sha256": "407E3EA388BB9AF68AE1B2E7FE7B19643AE431FCE9827677C2173C5D310B050B"
+    },
+    {
+      "path": "Helpers/BIRP/InputsDriven.hlsl",
+      "sha256": "9F79B12355C85C817EADDC3CE48D67E8CDEA6C6D97AA21679C671CD323001214"
+    },
+    {
+      "path": "Helpers/BIRP/Lighting.hlsl",
+      "sha256": "CC5F6EDD0738DAD506A6568D76B435E72CBDC1E06C2AED57348A9F33EAE32DC6"
+    },
+    {
+      "path": "Helpers/WaterVolume.hlsl",
+      "sha256": "4BC46214157F2F76BAB2AB9C8174B955D3E2442DA8295C097FF182851585D679"
+    },
+    {
+      "path": "Ocean.shader",
+      "sha256": "B715D63F5B597590D09483B9F04847519EBD5891FE9B25EB5A38F022EDE65920"
+    },
+    {
+      "path": "OceanConstants.hlsl",
+      "sha256": "5A1656E3F447FF206D45E18D0201580E006B6C78F9BB330F9BB02D138CBB8239"
+    },
+    {
+      "path": "OceanEmission.hlsl",
+      "sha256": "675A761B071D2D0EA71EE6314200C429501E58ABBF5AF41945360C17B8FD5E6C"
+    },
+    {
+      "path": "OceanFoam.hlsl",
+      "sha256": "ED256A9F502DB04E19CF98E83CA3CD3BF775687F395E9B9959E71CEA074AB18E"
+    },
+    {
+      "path": "OceanGlobals.hlsl",
+      "sha256": "DE4F88CF12A57D04F5A11EB6335430B8A7D29A17C1D45C8DE934B2DF286869AD"
+    },
+    {
+      "path": "OceanHelpersNew.hlsl",
+      "sha256": "03E0270005A8CAA8C9B49F080D9D08099C8DCB3C71E22FEDC35352B1A89E65C3"
+    },
+    {
+      "path": "OceanInputsDriven.hlsl",
+      "sha256": "BB03A2B77E00552FE89AD545C51FE45FE56183CA12F17791C0001EF8EA6C5CFE"
+    },
+    {
+      "path": "OceanLightingHelpers.hlsl",
+      "sha256": "AA04ACD5BFD1A05518B7C8529C8AB7B4B0C0395EFE565ADACBE70DDCE30FF881"
+    },
+    {
+      "path": "OceanNormalMapping.hlsl",
+      "sha256": "F2342ED7ACF08694102E3E40134D8A11A247ECEE63F74B700B6D446957C83F16"
+    },
+    {
+      "path": "OceanReflection.hlsl",
+      "sha256": "2F9DE154CE1E858CE2A0494C58014352DD15BB140628631394AAF00ADC12E3CD"
+    },
+    {
+      "path": "OceanShaderData.hlsl",
+      "sha256": "5AE79F5905446E8C1279A11B657E349594A0A8C10A31835E973304743367F3D1"
+    },
+    {
+      "path": "OceanShaderHelpers.hlsl",
+      "sha256": "35422BC3607E5DF8C71ED1ECF66B562951827470B4486EBFED50EDAF84254235"
+    },
+    {
+      "path": "OceanVertHelpers.hlsl",
+      "sha256": "D52E40FC2AC1DEB9AB442AB0D0B6379514A5124BFEC8D5D79D0E4617D622571C"
+    },
+    {
+      "path": "ShaderLibrary/Common.hlsl",
+      "sha256": "371CBCB00AA1E0D43F8DAEDCE5D459C5CC8616E8A913C23E216836EE0B9E8F96"
+    },
+    {
+      "path": "ShaderLibrary/Texture.hlsl",
+      "sha256": "71C8BC5862B1E44ADB4CBFE36483CA2AC2A0CB1D7AC4CCCFBB43A640D1BB599E"
+    },
+    {
+      "path": "Underwater/Resources/UnderwaterEffect.shader",
+      "sha256": "191A5DF1AF2EA9AF26A5BFE7381BD4EE96230003FFCA8F1FAF2F5D4F38CD200C"
+    },
+    {
+      "path": "Underwater/Resources/UnderwaterMask.shader",
+      "sha256": "C2F43506A66BCDBB3B34BE0578524DCAEC8D8DF151E6CAE7DC6DEC84BD38B679"
+    },
+    {
+      "path": "Underwater/UnderwaterEffect.hlsl",
+      "sha256": "2912BED27C8226668D14B10FA8E067E7938A31769B2C4AD82B10894E83C67564"
+    },
+    {
+      "path": "Underwater/UnderwaterEffectShared.hlsl",
+      "sha256": "8FA3B403680068FD1A13FB4D43DA2ED98D2054D9763AE7BBADE2B54E4BBC2368"
+    },
+    {
+      "path": "Underwater/UnderwaterMaskHorizonShared.hlsl",
+      "sha256": "26D49AC8B55C5CA1BFDA0C59DFED9C237DB9F2E301BB840861E406B9A0D00569"
+    },
+    {
+      "path": "Underwater/UnderwaterMaskShared.hlsl",
+      "sha256": "C6E626A00AE26A652FA1D92E072211ADAD9CB7F31930C3F592B145F6E09DE91B"
+    }
+  ],
+  "drivers": [
+    {
+      "path": "Scripts/Underwater/UnderwaterRenderer.Mask.cs",
+      "originalSha256": "747D08AE040A1EC1DF87690A72C977306B96418BB08968EF772C6C9B97117AB9",
+      "portedSha256": "747D08AE040A1EC1DF87690A72C977306B96418BB08968EF772C6C9B97117AB9",
+      "normalizedSourceIdentical": true
+    },
+    {
+      "path": "Scripts/Underwater/UnderwaterRenderer.Effect.cs",
+      "originalSha256": "C57B92599E3923CBEB3FECE208C8666F314A173A9395109826FED3EC5C006ACE",
+      "portedSha256": "C57B92599E3923CBEB3FECE208C8666F314A173A9395109826FED3EC5C006ACE",
+      "normalizedSourceIdentical": true
+    }
+  ],
+  "batchDriver": "Use original unchanged OnPreRenderOceanMask/OnPreRenderUnderwaterEffect callbacks from Camera.onPreRender, with original inverse matrix/state setup. Bypasses only Editor application-focus guard. Own BIRP CameraEvent buffers and original shaders; no URP mask/depth replacement.",
+  "engineOrInactiveIncludes": [
+    "Lighting.cginc",
+    "UnityCG.cginc"
+  ],
+  "includeResolution": "Relative to included file first, then entry shader directory, then shader root; unresolved includes remain for Unity engine/preprocessor. Original contextual ../../Helpers/WaterVolume.hlsl is resolved against Underwater/Resources."
+}

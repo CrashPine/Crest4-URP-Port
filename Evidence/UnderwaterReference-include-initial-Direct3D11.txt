@@ -1,0 +1,4 @@
+P09.4 original fullscreen BIRP mask/effect callbacks and shader reference. Actual legacy CameraEvent mask/depth/color resources; no URP mask substituted. Batch Camera.onPreRender shim bypasses only Editor focus guard and sets original inverse VP/global state before invoking unchanged mask/effect methods.320x240/1x Linear, frozen flat ocean time1/delta0; unshadowed only. Predefined RGB max2/mean.05, exact URP restoration, visible fog/meniscus effects.
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=Couldn't open include file '../../Helpers/WaterVolume.hlsl'.;Couldn't open include file '../../Helpers/WaterVolume.hlsl'.;Couldn't open include file '../../Helpers/WaterVolume.hlsl'.;Couldn't open include file '../../Helpers/WaterVolume.hlsl'.;Couldn't open include file '../../Helpers/WaterVolume.hlsl'.;Couldn't open include file '../../Helpers/WaterVolume.hlsl'.

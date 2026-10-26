@@ -1,0 +1,23 @@
+P09.4 original fullscreen BIRP mask/effect callbacks and shader reference. Actual legacy CameraEvent mask/depth/color resources; no URP mask substituted. Batch Camera.onPreRender shim bypasses only Editor focus guard and sets original inverse VP/global state before invoking unchanged mask/effect methods.320x240/1x Linear, frozen flat ocean time1/delta0; unshadowed only. Predefined RGB max2/mean.05, exact URP restoration, visible fog/meniscus effects.
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+ShaderErrors=
+Phase=Below-effect; Active=True; Camera=(0.00, -3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=21
+ShaderErrors=
+ShaderErrors=
+Phase=Below-mask; Active=True; Camera=(0.00, -3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=21
+ShaderErrors=
+ShaderErrors=
+Phase=Near-mask; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33
+ShaderErrors=
+ShaderErrors=
+Phase=Near-no-meniscus; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33
+ShaderErrors=
+ShaderErrors=
+Phase=Near-meniscus; Active=True; Camera=(0.00, 0.10, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=33
+MeniscusChangedPixels=960
+ShaderErrors=
+ShaderErrors=
+Phase=Above-optimised; Active=False; Camera=(0.00, 3.00, 0.00); MaxChannelDifference=0; MeanRgbByteDifference=0; RestoredChangedPixels=0; OriginalCallbacks=1; FrameCount=45
