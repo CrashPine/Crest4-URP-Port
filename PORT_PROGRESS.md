@@ -8,7 +8,7 @@ P00–P08 DONE в определённых PORT_PLAN областях; полн�
 
 **Активные операции:** нет. Development/Release build Success UTC2026-10-25 21:46–21:47; все4 последующие Player smokes завершились Errors=0. Unity/Player процессов перед следующим запуском проверить снова.
 
-**Следующее действие:** P09 — прочитать original Built-in Ocean.shader/includes и текущие URP surface/material mappings; выбрать воспроизводимый reference render с одинаковыми waves/time/camera/light/color-space. Не изменять work/crest-upstream и не запускать GenerateScenes. Сначала решить изоляцию original shader dependencies, затем сравнить поверхность/foam/refraction/scattering/caustics/shadows/underwater и оценить материалы исходных примеров. Patch-grid shading и10 boundary pixels остаются вопросами этого этапа.
+**Следующее действие:** P09 — реализовать изолированный Built-in reference render с original shader/include closure из Evidence/P09-Reference-inspection.json и одинаковыми waves/time/camera/light/color-space. Source dependencies прочитаны; Ocean.mat diff проверен как serialization metadata без изменения water properties. Visual acceptance ещё нет. Не изменять work/crest-upstream и не запускать GenerateScenes. Сначала решить изоляцию original shader dependencies, затем сравнить поверхность/foam/refraction/scattering/caustics/shadows/underwater и оценить материалы исходных примеров. Patch-grid shading и10 boundary pixels остаются вопросами этого этапа.
 
 ## Последний подтверждённый checkpoint
 
@@ -18,7 +18,7 @@ P00–P08 DONE в определённых PORT_PLAN областях; полн�
 - Обе сборки после runtime fix и4 fresh smokes7 scenes+4 reflection PNG, Errors=0; Build-checkpoint.json содержит source/assembly/packed asset/report/image hashes. Выбранные fresh Dev/Release underwater/reflection PNG просмотрены. Не повторять эти smokes без соответствующего изменения.
 - Предыдущие P08.1–4 результаты сохранены в TEST_RESULTS: LOD seams geometry scope, rotated Gerstner origin fix и stale clip-default fix. Их проверки входят в новый full73 checkpoint.
 - P10 открыт: обе full batch shutdown Persistent allocates3 individual allocations; DX12 Player evictable-resource warnings. Owners/stacks неизвестны; leak-free/performance claim отсутствует. Extra underwater copy cost ещё не профилировалась.
-- Original GUID/compute597 PASSED; известные3 normalized sprite meta не byte-identical. Root Markdown8. Чужие Ocean.mat/example baked lighting сохранены; не stage/reset/delete. ProjectSettings content unchanged. Commit — git log -1.
+- Original GUID/compute597 PASSED; известные3 normalized sprite meta не byte-identical. Structural audit1327 files, missing meta/duplicate GUID/missing upstream0; root Markdown8. Чужие Ocean.mat/example baked lighting сохранены; не stage/reset/delete. ProjectSettings content unchanged. Commit — git log -1.
 
 ## Контракты, которые уже выяснены
 
