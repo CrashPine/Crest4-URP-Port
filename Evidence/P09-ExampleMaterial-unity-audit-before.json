@@ -1,0 +1,1141 @@
+{
+    "recordedUtc": "2026-10-26T22:18:28.2909197Z",
+    "unity": "6000.6.5f1",
+    "scope": "Read-only Unity AssetDatabase shader resolution/dependencies. supported=true and empty compilerErrors do not prove URP draw compatibility. No assets or scenes saved.",
+    "materials": [
+        {
+            "path": "Assets/Crest/Crest/Materials/Ocean.mat",
+            "shader": "Crest/Ocean",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Ocean.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "DepthNormalsOnly",
+                "DepthOnly"
+            ],
+            "keywords": [
+                "_CAUSTICS_ON",
+                "_CLIPSURFACE_ON",
+                "_COMPUTEDIRECTIONALLIGHT_ON",
+                "_DEBUGVISUALISE_NONE",
+                "_FOAM3DLIGHTING_ON",
+                "_FOAM_ON",
+                "_TRANSPARENCY_ON",
+                "_COMPILESHADERWITHDEBUGINFO_ON",
+                "_DEBUGMULTIPLYBYLIGHT0COLOR_ON",
+                "_PROJECTION_BOTH",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/Ocean_UnderwaterCurtain.mat",
+            "shader": "Crest/Underwater Curtain",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Underwater/UnderwaterCurtain.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "",
+                "<Unnamed Pass 1>"
+            ],
+            "keywords": [
+                "_CAUSTICS_ON",
+                "_SHADOWS_ON",
+                "_SUBSURFACESCATTERING_ON",
+                "_SUBSURFACESHALLOWCOLOUR_ON",
+                "_TRANSPARENCY_ON",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/Ocean_UnderwaterMeniscus.mat",
+            "shader": "Crest/Underwater Meniscus",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Underwater/UnderwaterMeniscus.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/AlbedoColor.mat",
+            "shader": "Crest/Inputs/Albedo/Color",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AlbedoColor.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/ClipSurfaceConvexHull.mat",
+            "shader": "Crest/Inputs/Clip Surface/Convex Hull",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/ClipSurfaceConvexHull.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "<Unnamed Pass 1>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/ClipSurfaceIncludeArea.mat",
+            "shader": "Crest/Inputs/Clip Surface/Include Area",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/ClipSurfaceIncludeArea.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/ClipSurfaceRemoveArea.mat",
+            "shader": "Crest/Inputs/Clip Surface/Remove Area",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/ClipSurfaceRemoveArea.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/FoamOverride.mat",
+            "shader": "Crest/Inputs/Foam/Override Foam",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/FoamOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/Resources/Internal_SphereWaterInteraction.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Sphere-Water Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/DynWavesSphereWaterInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/ShadowOverride.mat",
+            "shader": "Crest/Inputs/Shadows/Override Shadows",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/ShadowOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WaterBodyGerstnerPatch.mat",
+            "shader": "Crest/Inputs/Animated Waves/Gerstner Batch Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesGerstnerBatchGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WaterHeightFromGeometryAdd.mat",
+            "shader": "Crest/Inputs/Animated Waves/Set Base Water Height Using Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesSetBaseWaterHeightUsingGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WaterHeightFromGeometryMax.mat",
+            "shader": "Crest/Inputs/Animated Waves/Set Base Water Height Using Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesSetBaseWaterHeightUsingGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WaterHeightFromGeometryRemove.mat",
+            "shader": "Crest/Inputs/Animated Waves/Push Water Under Convex Hull",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesRemoveGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WaterHeightFromGeometrySet.mat",
+            "shader": "Crest/Inputs/Animated Waves/Set Water Height Using Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesSetHeightToGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_SETHEIGHTSBELOWSEALEVEL_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WaterLevelFromGeometry.mat",
+            "shader": "Crest/Inputs/Sea Floor Depth/Set Base Water Height Using Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/DepthSetBaseWaterHeightUsingGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_SETHEIGHTSBELOWSEALEVEL_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/OceanInputs/WavesScaleByFactor.mat",
+            "shader": "Crest/Inputs/All/Scale By Factor",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/ScaleByFactor.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest/Materials/Ocean-Underwater.mat",
+            "shader": "Crest/Ocean",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Ocean.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "DepthNormalsOnly",
+                "DepthOnly"
+            ],
+            "keywords": [
+                "_CAUSTICS_ON",
+                "_CLIPSURFACE_ON",
+                "_COMPUTEDIRECTIONALLIGHT_ON",
+                "_DEBUGVISUALISE_NONE",
+                "_DIRECTIONALLIGHTVARYROUGHNESS_ON",
+                "_FOAM3DLIGHTING_ON",
+                "_FOAM_ON",
+                "_SHADOWS_ON",
+                "_SUBSURFACESCATTERING_ON",
+                "_TRANSPARENCY_ON",
+                "_UNDERWATER_ON",
+                "_DEBUGMULTIPLYBYLIGHT0COLOR_ON",
+                "_PROJECTION_BOTH",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/AddBumpsToWater.mat",
+            "shader": "Crest/Inputs/Animated Waves/Add From Texture",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesAddFromTex.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_HEIGHTSONLY_ON",
+                "_SSSFROMALPHA_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/AnimWavesSetHeightToGeo.mat",
+            "shader": "Crest/Inputs/Animated Waves/Set Water Height Using Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesSetHeightToGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/DynWavesAddBump.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Add Bump",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesAddBump.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_ALPHAPREMULTIPLY_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/DynWavesProceduralInteraction.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Sphere-Water Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/DynWavesSphereWaterInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/OpenOcean.mat",
+            "shader": "Crest/Ocean",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Ocean.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "DepthNormalsOnly",
+                "DepthOnly"
+            ],
+            "keywords": [
+                "_CAUSTICS_ON",
+                "_CLIPSURFACE_ON",
+                "_COMPUTEDIRECTIONALLIGHT_ON",
+                "_DEBUGVISUALISE_NONE",
+                "_FLOW_ON",
+                "_FOAM3DLIGHTING_ON",
+                "_FOAM_ON",
+                "_TRANSPARENCY_ON",
+                "_COMPILESHADERWITHDEBUGINFO_ON",
+                "_DEBUGMULTIPLYBYLIGHT0COLOR_ON",
+                "_PROJECTION_BOTH",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/PushWaterBelowSphere.mat",
+            "shader": "Crest/Inputs/Animated Waves/Push Water Under Convex Hull",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesRemoveGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/WaterInteractionBoatAlignNormalBack.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Object Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesObjectInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/WaterInteractionBoatAlignNormalFront.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Object Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesObjectInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/WaterInteractionBoatProbes.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Object Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesObjectInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/WaterInteractionOceanLinerBack.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Object Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesObjectInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/WaterInteractionOceanLinerFront.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Object Interaction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesObjectInteraction.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Models/ferryhumika/ferryhumikablend.fbx",
+            "shader": "Universal Render Pipeline/Lit",
+            "shaderAsset": "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_AddFoam.mat",
+            "shader": "Crest/Inputs/Foam/Override Foam",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/FoamOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_AlbedoCrestLogo.mat",
+            "shader": "Crest/Inputs/Albedo/Color",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AlbedoColor.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_ALPHATEST_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_AlbedoParticles.mat",
+            "shader": "Crest/Inputs/Albedo/Color",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AlbedoColor.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_ALPHAPREMULTIPLY_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_DepthOnly.mat",
+            "shader": "Crest/Examples/DepthOnly",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/DepthOnly.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_FlowFixed.mat",
+            "shader": "Crest/Inputs/Flow/Fixed Direction",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/FlowFixedDirection.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_APPLYROTATION_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_FoamOverrideOne.mat",
+            "shader": "Crest/Inputs/Foam/Override Foam",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/FoamOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_FoamOverrideZero.mat",
+            "shader": "Crest/Inputs/Foam/Override Foam",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/FoamOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_GerstnerPatchFeathered.mat",
+            "shader": "Crest/Inputs/Animated Waves/Gerstner Batch Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesGerstnerBatchGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_FEATHERATUVEXTENTS_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_GradientBackground.mat",
+            "shader": "Hidden/Crest/SphereGradientBackground",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/SphereGradientBackground.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedDepth.mat",
+            "shader": "Crest/Examples/Mask Depth",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/MaskDepth.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedMarineSnow.mat",
+            "shader": "Crest/Examples/Masked",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "Shadow Caster",
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "Meta"
+            ],
+            "keywords": [
+                "_MASK_MASKED"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedNavalMine.mat",
+            "shader": "Crest/Examples/Masked",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "Shadow Caster",
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "Meta"
+            ],
+            "keywords": [
+                "_EMISSION_ON",
+                "_MASK_MASKED"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedTerrain.mat",
+            "shader": "Crest/Examples/Masked",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "Shadow Caster",
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "Meta"
+            ],
+            "keywords": [
+                "_MASK_MASKED"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedWhite.mat",
+            "shader": "Crest/Examples/Masked",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "Shadow Caster",
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "Meta"
+            ],
+            "keywords": [
+                "_MASK_MASKED"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskFillTerrain.mat",
+            "shader": "Crest/Examples/Masked",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "Shadow Caster",
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "Meta"
+            ],
+            "keywords": [
+                "_MASK_FILL"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskFillWhite.mat",
+            "shader": "Crest/Examples/Masked",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "Shadow Caster",
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "Meta"
+            ],
+            "keywords": [
+                "_MASK_FILL"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_Ocean.mat",
+            "shader": "Crest/Ocean",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Ocean.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "DepthNormalsOnly",
+                "DepthOnly"
+            ],
+            "keywords": [
+                "_ALBEDO_ON",
+                "_CAUSTICS_ON",
+                "_CLIPSURFACE_ON",
+                "_COMPUTEDIRECTIONALLIGHT_ON",
+                "_DEBUGVISUALISE_NONE",
+                "_FLOW_ON",
+                "_FOAM3DLIGHTING_ON",
+                "_FOAM_ON",
+                "_PLANARREFLECTIONS_ON",
+                "_SHADOWS_ON",
+                "_SUBSURFACESCATTERING_ON",
+                "_TRANSPARENCY_ON",
+                "_UNDERWATER_ON",
+                "_COMPILESHADERWITHDEBUGINFO_ON",
+                "_DEBUGMULTIPLYBYLIGHT0COLOR_ON",
+                "_PROJECTION_BOTH",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_Ripple.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Add Bump",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesAddBump.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_ALPHAPREMULTIPLY_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_RippleReflections.mat",
+            "shader": "Crest/Inputs/Dynamic Waves/Add Bump",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/DynWavesAddBump.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_ALPHAPREMULTIPLY_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_ShadowOverrideOne.mat",
+            "shader": "Crest/Inputs/Shadows/Override Shadows",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/ShadowOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_ShadowOverrideZero.mat",
+            "shader": "Crest/Inputs/Shadows/Override Shadows",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/ShadowOverride.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [
+                "_ALPHAPREMULTIPLY_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentWithUnderwaterFog.mat",
+            "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+            "shaderAsset": "Assets/Crest/Crest-Examples/Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD",
+                "Meta"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_WavesScaleByFactor.mat",
+            "shader": "Crest/Inputs/All/Scale By Factor",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/ScaleByFactor.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_FEATHERATUVEXTENTS_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Materials/LakesAndRivers_Material_Water.mat",
+            "shader": "Crest/Ocean",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Ocean.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "DepthNormalsOnly",
+                "DepthOnly"
+            ],
+            "keywords": [
+                "_CAUSTICS_ON",
+                "_COMPUTEDIRECTIONALLIGHT_ON",
+                "_DEBUGVISUALISE_NONE",
+                "_FLOW_ON",
+                "_FOAM3DLIGHTING_ON",
+                "_FOAM_ON",
+                "_SUBSURFACESCATTERING_ON",
+                "_TRANSPARENCY_ON",
+                "_UNDERWATER_ON",
+                "_COMPILESHADERWITHDEBUGINFO_ON",
+                "_DEBUGMULTIPLYBYLIGHT0COLOR_ON",
+                "_PROJECTION_BOTH",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Prefabs/Skybox/Materials/SkyboxHorizon_Mat.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [
+                "_NORMALMAP"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Terrain/Materials/TerrainLit.mat",
+            "shader": "Nature/Terrain/Diffuse",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD",
+                "DEFERRED",
+                "ShadowCaster",
+                "Meta",
+                "Picking",
+                "Selection"
+            ],
+            "keywords": [
+                "_TERRAIN_INSTANCED_PERPIXEL_NORMAL"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Main/Materials/GerstnerPatch.mat",
+            "shader": "Crest/Inputs/Animated Waves/Gerstner Batch Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesGerstnerBatchGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Main/Materials/GerstnerPatchFeathered.mat",
+            "shader": "Crest/Inputs/Animated Waves/Gerstner Batch Geometry",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesGerstnerBatchGeometry.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [
+                "_FEATHERATUVEXTENTS_ON"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Main/Materials/NavalMine.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [
+                "_EMISSION"
+            ],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Main/Materials/OceanAlpha_CrestLogo.mat",
+            "shader": "Crest/Ocean Surface Alpha",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanSurfaceAlpha.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Main/Models/Island0/Materials/blockout.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Shared/Materials/AnimWavesWaveParticle.mat",
+            "shader": "Crest/Inputs/Animated Waves/Wave Particle",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/AnimWavesWaveParticle.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat",
+            "shader": "Skybox/Cubemap",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Shared/Materials/White.mat",
+            "shader": "Standard",
+            "shaderAsset": "Resources/unity_builtin_extra",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "FORWARD",
+                "FORWARD_DELTA",
+                "ShadowCaster",
+                "DEFERRED",
+                "META"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Whirlpool/Materials/DepositFoamTex.mat",
+            "shader": "Crest/Inputs/Foam/Add From Texture",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/OceanInputs/FoamAddFromTex.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>"
+            ],
+            "keywords": [],
+            "compilerErrors": []
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Whirlpool/Materials/Ocean-Flow.mat",
+            "shader": "Crest/Ocean",
+            "shaderAsset": "Assets/Crest/Crest/Shaders/Ocean.shader",
+            "pipelineTag": "",
+            "supported": true,
+            "passes": [
+                "<Unnamed Pass 0>",
+                "DepthNormalsOnly",
+                "DepthOnly"
+            ],
+            "keywords": [
+                "_CAUSTICS_ON",
+                "_COMPUTEDIRECTIONALLIGHT_ON",
+                "_DEBUGVISUALISE_NONE",
+                "_FLOW_ON",
+                "_FOAM3DLIGHTING_ON",
+                "_FOAM_ON",
+                "_TRANSPARENCY_ON",
+                "_COMPILESHADERWITHDEBUGINFO_ON",
+                "_DEBUGMULTIPLYBYLIGHT0COLOR_ON",
+                "_PROJECTION_BOTH",
+                "_SUBSURFACEHEIGHTLERP_ON"
+            ],
+            "compilerErrors": []
+        }
+    ],
+    "scenes": [
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+            "materials": [
+                "Assets/Crest/Crest/Materials/Ocean.mat",
+                "Assets/Crest/Crest/Materials/OceanInputs/WaterLevelFromGeometry.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/AddBumpsToWater.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/DynWavesAddBump.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/PushWaterBelowSphere.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/AnimWavesWaveParticle.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat"
+            ]
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+            "materials": [
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/OpenOcean.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Models/ferryhumika/ferryhumikablend.fbx",
+                "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/White.mat"
+            ]
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats.unity",
+            "materials": [
+                "Assets/Crest/Crest/Materials/Ocean.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/DynWavesAddBump.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat"
+            ]
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity",
+            "materials": [
+                "Assets/Crest/Crest/Materials/OceanInputs/FoamOverride.mat",
+                "Assets/Crest/Crest/Materials/OceanInputs/WaterLevelFromGeometry.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/PushWaterBelowSphere.mat",
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/WaterInteractionBoatProbes.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_AddFoam.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_AlbedoCrestLogo.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_AlbedoParticles.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_DepthOnly.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_FlowFixed.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_FoamOverrideOne.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_FoamOverrideZero.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_GradientBackground.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedDepth.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedMarineSnow.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedNavalMine.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedTerrain.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedWhite.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskFillTerrain.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskFillWhite.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_Ocean.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_Ripple.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_RippleReflections.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_ShadowOverrideOne.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_ShadowOverrideZero.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentWithUnderwaterFog.mat",
+                "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_WavesScaleByFactor.mat",
+                "Assets/Crest/Crest-Examples/Main/Materials/NavalMine.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/AnimWavesWaveParticle.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat"
+            ]
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/LakesAndRivers.unity",
+            "materials": [
+                "Assets/Crest/Crest-Examples/LakesAndRivers/Materials/LakesAndRivers_Material_Water.mat",
+                "Assets/Crest/Crest-Examples/LakesAndRivers/Prefabs/Skybox/Materials/SkyboxHorizon_Mat.mat",
+                "Assets/Crest/Crest-Examples/LakesAndRivers/Terrain/Materials/TerrainLit.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat"
+            ]
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
+            "materials": [
+                "Assets/Crest/Crest/Materials/Ocean-Underwater.mat",
+                "Assets/Crest/Crest-Examples/Main/Models/Island0/Materials/blockout.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat"
+            ]
+        },
+        {
+            "path": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+            "materials": [
+                "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+                "Assets/Crest/Crest-Examples/Shared/Materials/TestSkybox.mat",
+                "Assets/Crest/Crest-Examples/Whirlpool/Materials/DepositFoamTex.mat",
+                "Assets/Crest/Crest-Examples/Whirlpool/Materials/Ocean-Flow.mat"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,277 @@
+{
+  "recordedUtc": "2026-10-27T07:35:26.998996+00:00",
+  "scope": "P09.5.1 Standard/terrain example material migration and original Main Editor render, full79+actual non-batch2/API and rebuilt Player integration milestone. Complete P09.5 remains pending.",
+  "implementation": [
+    {
+      "path": "Assets/Crest/URP/Editor/ExampleMaterialAudit.cs",
+      "sha256": "E555976A2D302D04221756718C5822AB56D919CD855968DAD7A25EB9115768E5",
+      "bytes": 8728,
+      "modifiedUtc": "2026-10-26T22:29:05.596865+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/Crest.URP.Editor.asmdef",
+      "sha256": "A15FFFFCDF524C53590C82B7D71505F5B9BF2E4AE51B3AD8C4A864D09BE91B3D",
+      "bytes": 317,
+      "modifiedUtc": "2026-10-26T22:20:27.601660+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalExampleSceneTests.cs",
+      "sha256": "7CF9DD10744DA697B5D02395368909BB12A93053D3ED3D9A1D6B9591D7B6E206",
+      "bytes": 4748,
+      "modifiedUtc": "2026-10-26T22:22:07.297346+00:00"
+    }
+  ],
+  "migration": {
+    "path": "Evidence/P09-ExampleMaterial-migration.json",
+    "sha256": "27D0A4E737D59605EA2F3170577CD5754412989056739904A48CA9D4190D382E",
+    "bytes": 8398,
+    "modifiedUtc": "2026-10-26T22:20:44.131301+00:00"
+  },
+  "postImportValidation": {
+    "path": "Evidence/P09-ExampleMaterial-postimport-validation.json",
+    "sha256": "9E244F4887CEEE71D3DFE2E50A9A0C23BF490E2E4D5F97E484F260E886812634",
+    "bytes": 8264,
+    "modifiedUtc": "2026-10-26T22:28:58.505232+00:00"
+  },
+  "unityAuditBefore": {
+    "path": "Evidence/P09-ExampleMaterial-unity-audit-before.json",
+    "sha256": "7BB19CF19E4B061F7CAA9DAF38D1C6D589537FE6E1474E781454E7E3C105B6D4",
+    "bytes": 45175,
+    "modifiedUtc": "2026-10-26T22:18:28.303563+00:00"
+  },
+  "unityAuditAfterConversion": {
+    "path": "Evidence/P09-ExampleMaterial-unity-audit.json",
+    "sha256": "7BDE3E1C46FD735CB439EF12E864FC343B03DCF67887750AD86BD9A7C565673C",
+    "bytes": 44723,
+    "modifiedUtc": "2026-10-26T22:20:44.279941+00:00"
+  },
+  "materialSources": [
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+      "sha256": "B056B3A8918A13FD1C79C91DC6BE0E635398B0948B83F0C95C272D355ECE8886",
+      "bytes": 3849,
+      "modifiedUtc": "2026-10-26T22:20:45.151136+00:00",
+      "guid": "f1d75fa3c8725bf438b99c229b0d6734"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
+      "sha256": "645FE3F9916615B95D9A4CF5BC07EE69B62FE7676CE3F62B609E1BFA8A548593",
+      "bytes": 4006,
+      "modifiedUtc": "2026-10-26T22:20:45.190789+00:00",
+      "guid": "ecfe7530e35f6ef4599de91f34369545"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Prefabs/Skybox/Materials/SkyboxHorizon_Mat.mat",
+      "sha256": "17E5CE5C496450434D13A4F4DE9352D1A0EBE911231E5C698DA45E34E02A4601",
+      "bytes": 10411,
+      "modifiedUtc": "2026-10-26T22:20:45.206906+00:00",
+      "guid": "1a2b9cdb7c003454785f9381181bce36"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Terrain/Materials/TerrainLit.mat",
+      "sha256": "50D145374DDA8439BD2936EAD9F3DE4556333178ADE61C65B898E2890A0419B0",
+      "bytes": 3737,
+      "modifiedUtc": "2026-10-26T22:20:45.254103+00:00",
+      "guid": "0b6d251ba3ab07a45beb3c4a6ac4b68b"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Main/Materials/NavalMine.mat",
+      "sha256": "C4DE344F65DE4C0217642FAB9DFB773C210B41FD49C1E0FC047E651C98F36E7D",
+      "bytes": 3958,
+      "modifiedUtc": "2026-10-26T22:20:45.171991+00:00",
+      "guid": "8439bb68f15c44c8db3c54d02367d07d"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Main/Models/Island0/Materials/blockout.mat",
+      "sha256": "5E51F8ADC35C23AB3DFA485A931DB4D766B981D8EBB89398431F9B580EF2C2E5",
+      "bytes": 3966,
+      "modifiedUtc": "2026-10-26T22:21:15.556969+00:00",
+      "guid": "76f4b78cccd43fd4280c9e3cc7a59650"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
+      "sha256": "ED107E4897AE5307ECFBB8D2DFA59110DC91C93D7862C01479C58AD187FAA06D",
+      "bytes": 3927,
+      "modifiedUtc": "2026-10-26T22:20:45.134901+00:00",
+      "guid": "95e214cf788f645edbb5bed42ff8d653"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Materials/White.mat",
+      "sha256": "7FD46DEEE47DF672D82256BDDC3B52AD8B6B20FF306D3E704AFFEA3DADF40D99",
+      "bytes": 3918,
+      "modifiedUtc": "2026-10-26T22:20:45.222927+00:00",
+      "guid": "4d86ba26ab6f348dd899f0320d78bf11"
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-Material-Milestone-DX11.xml",
+      "sha256": "8CE1F9521F4290CA7C18652CAC4A4E9F92BD4C66BB3C40D30CFC09567874700D",
+      "bytes": 120973,
+      "modifiedUtc": "2026-10-26T22:26:10.468154+00:00",
+      "api": "DX11",
+      "actualNonBatch": false,
+      "passedCases": 79,
+      "startTime": "2026-10-26 22:22:54Z",
+      "endTime": "2026-10-26 22:26:10Z"
+    },
+    {
+      "path": "Evidence/P09-Material-Milestone-DX11-interactive.xml",
+      "sha256": "AFADB4BE23A947FBDEC714C6331971451D9E728223EA749063BDE2F8B7D81CD5",
+      "bytes": 4018,
+      "modifiedUtc": "2026-10-27T07:25:44.898885+00:00",
+      "api": "DX11",
+      "actualNonBatch": true,
+      "passedCases": 2,
+      "startTime": "2026-10-27 07:25:08Z",
+      "endTime": "2026-10-27 07:25:44Z"
+    },
+    {
+      "path": "Evidence/P09-Material-Milestone-DX12.xml",
+      "sha256": "D689E1F4A8AA1DFB28DD00460503344B1F22FC4E5A7C7206C76DBBF8AD623167",
+      "bytes": 120970,
+      "modifiedUtc": "2026-10-26T22:33:30.458558+00:00",
+      "api": "DX12",
+      "actualNonBatch": false,
+      "passedCases": 79,
+      "startTime": "2026-10-26 22:29:26Z",
+      "endTime": "2026-10-26 22:33:30Z"
+    },
+    {
+      "path": "Evidence/P09-Material-Milestone-DX12-interactive.xml",
+      "sha256": "F1BD11E9D806056D41810573A0694F679F81F67C4D86233CFD5C73E77B5A604A",
+      "bytes": 4020,
+      "modifiedUtc": "2026-10-27T07:27:06.250555+00:00",
+      "api": "DX12",
+      "actualNonBatch": true,
+      "passedCases": 2,
+      "startTime": "2026-10-27 07:26:28Z",
+      "endTime": "2026-10-27 07:27:06Z"
+    }
+  ],
+  "main": [
+    {
+      "api": "DX11",
+      "scope": "Original Main scene, PlayMode, actual camera640x360, source island renderer visible control and restoration; not other scenes/standalone",
+      "metrics": {
+        "ErrorPinkPixels": 0,
+        "NonBackgroundPixels": 230166,
+        "VisibleOriginalGeometryChangedPixels": 62702,
+        "GeometryRestoredChangedPixels": 0
+      },
+      "report": {
+        "path": "Evidence/OriginalMain-Direct3D11.txt",
+        "sha256": "ADE2796245111D1C6D9134A5E6D1D132FAE081DAD9175260A185DFDB765507D1",
+        "bytes": 268,
+        "modifiedUtc": "2026-10-26T22:24:42.395790+00:00"
+      },
+      "image": {
+        "path": "Evidence/OriginalMain-Direct3D11.png",
+        "sha256": "436B19F9B20CD5B23732E8138B073A6D2BB64F239BD6E423D48F960DFEF3D9C5",
+        "bytes": 235952,
+        "modifiedUtc": "2026-10-26T22:24:42.348077+00:00"
+      },
+      "geometryOffImage": {
+        "path": "Evidence/OriginalMain-Direct3D11-geometry-off.png",
+        "sha256": "4484F95278C2BEC79233FDA9EAF0321BE7495CFAEBC8F10FD0C0028C525A86F7",
+        "bytes": 228707,
+        "modifiedUtc": "2026-10-26T22:24:42.374388+00:00"
+      }
+    },
+    {
+      "api": "DX12",
+      "scope": "Original Main scene, PlayMode, actual camera640x360, source island renderer visible control and restoration; not other scenes/standalone",
+      "metrics": {
+        "ErrorPinkPixels": 0,
+        "NonBackgroundPixels": 230232,
+        "VisibleOriginalGeometryChangedPixels": 62764,
+        "GeometryRestoredChangedPixels": 0
+      },
+      "report": {
+        "path": "Evidence/OriginalMain-Direct3D12.txt",
+        "sha256": "BA781FF8A012AD980423FB15EB35A2EC6F87D491BC2B902E2B86269653B78DB7",
+        "bytes": 268,
+        "modifiedUtc": "2026-10-26T22:31:45.527615+00:00"
+      },
+      "image": {
+        "path": "Evidence/OriginalMain-Direct3D12.png",
+        "sha256": "5A9E9E3F70FE27753A5A4F6455AE6EF72F115364744ABF6B439A8AE72136DAC5",
+        "bytes": 235292,
+        "modifiedUtc": "2026-10-26T22:31:45.476754+00:00"
+      },
+      "geometryOffImage": {
+        "path": "Evidence/OriginalMain-Direct3D12-geometry-off.png",
+        "sha256": "0A0CB067857B6CD4B567F24DC9C8045A543523A2B10AA43BCA2B3A9FC6E34765",
+        "bytes": 228216,
+        "modifiedUtc": "2026-10-26T22:31:45.504189+00:00"
+      }
+    }
+  ],
+  "beforeAndHarnessFailures": [
+    {
+      "path": "Evidence/OriginalMain-before-migration-DX11.xml",
+      "sha256": "EE25537307244CFE453F5266D9C7799C00E2981A679FB2A73A96D7184E7D1058",
+      "bytes": 4343,
+      "modifiedUtc": "2026-10-26T22:20:00.415158+00:00"
+    },
+    {
+      "path": "Evidence/OriginalMain-before-migration-Direct3D11.txt",
+      "sha256": "9EF6B9DEA3B956EF64A3BB469CEEE9732C7A619C9CEA117D46DA12C62EBA90F3",
+      "bytes": 175,
+      "modifiedUtc": "2026-10-26T22:20:00.198107+00:00"
+    },
+    {
+      "path": "Evidence/OriginalMain-before-migration-Direct3D11.png",
+      "sha256": "BE0401A8CE547AFF820D44DEB6A03C16237E5DE3596EE00C2D1D47C4579F8C37",
+      "bytes": 242988,
+      "modifiedUtc": "2026-10-26T22:20:00.194091+00:00"
+    },
+    {
+      "path": "Evidence/OriginalMain-camera-harness-initial-DX11.xml",
+      "sha256": "7A2C6C05384419762EBBBDB353E29C41EB133A8957CB98D3B7010879D8E4410D",
+      "bytes": 4247,
+      "modifiedUtc": "2026-10-26T22:21:15.388199+00:00"
+    },
+    {
+      "path": "Evidence/OriginalMain-camera-harness-initial-Direct3D11.txt",
+      "sha256": "EFC82FFDF3C1A1310577554F2D964F839D7DE101B11BE7FCBBB84FED29C1D988",
+      "bytes": 192,
+      "modifiedUtc": "2026-10-26T22:21:15.147992+00:00"
+    }
+  ],
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "E180A87A5D19AF56EF6219F7B3EE7DBB2FD6EBF12C90AA3CB87D92AAA83BD4B1",
+    "bytes": 23827,
+    "modifiedUtc": "2026-10-27T07:35:27.057566+00:00"
+  },
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "DFA3A91311EA4E61E520A1CD5131B6B82F8407F9DBD5545FB8268E4EF13C46A9",
+    "bytes": 278811,
+    "modifiedUtc": "2026-10-27T07:34:09.139601+00:00"
+  },
+  "guidAndCompute": {
+    "path": "Evidence/guid-compute-preservation.json",
+    "sha256": "899AA53FD560C03FA9F3EB39ECFE891CD26271913852550CC794D1E29D1E0C33",
+    "bytes": 586,
+    "modifiedUtc": "2026-10-26T15:54:49.584784+00:00"
+  },
+  "batchShutdownWarnings": {
+    "DX11": [
+      "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+    ],
+    "DX12": [
+      "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+    ]
+  },
+  "limits": [
+    "Seven Standard materials ->URP Lit; one Nature/Terrain/Diffuse->URP Terrain/Lit. GUIDs preserved; Ocean.mat foreign normalization/lighting dirs excluded from saves/staging.",
+    "Conversion checks85 exposed texture bindings including empty/defaults; post-import semantic check102 saved texture entries including legacy entries. Not85/102 distinct texture assets.",
+    "Immediate conversion hashes are historical before URP post-import version normalization. Final tested bytes have separate hashes; raw checkout CRLF vs Git blobs LF explicitly recorded.",
+    "Original Main is only accepted original scene rendering here, not other6 scenes/GUI/terrain blends/transparent masks or standalone original scenes.",
+    "Masked/UnderwaterTransparent Surface Shaders, fixed-function DepthOnly and CameraEvent/MaskFill example integration still require URP work. No feature replaced with generic Lit.",
+    "Full batch shutdown warning Persistent allocates3 and DX12 Player evictable-resource warnings remain P10; no leak-free/performance claim.",
+    "Known3 Unity-normalized sprite meta are not strict byte-identical;597 GUID/compute checks pass in defined scope."
+  ]
+}

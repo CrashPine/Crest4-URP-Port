@@ -1,10 +1,34 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-26**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## Текущий checkpoint P09.5.1: original Standard/terrain migration (2026-10-26–27)
+
+Перенесены **8 материалов**:7 Standard→Universal Render Pipeline/Lit и1 Nature/Terrain/Diffuse→Universal Render Pipeline/Terrain/Lit. Использованы официальные Unity URP17.6 `StandardUpgrader`/`TerrainUpgrader`. Сохранены original GUIDs, texture references/UV, mapped `_MainTex/_Color`→`_BaseMap/_BaseColor`, smoothness/common floats и surface/premultiply mode.85 exposed texture-binding parameters checked during conversion;102 saved entries checked after import, включая пустые/default/legacy записи — это не85/102 разных textures. SaveAssetIfDirty применён только к8 выбранным материалам, без сохранения Ocean.mat/сцен/чужого baked lighting. Остальные Surface Shader функции не заменялись упрощённым Lit.
+
+| Проверка | DX11 | DX12 |
+|---|---:|---:|
+| Full batch, все testcase nodes Passed | 79/79 | 79/79 |
+| Actual non-batch lifecycle/EOF, все nodes Passed | 2/2 | 2/2 |
+| Original Main error-pink pixels, before→after | 16759→0 | after0 |
+| Independent visible island/geometry-off changed pixels | 62702 | 62764 |
+| Exact geometry restoration changed pixels | 0 | 0 |
+| Development Player7 generated scenes+4 reflection options | Errors0 | Errors0 |
+| Release Player7 generated scenes+4 reflection options | Errors0 | Errors0 |
+
+Обе сборки завершились `Build Finished, Result: Success.` после migration; reports и44 Player PNG свежие относительно соответствующих build logs. Fresh original Main DX11/DX12 и selected Dev DX11 buoyancy/Dev DX12 underwater/Release DX11 underwater/Release DX12 reflections просмотрены, ожидаемые объекты/вода без error-pink. Параллельные API smokes внутри configuration — integration, не profiling. Player scene list содержит7 generated demos; original Main имеет только Editor acceptance, standalone original scene rendering этим не доказан.
+
+OriginalExampleSceneTests выполняет настоящий PlayMode original main.unity,640×360, исходную камеру(42,12.5,39),90 updates. Error-pink threshold r>245/g<10/b>245 и independent geometry-off control>1000/exact restoration не ослаблялись. Before migration report/PNG показывают16759 error-pink pixels от blockout:Standard. Первый after-migration run получил pink0, но failed при teardown: harness отключал Camera.main без explicit Ocean.ViewCamera, и исходный UpdateInstance разыменовывал null. Fixture исправлен явным указанием view camera; production camera code не менялся. Before-migration и camera-harness failed XML/reports сохранены, не считаются приёмкой.
+
+Unity post-import material version updater добавляет/обновляет internal version/URP properties после immediate converter save; raw hashes в migration report поэтому исторические. Финальные tested-byte hashes и независимая проверка сохранённых texture/value bindings — `P09-ExampleMaterial-postimport-validation.json`;8 hashes совпадают после full suites и обоих builds. Initial naive hash-audit assertion также сравнивал Git LF blobs с checkout CRLF. Это различие представлений явно проверено; GUID/meta content после line-ending normalization неизменен. Converter повторно с0 remaining built-ins сохраняет прежний migration report.
+
+Evidence: `P09-ExampleMaterial-unity-audit-before.json`/`-unity-audit.json`, `P09-ExampleMaterial-migration.json`, `P09-ExampleMaterial-postimport-validation.json`; `OriginalMain-before-migration-DX11.xml`/report/PNG и `OriginalMain-camera-harness-initial-DX11.xml`/report; fresh `P09-Material-Milestone-DX11.xml`/`DX12.xml`/`*-interactive.xml`; `OriginalMain-Direct3D11.txt`/`Direct3D12.txt` и geometry-off PNG. `P09-Material-checkpoint.json` содержит source/material/suite/scene/build fingerprints и границы. `Build-checkpoint.json` обновлён для current builds/smokes и включает8 material fingerprints; historical optical Build snapshot — `P09-Optical-Build-checkpoint.json` (old optical checkpoint link перенаправлен на него без изменения измерений).
+
+Ограничения: только original Main имеет новую visual acceptance, remaining6 original scenes/terrain blending/GUI/original standalone configs не приняты. Masked/UnderwaterTransparent Surface Shaders, fixed-function/gradient/depth adapters и CameraEvent/MaskFill example workflow требуют P09.5.2–4. Shader.isSupported/успешная компиляция не означают совместимый URP draw. Обе full79 batch shutdown снова сообщают Persistent allocates3 individual allocations; оба DX12 Player shutdown — evictable-resource warnings. Владельцы/стэки и стоимость не установлены, P10 остаётся открыт.597 GUID/compute checks PASSED,3 известные Unity-normalized sprite meta остаются non-byte-identical. Structural audit1347 files, missing meta/duplicate GUID/missing upstream0;8 root Markdown. Полный P09/порт не завершены.
 
 ## P09.4: shadowed surface/underwater original RGB (2026-10-26)
 
-`ShadowedOpticalReferenceTests.OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors` — focused **1/1 Passed DX11 и DX12**, все testcase nodes Passed, failed0/skipped0.10 states/API: above/below ×no caster/no caustics, caster/no caustics, caster/caustics, no caster/caustics, no caster/shadow keyword off. Scoped P09.4 DONE; P09.5 original example materials ACTIVE. Full runtime75+interactive2/API остаётся предыдущим checkpoint; следующий suite ожидает78 cases, fresh full78 не запускался. Editor-only изменения не требуют Player rebuild.
+`ShadowedOpticalReferenceTests.OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors` — focused **1/1 Passed DX11 и DX12**, все testcase nodes Passed, failed0/skipped0.10 states/API: above/below ×no caster/no caustics, caster/no caustics, caster/caustics, no caster/caustics, no caster/shadow keyword off. Scoped P09.4 DONE; P09.5 original example materials ACTIVE. На момент этого Editor-only шага full runtime checkpoint оставался75+interactive2/API; fresh full78 не запускался. Последующий material milestone79+2 описан выше. Editor-only изменения не требуют Player rebuild.
 
 Нативные оригинальные `Ocean`, underwater mask/effect и `UpdateShadow` shaders созданы in-memory из31 hash-verified local source files с изменением только имени/раскрытием includes. Original light/mask/effect callbacks и buffers формируют собственные BIRP ресурсы. URP самостоятельно формирует atlas/LOD и composite. Per-stage shadow history очищается. Для below view исходный collector записывает только видимые water positions, поэтому history инициализируется реальным above-view рендером этой же pipeline и точной копией её current→previous LOD buffer с неизменёнными cascade metadata. Это не URP input для оригинала и не приёмка free-running temporal convergence. Синхронный pipeline roundtrip не меняет OceanRenderer.FrameCount, ocean time1/delta0; Unity delta1/60 для исходного shadow integration.
 
@@ -58,7 +82,7 @@ Evidence: `ShadowReference-DX11.xml`, `ShadowReference-DX12.xml`, `ShadowReferen
 
 Ограничения: Standard/URP Lit BRDF/background RGB не сравнивались; это native shadow-input acceptance. Actual shadowed caustics/underwater RGB, perspective/waved/moving views, soft shadows/jitter/convergence/multiple cascades/other quality/XR/standalone остаются открытыми. Shadow boundaries совпадающими не объявлены. Production code не менялся, полный suite/Player rebuild не требовался. Structural audit1339 files, missing meta/duplicate GUID/missing upstream0;8 root Markdown. P10 allocation/eviction warnings предыдущего full milestone остаются открытыми.
 
-## Последний полный checkpoint P09.3 (scoped)
+## Исторический полный checkpoint P09.3 (scoped)
 
 Полный порт не завершён; это результат перечисленных fixtures с ограничениями ниже и в FEATURE_MATRIX.
 

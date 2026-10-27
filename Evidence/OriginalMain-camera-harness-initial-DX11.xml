@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-26 22:21:12Z" end-time="2026-10-26 22:21:15Z" duration="2,7706085">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="81" result="Failed" site="Child" start-time="2026-10-26 22:21:12Z" end-time="2026-10-26 22:21:15Z" duration="2.770609" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1133" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="79" result="Failed" site="Child" start-time="2026-10-26 22:21:12Z" end-time="2026-10-26 22:21:15Z" duration="2.758677" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="126024" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1073" name="OriginalExampleSceneTests" fullname="OriginalExampleSceneTests" classname="OriginalExampleSceneTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-26 22:21:12Z" end-time="2026-10-26 22:21:15Z" duration="2.755111" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1074" name="MainExampleRendersVisibleGeometryWithoutErrorShader" fullname="OriginalExampleSceneTests.MainExampleRendersVisibleGeometryWithoutErrorShader" methodname="MainExampleRendersVisibleGeometryWithoutErrorShader" classname="OriginalExampleSceneTests" runstate="Runnable" seed="1047586298" result="Failed" start-time="2026-10-26 22:21:12Z" end-time="2026-10-26 22:21:15Z" duration="2.735950" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[TearDown : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Crest.UnderwaterRenderer.UpdateInstance () (at Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs:322)
+Crest.UnderwaterRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs:276)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Computing lightmaps is not available in play mode.
+NullReferenceException: Object reference not set to an instance of an object
+Crest.UnderwaterRenderer.UpdateInstance () (at Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs:322)
+Crest.UnderwaterRenderer.LateUpdate () (at Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs:276)
+UnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)
+
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

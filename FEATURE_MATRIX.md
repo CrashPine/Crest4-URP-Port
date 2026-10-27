@@ -43,7 +43,8 @@ Unity 6000.6.5f1 + URP configuration. Diagnostic 6000.6 results are recorded sep
 | XR support | Scripts/Helpers/XRHelpers.cs | Retained; runtime reports0 XRDisplaySubsystem on both APIs. Rendered XR BLOCKED/unavailable in this configured runtime; no XR acceptance testing | NOT TESTED |
 | Debug visualization | OceanDebugGUI.cs; VisualiseCollisionArea.cs | Retained | NOT TESTED |
 | Seven demonstration scenes | Assets/CrestPortDemos | Seven-scene queries/captures passed in both builds/APIs; complete feature demonstrations pending | NOT TESTED |
-| Windows Development/Release | URP/Editor/PortAutomation.cs | Both builds succeed; each runs seven-scene smoke checks on DX11 and DX12 | PASSED (build/launch/smoke scope only) |
+| Original example materials/scenes | ../Crest-Examples; ../URP/Editor/ExampleMaterialAudit.cs | P09.5.1 migrates7 Standard and1 terrain material using official URP17.6 upgraders; GUIDs/values/texture bindings retained. Original Main actual PlayMode640x360: error-pink16759→0, visible island control62702/62764 pixels DX11/DX12 and exact restoration. Full79+actual non-batch2/API and rebuilt Player integration pass. Other original scenes, Masked/fill/CameraEvent and transparent underwater example workflows remain P09.5.2–4; Main standalone not accepted | NOT TESTED (full acceptance); scoped migration/Main passed |
+| Windows Development/Release | URP/Editor/PortAutomation.cs | Both builds after8 material migration succeed; four fresh7-generated-scene+4-reflection-option smokes pass on DX11/DX12 with Errors0. Original Main/other original scene standalone variants remain pending | PASSED (build/launch/smoke scope only) |
 | Performance/resource lifetime | All GPU owners and graph pass | 12 scene reloads keep tracked texture footprint stable on both APIs; total VRAM, buffers, GC and timings pending | NOT TESTED |
 
 BLOCKED rows identify missing port implementations or environmental requirements;
