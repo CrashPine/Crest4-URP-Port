@@ -1,0 +1,14 @@
+Original source scene/config callbacks; fixed ocean clock1/delta0; same-frame off/on controls. Threshold changed>200, exact restoration. Transparent lower-camera probe is explicit, not default pose.
+State=River; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 10.00, -21.00)
+Case=River; BaselineRepeatChanged=0
+Case=River; FillOffChangedPixels=8204; RestoreChangedPixels=0
+State=DynamicWavesReflections; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 10.00, -21.00)
+Case=DynamicWavesReflections; BaselineRepeatChanged=0
+Case=DynamicWavesReflections; FillOffChangedPixels=10473; RestoreChangedPixels=0
+State=VaryingWaterLevel; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 10.00, -21.00)
+Case=VaryingWaterLevel; BaselineRepeatChanged=0
+Case=VaryingWaterLevel; FillOffChangedPixels=3751; RestoreChangedPixels=0
+State=UnderwaterLighting; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 0.00, -30.00)
+UnderwaterLighting diagnostic camera probe=(0,-1,-3), inside bowl; source default pose retained in inventory captures.
+Case=UnderwaterLighting; BaselineRepeatChanged=0
+Case=UnderwaterLighting; FillOffChangedPixels=0; RestoreChangedPixels=0

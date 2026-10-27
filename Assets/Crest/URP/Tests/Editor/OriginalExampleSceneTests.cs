@@ -11,7 +11,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.TestTools;
 using Object=UnityEngine.Object;
 
-public class OriginalExampleSceneTests
+public partial class OriginalExampleSceneTests
 {
     RenderTexture _target;
     [UnityTest,Timeout(180000)]

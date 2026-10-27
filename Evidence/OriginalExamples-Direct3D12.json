@@ -1,0 +1,687 @@
+{
+    "unity": "6000.6.5f1",
+    "api": "Direct3D12",
+    "scene": "Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity",
+    "scope": "Original24 configurations selected through public Next, source camera/events/materials, PlayMode640x360. No shader-error smoke is not feature acceptance; physical input/postprocess/standalone/baked output not accepted.",
+    "configurations": [
+        {
+            "index": 0,
+            "name": "Albedo",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.961299896240234,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224249,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_AlbedoCrestLogo:Crest/Inputs/Albedo/Color:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Albedo:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Albedo:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Albedo:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Albedo:_onEnable -> GameObject:Preview.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Albedo:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Albedo:_onDisable -> GameObject:Preview.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Albedo:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/00-Albedo.png"
+        },
+        {
+            "index": 1,
+            "name": "Whirlpool",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.041187286376953,
+            "activeRenderers": 1,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224251,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Whirlpool:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Whirlpool:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Whirlpool:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Whirlpool:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Whirlpool:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/01-Whirlpool.png"
+        },
+        {
+            "index": 2,
+            "name": "Wake",
+            "cameraPosition": "(-1.63081074, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.98493480682373,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224258,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Wake:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onEnable -> SimpleMotion:Rig.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onEnable -> WaterBody:WaterBody.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onEnable -> OceanRenderer:Ocean.SetSurfaceSelfIntersectionFixMode [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onDisable -> SimpleMotion:Rig.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onDisable -> WaterBody:WaterBody.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onDisable -> OceanRenderer:Ocean.SetSurfaceSelfIntersectionFixMode [RuntimeOnly]",
+                "ExamplesScene/Examples/Wake:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/02-Wake.png"
+        },
+        {
+            "index": 3,
+            "name": "River",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 3,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224401,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_MaskedTerrain:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskFillTerrain:Crest/Examples/Masked:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/River:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onEnable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onEnable -> MeshRenderer:Geometry.set_material [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onDisable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onDisable -> MeshRenderer:Geometry.set_material [RuntimeOnly]",
+                "ExamplesScene/Examples/River:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]",
+                "ExamplesScene/Examples/River/CustomPasses:_onExecute -> MaskFill:CustomPasses.ExecuteFillMask [RuntimeOnly]",
+                "ExamplesScene/Examples/River/CustomPasses:_onClear -> MaskFill:CustomPasses.Clear [RuntimeOnly]",
+                "ExamplesScene/Examples/River/CustomPasses:_onExecute -> MaskFill:CustomPasses.DisableShadowPassKeyword [RuntimeOnly]",
+                "ExamplesScene/Examples/River/CustomPasses:_onExecute -> MaskFill:CustomPasses.EnableShadowPassKeyword [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/03-River.png"
+        },
+        {
+            "index": 4,
+            "name": "ComplexObjectWaterInteraction",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 4,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224259,
+            "missingScripts": 0,
+            "materials": [
+                "BoatGray:Universal Render Pipeline/Lit:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onEnable -> OceanRenderer:Ocean.set_SimSettingsDynamicWaves [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onEnable -> OceanRenderer:Ocean.SetSurfaceSelfIntersectionFixMode [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onDisable -> OceanRenderer:Ocean.set_SimSettingsDynamicWaves [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onDisable -> OceanRenderer:Ocean.SetSurfaceSelfIntersectionFixMode [RuntimeOnly]",
+                "ExamplesScene/Examples/ComplexObjectWaterInteraction:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/04-ComplexObjectWaterInteraction.png"
+        },
+        {
+            "index": 5,
+            "name": "Ripple",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224255,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_Ripple:Crest/Inputs/Dynamic Waves/Add Bump:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Ripple:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Ripple:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Ripple:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Ripple:_onEnable -> OceanRenderer:Ocean.set_SimSettingsDynamicWaves [RuntimeOnly]",
+                "ExamplesScene/Examples/Ripple:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Ripple:_onDisable -> OceanRenderer:Ocean.set_SimSettingsDynamicWaves [RuntimeOnly]",
+                "ExamplesScene/Examples/Ripple:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/05-Ripple.png"
+        },
+        {
+            "index": 6,
+            "name": "WavesPatch",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 1,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224255,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/WavesPatch:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/WavesPatch:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/WavesPatch:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/WavesPatch:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/WavesPatch:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/06-WavesPatch.png"
+        },
+        {
+            "index": 7,
+            "name": "AnimatedObjectWaterInteraction",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224255,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onEnable -> OceanRenderer:Ocean.SetSurfaceSelfIntersectionFixMode [RuntimeOnly]",
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onDisable -> OceanRenderer:Ocean.SetSurfaceSelfIntersectionFixMode [RuntimeOnly]",
+                "ExamplesScene/Examples/AnimatedObjectWaterInteraction:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/07-AnimatedObjectWaterInteraction.png"
+        },
+        {
+            "index": 8,
+            "name": "Clipping",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224250,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_TransparentPrimitive:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Clipping:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Clipping:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Clipping:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Clipping:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Clipping:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/08-Clipping.png"
+        },
+        {
+            "index": 9,
+            "name": "Flow",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.017295837402344,
+            "activeRenderers": 10,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224252,
+            "missingScripts": 0,
+            "materials": [
+                "Crest/Inputs/Depth/Ocean Depth From Geometry:Crest/Inputs/Depth/Ocean Depth From Geometry:supported=True",
+                "Examples_Material_FlowFixed:Crest/Inputs/Flow/Fixed Direction:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Flow:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Flow:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Flow:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Flow:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Flow:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/09-Flow.png"
+        },
+        {
+            "index": 10,
+            "name": "ScaleWaves",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.990263938903809,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224256,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_WavesScaleByFactor:Crest/Inputs/All/Scale By Factor:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/ScaleWaves:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/ScaleWaves:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/ScaleWaves:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/ScaleWaves:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/ScaleWaves:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/10-ScaleWaves.png"
+        },
+        {
+            "index": 11,
+            "name": "DynamicWavesReflections",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 20,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224313,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_DepthOnly:Crest/Examples/DepthOnly:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_MaskedWhite:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskFillWhite:Crest/Examples/Masked:supported=True",
+                "Examples_Material_RippleReflections:Crest/Inputs/Dynamic Waves/Add Bump:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/DynamicWavesReflections:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onEnable -> Camera:DemoCamera.set_cullingMask [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onEnable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onEnable -> OceanRenderer:Ocean.set_SimSettingsDynamicWaves [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onDisable -> Camera:DemoCamera.set_cullingMask [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onDisable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onDisable -> OceanRenderer:Ocean.set_SimSettingsDynamicWaves [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]",
+                "ExamplesScene/Examples/DynamicWavesReflections/CustomPasses:_onExecute -> MaskFill:CustomPasses.ExecuteFillMask [EditorAndRuntime]",
+                "ExamplesScene/Examples/DynamicWavesReflections/CustomPasses:_onClear -> MaskFill:CustomPasses.Clear [EditorAndRuntime]",
+                "ExamplesScene/Examples/DynamicWavesReflections/CustomPasses:_onExecute -> MaskFill:CustomPasses.DisableShadowPassKeyword [EditorAndRuntime]",
+                "ExamplesScene/Examples/DynamicWavesReflections/CustomPasses:_onExecute -> MaskFill:CustomPasses.EnableShadowPassKeyword [EditorAndRuntime]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/11-DynamicWavesReflections.png"
+        },
+        {
+            "index": 12,
+            "name": "Buoyancy",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.015669822692871,
+            "activeRenderers": 5,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224252,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/Buoyancy:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/Buoyancy:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/Buoyancy:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/Buoyancy:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/Buoyancy:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/12-Buoyancy.png"
+        },
+        {
+            "index": 13,
+            "name": "FoamOverride",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.05441951751709,
+            "activeRenderers": 4,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224262,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_AddFoam:Crest/Inputs/Foam/Override Foam:supported=True",
+                "Examples_Material_FoamOverrideOne:Crest/Inputs/Foam/Override Foam:supported=True",
+                "Examples_Material_FoamOverrideZero:Crest/Inputs/Foam/Override Foam:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/FoamOverride:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/FoamOverride:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/FoamOverride:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/FoamOverride:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/FoamOverride:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/13-FoamOverride.png"
+        },
+        {
+            "index": 14,
+            "name": "ShadowOverride",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.068150520324707,
+            "activeRenderers": 5,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224263,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_ShadowOverrideOne:Crest/Inputs/Shadows/Override Shadows:supported=True",
+                "Examples_Material_ShadowOverrideZero:Crest/Inputs/Shadows/Override Shadows:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/ShadowOverride:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/ShadowOverride:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/ShadowOverride:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/ShadowOverride:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/ShadowOverride:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/14-ShadowOverride.png"
+        },
+        {
+            "index": 15,
+            "name": "VaryingWaterLevel",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.011445999145508,
+            "activeRenderers": 5,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 223892,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_MaskedWhite:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskFillWhite:Crest/Examples/Masked:supported=True",
+                "WaterLevelFromGeometry:Crest/Inputs/Sea Floor Depth/Set Base Water Height Using Geometry:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/VaryingWaterLevel:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel:_onEnable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel:_onDisable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]",
+                "ExamplesScene/Examples/VaryingWaterLevel/CustomPasses:_onExecute -> MaskFill:CustomPasses.ExecuteFillMask [EditorAndRuntime]",
+                "ExamplesScene/Examples/VaryingWaterLevel/CustomPasses:_onClear -> MaskFill:CustomPasses.Clear [EditorAndRuntime]",
+                "ExamplesScene/Examples/VaryingWaterLevel/CustomPasses:_onExecute -> MaskFill:CustomPasses.DisableShadowPassKeyword [EditorAndRuntime]",
+                "ExamplesScene/Examples/VaryingWaterLevel/CustomPasses:_onExecute -> MaskFill:CustomPasses.EnableShadowPassKeyword [EditorAndRuntime]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/15-VaryingWaterLevel.png"
+        },
+        {
+            "index": 16,
+            "name": "TrailRenderer",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.96150016784668,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224252,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "FoamOverride:Crest/Inputs/Foam/Override Foam:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/TrailRenderer:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/TrailRenderer:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/TrailRenderer:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/TrailRenderer:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/TrailRenderer:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/16-TrailRenderer.png"
+        },
+        {
+            "index": 17,
+            "name": "ParticleRenderer",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.970677375793457,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224253,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_AlbedoParticles:Crest/Inputs/Albedo/Color:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/ParticleRenderer:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/ParticleRenderer:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/ParticleRenderer:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/ParticleRenderer:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/ParticleRenderer:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/17-ParticleRenderer.png"
+        },
+        {
+            "index": 18,
+            "name": "UnderwaterLighting",
+            "cameraPosition": "(0, -0.00181962, -30)",
+            "cameraRotation": "(0, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 0.0378962866961956,
+            "activeRenderers": 13,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224292,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_MaskedDepth:Crest/Examples/Mask Depth:supported=True",
+                "Examples_Material_MaskedMarineSnow:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskedNavalMine:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskedTerrain:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskFillTerrain:Crest/Examples/Masked:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Animator:Mask.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Animator:Mask.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Transform:DemoCamera.set_parent [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Animator:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> Animator:DemoCamera.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> MeshRenderer:Geometry.set_material [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onEnable -> UnderwaterEnvironmentalLighting:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Animator:Mask.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Animator:Mask.Update [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Animator:Mask.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Transform:DemoCamera.set_parent [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Animator:DemoCamera.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Animator:DemoCamera.Update [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> Animator:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> MeshRenderer:Geometry.set_material [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onDisable -> UnderwaterEnvironmentalLighting:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting/CustomPasses:_onExecute -> MaskFill:CustomPasses.ExecuteFillMask [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting/CustomPasses:_onClear -> MaskFill:CustomPasses.Clear [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting/CustomPasses:_onExecute -> MaskFill:CustomPasses.DisableShadowPassKeyword [RuntimeOnly]",
+                "ExamplesScene/Examples/UnderwaterLighting/CustomPasses:_onExecute -> MaskFill:CustomPasses.EnableShadowPassKeyword [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/18-UnderwaterLighting.png"
+        },
+        {
+            "index": 19,
+            "name": "PushWaterBelowGeometry",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.008852005004883,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224249,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "PushWaterBelowSphere:Crest/Inputs/Animated Waves/Push Water Under Convex Hull:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/PushWaterBelowGeometry:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/PushWaterBelowGeometry:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/PushWaterBelowGeometry:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/PushWaterBelowGeometry:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/PushWaterBelowGeometry:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/19-PushWaterBelowGeometry.png"
+        },
+        {
+            "index": 20,
+            "name": "WaveParticle",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.99439525604248,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224255,
+            "missingScripts": 0,
+            "materials": [
+                "AnimWavesWaveParticle:Crest/Inputs/Animated Waves/Wave Particle:supported=True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/WaveParticle:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveParticle:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveParticle:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveParticle:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveParticle:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/20-WaveParticle.png"
+        },
+        {
+            "index": 21,
+            "name": "WaveComparison",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 10.0,
+            "activeRenderers": 1,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224258,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/WaveComparison:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onEnable -> GameObject:Text.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onEnable -> Animator:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onEnable -> Animator:DemoCamera.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onDisable -> GameObject:Text.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onDisable -> Animator:DemoCamera.ResetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onDisable -> Animator:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/WaveComparison:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/21-WaveComparison.png"
+        },
+        {
+            "index": 22,
+            "name": "TransparentObjectUnderwater",
+            "cameraPosition": "(0, 0, -30)",
+            "cameraRotation": "(0, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": -0.0016865166835486889,
+            "activeRenderers": 2,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224292,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_TransparentWithUnderwaterFog:Crest/Examples/UnderwaterTransparentSurfaceShader:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onEnable -> Animator:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onEnable -> Animator:DemoCamera.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onEnable -> UnderwaterRenderer:DemoCamera.set_EnableShaderAPI [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onDisable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onDisable -> Animator:DemoCamera.SetTrigger [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onDisable -> Animator:DemoCamera.Update [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onDisable -> Animator:DemoCamera.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onDisable -> UnderwaterRenderer:DemoCamera.set_EnableShaderAPI [RuntimeOnly]",
+                "ExamplesScene/Examples/TransparentObjectUnderwater:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/22-TransparentObjectUnderwater.png"
+        },
+        {
+            "index": 23,
+            "name": "AudioFromHeightEvents",
+            "cameraPosition": "(0, 10, -21)",
+            "cameraRotation": "(30.0000076, 0, 0)",
+            "oceanScale": 8.0,
+            "viewerHeight": 9.988154411315918,
+            "activeRenderers": 8,
+            "errorPinkPixels": 0,
+            "nonBackgroundPixels": 224266,
+            "missingScripts": 0,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:supported=True",
+                "Examples_Material_MaskedTerrain:Crest/Examples/Masked:supported=True",
+                "Examples_Material_MaskFillTerrain:Crest/Examples/Masked:supported=True",
+                "OffWhite:Universal Render Pipeline/Lit:supported=True"
+            ],
+            "callbacks": [
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onEnable -> Text:Text.set_text [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onEnable -> Slider:Slider.set_maxValue [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onEnable -> GameObject:Waves.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onEnable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onDisable -> OceanRenderer:Ocean.ClearLodData [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onDisable -> GameObject:Geometry.SetActive [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents:_onUpdate -> Slider:Slider.set_value [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/Listener:_onBelowOceanSurface -> AudioLowPassFilter:AboveWater.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/Listener:_onBelowOceanSurface -> AudioSource:BelowWater.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/Listener:_onAboveOceanSurface -> AudioLowPassFilter:AboveWater.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/Listener:_onAboveOceanSurface -> AudioSource:BelowWater.set_enabled [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/Listener:_distanceFromOceanSurface -> AudioSource:AboveWater.set_volume [RuntimeOnly]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/CustomPasses:_onExecute -> MaskFill:CustomPasses.ExecuteFillMask [EditorAndRuntime]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/CustomPasses:_onClear -> MaskFill:CustomPasses.Clear [EditorAndRuntime]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/CustomPasses:_onExecute -> MaskFill:CustomPasses.DisableShadowPassKeyword [EditorAndRuntime]",
+                "ExamplesScene/Examples/AudioFromHeightEvents/CustomPasses:_onExecute -> MaskFill:CustomPasses.EnableShadowPassKeyword [EditorAndRuntime]"
+            ],
+            "capture": "Evidence/OriginalExamples-Direct3D12/23-AudioFromHeightEvents.png"
+        }
+    ]
+}

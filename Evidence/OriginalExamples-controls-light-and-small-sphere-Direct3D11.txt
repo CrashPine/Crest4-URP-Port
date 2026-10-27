@@ -1,0 +1,14 @@
+Original source scene/config callbacks; fixed ocean clock1/delta0; same-frame off/on controls. Threshold changed>200, exact restoration. Transparent lower-camera probe is explicit, not default pose.
+State=River; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 10.00, -21.00)
+Case=River; BaselineRepeatChanged=0
+Case=River; FillOffChangedPixels=7931; RestoreChangedPixels=0
+State=DynamicWavesReflections; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 10.00, -21.00)
+Case=DynamicWavesReflections; BaselineRepeatChanged=0
+Case=DynamicWavesReflections; FillOffChangedPixels=9971; RestoreChangedPixels=0
+State=VaryingWaterLevel; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 10.00, -21.00)
+Case=VaryingWaterLevel; BaselineRepeatChanged=0
+Case=VaryingWaterLevel; FillOffChangedPixels=3645; RestoreChangedPixels=0
+State=UnderwaterLighting; UnderwaterMode=Volume; Active=True; API=False; Camera=(0.00, 0.00, -30.00)
+Case=UnderwaterLighting; ProbeCamera=(0.00, -3.00, -30.00); ViewerHeight=-2,963707; BaseLight=1; AttenuatedLight=0,8166702; ExpectedLight=0,8166702; EnvironmentOffChangedPixels=227604; RestoreChangedPixels=0; FillDefaultAndInsideProbeUnobservable=True
+State=TransparentObjectUnderwater; UnderwaterMode=Volume; Active=True; API=True; Camera=(0.00, 0.00, -30.00)
+Case=TransparentObjectUnderwater; SourceCamera=(0.00, 0.00, -30.00); ProbeCamera=(0.00, -1.00, -30.00); FogOffChangedPixels=57; RestoreChangedPixels=0

@@ -2,6 +2,26 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: original Examples scene (2026-10-27, partial)
+
+Original Examples public Next/Previous cycles24 configurations in actual PlayMode640x360: DX11 inventory1/1 +controls1/1; DX12 combined2/2 Passed, all nodes Passed, failed0/skipped0. Each configuration has error-pink0 and missing scripts0. Source camera, active materials and persistent callbacks are recorded. Physical keyboard polling is disabled; this is not GUI/input acceptance. Selected River/UnderwaterLighting/Transparent previews inspected. No-error smoke is not full feature acceptance.
+
+| Original source control | DX11 | DX12 |
+|---|---:|---:|
+| River fill-off changed pixels | 7931 | 7907 |
+| DynamicWavesReflections fill-off | 9971 | 9971 |
+| VaryingWaterLevel fill-off | 3645 | 3719 |
+| EnvironmentalLighting off, camera y−3 | 227601 | 227961 |
+| Native light attenuation, base1 | .8166689 | .8125911 |
+| Transparent FogMultiplier0, explicit inside-volume sphere probe | 943 | 973 |
+| Baseline repeats / all restorations | 0 / exact | 0 / exact |
+
+Three fill controls disable/re-enable the original serialized CustomPassForCamera callback. Environment-light attenuation independently matches original exp(density-average ×min(viewer-height×.25,0) ×weight), tolerance1e−5; disabling restores source base intensity, re-enabling and invoking its actual LateUpdate restores image exactly. Source camera moves to y−3 for that probe. Transparent source sphere normally starts at(0,0,−4), near volume boundary: initial probe gave57 changed pixels, below the unchanged200 threshold. The accepted probe puts this existing sphere at original volume centre and source camera y−1 looking at it; no new geometry/source asset save. Source transform/material restored. These are explicit diagnostic poses, not unmodified default-view feature acceptance.
+
+UnderwaterLighting fill-off remains unobservable (0 pixels) at default and inside-bowl views; failed XML/reports/PNG retained and that fill/config combination is not accepted. Its lighting effect is a separate control, not a lowered fill assertion. Ocean time1/delta0 fixed after settings settle, but setup Unity animation/physics differs across runs/APIs; no image parity claim. Two material changes appeared after scene load (legacy _Color synchronization and TransparentPrimitive SHADOWCASTER disable). Exact caller not established; full diffs/hashes disclosed in OriginalExamples-material-load-normalization.json and original source/build bytes restored. BaseColor unchanged; own shadow casting is not accepted here.
+
+Evidence: P09-OriginalExamples-inventory-DX11.xml, -controls-DX11.xml, -focused-DX12.xml; OriginalExamples-Direct3D*.json with24 rows/callbacks/materials,48 default captures and control PNG/reports (UnderwaterLighting on/repeat/fill-off/restored DX11 PNG belong to the retained failed fill probe, not accepted controls); P09-OriginalExamples-checkpoint.json. Stable audit1359 files, missing meta/duplicate GUID/missing upstream0; root Markdown8. Runtime20/material8 fingerprints match095178f build; current full90+actual non-batch2/API/build acceptance remains historical runtime checkpoint, not a fresh full92. Editor-only addition, no production change/rebuild. Remaining source scenes and feature/bake/standalone/renderer/resource coverage stay P09.5.4/P10/P11.
+
 ## P09.5.3: transparent underwater adapter (2026-10-27, scoped DONE)
 
 Original `Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader` now uses URP transparent PBR with SrcAlpha/OneMinusSrcAlpha and ZWrite Off. GUID84a15efdc73d2448e99d5df3222546b5 and the complete original four-property block are unchanged. Installed LitInput/LitForward supplies lighting; its internal Unity fog call is bypassed, then the original CrestApplyUnderwaterFog runs on final lit RGB. Unity fog runs only when Crest returns false. Existing Crest fog helper is normalized-source-identical to upstream; no scattering/depth/shadow equation was rewritten. Explicit ShadowCaster/Meta adapters retain the intended fallback/material roles, but their own casting/bake output is not newly accepted here.
