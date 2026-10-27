@@ -1,0 +1,30 @@
+Target=320x240 ARGBFloat Linear; RGB interior max.002; original fog law, native pre-fog PBR anchor; no tolerance adjustment after execution.
+Capture=FogBaseline; FogLinear=False; FogExp=False; R0=0,342245042; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1
+Capture=FogFull; FogLinear=False; FogExp=False; R0=0,2660011; Centre=RGBA(0.278, 0.162, 0.151, 1.000); Alpha=1; Multiplier=1
+Reference=Fullscreen10m; RGBFloatMax=2,98023223876953E-08; Mean=4,11192603797724E-09; Channels=223728
+Capture=FogHalf; FogLinear=False; FogExp=False; R0=0,304123074; Centre=RGBA(0.310, 0.128, 0.113, 1.000); Alpha=1; Multiplier=0,5
+Reference=MultiplierHalf; RGBFloatMax=2,98023223876953E-08; Mean=2,03894571813657E-09; Channels=223728
+Capture=FogZero; FogLinear=False; FogExp=False; R0=0,342245042; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=0
+Reference=MultiplierZero; RGBFloatMax=0; Mean=0; Channels=223728
+Capture=Volume2D; FogLinear=False; FogExp=False; R0=0,298447251; Centre=RGBA(0.305, 0.131, 0.115, 1.000); Alpha=1; Multiplier=1
+Reference=Volume2D5m; RGBFloatMax=5,96046447753906E-08; Mean=4,02495131266353E-08; Channels=223728
+Capture=BeforeVolume; FogLinear=False; FogExp=False; R0=0,342245042; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1
+Reference=BeforeVolume; RGBFloatMax=0; Mean=0; Channels=223728
+Capture=VolumeMissing; FogLinear=False; FogExp=False; R0=0,342245042; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1
+Reference=Volume2DMissing; RGBFloatMax=0; Mean=0; Channels=223728
+Capture=BackFace; FogLinear=False; FogExp=False; R0=0,314408183; Centre=RGBA(0.319, 0.117, 0.099, 1.000); Alpha=1; Multiplier=1
+Reference=BackFace3m; RGBFloatMax=5,96046447753906E-08; Mean=4,02131806897868E-08; Channels=223728
+Capture=InsideVolume; FogLinear=False; FogExp=False; R0=0,277825266; Centre=RGBA(0.288, 0.150, 0.137, 1.000); Alpha=1; Multiplier=1
+Reference=InsideVolume8m; RGBFloatMax=2,98023223876953E-08; Mean=4,02407547115197E-09; Channels=223728
+Capture=MaskSplit; FogLinear=False; FogExp=False; R0=0,2660011; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1
+Reference=MaskSplit; RGBFloatMax=2,98023223876953E-08; Mean=2,06218665499233E-09; Channels=221604
+Capture=SSSBase; FogLinear=False; FogExp=False; R0=0,219705462; Centre=RGBA(0.222, 0.109, 0.101, 1.000); Alpha=1; Multiplier=1
+Reference=SSSBase; RGBFloatMax=1,49011611938477E-08; Mean=2,15433700473611E-09; Channels=223728
+Capture=SSSSunBaseline; FogLinear=False; FogExp=False; R0=0; Centre=RGBA(0.000, 0.000, 0.000, 1.000); Alpha=1; Multiplier=1
+Capture=SSSSun; FogLinear=False; FogExp=False; R0=0,0644084141; Centre=RGBA(0.075, 0.085, 0.051, 1.000); Alpha=1; Multiplier=1
+Reference=SSSSun; RGBFloatMax=3,72529029846191E-08; Mean=6,11044317835571E-09; Channels=223728
+Capture=ShadowSSS; FogLinear=False; FogExp=False; R0=0,0171172787; Centre=RGBA(0.020, 0.023, 0.015, 1.000); Alpha=1; Multiplier=1
+Reference=ShadowSSS; RGBFloatMax=9,31322574615479E-09; Mean=1,74432745301816E-09; Channels=223728
+Capture=ShadowOnly; FogLinear=False; FogExp=False; R0=0,0246191248; Centre=RGBA(0.028, 0.031, 0.028, 1.000); Alpha=1; Multiplier=1
+Reference=ShadowOnly; RGBFloatMax=9,31322574615479E-09; Mean=2,07230595517873E-09; Channels=223728
+Capture=FogRestored; FogLinear=False; FogExp=False; R0=0,2660011; Centre=RGBA(0.278, 0.162, 0.151, 1.000); Alpha=1; Multiplier=1

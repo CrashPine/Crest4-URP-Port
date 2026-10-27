@@ -230,6 +230,7 @@ public partial class MaskedExampleTests
     }
     [UnityTearDown] public IEnumerator Cleanup()
     {
+        TransparentCleanup();
         if(_publication!=null)CameraGraphPassRegistry.Unregister(_publication);if(_snapshot!=null)CameraGraphPassRegistry.Unregister(_snapshot);
         OceanRenderer.EnableGraphicsInBatchMode=false;if(Application.isPlaying)yield return new ExitPlayMode();EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
         foreach(var handle in _handles)handle.Release();_handles.Clear();foreach(var obj in _owned)if(obj!=null){if(obj is RenderTexture rt)rt.Release();Object.DestroyImmediate(obj);}_owned.Clear();

@@ -1,0 +1,753 @@
+{
+  "recordedUtc": "2026-10-27T17:47:59.333239+00:00",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "scope": "P09.5.3 transparent URP adapter, scoped PBR/alpha/Unity-fog/original Crest fog law and actual native mask/volume acceptance. Full90+actual non-batch2/API. Player builds/smokes are generated-scene integration, not original transparent standalone acceptance.",
+  "implementation": [
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader",
+      "sha256": "F1007BD6A10D6122DA0A25F4E6F1EB00B9D3383217E96367A359FFACDEDB9B26",
+      "bytes": 5419,
+      "modifiedUtc": "2026-10-27T15:46:16.971018+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader.meta",
+      "sha256": "ABB7A2CB0156DBC17C0E16A159D7042D2D028932F99D113125B3C4641EA37BEC",
+      "bytes": 240,
+      "modifiedUtc": "2026-10-18T15:58:56.928012+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/TransparentExampleTests.cs",
+      "sha256": "39C342C52AA406885865C298D1A987439C1BDEBAFF04D12C5B6BC6563624079B",
+      "bytes": 19477,
+      "modifiedUtc": "2026-10-27T17:27:50.687513+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/TransparentExampleTests.cs.meta",
+      "sha256": "A9DED13540F72A1FCB98FC8CC1A8B77BB9CC7936D213E9A66439EEA4F3D07B5A",
+      "bytes": 62,
+      "modifiedUtc": "2026-10-27T15:50:15.023512+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs",
+      "sha256": "16325C6E3C2DE91B8F2D19518047C169F82EC446AD7470818579EF3B61CAF68E",
+      "bytes": 23459,
+      "modifiedUtc": "2026-10-27T15:50:15.025518+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/AuxiliaryExampleTests.cs",
+      "sha256": "1FD567D1A1B3D9EDB41E991D32AE7268C3422839FF213BED158F894B8E10E1E5",
+      "bytes": 10822,
+      "modifiedUtc": "2026-10-27T15:38:52.540483+00:00"
+    }
+  ],
+  "sources": {
+    "path": "Evidence/P09-TransparentExamples-sources.json",
+    "sha256": "2122C3C80F431176AA4F0564B9F327E35CFA5228E70FE5D24F539B84DA1AAA7C",
+    "bytes": 6194,
+    "modifiedUtc": "2026-10-27T17:32:52.365309+00:00"
+  },
+  "suites": [
+    {
+      "path": "Evidence/P09-TransparentExamples-focused-DX11.xml",
+      "sha256": "866E42D9F7B203AD26D1C3DB062B6F54F81F441F694C561AB0FAD626EBEAEB9E",
+      "bytes": 4873,
+      "modifiedUtc": "2026-10-27T17:28:23.879335+00:00",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-TransparentExamples-regression-DX11.xml",
+      "sha256": "F8764E3AF13D1A297B1693CC8DD692A54FD9FDAE4D5E82BFBC5AC4CF4B4EEF03",
+      "bytes": 132435,
+      "modifiedUtc": "2026-10-27T17:33:59.096630+00:00",
+      "total": 90,
+      "passed": 90,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-TransparentExamples-regression-DX11-interactive.xml",
+      "sha256": "BAD702B78CC86C750136A9E232905F08386CEA59664707D04E1D7DA25A395FAD",
+      "bytes": 4018,
+      "modifiedUtc": "2026-10-27T17:40:00.333306+00:00",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-TransparentExamples-focused-DX12.xml",
+      "sha256": "A50EB4C7D9C8B1EDCE0F2A52FE807F0E4B8F5AEAA6FEABE12E8BCED75B9D8E72",
+      "bytes": 4873,
+      "modifiedUtc": "2026-10-27T17:30:01.928175+00:00",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-TransparentExamples-regression-DX12.xml",
+      "sha256": "BAC07C811FF989FAF0586CA9A28EE9373D7F3030B496EBD8E0A89620A3296654",
+      "bytes": 132446,
+      "modifiedUtc": "2026-10-27T17:38:58.253334+00:00",
+      "total": 90,
+      "passed": 90,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-TransparentExamples-regression-DX12-interactive.xml",
+      "sha256": "01602AE0D7AF579718BF19AB811160D9231CD49822C0E6A4805C4BECB7713B48",
+      "bytes": 4020,
+      "modifiedUtc": "2026-10-27T17:40:55.731014+00:00",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "reports": [
+    {
+      "path": "Evidence/TransparentExamples-TransparentActualAboveBelowAndVolumeUseCurrentMask-Direct3D11.txt",
+      "sha256": "DC3C493EC2B2E579493674C81511C0BB24E6D8B6AE956F3F3DB2C6A19F603506",
+      "bytes": 1629,
+      "modifiedUtc": "2026-10-27T17:32:11.214808+00:00"
+    },
+    {
+      "path": "Evidence/TransparentExamples-TransparentActualAboveBelowAndVolumeUseCurrentMask-Direct3D12.txt",
+      "sha256": "DC3C493EC2B2E579493674C81511C0BB24E6D8B6AE956F3F3DB2C6A19F603506",
+      "bytes": 1629,
+      "modifiedUtc": "2026-10-27T17:36:45.349113+00:00"
+    },
+    {
+      "path": "Evidence/TransparentExamples-TransparentFogVolumeShadowAndSssFollowOriginalLaw-Direct3D11.txt",
+      "sha256": "22F6639A08B0796F4AF490626581520B0E64C5C13201B8C25DF0BBE24D202FF1",
+      "bytes": 3387,
+      "modifiedUtc": "2026-10-27T17:32:16.262776+00:00"
+    },
+    {
+      "path": "Evidence/TransparentExamples-TransparentFogVolumeShadowAndSssFollowOriginalLaw-Direct3D12.txt",
+      "sha256": "22F6639A08B0796F4AF490626581520B0E64C5C13201B8C25DF0BBE24D202FF1",
+      "bytes": 3387,
+      "modifiedUtc": "2026-10-27T17:36:50.577798+00:00"
+    },
+    {
+      "path": "Evidence/TransparentExamples-TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit-Direct3D11.txt",
+      "sha256": "01C57368028AFBF9E3D69DB36492271230E9641E7F40D8192165BB108AB075FD",
+      "bytes": 1925,
+      "modifiedUtc": "2026-10-27T17:32:18.995948+00:00"
+    },
+    {
+      "path": "Evidence/TransparentExamples-TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit-Direct3D12.txt",
+      "sha256": "01C57368028AFBF9E3D69DB36492271230E9641E7F40D8192165BB108AB075FD",
+      "bytes": 1925,
+      "modifiedUtc": "2026-10-27T17:36:53.605131+00:00"
+    }
+  ],
+  "imagePairs": [
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualAboveOff-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:09.801286+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualAboveOff-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:43.848365+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualAboveOn-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:09.837406+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualAboveOn-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:43.880449+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualBelowOff-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:10.418784+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualBelowOff-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:44.448390+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualBelowOn-Direct3D11.png",
+        "sha256": "4F55A08E483A59EF67CD9B172956FFEC4570C8B6E9B3BA16C9A5640943959CAE",
+        "bytes": 1847,
+        "modifiedUtc": "2026-10-27T17:32:10.464889+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualBelowOn-Direct3D12.png",
+        "sha256": "4F55A08E483A59EF67CD9B172956FFEC4570C8B6E9B3BA16C9A5640943959CAE",
+        "bytes": 1847,
+        "modifiedUtc": "2026-10-27T17:36:44.497729+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualAboveReturnedOff-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:10.560121+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualAboveReturnedOff-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:44.617577+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualAboveReturnedOn-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:10.587415+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualAboveReturnedOn-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:44.659323+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualVolumeOff-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:11.121130+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualVolumeOff-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:45.212694+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualVolumeOn-Direct3D11.png",
+        "sha256": "CC6855A703997E395F1BC471052661EDADED046FF62BD68B884DD0490AAE9942",
+        "bytes": 1975,
+        "modifiedUtc": "2026-10-27T17:32:11.153270+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualVolumeOn-Direct3D12.png",
+        "sha256": "CC6855A703997E395F1BC471052661EDADED046FF62BD68B884DD0490AAE9942",
+        "bytes": 1975,
+        "modifiedUtc": "2026-10-27T17:36:45.261978+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualVolumeMoved-Direct3D11.png",
+        "sha256": "7ED71F8DAA589244D0861ED4D18B5E6C474FD248C472F05F5A7D475D55083DA8",
+        "bytes": 2002,
+        "modifiedUtc": "2026-10-27T17:32:11.181857+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualVolumeMoved-Direct3D12.png",
+        "sha256": "7ED71F8DAA589244D0861ED4D18B5E6C474FD248C472F05F5A7D475D55083DA8",
+        "bytes": 2002,
+        "modifiedUtc": "2026-10-27T17:36:45.309283+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ActualVolumeRestored-Direct3D11.png",
+        "sha256": "CC6855A703997E395F1BC471052661EDADED046FF62BD68B884DD0490AAE9942",
+        "bytes": 1975,
+        "modifiedUtc": "2026-10-27T17:32:11.214264+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ActualVolumeRestored-Direct3D12.png",
+        "sha256": "CC6855A703997E395F1BC471052661EDADED046FF62BD68B884DD0490AAE9942",
+        "bytes": 1975,
+        "modifiedUtc": "2026-10-27T17:36:45.349113+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-FogBaseline-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:12.045966+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-FogBaseline-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:46.293777+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-FogFull-Direct3D11.png",
+        "sha256": "EEFA09758A28D66EF60D9F115B68D751258190D85924C8BABAB1B128854C509A",
+        "bytes": 3110,
+        "modifiedUtc": "2026-10-27T17:32:12.069541+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-FogFull-Direct3D12.png",
+        "sha256": "EEFA09758A28D66EF60D9F115B68D751258190D85924C8BABAB1B128854C509A",
+        "bytes": 3110,
+        "modifiedUtc": "2026-10-27T17:36:46.333503+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-FogHalf-Direct3D11.png",
+        "sha256": "2323F664919D2528404144CD3116BFF317DB086DEE90F0A2E84E5A20F133C7FD",
+        "bytes": 2672,
+        "modifiedUtc": "2026-10-27T17:32:12.372674+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-FogHalf-Direct3D12.png",
+        "sha256": "2323F664919D2528404144CD3116BFF317DB086DEE90F0A2E84E5A20F133C7FD",
+        "bytes": 2672,
+        "modifiedUtc": "2026-10-27T17:36:46.663628+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-FogZero-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:12.649508+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-FogZero-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:46.958129+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-Volume2D-Direct3D11.png",
+        "sha256": "FD32B20FF4418B005BBFA3A398731EDA38EA3ECC67C1E8A026A119915EB6F867",
+        "bytes": 2854,
+        "modifiedUtc": "2026-10-27T17:32:12.974853+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-Volume2D-Direct3D12.png",
+        "sha256": "FD32B20FF4418B005BBFA3A398731EDA38EA3ECC67C1E8A026A119915EB6F867",
+        "bytes": 2854,
+        "modifiedUtc": "2026-10-27T17:36:47.264573+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-BeforeVolume-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:13.255501+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-BeforeVolume-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:47.548918+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-VolumeMissing-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:13.594962+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-VolumeMissing-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:47.831564+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-BackFace-Direct3D11.png",
+        "sha256": "4B70B2811025F7552C751AF5B3992090A002543C6EDF38F0C535B099B827233C",
+        "bytes": 2532,
+        "modifiedUtc": "2026-10-27T17:32:13.919676+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-BackFace-Direct3D12.png",
+        "sha256": "4B70B2811025F7552C751AF5B3992090A002543C6EDF38F0C535B099B827233C",
+        "bytes": 2532,
+        "modifiedUtc": "2026-10-27T17:36:48.137770+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-InsideVolume-Direct3D11.png",
+        "sha256": "497AA6B1EACEC95582D83FEFF5824C29CF5E0A6339F868B3196D0D5D97EE11D3",
+        "bytes": 2814,
+        "modifiedUtc": "2026-10-27T17:32:14.233883+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-InsideVolume-Direct3D12.png",
+        "sha256": "497AA6B1EACEC95582D83FEFF5824C29CF5E0A6339F868B3196D0D5D97EE11D3",
+        "bytes": 2814,
+        "modifiedUtc": "2026-10-27T17:36:48.427423+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-MaskSplit-Direct3D11.png",
+        "sha256": "9E98EDFE95C39A4AE9B8B84352F3C0F6E420CF126551FEB5EC937E177CBCFC4B",
+        "bytes": 2792,
+        "modifiedUtc": "2026-10-27T17:32:14.665435+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-MaskSplit-Direct3D12.png",
+        "sha256": "9E98EDFE95C39A4AE9B8B84352F3C0F6E420CF126551FEB5EC937E177CBCFC4B",
+        "bytes": 2792,
+        "modifiedUtc": "2026-10-27T17:36:48.770237+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-SSSBase-Direct3D11.png",
+        "sha256": "142D36B29552CB3B6836AA64DC8CA9B8A7647774225EFE60C7E9C21A5580102F",
+        "bytes": 2567,
+        "modifiedUtc": "2026-10-27T17:32:14.967071+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-SSSBase-Direct3D12.png",
+        "sha256": "142D36B29552CB3B6836AA64DC8CA9B8A7647774225EFE60C7E9C21A5580102F",
+        "bytes": 2567,
+        "modifiedUtc": "2026-10-27T17:36:49.066202+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-SSSSunBaseline-Direct3D11.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T17:32:15.308780+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-SSSSunBaseline-Direct3D12.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T17:36:49.451199+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-SSSSun-Direct3D11.png",
+        "sha256": "600BC11FEBAEA9023399C075671ED3D41C5CCA086C6C8704C9922418C5115504",
+        "bytes": 11584,
+        "modifiedUtc": "2026-10-27T17:32:15.341195+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-SSSSun-Direct3D12.png",
+        "sha256": "600BC11FEBAEA9023399C075671ED3D41C5CCA086C6C8704C9922418C5115504",
+        "bytes": 11584,
+        "modifiedUtc": "2026-10-27T17:36:49.494883+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ShadowSSS-Direct3D11.png",
+        "sha256": "6CF981BCCB2BA1FEF0852A5566ED3CC508EA58F1402F2A293336B83E12B4EFC8",
+        "bytes": 7773,
+        "modifiedUtc": "2026-10-27T17:32:15.641092+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ShadowSSS-Direct3D12.png",
+        "sha256": "6CF981BCCB2BA1FEF0852A5566ED3CC508EA58F1402F2A293336B83E12B4EFC8",
+        "bytes": 7773,
+        "modifiedUtc": "2026-10-27T17:36:49.862188+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-ShadowOnly-Direct3D11.png",
+        "sha256": "1724BB26883AD1BE1FB749BA67BEBD23439B4822BD21B1DAF0C7634F681B2044",
+        "bytes": 3114,
+        "modifiedUtc": "2026-10-27T17:32:15.977152+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-ShadowOnly-Direct3D12.png",
+        "sha256": "1724BB26883AD1BE1FB749BA67BEBD23439B4822BD21B1DAF0C7634F681B2044",
+        "bytes": 3114,
+        "modifiedUtc": "2026-10-27T17:36:50.239882+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-FogRestored-Direct3D11.png",
+        "sha256": "EEFA09758A28D66EF60D9F115B68D751258190D85924C8BABAB1B128854C509A",
+        "bytes": 3110,
+        "modifiedUtc": "2026-10-27T17:32:16.262147+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-FogRestored-Direct3D12.png",
+        "sha256": "EEFA09758A28D66EF60D9F115B68D751258190D85924C8BABAB1B128854C509A",
+        "bytes": 3110,
+        "modifiedUtc": "2026-10-27T17:36:50.577798+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-Opaque-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:16.907949+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-Opaque-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:51.299179+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-LitOpaque-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:16.934858+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-LitOpaque-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:51.342564+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-AlphaZero-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T17:32:17.207888+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-AlphaZero-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T17:36:51.712705+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-LitAlphaZero-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T17:32:17.232181+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-LitAlphaZero-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T17:36:51.744189+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-AlphaHalf-Direct3D11.png",
+        "sha256": "55CD26D5E131D2A72D059CF7755486E716A8D6EAB47CE0570E148EC8E5C12601",
+        "bytes": 1847,
+        "modifiedUtc": "2026-10-27T17:32:17.504750+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-AlphaHalf-Direct3D12.png",
+        "sha256": "55CD26D5E131D2A72D059CF7755486E716A8D6EAB47CE0570E148EC8E5C12601",
+        "bytes": 1847,
+        "modifiedUtc": "2026-10-27T17:36:52.038183+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-LitAlphaHalf-Direct3D11.png",
+        "sha256": "55CD26D5E131D2A72D059CF7755486E716A8D6EAB47CE0570E148EC8E5C12601",
+        "bytes": 1847,
+        "modifiedUtc": "2026-10-27T17:32:17.527114+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-LitAlphaHalf-Direct3D12.png",
+        "sha256": "55CD26D5E131D2A72D059CF7755486E716A8D6EAB47CE0570E148EC8E5C12601",
+        "bytes": 1847,
+        "modifiedUtc": "2026-10-27T17:36:52.067930+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-UnityFogFallback-Direct3D11.png",
+        "sha256": "7141FC85D8DC7A15E21277101D55A559CEF0E952BC1C694EB69EBBDAB1DD2829",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:18.066288+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-UnityFogFallback-Direct3D12.png",
+        "sha256": "7141FC85D8DC7A15E21277101D55A559CEF0E952BC1C694EB69EBBDAB1DD2829",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:52.634676+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-LitUnityFogFallback-Direct3D11.png",
+        "sha256": "7141FC85D8DC7A15E21277101D55A559CEF0E952BC1C694EB69EBBDAB1DD2829",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:18.105406+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-LitUnityFogFallback-Direct3D12.png",
+        "sha256": "7141FC85D8DC7A15E21277101D55A559CEF0E952BC1C694EB69EBBDAB1DD2829",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:52.676453+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-CrestZeroMultiplier-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:18.459273+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-CrestZeroMultiplier-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:53.006691+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/TransparentExamples-PbrRestored-Direct3D11.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:32:18.738856+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/TransparentExamples-PbrRestored-Direct3D12.png",
+        "sha256": "65863E471BC3CF9E540FFF3A3B711CBDEEF5E393B4B129C50EEBC65CA997E193",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T17:36:53.354531+00:00"
+      },
+      "byteIdentical": true
+    }
+  ],
+  "metrics": {
+    "pbrInstalledLitRGBFloatMax": 0,
+    "alphaBlendRGBFloatMax": 1.1175871e-08,
+    "originalFogOracleCases": 13,
+    "originalFogRGBFloatMax": 5.9604645e-08,
+    "predeterminedRGBFloatTolerance": 0.002,
+    "nativeVolumeChangedInterior": 24964,
+    "nativeVolumeChangedOutside": 0,
+    "restoration": "exact",
+    "aboveBelowHeightWarmupUpdates": 16
+  },
+  "structuralAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "B685690070ADAA5EEAB847C730213A1A05C9CB1B4F0C5A8D193953D0788F8E8B",
+    "bytes": 281335,
+    "modifiedUtc": "2026-10-27T17:44:51.246395+00:00"
+  },
+  "guidComputeCheck": {
+    "path": "Evidence/guid-compute-preservation.json",
+    "sha256": "899AA53FD560C03FA9F3EB39ECFE891CD26271913852550CC794D1E29D1E0C33",
+    "bytes": 586,
+    "modifiedUtc": "2026-10-26T15:54:49.584784+00:00"
+  },
+  "shutdownWarnings": [
+    {
+      "log": {
+        "path": "Evidence/EditMode-DX11.log",
+        "sha256": "7EBB3F305E3833E5CA1E784EB653FB6716422DE4BB288236C576EDDD76D7B9E2",
+        "bytes": 1871299,
+        "modifiedUtc": "2026-10-27T17:34:02.329199+00:00"
+      },
+      "messages": [
+        "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+      ]
+    },
+    {
+      "log": {
+        "path": "Evidence/EditMode-DX12.log",
+        "sha256": "44DB90D65A16FE833133FE4F596F85F12BCFF003BA755DD5CB3BD2AA97F03C5C",
+        "bytes": 1869397,
+        "modifiedUtc": "2026-10-27T17:39:01.721047+00:00"
+      },
+      "messages": [
+        "Leak Detected : Persistent allocates 3 individual allocations. To find out more please enable 'Preferences > Jobs > Leak Detection Level > Enabled With Stack Trace' and reproduce the leak again."
+      ]
+    }
+  ],
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448,
+    "modifiedUtc": "2026-10-27T17:47:59.401092+00:00"
+  },
+  "limitations": [
+    "Original complete Examples/BoatDev/Whirlpool/LakesAndRivers scenes and original standalone template rendering remain P09.5.4.",
+    "PBR reference is installed URP/Lit, not original Built-in Standard RGB parity. Original fog helper remains normalized-source-identical.",
+    "Shadow oracle uses uniform16-layer .75 input with native ocean cascade metadata; not new temporal shadow parity.",
+    "Actual foreground alpha1 isolates fog/mask; alpha0/.5/1 and Unity fog checked separately. No all-combination coverage.",
+    "Meta bake/own shadow casting/all renderer/stack/MSAA/XR/performance acceptance remain P09.5.4/P10/P11.",
+    "Native actual height teleports settle16 updates before captures; not instant query/temporal transition acceptance."
+  ]
+}

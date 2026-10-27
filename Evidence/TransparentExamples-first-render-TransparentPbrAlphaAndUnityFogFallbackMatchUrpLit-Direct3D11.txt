@@ -1,0 +1,17 @@
+Target=320x240 ARGBFloat Linear; RGB interior max.002; original fog law, native pre-fog PBR anchor; no tolerance adjustment after execution.
+Capture=Opaque; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1
+Capture=LitOpaque; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1
+Reference=Opaque; RGBFloatMax=0; Mean=0; Channels=223728
+Capture=AlphaZero; Centre=RGBA(0.002, 0.002, 0.003, 1.000); Alpha=0; Multiplier=1
+Capture=LitAlphaZero; Centre=RGBA(0.002, 0.002, 0.003, 1.000); Alpha=0; Multiplier=1
+Reference=AlphaZero; RGBFloatMax=0; Mean=0; Channels=223728
+Capture=AlphaHalf; Centre=RGBA(0.172, 0.048, 0.039, 0.750); Alpha=0,5; Multiplier=1
+Capture=LitAlphaHalf; Centre=RGBA(0.172, 0.048, 0.039, 0.750); Alpha=0,5; Multiplier=1
+Reference=AlphaHalf; RGBFloatMax=0; Mean=0; Channels=223728
+Reference=AlphaBlend; RGBFloatMax=1,11758708953857E-08; Mean=3,72529029846191E-09; Channels=223728
+Capture=UnityFogFallback; Centre=RGBA(0.178, 0.113, 0.054, 1.000); Alpha=1; Multiplier=1
+Capture=LitUnityFogFallback; Centre=RGBA(0.178, 0.113, 0.054, 1.000); Alpha=1; Multiplier=1
+Reference=UnityFogFallback; RGBFloatMax=0; Mean=0; Channels=223728
+Capture=CrestZeroMultiplier; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=0
+Reference=CrestProcessedSuppressesUnityFog; RGBFloatMax=2,23517417907715E-08; Mean=9,9341074625651E-09; Channels=223728
+Capture=PbrRestored; Centre=RGBA(0.342, 0.094, 0.074, 1.000); Alpha=1; Multiplier=1

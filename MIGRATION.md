@@ -59,6 +59,10 @@ URP teardown skips legacy Camera.RemoveCommandBuffer because graph passes are re
 
 The independent underwater mask now runs before depth prepasses. `MaskFill.ExecuteFillMask` callbacks run immediately after it and before the opaque depth/normal passes. MaskFill owns separate RFloat colour and depth-only handles, resizes them with the camera descriptor, and clears empty lists/disabled callbacks. Viewport for its offscreen draw uses descriptor dimensions; window pixelRect can differ. Masked materials keep their original properties and clipping/emission equations. Their ShadowCaster uses alpha cutoff independently of the view mask, while DepthOnly/DepthNormals apply the view mask. Scoped auxiliary depth/gradient and non-emissive PBR render controls now pass on both APIs (TEST_RESULTS). Meta/lightmap baking and remaining original scene/renderer configurations still require acceptance; see PORT_PLAN.
 
+## Transparent example fog contract
+
+`Crest/Examples/UnderwaterTransparentSurfaceShader` keeps `_Color`, `_Glossiness`, `_Metallic`, `_FogMultiplier` and its original GUID. The URP forward pass computes PBR first, then calls the existing `CrestApplyUnderwaterFog` with current camera mask/volume faces and device depth. Unity fog is applied only if Crest returns false: setting FogMultiplier0 on an underwater pixel still means Crest handled it and suppresses Unity fog, as in the original. The original SrcAlpha/OneMinusSrcAlpha blend and no-depth-write contract remain. Enable the underwater component's Shader API/before-transparent mode when using this integration; opaque mask production precedes depth/colour passes. Native viewer-height query updates still govern the original fullscreen height optimization. Detailed scoped controls/remaining configurations are in TEST_RESULTS/PORT_PLAN.
+
 ## Planar reflection options
 
 URP skips the Built-in-only spherical layer-culling switch. During the synchronous

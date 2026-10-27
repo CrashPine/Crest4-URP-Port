@@ -1,7 +1,5 @@
-// Crest Ocean System
-
-// This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
-
+// Crest Ocean System. MIT; see LICENSE.
+// URP adapter retaining the original material and final-colour fog contract.
 Shader "Crest/Examples/UnderwaterTransparentSurfaceShader"
 {
 	Properties
@@ -11,69 +9,109 @@ Shader "Crest/Examples/UnderwaterTransparentSurfaceShader"
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_FogMultiplier ("Fog Multiplier", Range(0, 1)) = 1.0
 	}
-	SubShader
-	{
-		Tags { "Queue" = "Transparent" "RenderType"="Transparent" }
-		LOD 200
-
-		CGPROGRAM
-		// Fog is added to the final color so add "finalcolor:FinalColor"
-		#pragma surface Surface Standard vertex:Vertex finalcolor:FinalColor alpha:blend
-		#pragma target 3.0
-
-		// Since we are setting finalcolor:FinalColor, Unity fog will no longer be applied. Only add this if
-		// you use Unity's fog.
-		#pragma multi_compile_fog
-
-		// Keywords for optional features. Can skip if not needed.
-		#pragma multi_compile _ CREST_WATER_VOLUME_2D CREST_WATER_VOLUME_HAS_BACKFACE
-		#pragma multi_compile _ CREST_SUBSURFACESCATTERING_ON
-		#pragma multi_compile _ CREST_SHADOWS_ON
-
-		#include "UnityCG.cginc"
-
-		// Include Crest shader functions etc.
-		#include "../../../Crest/Shaders/Underwater/UnderwaterEffectIncludes.hlsl"
-
-		struct Input
-		{
-			float3 worldPos;
-			float4 screenPos;
-			float1 fogCoord;
-		};
-
-		fixed4 _Color;
-		half _Glossiness;
-		half _Metallic;
-		half _FogMultiplier;
-
-		void Vertex(inout appdata_full v, out Input o)
-		{
-			UNITY_INITIALIZE_OUTPUT(Input, o);
-			UNITY_TRANSFER_FOG(o, UnityObjectToClipPos(v.vertex));
-		}
-
-		// Fog should be applied to the final color.
-		void FinalColor(Input IN, SurfaceOutputStandard o, inout fixed4 color)
-		{
-			float2 positionNDC = IN.screenPos.xy / IN.screenPos.w;
-			float deviceDepth = IN.screenPos.z / IN.screenPos.w;
-
-			// "true" is returned if pixel is underwater and fog was applied. If "false" then we should apply Unity fog.
-			if (!CrestApplyUnderwaterFog(positionNDC, IN.worldPos, deviceDepth, _FogMultiplier, color.rgb))
-			{
-				UNITY_APPLY_FOG(IN.fogCoord, color);
-			}
-		}
-
-		void Surface(Input IN, inout SurfaceOutputStandard o)
-		{
-			o.Albedo = _Color.rgb;
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
-			o.Alpha = _Color.a;
-		}
-		ENDCG
-	}
-	FallBack "Diffuse"
+    SubShader
+    {
+        Tags {"RenderPipeline"="UniversalPipeline" "Queue"="Transparent" "RenderType"="Transparent"}
+        Blend SrcAlpha OneMinusSrcAlpha
+        ZWrite Off
+        HLSLINCLUDE
+        #pragma target 4.5
+        #pragma multi_compile_instancing
+        #define _BaseColor _Color
+        #define _Smoothness _Glossiness
+        #define _SURFACE_TYPE_TRANSPARENT 1
+        #include "../../../Crest/Shaders/Helpers/URP/Core.hlsl"
+        #define InitializeStandardLitSurfaceData CrestUnusedStandardSurfaceData
+        #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+        #undef InitializeStandardLitSurfaceData
+        half _FogMultiplier;
+        void InitializeStandardLitSurfaceData(float2 uv, out SurfaceData surface)
+        {
+            surface=(SurfaceData)0;
+            surface.albedo=_Color.rgb;
+            surface.alpha=_Color.a;
+            surface.metallic=_Metallic;
+            surface.smoothness=_Glossiness;
+            surface.normalTS=half3(0,0,1);
+            surface.occlusion=1;
+        }
+        ENDHLSL
+        Pass
+        {
+            Name "ForwardLit"
+            Tags {"LightMode"="UniversalForwardOnly"}
+            HLSLPROGRAM
+            #pragma vertex LitPassVertex
+            #pragma fragment CrestTransparentFragment
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
+            #pragma multi_compile _ EVALUATE_SH_MIXED EVALUATE_SH_VERTEX
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_ATLAS
+            #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
+            #pragma multi_compile_fragment _ LIGHTMAP_BICUBIC_SAMPLING
+            #pragma multi_compile_fragment _ REFLECTION_PROBE_ROTATION
+            #pragma multi_compile _ LIGHTMAP_ON
+            #pragma multi_compile _ DYNAMICLIGHTMAP_ON
+            #pragma multi_compile _ DIRLIGHTMAP_COMBINED
+            #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
+            #pragma multi_compile _ SHADOWS_SHADOWMASK
+            #pragma multi_compile_fog
+            #pragma multi_compile _ CREST_WATER_VOLUME_2D CREST_WATER_VOLUME_HAS_BACKFACE
+            #pragma multi_compile _ CREST_SUBSURFACESCATTERING_ON
+            #pragma multi_compile _ CREST_SHADOWS_ON
+            #include "../../../Crest/Shaders/Underwater/UnderwaterEffectIncludes.hlsl"
+            // The package PBR pass must leave fog to the original final-colour callback.
+            #define MixFog(colour, factor) colour
+            #define LitPassFragment CrestUnfoggedLitFragment
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl"
+            #undef LitPassFragment
+            #undef MixFog
+            void CrestTransparentFragment(Varyings input, out half4 colour : SV_Target0)
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+                CrestUnfoggedLitFragment(input,colour);
+                float2 positionNDC=GetNormalizedScreenSpaceUV(input.positionCS);
+                if(!CrestApplyUnderwaterFog(positionNDC,input.positionWS,input.positionCS.z,_FogMultiplier,colour.rgb))
+                {
+                    InputData data;
+                    InitializeInputData(input,half3(0,0,1),data);
+                    colour.rgb=MixFog(colour.rgb,data.fogCoord);
+                }
+            }
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags {"LightMode"="ShadowCaster"}
+            Blend One Zero
+            ZWrite On
+            ColorMask 0
+            HLSLPROGRAM
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
+            #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
+            // The original Diffuse fallback provided an opaque caster for this alpha-blend surface.
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "Meta"
+            Tags {"LightMode"="Meta"}
+            Blend One Zero
+            Cull Off
+            HLSLPROGRAM
+            #pragma vertex UniversalVertexMeta
+            #pragma fragment UniversalFragmentMetaLit
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitMetaPass.hlsl"
+            ENDHLSL
+        }
+    }
 }
