@@ -2,6 +2,24 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: original boat scene (2026-10-27, partial)
+
+Original BoatDev/Scenes/boat.unity focused1/1 Passed on DX11 and DX12 (all testcase nodes Passed, failed0/skipped0). Actual source2 BoatAlignNormal hulls,1 BoatProbes, BoatGray URP/Lit, LerpCam, dynamic-wave and foam simulations loaded; missing scripts0. Original camera stays active, depth required, postprocess/MSAA off,640x360. Selected before/after-throttle DX11 and default DX12 images inspected; original primitive hulls are dark against sunlit water, not a baked-lighting/parity acceptance.
+
+| Actual player hull control | DX11 | DX12 |
+|---|---:|---:|
+| Last100 settling physics steps in water | 100 | 100 |
+| Settled world Y range (m) | −.6558133 to−.4034584 | −.6555449 to−.4034584 |
+| Source hull renderer off: changed pixels | 8481 | 8496 |
+| Same-frame baseline repeat / restore differences | 0 / 0 | 0 / 0 |
+| Native throttle1 for150 fixed steps: forward displacement (m) | 17.5614662 | 17.5593128 |
+| Throttle steps in water | 150/150 | 150/150 |
+| Error-pink pixels, all5 captures | 0 | 0 |
+
+Fixture temporarily disables player input and zeroes throttle/steer biases of both BoatAlignNormal instances (source player has automatic throttle1/steer.8), then applies throttle1 to actual BoatAlignNormalPlayer. Other native physics/waves remain live; no exact API image parity or isolated engine-force comparison is claimed.250 settling steps, last100 observed, then150 throttle steps at native .02s; capture60Hz and existing BoatProbesQueryFence pace GPU queries. Camera follows actual hull via original LerpCam, report records poses before/after. This establishes saved-scene integration alongside prior independent P07 force/torque tests, not keyboard/GUI, wake numerical correctness, baked lighting, performance or original standalone acceptance.
+
+Evidence: P09-OriginalBoat-focused-DX11.xml / DX12.xml; OriginalBoat-Direct3D*.txt;10 PNG; P09-OriginalBoat-checkpoint.json. Stable audit1361 files, missing meta/duplicate GUID/missing upstream0, root Markdown8.20 selected runtime and8 material hashes still match095178f Build checkpoint. Editor-only test addition: no new full93 or Player rebuild claimed; runtime full90+actual non-batch2/API remains unchanged. Known P10/P11 gaps remain. Next source scene BoatWakes uses moving WakeRig SimpleMotion +five SphereWaterInteraction sources, not RippleGenerator; its source-size/weight controls require separate acceptance.
+
 ## P09.5.4: original Examples scene (2026-10-27, partial)
 
 Original Examples public Next/Previous cycles24 configurations in actual PlayMode640x360: DX11 inventory1/1 +controls1/1; DX12 combined2/2 Passed, all nodes Passed, failed0/skipped0. Each configuration has error-pink0 and missing scripts0. Source camera, active materials and persistent callbacks are recorded. Physical keyboard polling is disabled; this is not GUI/input acceptance. Selected River/UnderwaterLighting/Transparent previews inspected. No-error smoke is not full feature acceptance.

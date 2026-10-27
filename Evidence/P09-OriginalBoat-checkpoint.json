@@ -1,0 +1,149 @@
+{
+  "recordedUtc": "2026-10-27T22:37:02.954348+00:00",
+  "scope": "Original boat.unity saved scene integration: source hull visibility, native buoyancy/throttle and original LerpCam; Editor focused only.",
+  "implementationAndSelectedSources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalBoatSceneTests.cs",
+      "sha256": "CEBD726E782DCC9C94B68880D673AA59A1458C7F52CC9D2E7B3D089E6CE3D79C",
+      "bytes": 6721
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalBoatSceneTests.cs.meta",
+      "sha256": "CCA8527470C4D01E80FCA354FECB54A3286AEA3DC95432DE38D6701D05A3B909",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BoatProbesTests.cs",
+      "sha256": "29372F03C95B98426F9470587C348A60FCB2B64E4EBBDA2A50CEF6203DB25331",
+      "bytes": 17705
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+      "sha256": "728F55F025A7140254A23497ACA2F489F6C06E677216789EB8A5D4389B87BA30",
+      "bytes": 6347
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/Internal/BoatScene.prefab",
+      "sha256": "08FE9B603834B8FF03082B042B0A582D1731E740D919305FDCB000DA7A4CFBF0",
+      "bytes": 2599
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/Internal/BoatSceneCore.prefab",
+      "sha256": "0825BB6A2559FA17896A67218035B15428D59CD29C4AC0E069AB5F2BCB0ADDDA",
+      "bytes": 147795
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Data/BoatAlignNormal.prefab",
+      "sha256": "DF4CEB484179F658D9AD3455B5159FFBD3C9B6DDB295617BCFEE99B6918887A7",
+      "bytes": 12600
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs",
+      "sha256": "691D3DA22F6436F9DC098242CD43BE544B20E1F3B99784B67198D0011F8B308D",
+      "bytes": 9774
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scripts/LerpCam.cs",
+      "sha256": "00D57BF927F2364D0420DB81BF5BB355E4A4AE282F5BD3CAFF4C6608907AA16C",
+      "bytes": 1581
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+      "sha256": "B056B3A8918A13FD1C79C91DC6BE0E635398B0948B83F0C95C272D355ECE8886",
+      "bytes": 3849
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-OriginalBoat-focused-DX11.xml",
+      "sha256": "A12F6BF955854F2BE54D508AD9FB82B7D1F2D2665A6D1B2CE2E0272812B51F63",
+      "bytes": 2836
+    },
+    {
+      "path": "Evidence/P09-OriginalBoat-focused-DX12.xml",
+      "sha256": "771F57BBB99350B64B6E6DA5FF9D1C9DBB28E55F15F752DDB4C094732113ED8F",
+      "bytes": 2837
+    }
+  ],
+  "reports": [
+    {
+      "path": "Evidence/OriginalBoat-Direct3D11.txt",
+      "sha256": "58FE8A3AF63D6AAA8CE97C42E28F30431BDB3098CAF5EA91670CB128443E7977",
+      "bytes": 959
+    },
+    {
+      "path": "Evidence/OriginalBoat-Direct3D12.txt",
+      "sha256": "8FC4F2552723053A7DE04055215DF2F805A06845D2B8B61A5CA4206B43DC77DA",
+      "bytes": 959
+    }
+  ],
+  "images": [
+    {
+      "path": "Evidence/OriginalBoat-after-throttle-Direct3D11.png",
+      "sha256": "BAEB39B9DFBB1810992A701D803F08B3E14B5689F02A9CF7E43DA5E89B70B821",
+      "bytes": 260660
+    },
+    {
+      "path": "Evidence/OriginalBoat-after-throttle-Direct3D12.png",
+      "sha256": "A4CCE2640400ABAC186BF5F718300A2CD2C14B1C332EF0EE6F9E24FFDC4457E1",
+      "bytes": 260672
+    },
+    {
+      "path": "Evidence/OriginalBoat-hull-off-Direct3D11.png",
+      "sha256": "6B42A3F39007B4F10C849CA5B43B5C72D086C5C9E8B7159018C4855733B45D68",
+      "bytes": 244885
+    },
+    {
+      "path": "Evidence/OriginalBoat-hull-off-Direct3D12.png",
+      "sha256": "3606FC6EDAE841C44861311E0BF3C689D0ED544C78D9A088F112DB7EA8CC8AE9",
+      "bytes": 244789
+    },
+    {
+      "path": "Evidence/OriginalBoat-on-Direct3D11.png",
+      "sha256": "A924E0C67C21D10AEFA5896F4556C87876291CA46EAB34201132A44EAEB09D84",
+      "bytes": 238091
+    },
+    {
+      "path": "Evidence/OriginalBoat-on-Direct3D12.png",
+      "sha256": "55A1E08B08FF6D4364F334B429179BF6EA4B9808F759DD0C3B8407BDA5A9F4CA",
+      "bytes": 237935
+    },
+    {
+      "path": "Evidence/OriginalBoat-repeat-Direct3D11.png",
+      "sha256": "A924E0C67C21D10AEFA5896F4556C87876291CA46EAB34201132A44EAEB09D84",
+      "bytes": 238091
+    },
+    {
+      "path": "Evidence/OriginalBoat-repeat-Direct3D12.png",
+      "sha256": "55A1E08B08FF6D4364F334B429179BF6EA4B9808F759DD0C3B8407BDA5A9F4CA",
+      "bytes": 237935
+    },
+    {
+      "path": "Evidence/OriginalBoat-restored-Direct3D11.png",
+      "sha256": "A924E0C67C21D10AEFA5896F4556C87876291CA46EAB34201132A44EAEB09D84",
+      "bytes": 238091
+    },
+    {
+      "path": "Evidence/OriginalBoat-restored-Direct3D12.png",
+      "sha256": "55A1E08B08FF6D4364F334B429179BF6EA4B9808F759DD0C3B8407BDA5A9F4CA",
+      "bytes": 237935
+    }
+  ],
+  "runtimeBuildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "structuralAudit": {
+    "path": "Evidence/P09-OriginalBoat-workspace-audit.json",
+    "sha256": "3F11FD5FA81B483331A672899024501CA8D55AB456DAA2110C53846E656C0D73",
+    "bytes": 282148
+  },
+  "limitations": [
+    "Input disabled; original automatic throttle/steer biases zeroed for both BoatAlignNormal boats before player throttle1. No physical keyboard/GUI acceptance.",
+    "Source live waves/physics; fixed capture60Hz and existing GPU query fence. Not performance, exact API parity or isolated engine-force comparison.",
+    "Original camera, depth on/postprocess and MSAA off640x360; no scene/material saves. Original primitive hulls dark against lit water; lighting/bake/parity remain open.",
+    "Wake numerical/source-size acceptance and other saved scenes still P09.5.4. No standalone original boat or all renderer configurations.",
+    "Editor-only addition; full90+actual non-batch2/API and Player builds remain prior095178f runtime evidence, no fresh full93 claimed. P10 shutdown warning investigation remains open."
+  ]
+}
