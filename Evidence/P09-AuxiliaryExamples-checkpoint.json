@@ -1,0 +1,615 @@
+{
+  "recordedUtc": "2026-10-27T15:40:35.732372+00:00",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "scope": "P09.5.2 scoped closure: auxiliary depth/gradient and non-emissive Masked PBR controls, Editor-only addition to60ad902 runtime.",
+  "implementation": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/AuxiliaryExampleTests.cs",
+      "sha256": "1FD567D1A1B3D9EDB41E991D32AE7268C3422839FF213BED158F894B8E10E1E5",
+      "bytes": 10822,
+      "modifiedUtc": "2026-10-27T15:38:52.540483+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/AuxiliaryExampleTests.cs.meta",
+      "sha256": "1B9E82044E1B662AB3A77AC44338B1E2745A668CDC37C863D6A11E682DA9EC4E",
+      "bytes": 62,
+      "modifiedUtc": "2026-10-27T15:31:09.997794+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs",
+      "sha256": "0B1F146224F4827A92BF4BF093DCBDC2E138FD095456BA9179E12FA4B6075C51",
+      "bytes": 23428,
+      "modifiedUtc": "2026-10-27T15:38:52.539483+00:00"
+    }
+  ],
+  "sources": {
+    "path": "Evidence/P09-AuxiliaryExamples-sources.json",
+    "sha256": "D29D90E62ED1D11309BEDB49F0C9D467E165BDAA08F7DA35FF79F901855C5696",
+    "bytes": 5335,
+    "modifiedUtc": "2026-10-27T15:38:18.181898+00:00"
+  },
+  "suites": [
+    {
+      "path": "Evidence/P09-AuxiliaryExamples-focused-DX11.xml",
+      "sha256": "EBD4D276E6D216BADFF05C34C49081E95DFD501680C634891CD72A91A7B14769",
+      "bytes": 5013,
+      "modifiedUtc": "2026-10-27T15:39:15.982673+00:00",
+      "passed": 4,
+      "total": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-AuxiliaryExamples-focused-DX12.xml",
+      "sha256": "CB3F920C5112CFD73CC8E806863F793A88D9F23D4028DCE086B366DDC9C2A780",
+      "bytes": 5011,
+      "modifiedUtc": "2026-10-27T15:39:37.566988+00:00",
+      "passed": 4,
+      "total": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "reports": [
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliaryDepthOnlyOccludesWithoutWritingColour-Direct3D11.txt",
+      "sha256": "818EED7AC87D27396EC6FF286D6BD4F9C24DB946D0A9DCAE2EB10DE636AF115C",
+      "bytes": 2046,
+      "modifiedUtc": "2026-10-27T15:39:11.988214+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliaryDepthOnlyOccludesWithoutWritingColour-Direct3D12.txt",
+      "sha256": "276D9723D017D36EB2973BE0B3C7B3303E67892E1786964CB6E4EA1797B7F7C5",
+      "bytes": 2046,
+      "modifiedUtc": "2026-10-27T15:39:33.442643+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour-Direct3D11.txt",
+      "sha256": "EDCFAE6828979C051FEE9D465DCEB02DC1D5567F4BAFDD608292A7E2FD759103",
+      "bytes": 2433,
+      "modifiedUtc": "2026-10-27T15:39:14.030560+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour-Direct3D12.txt",
+      "sha256": "436C32C29C8B16366C84A2EA4DA3476BB1D5C6B83E77BC053EBE28BF31E24B77",
+      "bytes": 2433,
+      "modifiedUtc": "2026-10-27T15:39:35.551616+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit-Direct3D11.txt",
+      "sha256": "E9E9428BCFC7B03DB40F40E0CE53321322E7A4070B8627B1B840E3454DBC812B",
+      "bytes": 2736,
+      "modifiedUtc": "2026-10-27T15:39:14.284000+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit-Direct3D12.txt",
+      "sha256": "0758A670F7D0FE71261FBA1B18EEDA348E98FE9EE6199DB8BCD505344FB131D4",
+      "bytes": 2736,
+      "modifiedUtc": "2026-10-27T15:39:35.841263+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw-Direct3D11.txt",
+      "sha256": "53036C5868650AA3CD3919F3071F262DA8287D7EF8FD8519C2AAE760E158842F",
+      "bytes": 2044,
+      "modifiedUtc": "2026-10-27T15:39:15.332790+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw-Direct3D12.txt",
+      "sha256": "A0C703AB376894DD754B44F2DBAE3103752BF57F3F42F5DE6D8F989BD68EC487",
+      "bytes": 2044,
+      "modifiedUtc": "2026-10-27T15:39:36.897757+00:00"
+    }
+  ],
+  "imagePairs": [
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyBehind-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:11.542634+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyBehind-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:33.004620+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyClear-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:11.079054+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyClear-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:32.528375+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyColourUnchanged-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:11.091535+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyColourUnchanged-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:32.545858+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyLeft-Direct3D11.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T15:39:11.529213+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyLeft-Direct3D12.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T15:39:32.990722+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyOff-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:11.052501+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyOff-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:32.501546+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyRestored-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:11.988214+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyRestored-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:33.442643+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyReturned-Direct3D11.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T15:39:11.975394+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-DepthOnlyReturned-Direct3D12.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T15:39:33.428437+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-GradientExponent3-Direct3D11.png",
+        "sha256": "F933350E8F5362A10076D518BB6DEA9F986F3F860892CC610A689192A4C5587A",
+        "bytes": 25557,
+        "modifiedUtc": "2026-10-27T15:39:15.018435+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-GradientExponent3-Direct3D12.png",
+        "sha256": "F933350E8F5362A10076D518BB6DEA9F986F3F860892CC610A689192A4C5587A",
+        "bytes": 25557,
+        "modifiedUtc": "2026-10-27T15:39:36.599292+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-GradientOff-Direct3D11.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T15:39:15.239582+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-GradientOff-Direct3D12.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T15:39:36.808858+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-GradientRestored-Direct3D11.png",
+        "sha256": "6F55FDDF8161FDEE7BF3C6E3447D1932F11DCA9D7CDA31F1D3ADF3FF80376F20",
+        "bytes": 13824,
+        "modifiedUtc": "2026-10-27T15:39:15.332790+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-GradientRestored-Direct3D12.png",
+        "sha256": "6F55FDDF8161FDEE7BF3C6E3447D1932F11DCA9D7CDA31F1D3ADF3FF80376F20",
+        "bytes": 13824,
+        "modifiedUtc": "2026-10-27T15:39:36.896247+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-GradientSide-Direct3D11.png",
+        "sha256": "91BB27AECD5609DA1AF7A41B67B1E8E03550BF833E8DCAA36AD561E93C8CAA04",
+        "bytes": 9844,
+        "modifiedUtc": "2026-10-27T15:39:15.136143+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-GradientSide-Direct3D12.png",
+        "sha256": "91BB27AECD5609DA1AF7A41B67B1E8E03550BF833E8DCAA36AD561E93C8CAA04",
+        "bytes": 9844,
+        "modifiedUtc": "2026-10-27T15:39:36.712233+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-GradientTowards-Direct3D11.png",
+        "sha256": "6F55FDDF8161FDEE7BF3C6E3447D1932F11DCA9D7CDA31F1D3ADF3FF80376F20",
+        "bytes": 13824,
+        "modifiedUtc": "2026-10-27T15:39:14.918217+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-GradientTowards-Direct3D12.png",
+        "sha256": "6F55FDDF8161FDEE7BF3C6E3447D1932F11DCA9D7CDA31F1D3ADF3FF80376F20",
+        "bytes": 13824,
+        "modifiedUtc": "2026-10-27T15:39:36.502342+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-LitDiffuse-Direct3D11.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:14.228451+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-LitDiffuse-Direct3D12.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:35.771637+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-LitObliqueMetal-Direct3D11.png",
+        "sha256": "F8A1B254A3FDCD689DA56D4E4D36105EE6A0308A38DAF3CA71591BBC950801AA",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:14.248302+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-LitObliqueMetal-Direct3D12.png",
+        "sha256": "F8A1B254A3FDCD689DA56D4E4D36105EE6A0308A38DAF3CA71591BBC950801AA",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:35.798570+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-LitOff-Direct3D11.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T15:39:14.201163+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-LitOff-Direct3D12.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T15:39:35.741778+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-LitRestored-Direct3D11.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:14.281938+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-LitRestored-Direct3D12.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:35.839705+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-LitRoughMetal-Direct3D11.png",
+        "sha256": "CB57AA842382C20E0740918B9148093530F0E11AE30BE127C37D743D9B0C3429",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:14.264118+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-LitRoughMetal-Direct3D12.png",
+        "sha256": "CB57AA842382C20E0740918B9148093530F0E11AE30BE127C37D743D9B0C3429",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:35.819079+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthClear-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:12.625392+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthClear-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:34.114949+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthColourUnchanged-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:12.633666+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthColourUnchanged-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:34.127554+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthDisabled-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:14.023422+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthDisabled-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:35.546408+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthLeft-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T15:39:13.049760+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthLeft-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T15:39:34.561441+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthOne-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:13.536395+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthOne-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:35.042031+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthRestored-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T15:39:13.552132+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthRestored-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T15:39:35.059829+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthRight-Direct3D11.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T15:39:13.069903+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthRight-Direct3D12.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T15:39:34.582867+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthZero-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:13.091947+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-MaskDepthZero-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:34.612135+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-PbrDiffuse-Direct3D11.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:14.220300+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-PbrDiffuse-Direct3D12.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:35.761545+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-PbrObliqueMetal-Direct3D11.png",
+        "sha256": "F8A1B254A3FDCD689DA56D4E4D36105EE6A0308A38DAF3CA71591BBC950801AA",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:14.241647+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-PbrObliqueMetal-Direct3D12.png",
+        "sha256": "F8A1B254A3FDCD689DA56D4E4D36105EE6A0308A38DAF3CA71591BBC950801AA",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T15:39:35.788285+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-PbrOff-Direct3D11.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T15:39:14.190937+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-PbrOff-Direct3D12.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T15:39:35.727040+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-PbrRestored-Direct3D11.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:14.273258+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-PbrRestored-Direct3D12.png",
+        "sha256": "BDB9B021E130526AA1FCD488496F4CD6F6BF686A700DBCE810340C4AF648D7D6",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:35.829963+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/AuxiliaryExamples-PbrRoughMetal-Direct3D11.png",
+        "sha256": "CB57AA842382C20E0740918B9148093530F0E11AE30BE127C37D743D9B0C3429",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:14.255952+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/AuxiliaryExamples-PbrRoughMetal-Direct3D12.png",
+        "sha256": "CB57AA842382C20E0740918B9148093530F0E11AE30BE127C37D743D9B0C3429",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T15:39:35.808459+00:00"
+      },
+      "byteIdentical": true
+    }
+  ],
+  "metrics": {
+    "depthClassificationErrors": 0,
+    "depthOnlyColourWrite": "none; exact clear reference",
+    "maskDepthColourWrite": "none; exact clear reference",
+    "gradientRGBMax": 1,
+    "gradientRGBMeanMax": 0.041399,
+    "gradientLightOffRGBMax": 0,
+    "pbrInstalledLitRGBMax": 0,
+    "pbrCases": 5,
+    "restorations": "exact"
+  },
+  "runtimeBuildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "9277FCD87AE4C566801AA0628120FB0529DB8E6A157BF0B1170A8360B8FD7AEF",
+    "bytes": 27845,
+    "modifiedUtc": "2026-10-27T12:44:34.163052+00:00"
+  },
+  "previousMaskedCheckpoint": {
+    "path": "Evidence/P09-MaskedExamples-checkpoint.json",
+    "sha256": "70395F3B67935110A2B3D1EC1F472BD8FED060941CF86D95968EEECAE619F65D",
+    "bytes": 26344,
+    "modifiedUtc": "2026-10-27T12:44:34.170430+00:00"
+  },
+  "runtimeBaselineCommit": "60ad902",
+  "runtimeSourceFingerprintsUnchanged": 19,
+  "materialFingerprintsUnchanged": 8,
+  "structuralAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "DDCD0014FCF84453CBA0F087A6AAF584B73ECF8163AA253B976421A32F96B315",
+    "bytes": 280849,
+    "modifiedUtc": "2026-10-27T15:36:51.220055+00:00"
+  },
+  "failedEvidence": [
+    {
+      "path": "Evidence/AuxiliaryExamples-initial-DX11.xml",
+      "sha256": "178DB7D0AC9F4E29C25C48B55AFD9AFE6EECABA56B9C934EA059D36F3F37DA87",
+      "bytes": 6370,
+      "modifiedUtc": "2026-10-27T15:32:35.341599+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-initial-gradient-Direct3D11.txt",
+      "sha256": "B30881F4BDAD49E300FF9624A14F6CC6C91305A45C66AE06769CC78C01321482",
+      "bytes": 390,
+      "modifiedUtc": "2026-10-27T15:32:35.164826+00:00"
+    },
+    {
+      "path": "Evidence/AuxiliaryExamples-initial-GradientTowards-Direct3D11.png",
+      "sha256": "6F55FDDF8161FDEE7BF3C6E3447D1932F11DCA9D7CDA31F1D3ADF3FF80376F20",
+      "bytes": 13824,
+      "modifiedUtc": "2026-10-27T15:32:35.104093+00:00"
+    }
+  ],
+  "limitations": [
+    "Full runtime checkpoint remains83+actual non-batch2/API; no fresh full87 claimed.",
+    "Only Editor fixtures changed; existing Development/Release/four generated-demo smokes still match19 runtime source and8 material hashes.",
+    "Existing masked fixture helper became partial and gained optional capture filename prefix; historical source bytes are at60ad902, not assumed identical to current Editor code.",
+    "Depth synthetic split one-pixel band and image two-pixel outer border excluded; not subpixel acceptance.",
+    "No original standalone examples, Meta/lightmap bake/all renderer event mappings/XR/performance acceptance. See P09.5.4/P10/P11."
+  ]
+}

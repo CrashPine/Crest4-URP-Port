@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 15:39:31Z" end-time="2026-10-27 15:39:37Z" duration="5,9188184">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="89" result="Passed" start-time="2026-10-27 15:39:31Z" end-time="2026-10-27 15:39:37Z" duration="5.918818" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1142" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="87" result="Passed" start-time="2026-10-27 15:39:31Z" end-time="2026-10-27 15:39:37Z" duration="5.896828" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="115724" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1013" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-27 15:39:31Z" end-time="2026-10-27 15:39:37Z" duration="5.889840" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1014" name="AuxiliaryDepthOnlyOccludesWithoutWritingColour" fullname="MaskedExampleTests.AuxiliaryDepthOnlyOccludesWithoutWritingColour" methodname="AuxiliaryDepthOnlyOccludesWithoutWritingColour" classname="MaskedExampleTests" runstate="Runnable" seed="820709553" result="Passed" start-time="2026-10-27 15:39:31Z" end-time="2026-10-27 15:39:33Z" duration="2.355973" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1015" name="AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" fullname="MaskedExampleTests.AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" methodname="AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" classname="MaskedExampleTests" runstate="Runnable" seed="1982285161" result="Passed" start-time="2026-10-27 15:39:33Z" end-time="2026-10-27 15:39:35Z" duration="1.623383" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1017" name="AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" fullname="MaskedExampleTests.AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" methodname="AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" classname="MaskedExampleTests" runstate="Runnable" seed="76295594" result="Passed" start-time="2026-10-27 15:39:35Z" end-time="2026-10-27 15:39:36Z" duration="0.742939" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1016" name="AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" fullname="MaskedExampleTests.AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" methodname="AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" classname="MaskedExampleTests" runstate="Runnable" seed="420138969" result="Passed" start-time="2026-10-27 15:39:36Z" end-time="2026-10-27 15:39:37Z" duration="1.134394" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

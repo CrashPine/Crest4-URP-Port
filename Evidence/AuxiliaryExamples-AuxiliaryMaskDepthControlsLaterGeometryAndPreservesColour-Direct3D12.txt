@@ -1,0 +1,22 @@
+API=Direct3D12; Target=320x240; ReversedZ=True
+Request=MaskDepthClear; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthClear; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=MaskDepthColourUnchanged; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthColourUnchanged; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=MaskDepthLeft; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthLeft; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=MaskDepthLeft; Visible=35636; InteriorClassificationErrors=0
+Request=MaskDepthRight; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthRight; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=MaskDepthRight; Visible=36816; InteriorClassificationErrors=0
+Request=MaskDepthZero; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthZero; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=MaskDepthZero; Visible=0; InteriorClassificationErrors=0
+Request=MaskDepthOne; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthOne; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=MaskDepthOne; Visible=74576; InteriorClassificationErrors=0
+Request=MaskDepthRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthRestored; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=MaskDepthDisabled; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskDepthDisabled; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=MaskDepthDisabled; Visible=74576; InteriorClassificationErrors=0

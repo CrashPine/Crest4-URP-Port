@@ -1,0 +1,19 @@
+API=Direct3D12; Target=320x240; ReversedZ=True
+Request=GradientTowards; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=GradientTowards; Centre=RGBA(142, 80, 28, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+ReferenceInput: Linear=True; TargetSRGB=True; NativeLight=RGBA(0.600, 0.600, 0.600, 0.600); Strength=0,6
+Reference=TowardsExponent1; RGBMax=1; RGBMean=0,0413984838732747; PixelsOver2=0
+Request=GradientExponent3; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=GradientExponent3; Centre=RGBA(142, 80, 28, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+ReferenceInput: Linear=True; TargetSRGB=True; NativeLight=RGBA(0.600, 0.600, 0.600, 0.600); Strength=0,6
+Reference=TowardsExponent3; RGBMax=1; RGBMean=0,0381936994922406; PixelsOver2=0
+Request=GradientSide; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=GradientSide; Centre=RGBA(55, 46, 56, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+ReferenceInput: Linear=True; TargetSRGB=True; NativeLight=RGBA(0.600, 0.600, 0.600, 0.600); Strength=0,6
+Reference=SideExponent3; RGBMax=1; RGBMean=0,0405045412286348; PixelsOver2=0
+Request=GradientOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=GradientOff; Centre=RGBA(0, 0, 0, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+ReferenceInput: Linear=True; TargetSRGB=True; NativeLight=RGBA(0.000, 0.000, 0.000, 1.000); Strength=0
+Reference=LightOff; RGBMax=0; RGBMean=0; PixelsOver2=0
+Request=GradientRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=GradientRestored; Centre=RGBA(142, 80, 28, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline

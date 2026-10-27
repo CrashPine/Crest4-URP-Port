@@ -1,0 +1,18 @@
+API=Direct3D11; Target=320x240; ReversedZ=True
+Request=DepthOnlyOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyOff; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=Off; Visible=74576; InteriorClassificationErrors=0
+Request=DepthOnlyClear; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyClear; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=DepthOnlyColourUnchanged; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyColourUnchanged; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=DepthOnlyLeft; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyLeft; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=DepthOnlyLeft; Visible=36816; InteriorClassificationErrors=0
+Request=DepthOnlyBehind; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyBehind; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=DepthOnlyReturned; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyReturned; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=DepthOnlyReturned; Visible=36816; InteriorClassificationErrors=0
+Request=DepthOnlyRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=DepthOnlyRestored; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline

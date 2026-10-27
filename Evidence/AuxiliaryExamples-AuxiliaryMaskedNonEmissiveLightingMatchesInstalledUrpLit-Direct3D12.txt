@@ -1,0 +1,27 @@
+API=Direct3D12; Target=320x240; ReversedZ=True
+Request=PbrOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PbrOff; Centre=RGBA(0, 0, 0, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Request=LitOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=LitOff; Centre=RGBA(0, 0, 0, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Reference=Off; RGBMax=0; RGBMean=0; PixelsOver2=0
+Phase=PbrOff; Visible=0; InteriorClassificationErrors=0
+Request=PbrDiffuse; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PbrDiffuse; Centre=RGBA(162, 31, 30, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Request=LitDiffuse; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=LitDiffuse; Centre=RGBA(162, 31, 30, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Reference=Diffuse; RGBMax=0; RGBMean=0; PixelsOver2=0
+Request=PbrObliqueMetal; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PbrObliqueMetal; Centre=RGBA(190, 49, 48, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Request=LitObliqueMetal; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=LitObliqueMetal; Centre=RGBA(190, 49, 48, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Reference=ObliqueMetal; RGBMax=0; RGBMean=0; PixelsOver2=0
+Request=PbrRoughMetal; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PbrRoughMetal; Centre=RGBA(105, 5, 5, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Request=LitRoughMetal; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=LitRoughMetal; Centre=RGBA(105, 5, 5, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Reference=RoughMetal; RGBMax=0; RGBMean=0; PixelsOver2=0
+Request=PbrRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PbrRestored; Centre=RGBA(162, 31, 30, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Request=LitRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=LitRestored; Centre=RGBA(162, 31, 30, 255); Keywords=_MASK_NONE; MaskValue=0; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Reference=Restored; RGBMax=0; RGBMean=0; PixelsOver2=0

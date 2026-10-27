@@ -2,6 +2,26 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.2: auxiliary depth/gradient/PBR coverage (2026-10-27)
+
+P09.5.2 **DONE (scoped)**. Four new Editor fixtures pass **4/4/API**, every testcase Passed, failed0/skipped0, complementing the previous masked/fill4/API.30 corresponding auxiliary PNG pairs byte-identical. No production shader/runtime/material change was needed;19 runtime and8 material fingerprints still match current Build-checkpoint60ad902. Full runtime acceptance remains83/83 batch +2/2 actual non-batch/API, both builds/four smokes from60ad902. Full87 and new Player runs are not claimed for this Editor-only coverage addition.
+
+| Independent control | DX11 / DX12 |
+|---|---|
+| Original DepthOnly: near half-frame occlusion / moved behind / disabled | classification errors0; exact restores |
+| DepthOnly camera colour with no background geometry | exact clear reference, no colour writes |
+| Original Mask Depth queue2450, later opaque queue2490: left/right/zero/one/disabled | classification errors0; zero matches clear exactly |
+| Mask Depth zero-alpha colour output with no later geometry | exact clear reference |
+| Gradient: towards sun exponent1/3, side exponent3, no light | original CPU law RGB max1/mean≤.041399; light-off0 |
+| Non-emissive Masked vs installed URP/Lit: off/diffuse/oblique metal/rough metal/restored | RGB0 in all5 states |
+| All declared restoration captures | exact |
+
+Targets320x240, no MSAA/HDR/postprocess; original auxiliary materials are cloned without saving source assets. Depth comparisons retain the predefined one-pixel synthetic split bands and two-pixel outer border. The gradient uses a perspective camera inside the original sphere mesh, actual main-light finalColor/direction from UniversalLightData culling (not shader output), original dot/saturate/pow/lerp/max-light law, linearized ShaderLab Color properties and target sRGB encoding. Its first CPU model incorrectly omitted colour-space conversion and failed RGB max38; failed XML/report/PNG retained, max2 assertion unchanged. Corrected result max1/255, no shader change. PBR comparison uses actual installed URP17.6 Lit with matching material/light parameters, not a second copy of the Masked shader or a claim of exact original Built-in Standard RGB.
+
+Evidence: P09-AuxiliaryExamples-focused-DX11.xml/DX12.xml; eight per-case AuxiliaryExamples-Auxiliary*-Direct3D*.txt reports and30 PNG pairs; P09-AuxiliaryExamples-sources.json fingerprints18 original/ported/material/URP reference files; P09-AuxiliaryExamples-checkpoint.json ties current test source, suites, reports/images, unchanged runtime build and structural audit. Selected gradient/PBR/mask/depth captures visually inspected. Editor helper is now partial and accepts optional report/capture prefixes; original masked helper/tested source bytes remain recoverable from60ad902. Eight redundant one-line setup stubs were removed after the prefix fix; all failed evidence is retained. Audit1355 files, missing meta/duplicate GUID/missing original0;8 root Markdown.
+
+Limits: scoped render controls, not Meta/lightmap bake/all renderer-event configurations or original standalone scene acceptance (P09.5.4/P11). XR/performance and known shutdown allocation/evictable-resource warnings remain open. P09.5.3 transparent underwater example is next and has not been ported by this step.
+
 ## P09.5.2: masked/fill camera integration (2026-10-27, scoped)
 
 `MaskedExampleTests` **4/4 Passed DX11 и DX12**, failed0/skipped0.27 corresponding colour PNG/API byte-identical. Original `Masked` property names и clip/emission equations сохранены; URP Lit package supplies PBR lighting passes. Ocean mask moved before depth prepasses without a scene-depth input; original MaskFill UnityEvents execute through Graph with separate imported RFloat/depth resources. This is partial acceptance of P09.5.2; auxiliary render controls/non-emissive lighting, Meta bake and remaining original scene acceptance are still open.
