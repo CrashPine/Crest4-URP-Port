@@ -1,0 +1,19 @@
+Fixture start: LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList; Playing=True
+Request=NativeFill; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=NativeFill; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+FillNativeNonzero=25600; Max=1
+Native=Fill; Interior=73296; PredefinedOnePixelBoundary=1280; ClassificationErrors=0
+Request=MovedFill; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MovedFill; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Native=MovedFill; Interior=73624; PredefinedOnePixelBoundary=952; ClassificationErrors=0
+Request=CallbackDisabled; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=CallbackDisabled; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=CallbackDisabled; Visible=0; InteriorClassificationErrors=0
+Request=FillRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=FillRestored; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=FillResized; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=FillResized; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Native=Resized; Interior=22624; PredefinedOnePixelBoundary=688; ClassificationErrors=0
+Request=EmptyFill; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=EmptyFill; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=EmptyFill; Visible=0; InteriorClassificationErrors=0

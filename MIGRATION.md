@@ -53,6 +53,12 @@ Underwater rendering now records graph mask/composite passes and reuses the orig
 
 URP teardown skips legacy Camera.RemoveCommandBuffer because graph passes are registered by the renderer feature, not camera events. Built-in retains its matching add/remove path. Fixed-time Editor fixtures now cover surface crossings in both directions, a localized meniscus, geometry-only overlay and before/after-transparent scheduling. A standard transparent shader without the Crest fog API is intentionally drawn after the before-transparent composite; integrations using that mode must apply underwater fog in their transparent shader.
 
+## Original example camera callbacks
+
+`Crest.Examples` references `Crest.URP`. Under URP, `CustomPassForCamera` registers its existing serialized UnityEvents through `CameraGraphPassRegistry`; the active renderer must include `CrestBackgroundFeature`. It does not attach legacy CameraEvent buffers under SRP. Event mapping groups Built-in stages into URP stages and is not an exact emulation of every Built-in event. The original main/ocean view camera and editor-camera filtering remains in place. Resources are declared while recording; callbacks execute later using the native Graph command buffer. Custom persistent render targets must implement `ICameraGraphResources` and import their colour/depth handles separately.
+
+The independent underwater mask now runs before depth prepasses. `MaskFill.ExecuteFillMask` callbacks run immediately after it and before the opaque depth/normal passes. MaskFill owns separate RFloat colour and depth-only handles, resizes them with the camera descriptor, and clears empty lists/disabled callbacks. Viewport for its offscreen draw uses descriptor dimensions; window pixelRect can differ. Masked materials keep their original properties and clipping/emission equations. Their ShadowCaster uses alpha cutoff independently of the view mask, while DepthOnly/DepthNormals apply the view mask. Meta/lightmap baking, auxiliary render controls and the remaining original scene configurations still require acceptance; see PORT_PLAN/TEST_RESULTS.
+
 ## Planar reflection options
 
 URP skips the Built-in-only spherical layer-culling switch. During the synchronous

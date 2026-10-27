@@ -16,6 +16,7 @@ namespace Crest.URP
             keywordNames: new[] { "_ADDITIONAL_LIGHTS_VERTEX", "_ADDITIONAL_LIGHTS" })]
         const bool k_RequiresReflectionLightingVariants = true;
 #endif
+        readonly System.Collections.Generic.Dictionary<RenderPassEvent, CallbackPass> _callbacks = new System.Collections.Generic.Dictionary<RenderPassEvent, CallbackPass>();
         BackgroundPass _pass;
         ShadowPass _shadows;
         UnderwaterPass _mask, _effectBefore, _effectAfter;
@@ -24,7 +25,7 @@ namespace Crest.URP
         {
             _shadows = new ShadowPass { renderPassEvent = (RenderPassEvent)((int)RenderPassEvent.BeforeRenderingTransparents - 3) };
             _pass = new BackgroundPass { renderPassEvent = RenderPassEvent.BeforeRenderingTransparents };
-            _mask = new UnderwaterPass(true, true) { renderPassEvent = (RenderPassEvent)((int)RenderPassEvent.BeforeRenderingTransparents - 2) };
+            _mask = new UnderwaterPass(true, true) { renderPassEvent = (RenderPassEvent)((int)RenderPassEvent.BeforeRenderingPrePasses - 1) };
             _effectBefore = new UnderwaterPass(false, true) { renderPassEvent = (RenderPassEvent)((int)RenderPassEvent.BeforeRenderingTransparents - 1) };
             _effectAfter = new UnderwaterPass(false, false) { renderPassEvent = RenderPassEvent.AfterRenderingTransparents };
         }
@@ -43,7 +44,19 @@ namespace Crest.URP
                 renderer.EnqueuePass(_mask);
                 renderer.EnqueuePass(underwater.EnableShaderAPI ? _effectBefore : _effectAfter);
             }
+            foreach (var stage in CameraGraphPassRegistry.Stages)
+            {
+                if (!_callbacks.TryGetValue(stage, out var callback))
+                    _callbacks[stage] = callback = new CallbackPass { renderPassEvent = stage };
+                renderer.EnqueuePass(callback);
+            }
             renderer.EnqueuePass(_pass);
+        }
+
+        sealed class CallbackPass : ScriptableRenderPass
+        {
+            public override void RecordRenderGraph(RenderGraph graph, ContextContainer frameData)
+                => CameraGraphPassRegistry.Record(renderPassEvent, graph, frameData);
         }
 
         sealed class ShadowPass : ScriptableRenderPass
@@ -58,7 +71,7 @@ namespace Crest.URP
             public UnderwaterPass(bool mask, bool before)
             {
                 _mask = mask; _before = before;
-                ConfigureInput(ScriptableRenderPassInput.Color | ScriptableRenderPassInput.Depth);
+                if (!mask) ConfigureInput(ScriptableRenderPassInput.Color | ScriptableRenderPassInput.Depth);
             }
             public override void RecordRenderGraph(RenderGraph graph, ContextContainer frameData)
             {

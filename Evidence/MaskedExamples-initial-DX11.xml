@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Failed(Child)" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 09:33:25Z" end-time="2026-10-27 09:33:28Z" duration="3,3455547">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="84" result="Failed" site="Child" start-time="2026-10-27 09:33:25Z" end-time="2026-10-27 09:33:28Z" duration="3.345555" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1137" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="82" result="Failed" site="Child" start-time="2026-10-27 09:33:25Z" end-time="2026-10-27 09:33:28Z" duration="3.332722" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="311812" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1065" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-10-27 09:33:25Z" end-time="2026-10-27 09:33:28Z" duration="3.325685" total="3" passed="0" failed="3" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1066" name="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" fullname="MaskedExampleTests.ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" methodname="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" classname="MaskedExampleTests" runstate="Runnable" seed="1674843495" result="Failed" start-time="2026-10-27 09:33:25Z" end-time="2026-10-27 09:33:26Z" duration="1.624873" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  None
+  Expected: 0
+  But was:  74576
+]]></message>
+            <stack-trace><![CDATA[at MaskedExampleTests.Check (System.String label, UnityEngine.Color32[] pixels, System.Func`3[T1,T2,TResult] expected, System.Boolean knownSplits) [0x000b3] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\MaskedExampleTests.cs:99
+at MaskedExampleTests+<ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks>d__22.MoveNext () [0x00115] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\MaskedExampleTests.cs:107
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1067" name="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" fullname="MaskedExampleTests.LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" methodname="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" classname="MaskedExampleTests" runstate="Runnable" seed="877171119" result="Failed" start-time="2026-10-27 09:33:26Z" end-time="2026-10-27 09:33:27Z" duration="0.365692" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Render Graph Execution error'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Rendering.RenderPipeline:SubmitRenderRequest<UnityEngine.Rendering.Universal.UniversalRenderPipeline/SingleCameraRequest> (UnityEngine.Camera,UnityEngine.Rendering.Universal.UniversalRenderPipeline/SingleCameraRequest)
+MaskedExampleTests:Capture (string) (at Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs:83)
+MaskedExampleTests/<LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList>d__24:MoveNext () (at Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs:158)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Render Graph Execution error
+Exception: Invalid imported texture. Both a color and a depthStencil format are provided. The texture needs to either have a color format or a depth stencil format.
+UnityEngine.Rendering.RenderGraphModule.RenderGraphResourceRegistry.ValidateFormat (UnityEngine.Experimental.Rendering.GraphicsFormat color, UnityEngine.Experimental.Rendering.GraphicsFormat depthStencil) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraphResourceRegistry.cs:814)
+UnityEngine.Rendering.RenderGraphModule.RenderGraphResourceRegistry.GetFormat (UnityEngine.Experimental.Rendering.GraphicsFormat color, UnityEngine.Experimental.Rendering.GraphicsFormat depthStencil) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraphResourceRegistry.cs:800)
+UnityEngine.Rendering.RenderGraphModule.RenderGraphResourceRegistry.GetRenderTargetInfo (UnityEngine.Rendering.RenderGraphModule.ResourceHandle& res, UnityEngine.Rendering.RenderGraphModule.RenderTargetInfo& outInfo) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraphResourceRegistry.cs:730)
+UnityEngine.Rendering.RenderGraphModule.RenderGraphResourceRegistry.ValidateRenderTarget (UnityEngine.Rendering.RenderGraphModule.ResourceHandle& res) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraphResourceRegistry.cs:698)
+UnityEngine.Rendering.RenderGraphModule.RenderGraphResourceRegistry.ImportTexture (UnityEngine.Rendering.RTHandle& rt, UnityEngine.Rendering.RenderGraphModule.ImportResourceParams& importParams, System.Boolean isBuiltin) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraphResourceRegistry.cs:529)
+UnityEngine.Rendering.RenderGraphModule.RenderGraphResourceRegistry.ImportTexture (UnityEngine.Rendering.RTHandle& rt, System.Boolean isBuiltin) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraphResourceRegistry.cs:474)
+UnityEngine.Rendering.RenderGraphModule.RenderGraph.ImportTexture (UnityEngine.Rendering.RTHandle rt) (at ./Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/Runtime/RenderGraph/RenderGraph.cs:580)
+Crest.Examples.MaskFill.Declare (UnityEngine.Rendering.RenderGraphModule.RenderGraph graph, UnityEngine.Rendering.RenderGraphModule.IUnsafeRenderGraphBuilder builder, UnityEngine.RenderTextureDescriptor descriptor) (at Assets/Crest/Crest-Examples/Examples/Scripts/MaskFill.cs:36)
+Crest.Examples.CustomPassForCameraBase.Record (UnityEngine.Rendering.RenderGraphModule.RenderGraph graph, UnityEngine.Rendering.ContextContainer frameData) (at Assets/Crest/Crest-Examples/Examples/Scripts/CustomPassForCamera.cs:42)
+Crest.URP.CameraGraphPassRegistry.Record (UnityEngine.Rendering.Universal.RenderPassEvent stage, UnityEngine.Rendering.RenderGraphModule.RenderGraph graph, UnityEngine.Rendering.ContextContainer frameData) (at Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs:29)
+Crest.URP.CrestBackgroundFeature+CallbackPass.RecordRenderGraph (UnityEngine.Rendering.RenderGraphModule.RenderGraph graph, UnityEngine.Rendering.ContextContainer frameData) (at Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs:59)
+UnityEngine.Rendering.Universal.ScriptableRenderer.RecordCustomRenderGraphPassesInEventRange (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.Universal.RenderPassEvent eventStart, UnityEngine.Rendering.Universal.RenderPassEvent eventEnd) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/ScriptableRenderer.cs:1014)
+UnityEngine.Rendering.Universal.ScriptableRenderer.RecordCustomRenderGraphPasses (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.Universal.RenderPassEvent startInjectionPoint, UnityEngine.Rendering.Universal.RenderPassEvent endInjectionPoint) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/ScriptableRenderer.cs:1033)
+UnityEngine.Rendering.Universal.ScriptableRenderer.RecordCustomRenderGraphPasses (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.Universal.RenderPassEvent injectionPoint) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/ScriptableRenderer.cs:1038)
+UnityEngine.Rendering.Universal.UniversalRenderer.OnMainRendering (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Rendering.Universal.UniversalRenderer+RenderPassInputSummary& renderPassInputs, System.Boolean requiresPrepass) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/UniversalRendererRenderGraph.cs:1026)
+UnityEngine.Rendering.Universal.UniversalRenderer.OnRecordRenderGraph (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.ScriptableRenderContext context) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/UniversalRendererRenderGraph.cs:699)
+UnityEngine.Rendering.Universal.ScriptableRenderer.RecordRenderGraph (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.ScriptableRenderContext context) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/ScriptableRenderer.cs:967)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline.RecordAndExecuteRenderGraph (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Rendering.Universal.ScriptableRenderer renderer, UnityEngine.Rendering.CommandBuffer cmd, UnityEngine.Camera camera) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/UniversalRenderPipelineRenderGraph.cs:27)
+UnityEngine.Rendering.RenderPipeline:SubmitRenderRequest(Camera, SingleCameraRequest)
+MaskedExampleTests:Capture(String) (at Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs:83)
+<LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList>d__24:MoveNext() (at Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs:158)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
+
+]]></output>
+        </test-case>
+        <test-case id="1068" name="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" fullname="MaskedExampleTests.OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" methodname="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" classname="MaskedExampleTests" runstate="Runnable" seed="795516719" result="Failed" start-time="2026-10-27 09:33:27Z" end-time="2026-10-27 09:33:28Z" duration="1.313884" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 0
+  But was:  74576
+
+TearDown : Unhandled log message: '[Error] Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[Crest.ValidatedHelper:DebugLog (string,string,Crest.ValidatedHelper/MessageType,UnityEngine.Object,System.Action`1<UnityEditor.SerializedObject>) (at Assets/Crest/Crest/Scripts/OceanValidation.cs:68)
+Crest.OceanRenderer:Validate (Crest.OceanRenderer,Crest.ValidatedHelper/ShowMessage) (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1879)
+Crest.OceanRenderer:OnEnable () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:622)
+Crest.OceanRenderer:Rebuild () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:770)
+Crest.OceanRenderer:RunUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1117)
+Crest.OceanRenderer:LateUpdate () (at Assets/Crest/Crest/Scripts/OceanRenderer.cs:1069)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+CommandBuffer: temporary render texture _CrestOceanMaskTexture not found while executing  (Blit source)
+Crest Validation: Foam is not enabled on the ocean material and will not be visible. Tick the <i>Enable</i> option in the <i>Foam</i> parameter section on the material currently assigned to the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -1,0 +1,12 @@
+Fixture start: MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff; Playing=True
+Request=HiddenCasterShadow; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=HiddenCasterShadow; Centre=RGBA(0, 0, 0, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=CasterShadowOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=CasterShadowOff; Centre=RGBA(247, 247, 247, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+ShadowReceiverChangedPixels=4740
+Request=CasterShadowRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=CasterShadowRestored; Centre=RGBA(0, 0, 0, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=CasterAlphaCutoff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=CasterAlphaCutoff; Centre=RGBA(247, 247, 247, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=CasterAlphaRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=CasterAlphaRestored; Centre=RGBA(0, 0, 0, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline

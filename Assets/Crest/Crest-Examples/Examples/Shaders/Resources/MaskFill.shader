@@ -11,13 +11,12 @@ Shader "Hidden/Crest/Examples/Mask Fill"
             Name "Mask Fill"
             Cull Off
 
-            CGPROGRAM
+            HLSLPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
 
-            #include "UnityCG.cginc"
 
-            #include "../../../../Crest/Shaders/Helpers/BIRP/Core.hlsl"
+            #include "../../../../Crest/Shaders/Helpers/URP/Core.hlsl"
 
             TEXTURE2D_X(_CrestWaterVolumeFrontFaceTexture);
 
@@ -40,7 +39,7 @@ Shader "Hidden/Crest/Examples/Mask Fill"
                 UNITY_SETUP_INSTANCE_ID(input);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-                output.positionCS = UnityObjectToClipPos(input.positionOS);
+                output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
                 return output;
             }
 
@@ -56,7 +55,7 @@ Shader "Hidden/Crest/Examples/Mask Fill"
 
                 return isFrontFace ? 0.0 : 1.0;
             }
-            ENDCG
+            ENDHLSL
         }
     }
 }

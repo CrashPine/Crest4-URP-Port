@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="3" result="Failed(Child)" total="3" passed="1" failed="2" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 09:45:37Z" end-time="2026-10-27 09:45:40Z" duration="2,9538537">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="84" result="Failed" site="Child" start-time="2026-10-27 09:45:37Z" end-time="2026-10-27 09:45:40Z" duration="2.953854" total="3" passed="1" failed="2" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1137" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="82" result="Failed" site="Child" start-time="2026-10-27 09:45:37Z" end-time="2026-10-27 09:45:40Z" duration="2.941957" total="3" passed="1" failed="2" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="127260" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1065" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2026-10-27 09:45:37Z" end-time="2026-10-27 09:45:40Z" duration="2.937981" total="3" passed="1" failed="2" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1066" name="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" fullname="MaskedExampleTests.ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" methodname="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" classname="MaskedExampleTests" runstate="Runnable" seed="928344536" result="Failed" start-time="2026-10-27 09:45:37Z" end-time="2026-10-27 09:45:38Z" duration="1.660801" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: greater than 1000
+  But was:  0
+]]></message>
+            <stack-trace><![CDATA[at MaskedExampleTests+<ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks>d__22.MoveNext () [0x0067c] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\MaskedExampleTests.cs:133
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1067" name="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" fullname="MaskedExampleTests.LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" methodname="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" classname="MaskedExampleTests" runstate="Runnable" seed="221897817" result="Failed" start-time="2026-10-27 09:45:38Z" end-time="2026-10-27 09:45:39Z" duration="0.190840" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: greater than 1000
+  But was:  0
+]]></message>
+            <stack-trace><![CDATA[at MaskedExampleTests+<LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList>d__24.MoveNext () [0x002bf] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\MaskedExampleTests.cs:159
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1068" name="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" fullname="MaskedExampleTests.OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" methodname="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" classname="MaskedExampleTests" runstate="Runnable" seed="453441480" result="Passed" start-time="2026-10-27 09:45:39Z" end-time="2026-10-27 09:45:40Z" duration="1.063544" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

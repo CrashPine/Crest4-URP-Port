@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 12:35:18Z" end-time="2026-10-27 12:35:21Z" duration="2,5189409">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="85" result="Passed" start-time="2026-10-27 12:35:18Z" end-time="2026-10-27 12:35:21Z" duration="2.518941" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1138" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="83" result="Passed" start-time="2026-10-27 12:35:18Z" end-time="2026-10-27 12:35:21Z" duration="2.511655" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="21976" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1065" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-27 12:35:18Z" end-time="2026-10-27 12:35:21Z" duration="2.509328" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1066" name="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" fullname="MaskedExampleTests.ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" methodname="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" classname="MaskedExampleTests" runstate="Runnable" seed="346263060" result="Passed" start-time="2026-10-27 12:35:18Z" end-time="2026-10-27 12:35:19Z" duration="0.664951" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1067" name="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" fullname="MaskedExampleTests.LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" methodname="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" classname="MaskedExampleTests" runstate="Runnable" seed="1127228335" result="Passed" start-time="2026-10-27 12:35:19Z" end-time="2026-10-27 12:35:20Z" duration="0.404646" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1069" name="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" fullname="MaskedExampleTests.MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" methodname="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" classname="MaskedExampleTests" runstate="Runnable" seed="1822831889" result="Passed" start-time="2026-10-27 12:35:20Z" end-time="2026-10-27 12:35:20Z" duration="0.862177" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1068" name="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" fullname="MaskedExampleTests.OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" methodname="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" classname="MaskedExampleTests" runstate="Runnable" seed="502405552" result="Passed" start-time="2026-10-27 12:35:20Z" end-time="2026-10-27 12:35:21Z" duration="0.564245" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

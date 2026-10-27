@@ -1,0 +1,28 @@
+Fixture start: ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks; Playing=True
+Request=None; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=None; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_NONE; MaskValue=0; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=None; Visible=74576; InteriorClassificationErrors=0
+Request=MaskedLeft; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=MaskedLeft; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=MaskedLeft; Visible=35636; InteriorClassificationErrors=0
+Request=FillRight; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=FillRight; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_FILL; MaskValue=2; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=FillRight; Visible=36816; InteriorClassificationErrors=0
+Request=VolumeDepth; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=VolumeDepth; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=VolumeDepth; Visible=12036; InteriorClassificationErrors=0
+Request=CurrentMask; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=CurrentMask; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=CurrentMask; Visible=74576; InteriorClassificationErrors=0
+Request=EmissionOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=EmissionOff; Centre=RGBA(0, 0, 0, 255); Keywords=_MASK_MASKED; MaskValue=1; EmissionValue=0; Pipeline=UniversalRenderPipeline
+Phase=EmissionOff; Visible=0; InteriorClassificationErrors=0
+Request=AlphaCutoff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=AlphaCutoff; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Phase=AlphaCutoff; Visible=0; InteriorClassificationErrors=0
+Request=BeforeDepthOnly; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=BeforeDepthOnly; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Request=PassOutputDepthOnly; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PassOutputDepthOnly; Centre=RGBA(5, 8, 10, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+PassDiagnostic=DepthOnly; Index=1; Left=RGBA(0.000, 0.000, 0.000, 0.000); Right=RGBA(0.000, 0.000, 0.000, 0.000); MaxRGB=0; Colour=RGBA(0.800, 0.020, 0.010, 1.000)
+Pass=DepthOnly; Visible=0; MaskClassificationErrors=37052

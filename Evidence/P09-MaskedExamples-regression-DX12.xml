@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="83" result="Passed" total="83" passed="83" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 12:37:44Z" end-time="2026-10-27 12:39:54Z" duration="129,8746206">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="85" result="Passed" start-time="2026-10-27 12:37:44Z" end-time="2026-10-27 12:39:54Z" duration="129.874621" total="83" passed="83" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1138" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="83" result="Passed" start-time="2026-10-27 12:37:44Z" end-time="2026-10-27 12:39:54Z" duration="129.866689" total="83" passed="83" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="122228" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1007" name="AdditionalSimulationTests" fullname="AdditionalSimulationTests" classname="AdditionalSimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:37:44Z" end-time="2026-10-27 12:37:49Z" duration="4.162377" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1009" name="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" fullname="AdditionalSimulationTests.FlowQueriesMatchKnownInputAndRuntimeDirectionChange" methodname="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" classname="AdditionalSimulationTests" runstate="Runnable" seed="1062742229" result="Passed" start-time="2026-10-27 12:37:44Z" end-time="2026-10-27 12:37:45Z" duration="1.011335" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1010" name="GerstnerProducesChangingHeightsWithoutFft" fullname="AdditionalSimulationTests.GerstnerProducesChangingHeightsWithoutFft" methodname="GerstnerProducesChangingHeightsWithoutFft" classname="AdditionalSimulationTests" runstate="Runnable" seed="1529883836" result="Passed" start-time="2026-10-27 12:37:45Z" end-time="2026-10-27 12:37:46Z" duration="0.619843" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1008" name="MovingSphereInjectsDynamicWaveEnergy" fullname="AdditionalSimulationTests.MovingSphereInjectsDynamicWaveEnergy" methodname="MovingSphereInjectsDynamicWaveEnergy" classname="AdditionalSimulationTests" runstate="Runnable" seed="69092376" result="Passed" start-time="2026-10-27 12:37:46Z" end-time="2026-10-27 12:37:49Z" duration="2.517496" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1011" name="AsyncQueryDelayTests" fullname="AsyncQueryDelayTests" classname="AsyncQueryDelayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:37:49Z" end-time="2026-10-27 12:37:49Z" duration="0.550990" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1012" name="UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" fullname="AsyncQueryDelayTests.UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" methodname="UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" classname="AsyncQueryDelayTests" runstate="Runnable" seed="544795073" result="Passed" start-time="2026-10-27 12:37:49Z" end-time="2026-10-27 12:37:49Z" duration="0.550070" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1013" name="BakedFFTIntegrationTests" fullname="BakedFFTIntegrationTests" classname="BakedFFTIntegrationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:37:49Z" end-time="2026-10-27 12:37:50Z" duration="0.743174" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1014" name="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" fullname="BakedFFTIntegrationTests.SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" methodname="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" classname="BakedFFTIntegrationTests" runstate="Runnable" seed="138768071" result="Passed" start-time="2026-10-27 12:37:49Z" end-time="2026-10-27 12:37:50Z" duration="0.741931" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedIntegration_40d29e68b5b64d67aa9271a5447b73e6/Choppy.asset.
+Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1015" name="BakedFFTTests" fullname="BakedFFTTests" classname="BakedFFTTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:37:50Z" end-time="2026-10-27 12:37:50Z" duration="0.458986" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1016" name="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" fullname="BakedFFTTests.RealFFTBakeReloadAndCPUJobsMatchGPUFrames" methodname="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" classname="BakedFFTTests" runstate="Runnable" seed="810283018" result="Passed" start-time="2026-10-27 12:37:50Z" end-time="2026-10-27 12:37:50Z" duration="0.458199" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedFFT_f09e1501def348c9ac68abe154b28ccc/Waves.asset.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1017" name="BoatAlignNormalTests" fullname="BoatAlignNormalTests" classname="BoatAlignNormalTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27 12:37:50Z" end-time="2026-10-27 12:37:56Z" duration="5.420869" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1019" name="AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" fullname="BoatAlignNormalTests.AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" methodname="AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" classname="BoatAlignNormalTests" runstate="Runnable" seed="730700876" result="Passed" start-time="2026-10-27 12:37:50Z" end-time="2026-10-27 12:37:51Z" duration="0.496340" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1018" name="MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" fullname="BoatAlignNormalTests.MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" methodname="MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" classname="BoatAlignNormalTests" runstate="Runnable" seed="1616291816" result="Passed" start-time="2026-10-27 12:37:51Z" end-time="2026-10-27 12:37:56Z" duration="4.923484" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1020" name="BoatCameraJointTests" fullname="BoatCameraJointTests" classname="BoatCameraJointTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:37:56Z" end-time="2026-10-27 12:38:00Z" duration="3.871264" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1021" name="OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" fullname="BoatCameraJointTests.OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" methodname="OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" classname="BoatCameraJointTests" runstate="Runnable" seed="98132182" result="Passed" start-time="2026-10-27 12:37:56Z" end-time="2026-10-27 12:38:00Z" duration="3.870570" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1022" name="BoatProbesControlsTests" fullname="BoatProbesControlsTests" classname="BoatProbesControlsTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27 12:38:00Z" end-time="2026-10-27 12:38:02Z" duration="2.610341" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1024" name="BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" fullname="BoatProbesControlsTests.BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" methodname="BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" classname="BoatProbesControlsTests" runstate="Runnable" seed="1097727660" result="Passed" start-time="2026-10-27 12:38:00Z" end-time="2026-10-27 12:38:00Z" duration="0.293472" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1023" name="ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" fullname="BoatProbesControlsTests.ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" methodname="ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" classname="BoatProbesControlsTests" runstate="Runnable" seed="933555435" result="Passed" start-time="2026-10-27 12:38:00Z" end-time="2026-10-27 12:38:02Z" duration="2.315917" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1025" name="BoatProbesTests" fullname="BoatProbesTests" classname="BoatProbesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27 12:38:02Z" end-time="2026-10-27 12:38:08Z" duration="5.922644" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1027" name="BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" fullname="BoatProbesTests.BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" methodname="BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" classname="BoatProbesTests" runstate="Runnable" seed="1043944858" result="Passed" start-time="2026-10-27 12:38:02Z" end-time="2026-10-27 12:38:06Z" duration="3.916820" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1026" name="DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" fullname="BoatProbesTests.DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" methodname="DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" classname="BoatProbesTests" runstate="Runnable" seed="312980878" result="Passed" start-time="2026-10-27 12:38:06Z" end-time="2026-10-27 12:38:08Z" duration="2.004886" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1028" name="BuiltInReferenceTests" fullname="BuiltInReferenceTests" classname="BuiltInReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:08Z" end-time="2026-10-27 12:38:11Z" duration="2.343026" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1029" name="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" fullname="BuiltInReferenceTests.OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" methodname="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" classname="BuiltInReferenceTests" runstate="Runnable" seed="1455390202" result="Passed" start-time="2026-10-27 12:38:08Z" end-time="2026-10-27 12:38:11Z" duration="2.342057" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1030" name="BuoyancyGraphicsTests" fullname="BuoyancyGraphicsTests" classname="BuoyancyGraphicsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:11Z" end-time="2026-10-27 12:38:11Z" duration="0.917634" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1031" name="DifferentBodiesRemainBuoyant" fullname="BuoyancyGraphicsTests.DifferentBodiesRemainBuoyant" methodname="DifferentBodiesRemainBuoyant" classname="BuoyancyGraphicsTests" runstate="Runnable" seed="703288220" result="Passed" start-time="2026-10-27 12:38:11Z" end-time="2026-10-27 12:38:11Z" duration="0.917078" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1032" name="CameraSettingsTests" fullname="CameraSettingsTests" classname="CameraSettingsTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:38:11Z" end-time="2026-10-27 12:38:13Z" duration="1.379989" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1033" name="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" fullname="CameraSettingsTests.IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" methodname="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" classname="CameraSettingsTests" runstate="Runnable" seed="2111043726" result="Passed" start-time="2026-10-27 12:38:11Z" end-time="2026-10-27 12:38:12Z" duration="0.406853" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="90000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1035" name="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" fullname="CameraSettingsTests.ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" methodname="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" classname="CameraSettingsTests" runstate="Runnable" seed="265658944" result="Passed" start-time="2026-10-27 12:38:12Z" end-time="2026-10-27 12:38:12Z" duration="0.453117" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="90000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1034" name="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" fullname="CameraSettingsTests.UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" methodname="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" classname="CameraSettingsTests" runstate="Runnable" seed="2120610283" result="Passed" start-time="2026-10-27 12:38:12Z" end-time="2026-10-27 12:38:13Z" duration="0.518596" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="90000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1036" name="ChoppyQueryTests" fullname="ChoppyQueryTests" classname="ChoppyQueryTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:13Z" end-time="2026-10-27 12:38:18Z" duration="4.983960" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1037" name="ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" fullname="ChoppyQueryTests.ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" methodname="ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" classname="ChoppyQueryTests" runstate="Runnable" seed="1802491191" result="Passed" start-time="2026-10-27 12:38:13Z" end-time="2026-10-27 12:38:18Z" duration="4.983323" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1038" name="DepthCachePersistenceTests" fullname="DepthCachePersistenceTests" classname="DepthCachePersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:18Z" end-time="2026-10-27 12:38:19Z" duration="0.914363" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1039" name="BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" fullname="DepthCachePersistenceTests.BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" methodname="BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" classname="DepthCachePersistenceTests" runstate="Runnable" seed="1290126350" result="Passed" start-time="2026-10-27 12:38:18Z" end-time="2026-10-27 12:38:19Z" duration="0.913781" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Persistent baked cache (Crest.OceanDepthCache) depth is now relative!
+Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_a9ff56e1aa5d4c71bde186ddc1ad254b/Depth.exr
+Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_a9ff56e1aa5d4c71bde186ddc1ad254b/Depth.exr
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1040" name="EditorPersistenceTests" fullname="EditorPersistenceTests" classname="EditorPersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:19Z" end-time="2026-10-27 12:38:19Z" duration="0.382551" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1041" name="ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" fullname="EditorPersistenceTests.ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" methodname="ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" classname="EditorPersistenceTests" runstate="Runnable" seed="755511897" result="Passed" start-time="2026-10-27 12:38:19Z" end-time="2026-10-27 12:38:19Z" duration="0.381472" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1042" name="FlowSurfaceTests" fullname="FlowSurfaceTests" classname="FlowSurfaceTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:38:19Z" end-time="2026-10-27 12:38:20Z" duration="1.358504" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1044" name="FlowChangesSurfaceFoamAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceFoamAtFixedTime" methodname="FlowChangesSurfaceFoamAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="32067945" result="Passed" start-time="2026-10-27 12:38:19Z" end-time="2026-10-27 12:38:19Z" duration="0.291707" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1043" name="FlowChangesSurfaceNormalsAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceNormalsAtFixedTime" methodname="FlowChangesSurfaceNormalsAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="1470125383" result="Passed" start-time="2026-10-27 12:38:19Z" end-time="2026-10-27 12:38:20Z" duration="0.271817" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1045" name="SplineFlowUpdatesDirectionSpeedPositionAndRegistration" fullname="FlowSurfaceTests.SplineFlowUpdatesDirectionSpeedPositionAndRegistration" methodname="SplineFlowUpdatesDirectionSpeedPositionAndRegistration" classname="FlowSurfaceTests" runstate="Runnable" seed="1112341244" result="Passed" start-time="2026-10-27 12:38:20Z" end-time="2026-10-27 12:38:20Z" duration="0.792394" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1046" name="FoamSimulationTests" fullname="FoamSimulationTests" classname="FoamSimulationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-27 12:38:20Z" end-time="2026-10-27 12:38:30Z" duration="9.195737" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1047" name="KnownFlowTransportsFoamPatchByThreeMetres" fullname="FoamSimulationTests.KnownFlowTransportsFoamPatchByThreeMetres" methodname="KnownFlowTransportsFoamPatchByThreeMetres" classname="FoamSimulationTests" runstate="Runnable" seed="1058552729" result="Passed" start-time="2026-10-27 12:38:20Z" end-time="2026-10-27 12:38:21Z" duration="0.891077" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1048" name="KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" fullname="FoamSimulationTests.KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" methodname="KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" classname="FoamSimulationTests" runstate="Runnable" seed="1669363667" result="Passed" start-time="2026-10-27 12:38:21Z" end-time="2026-10-27 12:38:23Z" duration="1.595960" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1049" name="ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" fullname="FoamSimulationTests.ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" methodname="ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" classname="FoamSimulationTests" runstate="Runnable" seed="1336623188" result="Passed" start-time="2026-10-27 12:38:23Z" end-time="2026-10-27 12:38:24Z" duration="1.418630" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1050" name="WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" fullname="FoamSimulationTests.WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" methodname="WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" classname="FoamSimulationTests" runstate="Runnable" seed="152676269" result="Passed" start-time="2026-10-27 12:38:24Z" end-time="2026-10-27 12:38:30Z" duration="5.288862" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1051" name="GerstnerQueryAccuracyTests" fullname="GerstnerQueryAccuracyTests" classname="GerstnerQueryAccuracyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:30Z" end-time="2026-10-27 12:38:33Z" duration="3.400312" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1052" name="GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" fullname="GerstnerQueryAccuracyTests.GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" methodname="GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" classname="GerstnerQueryAccuracyTests" runstate="Runnable" seed="669949654" result="Passed" start-time="2026-10-27 12:38:30Z" end-time="2026-10-27 12:38:33Z" duration="3.399271" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1053" name="InputPersistenceTests" fullname="InputPersistenceTests" classname="InputPersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:33Z" end-time="2026-10-27 12:38:39Z" duration="5.457375" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1054" name="SavedSceneRestoresInputFieldsReferencesAndRegistration" fullname="InputPersistenceTests.SavedSceneRestoresInputFieldsReferencesAndRegistration" methodname="SavedSceneRestoresInputFieldsReferencesAndRegistration" classname="InputPersistenceTests" runstate="Runnable" seed="304160834" result="Passed" start-time="2026-10-27 12:38:33Z" end-time="2026-10-27 12:38:39Z" duration="5.456721" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1055" name="LerpCamTests" fullname="LerpCamTests" classname="LerpCamTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:39Z" end-time="2026-10-27 12:38:40Z" duration="1.260248" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1056" name="ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" fullname="LerpCamTests.ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" methodname="ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" classname="LerpCamTests" runstate="Runnable" seed="35046210" result="Passed" start-time="2026-10-27 12:38:39Z" end-time="2026-10-27 12:38:40Z" duration="1.259555" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1057" name="LocalWaveSplineTests" fullname="LocalWaveSplineTests" classname="LocalWaveSplineTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:40Z" end-time="2026-10-27 12:38:42Z" duration="2.214283" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1058" name="LocalGerstnerSplineWeightsFeatherMovementAndQueries" fullname="LocalWaveSplineTests.LocalGerstnerSplineWeightsFeatherMovementAndQueries" methodname="LocalGerstnerSplineWeightsFeatherMovementAndQueries" classname="LocalWaveSplineTests" runstate="Runnable" seed="1004405239" result="Passed" start-time="2026-10-27 12:38:40Z" end-time="2026-10-27 12:38:42Z" duration="2.213669" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1059" name="LodHeightSeamTests" fullname="LodHeightSeamTests" classname="LodHeightSeamTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:42Z" end-time="2026-10-27 12:38:46Z" duration="4.190382" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1060" name="ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" fullname="LodHeightSeamTests.ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" methodname="ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" classname="LodHeightSeamTests" runstate="Runnable" seed="2069727608" result="Passed" start-time="2026-10-27 12:38:42Z" end-time="2026-10-27 12:38:46Z" duration="4.189552" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1061" name="LodTransitionTests" fullname="LodTransitionTests" classname="LodTransitionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:46Z" end-time="2026-10-27 12:38:50Z" duration="4.195824" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1062" name="CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" fullname="LodTransitionTests.CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" methodname="CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" classname="LodTransitionTests" runstate="Runnable" seed="207288474" result="Passed" start-time="2026-10-27 12:38:46Z" end-time="2026-10-27 12:38:50Z" duration="4.195002" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1063" name="LodWaveSurfaceTests" fullname="LodWaveSurfaceTests" classname="LodWaveSurfaceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:50Z" end-time="2026-10-27 12:38:52Z" duration="1.907194" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1064" name="FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" fullname="LodWaveSurfaceTests.FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" methodname="FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" classname="LodWaveSurfaceTests" runstate="Runnable" seed="1143419007" result="Passed" start-time="2026-10-27 12:38:50Z" end-time="2026-10-27 12:38:52Z" duration="1.906170" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1065" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-27 12:38:52Z" end-time="2026-10-27 12:38:54Z" duration="2.054117" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1066" name="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" fullname="MaskedExampleTests.ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" methodname="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" classname="MaskedExampleTests" runstate="Runnable" seed="39368734" result="Passed" start-time="2026-10-27 12:38:52Z" end-time="2026-10-27 12:38:53Z" duration="0.315521" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1067" name="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" fullname="MaskedExampleTests.LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" methodname="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" classname="MaskedExampleTests" runstate="Runnable" seed="2143823978" result="Passed" start-time="2026-10-27 12:38:53Z" end-time="2026-10-27 12:38:53Z" duration="0.398781" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1069" name="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" fullname="MaskedExampleTests.MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" methodname="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" classname="MaskedExampleTests" runstate="Runnable" seed="552437742" result="Passed" start-time="2026-10-27 12:38:53Z" end-time="2026-10-27 12:38:54Z" duration="0.776280" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1068" name="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" fullname="MaskedExampleTests.OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" methodname="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" classname="MaskedExampleTests" runstate="Runnable" seed="1423281624" result="Passed" start-time="2026-10-27 12:38:54Z" end-time="2026-10-27 12:38:54Z" duration="0.562250" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1070" name="OceanGraphicsTests" fullname="OceanGraphicsTests" classname="OceanGraphicsTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-27 12:38:54Z" end-time="2026-10-27 12:38:57Z" duration="2.219071" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1074" name="DepthCacheCapturesKnownHeight" fullname="OceanGraphicsTests.DepthCacheCapturesKnownHeight" methodname="DepthCacheCapturesKnownHeight" classname="OceanGraphicsTests" runstate="Runnable" seed="425990739" result="Passed" start-time="2026-10-27 12:38:54Z" end-time="2026-10-27 12:38:55Z" duration="0.222479" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1073" name="ReflectionsRenderAndQuery" fullname="OceanGraphicsTests.ReflectionsRenderAndQuery" methodname="ReflectionsRenderAndQuery" classname="OceanGraphicsTests" runstate="Runnable" seed="405195006" result="Passed" start-time="2026-10-27 12:38:55Z" end-time="2026-10-27 12:38:55Z" duration="0.577948" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1075" name="ShadowAtlasAccumulatesOcclusion" fullname="OceanGraphicsTests.ShadowAtlasAccumulatesOcclusion" methodname="ShadowAtlasAccumulatesOcclusion" classname="OceanGraphicsTests" runstate="Runnable" seed="546670018" result="Passed" start-time="2026-10-27 12:38:55Z" end-time="2026-10-27 12:38:56Z" duration="0.602961" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1072" name="UnderwaterRendersAndQueries" fullname="OceanGraphicsTests.UnderwaterRendersAndQueries" methodname="UnderwaterRendersAndQueries" classname="OceanGraphicsTests" runstate="Runnable" seed="72042024" result="Passed" start-time="2026-10-27 12:38:56Z" end-time="2026-10-27 12:38:56Z" duration="0.428557" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+]]></output>
+        </test-case>
+        <test-case id="1071" name="WavesProduceChangingGpuQueriesAndCapture" fullname="OceanGraphicsTests.WavesProduceChangingGpuQueriesAndCapture" methodname="WavesProduceChangingGpuQueriesAndCapture" classname="OceanGraphicsTests" runstate="Runnable" seed="1682139907" result="Passed" start-time="2026-10-27 12:38:56Z" end-time="2026-10-27 12:38:57Z" duration="0.385792" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1076" name="OpticalReferenceTests" fullname="OpticalReferenceTests" classname="OpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:57Z" end-time="2026-10-27 12:38:59Z" duration="2.747838" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1077" name="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" fullname="OpticalReferenceTests.OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" methodname="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" classname="OpticalReferenceTests" runstate="Runnable" seed="962014440" result="Passed" start-time="2026-10-27 12:38:57Z" end-time="2026-10-27 12:38:59Z" duration="2.746878" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1078" name="OriginalExampleSceneTests" fullname="OriginalExampleSceneTests" classname="OriginalExampleSceneTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:38:59Z" end-time="2026-10-27 12:39:00Z" duration="0.984994" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1079" name="MainExampleRendersVisibleGeometryWithoutErrorShader" fullname="OriginalExampleSceneTests.MainExampleRendersVisibleGeometryWithoutErrorShader" methodname="MainExampleRendersVisibleGeometryWithoutErrorShader" classname="OriginalExampleSceneTests" runstate="Runnable" seed="515915520" result="Passed" start-time="2026-10-27 12:38:59Z" end-time="2026-10-27 12:39:00Z" duration="0.984339" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Computing lightmaps is not available in play mode.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1080" name="PlanarReflectionTests" fullname="PlanarReflectionTests" classname="PlanarReflectionTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-27 12:39:00Z" end-time="2026-10-27 12:39:02Z" duration="2.186111" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1088" name="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" fullname="PlanarReflectionTests.PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" methodname="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" classname="PlanarReflectionTests" runstate="Runnable" seed="477032321" result="Passed" start-time="2026-10-27 12:39:00Z" end-time="2026-10-27 12:39:01Z" duration="0.275164" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1086" name="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" fullname="PlanarReflectionTests.ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" methodname="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" classname="PlanarReflectionTests" runstate="Runnable" seed="741963350" result="Passed" start-time="2026-10-27 12:39:01Z" end-time="2026-10-27 12:39:01Z" duration="0.206663" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1089" name="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" fullname="PlanarReflectionTests.ReflectionContainsVisibleObjectAndUpdatesWhenHidden" methodname="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" classname="PlanarReflectionTests" runstate="Runnable" seed="1753750931" result="Passed" start-time="2026-10-27 12:39:01Z" end-time="2026-10-27 12:39:01Z" duration="0.226146" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1087" name="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" fullname="PlanarReflectionTests.ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" methodname="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" classname="PlanarReflectionTests" runstate="Runnable" seed="794370559" result="Passed" start-time="2026-10-27 12:39:01Z" end-time="2026-10-27 12:39:01Z" duration="0.227526" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1081" name="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" fullname="PlanarReflectionTests.ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" methodname="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" classname="PlanarReflectionTests" runstate="Runnable" seed="473685465" result="Passed" start-time="2026-10-27 12:39:01Z" end-time="2026-10-27 12:39:01Z" duration="0.264160" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1084" name="ReflectionRestoresStateAfterCameraCallbackException" fullname="PlanarReflectionTests.ReflectionRestoresStateAfterCameraCallbackException" methodname="ReflectionRestoresStateAfterCameraCallbackException" classname="PlanarReflectionTests" runstate="Runnable" seed="1640053516" result="Passed" start-time="2026-10-27 12:39:01Z" end-time="2026-10-27 12:39:02Z" duration="0.220473" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+InvalidOperationException: Crest fixture: injected reflection callback failure
+PlanarReflectionTests+<>c__DisplayClass6_0.<ReflectionRestoresStateAfterCameraCallbackException>b__0 (UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Camera camera) (at Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs:223)
+UnityEngine.Rendering.RenderPipelineManager.BeginCameraRendering (UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Camera camera) (at <93e6391e4688454a985ab5dc6ed6bd98>:0)
+UnityEngine.Rendering.RenderPipeline.BeginCameraRendering (UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Camera camera) (at <93e6391e4688454a985ab5dc6ed6bd98>:0)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline+CameraRenderingScope..ctor (UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Camera camera) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/UniversalRenderPipeline.cs:533)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline.ProcessRenderRequests[RequestData] (UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Camera camera, RequestData renderRequest) (at ./Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Runtime/UniversalRenderPipeline.cs:754)
+UnityEngine.Rendering.RenderPipeline.InternalProcessRenderRequests[RequestData] (UnityEngine.Rendering.ScriptableRenderContext context, UnityEngine.Camera camera, RequestData renderRequest) (at <93e6391e4688454a985ab5dc6ed6bd98>:0)
+UnityEngine.Rendering.RenderPipelineManager.DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset pipelineAsset, System.IntPtr loopPtr, System.Object renderRequest, Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle safety) (at <93e6391e4688454a985ab5dc6ed6bd98>:0)
+UnityEngine.Rendering.RenderPipeline:SubmitRenderRequest(Camera, SingleCameraRequest)
+Crest.OceanPlanarReflection:LateUpdate() (at Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs:327)
+Crest.OceanPlanarReflection:RefreshReflection() (at Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs:135)
+<ReflectionRestoresStateAfterCameraCallbackException>d__6:MoveNext() (at Assets/Crest/URP/Tests/Editor/PlanarReflectionTests.cs:229)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
+
+]]></output>
+        </test-case>
+        <test-case id="1082" name="ReflectionSelectsForwardOrInheritsViewpointRenderer" fullname="PlanarReflectionTests.ReflectionSelectsForwardOrInheritsViewpointRenderer" methodname="ReflectionSelectsForwardOrInheritsViewpointRenderer" classname="PlanarReflectionTests" runstate="Runnable" seed="1462660621" result="Passed" start-time="2026-10-27 12:39:02Z" end-time="2026-10-27 12:39:02Z" duration="0.276925" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1083" name="ReflectionShadowOptionChangesReceiverWithoutChangingMainView" fullname="PlanarReflectionTests.ReflectionShadowOptionChangesReceiverWithoutChangingMainView" methodname="ReflectionShadowOptionChangesReceiverWithoutChangingMainView" classname="PlanarReflectionTests" runstate="Runnable" seed="318786785" result="Passed" start-time="2026-10-27 12:39:02Z" end-time="2026-10-27 12:39:02Z" duration="0.260112" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1085" name="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" fullname="PlanarReflectionTests.ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" methodname="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" classname="PlanarReflectionTests" runstate="Runnable" seed="1731865939" result="Passed" start-time="2026-10-27 12:39:02Z" end-time="2026-10-27 12:39:02Z" duration="0.226345" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1090" name="PublicTimeControlTests" fullname="PublicTimeControlTests" classname="PublicTimeControlTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:02Z" end-time="2026-10-27 12:39:14Z" duration="12.009812" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1091" name="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" fullname="PublicTimeControlTests.PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" methodname="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" classname="PublicTimeControlTests" runstate="Runnable" seed="1684553679" result="Passed" start-time="2026-10-27 12:39:02Z" end-time="2026-10-27 12:39:14Z" duration="12.008779" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1092" name="QueryContractTests" fullname="QueryContractTests" classname="QueryContractTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:14Z" end-time="2026-10-27 12:39:15Z" duration="0.356910" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1093" name="SlopedNormalsMovingVelocityAndReadbackLatency" fullname="QueryContractTests.SlopedNormalsMovingVelocityAndReadbackLatency" methodname="SlopedNormalsMovingVelocityAndReadbackLatency" classname="QueryContractTests" runstate="Runnable" seed="1294347733" result="Passed" start-time="2026-10-27 12:39:14Z" end-time="2026-10-27 12:39:15Z" duration="0.356237" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1094" name="QueryLayoutTests" fullname="QueryLayoutTests" classname="QueryLayoutTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:15Z" end-time="2026-10-27 12:39:15Z" duration="0.491400" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1095" name="OwnersCountsAndOptionalOutputsKeepResultsSeparated" fullname="QueryLayoutTests.OwnersCountsAndOptionalOutputsKeepResultsSeparated" methodname="OwnersCountsAndOptionalOutputsKeepResultsSeparated" classname="QueryLayoutTests" runstate="Runnable" seed="2046232146" result="Passed" start-time="2026-10-27 12:39:15Z" end-time="2026-10-27 12:39:15Z" duration="0.490641" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1096" name="QueryPressureTests" fullname="QueryPressureTests" classname="QueryPressureTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:15Z" end-time="2026-10-27 12:39:16Z" duration="0.372963" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1097" name="QueriesRecoverAfterCpuBurst" fullname="QueryPressureTests.QueriesRecoverAfterCpuBurst" methodname="QueriesRecoverAfterCpuBurst" classname="QueryPressureTests" runstate="Runnable" seed="1978498876" result="Passed" start-time="2026-10-27 12:39:15Z" end-time="2026-10-27 12:39:16Z" duration="0.372366" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1098" name="RayQueryEdgeTests" fullname="RayQueryEdgeTests" classname="RayQueryEdgeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:16Z" end-time="2026-10-27 12:39:16Z" duration="0.474736" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1099" name="EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" fullname="RayQueryEdgeTests.EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" methodname="EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" classname="RayQueryEdgeTests" runstate="Runnable" seed="765060541" result="Passed" start-time="2026-10-27 12:39:16Z" end-time="2026-10-27 12:39:16Z" duration="0.473678" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: RayTraceHelper: ray steps exceed maximum (128), step size increased to 0,06299213 to reduce step count.
+Crest: RayTraceHelper: ray steps exceed maximum (128), step size increased to 0,06299213 to reduce step count.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1100" name="RayQueryTests" fullname="RayQueryTests" classname="RayQueryTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:16Z" end-time="2026-10-27 12:39:16Z" duration="0.317986" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1101" name="RaysIntersectKnownSlopedAndMovingWater" fullname="RayQueryTests.RaysIntersectKnownSlopedAndMovingWater" methodname="RaysIntersectKnownSlopedAndMovingWater" classname="RayQueryTests" runstate="Runnable" seed="754424628" result="Passed" start-time="2026-10-27 12:39:16Z" end-time="2026-10-27 12:39:16Z" duration="0.317231" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1102" name="RemainingClockTests" fullname="RemainingClockTests" classname="RemainingClockTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:16Z" end-time="2026-10-27 12:39:17Z" duration="0.408842" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1103" name="NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" fullname="RemainingClockTests.NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" methodname="NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" classname="RemainingClockTests" runstate="Runnable" seed="1065320913" result="Passed" start-time="2026-10-27 12:39:16Z" end-time="2026-10-27 12:39:17Z" duration="0.408172" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1104" name="ResourceLifecycleTests" fullname="ResourceLifecycleTests" classname="ResourceLifecycleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:17Z" end-time="2026-10-27 12:39:19Z" duration="1.930226" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1105" name="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" fullname="ResourceLifecycleTests.RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" methodname="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" classname="ResourceLifecycleTests" runstate="Runnable" seed="468130194" result="Passed" start-time="2026-10-27 12:39:17Z" end-time="2026-10-27 12:39:19Z" duration="1.929587" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1106" name="RippleGeneratorTests" fullname="RippleGeneratorTests" classname="RippleGeneratorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:19Z" end-time="2026-10-27 12:39:26Z" duration="6.882524" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1107" name="OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" fullname="RippleGeneratorTests.OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" methodname="OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" classname="RippleGeneratorTests" runstate="Runnable" seed="1227846868" result="Passed" start-time="2026-10-27 12:39:19Z" end-time="2026-10-27 12:39:26Z" duration="6.881520" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1110" name="ShadowedOpticalReferenceTests" fullname="ShadowedOpticalReferenceTests" classname="ShadowedOpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:26Z" end-time="2026-10-27 12:39:28Z" duration="1.972285" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1111" name="OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" fullname="ShadowedOpticalReferenceTests.OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" methodname="OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" classname="ShadowedOpticalReferenceTests" runstate="Runnable" seed="1902114256" result="Passed" start-time="2026-10-27 12:39:26Z" end-time="2026-10-27 12:39:28Z" duration="1.971379" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="240000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1108" name="ShadowReferenceTests" fullname="ShadowReferenceTests" classname="ShadowReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:28Z" end-time="2026-10-27 12:39:30Z" duration="2.056614" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1109" name="OriginalLightEventsProduceIndependentMaskAndLodOcclusion" fullname="ShadowReferenceTests.OriginalLightEventsProduceIndependentMaskAndLodOcclusion" methodname="OriginalLightEventsProduceIndependentMaskAndLodOcclusion" classname="ShadowReferenceTests" runstate="Runnable" seed="1579884978" result="Passed" start-time="2026-10-27 12:39:28Z" end-time="2026-10-27 12:39:30Z" duration="2.055550" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1112" name="SpectrumTests" fullname="SpectrumTests" classname="SpectrumTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:30Z" duration="0.003492" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1116" name="SpectrumGenerationIsRepeatableForFixedSeed" fullname="SpectrumTests.SpectrumGenerationIsRepeatableForFixedSeed" methodname="SpectrumGenerationIsRepeatableForFixedSeed" classname="SpectrumTests" runstate="Runnable" seed="1015362900" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:30Z" duration="0.000790" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-suite type="ParameterizedMethod" id="1115" name="SpectrumSamplingIsOrderedAndInsideOctaves" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:30Z" duration="0.001782" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-case id="1113" name="SpectrumSamplingIsOrderedAndInsideOctaves(1)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(1)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="1274732497" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:30Z" duration="0.000704" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+          <test-case id="1114" name="SpectrumSamplingIsOrderedAndInsideOctaves(8)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(8)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="514277397" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:30Z" duration="0.000408" asserts="0">
+            <properties>
+              <property name="retryIteration" value="0" />
+              <property name="repeatIteration" value="0" />
+            </properties>
+          </test-case>
+        </test-suite>
+      </test-suite>
+      <test-suite type="TestFixture" id="1117" name="SplineGeometryTests" fullname="SplineGeometryTests" classname="SplineGeometryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:32Z" duration="1.798469" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1118" name="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" fullname="SplineGeometryTests.CurvedClosedFlowHasTangentVectorsAndNoSeamGap" methodname="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" classname="SplineGeometryTests" runstate="Runnable" seed="1258984657" result="Passed" start-time="2026-10-27 12:39:30Z" end-time="2026-10-27 12:39:31Z" duration="0.783014" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1119" name="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" fullname="SplineGeometryTests.SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" methodname="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" classname="SplineGeometryTests" runstate="Runnable" seed="133037329" result="Passed" start-time="2026-10-27 12:39:31Z" end-time="2026-10-27 12:39:32Z" duration="1.014709" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1120" name="SurfaceInputTests" fullname="SurfaceInputTests" classname="SurfaceInputTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:39:32Z" end-time="2026-10-27 12:39:38Z" duration="6.735359" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1122" name="AlbedoColorBlendCutoffAndRegistrationAffectSurface" fullname="SurfaceInputTests.AlbedoColorBlendCutoffAndRegistrationAffectSurface" methodname="AlbedoColorBlendCutoffAndRegistrationAffectSurface" classname="SurfaceInputTests" runstate="Runnable" seed="644387397" result="Passed" start-time="2026-10-27 12:39:32Z" end-time="2026-10-27 12:39:37Z" duration="5.374188" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1123" name="CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" fullname="SurfaceInputTests.CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" methodname="CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" classname="SurfaceInputTests" runstate="Runnable" seed="1926523249" result="Passed" start-time="2026-10-27 12:39:37Z" end-time="2026-10-27 12:39:37Z" duration="0.530729" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1121" name="LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" fullname="SurfaceInputTests.LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" methodname="LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" classname="SurfaceInputTests" runstate="Runnable" seed="1135097255" result="Passed" start-time="2026-10-27 12:39:37Z" end-time="2026-10-27 12:39:38Z" duration="0.829333" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1124" name="UnderwaterBoundaryTests" fullname="UnderwaterBoundaryTests" classname="UnderwaterBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:39:38Z" end-time="2026-10-27 12:39:39Z" duration="0.908077" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1127" name="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" fullname="UnderwaterBoundaryTests.EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" methodname="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="34174271" result="Passed" start-time="2026-10-27 12:39:38Z" end-time="2026-10-27 12:39:39Z" duration="0.259069" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+        <test-case id="1126" name="OverlayFogsGeometryAndPreservesBackground" fullname="UnderwaterBoundaryTests.OverlayFogsGeometryAndPreservesBackground" methodname="OverlayFogsGeometryAndPreservesBackground" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="2088119967" result="Passed" start-time="2026-10-27 12:39:39Z" end-time="2026-10-27 12:39:39Z" duration="0.244872" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+]]></output>
+        </test-case>
+        <test-case id="1125" name="SurfaceCrossingAndMeniscusRespondAtFixedTime" fullname="UnderwaterBoundaryTests.SurfaceCrossingAndMeniscusRespondAtFixedTime" methodname="SurfaceCrossingAndMeniscusRespondAtFixedTime" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="471445478" result="Passed" start-time="2026-10-27 12:39:39Z" end-time="2026-10-27 12:39:39Z" duration="0.402751" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1128" name="UnderwaterReferenceTests" fullname="UnderwaterReferenceTests" classname="UnderwaterReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:39Z" end-time="2026-10-27 12:39:40Z" duration="0.630609" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1129" name="OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" fullname="UnderwaterReferenceTests.OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" methodname="OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" classname="UnderwaterReferenceTests" runstate="Runnable" seed="350834437" result="Passed" start-time="2026-10-27 12:39:39Z" end-time="2026-10-27 12:39:40Z" duration="0.629386" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+CommandBuffer: temporary render texture  not found while executing  (SetGlobalTexture)
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuffers only with the built-in renderer.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1130" name="UnderwaterVolumeTests" fullname="UnderwaterVolumeTests" classname="UnderwaterVolumeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27 12:39:40Z" end-time="2026-10-27 12:39:41Z" duration="0.706997" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1133" name="FlyThroughRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.FlyThroughRestrictsFogToGeometry" methodname="FlyThroughRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="143906419" result="Passed" start-time="2026-10-27 12:39:40Z" end-time="2026-10-27 12:39:40Z" duration="0.259131" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+        <test-case id="1131" name="PortalRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.PortalRestrictsFogToGeometry" methodname="PortalRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="1328733083" result="Passed" start-time="2026-10-27 12:39:40Z" end-time="2026-10-27 12:39:40Z" duration="0.230607" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+        <test-case id="1132" name="VolumeRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.VolumeRestrictsFogToGeometry" methodname="VolumeRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="255783414" result="Passed" start-time="2026-10-27 12:39:40Z" end-time="2026-10-27 12:39:41Z" duration="0.216232" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1134" name="WaterBodyTests" fullname="WaterBodyTests" classname="WaterBodyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:41Z" end-time="2026-10-27 12:39:43Z" duration="2.557513" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1135" name="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" fullname="WaterBodyTests.BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" methodname="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" classname="WaterBodyTests" runstate="Runnable" seed="1727442477" result="Passed" start-time="2026-10-27 12:39:41Z" end-time="2026-10-27 12:39:43Z" duration="2.556549" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="120000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1136" name="WaveRayTests" fullname="WaveRayTests" classname="WaveRayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-27 12:39:43Z" end-time="2026-10-27 12:39:54Z" duration="11.213174" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1137" name="OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" fullname="WaveRayTests.OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" methodname="OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" classname="WaveRayTests" runstate="Runnable" seed="385664865" result="Passed" start-time="2026-10-27 12:39:43Z" end-time="2026-10-27 12:39:54Z" duration="11.212462" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

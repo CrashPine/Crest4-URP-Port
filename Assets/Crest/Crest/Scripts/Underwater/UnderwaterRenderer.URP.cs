@@ -91,6 +91,13 @@ namespace Crest
                     cmd.CopyTexture(owner._mode == Mode.Portal ? pass.Front : pass.Back, pass.Depth);
                     Helpers.Blit(cmd, pass.Depth, Helpers.UtilityMaterial, (int)Helpers.UtilityPass.ClearDepth);
                 }
+                else
+                {
+                    // Opaque masked examples read these in the same camera before depth/colour.
+                    // Do not leave another volume/camera's face textures installed in fullscreen mode.
+                    cmd.SetGlobalTexture(ShaderIDs.s_CrestWaterVolumeFrontFaceTexture, TextureXR.GetBlackTexture());
+                    cmd.SetGlobalTexture(ShaderIDs.s_CrestWaterVolumeBackFaceTexture, TextureXR.GetBlackTexture());
+                }
                 owner.SetUpMask(cmd, pass.Mask, pass.Depth);
                 PopulateOceanMask(cmd, pass.Camera, OceanRenderer.Instance.Tiles, owner._cameraFrustumPlanes,
                     owner._oceanMaskMaterial.material, owner._farPlaneMultiplier, owner._enableShaderAPI, owner._debug._disableOceanMask);

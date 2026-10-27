@@ -1,0 +1,6 @@
+Fixture start: OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour; Playing=True
+Capture=ActualMask; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Native=Actual; Interior=73296; PredefinedOnePixelBoundary=1280; ClassificationErrors=0
+Capture=ActualMaskTurned; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline
+Native=ActualTurned; Interior=73624; PredefinedOnePixelBoundary=952; ClassificationErrors=0
+Capture=ActualMaskRestored; Centre=RGBA(204, 5, 3, 255); Keywords=_EMISSION_ON,_MASK_MASKED; MaskValue=1; EmissionValue=1; Pipeline=UniversalRenderPipeline

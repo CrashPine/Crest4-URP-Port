@@ -1,7 +1,5 @@
-// Crest Ocean System
-
-// This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
-
+// Crest Ocean System. MIT; see LICENSE.
+// URP adapter; original material properties and clipping/emission equations retained.
 Shader "Crest/Examples/Masked"
 {
 	Properties
@@ -16,175 +14,155 @@ Shader "Crest/Examples/Masked"
 		[KeywordEnum(None, Masked, Fill)] _Mask("Masked", Float) = 1.0
 	}
 
-	SubShader
-	{
-		Tags { "RenderType"="Opaque" }
+    SubShader
+    {
+        Tags {"RenderPipeline"="UniversalPipeline" "RenderType"="Opaque"}
+        ZWrite On
 
-		CGINCLUDE
-		#pragma shader_feature_local _MASK_NONE _MASK_MASKED _MASK_FILL
+    HLSLINCLUDE
+    #pragma target 4.5
+    #pragma multi_compile_instancing
+    #pragma shader_feature_local _MASK_NONE _MASK_MASKED _MASK_FILL
+    #pragma shader_feature_local_fragment _EMISSION_ON
+    // Preserve original material names while reusing the installed URP PBR/lighting passes.
+    #define _BaseMap _Albedo
+    #define sampler_BaseMap sampler_Albedo
+    #define _BaseMap_ST _Albedo_ST
+    #define _BaseMap_TexelSize _Albedo_TexelSize
+    #define _BaseColor _Color
+    #define _ALPHATEST_ON 1
+    #define InitializeStandardLitSurfaceData CrestUnusedStandardSurfaceData
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
+    #undef InitializeStandardLitSurfaceData
+    TEXTURE2D_X(_CrestOceanMaskTexture);
+    TEXTURE2D_X(_CrestWaterVolumeFrontFaceTexture);
+    TEXTURE2D_X(_CrestWaterVolumeBackFaceTexture);
+    TEXTURE2D_X(_FillTexture);
+    void CrestExampleClip(float4 positionCS)
+    {
+        float2 uv = positionCS.xy / _ScaledScreenParams.xy;
+    #if defined(_MASK_MASKED)
+        float front = SAMPLE_TEXTURE2D_X_LOD(_CrestWaterVolumeFrontFaceTexture, sampler_LinearClamp, uv, 0).r;
+        float back = SAMPLE_TEXTURE2D_X_LOD(_CrestWaterVolumeBackFaceTexture, sampler_LinearClamp, uv, 0).r;
+        if ((front < positionCS.z && front > 0.0) || (back > positionCS.z && back > 0.0)) discard;
+        if (SAMPLE_TEXTURE2D_X_LOD(_CrestOceanMaskTexture, sampler_LinearClamp, uv, 0).r == 0.0) discard;
+    #elif defined(_MASK_FILL)
+        if (SAMPLE_TEXTURE2D_X_LOD(_FillTexture, sampler_LinearClamp, uv, 0).r == 0.0) discard;
+    #endif
+    }
+    void InitializeStandardLitSurfaceData(float2 uv, out SurfaceData surface)
+    {
+        half4 albedo = SAMPLE_TEXTURE2D(_Albedo, sampler_Albedo, uv);
+        half4 colour = albedo * _Color;
+        clip(colour.a - _Cutoff);
+        surface = (SurfaceData)0;
+        surface.albedo = colour.rgb;
+        surface.alpha = colour.a;
+        surface.normalTS = half3(0,0,1);
+        surface.metallic = _Metallic;
+        surface.smoothness = _Smoothness;
+        surface.occlusion = 1;
+    #if defined(_EMISSION_ON)
+        surface.emission = colour.rgb * albedo.a * _EmissionColor.rgb;
+    #endif
+    }
+    ENDHLSL
 
-		// NOTE: SHADER_TARGET_SURFACE_ANALYSIS does not want the semicolon but compiler does for builds.
-#if _MASK_MASKED
-		UNITY_DECLARE_SCREENSPACE_TEXTURE(_CrestOceanMaskTexture)
-#ifndef SHADER_TARGET_SURFACE_ANALYSIS
-		;
-#endif
-		UNITY_DECLARE_SCREENSPACE_TEXTURE(_CrestWaterVolumeFrontFaceTexture)
-#ifndef SHADER_TARGET_SURFACE_ANALYSIS
-		;
-#endif
-		UNITY_DECLARE_SCREENSPACE_TEXTURE(_CrestWaterVolumeBackFaceTexture)
-#ifndef SHADER_TARGET_SURFACE_ANALYSIS
-		;
-#endif
-#elif _MASK_FILL
-		UNITY_DECLARE_SCREENSPACE_TEXTURE(_FillTexture)
-#ifndef SHADER_TARGET_SURFACE_ANALYSIS
-		;
-#endif
-#endif // _MASK
+        Pass
+        {
+            Name "ForwardLit"
+            Tags {"LightMode"="UniversalForwardOnly"}
+            HLSLPROGRAM
+            #pragma vertex LitPassVertex
+            #pragma fragment CrestExampleFragment
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
+            #pragma multi_compile _ EVALUATE_SH_MIXED EVALUATE_SH_VERTEX
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_ATLAS
+            #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
+            #pragma multi_compile_fragment _ LIGHTMAP_BICUBIC_SAMPLING
+            #pragma multi_compile_fragment _ REFLECTION_PROBE_ROTATION
+            #pragma multi_compile _ LIGHTMAP_ON
+            #pragma multi_compile _ DYNAMICLIGHTMAP_ON
+            #pragma multi_compile _ DIRLIGHTMAP_COMBINED
+            #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
+            #pragma multi_compile _ SHADOWS_SHADOWMASK
+            #pragma multi_compile_fog
+            #define LitPassFragment CrestUnmaskedLitFragment
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitForwardPass.hlsl"
+            #undef LitPassFragment
+            void CrestExampleFragment(Varyings input, out half4 colour : SV_Target0)
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+                CrestExampleClip(input.positionCS);
+                CrestUnmaskedLitFragment(input, colour);
+            }
+            ENDHLSL
+        }
 
-		UNITY_DECLARE_TEX2D(_Albedo);
-		fixed4 _Color;
-		half _Cutoff;
-
-		// NOTE: Do not use discard in either of these methods or incur the following:
-		// > Program 'frag_Surface', internal error: argument pulled into unrelated predicate.
-#if _MASK_MASKED
-		bool Clip(float4 screenPos)
-		{
-			float2 positionNDC = screenPos.xy / screenPos.w;
-			float deviceDepth = screenPos.z / screenPos.w;
-
-			float rawFrontFaceZ = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_CrestWaterVolumeFrontFaceTexture, positionNDC).r;
-			if (rawFrontFaceZ < deviceDepth && rawFrontFaceZ > 0.0)
-			{
-				return true;
-			}
-
-			float rawBackFaceZ = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_CrestWaterVolumeBackFaceTexture, positionNDC).r;
-			if (rawBackFaceZ > deviceDepth && rawBackFaceZ > 0.0)
-			{
-				return true;
-			}
-
-			return UNITY_SAMPLE_SCREENSPACE_TEXTURE(_CrestOceanMaskTexture, positionNDC).r == 0.0;
-		}
-#endif // _MASK_MASKED
-
-#if _MASK_FILL
-		bool Clip(float4 screenPos)
-		{
-			float2 positionNDC = screenPos.xy / screenPos.w;
-			float deviceZ = screenPos.z / screenPos.w;
-
-			return UNITY_SAMPLE_SCREENSPACE_TEXTURE(_FillTexture, positionNDC).r == 0.0;
-		}
-#endif // _MASK_FILL
-		ENDCG
-
-		Pass
-		{
-			// Required as we are modifying geometry in the fragment shader. Depth for CameraDepthTexture will come from
-			// this pass.
-			Name "Shadow Caster"
-			Tags { "LightMode"="ShadowCaster" }
-
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
-
-			#pragma multi_compile_shadowcaster
-
-			#pragma multi_compile _ _SHADOW_PASS
-
-			#include "UnityCG.cginc"
-
-			#include "../../../Crest/Shaders/Helpers/BIRP/Core.hlsl"
-
-			struct Varyings
-			{
-				V2F_SHADOW_CASTER;
-				float2 uv : TEXCOORD0;
-				float4 screenPos : TEXCOORD1;
-				UNITY_VERTEX_OUTPUT_STEREO
-			};
-
-			Varyings vert(appdata_base v)
-			{
-				Varyings output;
-				ZERO_INITIALIZE(Varyings, output);
-				UNITY_SETUP_INSTANCE_ID(v);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
-
-				TRANSFER_SHADOW_CASTER_NORMALOFFSET(output)
-				output.screenPos = ComputeScreenPos(output.pos);
-				output.uv = v.texcoord.xy;
-				return output;
-			}
-
-			float4 frag(Varyings input) : SV_Target
-			{
-				// We need this when sampling a screenspace texture.
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-
-#ifndef _MASK_NONE
-#ifndef _SHADOW_PASS
-				if (Clip(input.screenPos))
-				{
-					discard;
-				}
-#endif // !_SHADOWS
-#endif // _MASKED_ON
-
-				fixed4 c = UNITY_SAMPLE_TEX2D(_Albedo, input.uv) * _Color;
-				clip(c.a - _Cutoff);
-				SHADOW_CASTER_FRAGMENT(i)
-			}
-			ENDCG
-		}
-
-		CGPROGRAM
-		#pragma surface Surface Standard fullforwardshadows
-
-		#pragma target 5.0
-		#pragma shader_feature_local _EMISSION_ON
-
-		struct Input
-		{
-			float2 uv_Albedo;
-			float4 screenPos;
-		};
-
-		half _Smoothness;
-		half _Metallic;
-		fixed4 _EmissionColor;
-
-		void Surface(Input input, inout SurfaceOutputStandard output)
-		{
-			// NOTE: The else is required to avoid the following error:
-			// > Program 'frag_Surface', internal error: argument pulled into unrelated predicate.
-#if !_MASK_NONE
-			if (Clip(input.screenPos))
-			{
-				discard;
-			}
-			else
-#endif
-			{
-				fixed4 c = UNITY_SAMPLE_TEX2D(_Albedo, input.uv_Albedo) * _Color;
-				clip(c.a - _Cutoff);
-				output.Albedo = c.rgb;
-				output.Metallic = _Metallic;
-				output.Smoothness = _Smoothness;
-#if _EMISSION_ON
-				output.Emission = c.rgb * UNITY_SAMPLE_TEX2D(_Albedo, input.uv_Albedo).a * _EmissionColor;
-#endif
-				output.Alpha = c.a;
-			}
-
-		}
-		ENDCG
-	}
-	FallBack "Diffuse"
+        Pass
+        {
+            Name "DepthOnly"
+            Tags {"LightMode"="DepthOnly"}
+            ColorMask R
+            HLSLPROGRAM
+            #pragma vertex DepthOnlyVertex
+            #pragma fragment CrestExampleDepth
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/DepthOnlyPass.hlsl"
+            half CrestExampleDepth(Varyings input) : SV_Target
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+                CrestExampleClip(input.positionCS);
+                return DepthOnlyFragment(input);
+            }
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "DepthNormals"
+            Tags {"LightMode"="DepthNormalsOnly"}
+            HLSLPROGRAM
+            #pragma vertex DepthNormalsVertex
+            #pragma fragment CrestExampleNormals
+            #pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitDepthNormalsPass.hlsl"
+            void CrestExampleNormals(Varyings input, out half4 normal : SV_Target0)
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+                CrestExampleClip(input.positionCS);
+                DepthNormalsFragment(input, normal);
+            }
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags {"LightMode"="ShadowCaster"}
+            ColorMask 0
+            HLSLPROGRAM
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
+            #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
+            // A shadow camera must not sample the view camera's screen-space clipping mask.
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/ShadowCasterPass.hlsl"
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "Meta"
+            Tags {"LightMode"="Meta"}
+            Cull Off
+            HLSLPROGRAM
+            #pragma vertex UniversalVertexMeta
+            #pragma fragment UniversalFragmentMetaLit
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/LitMetaPass.hlsl"
+            ENDHLSL
+        }
+    }
 }

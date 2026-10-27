@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-27T07:34:09.1160532Z",
+  "recordedUtc": "2026-10-27T12:33:43.0550658Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1347,
+  "fileCount": 1353,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -29,8 +29,16 @@
     "Crest\\Shaders\\Underwater\\Resources\\UnderwaterEffect.shader",
     "Crest\\Shaders\\Underwater\\Resources\\UnderwaterMask.shader",
     "Crest\\Shaders\\Underwater\\Resources\\WaterVolumeGeometry.shader",
+    "Crest-Examples\\Crest.Examples.asmdef",
     "Crest-Examples\\BoatDev\\Materials\\BoatGray.mat",
     "Crest-Examples\\Examples\\Materials\\Examples_Material_TransparentPrimitive.mat",
+    "Crest-Examples\\Examples\\Scripts\\CustomPassForCamera.cs",
+    "Crest-Examples\\Examples\\Scripts\\MaskFill.cs",
+    "Crest-Examples\\Examples\\Shaders\\DepthOnly.shader",
+    "Crest-Examples\\Examples\\Shaders\\MaskDepth.shader",
+    "Crest-Examples\\Examples\\Shaders\\Masked.shader",
+    "Crest-Examples\\Examples\\Shaders\\SphereGradientBackground.shader",
+    "Crest-Examples\\Examples\\Shaders\\Resources\\MaskFill.shader",
     "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
     "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
     "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta",
@@ -52,10 +60,10 @@
     },
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-26 22:22:24Z",
+      "start": "2026-10-27 12:32:34Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "3",
+      "passed": "3",
       "failed": "0"
     },
     {
@@ -84,10 +92,10 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-26 21:45:09Z",
+      "start": "2026-10-27 12:33:18Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "3",
+      "passed": "3",
       "failed": "0"
     },
     {
@@ -1720,8 +1728,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
-      "bytes": 10518,
-      "sha256": "12989357C389E3A20D13C9A9E46E094359DA8849765B89DEEB263CAF3FB0C6C1"
+      "bytes": 11016,
+      "sha256": "B09BF935A89AFBFA8A55D1A5DB7B7174FDCC5CD0F6E266F5511C96696679CC4C"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs.meta",
@@ -2795,8 +2803,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Crest.Examples.asmdef",
-      "bytes": 853,
-      "sha256": "677A066DAC4A88A4D57A766F38FD9902CA308220F714F5EB4BEC01DCCFD7E495"
+      "bytes": 850,
+      "sha256": "10966BDA1232BA3687051C42CE1AD399883E3244776FE3837BDB5D56F3AB078C"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Crest.Examples.asmdef.meta",
@@ -3116,7 +3124,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat/LightingData.asset",
       "bytes": 19281,
-      "sha256": "08CE781CDFEBFCB200AD18425A203A92610C32FB96B21BBC20BE74AD07F39312"
+      "sha256": "103848F5CC9EAD9CDF4A2291C6572EFD3D874B7E710AC25E70DCACEB7B6B4A5A"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat/LightingData.asset.meta",
@@ -3136,7 +3144,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes/LightingData.asset",
       "bytes": 19281,
-      "sha256": "20F55DCA44DBC7761FE681C681FCB6690FC08321AB23E8C119B107B4CBE57596"
+      "sha256": "0D807CED9BA14F170CBD57426717E00C592BB8AEC67F208C635F53CAD6DB70C1"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes/LightingData.asset.meta",
@@ -3216,7 +3224,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats/LightingData.asset",
       "bytes": 19281,
-      "sha256": "72CA9F6D164FF2FFE6E1C9EC8AC26533A1BD3BE04A9934E663C22C0D70349499"
+      "sha256": "537F73B17A8BC6CEC6F383A502AF79F5E8E7C29B55377134C83AC7AD40B163EE"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats/LightingData.asset.meta",
@@ -3741,7 +3749,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scenes/Examples/LightingData.asset",
       "bytes": 19249,
-      "sha256": "FBC05A1F7DA4F0E436A24567AD6167E1FF75E0CB6E03B79F6582A3AEF1F23B39"
+      "sha256": "8AF1C7B05B9F940F031415C57BB20D977F5733C5736B48013952BD5547E53FB5"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scenes/Examples/LightingData.asset.meta",
@@ -3780,8 +3788,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scripts/CustomPassForCamera.cs",
-      "bytes": 4139,
-      "sha256": "97E5CFCEF3E7F3251D5DAD007FA916A0A6EF2F7D9BD6123572A260C94A9E9EA7"
+      "bytes": 7916,
+      "sha256": "1D742C66478901258D049B01745F548718B305FE4DB538B2FC398745B314B2E3"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scripts/CustomPassForCamera.cs.meta",
@@ -3800,8 +3808,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scripts/MaskFill.cs",
-      "bytes": 3416,
-      "sha256": "B3FD9ACED673FB903BBEAAD8FE486D80A84463CD4A42241371FE7E3BC4F03602"
+      "bytes": 6145,
+      "sha256": "75593E71183ECDD89F16C5BCC2B6823D7274AAFEC4DE8115AA1AF3F7565F3D3A"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scripts/MaskFill.cs.meta",
@@ -3860,8 +3868,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/DepthOnly.shader",
-      "bytes": 261,
-      "sha256": "615B7495A5A4C27B56C8B428D66C0D3719ACEDBC293D2608AF7F71DDCF28FF34"
+      "bytes": 814,
+      "sha256": "CDF8072E51CFA82C28E7A0136B113C1ABEBF93EB944E05D8D7CF6F8E21F6C447"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/DepthOnly.shader.meta",
@@ -3870,8 +3878,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/MaskDepth.shader",
-      "bytes": 1735,
-      "sha256": "98EC1CF4931CCCE6073A94B63A4FA14AD62980237B9AE30D01E973F7DE93EBAA"
+      "bytes": 1705,
+      "sha256": "13D03F669801F435657DC118537E82762B083040FCA6B737AAF38A87615E441D"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/MaskDepth.shader.meta",
@@ -3880,8 +3888,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
-      "bytes": 4965,
-      "sha256": "CF307B1D033C2B586C9C03D1EBB61B0A6425DA40BF4030D807E5387134CB37CD"
+      "bytes": 7330,
+      "sha256": "B9F572EDFF89E7F14DE90726F89011A4E95B4895DAF159182E41DEE15830B4D9"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader.meta",
@@ -3895,8 +3903,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/SphereGradientBackground.shader",
-      "bytes": 1807,
-      "sha256": "7B473F53C11A5FB7D97350D13128DC7D2F1DD733460EC23196AF9D5C9F430B93"
+      "bytes": 1768,
+      "sha256": "035F0C18C1BF64D4FD6BB49485CD811F2B9F0C2AC2F7A1BFA3A12A851CD038F0"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/SphereGradientBackground.shader.meta",
@@ -3905,8 +3913,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Resources/MaskFill.shader",
-      "bytes": 1790,
-      "sha256": "78B016F0FC3DDB2178B23F2A31544A6383933BC389644703D993F8E966523B16"
+      "bytes": 1761,
+      "sha256": "A39A8581BB21F6F4B2617593115FE57E0963F3FC054F8BC1F98E635CD4ED4721"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Resources/MaskFill.shader.meta",
@@ -5031,7 +5039,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/Main/Scenes/main/LightingData.asset",
       "bytes": 19281,
-      "sha256": "ABA7472E9991C05EB9A3443425479D6D5D8B4FB5FAD81C70CA749BD538E124F0"
+      "sha256": "AB5CF5876ED1A3F829CE2EDFC581D225FA5976DBB7283E00A7ADC357FD1C623F"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Main/Scenes/main/LightingData.asset.meta",
@@ -5551,7 +5559,7 @@
     {
       "path": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool/LightingData.asset",
       "bytes": 19281,
-      "sha256": "52FF8C37507B5B79DF9EAB565F6AA181B63DB68BBD60D8FAFBDADA404E1330F5"
+      "sha256": "38EBBBCD0458ACB4A8EE809394789D7083E5C8FCA2463D9ABFCD5D58F8352335"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool/LightingData.asset.meta",
@@ -5669,6 +5677,16 @@
       "sha256": "D301A782CD4C86DC713E232B09F7F0CF3144DCF71677EDA6DDC3E468F74E18DF"
     },
     {
+      "path": "Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs",
+      "bytes": 3973,
+      "sha256": "7DED8D565BA0543D1D1E364D1D9EE2226F487CAD93E09728808F0F640C7329D1"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs.meta",
+      "bytes": 62,
+      "sha256": "26158DEEA9DA42B06A4D093396DE38295E827C21A081CC943B17A54E5552F4D0"
+    },
+    {
       "path": "Assets/Crest/URP/Runtime/Crest.URP.asmdef",
       "bytes": 166,
       "sha256": "87F9BF03D42A1EAE99B1A867EA1A2820A0DD394BAAD5F89E783A917E9368BA2B"
@@ -5680,8 +5698,8 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
-      "bytes": 5817,
-      "sha256": "29567A360CBE6E558FE79D0FD76CDE2919E360A9E0BD46373A5231880EC78AC3"
+      "bytes": 6584,
+      "sha256": "77C45862223F2E71A74CA8FBB48C4AF708C1580D44611ED5FAC781C7CF2678F7"
     },
     {
       "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs.meta",
@@ -5860,8 +5878,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef",
-      "bytes": 393,
-      "sha256": "A8332C0C7E6E0C2FD90AFC8CCEF3083D18F7AAA85415E94128BCC154931584E0"
+      "bytes": 411,
+      "sha256": "B7B737284DAA3247284E2505AE47D4FF434781EC98CA1C93D37CA705457DC50E"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef.meta",
@@ -6017,6 +6035,26 @@
       "path": "Assets/Crest/URP/Tests/Editor/LodWaveSurfaceTests.cs.meta",
       "bytes": 61,
       "sha256": "2941ABF4BE4D2B5026D63B7092F22C1413491353F3C1656D61E1111F61EB2FAF"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs",
+      "bytes": 20859,
+      "sha256": "5F5CC01B1F08ECBC2C34784C56BADC6A94E02A0BBD713E7E8ADD46D78D463C58"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs.meta",
+      "bytes": 62,
+      "sha256": "4CBF034FC87B6314F56C976B21C80FBF46225ED389A39A4AC29E5FF7F9C25A81"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskTimingProbe.shader",
+      "bytes": 606,
+      "sha256": "D00D1D9E10A55FE4A8B780263BB157CA751695DB4EEE598AE756E06601537390"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskTimingProbe.shader.meta",
+      "bytes": 62,
+      "sha256": "D614A67ED6487AE27707EC897CB1834A43E43646A2D95ABCD1402463AF8BD665"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/OceanGraphicsTests.cs",
@@ -6800,8 +6838,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 24940,
-      "sha256": "FB57973EEF400207F9B97B64AAC1B1F974BBF35B49DD44FBBE0EEAED7431500C"
+      "bytes": 25695,
+      "sha256": "6330EB7A98C15FF32616F35DDCF4568993E6E8BC2C2D21022E73B8E9FA083ADB"
     },
     {
       "path": "LICENSE.Crest",
@@ -6810,23 +6848,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 29979,
-      "sha256": "34D2B63912B03F572D07717FE2F578E6AAA5F8F050D5D2AF8195881839C7AB90"
+      "bytes": 30492,
+      "sha256": "A94D818086495B8FC3C07C91937D1DB1613A469DF43B4950587EF5DF3908D2E4"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 24320,
-      "sha256": "C6C8E46BA6CF9FD75AC5A86601174945EBF38C63E73902A8F6A3F9D487F68598"
+      "bytes": 26785,
+      "sha256": "92175F197F69E016CB4E91D1405688F030FD8C0FFE3103C1174A3D0A745DE27F"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 17612,
-      "sha256": "35D1A3B37AF9857BDDFD0E746BDB075F5F34EE6DB66DBA284A0D773EDC2B4670"
+      "bytes": 20107,
+      "sha256": "20D80451AD1F9F12290C20434B29D94EB2866D588742F745E81DFDC823EA3DB5"
     },
     {
       "path": "README.md",
-      "bytes": 12701,
-      "sha256": "DE4D90B362F2D88775363750D4C303ECF478F70DFD6DCB2D84F23906CEB4A7AA"
+      "bytes": 13438,
+      "sha256": "0A929F64BCC7DF4832718051C495990BD770699E4E39D370A44082C691B46DA3"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -6835,8 +6873,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 194181,
-      "sha256": "5D3500525283723B2EC0C602EB4FF31284B32D3FA5D3847868E42A34A31F1B6C"
+      "bytes": 199979,
+      "sha256": "27EBCB8387C7875DC22783AF23B5A23C6837EB592F8024CBBAF28786242C36F5"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

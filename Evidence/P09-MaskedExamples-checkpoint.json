@@ -1,0 +1,665 @@
+{
+  "recordedUtc": "2026-10-27T12:44:34.116130+00:00",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "scope": "P09.5.2 partial masked/fill/opaque native-mask and shadow semantics. Full83+actual non-batch2/API regression; not complete P09.5.2 acceptance.",
+  "implementation": [
+    {
+      "path": "Assets/Crest/Crest-Examples/Crest.Examples.asmdef",
+      "sha256": "EF53D3D174005FCA96AC06DE00727DE207671FB45CDC928DA3FEBFB55418B52B",
+      "bytes": 974,
+      "modifiedUtc": "2026-10-27T12:34:31.652246+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/CustomPassForCamera.cs",
+      "sha256": "1D742C66478901258D049B01745F548718B305FE4DB538B2FC398745B314B2E3",
+      "bytes": 7916,
+      "modifiedUtc": "2026-10-27T12:28:43.670069+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/MaskFill.cs",
+      "sha256": "75593E71183ECDD89F16C5BCC2B6823D7274AAFEC4DE8115AA1AF3F7565F3D3A",
+      "bytes": 6145,
+      "modifiedUtc": "2026-10-27T09:39:44.053185+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/DepthOnly.shader",
+      "sha256": "CDF8072E51CFA82C28E7A0136B113C1ABEBF93EB944E05D8D7CF6F8E21F6C447",
+      "bytes": 814,
+      "modifiedUtc": "2026-10-27T09:18:23.790181+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/MaskDepth.shader",
+      "sha256": "13D03F669801F435657DC118537E82762B083040FCA6B737AAF38A87615E441D",
+      "bytes": 1705,
+      "modifiedUtc": "2026-10-27T09:18:23.789164+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+      "sha256": "B9F572EDFF89E7F14DE90726F89011A4E95B4895DAF159182E41DEE15830B4D9",
+      "bytes": 7330,
+      "modifiedUtc": "2026-10-27T09:39:44.058187+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Resources/MaskFill.shader",
+      "sha256": "A39A8581BB21F6F4B2617593115FE57E0963F3FC054F8BC1F98E635CD4ED4721",
+      "bytes": 1761,
+      "modifiedUtc": "2026-10-27T09:18:23.790181+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/SphereGradientBackground.shader",
+      "sha256": "035F0C18C1BF64D4FD6BB49485CD811F2B9F0C2AC2F7A1BFA3A12A851CD038F0",
+      "bytes": 1768,
+      "modifiedUtc": "2026-10-27T09:18:23.791169+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
+      "sha256": "B09BF935A89AFBFA8A55D1A5DB7B7174FDCC5CD0F6E266F5511C96696679CC4C",
+      "bytes": 11016,
+      "modifiedUtc": "2026-10-27T09:18:23.793164+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
+      "sha256": "77C45862223F2E71A74CA8FBB48C4AF708C1580D44611ED5FAC781C7CF2678F7",
+      "bytes": 6584,
+      "modifiedUtc": "2026-10-27T09:21:37.237240+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/Crest.URP.Tests.asmdef",
+      "sha256": "B7B737284DAA3247284E2505AE47D4FF434781EC98CA1C93D37CA705457DC50E",
+      "bytes": 411,
+      "modifiedUtc": "2026-10-27T09:32:58.994591+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs",
+      "sha256": "7DED8D565BA0543D1D1E364D1D9EE2226F487CAD93E09728808F0F640C7329D1",
+      "bytes": 3973,
+      "modifiedUtc": "2026-10-27T09:23:40.835171+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs.meta",
+      "sha256": "26158DEEA9DA42B06A4D093396DE38295E827C21A081CC943B17A54E5552F4D0",
+      "bytes": 62,
+      "modifiedUtc": "2026-10-27T09:21:37.222236+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs",
+      "sha256": "B5B0FB2CF6CC68ECFDB0E2A405171439538F1A6BAF1AA7E3C432E00C9D1CB40C",
+      "bytes": 23359,
+      "modifiedUtc": "2026-10-27T12:34:31.648242+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs.meta",
+      "sha256": "4CBF034FC87B6314F56C976B21C80FBF46225ED389A39A4AC29E5FF7F9C25A81",
+      "bytes": 62,
+      "modifiedUtc": "2026-10-27T09:30:04.092498+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskTimingProbe.shader",
+      "sha256": "D00D1D9E10A55FE4A8B780263BB157CA751695DB4EEE598AE756E06601537390",
+      "bytes": 606,
+      "modifiedUtc": "2026-10-27T09:39:44.054183+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskTimingProbe.shader.meta",
+      "sha256": "D614A67ED6487AE27707EC897CB1834A43E43646A2D95ABCD1402463AF8BD665",
+      "bytes": 62,
+      "modifiedUtc": "2026-10-27T09:39:44.057184+00:00"
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-MaskedExamples-focused-DX11.xml",
+      "sha256": "DC3B3F8A32790265A72B23A0B24F7FECE17655CED3546B7D05896B9DFF469ED3",
+      "bytes": 5568,
+      "modifiedUtc": "2026-10-27T12:34:43.880202+00:00",
+      "passed": 4,
+      "total": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-MaskedExamples-focused-DX12.xml",
+      "sha256": "0C64677DB0E30E541478736D478D7997495D79BB1751B4015EDFE863E5C48227",
+      "bytes": 5567,
+      "modifiedUtc": "2026-10-27T12:35:21.503191+00:00",
+      "passed": 4,
+      "total": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-MaskedExamples-regression-DX11.xml",
+      "sha256": "FCDF1E8722D63AC0A3837310EC5F91985198B5BA084FD8E336A3963074D1F449",
+      "bytes": 126609,
+      "modifiedUtc": "2026-10-27T12:37:17.903878+00:00",
+      "passed": 83,
+      "total": 83,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-MaskedExamples-regression-DX11-interactive.xml",
+      "sha256": "68E99031483AE06FDFFD6063EF1D322D8B7764EB012E8D3D42CB3539C6B9EECB",
+      "bytes": 4018,
+      "modifiedUtc": "2026-10-27T12:40:26.681986+00:00",
+      "passed": 2,
+      "total": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-MaskedExamples-regression-DX12.xml",
+      "sha256": "A49711C68529ACB36450D82568C3C10F1631CE61C81A0CE0F77A208079E5EBCB",
+      "bytes": 126601,
+      "modifiedUtc": "2026-10-27T12:39:54.858281+00:00",
+      "passed": 83,
+      "total": 83,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "Evidence/P09-MaskedExamples-regression-DX12-interactive.xml",
+      "sha256": "25C6BA3686264E77505DFFB6C85F337D9A31744F16CECEACCCA036CFE1030AFF",
+      "bytes": 4020,
+      "modifiedUtc": "2026-10-27T12:40:56.670184+00:00",
+      "passed": 2,
+      "total": 2,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "reports": [
+    {
+      "path": "Evidence/MaskedExamples-ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks-Direct3D11.txt",
+      "sha256": "2C9393AD9CE3E3473E078BBB1C0BEA1315659709B99095797BAB01E342E09FFE",
+      "bytes": 4498,
+      "modifiedUtc": "2026-10-27T12:36:27.040604+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks-Direct3D12.txt",
+      "sha256": "2C9393AD9CE3E3473E078BBB1C0BEA1315659709B99095797BAB01E342E09FFE",
+      "bytes": 4498,
+      "modifiedUtc": "2026-10-27T12:38:53.039273+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList-Direct3D11.txt",
+      "sha256": "E298F00FB0428ABF9602B2495424A050222D2211E94C6CF96A3A0271AFA1D977",
+      "bytes": 2000,
+      "modifiedUtc": "2026-10-27T12:36:27.431092+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList-Direct3D12.txt",
+      "sha256": "E298F00FB0428ABF9602B2495424A050222D2211E94C6CF96A3A0271AFA1D977",
+      "bytes": 2000,
+      "modifiedUtc": "2026-10-27T12:38:53.443141+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff-Direct3D11.txt",
+      "sha256": "8AFDDF050130AD85009B6F66388A7A5BE4CF661522EC29E5DBD7BA71D39FEC57",
+      "bytes": 1439,
+      "modifiedUtc": "2026-10-27T12:36:28.011668+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff-Direct3D12.txt",
+      "sha256": "8AFDDF050130AD85009B6F66388A7A5BE4CF661522EC29E5DBD7BA71D39FEC57",
+      "bytes": 1439,
+      "modifiedUtc": "2026-10-27T12:38:54.018225+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour-Direct3D11.txt",
+      "sha256": "4F144C35973A8A274B857E901100F3C00AF79DA89A1517E9F0B991154D22C397",
+      "bytes": 1041,
+      "modifiedUtc": "2026-10-27T12:36:28.510888+00:00"
+    },
+    {
+      "path": "Evidence/MaskedExamples-OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour-Direct3D12.txt",
+      "sha256": "4F144C35973A8A274B857E901100F3C00AF79DA89A1517E9F0B991154D22C397",
+      "bytes": 1041,
+      "modifiedUtc": "2026-10-27T12:38:54.538327+00:00"
+    }
+  ],
+  "imagePairs": [
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-ActualMask-Direct3D11.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:36:28.477524+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-ActualMask-Direct3D12.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:38:54.503014+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-ActualMaskRestored-Direct3D11.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:36:28.510888+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-ActualMaskRestored-Direct3D12.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:38:54.537327+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-ActualMaskTurned-Direct3D11.png",
+        "sha256": "7A837A17BC373A56A55A8F1D18B9EE1837BC1EAC4FFCFD427AAA27CF60AA5988",
+        "bytes": 2021,
+        "modifiedUtc": "2026-10-27T12:36:28.492219+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-ActualMaskTurned-Direct3D12.png",
+        "sha256": "7A837A17BC373A56A55A8F1D18B9EE1837BC1EAC4FFCFD427AAA27CF60AA5988",
+        "bytes": 2021,
+        "modifiedUtc": "2026-10-27T12:38:54.519938+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-AlphaCutoff-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T12:36:26.970731+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-AlphaCutoff-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T12:38:52.947455+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-BeforeDepthNormals-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:27.005961+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-BeforeDepthNormals-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:52.988722+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-BeforeDepthOnly-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:27.026224+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-BeforeDepthOnly-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:53.016611+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-BeforeForwardLit-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:26.980372+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-BeforeForwardLit-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:52.958745+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-CallbackDisabled-Direct3D11.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T12:36:27.176193+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-CallbackDisabled-Direct3D12.png",
+        "sha256": "1D4A94C6A1402203638D8C06B845B565A7743FA8E46440AAC236587626F28616",
+        "bytes": 1845,
+        "modifiedUtc": "2026-10-27T12:38:53.198739+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-CasterAlphaCutoff-Direct3D11.png",
+        "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+        "bytes": 1843,
+        "modifiedUtc": "2026-10-27T12:36:27.778263+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-CasterAlphaCutoff-Direct3D12.png",
+        "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+        "bytes": 1843,
+        "modifiedUtc": "2026-10-27T12:38:53.786553+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-CasterAlphaRestored-Direct3D11.png",
+        "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+        "bytes": 2138,
+        "modifiedUtc": "2026-10-27T12:36:28.011164+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-CasterAlphaRestored-Direct3D12.png",
+        "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+        "bytes": 2138,
+        "modifiedUtc": "2026-10-27T12:38:54.018225+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-CasterShadowOff-Direct3D11.png",
+        "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+        "bytes": 1843,
+        "modifiedUtc": "2026-10-27T12:36:27.544631+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-CasterShadowOff-Direct3D12.png",
+        "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+        "bytes": 1843,
+        "modifiedUtc": "2026-10-27T12:38:53.561947+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-CasterShadowRestored-Direct3D11.png",
+        "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+        "bytes": 2138,
+        "modifiedUtc": "2026-10-27T12:36:27.552935+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-CasterShadowRestored-Direct3D12.png",
+        "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+        "bytes": 2138,
+        "modifiedUtc": "2026-10-27T12:38:53.569996+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-CurrentMask-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T12:36:26.951916+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-CurrentMask-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T12:38:52.921609+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-EmissionOff-Direct3D11.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T12:36:26.959341+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-EmissionOff-Direct3D12.png",
+        "sha256": "9D89CB15CE64ABD631BB7BE86829A02E7552A7F99520D92887B8CDCCBE81378A",
+        "bytes": 1844,
+        "modifiedUtc": "2026-10-27T12:38:52.933859+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-EmptyFill-Direct3D11.png",
+        "sha256": "9A829C5AB0EB5A347646B0C48C08F4EF842B06D2E7442C909BDA1893E4F74E9B",
+        "bytes": 707,
+        "modifiedUtc": "2026-10-27T12:36:27.430087+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-EmptyFill-Direct3D12.png",
+        "sha256": "9A829C5AB0EB5A347646B0C48C08F4EF842B06D2E7442C909BDA1893E4F74E9B",
+        "bytes": 707,
+        "modifiedUtc": "2026-10-27T12:38:53.442136+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-FillResized-Direct3D11.png",
+        "sha256": "70F85F7EE533A6E2FEC12D6EAD9734AB84527A36BE04F690D05C40805C707D60",
+        "bytes": 944,
+        "modifiedUtc": "2026-10-27T12:36:27.423002+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-FillResized-Direct3D12.png",
+        "sha256": "70F85F7EE533A6E2FEC12D6EAD9734AB84527A36BE04F690D05C40805C707D60",
+        "bytes": 944,
+        "modifiedUtc": "2026-10-27T12:38:53.434175+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-FillRestored-Direct3D11.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:36:27.184093+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-FillRestored-Direct3D12.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:38:53.208083+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-FillRight-Direct3D11.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T12:36:26.925027+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-FillRight-Direct3D12.png",
+        "sha256": "CE6E3A4F9A77DF41FD99E37DE8C8FCD0737BE95328EB922E2C2F395549622A29",
+        "bytes": 2033,
+        "modifiedUtc": "2026-10-27T12:38:52.886911+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-HiddenCasterShadow-Direct3D11.png",
+        "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+        "bytes": 2138,
+        "modifiedUtc": "2026-10-27T12:36:27.537333+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-HiddenCasterShadow-Direct3D12.png",
+        "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+        "bytes": 2138,
+        "modifiedUtc": "2026-10-27T12:38:53.554880+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-MaskedLeft-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:26.917744+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-MaskedLeft-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:52.874974+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-MovedFill-Direct3D11.png",
+        "sha256": "7A837A17BC373A56A55A8F1D18B9EE1837BC1EAC4FFCFD427AAA27CF60AA5988",
+        "bytes": 2021,
+        "modifiedUtc": "2026-10-27T12:36:27.164505+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-MovedFill-Direct3D12.png",
+        "sha256": "7A837A17BC373A56A55A8F1D18B9EE1837BC1EAC4FFCFD427AAA27CF60AA5988",
+        "bytes": 2021,
+        "modifiedUtc": "2026-10-27T12:38:53.184580+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-NativeFill-Direct3D11.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:36:27.151752+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-NativeFill-Direct3D12.png",
+        "sha256": "5A3D52659C8575E692F57D008DC14D78C9960038AC960A4BDEA3C64A0D5ABE54",
+        "bytes": 1898,
+        "modifiedUtc": "2026-10-27T12:38:53.168773+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-None-Direct3D11.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T12:36:26.908726+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-None-Direct3D12.png",
+        "sha256": "EC5CAFF01CF5417C0370CE049F1AF9582C47234713D81B75427DC5E6AA5F3531",
+        "bytes": 1846,
+        "modifiedUtc": "2026-10-27T12:38:52.861798+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-PassOutputDepthNormals-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:27.012063+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-PassOutputDepthNormals-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:52.998066+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-PassOutputDepthOnly-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:27.030817+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-PassOutputDepthOnly-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:53.026514+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-PassOutputForwardLit-Direct3D11.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:36:26.988476+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-PassOutputForwardLit-Direct3D12.png",
+        "sha256": "C9CBE49B05E1FF2CE7D84F8B804333FD287EAD8C19C9AACF038DBC5BFBB0E13A",
+        "bytes": 2032,
+        "modifiedUtc": "2026-10-27T12:38:52.967798+00:00"
+      },
+      "byteIdentical": true
+    },
+    {
+      "dx11": {
+        "path": "Evidence/MaskedExamples-VolumeDepth-Direct3D11.png",
+        "sha256": "81E2BBBB4E556B11D00D32D087B8C8D946A019800FF57EE8B0B2735AE8254C7E",
+        "bytes": 2270,
+        "modifiedUtc": "2026-10-27T12:36:26.936715+00:00"
+      },
+      "dx12": {
+        "path": "Evidence/MaskedExamples-VolumeDepth-Direct3D12.png",
+        "sha256": "81E2BBBB4E556B11D00D32D087B8C8D946A019800FF57EE8B0B2735AE8254C7E",
+        "bytes": 2270,
+        "modifiedUtc": "2026-10-27T12:38:52.903203+00:00"
+      },
+      "byteIdentical": true
+    }
+  ],
+  "metrics": {
+    "nativeDepthNormalsAndDepthVisibleInterior": 37052,
+    "classificationErrors": 0,
+    "nativeFillNonzeroPixels": 25600,
+    "actualMaskInteriors": [
+      73296,
+      73624
+    ],
+    "shadowReceiverChangedPixels": 4740,
+    "restoration": "exact"
+  },
+  "limitations": [
+    "Synthetic split / native-neighbour one-pixel boundary exclusions counted separately.",
+    "Auxiliary DepthOnly/MaskDepth/SphereGradient render controls and non-emissive PBR lighting still pending.",
+    "No Meta bake, soft-shadow/all renderer/event mappings, XR or standalone original scene acceptance.",
+    "Player validation covers generated demos/options, not original masked example scenes.",
+    "Persistent allocates3 shutdown warning remains P10."
+  ],
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "9277FCD87AE4C566801AA0628120FB0529DB8E6A157BF0B1170A8360B8FD7AEF",
+    "bytes": 27845,
+    "modifiedUtc": "2026-10-27T12:44:34.163052+00:00"
+  },
+  "structuralAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "D61A4D56C96811184910C23838D5C3835EE8901B4360D4409B4BEF4F97744DF0",
+    "bytes": 280457,
+    "modifiedUtc": "2026-10-27T12:33:43.077038+00:00"
+  },
+  "guidComputeCheck": {
+    "path": "Evidence/guid-compute-preservation.json",
+    "sha256": "899AA53FD560C03FA9F3EB39ECFE891CD26271913852550CC794D1E29D1E0C33",
+    "bytes": 586,
+    "modifiedUtc": "2026-10-26T15:54:49.584784+00:00"
+  }
+}

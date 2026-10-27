@@ -12,7 +12,7 @@ Shader "Hidden/Crest/SphereGradientBackground"
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "LightMode"="ForwardBase" }
+		Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
 		LOD 100
 
 		Pass
@@ -20,14 +20,12 @@ Shader "Hidden/Crest/SphereGradientBackground"
 			Cull Front
 			Blend Off
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#include "UnityCG.cginc"
-			#include "Lighting.cginc"
 
-			#include "../../../Crest/Shaders/Helpers/BIRP/Core.hlsl"
+			#include "../../../Crest/Shaders/Helpers/URP/Core.hlsl"
 
 			struct Attributes
 			{
@@ -49,7 +47,7 @@ Shader "Hidden/Crest/SphereGradientBackground"
 				UNITY_SETUP_INSTANCE_ID(v);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.vertex = TransformObjectToHClip(v.vertex.xyz);
 				o.positionWS = mul(unity_ObjectToWorld, float4(v.vertex.xyz, 1.0));
 				return o;
 			}
@@ -63,13 +61,13 @@ Shader "Hidden/Crest/SphereGradientBackground"
 				float3 worldPosition = i.positionWS;
 				float3 viewDirection = normalize(i.positionWS - _WorldSpaceCameraPos);
 
-				float alpha = saturate(0.5 * dot(viewDirection, _WorldSpaceLightPos0.xyz) + 0.5);
+				float alpha = saturate(0.5 * dot(viewDirection, GetMainLight().direction) + 0.5);
 				alpha = pow(alpha, _Exponent);
 
 				float3 col = lerp(_ColorAwayFromSun, _ColorTowardsSun, alpha);
 				return float4(col * saturate(max(_LightColor0.r, max(_LightColor0.g, _LightColor0.b))), 1.0);
 			}
-			ENDCG
+			ENDHLSL
 		}
 	}
 }

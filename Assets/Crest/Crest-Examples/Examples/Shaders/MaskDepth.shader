@@ -12,13 +12,12 @@ Shader "Crest/Examples/Mask Depth"
         {
             Blend SrcAlpha OneMinusSrcAlpha
 
-            CGPROGRAM
+            HLSLPROGRAM
             #pragma vertex Vertex
             #pragma fragment Fragment
 
-            #include "UnityCG.cginc"
 
-            #include "../../../Crest/Shaders/Helpers/BIRP/Core.hlsl"
+            #include "../../../Crest/Shaders/Helpers/URP/Core.hlsl"
 
             struct Attributes
             {
@@ -40,11 +39,11 @@ Shader "Crest/Examples/Mask Depth"
                 ZERO_INITIALIZE(Varyings, output);
                 UNITY_SETUP_INSTANCE_ID(input);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
-                output.positionCS = UnityObjectToClipPos(input.positionOS);
+                output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
                 return output;
             }
 
-            fixed4 Fragment(Varyings input, out float i_depth : SV_Depth) : SV_Target
+            half4 Fragment(Varyings input, out float i_depth : SV_Depth) : SV_Target
             {
                 // We need this when sampling a screenspace texture.
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
@@ -53,7 +52,7 @@ Shader "Crest/Examples/Mask Depth"
                 i_depth = mask == 0.0 ? 1.0 : 0.0;
                 return 0.0;
             }
-            ENDCG
+            ENDHLSL
         }
     }
 }
