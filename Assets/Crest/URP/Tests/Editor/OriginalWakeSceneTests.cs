@@ -90,6 +90,41 @@ public class OriginalWakeSceneTests
         _target.Release();Object.DestroyImmediate(_target);_target=null;yield return new ExitPlayMode();
         }
     }
+    [UnityTest,Timeout(300000)]
+    public IEnumerator OriginalWakeSourcesContributeIndependently()
+    {
+        _capture=Time.captureFramerate;_scale=Time.timeScale;
+        string report=$"Evidence/OriginalWakes-Isolation-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report,"Original saved sources, native radii/weights/positions; independent PlayMode lifecycles,120 frames, capture60Hz/query fence. All7 native RG channels finite. No image/performance/linear superposition law claim.\n");
+        foreach(string mode in new[]{"rig","boat","Wake0.5m","Wake1m","Wake2.5m","Wake5m","Wake10m","rig-weight-zero"})
+        {
+            OceanRenderer.EnableGraphicsInBatchMode=true;EditorSceneManager.OpenScene("Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity");
+            var inputs=Object.FindObjectsByType<SphereWaterInteraction>();Assert.That(inputs.Length,Is.EqualTo(8));
+            int selected=0;
+            foreach(var input in inputs)
+            {
+                bool rig=input.transform.parent.name=="WakeRig";
+                bool use=mode=="boat"?!rig:(mode=="rig"||mode=="rig-weight-zero"?rig:input.name==mode);
+                input.enabled=use;if(use){selected++;File.AppendAllText(report,$"Case={mode}; Input={input.name}; Radius={input._radius:R}; Weight={input._weight:R}\n");if(mode=="rig-weight-zero")input._weight=0;}
+            }
+            Assert.That(selected,Is.EqualTo(mode=="boat"?3:(mode=="rig"||mode=="rig-weight-zero"?5:1)));
+            yield return new EnterPlayMode();Time.captureFramerate=60;Time.timeScale=1;
+            var ocean=OceanRenderer.Instance;ocean.ViewCamera=Camera.main;Assert.That(ocean._lodDataDynWaves,Is.Not.Null);
+            new GameObject("Isolation query pacing").AddComponent<BoatProbesQueryFence>();
+            for(int frame=0;frame<120;frame++)yield return null;
+            var read=AsyncGPUReadback.Request(ocean._lodDataDynWaves.DataTexture,0,TextureFormat.RGFloat);read.WaitForCompletion();Assert.That(read.hasError,Is.False);Assert.That(read.layerCount,Is.EqualTo(7));
+            double total=0;int cells=0;
+            for(int layer=0;layer<read.layerCount;layer++)
+            {
+                double sum=0;int nonzero=0;
+                foreach(var value in read.GetData<Vector2>(layer)){Assert.That(float.IsFinite(value.x)&&float.IsFinite(value.y),Is.True);sum+=System.Math.Abs(value.x)+System.Math.Abs(value.y);if(value.sqrMagnitude>1e-12f)nonzero++;}
+                total+=sum;cells+=nonzero;File.AppendAllText(report,$"Case={mode}; Layer={layer}; AbsSum={sum:R}; Nonzero={nonzero}\n");
+            }
+            File.AppendAllText(report,$"Case={mode}; Total={total:R}; Nonzero={cells}\n");
+            if(mode=="rig-weight-zero")Assert.That(total,Is.LessThan(1e-8));else{Assert.That(total,Is.GreaterThan(.001));Assert.That(cells,Is.GreaterThan(100));}
+            yield return new ExitPlayMode();
+        }
+    }
     [UnityTearDown] public IEnumerator Cleanup()
     {
         OceanRenderer.EnableGraphicsInBatchMode=false;if(Application.isPlaying)yield return new ExitPlayMode();

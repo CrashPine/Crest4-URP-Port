@@ -1,0 +1,63 @@
+{
+  "recordedUtc": "2026-10-28T11:12:52.902657+00:00",
+  "scope": "Native original BoatWakes input isolation8 cases/API, Editor only.",
+  "implementation": {
+    "path": "Assets/Crest/URP/Tests/Editor/OriginalWakeSceneTests.cs",
+    "sha256": "7162A81EF5E99DBBB28E8EBF4CE110B5EC4F95F138293AA544CE92185D231C2B"
+  },
+  "reports": [
+    {
+      "path": "Evidence/OriginalWakes-Isolation-Direct3D11.txt",
+      "sha256": "9CBC923018BF2F4E4C0D047A2DE73525CB6797546C412B6323CD5CC1A9EB6D59"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Isolation-Direct3D12.txt",
+      "sha256": "DFD3F80BEFA3A3AC12F65F712F7D4608063A9BD465AA2545161467DB9D9A6837"
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-OriginalWakes-Isolation-DX11.xml",
+      "sha256": "5DCE6EB07CE76F5AD5778F3DB505236FAD6CBF15444F2957BA10870203A7B30E"
+    },
+    {
+      "path": "Evidence/P09-OriginalWakes-Isolation-DX12.xml",
+      "sha256": "EC75A43CF139BBAA42CE932C618764020CB9BAC92767E0B59959392074A3205A"
+    }
+  ],
+  "measurements": {
+    "DX11": {
+      "rig": 3180.789150059223,
+      "boat": 391.7736759185791,
+      "Wake0.5m": 548.8465272784233,
+      "Wake1m": 345.78348302841187,
+      "Wake2.5m": 631.5531479716301,
+      "Wake5m": 473.9768109321594,
+      "Wake10m": 1180.147632598877,
+      "rig-weight-zero": 0.0
+    },
+    "DX12": {
+      "rig": 3180.7891516685486,
+      "boat": 392.83468997478485,
+      "Wake0.5m": 548.8465272784233,
+      "Wake1m": 345.78348302841187,
+      "Wake2.5m": 631.5531479716301,
+      "Wake5m": 473.9768109321594,
+      "Wake10m": 1180.147632598877,
+      "rig-weight-zero": 0.0
+    }
+  },
+  "audit": {
+    "path": "Evidence/P09-OriginalWakes-Isolation-workspace-audit.json",
+    "sha256": "D7A6B7342A2BC51EC752B06A33F99AC0FC71E9707EC7FDE28405E66C5AA78ADF"
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32"
+  },
+  "limitations": [
+    "Live original simulation, independent lifecycles, GPU query fence/capture60Hz; no performance/parity/superposition/linear weight-radius law.",
+    "Positive native inputs separately contribute; no arbitrary parameter equivalence or standalone/bake/GUI acceptance.",
+    "No production changes, prior full90+interactive2/API/build checkpoint unchanged; no new full96 claimed."
+  ]
+}

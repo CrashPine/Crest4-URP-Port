@@ -2,6 +2,23 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: BoatWakes source isolation (2026-10-28, scoped passed)
+
+OriginalWakeSourcesContributeIndependently focused1/1/API Passed, all nodes passed, failed0.8 independent original-scene PlayMode lifecycles/API:5 WakeRig inputs only,3 boat inputs only, each original rig radius individually, rig weight0.120 frames/case, capture60Hz +existing query fence. Selected source counts5/3/1 asserted, original names/radii/weights recorded; transforms/materials/algorithms unchanged, no asset saves. Every selected nonzero-weight case has >100 nonzero cells and channel absolute sum>.001; zero weight <1e−8 (actual0). All7 RGFloat layers finite. No new images needed for numerical isolation.
+
+| Native source selection | DX11 sum(abs(R)+abs(G)) | DX12 |
+|---|---:|---:|
+| rig | 3180.789150 | 3180.789152 |
+| boat | 391.773676 | 392.834690 |
+| Wake0.5m | 548.846527 | 548.846527 |
+| Wake1m | 345.783483 | 345.783483 |
+| Wake2.5m | 631.553148 | 631.553148 |
+| Wake5m | 473.976811 | 473.976811 |
+| Wake10m | 1180.147633 | 1180.147633 |
+| rig-weight-zero | 0.000000 | 0.000000 |
+
+The differences are native field measurements, not a linear radius/weight law or visual-strength ranking: sources occupy different positions/LODs and original flow/physics/feedback remain live. Boat group differs slightly between API; no exact parity/superposition claim. This completes planned P09.5.4 BoatWakes saved-scene input contribution scope alongside prior geometry controls; GUI/input/bake/standalone/performance and arbitrary parameter-law equivalence remain unaccepted, not new endless P09 substeps. Next original threeboats scene, then Whirlpool/LakesAndRivers. Audit1363, missing meta/duplicate GUID/missing upstream0, rootMD8. Runtime20/material8 Build hashes unchanged; no fresh full96 or Player rebuild claim. Evidence P09-OriginalWakes-Isolation-API.xml, OriginalWakes-Isolation-Direct3D*.txt and checkpoint.
+
 ## P09.5.4: BoatWakes visibility correction (2026-10-28)
 
 Earlier DX12 almost-empty visual assessment was incorrect. Historical OriginalWakes-True-Direct3D12.png SHA still matches47653db checkpoint; direct decoded contact sheet OriginalWakes-capture-contact.png shows spheres and boat in that original file. Individual view_image previews inconsistently showed water-only even when on/restored PNG SHA matched. Contact sheet generated with System.Drawing from actual PNG bytes resolves contradiction. No runtime rendering fix required.
@@ -12,7 +29,7 @@ New SourceCameraGeometryVisibilityAndRestoration focused1/1/API:3 on/on/on lifec
 
 OriginalWakeSceneTests focused1/1/API Passed. Actual original BoatWakes scene has8 SphereWaterInteraction:5 WakeRig sources plus3 nested boat sources. Initial expected-total5 assertion failed; XML OriginalWakes-initial-inventory-DX11.xml retained. Correct fixture asserts8 total and5 under WakeRig, records names/radii/weights; toggles all8 off/on/off in separate PlayMode lifecycles. SimpleMotion moves original WakeRig17.9999771m over120 frames each. All7 native RGFloat layers finite: off0, on absolute channel sum3572.562977(DX11)/3573.636162(DX12),68006 cells above squared1e−12, then off0 again. No per-source size/weight law, isolated5-rig contribution or history decay acceptance. Capture60Hz plus existing GPU query fence; not performance or exact API parity. No source assets saved.
 
-**Manual visual failure remains open:** on DX11 PNG spheres/boat/wakes visible; on DX12 on PNG almost empty water, despite positive numerical field and pink0. Both inspected. Passing XML only accepts numerical assertions and no error-pink, NOT original scene rendering. Next diagnose camera/visibility across API/lifecycle before declaring BoatWakes accepted. Off PNG names overwrite first off with final off; both numerical off records retained. Evidence OriginalWakes-Direct3D*.txt,4 PNG, P09-OriginalWakes-DX11/DX12.xml and checkpoint. Audit1363, missing meta/duplicate GUID/missing upstream0; rootMD8. Runtime20/material8 hashes unchanged from095178f. Editor-only addition, no full94/Player rebuild claim. P09.5.4/P10/P11 still open.
+**Historical visual assessment — corrected above, no rendering failure established:** on DX11 PNG spheres/boat/wakes visible; on DX12 on PNG almost empty water, despite positive numerical field and pink0. Both inspected. Passing XML only accepts numerical assertions and no error-pink, NOT original scene rendering. Next diagnose camera/visibility across API/lifecycle before declaring BoatWakes accepted. Off PNG names overwrite first off with final off; both numerical off records retained. Evidence OriginalWakes-Direct3D*.txt,4 PNG, P09-OriginalWakes-DX11/DX12.xml and checkpoint. Audit1363, missing meta/duplicate GUID/missing upstream0; rootMD8. Runtime20/material8 hashes unchanged from095178f. Editor-only addition, no full94/Player rebuild claim. P09.5.4/P10/P11 still open.
 
 ## P09.5.4: original boat scene (2026-10-27, partial)
 
