@@ -52,7 +52,6 @@ public class OriginalLakesRiversTests
     }
     [UnityTearDown] public IEnumerator Cleanup()
     {
-        foreach(var receiver in Object.FindObjectsByType<MonoBehaviour>().Where(m=>m is Crest.Spline.IReceiveSplineChangeMessages).ToArray())Object.DestroyImmediate(receiver);
-        OceanRenderer.EnableGraphicsInBatchMode=false;foreach(var h in Object.FindObjectsByType<RegisterHeightInput>())h.enabled=false;foreach(var f in Object.FindObjectsByType<RegisterFlowInput>())f.enabled=false;if(Application.isPlaying)yield return new ExitPlayMode();foreach(var receiver in Object.FindObjectsByType<MonoBehaviour>().Where(m=>m is Crest.Spline.IReceiveSplineChangeMessages).ToArray())Object.DestroyImmediate(receiver);EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);Time.captureFramerate=_capture;Time.timeScale=_scale;if(_target!=null){_target.Release();Object.DestroyImmediate(_target);}
+        OceanRenderer.EnableGraphicsInBatchMode=false;if(Application.isPlaying)yield return new ExitPlayMode();EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);Time.captureFramerate=_capture;Time.timeScale=_scale;if(_target!=null){_target.Release();Object.DestroyImmediate(_target);}
     }
 }

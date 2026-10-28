@@ -7,6 +7,22 @@ using UnityEngine;
 
 namespace Crest.Spline
 {
+#if UNITY_EDITOR
+    // Scene-closing notifications run before object destruction. Point teardown must
+    // not regenerate meshes after their owning receiver has already cleaned up.
+    [InitializeOnLoad]
+    internal static class SplineSceneLifecycle
+    {
+        static readonly System.Collections.Generic.HashSet<UnityEngine.SceneManagement.Scene> s_ClosingScenes = new System.Collections.Generic.HashSet<UnityEngine.SceneManagement.Scene>();
+        static SplineSceneLifecycle()
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.sceneClosing += (scene, removing) => s_ClosingScenes.Add(scene);
+            UnityEditor.SceneManagement.EditorSceneManager.sceneClosed += scene => s_ClosingScenes.Remove(scene);
+        }
+        public static bool IsClosing(UnityEngine.SceneManagement.Scene scene) => s_ClosingScenes.Contains(scene);
+    }
+#endif
+
     public interface ISplinePointCustomData
     {
         Vector2 GetData();
@@ -77,7 +93,7 @@ namespace Crest.Spline
                 ? _parent
                 : transform.parent;
 
-            if (parent == null)
+            if (parent == null || SplineSceneLifecycle.IsClosing(parent.gameObject.scene))
             {
                 return;
             }

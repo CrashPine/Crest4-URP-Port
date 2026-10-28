@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-28T13:03:47.6383953Z",
+  "recordedUtc": "2026-10-28T13:14:58.3909445Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1367,
+  "fileCount": 1369,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -16,6 +16,7 @@
     "Crest\\Scripts\\LodData\\Shadows\\LodDataMgrShadow.cs",
     "Crest\\Scripts\\Reflection\\OceanPlanarReflection.cs",
     "Crest\\Scripts\\Shapes\\FFT\\FFTBaker.cs",
+    "Crest\\Scripts\\Spline\\SplinePoint.cs",
     "Crest\\Scripts\\Underwater\\UnderwaterRenderer.cs",
     "Crest\\Shaders\\Ocean.shader",
     "Crest\\Shaders\\OceanEmission.hlsl",
@@ -61,7 +62,7 @@
     },
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-28 13:02:48Z",
+      "start": "2026-10-28 13:13:30Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -93,7 +94,7 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-28 13:03:22Z",
+      "start": "2026-10-28 13:14:12Z",
       "result": "Passed",
       "total": "1",
       "passed": "1",
@@ -1629,8 +1630,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Spline/SplinePoint.cs",
-      "bytes": 12037,
-      "sha256": "22AB6ACAC7187130ABFEA433F291C6D217E8424427B4DC9CDE1ED756396E159E"
+      "bytes": 12985,
+      "sha256": "0880A608EB53780F6D6A4545EF4BBAF0261E4C3C204F4641120B3CF9F255986A"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Spline/SplinePoint.cs.meta",
@@ -6119,8 +6120,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/OriginalLakesRiversTests.cs",
-      "bytes": 6615,
-      "sha256": "5E41F2D1074AC5740277BB1D0A0C58D4013F053C0F164ED0ADD795F6B82E0ACB"
+      "bytes": 6111,
+      "sha256": "ED7785901FD3CA82CA6E63AB9360EBA7D94A916B498B5EE960FE9DAAD9419732"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/OriginalLakesRiversTests.cs.meta",
@@ -6286,6 +6287,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/SplineGeometryTests.cs.meta",
       "bytes": 62,
       "sha256": "E38F48E9C52157C7543B3A7EC9C479DB70EF4989D1D75CFCAA06A8D244EAAA75"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SplineSceneCloseTests.cs",
+      "bytes": 2924,
+      "sha256": "122B0EB90207EB436F53EF0306FAEE82CC115E19B945410F9FBEF0752D3DF5E4"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SplineSceneCloseTests.cs.meta",
+      "bytes": 62,
+      "sha256": "1A611418F13D120CA868454D39CACD1476BD4B7D959CBBAF5400B853EAEC3595"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs",
@@ -6909,8 +6920,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 27084,
-      "sha256": "FAD3584F465487912DA554C6C97DE18E0279FBE5A43861217584F84F2235A300"
+      "bytes": 27236,
+      "sha256": "0D41AF85E4408ED2B3AF1FC17D403AD92211F65F4DE447A705D386656B4312A7"
     },
     {
       "path": "LICENSE.Crest",
@@ -6924,13 +6935,13 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 28895,
-      "sha256": "91ED986C1A11483B394DB9A179C7CFECC88AD05972F9F04099BE5F1982FD9174"
+      "bytes": 29174,
+      "sha256": "0891389A50250B172EB233D95D2B05E4346AACFE309F26F2D2DD669A1AFB6E77"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 23180,
-      "sha256": "34A354C41F5391DEE21BDC374EDBCC0BA69BE74EA7817460DEAB6019CB9E7A16"
+      "bytes": 23248,
+      "sha256": "08E428091BC5F012E913D56A10BF2EA7273DA88BEE9D3EBB04204A404B39E7EA"
     },
     {
       "path": "README.md",
@@ -6944,8 +6955,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 228853,
-      "sha256": "4FB1DEBEB969F1DBD5A834CF74B55D15ED541A2FF8082671E57E129F1C8057DB"
+      "bytes": 231571,
+      "sha256": "26E5775605456339EB72F02D5BD3D33C194920CDB2D536E6051BE6C460BBEACD"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

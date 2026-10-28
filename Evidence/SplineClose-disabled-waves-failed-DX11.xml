@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 13:10:32Z" end-time="2026-10-28 13:10:38Z" duration="5,7773449">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="103" result="Failed" site="Child" start-time="2026-10-28 13:10:32Z" end-time="2026-10-28 13:10:38Z" duration="5.777345" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1161" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="101" result="Failed" site="Child" start-time="2026-10-28 13:10:32Z" end-time="2026-10-28 13:10:38Z" duration="5.763054" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="157476" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1141" name="SplineSceneCloseTests" fullname="SplineSceneCloseTests" classname="SplineSceneCloseTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-28 13:10:32Z" end-time="2026-10-28 13:10:38Z" duration="5.758411" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1142" name="OriginalRiverSceneClosesWithoutRecreatingMeshes" fullname="SplineSceneCloseTests.OriginalRiverSceneClosesWithoutRecreatingMeshes" methodname="OriginalRiverSceneClosesWithoutRecreatingMeshes" classname="SplineSceneCloseTests" runstate="Runnable" seed="1459451011" result="Failed" start-time="2026-10-28 13:10:32Z" end-time="2026-10-28 13:10:38Z" duration="5.733883" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="120000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Some objects were not cleaned up when closing the scene. (Did you spawn new GameObjects from OnDestroy?)
+The following scene GameObjects were found:
+River_mesh
+Lake_mesh
+'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEditor.SceneManagement.EditorSceneManager:NewScene (UnityEditor.SceneManagement.NewSceneSetup,UnityEditor.SceneManagement.NewSceneMode)
+SplineSceneCloseTests/<OriginalRiverSceneClosesWithoutRecreatingMeshes>d__0:MoveNext () (at Assets/Crest/URP/Tests/Editor/SplineSceneCloseTests.cs:14)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Some objects were not cleaned up when closing the scene. (Did you spawn new GameObjects from OnDestroy?)
+The following scene GameObjects were found:
+River_mesh
+Lake_mesh
+
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

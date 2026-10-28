@@ -1,0 +1,112 @@
+{
+  "recordedUtc": "2026-10-28T16:02:47.870759+00:00",
+  "scope": "UNITY_EDITOR spline closing guard and normal editing/cleanup regression. Not Player/runtime change.",
+  "sources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/Spline/SplinePoint.cs",
+      "sha256": "0880A608EB53780F6D6A4545EF4BBAF0261E4C3C204F4641120B3CF9F255986A",
+      "bytes": 12985
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SplineSceneCloseTests.cs",
+      "sha256": "122B0EB90207EB436F53EF0306FAEE82CC115E19B945410F9FBEF0752D3DF5E4",
+      "bytes": 2924
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SplineSceneCloseTests.cs.meta",
+      "sha256": "1A611418F13D120CA868454D39CACD1476BD4B7D959CBBAF5400B853EAEC3595",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalLakesRiversTests.cs",
+      "sha256": "ED7785901FD3CA82CA6E63AB9360EBA7D94A916B498B5EE960FE9DAAD9419732",
+      "bytes": 6111
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-SplineClose-DX11.xml",
+      "sha256": "CA8F24287D936ECF269B8A90B4C7F028F860D3E6E3AAB417C82EC7C8BE5C1DB1",
+      "bytes": 3418
+    },
+    {
+      "path": "Evidence/P09-SplineClose-DX12.xml",
+      "sha256": "9EEF0DFF1927BE2806B5D47432A3598ADC08A5ED74BEC32C37B9861C586E1BDB",
+      "bytes": 3419
+    },
+    {
+      "path": "Evidence/P09-SplineClose-LakesRivers-DX11.xml",
+      "sha256": "17762EE74A99719345A72E2E0BA8EB3E4002B638A5CD9EF8D7C900D1847ED6F6",
+      "bytes": 2787
+    },
+    {
+      "path": "Evidence/P09-SplineClose-LakesRivers-DX12.xml",
+      "sha256": "1F9C8DAC2971839672C90E6FC9C94913792C83395A8118F0357581F36313A2F8",
+      "bytes": 2787
+    }
+  ],
+  "exploratory": [
+    {
+      "path": "Evidence/SplineClose-delayed-after-play-DX11.xml",
+      "sha256": "87257825FC2A6809AAC7D766B750FB6A08FE6AA8AFC3555A9F7DFD70EA049A30",
+      "bytes": 2770
+    },
+    {
+      "path": "Evidence/SplineClose-disabled-waves-failed-DX11.xml",
+      "sha256": "6FBE5E61B372D5DF5A1010F2B5FD2F1451F07A0863A075E2D01FB28863C32E16",
+      "bytes": 4073
+    },
+    {
+      "path": "Evidence/SplineClose-editor-only-DX11.xml",
+      "sha256": "A569DCFB39CD0F2E9956FED06A2CE7A0F78EE059EC6EFAA28E194760BFBC0A32",
+      "bytes": 2768
+    },
+    {
+      "path": "Evidence/SplineClose-fixture-compile.txt",
+      "sha256": "02710BA8B6E749D32938591B2BE838094B6543071E9613806797A72494B3C718",
+      "bytes": 2092
+    },
+    {
+      "path": "Evidence/SplineClose-immediate-after-play-DX11.xml",
+      "sha256": "C0C4A8530A824E84F7DAA4F21DB5A796673B338D5214D680C36366529F503D18",
+      "bytes": 2770
+    },
+    {
+      "path": "Evidence/SplineClose-nonEditor-source-check.json",
+      "sha256": "5E052B0CA1FFD4CED2EB5903E67709971FCDF1B644C361230583F0300181F205",
+      "bytes": 285
+    },
+    {
+      "path": "Evidence/SplineClose-toggle-inputs-DX11.xml",
+      "sha256": "00F6162FC7E6DD5A8E8DD89CB48993855C80A7B237A40E543E8EF724DA3686AB",
+      "bytes": 2769
+    }
+  ],
+  "integratedReports": [
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D11.txt",
+      "sha256": "09C4D17C834A537C9ABBD57D3E20DFABE26818ADA7ED236E65C70C867FF1A4D5",
+      "bytes": 477
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D12.txt",
+      "sha256": "09C4D17C834A537C9ABBD57D3E20DFABE26818ADA7ED236E65C70C867FF1A4D5",
+      "bytes": 477
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P09-SplineClose-workspace-audit.json",
+    "sha256": "506C64E28811954FCC7A3F6F3A7905A48A40057B6847DE07971CC26CC5EA0358",
+    "bytes": 283771
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "Editor-only; no full102/interactive suite or Player rebuild claim. Existing runtime full90+interactive2/API/build unchanged.",
+    "Observer checks delivery/Undo restored point; not all mesh geometry/Redo/real Editor UI cases.",
+    "P09 Meta/casting/config/Whirlpool combined temporal/UnderwaterLighting fill, P10/P11/P12 remain open."
+  ]
+}
