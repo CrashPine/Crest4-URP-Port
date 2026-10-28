@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 16:08:32Z" end-time="2026-10-28 16:08:33Z" duration="1,4259009">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="106" result="Passed" start-time="2026-10-28 16:08:32Z" end-time="2026-10-28 16:08:33Z" duration="1.425901" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1165" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-10-28 16:08:32Z" end-time="2026-10-28 16:08:33Z" duration="1.413790" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="224968" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1055" name="ExampleMetaTests" fullname="ExampleMetaTests" classname="ExampleMetaTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-28 16:08:32Z" end-time="2026-10-28 16:08:33Z" duration="1.404832" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1056" name="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" fullname="ExampleMetaTests.OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" methodname="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" classname="ExampleMetaTests" runstate="Runnable" seed="1674207044" result="Passed" start-time="2026-10-28 16:08:32Z" end-time="2026-10-28 16:08:33Z" duration="1.377664" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[In the render graph API, the output Render Texture must have a depth buffer. When you select a Render Texture in any camera's Output Texture property, the Depth Stencil Format property of the texture must be set to a value other than None.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

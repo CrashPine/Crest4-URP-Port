@@ -1,0 +1,178 @@
+{
+  "recordedUtc": "2026-10-28T16:14:07.348577+00:00",
+  "scope": "Actual Meta shader output vs installed Lit, transparent explicitly enabled own caster. NOT lightmap bake/source saved flags acceptance.",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleMetaTests.cs",
+      "sha256": "9254E8BB57526FF7BE4009379E69E2C9B09938F2DAC11296E013EA4FB4E6B1F0",
+      "bytes": 7211
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleMetaTests.cs.meta",
+      "sha256": "C23BF3853071FB5E87B9A0C493DD56EF08111AA8D1B9EEDE2BF48C2C75561A27",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/TransparentCasterTests.cs",
+      "sha256": "FD7F0B65CD09E3261BB46F4EDC9CA806CC3177A61712A96B9CF627666610D6D4",
+      "bytes": 2716
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/TransparentCasterTests.cs.meta",
+      "sha256": "030D734AB62126AD85584170E39B5BA2A15CAF39846EA157E4D3F0A524AAF5D2",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs",
+      "sha256": "A48E6C95DD83BCA9755D18E59A521BEC3D18AE6947A151BADE2907CA9390EFEE",
+      "bytes": 23549
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+      "sha256": "B9F572EDFF89E7F14DE90726F89011A4E95B4895DAF159182E41DEE15830B4D9",
+      "bytes": 7330
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader",
+      "sha256": "F1007BD6A10D6122DA0A25F4E6F1EB00B9D3383217E96367A359FFACDEDB9B26",
+      "bytes": 5419
+    },
+    {
+      "path": "Library/PackageCache/com.unity.render-pipelines.universal@2309ae255609/Shaders/LitMetaPass.hlsl",
+      "sha256": "B597EEDE0567936DE9EB2B72FE5225CE581C70B92B05C349CC2222E3210D1C9B",
+      "bytes": 716
+    },
+    {
+      "path": "Library/PackageCache/com.unity.render-pipelines.core@285af6b8c83f/ShaderLibrary/MetaPass.hlsl",
+      "sha256": "F36F7105FCAE2519561D50853F8E188E04255CED43535B8977D5FD1B0E2B2BC7",
+      "bytes": 6243
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-ExampleMetaCaster-DX11.xml",
+      "sha256": "723B0BD64EC7FE4B6C6E18DDC695A2DF1E07398B1E9A877C3C03F7BF5F3370C1",
+      "bytes": 4133
+    },
+    {
+      "path": "Evidence/P09-ExampleMetaCaster-DX12.xml",
+      "sha256": "3A810339F61E4E2299952DEB248FD805625348F09AE006D1CAE488C94B3488FB",
+      "bytes": 4134
+    }
+  ],
+  "images": [
+    {
+      "path": "Evidence/MaskedExamples-AlphaZeroShadow-Direct3D11.png",
+      "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+      "bytes": 2138
+    },
+    {
+      "path": "Evidence/MaskedExamples-AlphaZeroShadow-Direct3D12.png",
+      "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+      "bytes": 2138
+    },
+    {
+      "path": "Evidence/MaskedExamples-ShadowOff-Direct3D11.png",
+      "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+      "bytes": 1843
+    },
+    {
+      "path": "Evidence/MaskedExamples-ShadowOff-Direct3D12.png",
+      "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+      "bytes": 1843
+    },
+    {
+      "path": "Evidence/MaskedExamples-ShadowRestored-Direct3D11.png",
+      "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+      "bytes": 2138
+    },
+    {
+      "path": "Evidence/MaskedExamples-ShadowRestored-Direct3D12.png",
+      "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+      "bytes": 2138
+    },
+    {
+      "path": "Evidence/MaskedExamples-PassDisabled-Direct3D11.png",
+      "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+      "bytes": 1843
+    },
+    {
+      "path": "Evidence/MaskedExamples-PassDisabled-Direct3D12.png",
+      "sha256": "7A4C90F57B7CA9AA6A73C933D3C643C02DE9DD1771314E06933D74199ACD6210",
+      "bytes": 1843
+    },
+    {
+      "path": "Evidence/MaskedExamples-PassRestored-Direct3D11.png",
+      "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+      "bytes": 2138
+    },
+    {
+      "path": "Evidence/MaskedExamples-PassRestored-Direct3D12.png",
+      "sha256": "ACD56F77CA929E5A9532BF5FCAFFFA0B50A33B56D25FBE1BAD92FAC7BCA4ED5E",
+      "bytes": 2138
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/ExampleMeta-Direct3D11.txt",
+      "sha256": "2786AE2C5421F4775C667FA1DC0ED610E15E0CD9AE5B5D3EDC8CC1DDEA19E02F",
+      "bytes": 1862
+    },
+    {
+      "path": "Evidence/ExampleMeta-Direct3D12.txt",
+      "sha256": "2786AE2C5421F4775C667FA1DC0ED610E15E0CD9AE5B5D3EDC8CC1DDEA19E02F",
+      "bytes": 1862
+    },
+    {
+      "path": "Evidence/ExampleMeta-initial16-DX11.xml",
+      "sha256": "23307B1D2EAB46D7CF80B786C019CD2F4F56BE1E22D263BEF904955B1CF1CAC6",
+      "bytes": 2954
+    },
+    {
+      "path": "Evidence/ExampleMeta-pipeline-not-initialized-DX11.xml",
+      "sha256": "0C2EA94E817DAEC9F4AA9933D5A004A179F7ABAF7AC89B7C4DBD9ED4B32EC73E",
+      "bytes": 3807
+    },
+    {
+      "path": "Evidence/ExampleMeta-playmode-no-render-DX11.xml",
+      "sha256": "501300A00A0C6A8A5AFC2FCAB64DECAB7346A4F5222D6056C7F21D9D70AB3736",
+      "bytes": 4147
+    },
+    {
+      "path": "Evidence/TransparentOwnCaster-report-properties-failed-TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics-Direct3D11.txt",
+      "sha256": "15EDCA9CCFFD7F9753CBC5704B471BB069A8DBCB5DE33BB0D7EA6ECD6DEB0BC1",
+      "bytes": 1367
+    },
+    {
+      "path": "Evidence/TransparentOwnCaster-TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics-Direct3D11.txt",
+      "sha256": "0DCDE60048FF004B08B2A8390D540B5828BE953938A7CAF15120639F35420034",
+      "bytes": 1517
+    },
+    {
+      "path": "Evidence/TransparentOwnCaster-TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics-Direct3D12.txt",
+      "sha256": "0DCDE60048FF004B08B2A8390D540B5828BE953938A7CAF15120639F35420034",
+      "bytes": 1517
+    },
+    {
+      "path": "Evidence/TransparentOwnCaster-report-properties-failed-DX11.xml",
+      "sha256": "CD023D656A0C040B2B2DF394878D39865FE6359FDE5CACD15DEA54AA9C48F0F1",
+      "bytes": 5664
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P09-ExampleMetaCaster-workspace-audit.json",
+    "sha256": "CC2C8DBD0F74EFCAF2720C7B516203BA7BCA4B7D0E77DF6F1DAB2F7E9B3FC3A8",
+    "bytes": 284545
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "Meta direct float pass not actual GI/lightmapper/baked-scene acceptance. White-base Masked emission only.",
+    "Transparent caster alpha0 uses explicit pass enable on temporary material; actual saved flag/import/renderer behavior not accepted.",
+    "Editor-only additions; prior full90+interactive2/API/build unchanged, no fresh full104 or Player rebuild.",
+    "P09 remaining bake/renderer/combined, P10 resource/performance, P11 final configs and P12 packaging remain open."
+  ]
+}

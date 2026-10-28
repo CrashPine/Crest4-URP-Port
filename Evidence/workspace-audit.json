@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-28T13:14:58.3909445Z",
+  "recordedUtc": "2026-10-28T16:12:52.2243025Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1369,
+  "fileCount": 1373,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -62,10 +62,10 @@
     },
     {
       "file": "EditMode-DX11-focused.xml",
-      "start": "2026-10-28 13:13:30Z",
+      "start": "2026-10-28 16:11:53Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "2",
+      "passed": "2",
       "failed": "0"
     },
     {
@@ -94,10 +94,10 @@
     },
     {
       "file": "EditMode-DX12-focused.xml",
-      "start": "2026-10-28 13:14:12Z",
+      "start": "2026-10-28 16:12:25Z",
       "result": "Passed",
-      "total": "1",
-      "passed": "1",
+      "total": "2",
+      "passed": "2",
       "failed": "0"
     },
     {
@@ -5949,6 +5949,16 @@
       "sha256": "CB1BB0148268FE77258EBDE9FAC43D25B4DE1DB859FA9CE20002D940E11EBC32"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleMetaTests.cs",
+      "bytes": 7211,
+      "sha256": "9254E8BB57526FF7BE4009379E69E2C9B09938F2DAC11296E013EA4FB4E6B1F0"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleMetaTests.cs.meta",
+      "bytes": 62,
+      "sha256": "C23BF3853071FB5E87B9A0C493DD56EF08111AA8D1B9EEDE2BF48C2C75561A27"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/FlowSurfaceTests.cs",
       "bytes": 18053,
       "sha256": "7F23FFD65C57F2EB59EBB1B38A3EDDE165769A36CDCFABAFAB370195B69A2C2A"
@@ -6050,8 +6060,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs",
-      "bytes": 23459,
-      "sha256": "16325C6E3C2DE91B8F2D19518047C169F82EC446AD7470818579EF3B61CAF68E"
+      "bytes": 23549,
+      "sha256": "A48E6C95DD83BCA9755D18E59A521BEC3D18AE6947A151BADE2907CA9390EFEE"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs.meta",
@@ -6307,6 +6317,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs.meta",
       "bytes": 60,
       "sha256": "1AA873D6DA735A816BD9D56F65ACDA3E485634A45F4A1D387C4655094AAAA775"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/TransparentCasterTests.cs",
+      "bytes": 2716,
+      "sha256": "FD7F0B65CD09E3261BB46F4EDC9CA806CC3177A61712A96B9CF627666610D6D4"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/TransparentCasterTests.cs.meta",
+      "bytes": 62,
+      "sha256": "030D734AB62126AD85584170E39B5BA2A15CAF39846EA157E4D3F0A524AAF5D2"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/TransparentExampleTests.cs",
@@ -6920,8 +6940,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 27236,
-      "sha256": "0D41AF85E4408ED2B3AF1FC17D403AD92211F65F4DE447A705D386656B4312A7"
+      "bytes": 27321,
+      "sha256": "2F772D9F42A4D6D80C0BCB2EA4CE2987F8802B543B116990E4E8E904AD2A0759"
     },
     {
       "path": "LICENSE.Crest",
@@ -6930,18 +6950,18 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 32952,
-      "sha256": "5A93BAD6BA0A50117FF264B2B79DA6A0BCA2A2065FC163FDA67C992DCFEE8500"
+      "bytes": 33481,
+      "sha256": "93AFA61E2BD44667E0E8DE262BB50F01D24AE698FED78CB3AC91DE7F8DA7C24D"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 29174,
-      "sha256": "0891389A50250B172EB233D95D2B05E4346AACFE309F26F2D2DD669A1AFB6E77"
+      "bytes": 29450,
+      "sha256": "8660A404362ADC8EA6D47B1646FE724700C6DD968D5D0B777B20E10643F0965E"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 23248,
-      "sha256": "08E428091BC5F012E913D56A10BF2EA7273DA88BEE9D3EBB04204A404B39E7EA"
+      "bytes": 23353,
+      "sha256": "C5B10D6B48A925F98F9FBAF50B3D0B6BE12CE2BD7B222D5E1A069D60EBFD3144"
     },
     {
       "path": "README.md",
@@ -6955,8 +6975,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 231571,
-      "sha256": "26E5775605456339EB72F02D5BD3D33C194920CDB2D536E6051BE6C460BBEACD"
+      "bytes": 234656,
+      "sha256": "5D007A251B1F26E26CDB70661E5BD8077DA790B5264D3C152AA4E6A5549E9C4E"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

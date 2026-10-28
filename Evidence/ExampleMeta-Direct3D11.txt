@@ -1,0 +1,19 @@
+Actual Meta pass float output vs installed URP/Lit. Explicit meta extraction, not a lightmapper/baked-scene acceptance.
+Shader=Crest/Examples/Masked; Metal=0; Smooth=0,2; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0; Smooth=0,2; Emission=True; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0; Smooth=0,9; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0; Smooth=0,9; Emission=True; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0,8; Smooth=0,2; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0,8; Smooth=0,2; Emission=True; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0,8; Smooth=0,9; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/Masked; Metal=0,8; Smooth=0,9; Emission=True; Covered=3364; Max=0
+Masked Meta mask modes3 exact; alpha cutoff0 pixels/restoration exact.
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0; Smooth=0,2; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0; Smooth=0,2; Emission=True; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0; Smooth=0,9; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0; Smooth=0,9; Emission=True; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0,8; Smooth=0,2; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0,8; Smooth=0,2; Emission=True; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0,8; Smooth=0,9; Emission=False; Covered=3364; Max=0
+Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; Metal=0,8; Smooth=0,9; Emission=True; Covered=3364; Max=0
+Transparent Meta alpha0 equals alpha1 exactly.

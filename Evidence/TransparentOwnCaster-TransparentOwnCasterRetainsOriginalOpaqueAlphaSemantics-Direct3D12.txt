@@ -1,0 +1,12 @@
+Fixture start: TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics; Playing=True
+Request=AlphaZeroShadow; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=AlphaZeroShadow; Centre=RGBA(0, 0, 0, 255); Keywords=; MaskValue=не число; EmissionValue=не число; Pipeline=UniversalRenderPipeline
+Request=ShadowOff; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=ShadowOff; Centre=RGBA(247, 247, 247, 255); Keywords=; MaskValue=не число; EmissionValue=не число; Pipeline=UniversalRenderPipeline
+Request=ShadowRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=ShadowRestored; Centre=RGBA(0, 0, 0, 255); Keywords=; MaskValue=не число; EmissionValue=не число; Pipeline=UniversalRenderPipeline
+Alpha0 own caster changed=4740; Restore=0; explicit pass enabled on temporary material; no source material/renderer flag acceptance or bake.
+Request=PassDisabled; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PassDisabled; Centre=RGBA(247, 247, 247, 255); Keywords=; MaskValue=не число; EmissionValue=не число; Pipeline=UniversalRenderPipeline
+Request=PassRestored; MainCameraMatches=True; PixelRect=(x:0.00, y:0.00, width:640.00, height:480.00)
+Capture=PassRestored; Centre=RGBA(0, 0, 0, 255); Keywords=; MaskValue=не число; EmissionValue=не число; Pipeline=UniversalRenderPipeline

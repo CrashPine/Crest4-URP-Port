@@ -106,7 +106,7 @@ public partial class MaskedExampleTests
         finally {_camera.enabled=enabled;}
         var previous=RenderTexture.active;var cpu=new Texture2D(_target.width,_target.height,TextureFormat.RGBA32,false);
         try {RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,_target.width,_target.height),0,0);cpu.Apply();File.WriteAllBytes($"Evidence/{prefix}-{name}-{SystemInfo.graphicsDeviceType}.png",cpu.EncodeToPNG());var pixels=cpu.GetPixels32();
-            File.AppendAllText(_report,$"Capture={name}; Centre={pixels[pixels.Length/2+_target.width/2]}; Keywords={string.Join(",",_material.shaderKeywords)}; MaskValue={_material.GetFloat("_Mask")}; EmissionValue={_material.GetFloat("_Emission")}; Pipeline={RenderPipelineManager.currentPipeline?.GetType().Name}\n");return pixels;}
+            File.AppendAllText(_report,$"Capture={name}; Centre={pixels[pixels.Length/2+_target.width/2]}; Keywords={string.Join(",",_material.shaderKeywords)}; MaskValue={(_material.HasProperty("_Mask")?_material.GetFloat("_Mask"):float.NaN)}; EmissionValue={(_material.HasProperty("_Emission")?_material.GetFloat("_Emission"):float.NaN)}; Pipeline={RenderPipelineManager.currentPipeline?.GetType().Name}\n");return pixels;}
         finally {RenderTexture.active=previous;Object.DestroyImmediate(cpu);}
     }
     static bool Red(Color32 c)=>c.r>100&&c.r>c.g*3&&c.r>c.b*3;

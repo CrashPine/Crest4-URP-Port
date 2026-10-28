@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 16:10:40Z" end-time="2026-10-28 16:10:42Z" duration="1,8644992">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="106" result="Failed" site="Child" start-time="2026-10-28 16:10:40Z" end-time="2026-10-28 16:10:42Z" duration="1.864499" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1165" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="104" result="Failed" site="Child" start-time="2026-10-28 16:10:40Z" end-time="2026-10-28 16:10:42Z" duration="1.851518" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="141352" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1013" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="12" result="Failed" site="Child" start-time="2026-10-28 16:10:40Z" end-time="2026-10-28 16:10:42Z" duration="1.823240" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1022" name="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" fullname="MaskedExampleTests.TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" methodname="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" classname="MaskedExampleTests" runstate="Runnable" seed="1177549688" result="Failed" start-time="2026-10-28 16:10:40Z" end-time="2026-10-28 16:10:42Z" duration="1.788309" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Error] Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Mask''. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Material:GetFloat (string)
+MaskedExampleTests:Capture (string,string) (at Assets/Crest/URP/Tests/Editor/MaskedExampleTests.cs:109)
+MaskedExampleTests/<TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics>d__40:MoveNext () (at Assets/Crest/URP/Tests/Editor/TransparentCasterTests.cs:23)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Mask'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Emission'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Mask'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Emission'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Mask'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Emission'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Mask'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Emission'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Mask'
+Material 'Crest/Examples/UnderwaterTransparentSurfaceShader' with Shader 'Crest/Examples/UnderwaterTransparentSurfaceShader' doesn't have a float or range property '_Emission'
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
