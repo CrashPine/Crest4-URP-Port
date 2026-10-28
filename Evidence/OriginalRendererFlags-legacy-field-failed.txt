@@ -1,0 +1,7 @@
+Resolved original Examples scene inactive+active renderer bindings; non-overridden flags compared to readonly original prefab YAML. Overrides reported, not silently compared to base. No asset/scene save.
+Material=Examples_Material_MaskedWhite; GI=4; SourceGI=4; ShadowPass=True; MetaPass=4
+Material=Examples_Material_MaskedNavalMine; GI=4; SourceGI=4; ShadowPass=True; MetaPass=4
+Material=Examples_Material_TransparentWithUnderwaterFog; GI=4; SourceGI=4; ShadowPass=True; MetaPass=2
+Renderer=ExamplesScene/Examples/UnderwaterLighting/SeaDepthOffset/NavalMine; Active=False; Enabled=True; Source=Assets/Crest/Crest-Examples/Main/Prefabs/NavalMine.prefab:262329941976969298; Materials=Examples_Material_MaskedNavalMine
+  Flag=m_CastShadows; Resolved=1; OriginalBase=1; Override=False
+  Flag=m_ReceiveShadows; Resolved=1; OriginalBase=1; Override=False

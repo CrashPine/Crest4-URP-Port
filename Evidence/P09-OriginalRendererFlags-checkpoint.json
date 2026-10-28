@@ -1,0 +1,86 @@
+{
+  "recordedUtc": "2026-10-28T16:31:09.562968+00:00",
+  "scope": "Resolved selected original Examples renderer/source-material flags; metadata-only, no rendering claim.",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalRendererFlagsTests.cs",
+      "sha256": "803512CC2D9215C94698288CB742ED9E1B50199D0DFA5CF6F808A9FE1E0C5A9C",
+      "bytes": 5675
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalRendererFlagsTests.cs.meta",
+      "sha256": "87D4D7C30EC7F80F5AB1D5E8AD4842A04E5F92DFD99B152D15E2DE46EC07CA47",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity",
+      "sha256": "C020E625DC45FF347E9ED8E95D79A835B323DEDE58578D142A3C9279D6FBE231",
+      "bytes": 6716
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Main/Prefabs/NavalMine.prefab",
+      "sha256": "5B18E080CE6717D4AAA96498383C2CC0007CDC3FC1FC81407B735A2B5EA9290E",
+      "bytes": 21720
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scenes/Internal/ExamplesSceneCore.prefab",
+      "sha256": "B7707D8C8258EEC692973E82BC3563EE49539946A4541B6E6AD220E74E2DD639",
+      "bytes": 849124
+    }
+  ],
+  "upstreamSelected": [
+    {
+      "path": "../../work/crest-upstream/crest/Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity",
+      "sha256": "C020E625DC45FF347E9ED8E95D79A835B323DEDE58578D142A3C9279D6FBE231",
+      "bytes": 6716
+    },
+    {
+      "path": "../../work/crest-upstream/crest/Assets/Crest/Crest-Examples/Main/Prefabs/NavalMine.prefab",
+      "sha256": "5B18E080CE6717D4AAA96498383C2CC0007CDC3FC1FC81407B735A2B5EA9290E",
+      "bytes": 21720
+    },
+    {
+      "path": "../../work/crest-upstream/crest/Assets/Crest/Crest-Examples/Examples/Scenes/Internal/ExamplesSceneCore.prefab",
+      "sha256": "B7707D8C8258EEC692973E82BC3563EE49539946A4541B6E6AD220E74E2DD639",
+      "bytes": 849124
+    }
+  ],
+  "report": {
+    "path": "Evidence/OriginalRendererFlags.txt",
+    "sha256": "D4C19595FDC5CF16A0728CFF91F9629F399D4008D9928F74CEC4E68DBA1660FE",
+    "bytes": 10637
+  },
+  "suite": {
+    "path": "Evidence/P09-OriginalRendererFlags-DX11.xml",
+    "sha256": "89268CE8FBED817B368EA108BD60BFBD767180C7B0F2FA79F25B861B7E145EFB",
+    "bytes": 2732
+  },
+  "failure": [
+    {
+      "path": "Evidence/OriginalRendererFlags-legacy-field-failed-DX11.xml",
+      "sha256": "B332BB2F2DF397A8B5372B1F736A70DCE4BB8DD03413E52697E21D307D19A110",
+      "bytes": 3826
+    },
+    {
+      "path": "Evidence/OriginalRendererFlags-legacy-field-failed.txt",
+      "sha256": "F751AE3B54168BA1CAAE5417876DB8257268B30724B292BF079C366963411AA1",
+      "bytes": 850
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P09-OriginalRendererFlags-workspace-audit.json",
+    "sha256": "FA75C04862EE83593158A5B8FE614925069DD86BED2054694D668060302BCD3F",
+    "bytes": 285327
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "20 selected renderer refs/72 stored fields,0 overrides.8 ReceiveGI defaults not explicitly serialized upstream and not source-compared.",
+    "All selected static flags0; do not force source ContributeGI based on disposable bake fixture.",
+    "No original full-scene bake/active-feature/all renderer config acceptance or DX12 rendering claim.",
+    "Editor-only audit; prior full90+interactive2/API/build unchanged, no fresh full106 or Player rebuild."
+  ]
+}
