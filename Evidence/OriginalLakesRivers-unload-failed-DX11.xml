@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 13:01:53Z" end-time="2026-10-28 13:02:02Z" duration="9,3285965">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="102" result="Failed" site="Child" start-time="2026-10-28 13:01:53Z" end-time="2026-10-28 13:02:02Z" duration="9.328597" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1159" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="100" result="Failed" site="Child" start-time="2026-10-28 13:01:53Z" end-time="2026-10-28 13:02:02Z" duration="9.313269" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="262548" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1092" name="OriginalLakesRiversTests" fullname="OriginalLakesRiversTests" classname="OriginalLakesRiversTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-28 13:01:53Z" end-time="2026-10-28 13:02:02Z" duration="9.299830" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1093" name="OriginalRiverHeightAndFlowInputsChangeAndRestore" fullname="OriginalLakesRiversTests.OriginalRiverHeightAndFlowInputsChangeAndRestore" methodname="OriginalRiverHeightAndFlowInputsChangeAndRestore" classname="OriginalLakesRiversTests" runstate="Runnable" seed="523206116" result="Failed" start-time="2026-10-28 13:01:53Z" end-time="2026-10-28 13:02:02Z" duration="9.273530" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="240000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[TearDown : Unhandled log message: '[Error] Some objects were not cleaned up when closing the scene. (Did you spawn new GameObjects from OnDestroy?)
+The following scene GameObjects were found:
+Lake_mesh
+River_mesh
+'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEditor.SceneManagement.EditorSceneManager:NewScene (UnityEditor.SceneManagement.NewSceneSetup,UnityEditor.SceneManagement.NewSceneMode)
+OriginalLakesRiversTests/<Cleanup>d__9:MoveNext () (at Assets/Crest/URP/Tests/Editor/OriginalLakesRiversTests.cs:56)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions ()
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Some objects were not cleaned up when closing the scene. (Did you spawn new GameObjects from OnDestroy?)
+The following scene GameObjects were found:
+Lake_mesh
+River_mesh
+
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

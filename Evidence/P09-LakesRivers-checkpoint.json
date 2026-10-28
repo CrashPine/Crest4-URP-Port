@@ -1,0 +1,166 @@
+{
+  "recordedUtc": "2026-10-28T13:04:44.294559+00:00",
+  "scope": "Original LakesAndRivers native input isolation; normal scene-unload defect OPEN.",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalLakesRiversTests.cs",
+      "sha256": "5E41F2D1074AC5740277BB1D0A0C58D4013F053C0F164ED0ADD795F6B82E0ACB",
+      "bytes": 6615
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalLakesRiversTests.cs.meta",
+      "sha256": "AE3AE79077DBB9A876278CADBF48EF3D322F2DB514BEFD64238DEFA65BAAA87D",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/LakesAndRivers.unity",
+      "sha256": "D671C804B2ECB50AB22AB6A42AD418E2CD2CD34423F518772A6DEBF4ECE71036",
+      "bytes": 7315
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/Internal/LakesAndRiversSceneCore.prefab",
+      "sha256": "7C6AF2DDD49147A1CF24EA9A7CCC97F2DC9CE5F55AD85B3E72071BFB835C9749",
+      "bytes": 148841
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/RegisterHeightInput.cs",
+      "sha256": "456FE4C8AB3FE06E4A44FCBBCD5CE3D52B69C2F41699516553A74A8B339BDD7B",
+      "bytes": 5308
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrSeaFloorDepth.cs",
+      "sha256": "67852CAA58101848A6CB7916AE8B850904F79A6519022C56D68DB4096C26560F",
+      "bytes": 5098
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Spline/SplinePoint.cs",
+      "sha256": "22AB6ACAC7187130ABFEA433F291C6D217E8424427B4DC9CDE1ED756396E159E",
+      "bytes": 12037
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/RegisterLodDataInput.cs",
+      "sha256": "4673A84D597F583D06239A646C3B5C9F75D7684269CCE53C6145F235D45ADAAD",
+      "bytes": 22836
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-LakesRivers-DX11.xml",
+      "sha256": "7344B934B7632F022F5245AB7058FD0F1ABFDA839571E3A7BDC12958EE5858CA",
+      "bytes": 2787
+    },
+    {
+      "path": "Evidence/P09-LakesRivers-DX12.xml",
+      "sha256": "94C27D1C3C65FF672F16FB1B28BBB2F6A347FA35CCCA672C5EE44D835E4412F6",
+      "bytes": 2788
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/OriginalLakesRivers-contact.png",
+      "sha256": "73410D14CB404EDD57ECAFADB44A9E64FCF8E7470DB4534F27F0E33AE262F367",
+      "bytes": 687544
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-depth-sentinel-failed-DX11.xml",
+      "sha256": "F444ACF74C23E7EAD9AC1732A6EC77BC9033F763EE0D208983AB47949ECC3FF3",
+      "bytes": 4107
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D11-off.png",
+      "sha256": "CFCAF4DC9C1C28382F7783FC608A3EDD3A4A0B46BC1485E50AC329532F007AAA",
+      "bytes": 300453
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D11-on.png",
+      "sha256": "023994CFDB746E9DEEF948B8EBFE9EA3AB8CB1CC1A7C002D69DFD74FCEF87F9E",
+      "bytes": 300521
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D11-restored.png",
+      "sha256": "023994CFDB746E9DEEF948B8EBFE9EA3AB8CB1CC1A7C002D69DFD74FCEF87F9E",
+      "bytes": 300521
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D11.txt",
+      "sha256": "09C4D17C834A537C9ABBD57D3E20DFABE26818ADA7ED236E65C70C867FF1A4D5",
+      "bytes": 477
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D12-off.png",
+      "sha256": "49742537A95FF4B1F3B7B0E4A8431355919820C64DA8F824624DEC6207517517",
+      "bytes": 299692
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D12-on.png",
+      "sha256": "BB84828FC92146AF3437A46701E517B1ADE5EE0B1ABEEB9F6659D251537AA083",
+      "bytes": 299761
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D12-restored.png",
+      "sha256": "BB84828FC92146AF3437A46701E517B1ADE5EE0B1ABEEB9F6659D251537AA083",
+      "bytes": 299761
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D12.txt",
+      "sha256": "09C4D17C834A537C9ABBD57D3E20DFABE26818ADA7ED236E65C70C867FF1A4D5",
+      "bytes": 477
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-sentinel-sign-failed-DX11.xml",
+      "sha256": "13CC5CB90E70BB288EDDABCE1D3A8C6DC7D0DF190BE5EB53DA7478F965D0C6A8",
+      "bytes": 4105
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-unload-failed-Direct3D11.txt",
+      "sha256": "B17B2064B78596FA0C11AD56ECA16A475611BD4AE40032D406ADCF22BE27ACAE",
+      "bytes": 477
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-unload-failed-DX11.xml",
+      "sha256": "594827218BAAB51C5D827B40D7CA58A8B0C340A2F06230D71C06A0ACD3C34C53",
+      "bytes": 4067
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-wrong-buffer-failed-Direct3D11-off.png",
+      "sha256": "CFCAF4DC9C1C28382F7783FC608A3EDD3A4A0B46BC1485E50AC329532F007AAA",
+      "bytes": 300453
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-wrong-buffer-failed-Direct3D11-on.png",
+      "sha256": "023994CFDB746E9DEEF948B8EBFE9EA3AB8CB1CC1A7C002D69DFD74FCEF87F9E",
+      "bytes": 300521
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-wrong-buffer-failed-Direct3D11-restored.png",
+      "sha256": "023994CFDB746E9DEEF948B8EBFE9EA3AB8CB1CC1A7C002D69DFD74FCEF87F9E",
+      "bytes": 300521
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-wrong-buffer-failed-Direct3D11.txt",
+      "sha256": "F8DF42FBE7FFD0177BDF593A6C47483FE1E5DF68FDBCCDC107CD5412B79EE6FB",
+      "bytes": 460
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-wrong-buffer-failed-DX11.xml",
+      "sha256": "41E858EA5BB92ACE2B66A2C08BEE1F91513F10C420ADB939808FE317AF5D08C9",
+      "bytes": 4121
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P09-LakesRivers-workspace-audit.json",
+    "sha256": "02DD6C71ED2D3ED80147AAF91AE4DD501B50774E0D1EB9CAD595EDC71B57AB77",
+    "bytes": 283333
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "Other ShapeWaves off, ocean clock1/delta0, Unity timeScale0; native terrain/depth/input geometry retained. Not original full live scene/GUI/bake/standalone.",
+    "Depth.X permits native no-bottom \u2212Infinity; height accepted on depth.Y only, flow finite all7 layers.",
+    "Explicit receiver cleanup before/after ExitPlayMode necessary; normal Editor unload recreates Lake_mesh/River_mesh, no production fix claimed.",
+    "Prior full90+interactive2/API/build evidence unchanged. No fresh full100 or Player rebuild. Failed XML/metrics/correct initial PNG retained."
+  ]
+}

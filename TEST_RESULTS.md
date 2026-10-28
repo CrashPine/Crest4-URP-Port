@@ -2,6 +2,18 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: original LakesAndRivers inputs (2026-10-28, partial)
+
+OriginalRiverHeightAndFlowInputsChangeAndRestore focused1/1/API Passed after fixture corrections. Actual original scene:2 RegisterHeightInput +2 RegisterFlowInput (Lake/River),16 terrains,0 WaterBody components, clip disabled. WaterBodies object name does not establish component/clip acceptance. Source camera(0,107.5,0),640x360, depth on/postprocess/MSAA off; original terrain/depth retained, other ShapeWaves disabled only in fixture; ocean time1/delta0 and Unity timeScale0 for exact restoration. This is input isolation, not combined live-wave/standalone/GUI/bake/lighting parity acceptance.
+
+Both APIs:7 native layers,4128768 Vector4 samples/resource/state; height channel-Y delta sum89162.04134178, flow-XY delta sum14085.30897897; restored height-Y max0 and flow-vector max0. Changed RGB pixels723 (>6 sumRGB), restoration0, pink0. Source on/off pairs decoded into OriginalLakesRivers-contact.png and inspected; lake/river terrain visible. Depth-X legitimately uses −Infinity for no-bottom (s_nullColor=−k_DepthBaseline); permit only that sentinel in X, require finite height/flow/other channels. Height restore metric intentionally coversY, not whole depth vector.
+
+Failures retained: wrong-buffer-failed XML/report/3PNG (initial fixture incorrectly read AnimatedWaves instead of SeaFloorDepth; height0); depth-sentinel-failed XML (strict finite-X rejected valid −Infinity); sentinel-sign-failed XML (initial sign allowance corrected to actual negative baseline); unload-failed XML/report (numerical/image checks passed but cleanup created Lake_mesh/River_mesh). No assertion thresholds weakened: corrected resource/channel/sentinel contract.
+
+**Open lifecycle defect:** normal Editor NewScene after ExitPlayMode logs objects spawned during scene close (Lake_mesh/River_mesh). Passing fixture explicitly destroys IReceiveSplineChangeMessages components before ExitPlayMode and again after it restores Editor scene, before NewScene. No ignored/expected error logs; workaround is fixture cleanup only, NOT a production fix or natural unload acceptance. Next isolate/fix this actual spline scene-close issue with a focused regression before closing P09.5.4. Production fix will require full API milestone/builds per plan.
+
+Evidence P09-LakesRivers-DX11/DX12.xml, OriginalLakesRivers-Direct3D*.txt/PNG/contact and checkpoint; original failed XML/reports retained. Audit1367 missing meta/duplicate GUID/missing upstream0, rootMD8. Build20 runtime/8 material fingerprints unchanged; Editor-only addition, no fresh full100/build claimed. Remaining full combined configurations/Meta/own casting/standalone/P10/P11 gaps remain open.
+
 ## P09.5.4: original Whirlpool inputs (2026-10-28, scoped passed)
 
 NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore1/API +OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations1/API passed, all nodes Passed, failed0/skipped0. Uses original whirlpool.unity and its hidden RegisterAnimWavesInput/RegisterFlowInput, original shaders/component/materials unchanged. Source camera(−22.60,7.40,15.20),640x360 depth on, postprocess/MSAA off. Selected DX11 isolated on/off and both API combined original-scene images inspected: carved vortex visible, no error-pink.
