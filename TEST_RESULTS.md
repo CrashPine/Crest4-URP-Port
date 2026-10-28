@@ -2,6 +2,20 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: original threeboats scene (2026-10-28, scoped passed)
+
+ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases focused1/1/API Passed, all testcase nodes Passed, failed0/skipped0. Loads original threeboats.unity, preserves source throttle1 and steering1/−.8/−.7; physical player input off.200 native settling FixedUpdates then150 observed (.02s); capture60Hz/query fence, live original waves/physics. Each hull wet150/150, finite Y within10m of sea level. Actual displacement/turn measurements:
+
+| Hull | DX11 horizontal m / rotation degrees | DX12 |
+|---|---:|---:|
+| BoatAlignNormal (1) | 18.069862 / 123.636833 | 18.069862 / 123.636833 |
+| BoatAlignNormal (2) | 20.898495 / 97.145836 | 20.904520 / 97.122200 |
+| BoatAlignNormal (3) | 22.358925 / 85.685300 | 22.416704 / 85.805500 |
+
+Source camera(−37.10,9.94,1.00), depth on, postprocess/MSAA off640x360. Collective6 hull renderers off changes7172/7166 pixels, baseline repeat0, restoration0; pink0 in all4 captures/API; missing scripts0. Selected on captures both API inspected, all3 primitive hulls visible. Collective visibility control is not individual pixel attribution/lighting parity; motion/rotation are observational integration checks alongside prior P07 force tests, not signed-force reference or exact API parity. Dark primitive hulls against sunlit water do not accept bake/Meta. No keyboard/GUI/standalone/performance claim. No scene/material/production source changes; existing Capture helper gained optional prefix solely to avoid overwriting original boat evidence. Historical OriginalBoat fixture recoverable at0296d0b.
+
+Evidence OriginalThreeBoats-Direct3D*.txt,8 PNG, P09-ThreeBoats-DX11/DX12.xml and checkpoint. Stable audit1363 missing meta/duplicate GUID/missing upstream0, rootMD8; Build20 selected runtime/8 material hashes unchanged. Editor-only addition, no fresh full97 or Player rebuild claimed. Next original Whirlpool native displacement/flow controls, then LakesAndRivers. P09.5.4/P10/P11 remain open.
+
 ## P09.5.4: BoatWakes source isolation (2026-10-28, scoped passed)
 
 OriginalWakeSourcesContributeIndependently focused1/1/API Passed, all nodes passed, failed0.8 independent original-scene PlayMode lifecycles/API:5 WakeRig inputs only,3 boat inputs only, each original rig radius individually, rig weight0.120 frames/case, capture60Hz +existing query fence. Selected source counts5/3/1 asserted, original names/radii/weights recorded; transforms/materials/algorithms unchanged, no asset saves. Every selected nonzero-weight case has >100 nonzero cells and channel absolute sum>.001; zero weight <1e−8 (actual0). All7 RGFloat layers finite. No new images needed for numerical isolation.

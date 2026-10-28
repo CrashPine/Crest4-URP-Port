@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 11:11:08Z" end-time="2026-10-28 11:11:24Z" duration="16,7370025">
-  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="98" result="Passed" start-time="2026-10-28 11:11:08Z" end-time="2026-10-28 11:11:24Z" duration="16.737003" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 11:16:58Z" end-time="2026-10-28 11:17:02Z" duration="3,5186581">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="99" result="Passed" start-time="2026-10-28 11:16:58Z" end-time="2026-10-28 11:17:02Z" duration="3.518658" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1153" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="96" result="Passed" start-time="2026-10-28 11:11:08Z" end-time="2026-10-28 11:11:24Z" duration="16.725118" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1154" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="97" result="Passed" start-time="2026-10-28 11:16:58Z" end-time="2026-10-28 11:17:02Z" duration="3.504833" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="162028" />
+        <property name="_PID" value="148432" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestFixture" id="1091" name="OriginalWakeSceneTests" fullname="OriginalWakeSceneTests" classname="OriginalWakeSceneTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-28 11:11:08Z" end-time="2026-10-28 11:11:24Z" duration="16.720843" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1085" name="OriginalBoatSceneTests" fullname="OriginalBoatSceneTests" classname="OriginalBoatSceneTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-28 11:16:58Z" end-time="2026-10-28 11:17:02Z" duration="3.494406" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1094" name="OriginalWakeSourcesContributeIndependently" fullname="OriginalWakeSceneTests.OriginalWakeSourcesContributeIndependently" methodname="OriginalWakeSourcesContributeIndependently" classname="OriginalWakeSceneTests" runstate="Runnable" seed="563896164" result="Passed" start-time="2026-10-28 11:11:08Z" end-time="2026-10-28 11:11:24Z" duration="16.701306" asserts="0">
+        <test-case id="1087" name="ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" fullname="OriginalBoatSceneTests.ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" methodname="ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" classname="OriginalBoatSceneTests" runstate="Runnable" seed="1645770088" result="Passed" start-time="2026-10-28 11:16:58Z" end-time="2026-10-28 11:17:02Z" duration="3.467047" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
-            <property name="Timeout" value="300000" />
+            <property name="Timeout" value="240000" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
           <output><![CDATA[Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
-Computing lightmaps is not available in play mode.
 Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
 ]]></output>
         </test-case>
