@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 16:12:25Z" end-time="2026-10-28 16:12:27Z" duration="2,5492004">
-  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="106" result="Passed" start-time="2026-10-28 16:12:25Z" end-time="2026-10-28 16:12:27Z" duration="2.549200" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 16:21:11Z" end-time="2026-10-28 16:21:30Z" duration="19,1142719">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="107" result="Passed" start-time="2026-10-28 16:21:11Z" end-time="2026-10-28 16:21:30Z" duration="19.114272" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1165" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="104" result="Passed" start-time="2026-10-28 16:12:25Z" end-time="2026-10-28 16:12:27Z" duration="2.527453" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1167" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="105" result="Passed" start-time="2026-10-28 16:21:11Z" end-time="2026-10-28 16:21:30Z" duration="19.099689" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="344664" />
+        <property name="_PID" value="208780" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestFixture" id="1055" name="ExampleMetaTests" fullname="ExampleMetaTests" classname="ExampleMetaTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-28 16:12:25Z" end-time="2026-10-28 16:12:26Z" duration="1.256201" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1055" name="ExampleBakeTests" fullname="ExampleBakeTests" classname="ExampleBakeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-28 16:21:11Z" end-time="2026-10-28 16:21:30Z" duration="19.095300" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1056" name="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" fullname="ExampleMetaTests.OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" methodname="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" classname="ExampleMetaTests" runstate="Runnable" seed="1911814286" result="Passed" start-time="2026-10-28 16:12:25Z" end-time="2026-10-28 16:12:26Z" duration="1.235097" asserts="0">
+        <test-case id="1056" name="SourceExampleMaterialsReceiveActualBakedLighting" fullname="ExampleBakeTests.SourceExampleMaterialsReceiveActualBakedLighting" methodname="SourceExampleMaterialsReceiveActualBakedLighting" classname="ExampleBakeTests" runstate="Runnable" seed="518829891" result="Passed" start-time="2026-10-28 16:21:11Z" end-time="2026-10-28 16:21:30Z" duration="19.071385" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
-            <property name="retryIteration" value="0" />
-            <property name="repeatIteration" value="0" />
-          </properties>
-          <output><![CDATA[In the render graph API, the output Render Texture must have a depth buffer. When you select a Render Texture in any camera's Output Texture property, the Depth Stencil Format property of the texture must be set to a value other than None.
-]]></output>
-        </test-case>
-      </test-suite>
-      <test-suite type="TestFixture" id="1013" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-10-28 16:12:26Z" end-time="2026-10-28 16:12:27Z" duration="1.266242" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
-        <properties />
-        <test-case id="1022" name="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" fullname="MaskedExampleTests.TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" methodname="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" classname="MaskedExampleTests" runstate="Runnable" seed="31835684" result="Passed" start-time="2026-10-28 16:12:26Z" end-time="2026-10-28 16:12:27Z" duration="1.263806" asserts="0">
-          <properties>
-            <property name="_JOINTYPE" value="UnityCombinatorial" />
-            <property name="Timeout" value="180000" />
+            <property name="Timeout" value="600000" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>

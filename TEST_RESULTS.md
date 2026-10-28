@@ -2,6 +2,18 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: actual example lightmap bake (2026-10-28, scoped passed)
+
+ExampleBakeTests1/1/API Passed with real Lightmapping.BakeAsync in a new saved disposable Editor scene. Actual backend ProgressiveCPU, resolution8 texels/m, atlas256, direct/indirect/environment samples16, bounce1, filteringNone; one atlas and LightingData created, all3 source-material cubes +Lit floor received valid lightmap index0. Source materials: MaskedWhite, MaskedNavalMine, TransparentWithUnderwaterFog. Clones retain original GI=EmissiveIsBlack and enabled ShadowCaster/Meta pass state, colour/texture/emission properties. Original Emission1 on NavalMine does not imply baked emissive-GI with source flags4. Test uses explicit ContributeGI on temporary geometry and ShadowCasting.On, not original renderer static/cast-flag acceptance. Secondary UVs generated on mesh clones.
+
+Masked clones select view-mask None for visibility in this dry scene (source underwater screen masks absent); GI/pass/colour/texture flags unchanged. This is a controlled rendering configuration, not original scene rebake or all mask/volume combinations. No original assets saved. Initial broad SaveAssets was removed from final fixture; final creates only fixture assets/scene. Existing baked directories untouched; scratch Assets/CrestBakeFixture deleted successfully by teardown.
+
+Final controls with actual light disabled, ambient/reflection0 and background black: bright20436/API, collective lightmap-binding-off changes20436 pixels; restores0 exact. Individual binding controls demonstrate each example material receives baked lighting: MaskedWhite968, MaskedNavalMine1118, TransparentWithUnderwaterFog1300 changed pixels/API (>6 sumRGB), each restoration exact. No per-object PNG repetition;6 final on/binding-off/restored PNG total, selected both API on and DX11 off inspected. Not just atlas allocation/bright-background smoke.
+
+Intermediate passed reports/XML retained: initial bake used nonblack camera background and only atlas/brightness checks; collective-only test then showed Masked dry-view clipping and proved only aggregate use. Final assertions added per-material attribution and explicit mask-None clones; no weakened threshold or source shader fix. No claim that intermediate smoke alone accepted receiving lightmaps. Actual atlas files discarded with scratch scene; reports/XML/images and deterministic fixture parameters retained for reproduction.
+
+Evidence P09-ExampleBake-DX11/DX12.xml, ExampleBake-Direct3D*.txt, final PNG and checkpoint. Audit1375 missing meta/duplicate GUID/missing upstream0, rootMD8. Runtime20/material8 Build hashes unchanged; Editor-only fixture, no fresh full105/Player rebuild claim. ProgressiveGPU/standalone lightmap shader stripping/original scene flags/other bake setups not accepted here. Next resolve/audit original scene renderer GI/cast/pass bindings, then remaining P09.5.4 combined/lighting coverage; P10/P11/P12 TODO.
+
 ## P09.5.4: actual Meta/caster pass output (2026-10-28, partial)
 
 Plan check confirms next work is P09.5.4 Meta/own casting; P10–P12 still TODO. Existing Masked caster alpha-cutoff test was already accepted and not repeated. New ExampleMetaTests +MaskedExampleTests.TransparentOwnCaster focused2/2/API Passed, all nodes passed/no skips. No runtime/shader/material/scene changes; shared Capture logging now checks HasProperty before querying optional Masked-only _Mask/_Emission (missing fields log NaN, not GPU NaN).

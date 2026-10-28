@@ -1,0 +1,10 @@
+Disposable saved Editor scene, real Lightmapping.BakeAsync, original source material clones and GI/pass flags. No original scene rebake or original renderer flag acceptance.
+Source=Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedWhite.mat; Shader=Crest/Examples/Masked; SourceGI=EmissiveIsBlack; CloneGI=EmissiveIsBlack; Meta=4; ShadowEnabled=True
+Source=Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedNavalMine.mat; Shader=Crest/Examples/Masked; SourceGI=EmissiveIsBlack; CloneGI=EmissiveIsBlack; Meta=4; ShadowEnabled=True
+Source=Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentWithUnderwaterFog.mat; Shader=Crest/Examples/UnderwaterTransparentSurfaceShader; SourceGI=EmissiveIsBlack; CloneGI=EmissiveIsBlack; Meta=2; ShadowEnabled=True
+Backend=ProgressiveCPU; Atlases=1; LightingData=True
+Renderer=Examples_Material_MaskedWhite; LightmapIndex=0; ST=(0.15, 0.15, 0.47, 0.00); ShadowCasting=On
+Renderer=Examples_Material_MaskedNavalMine; LightmapIndex=0; ST=(0.15, 0.15, 0.42, 0.47); ShadowCasting=On
+Renderer=Examples_Material_TransparentWithUnderwaterFog; LightmapIndex=0; ST=(0.15, 0.15, 0.25, 0.47); ShadowCasting=On
+Renderer=Lit floor reference; LightmapIndex=0; ST=(0.68, 0.68, 0.00, 0.00); ShadowCasting=On
+RealtimeLightOff=True; Pink=0; BrightPixels=230400

@@ -1,0 +1,164 @@
+{
+  "recordedUtc": "2026-10-28T16:24:35.249792+00:00",
+  "scope": "Actual disposable CPU lightmap bake, source GI/pass-preserving material clones; individual receiving-lightmap controls. Not original scene renderer/bake acceptance.",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleBakeTests.cs",
+      "sha256": "04807DCBDBD76C4585951DD6956DEA7033802A16C7F696718698F6D9677013AA",
+      "bytes": 8624
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleBakeTests.cs.meta",
+      "sha256": "190EFE7D884F4BA522324A2C94A67CA610CFCDF071056D8E496D8BE1F3D380BC",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedWhite.mat",
+      "sha256": "E956A0629EA44F6C986126CF3D598A03381F3E6A316B6B1628C00F5120FCB600",
+      "bytes": 2235
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_MaskedNavalMine.mat",
+      "sha256": "3924794F13D1257C957A770A959963A48C7C08B4F931E4C29869DB6D0C267B0F",
+      "bytes": 1132
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentWithUnderwaterFog.mat",
+      "sha256": "553D0F1A162B4FDABBBCDF4EA16726D1EBAD8791FD0DA1939FDE39574395A15A",
+      "bytes": 782
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-ExampleBake-DX11.xml",
+      "sha256": "3ECF893AB2309D00AB828D05359FD719678AD6804F042F95D0B64D9CD1FE7C85",
+      "bytes": 2752
+    },
+    {
+      "path": "Evidence/P09-ExampleBake-DX12.xml",
+      "sha256": "C5B385312BB202CB425044F2D89F8E140D33DB1B8D7A258DCFD1158A9386C507",
+      "bytes": 2752
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/ExampleBake-binding-off-Direct3D11.png",
+      "sha256": "CB0CBC9003131E7213649F66B522043FF3D4167F0EC403BFC82CB2D286D14A5D",
+      "bytes": 5586
+    },
+    {
+      "path": "Evidence/ExampleBake-binding-off-Direct3D12.png",
+      "sha256": "CB0CBC9003131E7213649F66B522043FF3D4167F0EC403BFC82CB2D286D14A5D",
+      "bytes": 5586
+    },
+    {
+      "path": "Evidence/ExampleBake-collective-only-Direct3D11.txt",
+      "sha256": "A446DED770913D6AB9E8C391458B7B9ADA1A1AAE4D258BBC69A19A9C643BA8F2",
+      "bytes": 1417
+    },
+    {
+      "path": "Evidence/ExampleBake-collective-only-DX11.xml",
+      "sha256": "73A5AC18A92BBA740460DF7AEF7B2892C3B5DB0052C8CBC8899A0174826B5B42",
+      "bytes": 2753
+    },
+    {
+      "path": "Evidence/ExampleBake-Direct3D11.png",
+      "sha256": "FAA12E170E733C73AE0218DD69EEB49332EF244FA3C301990EDCB8387750FC65",
+      "bytes": 11180
+    },
+    {
+      "path": "Evidence/ExampleBake-Direct3D11.txt",
+      "sha256": "B85B7E4C4391396E410EB59DA0140AB04DAFFF99A8235937DD6282A885F0C9E4",
+      "bytes": 1779
+    },
+    {
+      "path": "Evidence/ExampleBake-Direct3D12.txt",
+      "sha256": "2889D8DE18559D0CF9F6EE4F2EA188DB3D44191012A20BDB7CF53B069595D647",
+      "bytes": 1779
+    },
+    {
+      "path": "Evidence/ExampleBake-initial-Direct3D11.png",
+      "sha256": "FAA12E170E733C73AE0218DD69EEB49332EF244FA3C301990EDCB8387750FC65",
+      "bytes": 11180
+    },
+    {
+      "path": "Evidence/ExampleBake-initial-Direct3D11.txt",
+      "sha256": "F81405EF66694CAD2928B595F952914839948EE5A3548AAEC44A5222A58D0646",
+      "bytes": 1341
+    },
+    {
+      "path": "Evidence/ExampleBake-initial-DX11.xml",
+      "sha256": "CB726DA42B25E99AEC267350BAA9AD6B0E5C8BB629B301C8210480493199EAB3",
+      "bytes": 2752
+    },
+    {
+      "path": "Evidence/ExampleBake-on-Direct3D11.png",
+      "sha256": "20410D00D476F7F552F7519BB9C974B1F0DE56B66D03C4E9FFB501CF985D4C3D",
+      "bytes": 10897
+    },
+    {
+      "path": "Evidence/ExampleBake-on-Direct3D12.png",
+      "sha256": "B0770C3D59DCB58D28844B552A999A7AD570CAE493702B7F8D5DCEA6ADF9DB56",
+      "bytes": 10725
+    },
+    {
+      "path": "Evidence/ExampleBake-restored-Direct3D11.png",
+      "sha256": "20410D00D476F7F552F7519BB9C974B1F0DE56B66D03C4E9FFB501CF985D4C3D",
+      "bytes": 10897
+    },
+    {
+      "path": "Evidence/ExampleBake-restored-Direct3D12.png",
+      "sha256": "B0770C3D59DCB58D28844B552A999A7AD570CAE493702B7F8D5DCEA6ADF9DB56",
+      "bytes": 10725
+    }
+  ],
+  "images": [
+    {
+      "path": "Evidence/ExampleBake-on-Direct3D11.png",
+      "sha256": "20410D00D476F7F552F7519BB9C974B1F0DE56B66D03C4E9FFB501CF985D4C3D",
+      "bytes": 10897
+    },
+    {
+      "path": "Evidence/ExampleBake-on-Direct3D12.png",
+      "sha256": "B0770C3D59DCB58D28844B552A999A7AD570CAE493702B7F8D5DCEA6ADF9DB56",
+      "bytes": 10725
+    },
+    {
+      "path": "Evidence/ExampleBake-binding-off-Direct3D11.png",
+      "sha256": "CB0CBC9003131E7213649F66B522043FF3D4167F0EC403BFC82CB2D286D14A5D",
+      "bytes": 5586
+    },
+    {
+      "path": "Evidence/ExampleBake-binding-off-Direct3D12.png",
+      "sha256": "CB0CBC9003131E7213649F66B522043FF3D4167F0EC403BFC82CB2D286D14A5D",
+      "bytes": 5586
+    },
+    {
+      "path": "Evidence/ExampleBake-restored-Direct3D11.png",
+      "sha256": "20410D00D476F7F552F7519BB9C974B1F0DE56B66D03C4E9FFB501CF985D4C3D",
+      "bytes": 10897
+    },
+    {
+      "path": "Evidence/ExampleBake-restored-Direct3D12.png",
+      "sha256": "B0770C3D59DCB58D28844B552A999A7AD570CAE493702B7F8D5DCEA6ADF9DB56",
+      "bytes": 10725
+    }
+  ],
+  "scratchRemoved": true,
+  "audit": {
+    "path": "Evidence/P09-ExampleBake-workspace-audit.json",
+    "sha256": "8F160158A36A3597845134AC90094E1EE24888B450E56A007E2A2723AB2EABED",
+    "bytes": 284926
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "Masked clone view mode None for dry fixture; original GI/pass/colour/textures retained; explicit fixture ContributeGI/castOn is not original renderer flag acceptance.",
+    "ProgressiveCPU settings fixed/low samples; not ProgressiveGPU/other bake configurations/standalone shader stripping or original scene rebake.",
+    "Native bake atlas removed with disposable scene; XML/reports/render controls/fixture code retained.",
+    "Prior full90+interactive2/API/build unchanged, no full105 or Player rebuild. P09.5.4/P10/P11/P12 remain open."
+  ]
+}
