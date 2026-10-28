@@ -68,3 +68,5 @@ P09.2 boundary qualification: five whole masks per API match original Built-in a
 P09 scope closure (2026-10-28): original finite optical/material/scene acceptance stage completed; this does not upgrade NOT TESTED matrix rows to PASSED. Remaining combined Whirlpool/UnderwaterLighting/configuration/standalone/bake variants are tracked explicitly in PORT_PLAN P11.1–P11.4; resource/performance P10 is active.
 
 P10 baked asset lifetime (2026-10-28): minimal3 lifecycle +existing2 FFT tests pass focused DX11 after test-owned asset unload. Persistent warnings3→1; isolated Integration clean, BakedFFTTests still1 OnEnable allocation. Full-suite confirmation/performance pending; full acceptance statuses unchanged.
+
+P10 Editor allocation correction (2026-10-28):3 identified Persistent allocations resolved by explicit fixture asset unload +Editor-only import guard in FFTBakedData.OnEnable. Focused loaded-asset reimports preserve immediate native readiness; full110/110 DX11/DX12 Passed with no Persistent shutdown warning. Standalone DX12 GPU evictable warning/performance/VRAM acceptance remain open; subsystem full-acceptance statuses unchanged.

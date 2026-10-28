@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-10-28T21:21:25.1051650Z",
+  "recordedUtc": "2026-10-28T21:42:18.8600284Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
   "fileCount": 1381,
@@ -15,6 +15,7 @@
     "Crest\\Scripts\\LodData\\OceanDepthCache.cs",
     "Crest\\Scripts\\LodData\\Shadows\\LodDataMgrShadow.cs",
     "Crest\\Scripts\\Reflection\\OceanPlanarReflection.cs",
+    "Crest\\Scripts\\Shapes\\FFT\\FFTBakedData.cs",
     "Crest\\Scripts\\Shapes\\FFT\\FFTBaker.cs",
     "Crest\\Scripts\\Spline\\SplinePoint.cs",
     "Crest\\Scripts\\Underwater\\UnderwaterRenderer.cs",
@@ -62,10 +63,10 @@
     },
     {
       "file": "EditMode-DX11-focused-leak-stacks.xml",
-      "start": "2026-10-28 21:20:33Z",
+      "start": "2026-10-28 21:25:58Z",
       "result": "Passed",
-      "total": "5",
-      "passed": "5",
+      "total": "4",
+      "passed": "4",
       "failed": "0"
     },
     {
@@ -122,6 +123,14 @@
       "result": "Passed",
       "total": "2",
       "passed": "2",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX12-leak-stacks.xml",
+      "start": "2026-10-28 21:33:36Z",
+      "result": "Passed",
+      "total": "110",
+      "passed": "110",
       "failed": "0"
     },
     {
@@ -1586,8 +1595,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs",
-      "bytes": 14852,
-      "sha256": "45AB775A040DA0ABCC4B164AC49325D4768CE3D87D95F0CB8952E0CAB5F326F5"
+      "bytes": 15177,
+      "sha256": "C425324339235BA13A6765A9571CCB8E2CF2F02D774F706C349BCD503F4977E7"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs.meta",
@@ -5786,8 +5795,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTAssetLifetimeTests.cs",
-      "bytes": 4729,
-      "sha256": "00FDEAB62FDB6A70862920CBA10BBB5601CDCDDED84DBE963B95A940C8CACCA6"
+      "bytes": 5270,
+      "sha256": "1BD3CB2EC5140044A3174C961EBC375570D702DA1E6E5C874CA69864BA69D82E"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTAssetLifetimeTests.cs.meta",
@@ -6996,8 +7005,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 28068,
-      "sha256": "893F0A770D2523AB8AA216F2B24367CD28B02CE7A7C429244CA862E1A932AA4C"
+      "bytes": 28814,
+      "sha256": "3DCAC87A9A4F50FC7F83E55A0C2774D5317F2CC3C2411990CBABC95847EBDF8F"
     },
     {
       "path": "LICENSE.Crest",
@@ -7011,13 +7020,13 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 30160,
-      "sha256": "82C93F12AB365163E24AB873E22D21C772EEBE0751A273463DDE466084D4468F"
+      "bytes": 30185,
+      "sha256": "1EED55EE8261C74579DDAFAAA5A1FAA5758A657CE17699403C8C3095F767E592"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 23292,
-      "sha256": "5EB4F9BEC8175F186F3E0FACAB2AEAC978A92497E26FA03BEFF017D850C4C75E"
+      "bytes": 23751,
+      "sha256": "D280848DE6FA6C45BAC6FB6398F27B7D8FB8950816CCF80CB3777E039310D23F"
     },
     {
       "path": "README.md",
@@ -7031,8 +7040,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 246499,
-      "sha256": "04847EEF7D7CD9DCBC15903C2D21641B520C24582B229D89F85F7604BFE00430"
+      "bytes": 251830,
+      "sha256": "6FD95D1FD6698B25E25A40D0B9624939232CED16A0CFEEDBE4C388C0C65B51E3"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

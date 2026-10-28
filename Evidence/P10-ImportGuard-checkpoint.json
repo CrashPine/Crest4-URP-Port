@@ -1,0 +1,103 @@
+{
+  "utc": "2026-10-28T21:42:32.817088+00:00",
+  "scope": "Identified Editor Persistent3 resolved. P10 remains active for standalone GPU warning and profiling. Editor guard only, no Player code change.",
+  "runs": [
+    {
+      "api": "DX11",
+      "total": 110,
+      "passed": 110,
+      "failed": 0,
+      "skipped": 0,
+      "startUtc": "2026-10-28 21:27:12Z",
+      "endUtc": "2026-10-28 21:32:59Z",
+      "durationSeconds": 347.69221,
+      "PersistentWarning": false,
+      "NativeArrayShutdownLabelPresent": false
+    },
+    {
+      "api": "DX12",
+      "total": 110,
+      "passed": 110,
+      "failed": 0,
+      "skipped": 0,
+      "startUtc": "2026-10-28 21:33:36Z",
+      "endUtc": "2026-10-28 21:41:01Z",
+      "durationSeconds": 445.0936317,
+      "PersistentWarning": false,
+      "NativeArrayShutdownLabelPresent": false
+    }
+  ],
+  "limits": [
+    "No fresh separate interactive/Player run",
+    "Leak stack timings are not benchmarks",
+    "DX12 Player evictable warning unresolved",
+    "Full subsystem acceptance not upgraded"
+  ],
+  "files": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs",
+      "bytes": 15177,
+      "sha256": "c425324339235ba13a6765a9571ccb8e2cf2f02d774f706c349bcd503f4977e7"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTAssetLifetimeTests.cs",
+      "bytes": 5270,
+      "sha256": "1bd3cb2ec5140044a3174c961ebc375570d702da1e6e5c874ca69864ba69d82e"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTTests.cs",
+      "bytes": 11254,
+      "sha256": "fa041a02ea094b0d2a14b5b3d537b9bc5b1e980633ff9056099e4a175e3820a3"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs",
+      "bytes": 15458,
+      "sha256": "6cc4d6e047d4418e243dc46e45d327bd31feced39f9453e84233e941b9a38901"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-diagnosis.zip",
+      "bytes": 68034,
+      "sha256": "4b1bbeef3eedbdfe56ff18583dff5934a48d39a476e2bb17d9233a7ca6c543de"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-focused-reports.zip",
+      "bytes": 2809,
+      "sha256": "7c2f4f74405f596a3572a108ab92e31d6f713633aa156a05e4b69144b7fe6457"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-workspace-audit.json",
+      "bytes": 286767,
+      "sha256": "39fcf13ed6ce240a15e5c61a0cf247401dea65cd13d1a28a84841074315ff600"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-full-DX11.xml",
+      "bytes": 152673,
+      "sha256": "4952a4deec8c4186a9755b17b9c63de8dea4df36ef5fb291cb58cc9650436091"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-full-DX11-outputs.zip",
+      "bytes": 6439774,
+      "sha256": "e9371bcca1b6378d042cc8f6448f94c2069eb269bf45f9a1a166c56e06dc0382"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-full-DX11-files.json",
+      "bytes": 16954,
+      "sha256": "bb6765f14248b9c4c24bedced26d01643899fc41cf3b31034227c82440d59ac7"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-full-DX12.xml",
+      "bytes": 152682,
+      "sha256": "a7d1242303f77262c6feeab9c4e0042d3fb83410a0ae1780826562618b78a1e7"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-full-DX12-outputs.zip",
+      "bytes": 11600633,
+      "sha256": "4826d91d65b2056f6d66a116af805bc6accc62d7c7046a1c4a242b65eecbb505"
+    },
+    {
+      "path": "Evidence/P10-ImportGuard-full-DX12-files.json",
+      "bytes": 20217,
+      "sha256": "6abdd8f6b65f370fe5e78a5379cea35716022c9c2e5b171832ace07037050b26"
+    }
+  ]
+}

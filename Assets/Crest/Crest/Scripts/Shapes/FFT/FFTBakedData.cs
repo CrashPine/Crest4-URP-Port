@@ -84,6 +84,12 @@ namespace Crest
 
         public void OnEnable()
         {
+#if UNITY_EDITOR
+            // NativeFormatImporter can enable a temporary instance, then discard
+            // its non-serialized fields without OnDisable. The normally loaded
+            // instance is enabled again after importing; allocate only there.
+            if (EditorApplication.isUpdating) return;
+#endif
             InitData();
         }
 

@@ -63,6 +63,19 @@ public class BakedFFTAssetLifetimeTests
         Assert.That(Alive(final), Is.False, "Delete must invalidate loaded allocation.");
     }
 
+    [Test]
+    public void ReimportLoadedAssetPreservesReadyNativeData()
+    {
+        CreateData();
+        for (int i = 0; i < 3; i++)
+        {
+            AssetDatabase.ImportAsset(_folder + "/Data.asset", ImportAssetOptions.ForceUpdate);
+            Assert.That(_data, Is.Not.Null);
+            Assert.That(_data._framesFlattenedNative.IsCreated, Is.True, "Existing asset references must remain ready after reimport.");
+            Assert.That((float)_data._framesFlattenedNative[15], Is.EqualTo(1.875f));
+        }
+    }
+
     [UnityTest]
     public IEnumerator CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete()
     {
