@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 21:18:43Z" end-time="2026-10-28 21:18:47Z" duration="3,4277335">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="111" result="Passed" start-time="2026-10-28 21:18:43Z" end-time="2026-10-28 21:18:47Z" duration="3.427734" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1173" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="109" result="Passed" start-time="2026-10-28 21:18:43Z" end-time="2026-10-28 21:18:47Z" duration="3.408827" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="234180" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1026" name="BakedFFTAssetLifetimeTests" fullname="BakedFFTAssetLifetimeTests" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-28 21:18:43Z" end-time="2026-10-28 21:18:44Z" duration="1.294523" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1028" name="CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" fullname="BakedFFTAssetLifetimeTests.CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" methodname="CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="1999431560" result="Passed" start-time="2026-10-28 21:18:43Z" end-time="2026-10-28 21:18:44Z" duration="0.751463" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1029" name="LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" fullname="BakedFFTAssetLifetimeTests.LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" methodname="LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="2016736649" result="Passed" start-time="2026-10-28 21:18:44Z" end-time="2026-10-28 21:18:44Z" duration="0.329033" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1027" name="SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" fullname="BakedFFTAssetLifetimeTests.SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" methodname="SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="649960486" result="Passed" start-time="2026-10-28 21:18:44Z" end-time="2026-10-28 21:18:44Z" duration="0.192197" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1030" name="BakedFFTIntegrationTests" fullname="BakedFFTIntegrationTests" classname="BakedFFTIntegrationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-28 21:18:44Z" end-time="2026-10-28 21:18:46Z" duration="1.333330" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1031" name="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" fullname="BakedFFTIntegrationTests.SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" methodname="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" classname="BakedFFTIntegrationTests" runstate="Runnable" seed="327106247" result="Passed" start-time="2026-10-28 21:18:44Z" end-time="2026-10-28 21:18:46Z" duration="1.330514" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedIntegration_0d88c083c2fd47cfa2394df4965dad5c/Choppy.asset.
+Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1032" name="BakedFFTTests" fullname="BakedFFTTests" classname="BakedFFTTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-28 21:18:46Z" end-time="2026-10-28 21:18:47Z" duration="0.770170" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1033" name="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" fullname="BakedFFTTests.RealFFTBakeReloadAndCPUJobsMatchGPUFrames" methodname="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" classname="BakedFFTTests" runstate="Runnable" seed="1969538338" result="Passed" start-time="2026-10-28 21:18:46Z" end-time="2026-10-28 21:18:47Z" duration="0.768807" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedFFT_712fdf09cc8545a284224f37febab554/Waves.asset.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

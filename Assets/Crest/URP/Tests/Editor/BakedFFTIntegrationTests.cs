@@ -254,6 +254,9 @@ public class BakedFFTIntegrationTests
             string root = Path.GetFullPath(Parent) + Path.DirectorySeparatorChar;
             Assert.That(Path.GetFullPath(_folder).StartsWith(root, StringComparison.OrdinalIgnoreCase), Is.True);
             Assert.That(AssetDatabase.AssetPathToGUID(_folder), Is.EqualTo(_guid));
+            // Scene/providers are stopped above. DeleteAsset alone does not release
+            // loaded FFTBakedData native storage in Unity 6000.6.5f1.
+            if (_data != null) Resources.UnloadAsset(_data);
             Assert.That(AssetDatabase.DeleteAsset(_folder), Is.True);
         }
     }

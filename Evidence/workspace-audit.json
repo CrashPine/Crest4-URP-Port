@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-28T16:42:56.7728733Z",
+  "recordedUtc": "2026-10-28T21:21:25.1051650Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1379,
+  "fileCount": 1381,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -58,6 +58,14 @@
       "result": "Passed",
       "total": "1",
       "passed": "1",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX11-focused-leak-stacks.xml",
+      "start": "2026-10-28 21:20:33Z",
+      "result": "Passed",
+      "total": "5",
+      "passed": "5",
       "failed": "0"
     },
     {
@@ -5777,9 +5785,19 @@
       "sha256": "1B9E82044E1B662AB3A77AC44338B1E2745A668CDC37C863D6A11E682DA9EC4E"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTAssetLifetimeTests.cs",
+      "bytes": 4729,
+      "sha256": "00FDEAB62FDB6A70862920CBA10BBB5601CDCDDED84DBE963B95A940C8CACCA6"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTAssetLifetimeTests.cs.meta",
+      "bytes": 61,
+      "sha256": "E0CC38363848633EC9F4D093B2AC01795238657D4D6B32D452790367CFE5606D"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs",
-      "bytes": 14979,
-      "sha256": "19F747841CCE75ABFD7FFC96DFF5E3D0A8F34B872D540403F40A062A94C056A1"
+      "bytes": 15458,
+      "sha256": "6CC4D6E047D4418E243DC46E45D327BD31FECED39F9453E84233E941B9A38901"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs.meta",
@@ -5788,8 +5806,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTTests.cs",
-      "bytes": 11034,
-      "sha256": "F6FA0E11B0745484089C0D38E5823034A0C5F98DA912001807E9D4FB7052FC96"
+      "bytes": 11254,
+      "sha256": "FA041A02EA094B0D2A14B5B3D537B9BC5B1E980633FF9056099E4A175E3820A3"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/BakedFFTTests.cs.meta",
@@ -6993,18 +7011,18 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 30043,
-      "sha256": "0C3447D0792EC22B612AFBAFAFE5965B3BE04EB2316939324C4215C827D8A00E"
+      "bytes": 30160,
+      "sha256": "82C93F12AB365163E24AB873E22D21C772EEBE0751A273463DDE466084D4468F"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 22876,
-      "sha256": "7568012BEA6A3A12869C7FA9B4D4F9CDF5BB1FD2ECD5A7A96C219B4370B8438A"
+      "bytes": 23292,
+      "sha256": "5EB4F9BEC8175F186F3E0FACAB2AEAC978A92497E26FA03BEFF017D850C4C75E"
     },
     {
       "path": "README.md",
-      "bytes": 13512,
-      "sha256": "9F474B126B7F5A008F019CAB9C364973463B0B21CB4DB8B0521DAC8ACC0D9ABD"
+      "bytes": 13934,
+      "sha256": "920E233B720B5290D103A6A80C66D7950E58BA3E73B50B54589BB38D798B2CED"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -7013,8 +7031,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 244099,
-      "sha256": "846407FE686926DAF3832E00921649646CE77E8D518A617CE1005F5D7204474C"
+      "bytes": 246499,
+      "sha256": "04847EEF7D7CD9DCBC15903C2D21641B520C24582B229D89F85F7604BFE00430"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
