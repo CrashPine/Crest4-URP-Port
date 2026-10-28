@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P09.5.4: BoatWakes numerical integration (2026-10-28, rendering unresolved)
+
+OriginalWakeSceneTests focused1/1/API Passed. Actual original BoatWakes scene has8 SphereWaterInteraction:5 WakeRig sources plus3 nested boat sources. Initial expected-total5 assertion failed; XML OriginalWakes-initial-inventory-DX11.xml retained. Correct fixture asserts8 total and5 under WakeRig, records names/radii/weights; toggles all8 off/on/off in separate PlayMode lifecycles. SimpleMotion moves original WakeRig17.9999771m over120 frames each. All7 native RGFloat layers finite: off0, on absolute channel sum3572.562977(DX11)/3573.636162(DX12),68006 cells above squared1e−12, then off0 again. No per-source size/weight law, isolated5-rig contribution or history decay acceptance. Capture60Hz plus existing GPU query fence; not performance or exact API parity. No source assets saved.
+
+**Manual visual failure remains open:** on DX11 PNG spheres/boat/wakes visible; on DX12 on PNG almost empty water, despite positive numerical field and pink0. Both inspected. Passing XML only accepts numerical assertions and no error-pink, NOT original scene rendering. Next diagnose camera/visibility across API/lifecycle before declaring BoatWakes accepted. Off PNG names overwrite first off with final off; both numerical off records retained. Evidence OriginalWakes-Direct3D*.txt,4 PNG, P09-OriginalWakes-DX11/DX12.xml and checkpoint. Audit1363, missing meta/duplicate GUID/missing upstream0; rootMD8. Runtime20/material8 hashes unchanged from095178f. Editor-only addition, no full94/Player rebuild claim. P09.5.4/P10/P11 still open.
+
 ## P09.5.4: original boat scene (2026-10-27, partial)
 
 Original BoatDev/Scenes/boat.unity focused1/1 Passed on DX11 and DX12 (all testcase nodes Passed, failed0/skipped0). Actual source2 BoatAlignNormal hulls,1 BoatProbes, BoatGray URP/Lit, LerpCam, dynamic-wave and foam simulations loaded; missing scripts0. Original camera stays active, depth required, postprocess/MSAA off,640x360. Selected before/after-throttle DX11 and default DX12 images inspected; original primitive hulls are dark against sunlit water, not a baked-lighting/parity acceptance.

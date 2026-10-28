@@ -1,0 +1,105 @@
+{
+  "recordedUtc": "2026-10-28T11:02:44.697784+00:00",
+  "scope": "Numerical saved BoatWakes integration only; manual DX12 rendering failure OPEN.",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalWakeSceneTests.cs",
+      "sha256": "95E0336F9670FDF39E3EAB821C1A452F353692BBFB576FC645E21483F6A2522A",
+      "bytes": 4920
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalWakeSceneTests.cs.meta",
+      "sha256": "71A66A7F7C77FB3DE403C42ECE5F60E36882019292C69318D6187984F17A9987",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BoatProbesTests.cs",
+      "sha256": "29372F03C95B98426F9470587C348A60FCB2B64E4EBBDA2A50CEF6203DB25331",
+      "bytes": 17705
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+      "sha256": "F3DE3987BB981BF88144F0D1B8ABFD5A9B3A365E78507163FBCDEF9B99363779",
+      "bytes": 6354
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scenes/Internal/BoatWakesSceneCore.prefab",
+      "sha256": "8ADDD7086A213DEA0DA379D56A753172A6C07350DC6268EFDC486FE7B4A09674",
+      "bytes": 39496
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Interaction/SphereWaterInteraction.cs",
+      "sha256": "34E5FB37C3560A46E442C5E111B01A58DA3DA932B78AA57FC5AC5748EF9D47C5",
+      "bytes": 16257
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Scripts/SimpleMotion.cs",
+      "sha256": "615CECA1106817984CD6146656F31290897EDDED2BB667A10EF2AFCFC99262E3",
+      "bytes": 1595
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/OriginalWakes-Direct3D11.txt",
+      "sha256": "B00575A831FC4E3AB9A4C374DFF1C103257C32F2D2358FF510936E2A23BAB2F6",
+      "bytes": 1860
+    },
+    {
+      "path": "Evidence/OriginalWakes-Direct3D12.txt",
+      "sha256": "2DDB11426221F4DB2AE620B678337F1BF3271CA4191C7A10FBC8655E26D2214F",
+      "bytes": 1860
+    },
+    {
+      "path": "Evidence/OriginalWakes-False-Direct3D11.png",
+      "sha256": "201D1B7D46979A39AC4D01C93A4343CD809A0FE3224542656293166D85F177FE",
+      "bytes": 138930
+    },
+    {
+      "path": "Evidence/OriginalWakes-False-Direct3D12.png",
+      "sha256": "A0150BF8A40DD3B4216005CEC9685B1390E102E0B198564F66AFE0D81DF498FB",
+      "bytes": 138933
+    },
+    {
+      "path": "Evidence/OriginalWakes-initial-inventory-DX11.xml",
+      "sha256": "73B1DFD06EF548BAFD1E9C919C875F76B3468F0CC8A8677F36A0A5F15649DF6A",
+      "bytes": 3825
+    },
+    {
+      "path": "Evidence/OriginalWakes-True-Direct3D11.png",
+      "sha256": "663F974D33CBF11B7832B916A42655256DEFA58A8E1394667DCF7BDE12FB073D",
+      "bytes": 157545
+    },
+    {
+      "path": "Evidence/OriginalWakes-True-Direct3D12.png",
+      "sha256": "8325D5341F2987BC0B96D5C9D5F8AC4F158EB9E2FC38264D14A1833156984BB3",
+      "bytes": 157543
+    },
+    {
+      "path": "Evidence/P09-OriginalWakes-DX11.xml",
+      "sha256": "4B8FBEDE1F7DC457C5400F16E3D4FBADE55DED0D850FC4CD9ED521E992FFAD86",
+      "bytes": 2951
+    },
+    {
+      "path": "Evidence/P09-OriginalWakes-DX12.xml",
+      "sha256": "DE17D1D360B839B2A9564920D83CF7434B91EDC7DFF3A2C0DFD092F23CAA1350",
+      "bytes": 2953
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P09-OriginalWakes-workspace-audit.json",
+    "sha256": "A76A68ECB7306CC3E3674F868EBC64239DC5D037A9EE006A8DA4DD034DE84C9A",
+    "bytes": 282541
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "DX12 on image almost empty despite numerical pass. Diagnose camera/visibility/lifecycle; no visual acceptance.",
+    "All8 sources toggled together, no isolated5-rig or per-source law acceptance.",
+    "Independent off/on/off lifecycles, live physics/time, capture60Hz/query fence, not parity/performance/history decay.",
+    "Final off PNG overwrites initial off; numeric reports retain both. Initial expected-total5 failure XML retained.",
+    "No production/scene/material changes; prior full90+interactive2/API/build evidence unchanged, no fresh full94."
+  ]
+}
