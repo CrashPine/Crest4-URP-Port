@@ -1,0 +1,333 @@
+{
+  "recordedUtc": "2026-10-28T21:54:23.465965+00:00",
+  "status": "Historical warning NOT REPRODUCED; not fixed, owner unproven. Bounded diagnostic matrix finished.",
+  "probeCases": [
+    {
+      "report": "Evidence/P10-ResourceProbe-Empty-ReadPixels-DX12.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": true,
+      "featureDisabled": true,
+      "activeCrestFeatures": 0,
+      "oceansWarm": 0,
+      "texturesWarm": 7,
+      "nativeTextureBytesWarm": 17114766,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-EmptyNoFeature-DX12.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": false,
+      "readPixels": false,
+      "featureDisabled": true,
+      "activeCrestFeatures": 0,
+      "oceansWarm": 0,
+      "texturesWarm": 1,
+      "nativeTextureBytesWarm": 1232,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-EmptySubmit-DX12.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": false,
+      "activeCrestFeatures": 1,
+      "oceansWarm": 0,
+      "texturesWarm": 8,
+      "nativeTextureBytesWarm": 19189432,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-EmptySubmitNoFeature-DX12.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": true,
+      "activeCrestFeatures": 0,
+      "oceansWarm": 0,
+      "texturesWarm": 7,
+      "nativeTextureBytesWarm": 17114766,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-EmptySubmitNoFeature640-DX12.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 640,
+      "height": 360,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": true,
+      "activeCrestFeatures": 0,
+      "oceansWarm": 0,
+      "texturesWarm": 7,
+      "nativeTextureBytesWarm": 7610766,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-EmptySubmitNoFeatureGUI-DX12.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": false,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": true,
+      "activeCrestFeatures": 0,
+      "oceansWarm": 0,
+      "texturesWarm": 7,
+      "nativeTextureBytesWarm": 17114766,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-initial-Empty-DX12-batch.json",
+      "mode": "Empty",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": false,
+      "readPixels": false,
+      "featureDisabled": false,
+      "activeCrestFeatures": null,
+      "oceansWarm": 0,
+      "texturesWarm": 0,
+      "nativeTextureBytesWarm": 0,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-initial-Ocean-DX12-batch.json",
+      "mode": "Ocean",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": false,
+      "readPixels": false,
+      "featureDisabled": false,
+      "activeCrestFeatures": null,
+      "oceansWarm": 1,
+      "texturesWarm": 15,
+      "nativeTextureBytesWarm": 51034416,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-Ocean-ReadPixels-DX12.json",
+      "mode": "Ocean",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": true,
+      "featureDisabled": false,
+      "activeCrestFeatures": 1,
+      "oceansWarm": 1,
+      "texturesWarm": 24,
+      "nativeTextureBytesWarm": 78613526,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-OceanSubmit-DX12.json",
+      "mode": "Ocean",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": false,
+      "activeCrestFeatures": 1,
+      "oceansWarm": 1,
+      "texturesWarm": 24,
+      "nativeTextureBytesWarm": 78613526,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-OceanSubmitGUI-DX12.json",
+      "mode": "Ocean",
+      "api": "Direct3D12",
+      "batch": false,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": false,
+      "activeCrestFeatures": 1,
+      "oceansWarm": 1,
+      "texturesWarm": 24,
+      "nativeTextureBytesWarm": 78613526,
+      "errors": 0,
+      "evictableWarning": false
+    },
+    {
+      "report": "Evidence/P10-ResourceProbe-OceanUnloadSubmit-DX12.json",
+      "mode": "OceanUnload",
+      "api": "Direct3D12",
+      "batch": true,
+      "width": 960,
+      "height": 540,
+      "submit": true,
+      "readPixels": false,
+      "featureDisabled": false,
+      "activeCrestFeatures": 1,
+      "oceansWarm": 1,
+      "texturesWarm": 24,
+      "nativeTextureBytesWarm": 78613526,
+      "errors": 0,
+      "evictableWarning": false
+    }
+  ],
+  "retainedPlayerCases": [
+    {
+      "label": "P10-NoOptions",
+      "api": "DX12",
+      "report": "Evidence/Player-P10-NoOptions-DX12/player-smoke.txt",
+      "errors": 0,
+      "images": 7,
+      "evictableWarning": false
+    },
+    {
+      "label": "P10-WithOptions",
+      "api": "DX12",
+      "report": "Evidence/Player-P10-WithOptions-DX12/player-smoke.txt",
+      "errors": 0,
+      "images": 11,
+      "evictableWarning": false
+    },
+    {
+      "label": "P10-PairedA",
+      "api": "DX12",
+      "report": "Evidence/Player-P10-PairedA-DX12/player-smoke.txt",
+      "errors": 0,
+      "images": 11,
+      "evictableWarning": false
+    },
+    {
+      "label": "P10-PairedB",
+      "api": "DX12",
+      "report": "Evidence/Player-P10-PairedB-DX12/player-smoke.txt",
+      "errors": 0,
+      "images": 11,
+      "evictableWarning": false
+    },
+    {
+      "label": "P10-MixedAPI",
+      "api": "DX11",
+      "report": "Evidence/Player-P10-MixedAPI-DX11/player-smoke.txt",
+      "errors": 0,
+      "images": 11,
+      "evictableWarning": false
+    },
+    {
+      "label": "P10-MixedAPI",
+      "api": "DX12",
+      "report": "Evidence/Player-P10-MixedAPI-DX12/player-smoke.txt",
+      "errors": 0,
+      "images": 11,
+      "evictableWarning": false
+    }
+  ],
+  "retainedAssemblyAndPackedFingerprints": [
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "8405E0A0347F8DF6BED1A56336CB9511FC354D76E5EC8EAD5B08922233BDAB83",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "818070A1C220A33D90A92A6319D19687A5A6971741E3A229F27064FA4F427999",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "EC68C1A96293EE0F28A3C074049E9DECBC0649DD7FDDD21DEC7658D1CE7AC6B2",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "BCC306CFF55FBD08A976352562F43E7E28A28BFA3A20A6879A11548864801A5F",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "14A71CD3F0506B8643E7A2B19758C45A2892E6D716F1B04A48974E8F83170DEC",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "9A12B26389C553DD709F831D7F65FA7163450821C91822A537D20ED40CCBE2DA",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/resources.assets",
+      "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/sharedassets0.assets",
+      "sha256": "DCE5A6DD6D605C5F69542844C9F81FAD128E7B5E86CA5777DE11AC6086F9FC0B",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/globalgamemanagers",
+      "sha256": "B678AFC5E6612A9053E0FE30F34CF0D5EE5152D53AD61E23C57A379CC42F8D84",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/resources.assets",
+      "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/sharedassets0.assets",
+      "sha256": "A8D9A6ABC78A6A4BC3520DFE39F62328E478E15E6FB3916676E416557083FB4F",
+      "matchesCheckpoint": true
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/globalgamemanagers",
+      "sha256": "EA451D31928BB6EC060F253E0982587341B863A0859B52214BE54485586A108A",
+      "matchesCheckpoint": true
+    }
+  ],
+  "limits": [
+    "No GPU performance benchmark",
+    "Update ticks are not rendered-frame counts",
+    "Profiler runtime texture bytes are not driver VRAM measurements",
+    "Crest feature disabled, not stripped from diagnostic assembly",
+    "No expanded visual acceptance; generated PNG preserved without new visual review",
+    "Development diagnostic build only; standard Development/Release unchanged",
+    "Historical warning remains an open limitation"
+  ],
+  "archive": "Evidence/P10-ResourceShutdown-diagnostics.zip",
+  "reportPaths": "Case report/log/image paths are entries inside the archive; verified duplicate work files removed."
+}

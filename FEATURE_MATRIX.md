@@ -70,3 +70,5 @@ P09 scope closure (2026-10-28): original finite optical/material/scene acceptanc
 P10 baked asset lifetime (2026-10-28): minimal3 lifecycle +existing2 FFT tests pass focused DX11 after test-owned asset unload. Persistent warnings3→1; isolated Integration clean, BakedFFTTests still1 OnEnable allocation. Full-suite confirmation/performance pending; full acceptance statuses unchanged.
 
 P10 Editor allocation correction (2026-10-28):3 identified Persistent allocations resolved by explicit fixture asset unload +Editor-only import guard in FFTBakedData.OnEnable. Focused loaded-asset reimports preserve immediate native readiness; full110/110 DX11/DX12 Passed with no Persistent shutdown warning. Standalone DX12 GPU evictable warning/performance/VRAM acceptance remain open; subsystem full-acceptance statuses unchanged.
+
+P10 standalone shutdown controls (2026-10-28):12 isolated diagnostics +6 retained-Player runs Errors0/no evictable warning, including feature-disabled Empty and actual SubmitRenderRequest/ReadPixels. Historical2490368B warning NOT REPRODUCED, owner unproven/not fixed. No expanded visual/performance/VRAM acceptance; next measured profiling.
