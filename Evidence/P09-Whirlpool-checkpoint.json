@@ -1,0 +1,171 @@
+{
+  "recordedUtc": "2026-10-28T12:56:25.361905+00:00",
+  "scope": "Original native Whirlpool input isolation +separate combined-scene smoke. No production change.",
+  "sources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalWhirlpoolTests.cs",
+      "sha256": "F729212CAEDBA7AA87A9902BE983F5312B258095501C1D6DDB3E3076D903B1E2",
+      "bytes": 8440
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/OriginalWhirlpoolTests.cs.meta",
+      "sha256": "EBB94A553047D83ACE2B7DB9753A877540C81E6CCD9ACC7120747144418648F0",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+      "sha256": "CEDF523BE5E46CF31EA7B5CF408433D27E1797BED6D9D37ADF5AF896BB541368",
+      "bytes": 6354
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Whirlpool/Scripts/Whirlpool.cs",
+      "sha256": "CBC7C0F1C1D0DA98839A340F82D81E3B7C43C3517CC5D745F8078DD058667F67",
+      "bytes": 6235
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Whirlpool/Shaders/Resources/FlowWhirlpool.shader",
+      "sha256": "6724C23C1C08CDFB168B738241616447D7BE52340E1D9AFBD1184388AB02756E",
+      "bytes": 1695
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Whirlpool/Shaders/Resources/AnimWavesWhirlpool.shader",
+      "sha256": "6B85D9383B0B577B34577953A552EEF27A180CD1BB4FA651E2E6D7CC3637B599",
+      "bytes": 1720
+    }
+  ],
+  "suites": [
+    {
+      "path": "Evidence/P09-Whirlpool-DX11.xml",
+      "sha256": "24DA077E650F6917DEB248167FAAE89B2F87AE2277848B76E99A228B00EB6AA3",
+      "bytes": 3375
+    },
+    {
+      "path": "Evidence/P09-Whirlpool-DX12.xml",
+      "sha256": "216FAEB86F3A42DCEFB597806BAE7AF72909E96F9710C9078B36CE58E331960C",
+      "bytes": 3374
+    },
+    {
+      "path": "Evidence/P09-Whirlpool-Combined-DX11.xml",
+      "sha256": "400AEFA4132AE3157011A9F9805CED0885E36CD2265B81B55A95A9976FA69591",
+      "bytes": 2857
+    },
+    {
+      "path": "Evidence/P09-Whirlpool-Combined-DX12.xml",
+      "sha256": "15B437588C8FFE13A13AA1D931C0DB4C162AA47FC664E6BC95F7ED3BCE6C063C",
+      "bytes": 2858
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D11-native.png",
+      "sha256": "D042B4DFBC07DC4F7671498B3E170AE76EBC9251363ABBAB0BA2459D97093346",
+      "bytes": 205533
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D11.txt",
+      "sha256": "262F73662E40E27AA1B02E75229379407717F5135C8C931C1DADCFF89DB6BE26",
+      "bytes": 340
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D12-native.png",
+      "sha256": "67894E1D684EAE7E58629DD942E09C066EF4FF794F15CEF90C48FA19880934AC",
+      "bytes": 205318
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D12.txt",
+      "sha256": "34CE5FC074992E5D943E560BF346E16E1A7A46F3CDE96F7484AB9CEC72F32FE4",
+      "bytes": 340
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D11-off.png",
+      "sha256": "1FCB6864AFBA39757B792BCBB066DD044CE281C0EEE9DEAFF63EB4E0B84BC542",
+      "bytes": 86818
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D11-on.png",
+      "sha256": "0AA2F841148710C1536D1BF7B2A16585DA2B9899B801E4A4BA4AFA79191FD9F3",
+      "bytes": 83946
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D11-restored.png",
+      "sha256": "0AA2F841148710C1536D1BF7B2A16585DA2B9899B801E4A4BA4AFA79191FD9F3",
+      "bytes": 83946
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D11.txt",
+      "sha256": "6F08683046D82AFF2EEDFBDF0524C598AB25D4495670661A173A2532A7F94C4A",
+      "bytes": 588
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D12-off.png",
+      "sha256": "1FCB6864AFBA39757B792BCBB066DD044CE281C0EEE9DEAFF63EB4E0B84BC542",
+      "bytes": 86818
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D12-on.png",
+      "sha256": "0AA2F841148710C1536D1BF7B2A16585DA2B9899B801E4A4BA4AFA79191FD9F3",
+      "bytes": 83946
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D12-restored.png",
+      "sha256": "0AA2F841148710C1536D1BF7B2A16585DA2B9899B801E4A4BA4AFA79191FD9F3",
+      "bytes": 83946
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Direct3D12.txt",
+      "sha256": "6F08683046D82AFF2EEDFBDF0524C598AB25D4495670661A173A2532A7F94C4A",
+      "bytes": 588
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-fixture-compile-failure.txt",
+      "sha256": "50F1A70D9B3CEE60AF7F1FA8CABC45D6D773ADE4E54E617AA0E74566C5EC3EB1",
+      "bytes": 1999
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-isolated-moving-scene-failed-Direct3D11.txt",
+      "sha256": "E2FB23810EF72052F55B77540488E4A7DB555B670C6534D85590378CAA74F3C0",
+      "bytes": 561
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-isolated-moving-scene-failed-DX11.xml",
+      "sha256": "4FC60C22B13D874DC27956EE1B5B18B497FA585F3716F85AC4498D17E77E16F1",
+      "bytes": 4408
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-live-history-failed-Direct3D11.txt",
+      "sha256": "DDE4C8AACE38E14656D4CFA5786485E76C14205B16CEF909A2CD1F2F09C5DEEB",
+      "bytes": 455
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-live-history-failed-DX11.xml",
+      "sha256": "3C5A99819B2EF98D88D0D4DAF2417440C005CC2178D536E89EAD0F6F0CCADF12",
+      "bytes": 3908
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-no-persistent-failed-Direct3D11.txt",
+      "sha256": "6068CBA0C8B723FA158336A4D1540176D297F71DFC2A8AA526CEA8CC73023E84",
+      "bytes": 550
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-no-persistent-failed-DX11.xml",
+      "sha256": "34C8D5914E1668A5B3CA686E9DE072CDACC1CC85E7B784F8FED52A3F2CAD5968",
+      "bytes": 4429
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P09-Whirlpool-workspace-audit.json",
+    "sha256": "DAB1070DD958E1B6B9401491954750B25351FE7F52DFC946A50B6E1252C99174",
+    "bytes": 282936
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "Isolation disables other ShapeWaves/dynamic/foam beforePlay, fixed ocean time1/delta0 plus Unity timeScale0 afterwarm. Source camera fixed per capture.",
+    "Combined smoke retains source simulations but does not accept full temporal restoration/dynamic damping. Failed XML/reports retained; historical failed PNG overwritten, incorrect preservation glob.",
+    "No performance/parity/Meta/bake/GUI/standalone acceptance. P09.5.4/P10/P11 remain open.",
+    "Prior full90+interactive2/API/build checkpoint unchanged, no fresh full99."
+  ]
+}

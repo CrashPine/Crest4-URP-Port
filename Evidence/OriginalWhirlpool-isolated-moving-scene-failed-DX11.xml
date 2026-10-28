@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 12:52:51Z" end-time="2026-10-28 12:52:54Z" duration="2,8236532">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="100" result="Failed" site="Child" start-time="2026-10-28 12:52:51Z" end-time="2026-10-28 12:52:54Z" duration="2.823653" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1156" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="98" result="Failed" site="Child" start-time="2026-10-28 12:52:51Z" end-time="2026-10-28 12:52:54Z" duration="2.811364" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="221060" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1096" name="OriginalWhirlpoolTests" fullname="OriginalWhirlpoolTests" classname="OriginalWhirlpoolTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-10-28 12:52:51Z" end-time="2026-10-28 12:52:54Z" duration="2.803641" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1097" name="NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" fullname="OriginalWhirlpoolTests.NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" methodname="NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" classname="OriginalWhirlpoolTests" runstate="Runnable" seed="1409790246" result="Failed" start-time="2026-10-28 12:52:51Z" end-time="2026-10-28 12:52:54Z" duration="2.784096" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="240000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 0
+  But was:  13884
+]]></message>
+            <stack-trace><![CDATA[at OriginalWhirlpoolTests+<NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore>d__8.MoveNext () [0x0072b] in C:\Users\greko\Documents\Codex\2026-10-18\files-pasted-by-the-user-task\outputs\Crest4-URP-Port\Assets\Crest\URP\Tests\Editor\OriginalWhirlpoolTests.cs:56
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__8.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@80f691d4262b\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:52
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[Computing lightmaps is not available in play mode.
+Crest Validation: <i>SphereWaterInteraction</i> requires dynamic wave simulation to be enabled on <i>OceanRenderer</i>. Enable the <i>Create Dynamic Wave Sim</i> option on the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Crest Validation: <i>SphereWaterInteraction</i> requires dynamic wave simulation to be enabled on <i>OceanRenderer</i>. Enable the <i>Create Dynamic Wave Sim</i> option on the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
