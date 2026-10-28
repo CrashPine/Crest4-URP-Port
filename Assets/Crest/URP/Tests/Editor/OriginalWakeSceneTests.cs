@@ -53,6 +53,43 @@ public class OriginalWakeSceneTests
             yield return new ExitPlayMode();
         }
     }
+    [UnityTest,Timeout(180000)]
+    public IEnumerator SourceCameraGeometryVisibilityAndRestoration()
+    {
+        _capture=Time.captureFramerate;_scale=Time.timeScale;
+        for(int cycle=0;cycle<3;cycle++)
+        {
+        OceanRenderer.EnableGraphicsInBatchMode=true;
+        EditorSceneManager.OpenScene("Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity");
+        foreach(var source in Object.FindObjectsByType<SphereWaterInteraction>())source.enabled=cycle==1;
+        yield return new EnterPlayMode();Time.captureFramerate=60;Time.timeScale=1;
+        var camera=Camera.main;var ocean=OceanRenderer.Instance;ocean.ViewCamera=camera;
+        new GameObject("Visibility query pacing").AddComponent<BoatProbesQueryFence>();
+        string stem=$"Evidence/OriginalWakes-Visibility-toggle-cycle{cycle}-{SystemInfo.graphicsDeviceType}";
+        File.WriteAllText(stem+".txt",$"StartCamera={camera.transform.position}; Rotation={camera.transform.eulerAngles}; Components="+string.Join(";",camera.GetComponents<MonoBehaviour>().Select(c=>c.GetType().Name))+"\n");
+        camera.GetUniversalAdditionalCameraData().requiresDepthTexture=true;camera.GetUniversalAdditionalCameraData().renderPostProcessing=false;camera.allowMSAA=false;camera.aspect=16f/9;
+        for(int i=0;i<120;i++)yield return null;
+        var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+        var renderers=scene.GetRootGameObjects().SelectMany(r=>r.GetComponentsInChildren<Renderer>()).Where(r=>r.GetComponentInParent<OceanRenderer>()==null).ToArray();
+        var planes=GeometryUtility.CalculateFrustumPlanes(camera);
+        File.AppendAllText(stem+".txt",$"EndCamera={camera.transform.position}; Rotation={camera.transform.eulerAngles}; Mask={camera.cullingMask}; Near={camera.nearClipPlane}; Far={camera.farClipPlane}\n");
+        foreach(var r in renderers)File.AppendAllText(stem+".txt",$"Renderer={r.name}; Enabled={r.enabled}; ForceOff={r.forceRenderingOff}; Layer={r.gameObject.layer}; Bounds={r.bounds}; InFrustum={GeometryUtility.TestPlanesAABB(planes,r.bounds)}\n");
+        _target=new RenderTexture(640,360,24,RenderTextureFormat.ARGB32);_target.Create();
+        Color32[] Capture(string state)
+        {
+            RenderPipeline.SubmitRenderRequest(camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});
+            var old=RenderTexture.active;var cpu=new Texture2D(640,360,TextureFormat.RGBA32,false);
+            try{RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,640,360),0,0);cpu.Apply();var pixels=cpu.GetPixels32();File.WriteAllBytes(stem+"-"+state+".png",cpu.EncodeToPNG());Assert.That(pixels.Count(c=>c.r>245&&c.g<10&&c.b>245),Is.Zero);return pixels;}
+            finally{RenderTexture.active=old;Object.DestroyImmediate(cpu);}
+        }
+        var on=Capture("on");var states=renderers.Select(r=>r.forceRenderingOff).ToArray();Color32[] off;
+        try{foreach(var r in renderers)r.forceRenderingOff=true;off=Capture("off");}
+        finally{for(int i=0;i<renderers.Length;i++)renderers[i].forceRenderingOff=states[i];}
+        var restored=Capture("restored");int changed=on.Zip(off,(a,b)=>System.Math.Abs(a.r-b.r)+System.Math.Abs(a.g-b.g)+System.Math.Abs(a.b-b.b)>6?1:0).Sum();int restore=on.Zip(restored,(a,b)=>a.Equals(b)?0:1).Sum();
+        File.AppendAllText(stem+".txt",$"GeometryChanged={changed}; RestoreChanged={restore}\n");Assert.That(changed,Is.GreaterThan(200));Assert.That(restore,Is.Zero);
+        _target.Release();Object.DestroyImmediate(_target);_target=null;yield return new ExitPlayMode();
+        }
+    }
     [UnityTearDown] public IEnumerator Cleanup()
     {
         OceanRenderer.EnableGraphicsInBatchMode=false;if(Application.isPlaying)yield return new ExitPlayMode();

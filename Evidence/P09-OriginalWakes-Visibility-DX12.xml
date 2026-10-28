@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 11:04:46Z" end-time="2026-10-28 11:04:51Z" duration="5,4609022">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="97" result="Passed" start-time="2026-10-28 11:04:46Z" end-time="2026-10-28 11:04:51Z" duration="5.460902" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1152" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="95" result="Passed" start-time="2026-10-28 11:04:46Z" end-time="2026-10-28 11:04:51Z" duration="5.448297" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="157488" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1091" name="OriginalWakeSceneTests" fullname="OriginalWakeSceneTests" classname="OriginalWakeSceneTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-28 11:04:46Z" end-time="2026-10-28 11:04:51Z" duration="5.444067" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1093" name="SourceCameraGeometryVisibilityAndRestoration" fullname="OriginalWakeSceneTests.SourceCameraGeometryVisibilityAndRestoration" methodname="SourceCameraGeometryVisibilityAndRestoration" classname="OriginalWakeSceneTests" runstate="Runnable" seed="1633127876" result="Passed" start-time="2026-10-28 11:04:46Z" end-time="2026-10-28 11:04:51Z" duration="5.424050" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="Timeout" value="180000" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Computing lightmaps is not available in play mode.
+Computing lightmaps is not available in play mode.
+Computing lightmaps is not available in play mode.
+Saving results to: C:/Users/greko/AppData/LocalLow/Unity Technologies/com_unity_template_urp-blank\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
