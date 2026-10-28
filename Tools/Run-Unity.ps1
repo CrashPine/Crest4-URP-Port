@@ -3,7 +3,8 @@ param(
     [ValidateSet('Import','Generate','ValidateAssets','EditMode','PlayMode','Development','Release')][string]$Action='Import',
     [ValidateSet('DX11','DX12')][string]$GraphicsAPI='DX11',
     [string]$TestFilter='',
-    [switch]$Interactive
+    [switch]$Interactive,
+    [switch]$LeakStacks
 )
 $ErrorActionPreference = 'Stop'
 $project = Split-Path $PSScriptRoot
@@ -13,7 +14,7 @@ $evidence = Join-Path $project 'Evidence'
 New-Item -ItemType Directory -Force $evidence | Out-Null
 if ($TestFilter -and $Action -notin @('EditMode','PlayMode')) { throw 'TestFilter requires a test action.' }
 if ($Interactive -and $Action -ne 'EditMode') { throw 'Interactive currently supports the separate Editor lifecycle test assembly only.' }
-$runName = "$Action-$GraphicsAPI" + $(if ($TestFilter) { '-focused' } else { '' }) + $(if ($Interactive) { '-interactive' } else { '' })
+$runName = "$Action-$GraphicsAPI" + $(if ($TestFilter) { '-focused' } else { '' }) + $(if ($Interactive) { '-interactive' } else { '' }) + $(if ($LeakStacks) { '-leak-stacks' } else { '' })
 $arguments = @('-projectPath',('"'+$project+'"'),'-logFile',('"'+(Join-Path $evidence "$runName.log")+'"'))
 if (!$Interactive) { $arguments = @('-batchmode') + $arguments }
 if ($Action -eq 'EditMode') { $arguments += @('-assemblyNames', $(if ($Interactive) {'Crest.URP.Interactive.Tests'} else {'Crest.URP.Tests'})) }
@@ -28,6 +29,7 @@ switch ($Action) {
  default { $arguments += '-quit' }
 }
 if ($TestFilter) { $arguments += @('-testFilter', ('"'+$TestFilter+'"')) }
+if ($LeakStacks) { $arguments += "-crestLeakStacks" }
 $startedUtc = [DateTime]::UtcNow
 $process = Start-Process -FilePath $Editor -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
 if ($process.ExitCode -ne 0) { throw "Unity exited with $($process.ExitCode); inspect Evidence logs." }

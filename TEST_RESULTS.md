@@ -1,6 +1,22 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-27**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-10-28**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P10: allocation-stack diagnosis DX11 (2026-10-28, ACTIVE)
+
+Actual diagnostic full batch106/106 Passed, all testcase nodes passed, failed0/skipped0, duration234.0758537s. Opt-in process-local NativeLeakDetection EnabledWithStackTrace confirmed before testcase execution. This is a P10 diagnosis run, not a performance benchmark/P11 completion or new DX12/interactive acceptance. Shutdown still reports Persistent3: **all3 traced to NativeArray<half> in Crest.FFTBakedData.InitData():99**.2 allocated from OnEnable during PersistentManager asset loading;1 from Initialize→FFTBaker.BakeFFT/BakeShapeFFT→BakedFFTIntegrationTests.SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders line60. OnDisable/OnDestroy already dispose IsCreated containers; missing lifetime/asset ownership needs minimal reproduction, not an assumed fix. No leak-free claim.
+
+Evidence EditMode-DX11-leak-stacks.xml, P10-AllocationStacks-DX11.txt, LeakStackDiagnostics.txt and P10-LeakStacks-DX11-checkpoint.json. Raw full log/XML plus88 changed tracked report/image outputs archived with sha manifest in P10-LeakStacks-DX11-evidence.zip (92 files total,6847043 bytes); prior historical tracked evidence restored using HEAD plus known LF/CRLF fingerprints so diagnostic repetition does not overwrite prior acceptance. Newly produced archive data retained, no failed run hidden. Standard full90 XML was not replaced. This diagnostic full batch did not execute separate interactive assembly.
+
+Two known load normalizations recurred: TransparentPrimitive legacy _Color/SHADOWCASTER and OffWhite legacy _Color. Diffs/observed/restored hashes retained in P10-material-load-normalization.json; exact8 material Build fingerprints restored. Foreign Ocean.mat/baked directories preserved.20 selected runtime Build hashes unchanged. Stable audit1379 missing meta/duplicate GUID/missing upstream0, rootMD8. No runtime/shader/scene change or Player rebuild. P10 performance/GPU evictable2490368B warning and leak correction remain open.
+
+Next: isolate baked FFT asset create/save/import/load/delete/PlayMode restore ownership using BakedFFTIntegrationTests reproducer with stacks; determine whether3 belong to test asset lifetime or general Crest data lifecycle, fix actual owner disposal and confirm regression. Then profile CPU/GPU/resource cost with trace mode disabled. P11.1–4 coverage remains gated after P10.
+
+## P09 closure / P10 diagnostic start (2026-10-28)
+
+Reviewed original P09.5.4 criterion atd858247: remaining original scenes after migration, actual material/lighting/scene controls and preservation of foreign assets. Those finite scoped requirements are satisfied by accepted scene/Meta/caster/real-bake/renderer-flag checkpoints. P09/P09.5/P09.5.4 now DONE(scoped), not full feature/all configuration PASSED. They had remained ACTIVE because extra configuration checks kept being appended. P11.1–P11.4 now explicitly retain unaccepted combined Whirlpool temporal/damping, UnderwaterLighting fill/reference, renderer/standalone/GPU-bake/XR and final milestone coverage. No failed report/result was removed, no unsupported configuration was marked passed.
+
+P10 ACTIVE: existing full90 DX11/DX12 logs contain Persistent allocates3 warning, requiring allocation owners/stacks before any leak-free claim. Added opt-in Run-Unity -LeakStacks with distinct evidence names and Editor initializer using process-local UnsafeUtility.SetLeakDetectionMode(EnabledWithStackTrace); no EditorPrefs writes. Initial log confirms before Enabled→EnabledWithStackTrace before testcase execution. This was the diagnostic launch checkpoint; completed results/owners are recorded above. Prior full90/build checkpoint remains historical runtime acceptance. No Player rebuild needed for instrumentation-only change.
 
 ## P09.5.4: resolved original renderer flags (2026-10-28, scoped passed)
 

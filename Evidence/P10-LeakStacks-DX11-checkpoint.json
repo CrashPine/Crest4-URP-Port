@@ -1,0 +1,82 @@
+{
+  "recordedUtc": "2026-10-28T16:44:51.259259+00:00",
+  "scope": "P09 original finite scope closure +P10 DX11 native leak stack diagnosis. Leak NOT fixed.",
+  "suite": {
+    "path": "Evidence/EditMode-DX11-leak-stacks.xml",
+    "sha256": "5D7891B924A06200961146BB5B138F71F4DC60BCA1CF8DB8EB5D5BEBAB651278",
+    "bytes": 149550
+  },
+  "stacks": {
+    "path": "Evidence/P10-AllocationStacks-DX11.txt",
+    "sha256": "0462FCC6E422500F2A0A9F299733E702A7E70A87D204398D6FEA6219AA95DE4F",
+    "bytes": 8293
+  },
+  "archive": {
+    "path": "Evidence/P10-LeakStacks-DX11-evidence.zip",
+    "sha256": "112028C0AAEC818E14439A4FB750D499DF4D4BFAAE27171436C0DFA659F3F530",
+    "bytes": 6847043
+  },
+  "archiveManifest": {
+    "path": "Evidence/P10-LeakStacks-DX11-files.json",
+    "sha256": "2CC7E80D15EB018C36E4300E1C588D00AA11531D1782D24A5B6F37319CE36035",
+    "bytes": 16966
+  },
+  "modeLog": {
+    "path": "Evidence/LeakStackDiagnostics.txt",
+    "sha256": "D25532FF08E4A202C2CE733E05C67DB51BF6BC9235A4FBC5F7EEC0F205733CA8",
+    "bytes": 151
+  },
+  "normalization": {
+    "path": "Evidence/P10-material-load-normalization.json",
+    "sha256": "8F235C0C4AAD61BDD364D79437173813AFF2A4F52F481DAB8966E2886FBA8804",
+    "bytes": 2218
+  },
+  "sources": [
+    {
+      "path": "Tools/Run-Unity.ps1",
+      "sha256": "A15433FCABADBDCD4BE2E6C776BFEB1582A30E7800CE8D1A8C96916DAAE1B657",
+      "bytes": 3572
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LeakStackDiagnostics.cs",
+      "sha256": "2631CAB248F01885C6FE159F19E5A9431A42B199E39C50BAA56428BEBDD3F42D",
+      "bytes": 928
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LeakStackDiagnostics.cs.meta",
+      "sha256": "E297E922AA0006F3588A8F286700C00BC2AD7A1498C0B47DDF645F60DFA27CC5",
+      "bytes": 62
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs",
+      "sha256": "45AB775A040DA0ABCC4B164AC49325D4768CE3D87D95F0CB8952E0CAB5F326F5",
+      "bytes": 14852
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBaker.cs",
+      "sha256": "DA0F0CCCC005BA1EA93499E116419969748CF75E77AB6E29EE69A67B8FF287CF",
+      "bytes": 11765
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs",
+      "sha256": "19F747841CCE75ABFD7FFC96DFF5E3D0A8F34B872D540403F40A062A94C056A1",
+      "bytes": 14979
+    }
+  ],
+  "audit": {
+    "path": "Evidence/P10-LeakStacks-workspace-audit.json",
+    "sha256": "F2793AA8DAFF40B38D29E6D9F3DF5EABFFFC9081E4AB6F563961BE77CA74D6B7",
+    "bytes": 285913
+  },
+  "build": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5A5643F5DB1430F0874E36B2850A6781697BDF27F1C4F6EFD505A0C2FD1A2A32",
+    "bytes": 28448
+  },
+  "limitations": [
+    "106 batch Passed DX11 only; shutdown3 allocations still present, not leak-free/performance or full P11 acceptance.",
+    "All3 NativeArray<half> stacks located, exact lifetime/test-vs-runtime ownership not established or fixed.",
+    "Raw diagnostics in archive; historical tracked reports/images restored, no new visual parity/Player build claim.",
+    "Prior DX12 full90 and interactive2/API/build checkpoint remain historical; wider configuration coverage P11.1\u20134 open."
+  ]
+}

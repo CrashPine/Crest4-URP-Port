@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-28T16:30:07.3227369Z",
+  "recordedUtc": "2026-10-28T16:42:56.7728733Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1377,
+  "fileCount": 1379,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -74,6 +74,14 @@
       "result": "Passed",
       "total": "2",
       "passed": "2",
+      "failed": "0"
+    },
+    {
+      "file": "EditMode-DX11-leak-stacks.xml",
+      "start": "2026-10-28 16:35:30Z",
+      "result": "Passed",
+      "total": "106",
+      "passed": "106",
       "failed": "0"
     },
     {
@@ -6009,6 +6017,16 @@
       "sha256": "F05F60FB7B0B609629E2C0370BE6E8D84F5D549DFFB19359808653567CD5DD72"
     },
     {
+      "path": "Assets/Crest/URP/Tests/Editor/LeakStackDiagnostics.cs",
+      "bytes": 928,
+      "sha256": "2631CAB248F01885C6FE159F19E5A9431A42B199E39C50BAA56428BEBDD3F42D"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/LeakStackDiagnostics.cs.meta",
+      "bytes": 62,
+      "sha256": "E297E922AA0006F3588A8F286700C00BC2AD7A1498C0B47DDF645F60DFA27CC5"
+    },
+    {
       "path": "Assets/Crest/URP/Tests/Editor/LerpCamTests.cs",
       "bytes": 8572,
       "sha256": "4BA4DD850B528E6424BBBC00230E5BAFF5CF17C8E885EE6C789FC7C3055F217E"
@@ -6940,8 +6958,8 @@
     },
     {
       "path": "Tools/Run-Unity.ps1",
-      "bytes": 3438,
-      "sha256": "925564F274E5B5448D477CB4D32D17FD472940E75740CD73D9EE0F2D2B3B8DF0"
+      "bytes": 3572,
+      "sha256": "A15433FCABADBDCD4BE2E6C776BFEB1582A30E7800CE8D1A8C96916DAAE1B657"
     },
     {
       "path": "Tools/Verify-GuidAndCompute.ps1",
@@ -6960,8 +6978,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 27604,
-      "sha256": "15AF6460322D1350B5A3D0546A4E5D650668173A5B455746EFD69742583216F5"
+      "bytes": 28068,
+      "sha256": "893F0A770D2523AB8AA216F2B24367CD28B02CE7A7C429244CA862E1A932AA4C"
     },
     {
       "path": "LICENSE.Crest",
@@ -6975,13 +6993,13 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 29813,
-      "sha256": "6308E0BB4E9A0B19AD7E15811D4C8CB19B5FABFDA095853C6C4BB7E3E8786197"
+      "bytes": 30043,
+      "sha256": "0C3447D0792EC22B612AFBAFAFE5965B3BE04EB2316939324C4215C827D8A00E"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 23095,
-      "sha256": "1134CC971AE7FE9F1FBB38C69239742388F5B7294EEDCB9C3EA410024617D131"
+      "bytes": 22876,
+      "sha256": "7568012BEA6A3A12869C7FA9B4D4F9CDF5BB1FD2ECD5A7A96C219B4370B8438A"
     },
     {
       "path": "README.md",
@@ -6995,8 +7013,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 240735,
-      "sha256": "9E7409293A6C2321DF84B1F8020E01D6684FA7A9C566FDAE7D24C2D04C0C4F99"
+      "bytes": 244099,
+      "sha256": "846407FE686926DAF3832E00921649646CE77E8D518A617CE1005F5D7204474C"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

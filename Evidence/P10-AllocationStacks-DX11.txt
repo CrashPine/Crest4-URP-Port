@@ -1,0 +1,43 @@
+Leak Detected : Persistent allocates 3 individual allocations.
+Found 2 leak(s) from callstack:
+0x000002206a9bdadb (UnityEngine.CoreModule) Unity.Collections.NativeArray`1<Unity.Mathematics.half>:Allocate (int,Unity.Collections.Allocator,Unity.Collections.MemoryLabel,Unity.Collections.NativeArray`1<Unity.Mathematics.half>&)
+0x000002206a9bd8f3 (UnityEngine.CoreModule) Unity.Collections.NativeArray`1<Unity.Mathematics.half>:.ctor (Unity.Mathematics.half[],Unity.Collections.Allocator)
+0x000002206a9bc2f3 (Crest) Crest.FFTBakedData:InitData () (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs:99)
+0x000002206a9bc23b (Crest) Crest.FFTBakedData:OnEnable () (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs:88)
+0x00000220353db9c8 (mscorlib) (wrapper runtime-invoke) object:runtime_invoke_void__this__ (object,intptr,intptr,intptr)
+0x00007ff8092078ae (mono-2.0-bdwgc) mono_jit_runtime_invoke (at C:/build/output/Unity-Technologies/mono/mono/mini/mini-runtime.c:3445)
+0x00007ff809149104 (mono-2.0-bdwgc) do_runtime_invoke (at C:/build/output/Unity-Technologies/mono/mono/metadata/object.c:3068)
+0x00007ff8091491f0 (mono-2.0-bdwgc) mono_runtime_invoke (at C:/build/output/Unity-Technologies/mono/mono/metadata/object.c:3115)
+0x00007fffe969857a (Unity) scripting_method_invoke
+0x00007fffe969c27e (Unity) ScriptingInvocation::Invoke
+0x00007fffe969c39b (Unity) ScriptingInvocation::InvokeChecked
+0x00007fffe8e9f7a5 (Unity) SerializableManagedRef::CallMethod
+0x00007fffe7153d6c (Unity) MonoBehaviour::CallMethodInactive
+0x00007fffe8f7f47f (Unity) MonoBehaviour::AwakeFromLoad
+0x00007fffe8e6ad25 (Unity) AwakeFromLoadQueue::InvokePersistentManagerAwake
+0x00007fffe8e6bbdc (Unity) AwakeFromLoadQueue::PersistentManagerAwakeFromLoad
+0x00007fffe8e8c2cc (Unity) PersistentManager::IntegrateAllThreadedObjects
+0x00007fffe8e8cce0 (Unity) PersistentManager::LoadAndIntegrateAllPreallocatedObjects
+0x00007fffe8e9193b (Unity) PersistentManager::ReadObject
+Found 1 leak(s) from callstack:
+0x000002206a9bdadb (UnityEngine.CoreModule) Unity.Collections.NativeArray`1<Unity.Mathematics.half>:Allocate (int,Unity.Collections.Allocator,Unity.Collections.MemoryLabel,Unity.Collections.NativeArray`1<Unity.Mathematics.half>&)
+0x000002206a9bd8f3 (UnityEngine.CoreModule) Unity.Collections.NativeArray`1<Unity.Mathematics.half>:.ctor (Unity.Mathematics.half[],Unity.Collections.Allocator)
+0x000002206a9bc2f3 (Crest) Crest.FFTBakedData:InitData () (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs:99)
+0x000002206a9bd803 (Crest) Crest.FFTBakedData:Initialize (single,int,int,int,single,int,Unity.Mathematics.half,Unity.Mathematics.half,Unity.Mathematics.half[]) (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBakedData.cs:119)
+0x000002206a9b7f6b (Crest) Crest.FFTBaker:BakeFFT (Crest.ShapeFFT,int,int,int,single,string) (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBaker.cs:187)
+0x000002206a9b60db (Crest) Crest.FFTBaker:BakeShapeFFT (Crest.ShapeFFT,string) (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/Crest/Scripts/Shapes/FFT/FFTBaker.cs:88)
+0x000002206a9ac543 (Crest.URP.Tests) BakedFFTIntegrationTests/<SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders>d__8:MoveNext () (at C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Assets/Crest/URP/Tests/Editor/BakedFFTIntegrationTests.cs:60)
+0x00000220353d9755 (UnityEngine.TestRunner) UnityEngine.TestTools.TestEnumerator/<Execute>d__8:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:52)
+0x00000220353d912b (UnityEngine.TestRunner) UnityEngine.TestTools.EnumerableTestMethodCommand/<ExecuteEnumerableAndRecordExceptions>d__4:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:85)
+0x00000220353d8ebe (UnityEngine.TestRunner) UnityEngine.TestTools.EnumerableTestMethodCommand:AdvanceEnumerator (System.Collections.IEnumerator) (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:64)
+0x00000220353d7bab (UnityEngine.TestRunner) UnityEngine.TestTools.EnumerableTestMethodCommand/<ExecuteEnumerable>d__2:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:47)
+0x00000220353d6e1e (UnityEngine.TestRunner) UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand/<ExecuteEnumerable>d__4:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:66)
+0x00000220353c8c11 (UnityEngine.TestRunner) UnityEngine.TestTools.BeforeAfterTestCommandBase`1/<ExecuteEnumerable>d__16<T_REF>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:213)
+0x00000220353c8c11 (UnityEngine.TestRunner) UnityEngine.TestTools.BeforeAfterTestCommandBase`1/<ExecuteEnumerable>d__16<T_REF>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:213)
+0x00000220353c8c11 (UnityEngine.TestRunner) UnityEngine.TestTools.BeforeAfterTestCommandBase`1/<ExecuteEnumerable>d__16<T_REF>:MoveNext () (at ./Library/PackageCache/com.unity.test-framework@80f691d4262b/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs:213)
+0x00000220353c8c11 (UnityEngine.TestRunner) UnityEngine.TestTools.BeforeAfterTestCommandBase`1/<Execute
+VBCSCompilerPreWarmer: requested VBCSCompiler shutdown
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793205572287,"processId":187756,"allocatedMemory":18690066,"memoryLabels":[{"Default":190402},{"Permanent":15516},{"NewDelete":146023},{"Thread":4197944},{"Manager":835985},{"VertexData":3512},{"Geometry":816},{"Texture":24},{"Shader":855611},{"Material":132},{"GfxDevice":57480},{"Animation":7648},{"FreeType":8},{"FontEngine":736},{"Physics":1970},{"Physics2D":16},{"Serialization":116320},{"Input":42840},{"JobScheduler":256},{"TextLib":336},{"Mono":48},{"MonoCode":64},{"ScriptingNativeRuntime":1283288},{"BaseObject":63568},{"Resource":1444},{"Renderer":2504},{"Transform":4685},{"File":54933},{"WebCam":616},{"Culling":32},{"Terrain":11442},{"Wind":24},{"STL":40},{"String":2803747},{"StaticString":3808},{"Utility":2675350},{"Curl":2579},{"PoolAlloc":2360},{"AI":80},{"TypeTree":17165},{"ScriptManager":12656},{"CodeReload":448},{"RuntimeInitializeOnLoadManager":64},{"Sprites":102},{"SpriteAtlas":120},{"GI":14856},{"Director":1600},{"CloudService":288},{"WebRequest":552},{"VR":49650},{"SceneManager":608},{"Video":208},{"LazyScriptCache":32},{"NativeArray":196608},{"Camera":729},{"Secure":2377},{"SerializationCache":9256},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":464},{"Hierarchy":1188},{"UIElements":40},{"CoreStats":14456},{"Identifiers":7152},{"Gui":128},{"EditorUtility":172617},{"VersionControl":8},{"Undo":931},{"AssetDatabase":4486286},{"AssetImporter":672},{"EditorGi":328},{"ProgressiveLightmapper":448},{"UnityConnect":40465},{"Upm":1912},{"UpmDiagnostics":8},{"AssetCompliance":96},{"DrivenProperties":72},{"LocalIPC":211},{"ProfilerEditor":9746},{"CoreBusinessMetrics":3204},{"Windowing":456},{"Licensing":1264},{"AssetReference":32},{"IPCStream":32}]}

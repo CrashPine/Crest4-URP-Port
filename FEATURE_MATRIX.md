@@ -64,3 +64,5 @@ been marked PASSED merely because its files survived import.
 NOT TESTED в последнем столбце означает незавершённую **полную** приёмку строки. Уже пройденные ограниченные проверки перечислены отдельно и не должны повторяться без причины. Источник очередности — только PORT_PLAN.md, актуальные измерения — только TEST_RESULTS.md.
 
 P09.2 boundary qualification: five whole masks per API match original Built-in at every pixel, including edges. All7-layer clip input fields are bit-identical across APIs; original also reproduces10 cross-API boundary pixels in two states. This is inherited surface-edge behaviour under these conditions, not complete subpixel/API identity or optical acceptance. See TEST_RESULTS and Evidence/P09-Artifact-comparison.json.
+
+P09 scope closure (2026-10-28): original finite optical/material/scene acceptance stage completed; this does not upgrade NOT TESTED matrix rows to PASSED. Remaining combined Whirlpool/UnderwaterLighting/configuration/standalone/bake variants are tracked explicitly in PORT_PLAN P11.1–P11.4; resource/performance P10 is active.

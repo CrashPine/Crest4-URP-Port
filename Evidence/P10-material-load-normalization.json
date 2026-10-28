@@ -1,0 +1,14 @@
+[
+  {
+    "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
+    "observedSha256": "DF97A3B0E319330F6FB6CC3633193EEBFBAC7A1C6BADE935FB88FEC6B2563C91",
+    "restoredSha256": "645FE3F9916615B95D9A4CF5BC07EE69B62FE7676CE3F62B609E1BFA8A548593",
+    "diff": "diff --git a/Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat b/Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat\nindex 2d0f830..27169d6 100644\n--- a/Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat\n+++ b/Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat\n@@ -36,6 +36,7 @@ Material:\n   disabledShaderPasses:\n   - MOTIONVECTORS\n   - DepthOnly\n+  - SHADOWCASTER\n   m_LockedProperties: \n   m_SavedProperties:\n     serializedVersion: 3\n@@ -136,7 +137,7 @@ Material:\n     - _ZWrite: 0\n     m_Colors:\n     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.09019608}\n-    - _Color: {r: 1, g: 1, b: 1, a: 1}\n+    - _Color: {r: 1, g: 1, b: 1, a: 0.09019608}\n     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}\n     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}\n   m_BuildTextureStacks: []\n"
+  },
+  {
+    "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
+    "observedSha256": "28C79A8A2B650FA5C0DFCF798030A571CE6EF7174C7C915B7A665A091373AFE9",
+    "restoredSha256": "ED107E4897AE5307ECFBB8D2DFA59110DC91C93D7862C01479C58AD187FAA06D",
+    "diff": "diff --git a/Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat b/Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat\nindex 6c63ceb..b18142c 100644\n--- a/Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat\n+++ b/Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat\n@@ -134,7 +134,7 @@ Material:\n     - _ZWrite: 1\n     m_Colors:\n     - _BaseColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}\n-    - _Color: {r: 1, g: 1, b: 1, a: 1}\n+    - _Color: {r: 0.9, g: 0.9, b: 0.9, a: 1}\n     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}\n     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}\n   m_BuildTextureStacks: []\n"
+  }
+]
