@@ -1,6 +1,29 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-28**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-10-29**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P10: first measured offscreen CPU/RT and calibrated Submit GC (2026-10-29)
+
+Four sequential Development Player windows,5s render warmup +60s measured each,960x540 ARGB32/depth24, PC/Linear, pipeline MSAA1/renderScale1, vsync0/targetFrameRate−1, i7-12700H/RTX3050Ti Laptop. Ocean_Calm unchanged: LOD resolution384/count7, FFT128, wind12km/h. Reused SingleCameraRequest and target; one-pixel async readback waits for completion. No screenshots. This measures SubmitRenderRequest CPU and engine-visible resources, **not onscreen FPS, whole-frame CPU or pure GPU time**. Scene Update/LateUpdate can run again while awaiting readback; completion latency includes driver/copy and those intervening updates. Single window/configuration, no repeatability or thermal control; no claim one API is faster overall.
+
+| API / scene | Requests = camera renders | Submit CPU mean / P95 upper ms | RT count before→after | Engine texture MiB before=after |
+| --- | ---: | ---: | ---: | ---: |
+| DX11 Empty | 53024 | .3715 / .50 | 9→9 | 24.234 |
+| DX11 Ocean | 1147 | 1.3888 / 1.90 | 24→24 | 72.994 |
+| DX12 Empty | 23421 | .4185 / .60 | 9→9 | 24.234 |
+| DX12 Ocean | 7645 | .7562 / 1.05 | 25→25 | 80.905 |
+
+All errors0, actual window≥60s, requests exactly match endCameraRendering callbacks. Histograms include all samples; P95 is an upper bucket at50us granularity. RT bytes use Profiler.GetRuntimeMemorySizeLong, **not driver VRAM**. Exploratory strict name/descriptor equality postprocessing FAILED on DX11 Empty: TempBuffer1→TempBuffer2 with same960x540×1/8295376bytes. Negative result retained in P10-Profile-inventory-comparison.json; aggregate count/bytes stable is accepted as observation only, not object identity/general lifetime acceptance. DX12 Ocean additionally retains one TempBuffer1 descriptor versus DX11, owner not established. No disposal fix inferred from names.
+
+First30s pilot timed out and was terminated; raw log/source/assembly retained. Typed2s pilot exited errors1 because hidden Player updated17912 times but camera rendered0: rejected. Explicit offscreen pilot then2079 requests/renders, errors0. The rendering assertion was retained, not relaxed. Sampled-source/assembly versions are archived separately from later calibration instrumentation.
+
+GPU Frame Time yielded no positive timing; unique FrameTiming GPU samples absent; draw counters remained0 despite explicit camera renders and are not accepted as true draw costs. Missing counters include Render Thread on DX11 and vertex/index/Compute buffer bytes/count. These gaps remain open, not marked zero/accepted. Stock counters sampled after readback describe the last completed update, not complete rendered-frame accounting.
+
+Raw System.GC.GetAllocatedBytesForCurrentThread deltas were0 even though Mono collections occurred. Two positive controls/API, each4×65536-byte arrays, prove this API unusable here: threadDelta0 versus native CurrentValue delta262272bytes and heap-used delta278528. Enabling GC.Alloc marker also records5 events, but does not fix thread API. Old raw zeros remain preserved, not allocation-free evidence. Native GC Allocated In Frame CurrentValue was therefore measured immediately before/after Submit in **separate4×10s windows**, not by repeating60s profiles: Empty/Ocean DX118662/309 requests, DX123444/1192. All native deltas min=mean=max**448B per Submit**, counter resets0, count=requests=renders, errors0. This common configured-pipeline call cost is not uniquely attributable to Crest, nor whole-frame/worker/simulation GC acceptance. Native counter positive calibration supports these bytes; future raw thread API output is marked invalid−1.
+
+Full evidence P10-Profile-summary.json/-evidence.zip/-files.json, failed pilots, raw JSON/logs/histograms, host power/driver context, exact source/assembly variants and calibration data. No Persistent/evictable warning in four60s shutdown logs; historical2490368B warning remains NOT REPRODUCED, not fixed. Normal6 managed+6 packed Player hashes match prior Build checkpoint; no default Player build, full suite or expanded visual acceptance. Diagnostic-only CREST_RESOURCE_PROBE code and Editor builder changed; frame-timing setting restored in finally. Known variant whitespace normalization archived/restored, foreign Ocean/lighting preserved.
+
+Next P10: identify TempBuffer ownership from existing data, capture missing native buffer inventories and separately scoped driver-memory readings (device-wide versus process data); then underwater extra composite-copy/reflection/variant/resource costs. Presented GPU/draw and general VRAM/lifetime acceptance remain open. Do not repeat the measured baseline or shutdown matrix absent new relevant changes.
 
 ## P10: standalone resource-warning controls (2026-10-28, NOT REPRODUCED)
 

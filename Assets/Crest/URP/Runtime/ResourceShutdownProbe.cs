@@ -12,7 +12,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Crest.URP.Diagnostics
 {
-    public sealed class ResourceShutdownProbe : MonoBehaviour
+    public sealed partial class ResourceShutdownProbe : MonoBehaviour
     {
         [Serializable] class TextureInfo { public string name; public int width, height, layers; public long nativeBytes; }
         [Serializable] class Snapshot { public string stage; public int oceans; public TextureInfo[] textures; }
@@ -67,6 +67,11 @@ namespace Crest.URP.Diagnostics
             if (disableFeature) foreach (var feature in features) feature.SetActive(false);
             OceanRenderer.EnableGraphicsInBatchMode = true;
             if (mode != "Empty") yield return SceneManager.LoadSceneAsync(1);
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestProfile") >= 0)
+            {
+                yield return Profile(mode);
+                yield break;
+            }
             int frames = 0; float begin = Time.realtimeSinceStartup;
             while (Time.realtimeSinceStartup - begin < 3 || frames < 120) { frames++; yield return null; }
             if (submit)

@@ -1,0 +1,49 @@
+{
+  "status": "Exploratory strict equality assertion FAILED for Empty DX11; retain negative result. No strict identity/lifetime acceptance. Counts and total engine texture bytes stable in all4 cases.",
+  "cases": [
+    {
+      "api": "DX11",
+      "scene": "Empty",
+      "strictNameDescriptorMatch": false,
+      "beforeOnly": [
+        [
+          "TempBuffer 1 960x540",
+          960,
+          540,
+          1,
+          8295376
+        ]
+      ],
+      "afterOnly": [
+        [
+          "TempBuffer 2 960x540",
+          960,
+          540,
+          1,
+          8295376
+        ]
+      ]
+    },
+    {
+      "api": "DX11",
+      "scene": "Ocean",
+      "strictNameDescriptorMatch": true,
+      "beforeOnly": [],
+      "afterOnly": []
+    },
+    {
+      "api": "DX12",
+      "scene": "Empty",
+      "strictNameDescriptorMatch": true,
+      "beforeOnly": [],
+      "afterOnly": []
+    },
+    {
+      "api": "DX12",
+      "scene": "Ocean",
+      "strictNameDescriptorMatch": true,
+      "beforeOnly": [],
+      "afterOnly": []
+    }
+  ]
+}

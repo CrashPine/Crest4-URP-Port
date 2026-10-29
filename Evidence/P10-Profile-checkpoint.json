@@ -1,0 +1,73 @@
+{
+  "recordedUtc": "2026-10-29T11:43:43.181626+00:00",
+  "scope": "4\u00d760s offscreen Submit CPU/RT observations,4\u00d710s calibrated native Submit GC. CPU/resource scoped data only; P10 incomplete.",
+  "validation": {
+    "requestsEqualCameraRenders": true,
+    "windowErrors": 0,
+    "nativeSubmitGcBytes": 448,
+    "threadApiZeroDisproved": true,
+    "strictInventoryNameEquality": "FAILED one case, negative result retained",
+    "gpuFrameTime": "UNAVAILABLE",
+    "drawCalls": "UNUSABLE_IN_OFFSCREEN_CONTEXT",
+    "driverVram": "NOT_MEASURED"
+  },
+  "next": "Use existing inventories for TempBuffer owner and missing ComputeBuffer ownership; supported driver-memory query then remaining P10 costs. No baseline reruns absent relevant changes.",
+  "archiveCleanup": "34 duplicate task-owned files individually removed after exact SHA verification; archive retains failed pilots/source/assembly versions.",
+  "files": [
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs",
+      "bytes": 6929,
+      "sha256": "e90ac854e80f2731c891006ab109401739e3227d831013c8d9dfcfdc1929cd90"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Profile.cs",
+      "bytes": 17898,
+      "sha256": "1e79a4d3bb57bc14118cfd16aa7a22a5ad5a63e3be48068e3a2c3daa2fe0b4af"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Profile.cs.meta",
+      "bytes": 62,
+      "sha256": "8e1e6c778124973a9cb4d3cb9a6c5cc43e6320cb50833d0cbd3b026defc0be08"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs",
+      "bytes": 2815,
+      "sha256": "329b9adc81469a0dc585fed4e866adda3c2e8c458ac6188122fd3785e79e671c"
+    },
+    {
+      "path": "Evidence/P10-Profile-summary.json",
+      "bytes": 5333,
+      "sha256": "cb98386eee264ceb815ce3699c740d6a188acabad8fa82befb89df105779883c"
+    },
+    {
+      "path": "Evidence/P10-Profile-evidence.zip",
+      "bytes": 862520,
+      "sha256": "cc8cad8bcb39b0570162f2cb72a0850dd09cf87dd16a57e798afb06c499595de"
+    },
+    {
+      "path": "Evidence/P10-Profile-files.json",
+      "bytes": 6823,
+      "sha256": "0fc36a8db7788d919c2d03d2951c9c670ea3662cf457df65d1af156ee68221ef"
+    },
+    {
+      "path": "Evidence/P10-Profile-inventory-comparison.json",
+      "bytes": 1094,
+      "sha256": "da32a2ae2ece44140d7a66e06d85ac934fd547c3e1b90dbf79a35dcc8816de0d"
+    },
+    {
+      "path": "Evidence/P10-Profile-normalization.patch",
+      "bytes": 533,
+      "sha256": "6f21e5d70f5bfccd0188d49238433b2f96481f8f8ab47e6647e48107d08fa1df"
+    },
+    {
+      "path": "Evidence/P10-Profile-default-build-preservation.json",
+      "bytes": 2209,
+      "sha256": "d2adc9bd0c5da0fa56e64f389c14de6cd0c7e59b4ed25cb41f7f0af1b8258161"
+    },
+    {
+      "path": "Evidence/P10-Profile-workspace-audit.json",
+      "bytes": 287935,
+      "sha256": "f64bcc3f44b07141b61f9dc44d90ff23267ce5bd5c6e2f2c6f3a473df8cfd951"
+    }
+  ]
+}

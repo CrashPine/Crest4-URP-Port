@@ -16,6 +16,7 @@ namespace Crest.URP.Editor
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
             var preloadedAssets=PlayerSettings.GetPreloadedAssets();
+            bool timing=PlayerSettings.enableFrameTimingStats;
             const string parent="Assets";
             string folder=parent+"/CrestResourceProbe_"+Guid.NewGuid().ToString("N");
             string guid=AssetDatabase.CreateFolder(parent, Path.GetFileName(folder));
@@ -29,6 +30,7 @@ namespace Crest.URP.Editor
                 camera.GetUniversalAdditionalCameraData().requiresDepthTexture=true;
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
+                PlayerSettings.enableFrameTimingStats=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
                     scenes=new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity"},
                     target=BuildTarget.StandaloneWindows64,
@@ -42,6 +44,7 @@ namespace Crest.URP.Editor
             finally
             {
                 PlayerSettings.SetPreloadedAssets(preloadedAssets);
+                PlayerSettings.enableFrameTimingStats=timing;
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
                 if(Path.GetFullPath(folder).StartsWith(Path.GetFullPath(parent)+Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)
                     && AssetDatabase.AssetPathToGUID(folder)==guid) AssetDatabase.DeleteAsset(folder);
