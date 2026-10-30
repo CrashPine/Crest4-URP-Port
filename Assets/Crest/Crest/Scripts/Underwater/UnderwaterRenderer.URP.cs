@@ -9,6 +9,12 @@ namespace Crest
 {
     public partial class UnderwaterRenderer
     {
+#if CREST_RESOURCE_PROBE
+        // Diagnostic Player only: CPU graph registration/command recording, not GPU timestamps.
+        public static long DiagnosticCompositeRecords, DiagnosticCompositeExecutions;
+        public static long DiagnosticPreserveRecords, DiagnosticPreserveExecutions;
+        public static int DiagnosticWidth, DiagnosticHeight, DiagnosticSamples, DiagnosticColorFormat;
+#endif
         public static UnderwaterRenderer ForUrpCamera(Camera camera) => Get(camera);
 
         sealed class GraphTextures : ContextItem
@@ -121,6 +127,11 @@ namespace Crest
             // Subsequent stack cameras import URP's persistent target. MSAA also needs
             // its original sample count to remain compatible with later depth attachments.
             var preserveCameraTarget = !cameraData.resolveFinalTarget || descriptor.msaaSamples != MSAASamples.None;
+#if CREST_RESOURCE_PROBE
+            DiagnosticCompositeRecords++;
+            DiagnosticWidth = descriptor.width; DiagnosticHeight = descriptor.height;
+            DiagnosticSamples = (int)descriptor.msaaSamples; DiagnosticColorFormat = (int)descriptor.colorFormat;
+#endif
             descriptor.name = "Crest Underwater Color";
             descriptor.clearBuffer = false;
             descriptor.depthBufferBits = DepthBits.None;
@@ -149,6 +160,9 @@ namespace Crest
                 builder.AllowPassCulling(false);
                 builder.SetRenderFunc((EffectPassData pass, UnsafeGraphContext context) =>
                 {
+#if CREST_RESOURCE_PROBE
+                    DiagnosticCompositeExecutions++;
+#endif
                     var owner = pass.Owner;
                     var cmd = CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);
                     UpdatePostProcessMaterial(owner, owner._mode, pass.Camera, owner._underwaterEffectMaterial,
@@ -173,13 +187,24 @@ namespace Crest
 
             if (preserveCameraTarget)
             {
+#if CREST_RESOURCE_PROBE
+                DiagnosticPreserveRecords++;
+#endif
                 using var builder = graph.AddRasterRenderPass<RestoreCameraTargetData>("Crest: Preserve underwater camera target", out var data);
                 data.Source = destination;
                 builder.UseTexture(data.Source, AccessFlags.Read);
                 builder.SetRenderAttachment(cameraColor, 0, AccessFlags.Write);
                 builder.AllowPassCulling(false);
+#if CREST_RESOURCE_PROBE
+                builder.SetRenderFunc((RestoreCameraTargetData pass, RasterGraphContext context) =>
+                {
+                    DiagnosticPreserveExecutions++;
+                    Blitter.BlitTexture(context.cmd, pass.Source, new Vector4(1, 1, 0, 0), 0, false);
+                });
+#else
                 builder.SetRenderFunc((RestoreCameraTargetData pass, RasterGraphContext context) =>
                     Blitter.BlitTexture(context.cmd, pass.Source, new Vector4(1, 1, 0, 0), 0, false));
+#endif
             }
             else resources.cameraColor = destination;
         }

@@ -117,7 +117,7 @@ P09 original example materials: menus `Crest/URP/Audit original example material
 
 ### P10 resource-shutdown diagnostic Player
 
-`Crest.URP.Editor.ResourceShutdownProbeBuild.Build` builds only `Builds/P10-ResourceProbe/ResourceProbe.exe`, using a temporary Empty URP camera scene and unchanged Ocean_Calm. It adds `CREST_RESOURCE_PROBE` only to that build; normal builds exclude the diagnostic entry point. Do not replace Development/Release outputs or run GenerateScenes.
+`Crest.URP.Editor.ResourceShutdownProbeBuild.Build` builds only `Builds/P10-ResourceProbe/ResourceProbe.exe`, using a temporary URP camera control scene and unchanged Ocean_Calm. The control now includes a disabled MeshRenderer holding the exact diagnostic underwater material variant as a serialized build dependency. It adds `CREST_RESOURCE_PROBE` only to that build; normal builds exclude the diagnostic entry point. Do not replace Development/Release outputs or run GenerateScenes.
 
 Example Editor invocation: Unity6000.6.5f1 with `-batchmode -quit -projectPath <repository> -executeMethod Crest.URP.Editor.ResourceShutdownProbeBuild.Build -logFile <diagnostic-build.log>`.
 
@@ -134,3 +134,9 @@ Build the diagnostic Player with ResourceShutdownProbeBuild.Build as above (fram
 Build the same isolated diagnostic Player, then run `Tools/Run-ResourceOwnership.ps1 -Prefix <unused-prefix>` for the ten short sequential DX11/DX12 controls. It refuses existing raw evidence and active Unity/ResourceProbe processes. Individual flags: `-crestResourceProbe -crestOwnership -crestProbeMode Empty|Ocean -crestOwnershipReadback None|Full|Crop`, optional `-crestOwnershipNoHDR`; Empty controls add `-crestProbeDisableFeature`. Use960x540/windowed and one forced API, hidden launch. Ocean runs three actual load/unload cycles. This is not a performance window.
 
 Before archiving, run `py Tools/Summarize-ResourceOwnership.py <prefix>` against the raw reports/logs. Existing P10-Ownership raw reports are inside Evidence/P10-Ownership-evidence.zip, with entry SHA256 in -files.json; extract to a separate directory preserving Tools/Evidence layout to revalidate without overwriting workspace evidence. Summary and exact limitations: TEST_RESULTS.md and P10-Ownership-summary.json. DXGI fields describe current-process Local/NonLocal segment budgeting, not independently measured physical VRAM; wrapper invalidation does not prove driver memory return.
+
+### P10 underwater cost windows
+
+Rebuild the isolated ResourceProbe, then `Tools/Run-UnderwaterCost.ps1 -Prefix <unused-prefix>` runs six sequential10s windows after5s warmup: underwater Off/On1x/On4x per API. Optional `-GraphicsAPI DX11|DX12`, `-Workload UnderwaterOff|Underwater1|Underwater4` and `-Seconds` narrow a diagnostic; they do not replace six-case evidence. Individual probe flag `-crestCost <workload>` accompanies `-crestResourceProbe -crestProfile -crestProbeMode Ocean`. The builder retains the exact runtime-enabled Calm+underwater variant without disabling strict matching or editing saved scenes/materials.
+
+Validate raw reports with `py Tools/Summarize-UnderwaterCost.py <prefix>`. Existing raw/source/assembly and failed runs are archived in Evidence/P10-UnderwaterCost-evidence.zip, entry SHA256 in -files.json; extract to a separate directory preserving Tools/Evidence layout to revalidate. P10-UnderwaterCost-final-summary.json and TEST_RESULTS distinguish sampled-window costs from the unresolved first-render SetGlobalTexture warning. These figures are not whole-frame CPU, GPU time or isolated copy-back cost. Conditional counters are absent from default builds.

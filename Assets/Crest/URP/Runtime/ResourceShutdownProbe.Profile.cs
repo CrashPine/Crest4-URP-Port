@@ -81,6 +81,8 @@ namespace Crest.URP.Diagnostics
             public CounterInfo[] availableCounters;
             public string[] missingCounters;
             public Metric[] metrics;
+            public string costWorkload;
+            public WorkloadCost beforeCost,afterCost;
         }
         static long ThreadAllocated()
         {
@@ -141,8 +143,10 @@ namespace Crest.URP.Diagnostics
             Debug.Log("PROFILE_STAGE setup");
             QualitySettings.vSyncCount=0;Application.targetFrameRate=-1;
             _profileCamera=Camera.main;
+            yield return SetupCost(mode);
             RenderPipelineManager.endCameraRendering+=CountRender;
             var target=new RenderTexture(Screen.width,Screen.height,24,RenderTextureFormat.ARGB32);
+            target.antiAliasing=_costSamples;
             target.Create();
             var request=new UniversalRenderPipeline.SingleCameraRequest {destination=target};
             RenderPipeline.SubmitRenderRequest(_profileCamera,request);
@@ -209,6 +213,7 @@ namespace Crest.URP.Diagnostics
                 long allocatedStart=ThreadAllocated();
                 int gc0=GC.CollectionCount(0),gc1=GC.CollectionCount(1),gc2=GC.CollectionCount(2);
                 double start=Time.realtimeSinceStartupAsDouble,last=start;
+                result.costWorkload=_costWorkload;result.beforeCost=ReadCost(target);
                 while(Time.realtimeSinceStartupAsDouble-start<seconds)
                 {
                     long gcBefore=allocationCounter==null?-1:allocationCounter.recorder.CurrentValue;
@@ -240,6 +245,7 @@ namespace Crest.URP.Diagnostics
                     }
                 }
                 result.sampleSeconds=Time.realtimeSinceStartupAsDouble-start;result.mainCameraRenders=_mainRenders-renderStart;
+                result.afterCost=ReadCost(target);
                 long allocatedEnd=ThreadAllocated();result.rawThreadApiDelta=allocatedStart<0||allocatedEnd<0?-1:allocatedEnd-allocatedStart;result.mainThreadAllocatedBytes=-1;
                 result.gen0Collections=GC.CollectionCount(0)-gc0;result.gen1Collections=GC.CollectionCount(1)-gc1;result.gen2Collections=GC.CollectionCount(2)-gc2;
             }
@@ -252,6 +258,7 @@ namespace Crest.URP.Diagnostics
             }
             result.metrics=counters.Select(c=>c.values.Finish(c.renderCounter?"CURRENT_AFTER_SUBMIT":"LAST_COMPLETED_UPDATE_AFTER_READBACK")).Concat(new[]{gpu.Finish("UNIQUE_TIMINGS"),cpu.Finish("UNIQUE_TIMINGS"),present.Finish("UNIQUE_TIMINGS"),delta.Finish("SAMPLED"),submitGc.Finish("NATIVE_CURRENT_DELTA_AROUND_SUBMIT"),submitCpu.Finish("SAMPLED"),completion.Finish("INCLUDES_DRIVER_AND_COPY_NOT_GPU_FRAME_TIME")}).ToArray();
             if(result.mainCameraRenders<1 || result.mainCameraRenders!=result.sampleRequests || result.before.oceans!=(mode=="Empty"?0:1))_errors++;
+            ValidateCost(result);
             result.errors=_errors;
             string path=Argument("-crestProbeOutput","Profile.json");Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(path)));
             File.WriteAllText(path,JsonUtility.ToJson(result,true));

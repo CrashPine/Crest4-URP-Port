@@ -28,6 +28,13 @@ namespace Crest.URP.Editor
                 camera.backgroundColor=Color.gray;
                 camera.clearFlags=CameraClearFlags.SolidColor;
                 camera.GetUniversalAdditionalCameraData().requiresDepthTexture=true;
+                // Cost probes enable this exact Calm variant at runtime. Retain it by a
+                // serialized dependency; strict shader matching must remain enabled.
+                var underwater=new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Ocean_Calm.mat"));
+                underwater.EnableKeyword("_UNDERWATER_ON");underwater.SetFloat("_Underwater",1);
+                AssetDatabase.CreateAsset(underwater,folder+"/DiagnosticUnderwater.mat");
+                var retention=new GameObject("Diagnostic shader variant dependency",typeof(MeshRenderer)).GetComponent<MeshRenderer>();
+                retention.enabled=false;retention.sharedMaterial=underwater;
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;

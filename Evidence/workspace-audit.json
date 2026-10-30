@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-30T11:27:56.3764257Z",
+  "recordedUtc": "2026-10-30T12:11:19.6442218Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1393,
+  "fileCount": 1397,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -1755,8 +1755,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
-      "bytes": 11016,
-      "sha256": "B09BF935A89AFBFA8A55D1A5DB7B7174FDCC5CD0F6E266F5511C96696679CC4C"
+      "bytes": 12209,
+      "sha256": "0AAC33CD3DEAAA422789F8AE9EF3663C552B1B9610AB71240421FC3346BAF928"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs.meta",
@@ -5705,8 +5705,8 @@
     },
     {
       "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs",
-      "bytes": 2815,
-      "sha256": "329B9ADC81469A0DC585FED4E866ADDA3C2E8C458AC6188122FD3785E79E671C"
+      "bytes": 3523,
+      "sha256": "B7E65DA8558D4C354C307E21670566B155DFEFC2B3408C639EA0258D89DE2DCE"
     },
     {
       "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs.meta",
@@ -5764,6 +5764,16 @@
       "sha256": "94D04A6AE9F7EC10C3717F7C4F77017A817F7BD360C814E7A2E447803BBB7A01"
     },
     {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Cost.cs",
+      "bytes": 4223,
+      "sha256": "50BFA70A469A3CF0E19311E251D840F2C79382F8A44A91C0FBB0ECAEE1CD23D3"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Cost.cs.meta",
+      "bytes": 62,
+      "sha256": "0F5CBF8B465DE8ADF0C508C43E397D38F8D309A776FF270F37E0ED381C21ECB4"
+    },
+    {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs",
       "bytes": 7340,
       "sha256": "BC5167759D2525ABB43A6177AC7B0629A9821325A3FE21F1F3311DB131061DA3"
@@ -5795,8 +5805,8 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Profile.cs",
-      "bytes": 17898,
-      "sha256": "1E79A4D3BB57BC14118CFD16AA7A22A5AD5A63E3BE48068E3A2C3DAA2FE0B4AF"
+      "bytes": 18258,
+      "sha256": "0D7D48E995200B1B334252D39BB1A35DCB33BD345492C216D4CC891DC1E0A2DB"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Profile.cs.meta",
@@ -7039,6 +7049,11 @@
       "sha256": "1FCE0A67C280F6A0960E51BF8721FA9CA9A98E918EB0627E17CAADFB8F409E0D"
     },
     {
+      "path": "Tools/Run-UnderwaterCost.ps1",
+      "bytes": 2771,
+      "sha256": "43AD220D780E381157B621E8ED64F52DCF4C48FF74232E86AF347FE9A08C667C"
+    },
+    {
       "path": "Tools/Run-Unity.ps1",
       "bytes": 3572,
       "sha256": "A15433FCABADBDCD4BE2E6C776BFEB1582A30E7800CE8D1A8C96916DAAE1B657"
@@ -7047,6 +7062,11 @@
       "path": "Tools/Summarize-ResourceOwnership.py",
       "bytes": 5918,
       "sha256": "303D1F88AAD279C0B0C5DBC72F94A6380EF02F611828534CB6487CC08498934A"
+    },
+    {
+      "path": "Tools/Summarize-UnderwaterCost.py",
+      "bytes": 6298,
+      "sha256": "7C32FD446BA671C63B01F6E8AA8DDB4D13EDB6522645132A68A5884B89C2F4F3"
     },
     {
       "path": "Tools/Verify-GuidAndCompute.ps1",
@@ -7065,8 +7085,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 29783,
-      "sha256": "FD87E6097DA0865F790C4383D9D649C6BB5BB64B23DF90BD345DEC50CD2A0698"
+      "bytes": 29827,
+      "sha256": "A00FD8CB3B8DA796B3C6893D23D12B3E8596D384C91A214BB6AF61A12502D41E"
     },
     {
       "path": "LICENSE.Crest",
@@ -7080,18 +7100,18 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 30286,
-      "sha256": "7910D5EAB073E7CA3D3C12203C886FF1947CEE6179CB9081B1878CB857EEE0F4"
+      "bytes": 30316,
+      "sha256": "5B68457BCDE81385BD13A4BE620BBC3A75769006E243474C7D77587EA1809F98"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 23961,
-      "sha256": "5011F82229333C0EF83A1FCB6D2D2F55E07F2F212F7CEF5F5009FD67A6870A25"
+      "bytes": 24331,
+      "sha256": "431C871BA22954F4826F2B03B373352106A1D3A380B680E007EC8AC61D1BEFCD"
     },
     {
       "path": "README.md",
-      "bytes": 17484,
-      "sha256": "36E3B79B92EB0FC2D153666A94BE32BDBB624D257DAE778DF85245DCC89B4F9A"
+      "bytes": 18823,
+      "sha256": "F06DC1C3B1CC1DCAC4E729AA2F73F3677B5372763CB3571E37953489BBF447B7"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -7100,8 +7120,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 265857,
-      "sha256": "B08329A82AD056B477280E8F14917696449F8B47F7CDA72C42A096C79965EDCE"
+      "bytes": 271228,
+      "sha256": "E4D3765B7276C76912F9A95F47C73A261B196FE07366CF3864E5B24239A579C2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
