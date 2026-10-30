@@ -67,6 +67,10 @@ namespace Crest.URP.Diagnostics
             if (disableFeature) foreach (var feature in features) feature.SetActive(false);
             OceanRenderer.EnableGraphicsInBatchMode = true;
             if (mode != "Empty") yield return SceneManager.LoadSceneAsync(1);
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestColdBindings") >= 0)
+            {
+                yield return ColdBindings(mode);yield break;
+            }
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestOwnership") >= 0)
             {
                 yield return Ownership(mode);yield break;

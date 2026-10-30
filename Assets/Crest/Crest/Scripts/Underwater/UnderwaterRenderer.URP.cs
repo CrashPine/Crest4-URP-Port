@@ -19,8 +19,8 @@ namespace Crest
 
         sealed class GraphTextures : ContextItem
         {
-            public TextureHandle Mask, Depth, Front, Back;
-            public override void Reset() { Mask = Depth = Front = Back = TextureHandle.nullHandle; }
+            public TextureHandle Mask, Depth, Front, Back, EmptyFaces;
+            public override void Reset() { Mask = Depth = Front = Back = EmptyFaces = TextureHandle.nullHandle; }
         }
 
         sealed class MaskPassData
@@ -28,7 +28,7 @@ namespace Crest
             public UnderwaterRenderer Owner;
             public Camera Camera;
             public RenderTextureDescriptor Descriptor;
-            public TextureHandle Mask, Depth, Front, Back;
+            public TextureHandle Mask, Depth, Front, Back, EmptyFaces;
         }
 
         sealed class EffectPassData
@@ -66,11 +66,24 @@ namespace Crest
                 textures.Front = UniversalRenderer.CreateRenderGraphTexture(graph, depthDescriptor, "Crest Volume Front", false);
                 textures.Back = UniversalRenderer.CreateRenderGraphTexture(graph, depthDescriptor, "Crest Volume Back", false);
             }
+            else
+            {
+                // TextureXR's static defaults need separate initialization which URP does
+                // not guarantee. Use a declared graph resource, with the camera's dimension.
+                textures.EmptyFaces = descriptor.dimension == TextureDimension.Tex2DArray
+                    ? graph.CreateTexture(new TextureDesc(1, 1) {
+                        name = "Crest Empty Volume Faces", dimension = TextureDimension.Tex2DArray,
+                        slices = descriptor.volumeDepth,
+                        colorFormat = UnityEngine.Experimental.Rendering.GraphicsFormat.R8G8B8A8_UNorm,
+                        clearBuffer = true, clearColor = Color.black })
+                    : graph.defaultResources.blackTexture;
+            }
 
             using var builder = graph.AddUnsafePass<MaskPassData>("Crest: Underwater mask and volumes", out var data);
             data.Owner = this; data.Camera = camera; data.Descriptor = descriptor;
             data.Mask = textures.Mask; data.Depth = textures.Depth;
             data.Front = textures.Front; data.Back = textures.Back;
+            data.EmptyFaces = textures.EmptyFaces;
             builder.UseTexture(data.Mask, AccessFlags.ReadWrite);
             builder.UseTexture(data.Depth, AccessFlags.ReadWrite);
             if (data.Front.IsValid())
@@ -79,6 +92,13 @@ namespace Crest
                 builder.UseTexture(data.Back, AccessFlags.ReadWrite);
                 builder.SetGlobalTextureAfterPass(data.Front, ShaderIDs.s_CrestWaterVolumeFrontFaceTexture);
                 builder.SetGlobalTextureAfterPass(data.Back, ShaderIDs.s_CrestWaterVolumeBackFaceTexture);
+            }
+            else
+            {
+                builder.UseTexture(data.EmptyFaces, AccessFlags.Read);
+                // Reset stale volume bindings before opaque masked examples draw.
+                builder.SetGlobalTextureAfterPass(data.EmptyFaces, ShaderIDs.s_CrestWaterVolumeFrontFaceTexture);
+                builder.SetGlobalTextureAfterPass(data.EmptyFaces, ShaderIDs.s_CrestWaterVolumeBackFaceTexture);
             }
             builder.SetGlobalTextureAfterPass(data.Mask, ShaderIDs.s_CrestOceanMaskTexture);
             builder.SetGlobalTextureAfterPass(data.Depth, ShaderIDs.s_CrestOceanMaskDepthTexture);
@@ -96,13 +116,6 @@ namespace Crest
                     owner.PopulateVolumeBack(cmd, pass.Front, pass.Back);
                     cmd.CopyTexture(owner._mode == Mode.Portal ? pass.Front : pass.Back, pass.Depth);
                     Helpers.Blit(cmd, pass.Depth, Helpers.UtilityMaterial, (int)Helpers.UtilityPass.ClearDepth);
-                }
-                else
-                {
-                    // Opaque masked examples read these in the same camera before depth/colour.
-                    // Do not leave another volume/camera's face textures installed in fullscreen mode.
-                    cmd.SetGlobalTexture(ShaderIDs.s_CrestWaterVolumeFrontFaceTexture, TextureXR.GetBlackTexture());
-                    cmd.SetGlobalTexture(ShaderIDs.s_CrestWaterVolumeBackFaceTexture, TextureXR.GetBlackTexture());
                 }
                 owner.SetUpMask(cmd, pass.Mask, pass.Depth);
                 PopulateOceanMask(cmd, pass.Camera, OceanRenderer.Instance.Tiles, owner._cameraFrustumPlanes,

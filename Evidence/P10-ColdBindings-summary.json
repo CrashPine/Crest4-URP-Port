@@ -1,0 +1,51 @@
+{
+  "validation": "PASSED (cold-start scope)",
+  "cases": [
+    {
+      "report": "P10-ColdBindings-fixed-DX11-Underwater1-Underwater1-Control0-DX11.json",
+      "sha256": "f757aaa37293a4851a1b5d0536dc61793c25714323c316ed02ce516fe51bdedf",
+      "unity": "6000.6.5f1",
+      "api": "Direct3D11",
+      "workload": "Underwater1",
+      "renders": 3,
+      "errors": 0,
+      "warnings": []
+    },
+    {
+      "report": "P10-ColdBindings-fixed-DX11-Underwater4-Underwater4-Control0-DX11.json",
+      "sha256": "0cf348b095d4b26d26b5dce1e5055e2f3d153d9a70aa0555443a7c13939315c8",
+      "unity": "6000.6.5f1",
+      "api": "Direct3D11",
+      "workload": "Underwater4",
+      "renders": 3,
+      "errors": 0,
+      "warnings": []
+    },
+    {
+      "report": "P10-ColdBindings-fixed-DX12-Underwater1-Underwater1-Control0-DX12.json",
+      "sha256": "6ad86f9cf840b6c358a2dc98b1e3882cd46b63e0deadeda1fdd0ad0bcf27a59a",
+      "unity": "6000.6.5f1",
+      "api": "Direct3D12",
+      "workload": "Underwater1",
+      "renders": 3,
+      "errors": 0,
+      "warnings": []
+    },
+    {
+      "report": "P10-ColdBindings-fixed-DX12-Underwater4-Underwater4-Control0-DX12.json",
+      "sha256": "918fb6df564cd23235200dd241ab515b20766cce0f52ba02ea09f3b47af4c867",
+      "unity": "6000.6.5f1",
+      "api": "Direct3D12",
+      "workload": "Underwater4",
+      "renders": 3,
+      "errors": 0,
+      "warnings": []
+    }
+  ],
+  "scope": "Fresh process,3 explicit offscreen requests per case; DX11/DX12 x MSAA1/4. Whole milestone/build/smoke verification recorded separately in final checkpoint.",
+  "limits": [
+    "No presented GPU timing/whole-asset resource acceptance.",
+    "Actual XR unavailable; array fallback path compiles but no hardware rendering acceptance.",
+    "Earlier cost windows are pre-fix observations, not current-version timings."
+  ]
+}

@@ -208,6 +208,26 @@ public partial class MaskedExampleTests
         Follow();var a=Capture("ActualMask");var first=Read(rt);Assert.That(a.Count(Red),Is.GreaterThan(1000));NativeMaskAgreement("Actual",a,first,x=>x!=0);
         volume.transform.position+=Vector3.right*2;Follow();var moved=Capture("ActualMaskTurned");NativeMaskAgreement("ActualTurned",moved,Read(rt),x=>x!=0);Assert.That(a.Zip(moved,(x,y)=>x.Equals(y)?0:1).Sum(),Is.GreaterThan(1000));
         volume.transform.position-=Vector3.right*2;Follow();var restored=Capture("ActualMaskRestored");Assert.That(a,Is.EqualTo(restored));
+        // Observe bindings at the opaque boundary, before graph cleanup resets globals.
+        // Nonzero native volume depths must become zero in fullscreen and restore exactly.
+        float[] Faces(UnderwaterRenderer.Mode mode,int field)
+        {
+            fog._mode=mode;_snapshot.Probe.SetInt("_ProbeField",field);
+            bool enabled=_camera.enabled;_camera.enabled=true;
+            try {RenderPipeline.SubmitRenderRequest(_camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});}
+            finally {_camera.enabled=enabled;}
+            return Read(rt);
+        }
+        foreach(int field in new[]{1,2})
+        {
+            var nativeFaces=Faces(UnderwaterRenderer.Mode.Volume,field);
+            var emptyFaces=Faces(UnderwaterRenderer.Mode.FullScreen,field);
+            var restoredFaces=Faces(UnderwaterRenderer.Mode.Volume,field);
+            int nonzero=nativeFaces.Count(x=>x!=0),emptyNonzero=emptyFaces.Count(x=>x!=0);
+            File.AppendAllText(_report,$"VolumeFaceField={field}; NativeNonzero={nonzero}; FullscreenNonzero={emptyNonzero}; RestoreDifferences={nativeFaces.Zip(restoredFaces,(x,y)=>x==y?0:1).Sum()}\n");
+            Assert.That(nonzero,Is.GreaterThan(1000));Assert.That(emptyNonzero,Is.Zero);Assert.That(restoredFaces,Is.EqualTo(nativeFaces));
+        }
+        _snapshot.Probe.SetInt("_ProbeField",0);
     }
     [UnityTest,Timeout(180000)]
     public IEnumerator MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff()
