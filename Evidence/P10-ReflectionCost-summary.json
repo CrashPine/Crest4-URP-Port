@@ -1,0 +1,76 @@
+{
+  "validation": "PASSED (scoped)",
+  "cases": [
+    {
+      "file": "P10-ReflectionCost-DX11-0.json",
+      "requests": 210,
+      "refreshMs": 0.0001190476190476187,
+      "mainMs": 0.6122742857142857,
+      "resources": [
+        {
+          "count": 24,
+          "engineBytes": 76539926
+        },
+        {
+          "count": 24,
+          "engineBytes": 76539926
+        }
+      ]
+    },
+    {
+      "file": "P10-ReflectionCost-DX11-1.json",
+      "requests": 200,
+      "refreshMs": 0.5345439999999998,
+      "mainMs": 0.42416400000000004,
+      "resources": [
+        {
+          "count": 30,
+          "engineBytes": 79167752
+        },
+        {
+          "count": 30,
+          "engineBytes": 79167752
+        }
+      ]
+    },
+    {
+      "file": "P10-ReflectionCost-DX12-0.json",
+      "requests": 1159,
+      "refreshMs": 0.00011087144089732703,
+      "mainMs": 0.5042053494391718,
+      "resources": [
+        {
+          "count": 25,
+          "engineBytes": 84835302
+        },
+        {
+          "count": 25,
+          "engineBytes": 84835302
+        }
+      ]
+    },
+    {
+      "file": "P10-ReflectionCost-DX12-1.json",
+      "requests": 1182,
+      "refreshMs": 0.5467546531302876,
+      "mainMs": 0.3919757191201356,
+      "resources": [
+        {
+          "count": 31,
+          "engineBytes": 87463128
+        },
+        {
+          "count": 31,
+          "engineBytes": 87463128
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "5s warmup/10s fixed-order single window per case; no statistical repeatability/API ranking.",
+    "Explicit original RefreshReflection CPU and main Submit CPU only, not GPU/whole-frame/FPS.",
+    "Automatic LateUpdate gated through diagnostic-only private schedule/sentinel settings; callback counts checked including waiting updates.",
+    "Same runtime-cloned Calm PLANAR variant in Off/On,256 default reflection target/settings; no all-options cost acceptance.",
+    "Engine texture bytes not driver VRAM; normal source/build unchanged."
+  ]
+}

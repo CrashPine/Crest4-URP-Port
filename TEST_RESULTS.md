@@ -2,6 +2,21 @@
 
 Актуальная сверка: **2026-10-30**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P10: planar reflection CPU/resource windows (2026-10-30)
+
+Four sequential diagnostic-only Player windows,5s warmup+10s sampling,960x540 ARGB32/depth24, unchanged Calm scene/viewpoint. Same runtime cloned Calm+PLANAR keyword in Off/On; exact variant retained by temporary serialized material dependency in diagnostic builder. Original default reflection settings/256 target, no camera/compute algorithm changes. Explicit RefreshReflection and main Submit CPU measured separately. Diagnostic private schedule int.MaxValue/offset int.MaxValue−1 and last-refresh sentinel suppress LateUpdate, including renderedFrameCount0; original public refresh still forces the original path. Settings/sentinel operations outside timed calls. Callbacks count all render events including waiting updates; no outside renders in accepted windows.
+
+| API / reflection | Main requests / reflection renders | Refresh CPU mean ms | Main Submit CPU mean ms | RT count / engine bytes before=after |
+| --- | ---: | ---: | ---: | ---: |
+| DX11 Off |210 /0|.000119 (empty branch)|.612274|24 /76539926|
+| DX11 On |200 /200|.534544|.424164|30 /79167752|
+| DX12 Off |1159 /0|.000111 (empty branch)|.504205|25 /84835302|
+| DX12 On |1182 /1182|.546755|.391976|31 /87463128|
+
+All errors0, durations met, requests=main callbacks, reflection callbacks exactly requested, no outside renders/shader errors or known shutdown warnings. Off refresh timing is empty-branch/timestamp overhead, not a reflection call. On adds6 engine-visible textures/2627826 engine bytes; bounded inventories do not prove driver reclaim or long-term lifetime. Histograms/min/max/P95 in raw reports. One fixed-order window/configuration, no repeatability/thermal control/API ranking. Main Submit decreases when reflection is enabled: this is not an optimization proof; costs are separate scoped observations and do not isolate GPU/whole-frame/simulation/wait cost or FPS. Automatic-render suppression is diagnostic-only and intentionally excludes normal scheduling overhead. No all reflection options/renderer configurations/performance acceptance.
+
+Evidence P10-ReflectionCost-summary.json and -evidence.zip/-files.json (raw logs/reports, exact source/diagnostic assembly, builder/normal-build fingerprints). Normal6 managed+6 packed hashes match current Build-checkpoint; no default runtime/shader/scenes changed or full suite/default rebuild repeated. Previous cold fix full110+interactive2/API/both normal builds/4 smokes remains its checkpoint. Original597 GUID/compute check unchanged; rootMD8. Next ordered work remains PORT_PLAN P10; historical underwater allocation increment needs current-code site investigation, plus remaining resource/driver/GPU gaps.
+
 ## P10: cold underwater binding corrected (2026-10-30)
 
 Cause established by native-handle tracing: first fullscreen request receives null from TextureXR.GetBlackTexture; mask/depth/scene-depth handles are created. Three-request DX12 controls: baseline warning on request0, omitting only volume-face fallback removes it; omitting mask globals/scene depth or changing depth conversion does not. These omissions are diagnostic negative controls, not accepted functionality; exact sources/assemblies/reports in P10-ColdBindings-diagnosis.zip. Omission controls removed from working code.

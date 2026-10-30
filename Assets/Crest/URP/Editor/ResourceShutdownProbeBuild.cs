@@ -35,6 +35,10 @@ namespace Crest.URP.Editor
                 AssetDatabase.CreateAsset(underwater,folder+"/DiagnosticUnderwater.mat");
                 var retention=new GameObject("Diagnostic shader variant dependency",typeof(MeshRenderer)).GetComponent<MeshRenderer>();
                 retention.enabled=false;retention.sharedMaterial=underwater;
+                var planar=new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Ocean_Calm.mat"));
+                planar.EnableKeyword("_PLANARREFLECTIONS_ON");
+                AssetDatabase.CreateAsset(planar,folder+"/DiagnosticPlanar.mat");
+                retention.sharedMaterials=new[]{underwater,planar};
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;
