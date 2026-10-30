@@ -14,7 +14,7 @@ namespace Crest.URP.Diagnostics
 {
     public sealed partial class ResourceShutdownProbe : MonoBehaviour
     {
-        [Serializable] class TextureInfo { public string name; public int width, height, layers; public long nativeBytes; }
+        [Serializable] class TextureInfo { public string name,id,format,depthFormat,flags; public int width,height,layers,msaa; public bool created; public long nativeBytes; }
         [Serializable] class Snapshot { public string stage; public int oceans; public TextureInfo[] textures; }
         [Serializable] class Result
         {
@@ -49,7 +49,7 @@ namespace Crest.URP.Diagnostics
             return new Snapshot { stage = stage,
                 oceans = Resources.FindObjectsOfTypeAll<OceanRenderer>().Length,
                 textures = Resources.FindObjectsOfTypeAll<RenderTexture>().Select(t => new TextureInfo {
-                    name=t.name, width=t.width, height=t.height, layers=t.volumeDepth,
+                    name=t.name,id=t.GetEntityId().ToString(),format=t.graphicsFormat.ToString(),depthFormat=t.depthStencilFormat.ToString(),flags=t.hideFlags.ToString(),msaa=t.antiAliasing,created=t.IsCreated(), width=t.width, height=t.height, layers=t.volumeDepth,
                     nativeBytes=Profiler.GetRuntimeMemorySizeLong(t) }).ToArray() };
         }
         IEnumerator Start()
@@ -67,6 +67,10 @@ namespace Crest.URP.Diagnostics
             if (disableFeature) foreach (var feature in features) feature.SetActive(false);
             OceanRenderer.EnableGraphicsInBatchMode = true;
             if (mode != "Empty") yield return SceneManager.LoadSceneAsync(1);
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestOwnership") >= 0)
+            {
+                yield return Ownership(mode);yield break;
+            }
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestProfile") >= 0)
             {
                 yield return Profile(mode);

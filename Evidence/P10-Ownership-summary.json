@@ -1,0 +1,4606 @@
+{
+  "recordedUtc": "2026-10-30T11:24:52.145992+00:00",
+  "validation": "PASSED",
+  "failures": [],
+  "cases": [
+    {
+      "name": "P10-Ownership-Empty-None-DX11",
+      "mode": "Empty",
+      "readback": "None",
+      "hdr": true,
+      "api": "Direct3D11",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "8382c6ea95ca8e4e686483df5b39c4dcbce577875f347a5c3ef96ba53799f9be",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5566464,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5566464,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5566464,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 6303744,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 6303744,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-Full-DX11",
+      "mode": "Empty",
+      "readback": "Full",
+      "hdr": true,
+      "api": "Direct3D11",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "00fe8bf4774a6d7f50e5bc191eca4173a9b8c8ea932b19c3c4be5a34d76315dc",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5697536,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5697536,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5697536,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-requested",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 40382464,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5763072,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-completed",
+              "rtCount": 8,
+              "rtEngineBytes": 23336542,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 7860224,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 7860224,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 7860224,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-Crop-DX11",
+      "mode": "Empty",
+      "readback": "Crop",
+      "hdr": true,
+      "api": "Direct3D11",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "efe3b11d9b48c743b546234ac27edeb371507379fad1f106c01fb156095ba9fc",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5304320,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5304320,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5304320,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-requested",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 40382464,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5369856,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-completed",
+              "rtCount": 8,
+              "rtEngineBytes": 23336542,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5419008,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5943296,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5943296,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-None-NoHDR-DX11",
+      "mode": "Empty",
+      "readback": "None",
+      "hdr": false,
+      "api": "Direct3D11",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "51de69688182fa980473fc25d1681eaa58ceb32ee50e6d1333a912ae886528a0",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5566464,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5566464,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 8,
+              "rtEngineBytes": 15042398,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 24915968,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 5566464,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 6172672,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 42872832,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 6172672,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Ocean-Crop-DX11",
+      "mode": "Ocean",
+      "readback": "Crop",
+      "hdr": true,
+      "api": "Direct3D11",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "e9ab6c4738aabdaed8a5fbcbaa6fff9ec83ceb44a9ec30c5e277b843d6ee0945",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "trackedAfterUnload": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 16,
+              "rtEngineBytes": 51035648,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 83591168,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 6979584,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 17,
+              "rtEngineBytes": 57257424,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 83591168,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 6979584,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 26,
+              "rtEngineBytes": 84836534,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "2367:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 112963584,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 7217152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-readback-requested",
+              "rtCount": 26,
+              "rtEngineBytes": 84836534,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "2367:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 112963584,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 7217152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-readback-completed",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "2367:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 112963584,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 7413760,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 115060736,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 17899520,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 115060736,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 17899520,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-ocean-unloaded",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 115060736,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 17899520,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-unloaded-held",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 115060736,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 17899520,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        },
+        {
+          "cycle": 1,
+          "buffers": [
+            {
+              "id": "B7",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataTgt",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B8",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataSrc",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B9",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceData",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B10",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceDataSource",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B11",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B12",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "trackedAfterUnload": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B7",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B8",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B9",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B10",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B11",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B12",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "stages": [
+            {
+              "stage": "cycle1-setup",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19210240,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-target-created",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19210240,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-submitted",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 2 960x540",
+                  "id": "2351:768",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-readback-requested",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 2 960x540",
+                  "id": "2351:768",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-readback-completed",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 2 960x540",
+                  "id": "2351:768",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-held",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-target-released",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-ocean-unloaded",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle1-unloaded-held",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 19230720,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "buffers": [
+            {
+              "id": "B13",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataTgt",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B14",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataSrc",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B15",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceData",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B16",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceDataSource",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B17",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B18",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "trackedAfterUnload": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B7",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B8",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B9",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B10",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B11",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B12",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B13",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B14",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B15",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B16",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B17",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B18",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "stages": [
+            {
+              "stage": "cycle2-setup",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-target-created",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-submitted",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 3 960x540",
+                  "id": "2353:1280",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-readback-requested",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 3 960x540",
+                  "id": "2353:1280",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-readback-completed",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 3 960x540",
+                  "id": "2353:1280",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-held",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-target-released",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-ocean-unloaded",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle2-unloaded-held",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 170848256,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 0
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 20017152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-None-DX12",
+      "mode": "Empty",
+      "readback": "None",
+      "hdr": true,
+      "api": "Direct3D12",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "b186cf2b5613c80dbdd14a01380d2b0e155126476244b1e103fc3bedc2536f64",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153370624,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 227696640,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 160776192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 227696640,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 181329920,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 229859328,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231956480,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231956480,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-Full-DX12",
+      "mode": "Empty",
+      "readback": "Full",
+      "hdr": true,
+      "api": "Direct3D12",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "60e2c5cb07f3ba0ac94cd81f835e8b8034f52832f65d258c6b3f8f11aeed5b4b",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153370624,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 227680256,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 160776192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 227680256,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 181329920,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 228810752,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-requested",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 181329920,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 230887424,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-completed",
+              "rtCount": 8,
+              "rtEngineBytes": 23336542,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 158466048,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 234033152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231956480,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231956480,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-Crop-DX12",
+      "mode": "Empty",
+      "readback": "Crop",
+      "hdr": true,
+      "api": "Direct3D12",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "632d2b6350e30dea227a0e0bc1c30fdab5a1656dee37f16e351a45ee869fb735",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153370624,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 226648064,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 155860992,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 226648064,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 181329920,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 229859328,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-requested",
+              "rtCount": 9,
+              "rtEngineBytes": 23337774,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 181329920,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231936000,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-readback-completed",
+              "rtCount": 8,
+              "rtEngineBytes": 23336542,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "1773:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 234033152,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231956480,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 231956480,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Empty-None-NoHDR-DX12",
+      "mode": "Empty",
+      "readback": "None",
+      "hdr": false,
+      "api": "Direct3D12",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "b6d3b6dbecb16a1ed5eafdf607719540881e21c84f2af63a0b3cc9c012a51b82",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [],
+          "trackedAfterUnload": null,
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 1,
+              "rtEngineBytes": 1232,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153370624,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 227680256,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 2,
+              "rtEngineBytes": 2208,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 160776192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 227680256,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 8,
+              "rtEngineBytes": 15042398,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 171499520,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 229859328,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 7,
+              "rtEngineBytes": 15041166,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 233005056,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 6,
+              "rtEngineBytes": 8819390,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153550848,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 233005056,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P10-Ownership-Ocean-Crop-DX12",
+      "mode": "Ocean",
+      "readback": "Crop",
+      "hdr": true,
+      "api": "Direct3D12",
+      "errors": 0,
+      "warnings": [],
+      "reportSha256": "20c83a2f14a42089e913bef66836851f2091e6a581476e89a2a9e4753a1a8215",
+      "cycles": [
+        {
+          "cycle": 0,
+          "buffers": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "trackedAfterUnload": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "stages": [
+            {
+              "stage": "cycle0-setup",
+              "rtCount": 16,
+              "rtEngineBytes": 51035648,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 209797120,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 229728256,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-target-created",
+              "rtCount": 17,
+              "rtEngineBytes": 57257424,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 217202688,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 229728256,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-submitted",
+              "rtCount": 26,
+              "rtEngineBytes": 84836534,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "2367:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 248963072,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 236216320,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-readback-requested",
+              "rtCount": 26,
+              "rtEngineBytes": 84836534,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "2367:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 248963072,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 238292992,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-readback-completed",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 1 960x540",
+                  "id": "2367:256",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 212467712,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 242372608,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-held",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240984064,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-target-released",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle0-ocean-unloaded",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153944064,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240738304,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle0-unloaded-held",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153944064,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240738304,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        },
+        {
+          "cycle": 1,
+          "buffers": [
+            {
+              "id": "B7",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataTgt",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B8",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataSrc",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B9",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceData",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B10",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceDataSource",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B11",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B12",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "trackedAfterUnload": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B7",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B8",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B9",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B10",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B11",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B12",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "stages": [
+            {
+              "stage": "cycle1-setup",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-target-created",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 215285760,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-submitted",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 2 960x540",
+                  "id": "2351:768",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 225116160,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-readback-requested",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 2 960x540",
+                  "id": "2351:768",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 225116160,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 243011584,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-readback-completed",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 2 960x540",
+                  "id": "2351:768",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 209977344,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 243060736,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-held",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240984064,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-target-released",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle1-ocean-unloaded",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153944064,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240787456,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle1-unloaded-held",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153944064,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240738304,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "buffers": [
+            {
+              "id": "B13",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataTgt",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B14",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataSrc",
+              "valid": true,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B15",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceData",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B16",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceDataSource",
+              "valid": true,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B17",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B18",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": true,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "trackedAfterUnload": [
+            {
+              "id": "B1",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B2",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B3",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B4",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B5",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B6",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1799:256.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B7",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B8",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B9",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B10",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B11",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B12",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1784:768.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B13",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataTgt",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B14",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufCascadeDataSrc",
+              "valid": false,
+              "count": 16,
+              "stride": 32,
+              "logicalBytes": 512
+            },
+            {
+              "id": "B15",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceData",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B16",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280._bufPerCascadeInstanceDataSource",
+              "valid": false,
+              "count": 15,
+              "stride": 32,
+              "logicalBytes": 480
+            },
+            {
+              "id": "B17",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufQueries",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            },
+            {
+              "id": "B18",
+              "kind": "ComputeBuffer",
+              "owner": "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._computeBufResults",
+              "valid": false,
+              "count": 4096,
+              "stride": 12,
+              "logicalBytes": 49152
+            }
+          ],
+          "stages": [
+            {
+              "stage": "cycle2-setup",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 209977344,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-target-created",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 217382912,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-submitted",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 3 960x540",
+                  "id": "2353:1280",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 227213312,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-readback-requested",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 3 960x540",
+                  "id": "2353:1280",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 227213312,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 243011584,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-readback-completed",
+              "rtCount": 25,
+              "rtEngineBytes": 84835302,
+              "tempBuffers": [
+                {
+                  "name": "TempBuffer 3 960x540",
+                  "id": "2353:1280",
+                  "format": "R16G16B16A16_SFloat",
+                  "depthFormat": "D32_SFloat_S8_UInt",
+                  "flags": "125",
+                  "width": 960,
+                  "height": 540,
+                  "layers": 1,
+                  "msaa": 1,
+                  "created": true,
+                  "nativeBytes": 8295376
+                }
+              ],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 243060736,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-held",
+              "rtCount": 24,
+              "rtEngineBytes": 76539926,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-target-released",
+              "rtCount": 23,
+              "rtEngineBytes": 70318150,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 207880192,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240934912,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": [
+                "OceanRenderer#1778:1280.<CollisionProvider>k__BackingField._queryPosXZ_minGridSize: array truncated"
+              ]
+            },
+            {
+              "stage": "cycle2-ocean-unloaded",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153944064,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240738304,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            },
+            {
+              "stage": "cycle2-unloaded-held",
+              "rtCount": 8,
+              "rtEngineBytes": 19283734,
+              "tempBuffers": [],
+              "driverMemory": {
+                "status": "ok",
+                "adapter": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+                "luid": "000000000000D8A6",
+                "vendor": 4318,
+                "device": 9632,
+                "localHresult": 0,
+                "nonLocalHresult": 0,
+                "local": {
+                  "budget": 3531289396,
+                  "currentUsage": 153944064,
+                  "availableForReservation": 1869506150,
+                  "currentReservation": 67108864
+                },
+                "nonLocal": {
+                  "budget": 7703215002,
+                  "currentUsage": 240738304,
+                  "availableForReservation": 3985825229,
+                  "currentReservation": 0
+                }
+              },
+              "walkLimits": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Ten short offscreen controls, not performance windows or onscreen rendering acceptance.",
+    "TempBuffer observed after Submit before any readback, absent with HDR disabled and after two-second hold. Native allocator unproven.",
+    "Buffer scope: field-reachable Crest objects plus known activated FFT cache, depth12/nodes30000/collection1024. Vector3 query array truncation disclosed per stage.",
+    "Six Ocean_Calm ComputeBuffers, count*stride logical payload only. Does not inventory driver/mesh buffers or all Crest configurations.",
+    "DXGI CurrentUsage is current-process Local/NonLocal segment budget accounting; not independent physical VRAM residency. Queries are not GPU fences and can lag.",
+    "Disposal invalidates buffer wrappers; process driver usage can remain due to delayed work/pools. Three cycles do not establish a leak or general leak-free acceptance.",
+    "Historical shutdown evictable warning remains NOT REPRODUCED/not fixed. Normal builds and previous full suite unchanged."
+  ]
+}

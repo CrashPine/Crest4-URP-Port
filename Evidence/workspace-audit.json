@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-10-29T11:41:59.6879357Z",
+  "recordedUtc": "2026-10-30T11:27:56.3764257Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1387,
+  "fileCount": 1393,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -5765,13 +5765,33 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs",
-      "bytes": 6929,
-      "sha256": "E90AC854E80F2731C891006AB109401739E3227D831013C8D9DFCFDC1929CD90"
+      "bytes": 7340,
+      "sha256": "BC5167759D2525ABB43A6177AC7B0629A9821325A3FE21F1F3311DB131061DA3"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs.meta",
       "bytes": 62,
       "sha256": "F107FE55E38F08E5089F3F8DFBFEAC43F4EF21726CF9B08630DD38F1D5E4E3A7"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.DriverMemory.cs",
+      "bytes": 4568,
+      "sha256": "9E80F3609F16EBD07E7DD653DB2B3208C568BB2C93170B7CD91ADEAAFE8502D6"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.DriverMemory.cs.meta",
+      "bytes": 62,
+      "sha256": "A10E42040AEBA333AA3BDDDB2F18AAE5AC295F1DC68F4CEDDCC2EB150D9BED00"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Ownership.cs",
+      "bytes": 10408,
+      "sha256": "D95CFCDE0A111703757C2B04CBACB415382044EC28D5A2ED5D170BCD7F9A76D1"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Ownership.cs.meta",
+      "bytes": 62,
+      "sha256": "3288FF8B6DC9B96BFC0889F571AB63DD6A07BD1744A3072E06ED606672EEEDFF"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Profile.cs",
@@ -7014,9 +7034,19 @@
       "sha256": "ED0F24B92FCBF82805E9381FF4378802F065BBB2FDB736C385868195106279C7"
     },
     {
+      "path": "Tools/Run-ResourceOwnership.ps1",
+      "bytes": 2565,
+      "sha256": "1FCE0A67C280F6A0960E51BF8721FA9CA9A98E918EB0627E17CAADFB8F409E0D"
+    },
+    {
       "path": "Tools/Run-Unity.ps1",
       "bytes": 3572,
       "sha256": "A15433FCABADBDCD4BE2E6C776BFEB1582A30E7800CE8D1A8C96916DAAE1B657"
+    },
+    {
+      "path": "Tools/Summarize-ResourceOwnership.py",
+      "bytes": 5918,
+      "sha256": "303D1F88AAD279C0B0C5DBC72F94A6380EF02F611828534CB6487CC08498934A"
     },
     {
       "path": "Tools/Verify-GuidAndCompute.ps1",
@@ -7035,8 +7065,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 29510,
-      "sha256": "F37192E59F986CF4D160D19A58A1DEE157E8E1C27B6D292C8A6F248A9C07509B"
+      "bytes": 29783,
+      "sha256": "FD87E6097DA0865F790C4383D9D649C6BB5BB64B23DF90BD345DEC50CD2A0698"
     },
     {
       "path": "LICENSE.Crest",
@@ -7050,18 +7080,18 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 30164,
-      "sha256": "47C2356EFBE68645423A60F9B32DCA9C47D5909206E28D654C15EDDF47EE33C7"
+      "bytes": 30286,
+      "sha256": "7910D5EAB073E7CA3D3C12203C886FF1947CEE6179CB9081B1878CB857EEE0F4"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 24072,
-      "sha256": "4BAE46041365CA40F906B0997062F8797E84A8C4CFC9F53563508B98CFB6D2EB"
+      "bytes": 23961,
+      "sha256": "5011F82229333C0EF83A1FCB6D2D2F55E07F2F212F7CEF5F5009FD67A6870A25"
     },
     {
       "path": "README.md",
-      "bytes": 16285,
-      "sha256": "326B9618AE233CFEE7C6EF33E3E0CDFB9924BFB85651B973D9E2406455927ED4"
+      "bytes": 17484,
+      "sha256": "36E3B79B92EB0FC2D153666A94BE32BDBB624D257DAE778DF85245DCC89B4F9A"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -7070,8 +7100,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 260002,
-      "sha256": "314BA557DB0864C83B0985862EA84DC6C379FD8D0721F890177E018AEAC7D56C"
+      "bytes": 265857,
+      "sha256": "B08329A82AD056B477280E8F14917696449F8B47F7CDA72C42A096C79965EDCE"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
