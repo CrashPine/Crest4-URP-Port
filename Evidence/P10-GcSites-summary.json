@@ -1,0 +1,193 @@
+{
+  "validation": "PASSED (scoped)",
+  "cases": [
+    {
+      "file": "P10-GcSites-calibration-DX12.json",
+      "sha256": "e96199354d380300cd5c0e07af27bf6c1997d821ab4455d80728ad334facd0ad",
+      "requests": 374,
+      "totalBytesPerSubmit": 1024,
+      "bucketBytesPerSubmit": [
+        384.0,
+        0.0,
+        192.0,
+        0.0,
+        384.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        192.0
+      ],
+      "calls": [
+        374,
+        374,
+        374,
+        374,
+        374,
+        374,
+        0,
+        374,
+        374,
+        374
+      ],
+      "calibration": [
+        19200,
+        19200,
+        38400,
+        0
+      ]
+    },
+    {
+      "file": "P10-GcSites-DX11-Underwater1.json",
+      "sha256": "0370b69485db638391f42a881228a5ac624e3bbf3fcf3ca371ef7eff25804fc6",
+      "requests": 63,
+      "totalBytesPerSubmit": 1024,
+      "bucketBytesPerSubmit": [
+        384.0,
+        0.0,
+        192.0,
+        0.0
+      ],
+      "calls": [
+        63,
+        63,
+        63,
+        63
+      ],
+      "calibration": null
+    },
+    {
+      "file": "P10-GcSites-DX11-UnderwaterOff.json",
+      "sha256": "dada367484005b092e3cb76cdd7dabaee4ad06f4830c60104c1c08f44859fc70",
+      "requests": 64,
+      "totalBytesPerSubmit": 448,
+      "bucketBytesPerSubmit": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "calls": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "calibration": null
+    },
+    {
+      "file": "P10-GcSites-DX12-Underwater1.json",
+      "sha256": "3de7293f3913687aa6ca8440547e50cbb2c913fbb0d4f973f86dc59e5086e99c",
+      "requests": 372,
+      "totalBytesPerSubmit": 1024,
+      "bucketBytesPerSubmit": [
+        384.0,
+        0.0,
+        192.0,
+        0.0
+      ],
+      "calls": [
+        372,
+        372,
+        372,
+        372
+      ],
+      "calibration": null
+    },
+    {
+      "file": "P10-GcSites-DX12-UnderwaterOff.json",
+      "sha256": "3740cedbd3a62ed087799d2bc60e4741f5c5900820f6d83238d2e25e63494e95",
+      "requests": 374,
+      "totalBytesPerSubmit": 448,
+      "bucketBytesPerSubmit": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "calls": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "calibration": null
+    },
+    {
+      "file": "P10-GcSites-fine-DX11.json",
+      "sha256": "1e23130c6ddedabf5c51f1bf25677cb5e91272354ff8fb796de72160dc1ecf29",
+      "requests": 63,
+      "totalBytesPerSubmit": 1024,
+      "bucketBytesPerSubmit": [
+        384.0,
+        0.0,
+        192.0,
+        0.0,
+        384.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        192.0
+      ],
+      "calls": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        0,
+        63,
+        63,
+        63
+      ],
+      "calibration": null
+    },
+    {
+      "file": "P10-GcSites-fine-DX12.json",
+      "sha256": "c3b8bbc47ad521a1d857911704ab6c244b80243920c06254f8857353df7b300b",
+      "requests": 367,
+      "totalBytesPerSubmit": 1024,
+      "bucketBytesPerSubmit": [
+        384.0,
+        0.0,
+        192.0,
+        0.0,
+        384.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        192.0
+      ],
+      "calls": [
+        367,
+        367,
+        367,
+        367,
+        367,
+        367,
+        0,
+        367,
+        367,
+        367
+      ],
+      "calibration": null
+    }
+  ],
+  "buckets": [
+    "mask registration",
+    "effect registration",
+    "mask callback",
+    "effect callback",
+    "mask/depth creation expressions incl descriptor evaluation",
+    "mask setup/XR update",
+    "reserved",
+    "camera state/volume setup",
+    "mask population",
+    "artifact descriptor+dispatch"
+  ],
+  "cause": "GetMaskColorRTD calls Helpers.IsIntelGPU three times/request. Device-name getter96B +ToLowerInvariant96B =192B/call,3 calls576B. DX12 native calibration200 calls each:19200/19200/38400/0 bytes (getter/lower/helper/cached-string OrdinalIgnoreCase).",
+  "limits": "Short3s windows +5s warmup, one config; nested buckets overlap, do not sum parents and children. Calibration DX12 only. Rendering assertions unchanged, no images/FPS/GPU time/general allocation-free claim. Production optimization not yet implemented."
+}

@@ -77,8 +77,14 @@ namespace Crest.URP
             {
                 var owner = UnderwaterRenderer.ForUrpCamera(frameData.Get<UniversalCameraData>().camera);
                 if (owner == null) return;
+#if CREST_RESOURCE_PROBE
+                long allocationStart = UnderwaterRenderer.DiagnosticGcBegin();
+#endif
                 if (_mask) owner.RecordUrpMask(graph, frameData);
                 else if (owner.EnableShaderAPI == _before) owner.RecordUrpEffect(graph, frameData);
+#if CREST_RESOURCE_PROBE
+                if (_mask || owner.EnableShaderAPI == _before) UnderwaterRenderer.DiagnosticGcEnd(_mask ? 0 : 1, allocationStart);
+#endif
             }
         }
 

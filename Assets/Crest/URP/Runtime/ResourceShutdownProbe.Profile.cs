@@ -83,6 +83,7 @@ namespace Crest.URP.Diagnostics
             public Metric[] metrics;
             public string costWorkload;
             public WorkloadCost beforeCost,afterCost;
+            public long[] underwaterGcBytes,underwaterGcCalls,gpuNameCalibration;
         }
         static long ThreadAllocated()
         {
@@ -171,6 +172,12 @@ namespace Crest.URP.Diagnostics
             }
             Debug.Log("PROFILE_STAGE counters="+counters.Count);
             var allocationCounter=counters.FirstOrDefault(c=>c.values.name=="GC Allocated In Frame");
+            if(Argument("-crestGcSites","0")=="1")
+            {
+                if(allocationCounter==null)throw new InvalidOperationException("Native GC counter unavailable");
+                UnderwaterRenderer.DiagnosticAllocated=()=>allocationCounter.recorder.CurrentValue;
+            }
+            var siteBytes=new long[10];var siteCalls=new long[10];
             var submitGc=new Accumulator("GC bytes during SubmitRenderRequest","Bytes");
             var gpu=new Accumulator("FrameTiming unique GPU","Milliseconds",.05);
             var cpu=new Accumulator("FrameTiming unique CPU","Milliseconds",.05);
@@ -205,10 +212,26 @@ namespace Crest.URP.Diagnostics
                 result.warmSeconds=Time.realtimeSinceStartupAsDouble-warm;
                 Debug.Log("PROFILE_STAGE warm-complete");
                 result.before=Capture("before-profile");
+                if(Argument("-crestGcSites","0")=="1")
+                {
+                    string cachedName=SystemInfo.graphicsDeviceName,sink=null;bool flag=false;
+                    Action[] controls={()=>{sink=SystemInfo.graphicsDeviceName;},()=>{sink=cachedName.ToLowerInvariant();},
+                        ()=>{flag=Crest.Helpers.IsIntelGPU();},()=>{flag=cachedName.IndexOf("intel",StringComparison.OrdinalIgnoreCase)>=0;}};
+                    result.gpuNameCalibration=new long[4];
+                    for(int c=0;c<4;c++)
+                    {
+                        controls[c](); // Prime outside measurement.
+                        long before=allocationCounter.recorder.CurrentValue;
+                        for(int i=0;i<200;i++)controls[c]();
+                        result.gpuNameCalibration[c]=allocationCounter.recorder.CurrentValue-before;
+                    }
+                    GC.KeepAlive(sink);GC.KeepAlive(flag);
+                }
                 // Snapshot allocation and recorder priming must be outside the sampling window.
                 for(int i=0;i<8;i++) {FrameTimingManager.CaptureFrameTimings();yield return null;}
                 Debug.Log("PROFILE_STAGE sample-start");
                 yield return null;
+                Array.Copy(UnderwaterRenderer.DiagnosticGcBytes,siteBytes,10);Array.Copy(UnderwaterRenderer.DiagnosticGcCalls,siteCalls,10);
                 long renderStart=_mainRenders;
                 long allocatedStart=ThreadAllocated();
                 int gc0=GC.CollectionCount(0),gc1=GC.CollectionCount(1),gc2=GC.CollectionCount(2);
@@ -246,11 +269,14 @@ namespace Crest.URP.Diagnostics
                 }
                 result.sampleSeconds=Time.realtimeSinceStartupAsDouble-start;result.mainCameraRenders=_mainRenders-renderStart;
                 result.afterCost=ReadCost(target);
+                result.underwaterGcBytes=new long[10];result.underwaterGcCalls=new long[10];
+                for(int i=0;i<10;i++){result.underwaterGcBytes[i]=UnderwaterRenderer.DiagnosticGcBytes[i]-siteBytes[i];result.underwaterGcCalls[i]=UnderwaterRenderer.DiagnosticGcCalls[i]-siteCalls[i];}
                 long allocatedEnd=ThreadAllocated();result.rawThreadApiDelta=allocatedStart<0||allocatedEnd<0?-1:allocatedEnd-allocatedStart;result.mainThreadAllocatedBytes=-1;
                 result.gen0Collections=GC.CollectionCount(0)-gc0;result.gen1Collections=GC.CollectionCount(1)-gc1;result.gen2Collections=GC.CollectionCount(2)-gc2;
             }
             finally
             {
+                UnderwaterRenderer.DiagnosticAllocated=null;
                 RenderPipelineManager.endCameraRendering-=CountRender;
                 foreach(var counter in counters)counter.recorder.Dispose();
                 result.after=Capture("after-profile");

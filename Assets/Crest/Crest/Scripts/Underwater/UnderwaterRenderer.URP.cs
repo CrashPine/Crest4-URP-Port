@@ -11,6 +11,14 @@ namespace Crest
     {
 #if CREST_RESOURCE_PROBE
         // Diagnostic Player only: CPU graph registration/command recording, not GPU timestamps.
+        public static System.Func<long> DiagnosticAllocated;
+        public static readonly long[] DiagnosticGcBytes = new long[10], DiagnosticGcCalls = new long[10];
+        public static long DiagnosticGcBegin() => DiagnosticAllocated != null ? DiagnosticAllocated() : 0;
+        public static void DiagnosticGcEnd(int bucket, long start)
+        {
+            if (DiagnosticAllocated == null) return;
+            DiagnosticGcBytes[bucket] += DiagnosticAllocated() - start; DiagnosticGcCalls[bucket]++;
+        }
         public static long DiagnosticCompositeRecords, DiagnosticCompositeExecutions;
         public static long DiagnosticPreserveRecords, DiagnosticPreserveExecutions;
         public static int DiagnosticWidth, DiagnosticHeight, DiagnosticSamples, DiagnosticColorFormat;
@@ -51,15 +59,27 @@ namespace Crest
             var cameraData = frameData.Get<UniversalCameraData>();
             var camera = cameraData.camera;
             if (!Helpers.MaskIncludesLayer(camera.cullingMask, _layer)) return;
+#if CREST_RESOURCE_PROBE
+            long setupAllocationStart = DiagnosticGcBegin();
+#endif
             SetupOceanMask();
             SetUpMaterials();
             SetUpFixMaskArtefactsShader();
             _cameraFrustumPlanes ??= new Plane[6];
             XRHelpers.Update(camera);
+#if CREST_RESOURCE_PROBE
+            DiagnosticGcEnd(5, setupAllocationStart);
+#endif
             var descriptor = cameraData.cameraTargetDescriptor;
             var textures = frameData.GetOrCreate<GraphTextures>();
+#if CREST_RESOURCE_PROBE
+            long textureAllocationStart = DiagnosticGcBegin();
+#endif
             textures.Mask = UniversalRenderer.CreateRenderGraphTexture(graph, GetMaskColorRTD(descriptor), "Crest Underwater Mask", false);
             textures.Depth = UniversalRenderer.CreateRenderGraphTexture(graph, GetMaskDepthRTD(GetMaskColorRTD(descriptor)), "Crest Underwater Depth", false);
+#if CREST_RESOURCE_PROBE
+            DiagnosticGcEnd(4, textureAllocationStart);
+#endif
             if (_mode != Mode.FullScreen && _volumeGeometry != null)
             {
                 var depthDescriptor = GetMaskDepthRTD(GetMaskColorRTD(descriptor));
@@ -106,10 +126,20 @@ namespace Crest
             builder.AllowPassCulling(false);
             builder.SetRenderFunc((MaskPassData pass, UnsafeGraphContext context) =>
             {
+#if CREST_RESOURCE_PROBE
+                long allocationStart = DiagnosticGcBegin();
+#endif
                 var owner = pass.Owner;
                 var cmd = CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);
+#if CREST_RESOURCE_PROBE
+                long stateAllocationStart = DiagnosticGcBegin();
+#endif
                 owner.UpdateOceanRendererStateForCamera();
                 owner.SetUpVolume(owner._oceanMaskMaterial.material);
+#if CREST_RESOURCE_PROBE
+                DiagnosticGcEnd(7, stateAllocationStart);
+                long populateAllocationStart = DiagnosticGcBegin();
+#endif
                 if (pass.Front.IsValid())
                 {
                     owner.PopulateVolumeFront(cmd, pass.Front, pass.Back);
@@ -120,8 +150,16 @@ namespace Crest
                 owner.SetUpMask(cmd, pass.Mask, pass.Depth);
                 PopulateOceanMask(cmd, pass.Camera, OceanRenderer.Instance.Tiles, owner._cameraFrustumPlanes,
                     owner._oceanMaskMaterial.material, owner._farPlaneMultiplier, owner._enableShaderAPI, owner._debug._disableOceanMask);
+#if CREST_RESOURCE_PROBE
+                DiagnosticGcEnd(8, populateAllocationStart);
+                long fixAllocationStart = DiagnosticGcBegin();
+#endif
                 var maskDescriptor = owner.GetMaskColorRTD(pass.Descriptor);
                 owner.FixMaskArtefacts(cmd, maskDescriptor, pass.Mask);
+#if CREST_RESOURCE_PROBE
+                DiagnosticGcEnd(9, fixAllocationStart);
+                DiagnosticGcEnd(2, allocationStart);
+#endif
             });
         }
 
@@ -175,6 +213,7 @@ namespace Crest
                 {
 #if CREST_RESOURCE_PROBE
                     DiagnosticCompositeExecutions++;
+                    long allocationStart = DiagnosticGcBegin();
 #endif
                     var owner = pass.Owner;
                     var cmd = CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);
@@ -195,6 +234,9 @@ namespace Crest
                     owner._urpEffectProperties.SetTexture(ShaderIDs.s_CrestCameraColorTexture, (Texture)pass.Source);
                     owner.ExecuteEffect(cmd, owner._underwaterEffectMaterial.material, owner._urpEffectProperties);
                     owner._firstRender = false;
+#if CREST_RESOURCE_PROBE
+                    DiagnosticGcEnd(3, allocationStart);
+#endif
                 });
             }
 
