@@ -22,6 +22,7 @@ namespace Crest.URP.Diagnostics
         [Serializable] class OwnershipStage
         {
             public string stage,utc;
+            public float realtime;
             public Snapshot snapshot;
             public BufferInfo[] reachableBuffers,trackedBufferState;
             public TextureOwner[] textureOwners;
@@ -31,7 +32,7 @@ namespace Crest.URP.Diagnostics
             public DriverMemory driverMemory;
 #endif
         }
-        [Serializable] class OwnershipResult {public string unity,api,mode,readback;public int errors;public bool hdr,featureDisabled;public OwnershipStage[] stages;}
+        [Serializable] class OwnershipResult {public string unity,api,mode,readback;public int errors,cycles;public bool hdr,featureDisabled,extendedIdle;public OwnershipStage[] stages;}
         sealed class References : IEqualityComparer<object>
         {
             public new bool Equals(object a,object b)=>ReferenceEquals(a,b);
@@ -90,7 +91,7 @@ namespace Crest.URP.Diagnostics
             // Never enumerate arbitrary static fields/cctors of unloaded Crest subsystems.
             if(_fftCacheObserved)walk(typeof(FFTCompute).GetField("_generators",BindingFlags.Static|BindingFlags.NonPublic).GetValue(null),"FFTCompute._generators",0);
             if(target!=null)walk(target,"Probe.target",0);
-            var stage=new OwnershipStage {stage=label,utc=DateTime.UtcNow.ToString("O"),snapshot=Capture(label),walkedNodes=nodes,walkLimits=limits.ToArray(),
+            var stage=new OwnershipStage {stage=label,utc=DateTime.UtcNow.ToString("O"),realtime=Time.realtimeSinceStartup,snapshot=Capture(label),walkedNodes=nodes,walkLimits=limits.ToArray(),
                 reachableBuffers=_trackedBuffers.Where(b=>found.Contains(b.reference)).Select(DescribeBuffer).ToArray(),
                 trackedBufferState=_trackedBuffers.Select(DescribeBuffer).ToArray(),textureOwners=owners.Select(p=>new TextureOwner {id=p.Key,paths=p.Value.ToArray()}).ToArray()
 #if UNITY_STANDALONE_WIN
@@ -104,10 +105,13 @@ namespace Crest.URP.Diagnostics
         {
             string readback=Argument("-crestOwnershipReadback","Crop");
             if(readback!="None"&&readback!="Full"&&readback!="Crop")throw new ArgumentException("Unknown readback mode");
-            var stages=new List<OwnershipStage>();int cycles=mode=="Empty"?1:3;
+            bool extended=Array.IndexOf(Environment.GetCommandLineArgs(),"-crestOwnershipCycles")>=0;
+            int cycles=int.Parse(Argument("-crestOwnershipCycles",mode=="Empty"?"1":"3"));
+            if(cycles<1||cycles>10)throw new ArgumentException("Ownership cycles must be between1 and10");
+            var stages=new List<OwnershipStage>();
             for(int cycle=0;cycle<cycles;cycle++)
             {
-                if(cycle>0)yield return SceneManager.LoadSceneAsync(1);
+                if(cycle>0)yield return SceneManager.LoadSceneAsync(mode=="Empty"?0:1);
                 for(int i=0;i<4;i++)yield return null;
                 string prefix="cycle"+cycle+"-";
                 if(Array.IndexOf(Environment.GetCommandLineArgs(),"-crestOwnershipNoHDR")>=0)Camera.main.allowHDR=false;
@@ -133,9 +137,9 @@ namespace Crest.URP.Diagnostics
                 finally {target.Release();Destroy(target);}
                 for(int i=0;i<4;i++)yield return null;
                 stages.Add(Observe(prefix+"target-released",null));
-                if(mode!="Empty")
+                if(mode!="Empty"||extended)
                 {
-                    if(!_trackedBuffers.Any(b=>BufferValid(b.reference)))_errors++;
+                    if(mode!="Empty"&&!_trackedBuffers.Any(b=>BufferValid(b.reference)))_errors++;
                     yield return SceneManager.LoadSceneAsync(0);
                     yield return Resources.UnloadUnusedAssets();
                     for(int i=0;i<4;i++)yield return null;
@@ -143,9 +147,21 @@ namespace Crest.URP.Diagnostics
                     if(unloaded.snapshot.oceans!=0||unloaded.trackedBufferState.Any(b=>b.valid))_errors++;
                     yield return new WaitForSecondsRealtime(2);
                     stages.Add(Observe(prefix+"unloaded-held",null));
+                    if(extended)
+                    {
+                        yield return new WaitForSecondsRealtime(3);
+                        stages.Add(Observe(prefix+"unloaded-idle5s",null));
+                    }
                 }
             }
-            var result=new OwnershipResult {unity=Application.unityVersion,api=SystemInfo.graphicsDeviceType.ToString(),mode=mode,readback=readback,hdr=Array.IndexOf(Environment.GetCommandLineArgs(),"-crestOwnershipNoHDR")<0,featureDisabled=Array.IndexOf(Environment.GetCommandLineArgs(),"-crestProbeDisableFeature")>=0,errors=_errors,stages=stages.ToArray()};
+            if(extended)
+            {
+                yield return new WaitForSecondsRealtime(5);
+                stages.Add(Observe("final-idle5s",null));
+                yield return new WaitForSecondsRealtime(10);
+                stages.Add(Observe("final-idle15s",null));
+            }
+            var result=new OwnershipResult {cycles=cycles,extendedIdle=extended,unity=Application.unityVersion,api=SystemInfo.graphicsDeviceType.ToString(),mode=mode,readback=readback,hdr=Array.IndexOf(Environment.GetCommandLineArgs(),"-crestOwnershipNoHDR")<0,featureDisabled=Array.IndexOf(Environment.GetCommandLineArgs(),"-crestProbeDisableFeature")>=0,errors=_errors,stages=stages.ToArray()};
             string output=Argument("-crestProbeOutput","Ownership.json");Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(output)));
             File.WriteAllText(output,JsonUtility.ToJson(result,true));Debug.Log("OWNERSHIP_PROBE_COMPLETED "+mode+" "+readback+" errors="+_errors);Application.Quit(_errors==0?0:1);
         }

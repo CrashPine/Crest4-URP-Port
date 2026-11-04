@@ -2,6 +2,21 @@
 
 Актуальная сверка: **2026-11-04**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P10: bounded10-cycle driver retention controls (2026-11-04)
+
+Diagnostic-only extension of the existing ownership probe:10 cycles per Empty/Ocean xDX11/DX12, one960x540 ARGB32/depth24 Submit and1x1 async readback,2s live hold, actual scene reload/unload and UnloadUnusedAssets. Unloaded observations at2s and5s, then final additional5s/15s idle after the last cycle. Realtime timestamps validate waits. Empty disables Crest feature and reloads the same control scene with matching cycle/cleanup count. All4 runs exit0/errors0 with fresh completion reports; every DXGI adapter/segment query succeeds. No images or full-suite/default rebuild repeated for this conditional diagnostic change.
+
+| API / scene | Local first→last5s MiB | NonLocal first→last5s MiB | Final Local / NonLocal MiB | Unloaded RT |
+|---|---:|---:|---:|---:|
+|DX11 Empty|42.6367 → 49.7227|4.9180 → 5.5469|49.7227 / 6.4219|6|
+|DX11 Ocean|109.7305 → 161.4180|17.3203 → 18.7031|161.4180 / 18.7031|8|
+|DX12 Empty|146.4219 → 146.4219|216.2109 → 216.2109|146.4219 / 216.2109|6|
+|DX12 Ocean|146.7891 → 146.8125|216.2109 → 223.4609|146.8125 / 223.4609|8|
+
+DX11 Ocean Local is exactly161.41796875MiB at cycles6–10 and after final idle. NonLocal remains slowly growing (17.3203→18.7031MiB), whereas Empty also grows (4.9180→5.5469, final6.421875). Thus indefinite per-cycle Local growth is not observed in this bounded window; retained Local does not return to Empty levels, and NonLocal growth cannot be wholly attributed to Crest. DX12 unloaded accounting is stable from cycle2 onward. This is not an API performance ranking, leak-free proof or exact physical Crest VRAM measurement. Driver/cache/engine/diagnostic contribution to NonLocal remains unresolved; no allocator/disposal fix inferred.
+
+All10 live Ocean cycles/API have six valid ComputeBuffers/100288 logical bytes; all60 wrappers invalid after final unload, zero reachable buffers/oceans. Unloaded RT counts8 Ocean/6 Empty remain constant. Raw owner paths/descriptors and walker truncation limits retained; inactive subsystems/native mesh/driver graphs not covered. Known evictable/Persistent/temporary-RT shutdown warnings absent in accepted runs. Normal12 binary/packed fingerprints match Build-checkpoint; ordinary runtime is unchanged because the entire modified file is conditional on CREST_RESOURCE_PROBE. Previous8de101d full110+interactive2/API/default builds/four smokes remain their checkpoint. Serialization whitespace archived/restored, foreign Ocean/bakes untouched. Evidence P10-Retention-summary.json and -evidence.zip/-files.json. Next: causal Shadow RenderData frame-order investigation; P10/P11/P12 incomplete.
+
 ## P10: repeated underwater classification cached (2026-11-04)
 
 Production GetMaskColorRTD caches the unchanged Helpers.IsIntelGPU result lazily once per enabled renderer lifetime; OnEnable invalidates the nonserialized cache. Original Intel RFloat/non-Intel RHalf descriptor selection, rendering/compute algorithms and GUIDs retained. One-time classification still allocates; no device vendor substitution.
@@ -9,6 +24,8 @@ Production GetMaskColorRTD caches the unchanged Helpers.IsIntelGPU result lazily
 Four short native windows (3s after5s warmup, original960x540 submerged Calm controls) show Off/On both exactly448B per actual Submit on DX11/DX12. Requests64/63 (Off/On) DX11 and373/360 DX12; errors0, render callbacks=requests. All10 measured underwater registration/callback buckets0. The previous incremental576B/request is removed in this warmed path. Common448B remains; no whole-asset GC-free, GPU-time, full-frame or VRAM improvement claim. Actual Intel hardware and XR unavailable, so preserved rule is not physical hardware acceptance. Raw GC data recorded2026-10-30; resumed milestone completed2026-11-04.
 
 Focused mask1/1 DX11, full110/110 and actual interactive2/2 each API Passed; native volume-face fields25600→0 fullscreen→exact restore. Development/Release rebuilt successfully; four sequential Player runs (7 demos+4 reflection captures each) Errors0. Selected fresh underwater captures inspected. Existing Shadow RenderData frame-validation warnings recur in Player and are present in all four archived pre-fix logs (14 each); not introduced by this cache fix, owner/order correction remains open. No clean-log acceptance. Original597 GUID/compute and stable structural audit pass;8 root Markdown files. Two interrupted DX12 attempts have no fresh XML and are archived separately, never counted as passes. Test-induced two material changes/variant whitespace archived and restored; foreign Ocean/baked lighting preserved.
+
+Archive audit2026-11-04: P10-GpuCache-evidence.zip contains exact sources/raw reports but no diagnostic DLL snapshot (archiver used the wrong data-directory name). The old compiled diagnostic bytes are not recoverable from that archive; no claim of preserved exact binary reproducibility. Current P10-Retention archive explicitly includes ResourceProbe_Data/Managed/Crest*.dll.
 
 Evidence: P10-GpuCache-checkpoint.json, -gc-summary.json, -evidence.zip/-files.json, -before.zip and interruption archives; Build-checkpoint.json fingerprints current normal builds. This supersedes the following historical “optimization pending” statement only for the scoped cache fix. Remaining driver retention/resource/GPU-draw/configuration gaps remain P10/P11.
 
