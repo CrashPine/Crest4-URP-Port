@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-11-04T11:34:16.463466+00:00",
+  "recordedUtc": "2026-11-04T19:14:23.194139+00:00",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
   "strictShaderVariantMatching": true,
@@ -24,9 +24,9 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
-      "sha256": "B5CBC462B89D53FE3A70C4893E92CB7BF83397317AA56B9BC6A14F11A721CE42",
-      "bytes": 6543,
-      "modifiedUtc": "2026-10-21T10:34:36.904462+00:00"
+      "sha256": "A325A07F15071E78794D9E5879E4D34ED80BA140B2C431759A87A6A727F90DD3",
+      "bytes": 7577,
+      "modifiedUtc": "2026-11-04T18:54:46.224198+00:00"
     },
     {
       "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs",
@@ -141,88 +141,88 @@
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "sha256": "990DAFA0A60E436D0E49D14FBBEA84C9EF90247DF6BE79A7F74AADBDC8FC3382",
+      "sha256": "5A0F95402327C175E9594D6E218369AB2873A39AD87111666330DC6F276B6764",
       "bytes": 287232,
-      "modifiedUtc": "2026-11-04T11:29:45.283936+00:00"
+      "modifiedUtc": "2026-11-04T19:09:40.233388+00:00"
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
-      "sha256": "C6DE1F650806C40B413BDBE474CEFBC6F576F098F8DB904A9EF063377BA276A5",
-      "bytes": 22016,
-      "modifiedUtc": "2026-11-04T11:29:45.865392+00:00"
+      "sha256": "82727E0E70E2DC0161A276C63229EDB10DD20D53439A7CD568C5D85C76852CBB",
+      "bytes": 22528,
+      "modifiedUtc": "2026-11-04T19:09:40.839672+00:00"
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.Examples.dll",
-      "sha256": "A653BE7E1EA04AA7362FFA91F72E077750F6127ADD9946E87C070DFA4F6D3EF2",
+      "sha256": "85BD2674A924ED33D7DD5ABB7266E54DA4BB90713BD23F6D46746DF2FA84F738",
       "bytes": 36352,
-      "modifiedUtc": "2026-11-04T11:29:45.319683+00:00"
+      "modifiedUtc": "2026-11-04T19:09:40.276070+00:00"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "sha256": "320313BADB5BA51499165717CE5C5319C1E22843339EEC94167688038FBC2B53",
+      "sha256": "741CB52E65E21D5538680631DF357FEB5A64970FF43F51CB1273B32AE7B3BFA1",
       "bytes": 283648,
-      "modifiedUtc": "2026-11-04T11:30:33.888401+00:00"
+      "modifiedUtc": "2026-11-04T19:10:20.638255+00:00"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
-      "sha256": "944B9D76F828E98B6F58CEC78D8821AEB225A34FAA5553DF21CB23FDC71A261A",
-      "bytes": 22016,
-      "modifiedUtc": "2026-11-04T11:30:33.903692+00:00"
+      "sha256": "654EDC7AA7BF44440DE3A8C79EDA2B68FFA198F040B88E0337C034E21E700E05",
+      "bytes": 22528,
+      "modifiedUtc": "2026-11-04T19:10:20.640881+00:00"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.Examples.dll",
-      "sha256": "11309B61A8C8AAC9294BAF6F5AD26663AEFA28CE1CABECE92509372A313045B4",
+      "sha256": "1949DE107C0D421737846CF7BF9381A919F382561ACDB9BF502A10DE36D26323",
       "bytes": 36352,
-      "modifiedUtc": "2026-11-04T11:30:33.819282+00:00"
+      "modifiedUtc": "2026-11-04T19:10:20.570978+00:00"
     }
   ],
-  "limitation": "Scoped per-enabled-lifetime GPU classification cache; native warm Off/On GC windows only. Common448B Submit remains; real Intel/XR unavailable. Historical driver retention/evictable and broader P10/P11 coverage open. Existing Shadow RenderData frame-validation warnings recur and also occur in archived pre-fix runs; unresolved, not clean-log acceptance.",
+  "limitation": "Demo smoke capture scheduled after Ocean LateUpdate; trace proves prior coroutine used previous-frame LOD. Shadow algorithm/validation unchanged. Remaining P10 resources/GPU/NonLocal and P11 configurations open; real XR/Intel unavailable.",
   "packedAssets": [
     {
       "configuration": "Development",
       "path": "CrestPort_Data/resources.assets",
       "bytes": 1117380,
-      "modifiedUtc": "2026-11-04T11:29:37.488754+00:00",
-      "sha256": "EB8D740C93F288B56F42FA0318E92AB068A0A065C098F88715DEA3B959DD4825"
+      "modifiedUtc": "2026-11-04T19:09:37.966215+00:00",
+      "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688"
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/sharedassets0.assets",
       "bytes": 294928,
-      "modifiedUtc": "2026-11-04T11:29:37.488754+00:00",
+      "modifiedUtc": "2026-11-04T19:09:37.959052+00:00",
       "sha256": "DCE5A6DD6D605C5F69542844C9F81FAD128E7B5E86CA5777DE11AC6086F9FC0B"
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/globalgamemanagers",
       "bytes": 95716,
-      "modifiedUtc": "2026-11-04T11:29:37.515264+00:00",
-      "sha256": "85173C5931CD0D3D68F7ECF95AAD3A073DB6926574CFA315C5C00792F114C47A"
+      "modifiedUtc": "2026-11-04T19:09:37.973963+00:00",
+      "sha256": "B678AFC5E6612A9053E0FE30F34CF0D5EE5152D53AD61E23C57A379CC42F8D84"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/resources.assets",
       "bytes": 1117380,
-      "modifiedUtc": "2026-11-04T11:30:31.336115+00:00",
+      "modifiedUtc": "2026-11-04T19:10:17.943495+00:00",
       "sha256": "EB8D740C93F288B56F42FA0318E92AB068A0A065C098F88715DEA3B959DD4825"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/sharedassets0.assets",
       "bytes": 294928,
-      "modifiedUtc": "2026-11-04T11:30:31.335575+00:00",
+      "modifiedUtc": "2026-11-04T19:10:17.947057+00:00",
       "sha256": "A8D9A6ABC78A6A4BC3520DFE39F62328E478E15E6FB3916676E416557083FB4F"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/globalgamemanagers",
       "bytes": 95716,
-      "modifiedUtc": "2026-11-04T11:30:31.338132+00:00",
+      "modifiedUtc": "2026-11-04T19:10:17.949070+00:00",
       "sha256": "0ED274E57CF563B2F8821B7EFDFE9AFC1F0F2F453291F868D167CEE74B86C4B1"
     }
   ],
@@ -233,100 +233,85 @@
       "graphicsAPI": "DX11",
       "report": {
         "path": "Evidence/Player-Development-DX11/player-smoke.txt",
-        "sha256": "05F79A36A22612F5B2FC1FCC494F1EE6C72A6BCB13F87447D0BED2E00D969128",
-        "bytes": 727,
-        "modifiedUtc": "2026-11-04T11:31:46.749374+00:00"
+        "sha256": "6EC93BD8B6A4D50AB77B454FF6221C188F58EC07FE2088DF73FD7970A04AEB0B",
+        "bytes": 1177,
+        "modifiedUtc": "2026-11-04T19:11:34.554262+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Buoyancy.png",
-          "sha256": "5036CA36AB1B222BD9C52AA9C034707E9B937EC920FDF72FE7CDE343C8AF7CBD",
-          "bytes": 523562,
-          "modifiedUtc": "2026-11-04T11:31:31.121401+00:00"
+          "sha256": "5FE7CD7FAAF74F4CB8587E515192DE588C0D3AD31F8EE6A9A6F479659873B669",
+          "bytes": 523403,
+          "modifiedUtc": "2026-11-04T19:11:18.941212+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Calm.png",
-          "sha256": "848493CD05F9B1E691F97CDFF704FC16CE5C58F410212143F1C84F1C9DAC5307",
-          "bytes": 550123,
-          "modifiedUtc": "2026-11-04T11:31:15.561272+00:00"
+          "sha256": "FD7504FA682136432AD59FB0C491F386C1FBC581F46CBC12D2B77B7ECC4195DB",
+          "bytes": 550094,
+          "modifiedUtc": "2026-11-04T19:11:03.376704+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Interactions.png",
-          "sha256": "89935544AE500EB4D0DAA10F28B16ED193F832669D6AE09C8AF80F48953BF588",
-          "bytes": 550515,
-          "modifiedUtc": "2026-11-04T11:31:36.312763+00:00"
+          "sha256": "598680AA902988C386A7D0E43074F7DA2BC282B346F013F68CFED7B759AEE9C5",
+          "bytes": 550594,
+          "modifiedUtc": "2026-11-04T19:11:24.134133+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Reflections.png",
-          "sha256": "1BA360F7123145FA45C9719B4D3BCE1F8C536E401DC59FCC66EB3E44AEF457CE",
-          "bytes": 544433,
-          "modifiedUtc": "2026-11-04T11:31:46.619568+00:00"
+          "sha256": "0BE28B0E7A7DA49089944F26E52D46A438F2BF381C131F0518EBFE4A6FD9840E",
+          "bytes": 543424,
+          "modifiedUtc": "2026-11-04T19:11:34.432819+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Storm.png",
-          "sha256": "C0860ED3EF914FD455C9DD1945036FD81E2B5A3A50003E72EED86EAE4AE14EA4",
-          "bytes": 510550,
-          "modifiedUtc": "2026-11-04T11:31:25.930303+00:00"
+          "sha256": "59809AF3E07756D4A7E56D508E13D876FF44684B51AE779EF6D0FA254075D792",
+          "bytes": 510032,
+          "modifiedUtc": "2026-11-04T19:11:13.762700+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Underwater.png",
-          "sha256": "117EEE3BA61D316334AF124BB3C3E146A35CCF5AF91196B103D05B01E492557D",
-          "bytes": 102747,
-          "modifiedUtc": "2026-11-04T11:31:41.522131+00:00"
+          "sha256": "E69C493AAA1C04DA0D2A7DDF740A5E9BF3152C7FB207C491CD92F125E5743E38",
+          "bytes": 102377,
+          "modifiedUtc": "2026-11-04T19:11:29.341773+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Waves.png",
-          "sha256": "27D7744189AB18D4D3F26A19C25F486D402F51E04B696B2A84AA46A5F26E18B1",
-          "bytes": 601380,
-          "modifiedUtc": "2026-11-04T11:31:20.741989+00:00"
+          "sha256": "ABE511E4A62D00A5848FED6FEAC7A69A54DD0AD21D41CDF721CC03C334D6A5F0",
+          "bytes": 601303,
+          "modifiedUtc": "2026-11-04T19:11:08.577115+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T11:31:46.678853+00:00"
+          "modifiedUtc": "2026-11-04T19:11:34.491723+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T11:31:46.700308+00:00"
+          "modifiedUtc": "2026-11-04T19:11:34.510230+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T11:31:46.725146+00:00"
+          "modifiedUtc": "2026-11-04T19:11:34.532529+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T11:31:46.744106+00:00"
+          "modifiedUtc": "2026-11-04T19:11:34.550368+00:00"
         }
       ],
-      "warnings": [
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16537) != expected (16538), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32058) != expected (32059), which may indicate some update functions are being called out of order, or script execution order is broken."
-      ],
+      "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Development-DX11/Player.log",
-        "sha256": "D8EBDA6B5AC9F2C7F05C7EC72E985AC6FADE9682380A54A4BEC235E07382E4BB",
-        "bytes": 102753,
-        "modifiedUtc": "2026-11-04T11:31:46.985131+00:00"
+        "sha256": "0D8A1B8EF144FD1472C95CCE235E7C4985C88D6EF08455441C74239A64FC1829",
+        "bytes": 7303,
+        "modifiedUtc": "2026-11-04T19:11:34.745989+00:00"
       }
     },
     {
@@ -334,100 +319,85 @@
       "graphicsAPI": "DX12",
       "report": {
         "path": "Evidence/Player-Development-DX12/player-smoke.txt",
-        "sha256": "0C3BAEBAACB844EB952ED8BE582AAE7573468E1041CF93CE5C6679B87B03AF2B",
-        "bytes": 727,
-        "modifiedUtc": "2026-11-04T11:32:25.606542+00:00"
+        "sha256": "A4E5B9D4A8E584081B0848E2326056F68BEF907FC5C382F99590260F185E11C2",
+        "bytes": 1176,
+        "modifiedUtc": "2026-11-04T19:12:13.552325+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Buoyancy.png",
-          "sha256": "4DF2514AF18E83193DE30095583804D1E8A5996501969FC03F4A6F82A5BF2F73",
-          "bytes": 526006,
-          "modifiedUtc": "2026-11-04T11:32:09.765036+00:00"
+          "sha256": "A750768CB76C1F328CAA292539163A62F907D15E2FCD281527B7FE3061D7BAE3",
+          "bytes": 524860,
+          "modifiedUtc": "2026-11-04T19:11:57.767223+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Calm.png",
-          "sha256": "F34132DE412D4C88FC87DF582D31C63766E17C73575DF6AC87F44B39BC04365A",
-          "bytes": 546912,
-          "modifiedUtc": "2026-11-04T11:31:54.438000+00:00"
+          "sha256": "81C510311025C16987E7671DEAB00EF19F273D6EAE6A3BC8425525874EF469CF",
+          "bytes": 549360,
+          "modifiedUtc": "2026-11-04T19:11:42.327722+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Interactions.png",
-          "sha256": "E3E137A44742EEC14B1702900CBC825A1D7ABBBE71C335B6239FB0C882EA01D8",
-          "bytes": 542623,
-          "modifiedUtc": "2026-11-04T11:32:14.893850+00:00"
+          "sha256": "C056CBBBEEF1ECC2273D25395B2D5DA786DBAFA34A898B15C54DB9627947FCF5",
+          "bytes": 548705,
+          "modifiedUtc": "2026-11-04T19:12:02.911984+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Reflections.png",
-          "sha256": "AF2F4C42E1BEF64A86C2F060095E67ADF0650E74389D6B958ED21AF08C61B666",
-          "bytes": 538320,
-          "modifiedUtc": "2026-11-04T11:32:25.218946+00:00"
+          "sha256": "012E5D82BC6421A7042A1487E242C9FA100A164E9A1FECDCAB61EBE85125F86F",
+          "bytes": 536458,
+          "modifiedUtc": "2026-11-04T19:12:13.209239+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Storm.png",
-          "sha256": "206D90B733D58BC02EB0E18C591408794BBB1C26B67121B44680427073017B13",
-          "bytes": 509151,
-          "modifiedUtc": "2026-11-04T11:32:04.663996+00:00"
+          "sha256": "1E3B1974E7A57FF478D7054C4BBA4549CCE777737A2E4F3FA6937937A1EA2ADB",
+          "bytes": 508194,
+          "modifiedUtc": "2026-11-04T19:11:52.623870+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Underwater.png",
-          "sha256": "0551A787B6186C85F6EEF80C65EED9BECE0B5C945E4A8941E660D969FEF259D3",
-          "bytes": 103213,
-          "modifiedUtc": "2026-11-04T11:32:20.086854+00:00"
+          "sha256": "D45537639CE613CC0BC7C9D53A36ECFA4303FF0DD55B6AF55E8F69BDECD09081",
+          "bytes": 102382,
+          "modifiedUtc": "2026-11-04T19:12:08.067945+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Waves.png",
-          "sha256": "6A14027EEFEE512D6667AD8D53387E7A2B7CEBA8F20C53751D63399010F86C08",
-          "bytes": 601071,
-          "modifiedUtc": "2026-11-04T11:31:59.541305+00:00"
+          "sha256": "308F0CF870DE1F087BB725B0B5620E08533F7FBC6F54002A4D3AD2FC00319A83",
+          "bytes": 601428,
+          "modifiedUtc": "2026-11-04T19:11:47.455462+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T11:32:25.399407+00:00"
+          "modifiedUtc": "2026-11-04T19:12:13.398862+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T11:32:25.460978+00:00"
+          "modifiedUtc": "2026-11-04T19:12:13.466957+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T11:32:25.533330+00:00"
+          "modifiedUtc": "2026-11-04T19:12:13.511609+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T11:32:25.598260+00:00"
+          "modifiedUtc": "2026-11-04T19:12:13.547065+00:00"
         }
       ],
-      "warnings": [
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8886) != expected (8887), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16294) != expected (16295), which may indicate some update functions are being called out of order, or script execution order is broken."
-      ],
+      "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Development-DX12/Player.log",
-        "sha256": "073DB35B550E565417127B0251F9EC5B556E6C38C7F198E76E29F61594B203D1",
-        "bytes": 102857,
-        "modifiedUtc": "2026-11-04T11:32:26.016134+00:00"
+        "sha256": "E5238638A7C8A4BE42AFF8AC7719E0BE6DBB9191027262064813D2041E8F113B",
+        "bytes": 7420,
+        "modifiedUtc": "2026-11-04T19:12:13.851672+00:00"
       }
     },
     {
@@ -435,100 +405,85 @@
       "graphicsAPI": "DX11",
       "report": {
         "path": "Evidence/Player-Release-DX11/player-smoke.txt",
-        "sha256": "9532E3319629B1415940C8F840C87CF252AC4372D4AFDBDA20D97854655C28B6",
-        "bytes": 725,
-        "modifiedUtc": "2026-11-04T11:33:20.342227+00:00"
+        "sha256": "ADAB3BF18082D7EACF5ACE77B0810D1812FEA2E05F76567D75B84EB567B2814A",
+        "bytes": 1179,
+        "modifiedUtc": "2026-11-04T19:13:07.997544+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Buoyancy.png",
-          "sha256": "02BEA34B706237555BD463E579EF71E5C44A0F39EADFEAE278C54C1A1CDAB135",
-          "bytes": 523750,
-          "modifiedUtc": "2026-11-04T11:33:04.703791+00:00"
+          "sha256": "2AA89D4B636C438F4C6AB423369CAF6414E90941FAA891ACF9D2673BC198A586",
+          "bytes": 523857,
+          "modifiedUtc": "2026-11-04T19:12:52.391990+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Calm.png",
-          "sha256": "83CF5CF24524213A93E7F8E35A911192A2D7ED93BE7D83F0574C5BAA1C689B41",
-          "bytes": 549611,
-          "modifiedUtc": "2026-11-04T11:32:49.180737+00:00"
+          "sha256": "1D8FFC59892F0B7E8BC3CBE8F2C40D16920CE4BBA1E8DFFEEAC169BEDCD22F89",
+          "bytes": 549567,
+          "modifiedUtc": "2026-11-04T19:12:36.839071+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Interactions.png",
-          "sha256": "26C452B503D58E300A8EE2D6C03493E2D20666CEB3FA9A873627579287D55ED1",
-          "bytes": 549681,
-          "modifiedUtc": "2026-11-04T11:33:09.902126+00:00"
+          "sha256": "C2166B2D319BB7A644172CA9DF7F6D7B8DDCAE4138C8F5E55E26E5B1B32DD944",
+          "bytes": 550262,
+          "modifiedUtc": "2026-11-04T19:12:57.578217+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Reflections.png",
-          "sha256": "323532CAA8C2803E598B24824142C56FCE986A4957FAA011BE81CCE19B6A5345",
-          "bytes": 543764,
-          "modifiedUtc": "2026-11-04T11:33:20.199869+00:00"
+          "sha256": "18892F4C58CE87B62EB7C3B7ACA2D36316279CE5CEA69186F5014CC5C0934896",
+          "bytes": 544061,
+          "modifiedUtc": "2026-11-04T19:13:07.874282+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Storm.png",
-          "sha256": "552DCCFA6E9F815AA03A59F9860893B5A48B952D3E8BF07C9BA956F8886D0DC8",
-          "bytes": 510234,
-          "modifiedUtc": "2026-11-04T11:32:59.534671+00:00"
+          "sha256": "0CF94264DCB2227A5B3F0196BCC48EC87257AA0707A053BDF53D121C014DB57F",
+          "bytes": 510452,
+          "modifiedUtc": "2026-11-04T19:12:47.219584+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Underwater.png",
-          "sha256": "D0D00D39E6FE305F59E4AB0A9F1DECAB764D32A5E31566DE900C485E17EA33E0",
-          "bytes": 102544,
-          "modifiedUtc": "2026-11-04T11:33:15.102344+00:00"
+          "sha256": "980B673915197A53AE107429CCA627EB6AF1A2945754484EDC70C40097545798",
+          "bytes": 102950,
+          "modifiedUtc": "2026-11-04T19:13:02.779653+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Waves.png",
-          "sha256": "18211C98E1CF51ACBE5073E1FDFB74CB953CDA2A5797D5C36D05EF1BF7F7354F",
-          "bytes": 601192,
-          "modifiedUtc": "2026-11-04T11:32:54.351297+00:00"
+          "sha256": "B1CB8869359AAAB904713959AB7A46869253EA22EBB7F8049299E0C3929C02A2",
+          "bytes": 600940,
+          "modifiedUtc": "2026-11-04T19:12:42.032905+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T11:33:20.271877+00:00"
+          "modifiedUtc": "2026-11-04T19:13:07.932755+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T11:33:20.291305+00:00"
+          "modifiedUtc": "2026-11-04T19:13:07.951698+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T11:33:20.314813+00:00"
+          "modifiedUtc": "2026-11-04T19:13:07.975415+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T11:33:20.338225+00:00"
+          "modifiedUtc": "2026-11-04T19:13:07.992476+00:00"
         }
       ],
-      "warnings": [
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (16614) != expected (16615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (32182) != expected (32183), which may indicate some update functions are being called out of order, or script execution order is broken."
-      ],
+      "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Release-DX11/Player.log",
-        "sha256": "4F9FEB5528B3388C1F9E39A059B207509C1178A40D541376DE03241E03A5D384",
-        "bytes": 7200,
-        "modifiedUtc": "2026-11-04T11:33:21.460273+00:00"
+        "sha256": "2AF08178414A802C1944BC34F2FE33B3C999ED462296311BF511B3CBA78022BE",
+        "bytes": 4386,
+        "modifiedUtc": "2026-11-04T19:13:09.115107+00:00"
       }
     },
     {
@@ -536,115 +491,100 @@
       "graphicsAPI": "DX12",
       "report": {
         "path": "Evidence/Player-Release-DX12/player-smoke.txt",
-        "sha256": "2FE97AB96A60C254B024CB737468198A71812E293D51C97E87F8AAFA8E180FFF",
-        "bytes": 727,
-        "modifiedUtc": "2026-11-04T11:34:00.802058+00:00"
+        "sha256": "AF19A2486641769A7C28C6927A23E6F9D46B44F4C3E53F2AF27F68458031E26B",
+        "bytes": 1178,
+        "modifiedUtc": "2026-11-04T19:13:48.433366+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Buoyancy.png",
-          "sha256": "B48B179958A3F335CF0811AA86A42198B2E6C95EF9E97EDC076755F311AC23E2",
-          "bytes": 525747,
-          "modifiedUtc": "2026-11-04T11:33:44.982607+00:00"
+          "sha256": "2F00D64077D9727B6887F5F777D70A3C0C5D89010E5C8972F0C1954A230EB1BD",
+          "bytes": 525494,
+          "modifiedUtc": "2026-11-04T19:13:32.693369+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Calm.png",
-          "sha256": "383A165F2475D52DE59B1495A06CF7AB2A0647DCAFBB0E131ED99D57F6F9E30D",
-          "bytes": 548610,
-          "modifiedUtc": "2026-11-04T11:33:29.625201+00:00"
+          "sha256": "8826AFDF0F2F4F9ED764CF53378177A8BD3BD20869CF03D999D7D0690F95C560",
+          "bytes": 549397,
+          "modifiedUtc": "2026-11-04T19:13:17.267447+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Interactions.png",
-          "sha256": "F8760F32614834E425E9F138257D24E5F196A2953FE28AE8BF3B0447F901039F",
-          "bytes": 544275,
-          "modifiedUtc": "2026-11-04T11:33:50.136223+00:00"
+          "sha256": "43CD2A63D48D532D3E717496FB7E9FE92F11BDA59EC7862ED48531D56840A86B",
+          "bytes": 547074,
+          "modifiedUtc": "2026-11-04T19:13:37.804611+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Reflections.png",
-          "sha256": "063847B985BA40D4628F7DF5A1BADDD3AF9C4D638F8649519DF43FC6E9BC6F06",
-          "bytes": 537199,
-          "modifiedUtc": "2026-11-04T11:34:00.450314+00:00"
+          "sha256": "D6D7BE425CBBFF05C373C4CFEB5A5D472DA44FFE0CD95ACDB417AA71BF1669BB",
+          "bytes": 537054,
+          "modifiedUtc": "2026-11-04T19:13:48.106828+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Storm.png",
-          "sha256": "7C2EFF80838B051C7552401C3EBCBF6D10AC65EA4E38634F909A0A6EAE003B1B",
-          "bytes": 508569,
-          "modifiedUtc": "2026-11-04T11:33:39.868232+00:00"
+          "sha256": "7651D29BD96BBD16ACE07CBC9654AD7C629B183E511ECE8F79EBBC0FE548AF60",
+          "bytes": 508027,
+          "modifiedUtc": "2026-11-04T19:13:27.565763+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Underwater.png",
-          "sha256": "FA2D5D3B946E0DB6635E737E87A145DFDCB741E3E9945B125299158DFD120F61",
-          "bytes": 103201,
-          "modifiedUtc": "2026-11-04T11:33:55.330019+00:00"
+          "sha256": "C0F56CA416A0795EEF5AA266F8EF695B08534DC4039057E54013D94CC3CFDF7D",
+          "bytes": 102842,
+          "modifiedUtc": "2026-11-04T19:13:42.956138+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Waves.png",
-          "sha256": "2B1DE708EB0B521DD412219D74B6006FC0CCAFF32C2326C6C998D2D111F085A8",
-          "bytes": 602292,
-          "modifiedUtc": "2026-11-04T11:33:34.753100+00:00"
+          "sha256": "711B1FC5791E7A4E8B8AA22769DA8C0552303B5FBC5108AC241FC8D0EA20D507",
+          "bytes": 601447,
+          "modifiedUtc": "2026-11-04T19:13:22.418562+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T11:34:00.599563+00:00"
+          "modifiedUtc": "2026-11-04T19:13:48.266231+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T11:34:00.667034+00:00"
+          "modifiedUtc": "2026-11-04T19:13:48.322029+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T11:34:00.734764+00:00"
+          "modifiedUtc": "2026-11-04T19:13:48.374590+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T11:34:00.792794+00:00"
+          "modifiedUtc": "2026-11-04T19:13:48.424187+00:00"
         }
       ],
-      "warnings": [
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (8971) != expected (8972), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken.",
-        "Crest: RenderData validation failed - Shadow - _frame of data (17614) != expected (17615), which may indicate some update functions are being called out of order, or script execution order is broken."
-      ],
+      "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Release-DX12/Player.log",
-        "sha256": "F32DB5042674ED79AAE997384195879BBBB159A535FC83C07217C20BC5FCCE43",
-        "bytes": 7307,
-        "modifiedUtc": "2026-11-04T11:34:01.955906+00:00"
+        "sha256": "6EBBC518EB31BF22D8121A87AF06FB8DF25354935598AAD307D06271119E09F4",
+        "bytes": 4507,
+        "modifiedUtc": "2026-11-04T19:13:49.589615+00:00"
       }
     }
   ],
   "buildLogs": [
     {
       "path": "Evidence/Development-DX11.log",
-      "sha256": "2393EAB34E229F2CB1C7189D8AC3DA7F41E388BEAB7CE73E0B0B68102939374F",
-      "bytes": 672148,
-      "modifiedUtc": "2026-11-04T11:30:07.051459+00:00"
+      "sha256": "FC4AEF3343378C28AC97C10F16C2AD31DFC3CF381C1AEEF29586463E6C2F81CE",
+      "bytes": 677233,
+      "modifiedUtc": "2026-11-04T19:09:54.912122+00:00"
     },
     {
       "path": "Evidence/Release-DX11.log",
-      "sha256": "797E832246FAA8926EEB2B0EFCE883795BF9A17494E4721B173FF247B35F9956",
-      "bytes": 620784,
-      "modifiedUtc": "2026-11-04T11:30:49.269089+00:00"
+      "sha256": "FF4C0093E9EA59D52C075F47F23D8EB5F32DF428450161D7165389E69F765115",
+      "bytes": 621915,
+      "modifiedUtc": "2026-11-04T19:10:35.400174+00:00"
     }
   ],
   "materialSources": [
@@ -659,7 +599,7 @@
       "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
       "sha256": "645FE3F9916615B95D9A4CF5BC07EE69B62FE7676CE3F62B609E1BFA8A548593",
       "bytes": 4006,
-      "modifiedUtc": "2026-11-04T11:28:51.416329+00:00",
+      "modifiedUtc": "2026-11-04T19:09:01.094032+00:00",
       "guid": "ecfe7530e35f6ef4599de91f34369545"
     },
     {
@@ -694,7 +634,7 @@
       "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
       "sha256": "ED107E4897AE5307ECFBB8D2DFA59110DC91C93D7862C01479C58AD187FAA06D",
       "bytes": 3927,
-      "modifiedUtc": "2026-11-04T11:28:51.460278+00:00",
+      "modifiedUtc": "2026-11-04T19:09:01.137183+00:00",
       "guid": "95e214cf788f645edbb5bed42ff8d653"
     },
     {
@@ -728,7 +668,7 @@
     "entry": "Evidence/Build-checkpoint.json"
   },
   "previousGPUCacheArchive": {
-    "path": "Evidence/P10-GpuCache-before.zip",
+    "path": "Evidence/P10-ShadowOrder-before.zip",
     "entry": "Evidence/Build-checkpoint.json"
   }
 }

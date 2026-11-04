@@ -10,8 +10,11 @@ using UnityEngine.Rendering.Universal;
 
 namespace Crest.URP
 {
+    // OceanRenderer's preserved script execution order is200.
+    [DefaultExecutionOrder(300)]
     public sealed partial class PortDemoController : MonoBehaviour
     {
+        string _pendingCapture;
         bool _smoke;
         int _errors;
         string _evidence;
@@ -78,7 +81,9 @@ namespace Crest.URP
                 var name = SceneManager.GetActiveScene().name;
                 _results.Add($"{name}: ready={ready}; minimum={minimum}; maximum={maximum}");
                 if (ready < 30 || maximum - minimum < .001f) _errors++;
-                CaptureCamera(Path.Combine(_evidence, name + ".png"));
+                // Coroutines resume before LateUpdate; submit only after this frame's ocean update.
+                _pendingCapture = Path.Combine(_evidence, name + ".png");
+                while (_pendingCapture != null) yield return null;
                 yield return null;
                 yield return null;
             }
@@ -87,6 +92,20 @@ namespace Crest.URP
             _results.Add($"Errors={_errors}. Smoke checks do not establish full visual or performance acceptance.");
             File.WriteAllLines(Path.Combine(_evidence, "player-smoke.txt"), _results);
             Application.Quit(_errors == 0 ? 0 : 1);
+        }
+
+        void LateUpdate()
+        {
+            if (_pendingCapture == null) return;
+            try
+            {
+                var ocean = OceanRenderer.Instance;
+                int lodFrame = ocean._lodTransform._renderData[0].Current._frame;
+                _results.Add($"CaptureFrame: scene={SceneManager.GetActiveScene().name}; frame={Time.frameCount}; lodFrame={lodFrame}");
+                if (lodFrame != Time.frameCount) _errors++;
+                CaptureCamera(_pendingCapture);
+            }
+            finally { _pendingCapture = null; }
         }
 
         void OnGUI()

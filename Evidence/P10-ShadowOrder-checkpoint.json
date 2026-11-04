@@ -1,0 +1,432 @@
+{
+  "recordedUtc": "2026-11-04T19:14:23.194139+00:00",
+  "suites": [
+    {
+      "path": "Evidence/P10-ShadowOrder-EditMode-DX11.xml",
+      "sha256": "7AFB4F38E82D280BF47F12831D1D3EADDE16EBE8B08A93551A2BB64DA2B9DC94",
+      "bytes": 150919,
+      "modifiedUtc": "2026-11-04T19:00:01.888120+00:00",
+      "passed": 110,
+      "start": "2026-11-04 18:55:03Z",
+      "end": "2026-11-04 19:00:01Z"
+    },
+    {
+      "path": "Evidence/P10-ShadowOrder-EditMode-DX11-interactive.xml",
+      "sha256": "E8774F398519F3BB94F4AF571DDADE2811F7A2FF832C8CD9E2E8B0DE916C68F2",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-04T19:01:06.116612+00:00",
+      "passed": 2,
+      "start": "2026-11-04 19:00:26Z",
+      "end": "2026-11-04 19:01:06Z"
+    },
+    {
+      "path": "Evidence/P10-ShadowOrder-EditMode-DX12.xml",
+      "sha256": "C8DC715E424FBA1DA4EEB60DC9FB92429126206E08A549AEF19BE88998C2EE9B",
+      "bytes": 150909,
+      "modifiedUtc": "2026-11-04T19:07:55.366157+00:00",
+      "passed": 110,
+      "start": "2026-11-04 19:01:26Z",
+      "end": "2026-11-04 19:07:55Z"
+    },
+    {
+      "path": "Evidence/P10-ShadowOrder-EditMode-DX12-interactive.xml",
+      "sha256": "8D019B0319FBEA0667EB46FBF0D7642FA9BCD284EC799B15FB26FB54F5FF5E29",
+      "bytes": 4019,
+      "modifiedUtc": "2026-11-04T19:08:57.353459+00:00",
+      "passed": 2,
+      "start": "2026-11-04 19:08:17Z",
+      "end": "2026-11-04 19:08:57Z"
+    }
+  ],
+  "cause": {
+    "diagnosis": "Manual smoke Submit ran before Ocean LateUpdate, not stale owner/double update. Move queued capture to controller LateUpdate order300 after original Ocean200. Core shadow validation and algorithm unchanged.",
+    "controls": {
+      "before": {
+        "captures": [
+          {
+            "scene": "Ocean_Calm",
+            "frame": 5659,
+            "lodFrame": 5658,
+            "ocean": "1812:256"
+          },
+          {
+            "scene": "Ocean_Waves",
+            "frame": 11468,
+            "lodFrame": 11467,
+            "ocean": "2438:256"
+          },
+          {
+            "scene": "Ocean_Storm",
+            "frame": 16669,
+            "lodFrame": 16668,
+            "ocean": "1851:768"
+          },
+          {
+            "scene": "Ocean_Buoyancy",
+            "frame": 22421,
+            "lodFrame": 22420,
+            "ocean": "1957:1280"
+          },
+          {
+            "scene": "Ocean_Interactions",
+            "frame": 27078,
+            "lodFrame": 27077,
+            "ocean": "1959:1280"
+          },
+          {
+            "scene": "Ocean_Underwater",
+            "frame": 32341,
+            "lodFrame": 32340,
+            "ocean": "1913:2304"
+          },
+          {
+            "scene": "Ocean_Reflections",
+            "frame": 35374,
+            "lodFrame": 35373,
+            "ocean": "1890:2816"
+          }
+        ],
+        "shadowTrace": [
+          [
+            "record",
+            "16669",
+            "16668",
+            "16667",
+            "1851:768",
+            "1851:768"
+          ],
+          [
+            "execute",
+            "16669",
+            "16668",
+            "16667",
+            "1851:768",
+            "1851:768"
+          ],
+          [
+            "record",
+            "32341",
+            "32340",
+            "32339",
+            "1913:2304",
+            "1913:2304"
+          ],
+          [
+            "execute",
+            "32341",
+            "32340",
+            "32339",
+            "1913:2304",
+            "1913:2304"
+          ]
+        ],
+        "warnings": 14
+      },
+      "after": {
+        "captures": [
+          {
+            "scene": "Ocean_Calm",
+            "frame": 5666,
+            "lodFrame": 5666,
+            "ocean": "1812:256"
+          },
+          {
+            "scene": "Ocean_Waves",
+            "frame": 11393,
+            "lodFrame": 11393,
+            "ocean": "2439:256"
+          },
+          {
+            "scene": "Ocean_Storm",
+            "frame": 16551,
+            "lodFrame": 16551,
+            "ocean": "1857:768"
+          },
+          {
+            "scene": "Ocean_Buoyancy",
+            "frame": 22240,
+            "lodFrame": 22240,
+            "ocean": "1964:1280"
+          },
+          {
+            "scene": "Ocean_Interactions",
+            "frame": 26828,
+            "lodFrame": 26828,
+            "ocean": "1953:1280"
+          },
+          {
+            "scene": "Ocean_Underwater",
+            "frame": 32025,
+            "lodFrame": 32025,
+            "ocean": "1915:2304"
+          },
+          {
+            "scene": "Ocean_Reflections",
+            "frame": 34451,
+            "lodFrame": 34451,
+            "ocean": "1900:2304"
+          }
+        ],
+        "shadowTrace": [
+          [
+            "record",
+            "16551",
+            "16551",
+            "16550",
+            "1857:768",
+            "1857:768"
+          ],
+          [
+            "execute",
+            "16551",
+            "16551",
+            "16550",
+            "1857:768",
+            "1857:768"
+          ],
+          [
+            "record",
+            "32025",
+            "32025",
+            "32024",
+            "1915:2304",
+            "1915:2304"
+          ],
+          [
+            "execute",
+            "32025",
+            "32025",
+            "32024",
+            "1915:2304",
+            "1915:2304"
+          ]
+        ],
+        "warnings": 0
+      }
+    },
+    "scope": "DX11 diagnostic causal pair; subsequent full/default DX11/DX12 regression and4 Players accepted with28 current-frame captures and0 RenderData warnings"
+  },
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "5275FCE5E8E135A2D340D4BB237939EA78B19903C746ECE314B7CA6E0F6117E6",
+    "bytes": 28731,
+    "modifiedUtc": "2026-11-04T19:14:23.361961+00:00"
+  },
+  "limitation": "Demo smoke capture scheduled after Ocean LateUpdate; trace proves prior coroutine used previous-frame LOD. Shadow algorithm/validation unchanged. Remaining P10 resources/GPU/NonLocal and P11 configurations open; real XR/Intel unavailable.",
+  "captureControls": [
+    {
+      "configuration": "Development",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 4898,
+          "lodFrame": 4898
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 10619,
+          "lodFrame": 10619
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 15792,
+          "lodFrame": 15792
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 21492,
+          "lodFrame": 21492
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 26104,
+          "lodFrame": 26104
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 31331,
+          "lodFrame": 31331
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 34521,
+          "lodFrame": 34521
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Development",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 3147,
+          "lodFrame": 3147
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 6154,
+          "lodFrame": 6154
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 8632,
+          "lodFrame": 8632
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 11278,
+          "lodFrame": 11278
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 13844,
+          "lodFrame": 13844
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 16302,
+          "lodFrame": 16302
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 17271,
+          "lodFrame": 17271
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5669,
+          "lodFrame": 5669
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11396,
+          "lodFrame": 11396
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16558,
+          "lodFrame": 16558
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22254,
+          "lodFrame": 22254
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 26844,
+          "lodFrame": 26844
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32036,
+          "lodFrame": 32036
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 35161,
+          "lodFrame": 35161
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 3066,
+          "lodFrame": 3066
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 6039,
+          "lodFrame": 6039
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 8877,
+          "lodFrame": 8877
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 12131,
+          "lodFrame": 12131
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 15300,
+          "lodFrame": 15300
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 18134,
+          "lodFrame": 18134
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 19585,
+          "lodFrame": 19585
+        }
+      ],
+      "renderDataWarnings": 0
+    }
+  ],
+  "unchangedCoreSources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/OceanRenderer.cs",
+      "sha256": "8AD863F2E19E7C1D62CB887A692F2618A5580FE290C1EF76954FAAF1949E24F5",
+      "bytes": 92022,
+      "modifiedUtc": "2026-11-04T18:54:46.110705+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/Shadows/LodDataMgrShadow.URP.cs",
+      "sha256": "9AF6CAEB68CA7EF5ECA2C84D1DD40F58AE6300997D6B81F830180147A61C1A36",
+      "bytes": 3817,
+      "modifiedUtc": "2026-11-04T18:54:46.169622+00:00"
+    }
+  ],
+  "smokeSources": [
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
+      "sha256": "A325A07F15071E78794D9E5879E4D34ED80BA140B2C431759A87A6A727F90DD3",
+      "bytes": 7577,
+      "modifiedUtc": "2026-11-04T18:54:46.224198+00:00"
+    },
+    {
+      "path": "Tools/Run-Player.ps1",
+      "sha256": "348EEDEF67ECFE1AFB515C67824ED1F40D357D9197CE9A493E1600640C2A64C1",
+      "bytes": 2802,
+      "modifiedUtc": "2026-11-04T18:51:50.357066+00:00"
+    }
+  ],
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "90f4509ae6225ce27c421836ccf754c7294ee4f0ea228e5669e549b7c314f70d",
+    "fileCount": 1402,
+    "rootMarkdown": 8
+  },
+  "sourceCheck": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  }
+}

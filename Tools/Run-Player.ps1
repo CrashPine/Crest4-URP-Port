@@ -19,6 +19,13 @@ if(!(Test-Path (Join-Path $evidence 'player-smoke.txt'))) { throw 'Player produc
 $report=Get-Item -LiteralPath (Join-Path $evidence 'player-smoke.txt')
 if($report.LastWriteTimeUtc -lt $startedUtc) { throw 'Player report is stale.' }
 if((Get-Content -Raw -LiteralPath $report.FullName) -notmatch '(?m)^Errors=0\.') { throw 'Player report contains smoke failures.' }
+$captures=[regex]::Matches((Get-Content -Raw -LiteralPath $report.FullName),'(?m)^CaptureFrame: scene=([^;]+); frame=(\d+); lodFrame=(\d+)')
+if($captures.Count -ne 7 -or @($captures | Where-Object { $_.Groups[2].Value -ne $_.Groups[3].Value }).Count) {
+    throw 'Expected7 captures after the current ocean LOD update.'
+}
+if((Get-Content -Raw (Join-Path $evidence 'Player.log')) -match 'RenderData validation failed') {
+    throw 'Player rendered stale Crest LOD data; inspect frame-order evidence.'
+}
 $images=@(Get-ChildItem $evidence -Filter Ocean_*.png)
 if($images.Count -ne 7) { throw "Expected 7 scene captures; received $($images.Count)." }
 if(@($images | Where-Object { $_.LastWriteTimeUtc -lt $startedUtc -or $_.Length -eq 0 }).Count) {

@@ -1,0 +1,168 @@
+{
+  "diagnosis": "Manual smoke Submit ran before Ocean LateUpdate, not stale owner/double update. Move queued capture to controller LateUpdate order300 after original Ocean200. Core shadow validation and algorithm unchanged.",
+  "controls": {
+    "before": {
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5659,
+          "lodFrame": 5658,
+          "ocean": "1812:256"
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11468,
+          "lodFrame": 11467,
+          "ocean": "2438:256"
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16669,
+          "lodFrame": 16668,
+          "ocean": "1851:768"
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22421,
+          "lodFrame": 22420,
+          "ocean": "1957:1280"
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 27078,
+          "lodFrame": 27077,
+          "ocean": "1959:1280"
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32341,
+          "lodFrame": 32340,
+          "ocean": "1913:2304"
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 35374,
+          "lodFrame": 35373,
+          "ocean": "1890:2816"
+        }
+      ],
+      "shadowTrace": [
+        [
+          "record",
+          "16669",
+          "16668",
+          "16667",
+          "1851:768",
+          "1851:768"
+        ],
+        [
+          "execute",
+          "16669",
+          "16668",
+          "16667",
+          "1851:768",
+          "1851:768"
+        ],
+        [
+          "record",
+          "32341",
+          "32340",
+          "32339",
+          "1913:2304",
+          "1913:2304"
+        ],
+        [
+          "execute",
+          "32341",
+          "32340",
+          "32339",
+          "1913:2304",
+          "1913:2304"
+        ]
+      ],
+      "warnings": 14
+    },
+    "after": {
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5666,
+          "lodFrame": 5666,
+          "ocean": "1812:256"
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11393,
+          "lodFrame": 11393,
+          "ocean": "2439:256"
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16551,
+          "lodFrame": 16551,
+          "ocean": "1857:768"
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22240,
+          "lodFrame": 22240,
+          "ocean": "1964:1280"
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 26828,
+          "lodFrame": 26828,
+          "ocean": "1953:1280"
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32025,
+          "lodFrame": 32025,
+          "ocean": "1915:2304"
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 34451,
+          "lodFrame": 34451,
+          "ocean": "1900:2304"
+        }
+      ],
+      "shadowTrace": [
+        [
+          "record",
+          "16551",
+          "16551",
+          "16550",
+          "1857:768",
+          "1857:768"
+        ],
+        [
+          "execute",
+          "16551",
+          "16551",
+          "16550",
+          "1857:768",
+          "1857:768"
+        ],
+        [
+          "record",
+          "32025",
+          "32025",
+          "32024",
+          "1915:2304",
+          "1915:2304"
+        ],
+        [
+          "execute",
+          "32025",
+          "32025",
+          "32024",
+          "1915:2304",
+          "1915:2304"
+        ]
+      ],
+      "warnings": 0
+    }
+  },
+  "scope": "DX11 diagnostic causal pair; subsequent full/default DX11/DX12 regression and4 Players accepted with28 current-frame captures and0 RenderData warnings"
+}

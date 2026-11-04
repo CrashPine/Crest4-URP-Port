@@ -47,7 +47,7 @@ $editor = 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe'
 
 Focused XML не заменяет полный набор. `Verify-Source.ps1` — отдельная строгая побайтовая проверка: Unity нормализовала три sprite meta, поэтому её результат отличается от проверки GUID/compute; это не скрывается.
 
-`-ReflectionOptions` добавляет к семи сценам контролируемую проверку дистанции и pixel/vertex lighting отражения с отдельными PNG и `reflection-options.txt`. Скрипт проверяет свежесть этих файлов. Сборка автоматически сохраняет необходимые lighting variants; контракт для другого build pipeline описан в MIGRATION.md.
+`-ReflectionOptions` добавляет к семи сценам контролируемую проверку дистанции и pixel/vertex lighting отражения с отдельными PNG и `reflection-options.txt`. Скрипт проверяет свежесть этих файлов, совпадение кадра снимка с текущим LOD и отсутствие RenderData validation warnings. Сборка автоматически сохраняет необходимые lighting variants; контракт для другого build pipeline описан в MIGRATION.md.
 
 Player предоставляет переключение сцен, ветер, уровень моря и высоту камеры. Smoke-проверка не доказывает полную визуальную эквивалентность или производительность.
 

@@ -439,3 +439,5 @@ For offscreen manual rendering with the original main-scene camera disabled, set
 ### Editor spline scene closing
 
 `SplinePoint` retains normal Editor change/disable/delete/Undo notifications. During `EditorSceneManager.sceneClosing` it skips notifications targeting the closing parent scene, so teardown cannot recreate meshes for disabled spline receivers. Tracking is cleared by `sceneClosed`. The tracker/guard are entirely `UNITY_EDITOR`; Player simulation and mesh-generation algorithms are unchanged. This does not defer ordinary edits or require callers to destroy receivers before closing scenes.
+
+Manual URP `SubmitRenderRequest` must run after the current frame's OceanRenderer LateUpdate (preserved script execution order200), with its ViewCamera assigned as above. The supplied smoke controller queues capture in LateUpdate at order300 and verifies current LOD frame equality. A coroutine resumed by `yield return null` runs before LateUpdate and can render previous-frame LOD/shadow state. Keep simulation updating once through its existing lifecycle; camera capture does not drive an extra ocean update.
