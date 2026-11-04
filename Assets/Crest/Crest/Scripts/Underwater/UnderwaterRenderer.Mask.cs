@@ -170,6 +170,8 @@ namespace Crest
             _depthRT.descriptor = descriptor;
         }
 
+        [System.NonSerialized] bool? _intelGpuForMask;
+
         internal RenderTextureDescriptor GetMaskColorRTD(RenderTextureDescriptor descriptor)
         {
             // This will disable MSAA for our textures as MSAA will break sampling later on. This looks safe to do as
@@ -179,7 +181,10 @@ namespace Crest
             // @Memory: We could investigate making this an 8-bit texture instead to reduce GPU memory usage.
             // @Memory: We could potentially try a half resolution mask as the mensicus could mask resolution issues.
             // Intel iGPU for Metal and DirectX both had issues with R16. 2021.11.18
-            descriptor.colorFormat = Helpers.IsIntelGPU() ? RenderTextureFormat.RFloat : RenderTextureFormat.RHalf;
+            // Evaluate the original hardware workaround once per enabled lifetime.
+            // Querying/lowercasing the device name allocates on each descriptor request.
+            if (!_intelGpuForMask.HasValue) _intelGpuForMask = Helpers.IsIntelGPU();
+            descriptor.colorFormat = _intelGpuForMask.Value ? RenderTextureFormat.RFloat : RenderTextureFormat.RHalf;
             descriptor.depthBufferBits = 0;
             descriptor.enableRandomWrite = true;
 

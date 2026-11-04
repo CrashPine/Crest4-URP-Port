@@ -1,6 +1,16 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-10-30**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-04**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P10: repeated underwater classification cached (2026-11-04)
+
+Production GetMaskColorRTD caches the unchanged Helpers.IsIntelGPU result lazily once per enabled renderer lifetime; OnEnable invalidates the nonserialized cache. Original Intel RFloat/non-Intel RHalf descriptor selection, rendering/compute algorithms and GUIDs retained. One-time classification still allocates; no device vendor substitution.
+
+Four short native windows (3s after5s warmup, original960x540 submerged Calm controls) show Off/On both exactly448B per actual Submit on DX11/DX12. Requests64/63 (Off/On) DX11 and373/360 DX12; errors0, render callbacks=requests. All10 measured underwater registration/callback buckets0. The previous incremental576B/request is removed in this warmed path. Common448B remains; no whole-asset GC-free, GPU-time, full-frame or VRAM improvement claim. Actual Intel hardware and XR unavailable, so preserved rule is not physical hardware acceptance. Raw GC data recorded2026-10-30; resumed milestone completed2026-11-04.
+
+Focused mask1/1 DX11, full110/110 and actual interactive2/2 each API Passed; native volume-face fields25600→0 fullscreen→exact restore. Development/Release rebuilt successfully; four sequential Player runs (7 demos+4 reflection captures each) Errors0. Selected fresh underwater captures inspected. Existing Shadow RenderData frame-validation warnings recur in Player and are present in all four archived pre-fix logs (14 each); not introduced by this cache fix, owner/order correction remains open. No clean-log acceptance. Original597 GUID/compute and stable structural audit pass;8 root Markdown files. Two interrupted DX12 attempts have no fresh XML and are archived separately, never counted as passes. Test-induced two material changes/variant whitespace archived and restored; foreign Ocean/baked lighting preserved.
+
+Evidence: P10-GpuCache-checkpoint.json, -gc-summary.json, -evidence.zip/-files.json, -before.zip and interruption archives; Build-checkpoint.json fingerprints current normal builds. This supersedes the following historical “optimization pending” statement only for the scoped cache fix. Remaining driver retention/resource/GPU-draw/configuration gaps remain P10/P11.
 
 ## P10: underwater allocation source localized (2026-10-30)
 

@@ -207,6 +207,8 @@ namespace Crest
 
         void OnEnable()
         {
+            // Re-evaluate after re-enable/domain/editor graphics initialization changes.
+            _intelGpuForMask = null;
             if (_camera == null)
             {
                 _camera = GetComponent<Camera>();

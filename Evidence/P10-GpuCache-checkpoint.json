@@ -1,0 +1,130 @@
+{
+  "recordedUtc": "2026-11-04T11:34:16.463466+00:00",
+  "suites": [
+    {
+      "path": "Evidence/P10-GpuCache-EditMode-DX11.xml",
+      "sha256": "3129EEE7B882942CA5EEEE70BF73FBFCB4C19794598DDEF3CFD33CF122233C5E",
+      "bytes": 150891,
+      "modifiedUtc": "2026-10-30T17:13:09.342900+00:00",
+      "passed": 110,
+      "start": "2026-10-30 17:10:40Z",
+      "end": "2026-10-30 17:13:09Z"
+    },
+    {
+      "path": "Evidence/P10-GpuCache-EditMode-DX11-interactive.xml",
+      "sha256": "D5F6CB6261FCCB22CBB621E051647D5A91A7AE01870FCCAB8297322DDB1340DD",
+      "bytes": 4019,
+      "modifiedUtc": "2026-10-30T17:13:40.713167+00:00",
+      "passed": 2,
+      "start": "2026-10-30 17:13:24Z",
+      "end": "2026-10-30 17:13:40Z"
+    },
+    {
+      "path": "Evidence/P10-GpuCache-EditMode-DX12.xml",
+      "sha256": "AA55674D58840B707BF3125FE074C76C2FBCE370F121657DD2EBBF3E72606167",
+      "bytes": 150925,
+      "modifiedUtc": "2026-11-04T11:27:40.827152+00:00",
+      "passed": 110,
+      "start": "2026-11-04 11:21:06Z",
+      "end": "2026-11-04 11:27:40Z"
+    },
+    {
+      "path": "Evidence/P10-GpuCache-EditMode-DX12-interactive.xml",
+      "sha256": "B56E6492503CE7E4910577461BA0E99328C2C7F1DFFE2D10CAEB4A3440DA8D29",
+      "bytes": 4019,
+      "modifiedUtc": "2026-11-04T11:28:47.564348+00:00",
+      "passed": 2,
+      "start": "2026-11-04 11:28:08Z",
+      "end": "2026-11-04 11:28:47Z"
+    }
+  ],
+  "gc": [
+    {
+      "file": "P10-GpuCache-DX11-Underwater1.json",
+      "requests": 63,
+      "bytesPerSubmit": 448.0,
+      "siteBytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "P10-GpuCache-DX11-UnderwaterOff.json",
+      "requests": 64,
+      "bytesPerSubmit": 448.0,
+      "siteBytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "P10-GpuCache-DX12-Underwater1.json",
+      "requests": 360,
+      "bytesPerSubmit": 448.0,
+      "siteBytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "P10-GpuCache-DX12-UnderwaterOff.json",
+      "requests": 373,
+      "bytesPerSubmit": 448.0,
+      "siteBytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "28F5040950FE4187567F9ADF37D785F0C2193EF341169A562654C43F7C4184D5",
+    "bytes": 40716,
+    "modifiedUtc": "2026-11-04T11:34:16.628310+00:00"
+  },
+  "limitation": "Scoped per-enabled-lifetime GPU classification cache; native warm Off/On GC windows only. Common448B Submit remains; real Intel/XR unavailable. Historical driver retention/evictable and broader P10/P11 coverage open. Existing Shadow RenderData frame-validation warnings recur and also occur in archived pre-fix runs; unresolved, not clean-log acceptance.",
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "FC47C8E296AC7A8A70C69DA65E81084368C0194C80AE59DA850DCA95C71EE0A9",
+    "fileCount": 1402,
+    "rootMarkdown": 8
+  },
+  "playerShadowWarnings": {
+    "currentPerRun": 14,
+    "preFixPerRun": 14,
+    "status": "UNRESOLVED",
+    "preFixEvidence": "P10-GpuCache-before.zip!Evidence/Player-*/Player.log"
+  }
+}
