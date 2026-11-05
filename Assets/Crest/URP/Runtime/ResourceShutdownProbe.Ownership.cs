@@ -18,6 +18,9 @@ namespace Crest.URP.Diagnostics
     {
         [Serializable] class BufferInfo {public string id,kind,owner;public bool valid;public int count,stride;public long logicalBytes;}
         sealed class TrackedBuffer {public object reference;public BufferInfo description;}
+        [Serializable] class TrackedTextureInfo {public string id,name,owner;public bool alive,created;}
+        sealed class TrackedTexture {public RenderTexture reference;public string id,name,owner;}
+        readonly List<TrackedTexture> _trackedTextures=new List<TrackedTexture>();
         [Serializable] class TextureOwner {public string id;public string[] paths;}
         [Serializable] class OwnershipStage
         {
@@ -26,6 +29,8 @@ namespace Crest.URP.Diagnostics
             public Snapshot snapshot;
             public BufferInfo[] reachableBuffers,trackedBufferState;
             public TextureOwner[] textureOwners;
+            public TrackedTextureInfo[] trackedTextures;
+            public int fftGenerators,activeFFTShapes;public bool foam,dynamicWaves,flow;
             public string[] walkLimits;
             public int walkedNodes;
 #if UNITY_STANDALONE_WIN
@@ -56,7 +61,9 @@ namespace Crest.URP.Diagnostics
                 if(value==null)return;
                 if(value is RenderTexture texture)
                 {
-                    if(texture!=null){string id=texture.GetEntityId().ToString();if(!owners.TryGetValue(id,out var paths))owners[id]=paths=new List<string>();paths.Add(path);}return;
+                    if(texture!=null){
+                        if(!_trackedTextures.Any(t=>ReferenceEquals(t.reference,texture)))_trackedTextures.Add(new TrackedTexture{reference=texture,id=texture.GetEntityId().ToString(),name=texture.name,owner=path});
+                        string id=texture.GetEntityId().ToString();if(!owners.TryGetValue(id,out var paths))owners[id]=paths=new List<string>();paths.Add(path);}return;
                 }
                 if(value is ComputeBuffer||value is GraphicsBuffer)
                 {
@@ -91,7 +98,10 @@ namespace Crest.URP.Diagnostics
             // Never enumerate arbitrary static fields/cctors of unloaded Crest subsystems.
             if(_fftCacheObserved)walk(typeof(FFTCompute).GetField("_generators",BindingFlags.Static|BindingFlags.NonPublic).GetValue(null),"FFTCompute._generators",0);
             if(target!=null)walk(target,"Probe.target",0);
-            var stage=new OwnershipStage {stage=label,utc=DateTime.UtcNow.ToString("O"),realtime=Time.realtimeSinceStartup,snapshot=Capture(label),walkedNodes=nodes,walkLimits=limits.ToArray(),
+            var ocean=OceanRenderer.Instance;
+            var stage=new OwnershipStage {fftGenerators=_fftCacheObserved?FFTCompute.GeneratorCount:0,activeFFTShapes=UnityEngine.Object.FindObjectsByType<ShapeFFT>().Count(t=>t.enabled),
+                foam=ocean!=null&&ocean._lodDataFoam!=null,dynamicWaves=ocean!=null&&ocean._lodDataDynWaves!=null,flow=ocean!=null&&ocean._lodDataFlow!=null,
+                trackedTextures=_trackedTextures.Select(t=>new TrackedTextureInfo{id=t.id,name=t.name,owner=t.owner,alive=t.reference!=null,created=t.reference!=null&&t.reference.IsCreated()}).ToArray(),stage=label,utc=DateTime.UtcNow.ToString("O"),realtime=Time.realtimeSinceStartup,snapshot=Capture(label),walkedNodes=nodes,walkLimits=limits.ToArray(),
                 reachableBuffers=_trackedBuffers.Where(b=>found.Contains(b.reference)).Select(DescribeBuffer).ToArray(),
                 trackedBufferState=_trackedBuffers.Select(DescribeBuffer).ToArray(),textureOwners=owners.Select(p=>new TextureOwner {id=p.Key,paths=p.Value.ToArray()}).ToArray()
 #if UNITY_STANDALONE_WIN
@@ -100,6 +110,63 @@ namespace Crest.URP.Diagnostics
             };
             File.WriteAllText(Argument("-crestProbeOutput","Ownership.json")+".phase.json",JsonUtility.ToJson(stage));
             return stage;
+        }
+        [Serializable] class ActiveOwnerResult {public string unity,api;public int errors;public OwnershipStage[] stages;}
+        IEnumerator ActiveOwners()
+        {
+            var stages=new List<OwnershipStage>();
+            for(int cycle=0;cycle<2;cycle++)
+            {
+                if(cycle>0)yield return SceneManager.LoadSceneAsync(2);
+                var ocean=OceanRenderer.Instance;
+                var shapes=UnityEngine.Object.FindObjectsByType<ShapeFFT>();
+                if(shapes.Length==0)throw new InvalidOperationException("Active FFT fixture missing");
+                var flags=new[]{"_createFoamSim","_createDynamicWaveSim","_createFlowSim"};
+                void SetInputs(bool value)
+                {
+                    foreach(var flag in flags)typeof(OceanRenderer).GetField(flag,BindingFlags.Instance|BindingFlags.NonPublic).SetValue(ocean,value);
+                    foreach(var shape in shapes)shape.enabled=value;
+                }
+                SetInputs(true);
+                var flow=new SampleFlowHelper();var height=new SampleHeightHelper();
+                IEnumerator Warm()
+                {
+                    int ready=0;double start=Time.realtimeSinceStartupAsDouble;
+                    while(Time.realtimeSinceStartupAsDouble-start<5&&ready<8)
+                    {
+                        flow.Init(Vector3.zero,1);height.Init(Vector3.zero,1,true);
+                        bool valid=flow.Sample(out var f)&&height.Sample(out float h)&&!float.IsNaN(h)&&!float.IsNaN(f.x);
+                        ready=valid?ready+1:0;yield return null;
+                    }
+                    if(ready<8)_errors++;
+                }
+                yield return Warm();
+                var target=new RenderTexture(960,540,24,RenderTextureFormat.ARGB32);target.Create();
+                IEnumerator Render()
+                {
+                    RenderPipeline.SubmitRenderRequest(Camera.main,new UniversalRenderPipeline.SingleCameraRequest{destination=target});
+                    var done=AsyncGPUReadback.Request(target,0,0,1,0,1,0,1);while(!done.done)yield return null;if(done.hasError)_errors++;
+                }
+                try
+                {
+                    yield return Render();var live=Observe("cycle"+cycle+"-enabled",target);stages.Add(live);
+                    if(!live.foam||!live.dynamicWaves||!live.flow||live.fftGenerators<1)_errors++;
+                    SetInputs(false);for(int i=0;i<8;i++)yield return null;
+                    var off=Observe("cycle"+cycle+"-inputs-disabled",target);stages.Add(off);
+                    if(off.foam||off.dynamicWaves||off.flow||off.activeFFTShapes!=0)_errors++;
+                    SetInputs(true);yield return Warm();yield return Render();
+                    var again=Observe("cycle"+cycle+"-reenabled",target);stages.Add(again);
+                    if(!again.foam||!again.dynamicWaves||!again.flow||again.activeFFTShapes<1)_errors++;
+                }
+                finally{target.Release();Destroy(target);}
+                yield return SceneManager.LoadSceneAsync(0);yield return Resources.UnloadUnusedAssets();
+                for(int i=0;i<8;i++)yield return null;
+                var unloaded=Observe("cycle"+cycle+"-unloaded",null);stages.Add(unloaded);
+                if(unloaded.snapshot.oceans!=0||unloaded.trackedBufferState.Any(b=>b.valid))_errors++;
+            }
+            var result=new ActiveOwnerResult{unity=Application.unityVersion,api=SystemInfo.graphicsDeviceType.ToString(),errors=_errors,stages=stages.ToArray()};
+            File.WriteAllText(Argument("-crestProbeOutput","ActiveOwners.json"),JsonUtility.ToJson(result,true));
+            Debug.Log("ACTIVE_OWNERS_COMPLETED errors="+_errors);Application.Quit(_errors==0?0:1);
         }
         IEnumerator Ownership(string mode)
         {

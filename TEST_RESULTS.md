@@ -2,6 +2,23 @@
 
 Актуальная сверка: **2026-11-05**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P10: active FFT/Foam/Dynamic/Flow owner lifecycle (2026-11-05)
+
+Two bounded enabled→disabled→re-enabled→unloaded cycles/API on existing Ocean_Interactions in a diagnostic-only Player; actual FFT128 scene/foam/dynamic waves retained. Flow manager/query additionally enabled via the original private create flag in memory; no scene asset changed and no nonzero Flow input/visual claim. Before active snapshots require8 consecutive ready finite height+flow packets within5s. Each enabled/re-enabled stage performs actual URP request +one-pixel GPU completion readback. All2 processes exit0/errors0,8 stages each; all5 recorded critical warning classes0.
+
+| Both DX11/DX12 | Enabled / re-enabled | Inputs disabled | Unloaded |
+|---|---:|---:|---:|
+| Valid owner-reachable ComputeBuffers |8|6|0|
+| Logical buffer bytes |198592|100288|0|
+| Created FFT RTs (same8 identities on toggle) |8|8|0|
+| Foam/Dynamic/Flow RTs |3/3/1|0/0/0|0/0/0|
+
+Input toggles cause resource reinitialization through existing Ocean settings/lifecycle:22 buffer wrappers are tracked by first unload,44 by second, all invalid after each unload. RT tracking preserves owner/id/alive/IsCreated rather than inferring disposal from disappearing names:35 wrappers by first unload/70 by second, every tracked RT native object destroyed/uncreated after each unload; aggregate engine RT inventory returns to8. Eight FFT textures remain identical and created while ShapeFFT is disabled, as expected from original caching;7 simulation RTs are destroyed and replaced on re-enable. Query-position arrays4096 are truncated at1024 by the existing field walker; direct native buffer fields are separately reached. No mesh/native-driver/general VRAM acceptance, no arbitrary full GPU-object graph claim.
+
+Additional unresolved observation: static FFT generator dictionary retains1 then2 entries after two scene unloads even though all tracked native resources are gone. FFTCompute normalized source is identical to upstream. This is inherited managed cache retention, not proven native/VRAM leakage; cache ownership/cleanup policy and live sharers need a separate causal control before any runtime change. Diagnostic tracking deliberately retains wrapper references to inspect disposal and is not a production managed-memory measurement.
+
+Only conditional diagnostic/router/Editor builder changed; builder adds existing Interactions as diagnostic scene2. Normal12 managed/packed hashes still match bf92647 Build-checkpoint; no full suite/default rebuild or Calm10-cycle repetition. Last full110+interactive2/API/default builds/4 smokes remain their checkpoint. Evidence P10-ActiveOwners-summary.json and -evidence.zip/-files.json (exact source/3 diagnostic DLLs, raw reports/owner paths, commands); stable audit1402/rootMD8, foreign Ocean/bakes preserved and own variant whitespace restored. P10 remains active: next managed FFT cache policy; GPU timing stability/attribution, NonLocal and other resource configurations open.
+
 ## P10: regular-camera counter capability (2026-11-05)
 
 Four accepted visible/nonbatch diagnostic Development controls (Empty/Ocean_Calm xDX11/DX12),960x540,target60/vsync0, regular Camera rendering; each baseline/64 Unlit cubes/restored phase has2s warm-up +3s sampling. At least60 real camera callbacks per phase, callback/sample counts differ at most1;64 controls in the camera frustum. Exact selected Render-category counter descriptors and raw per-frame Last/current/timestamp data retained. User explicitly authorized the temporary visible windows, all closed automatically. No screenshot matrix or repeated60s CPU windows.

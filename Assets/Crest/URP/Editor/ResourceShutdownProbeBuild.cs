@@ -45,7 +45,7 @@ namespace Crest.URP.Editor
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity"},
+                    scenes=new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
                     locationPathName="Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
