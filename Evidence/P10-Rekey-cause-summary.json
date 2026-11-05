@@ -1,0 +1,12 @@
+{
+  "cause": "Existing-target re-key removes old generator without cleanup; no-target adaptation invalidates spectrum but same-time early return ignores invalidation.",
+  "baseline": {
+    "tenTexturesAliveAfterEviction": 10,
+    "tenOrphanedAfterFullCleanup": 10,
+    "targetRetained": true,
+    "oldConsumerRestored": true,
+    "frozenUpdatedMatchesFresh": false
+  },
+  "correction": "Owned retirement queue released after ocean command submission/full teardown; cached time result requires initialized generator+spectrum.",
+  "scope": "Original re-key control exposes10 orphaned native textures and stale frozen-time spectrum. Corrected focused5/API and full115+interactive2/API, both builds/4 Players accepted. Queued EditMode16-layer commands remain valid; shared/frozen/mixed regressions retained. Two fixture setup failures preserved separately."
+}

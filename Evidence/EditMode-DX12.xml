@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="113" result="Passed" total="113" passed="113" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-05 15:08:47Z" end-time="2026-11-05 15:11:41Z" duration="173,4565402">
-  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="115" result="Passed" start-time="2026-11-05 15:08:47Z" end-time="2026-11-05 15:11:41Z" duration="173.456540" total="113" passed="113" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="115" result="Passed" total="115" passed="115" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-05 20:11:12Z" end-time="2026-11-05 20:17:45Z" duration="393,7892077">
+  <test-suite type="TestSuite" id="1000" name="com.unity.template.urp-blank" fullname="com.unity.template.urp-blank" runstate="Runnable" testcasecount="117" result="Passed" start-time="2026-11-05 20:11:12Z" end-time="2026-11-05 20:17:45Z" duration="393.789208" total="115" passed="115" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1178" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="113" result="Passed" start-time="2026-11-05 15:08:47Z" end-time="2026-11-05 15:11:41Z" duration="173.448848" total="113" passed="113" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1180" name="Crest.URP.Tests.dll" fullname="C:/Users/greko/Documents/Codex/2026-10-18/files-pasted-by-the-user-task/outputs/Crest4-URP-Port/Library/ScriptAssemblies/Crest.URP.Tests.dll" runstate="Runnable" testcasecount="115" result="Passed" start-time="2026-11-05 20:11:12Z" end-time="2026-11-05 20:17:45Z" duration="393.773325" total="115" passed="115" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="303040" />
+        <property name="_PID" value="46688" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestFixture" id="1007" name="AdditionalSimulationTests" fullname="AdditionalSimulationTests" classname="AdditionalSimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:08:47Z" end-time="2026-11-05 15:08:51Z" duration="3.519368" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1007" name="AdditionalSimulationTests" fullname="AdditionalSimulationTests" classname="AdditionalSimulationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:11:12Z" end-time="2026-11-05 20:11:19Z" duration="7.878018" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1009" name="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" fullname="AdditionalSimulationTests.FlowQueriesMatchKnownInputAndRuntimeDirectionChange" methodname="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" classname="AdditionalSimulationTests" runstate="Runnable" seed="1445073694" result="Passed" start-time="2026-11-05 15:08:47Z" end-time="2026-11-05 15:08:48Z" duration="0.817990" asserts="0">
+        <test-case id="1009" name="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" fullname="AdditionalSimulationTests.FlowQueriesMatchKnownInputAndRuntimeDirectionChange" methodname="FlowQueriesMatchKnownInputAndRuntimeDirectionChange" classname="AdditionalSimulationTests" runstate="Runnable" seed="1479372288" result="Passed" start-time="2026-11-05 20:11:12Z" end-time="2026-11-05 20:11:13Z" duration="1.462203" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1010" name="GerstnerProducesChangingHeightsWithoutFft" fullname="AdditionalSimulationTests.GerstnerProducesChangingHeightsWithoutFft" methodname="GerstnerProducesChangingHeightsWithoutFft" classname="AdditionalSimulationTests" runstate="Runnable" seed="1314181301" result="Passed" start-time="2026-11-05 15:08:48Z" end-time="2026-11-05 15:08:48Z" duration="0.426205" asserts="0">
+        <test-case id="1010" name="GerstnerProducesChangingHeightsWithoutFft" fullname="AdditionalSimulationTests.GerstnerProducesChangingHeightsWithoutFft" methodname="GerstnerProducesChangingHeightsWithoutFft" classname="AdditionalSimulationTests" runstate="Runnable" seed="2063253681" result="Passed" start-time="2026-11-05 20:11:13Z" end-time="2026-11-05 20:11:14Z" duration="0.777168" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1008" name="MovingSphereInjectsDynamicWaveEnergy" fullname="AdditionalSimulationTests.MovingSphereInjectsDynamicWaveEnergy" methodname="MovingSphereInjectsDynamicWaveEnergy" classname="AdditionalSimulationTests" runstate="Runnable" seed="836143960" result="Passed" start-time="2026-11-05 15:08:48Z" end-time="2026-11-05 15:08:51Z" duration="2.263167" asserts="0">
+        <test-case id="1008" name="MovingSphereInjectsDynamicWaveEnergy" fullname="AdditionalSimulationTests.MovingSphereInjectsDynamicWaveEnergy" methodname="MovingSphereInjectsDynamicWaveEnergy" classname="AdditionalSimulationTests" runstate="Runnable" seed="594441000" result="Passed" start-time="2026-11-05 20:11:14Z" end-time="2026-11-05 20:11:19Z" duration="5.619229" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -35,9 +35,9 @@
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1011" name="AsyncQueryDelayTests" fullname="AsyncQueryDelayTests" classname="AsyncQueryDelayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:08:51Z" end-time="2026-11-05 15:08:51Z" duration="0.524100" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1011" name="AsyncQueryDelayTests" fullname="AsyncQueryDelayTests" classname="AsyncQueryDelayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:11:19Z" end-time="2026-11-05 20:11:21Z" duration="1.174232" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1012" name="UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" fullname="AsyncQueryDelayTests.UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" methodname="UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" classname="AsyncQueryDelayTests" runstate="Runnable" seed="1754044763" result="Passed" start-time="2026-11-05 15:08:51Z" end-time="2026-11-05 15:08:51Z" duration="0.523074" asserts="0">
+        <test-case id="1012" name="UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" fullname="AsyncQueryDelayTests.UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" methodname="UnfencedMultipleOwnersRemainBoundedAndRecoverAfterIdle" classname="AsyncQueryDelayTests" runstate="Runnable" seed="408106363" result="Passed" start-time="2026-11-05 20:11:19Z" end-time="2026-11-05 20:11:21Z" duration="1.172780" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -45,70 +45,70 @@
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1026" name="BakedFFTAssetLifetimeTests" fullname="BakedFFTAssetLifetimeTests" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 15:08:51Z" end-time="2026-11-05 15:08:52Z" duration="0.708715" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1026" name="BakedFFTAssetLifetimeTests" fullname="BakedFFTAssetLifetimeTests" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 20:11:21Z" end-time="2026-11-05 20:11:22Z" duration="1.382380" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1029" name="CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" fullname="BakedFFTAssetLifetimeTests.CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" methodname="CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="411683433" result="Passed" start-time="2026-11-05 15:08:51Z" end-time="2026-11-05 15:08:51Z" duration="0.250193" asserts="0">
+        <test-case id="1029" name="CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" fullname="BakedFFTAssetLifetimeTests.CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" methodname="CreatedDuringPlayModeReleasesAfterExitAndUnloadBeforeDelete" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="1796045196" result="Passed" start-time="2026-11-05 20:11:21Z" end-time="2026-11-05 20:11:21Z" duration="0.515498" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1030" name="LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" fullname="BakedFFTAssetLifetimeTests.LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" methodname="LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="235926519" result="Passed" start-time="2026-11-05 15:08:51Z" end-time="2026-11-05 15:08:52Z" duration="0.201907" asserts="0">
+        <test-case id="1030" name="LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" fullname="BakedFFTAssetLifetimeTests.LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" methodname="LoadedBeforePlayModeReleasesAfterExitAndUnloadBeforeDelete" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="51800947" result="Passed" start-time="2026-11-05 20:11:21Z" end-time="2026-11-05 20:11:21Z" duration="0.365756" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1028" name="ReimportLoadedAssetPreservesReadyNativeData" fullname="BakedFFTAssetLifetimeTests.ReimportLoadedAssetPreservesReadyNativeData" methodname="ReimportLoadedAssetPreservesReadyNativeData" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="1521720350" result="Passed" start-time="2026-11-05 15:08:52Z" end-time="2026-11-05 15:08:52Z" duration="0.144346" asserts="0">
+        <test-case id="1028" name="ReimportLoadedAssetPreservesReadyNativeData" fullname="BakedFFTAssetLifetimeTests.ReimportLoadedAssetPreservesReadyNativeData" methodname="ReimportLoadedAssetPreservesReadyNativeData" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="1342048605" result="Passed" start-time="2026-11-05 20:11:21Z" end-time="2026-11-05 20:11:22Z" duration="0.241281" asserts="0">
           <properties>
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1027" name="SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" fullname="BakedFFTAssetLifetimeTests.SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" methodname="SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="1606579441" result="Passed" start-time="2026-11-05 15:08:52Z" end-time="2026-11-05 15:08:52Z" duration="0.111019" asserts="0">
+        <test-case id="1027" name="SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" fullname="BakedFFTAssetLifetimeTests.SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" methodname="SaveUnloadReloadThenUnloadBeforeDeleteReleasesEachAllocation" classname="BakedFFTAssetLifetimeTests" runstate="Runnable" seed="1193525436" result="Passed" start-time="2026-11-05 20:11:22Z" end-time="2026-11-05 20:11:22Z" duration="0.257754" asserts="0">
           <properties>
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1031" name="BakedFFTIntegrationTests" fullname="BakedFFTIntegrationTests" classname="BakedFFTIntegrationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:08:52Z" end-time="2026-11-05 15:08:53Z" duration="0.681297" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1031" name="BakedFFTIntegrationTests" fullname="BakedFFTIntegrationTests" classname="BakedFFTIntegrationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:11:22Z" end-time="2026-11-05 20:11:23Z" duration="1.336681" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1032" name="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" fullname="BakedFFTIntegrationTests.SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" methodname="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" classname="BakedFFTIntegrationTests" runstate="Runnable" seed="688910026" result="Passed" start-time="2026-11-05 15:08:52Z" end-time="2026-11-05 15:08:53Z" duration="0.679377" asserts="0">
+        <test-case id="1032" name="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" fullname="BakedFFTIntegrationTests.SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" methodname="SettingsSelectCPUChoppyHeightInvertsAndSwitchesReleaseProviders" classname="BakedFFTIntegrationTests" runstate="Runnable" seed="1274398644" result="Passed" start-time="2026-11-05 20:11:22Z" end-time="2026-11-05 20:11:23Z" duration="1.333058" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
-          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedIntegration_44e2b7a4c94c42d88781165bd4b1db96/Choppy.asset.
+          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedIntegration_fb3f343a967f4f1d8a1fe9ded26f3b11/Choppy.asset.
 Crest Validation: Collision Source in Animated Waves Settings is set to None. The floating objects in the scene will use a flat horizontal plane. Set collision source to ComputeShaderQueries. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1033" name="BakedFFTTests" fullname="BakedFFTTests" classname="BakedFFTTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:08:53Z" end-time="2026-11-05 15:08:53Z" duration="0.449428" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1033" name="BakedFFTTests" fullname="BakedFFTTests" classname="BakedFFTTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:11:23Z" end-time="2026-11-05 20:11:24Z" duration="1.018978" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1034" name="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" fullname="BakedFFTTests.RealFFTBakeReloadAndCPUJobsMatchGPUFrames" methodname="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" classname="BakedFFTTests" runstate="Runnable" seed="256258168" result="Passed" start-time="2026-11-05 15:08:53Z" end-time="2026-11-05 15:08:53Z" duration="0.448559" asserts="0">
+        <test-case id="1034" name="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" fullname="BakedFFTTests.RealFFTBakeReloadAndCPUJobsMatchGPUFrames" methodname="RealFFTBakeReloadAndCPUJobsMatchGPUFrames" classname="BakedFFTTests" runstate="Runnable" seed="581721658" result="Passed" start-time="2026-11-05 20:11:23Z" end-time="2026-11-05 20:11:24Z" duration="1.017135" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
-          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedFFT_f605eb4415514d59ac3aef8d27757b14/Waves.asset.
+          <output><![CDATA[Crest: Baked wave data to Assets/Crest/URP/Tests/Editor/BakedFFT_ee7362bb05ee463580ebd210fe6e6404/Waves.asset.
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1035" name="BoatAlignNormalTests" fullname="BoatAlignNormalTests" classname="BoatAlignNormalTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:08:53Z" end-time="2026-11-05 15:08:58Z" duration="5.080285" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1035" name="BoatAlignNormalTests" fullname="BoatAlignNormalTests" classname="BoatAlignNormalTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:11:24Z" end-time="2026-11-05 20:11:38Z" duration="13.485991" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1037" name="AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" fullname="BoatAlignNormalTests.AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" methodname="AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" classname="BoatAlignNormalTests" runstate="Runnable" seed="776588648" result="Passed" start-time="2026-11-05 15:08:53Z" end-time="2026-11-05 15:08:53Z" duration="0.466711" asserts="0">
+        <test-case id="1037" name="AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" fullname="BoatAlignNormalTests.AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" methodname="AccelerationCapDryStateAndProgrammaticControlsRetainOriginalUnits" classname="BoatAlignNormalTests" runstate="Runnable" seed="410344145" result="Passed" start-time="2026-11-05 20:11:24Z" end-time="2026-11-05 20:11:25Z" duration="0.895806" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1036" name="MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" fullname="BoatAlignNormalTests.MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" methodname="MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" classname="BoatAlignNormalTests" runstate="Runnable" seed="1155710467" result="Passed" start-time="2026-11-05 15:08:53Z" end-time="2026-11-05 15:08:58Z" duration="4.612563" asserts="0">
+        <test-case id="1036" name="MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" fullname="BoatAlignNormalTests.MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" methodname="MassIndependentDraftRightingAndBothNormalModesFollowOriginalForces" classname="BoatAlignNormalTests" runstate="Runnable" seed="1315853480" result="Passed" start-time="2026-11-05 20:11:25Z" end-time="2026-11-05 20:11:38Z" duration="12.587705" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -116,9 +116,9 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1038" name="BoatCameraJointTests" fullname="BoatCameraJointTests" classname="BoatCameraJointTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:08:58Z" end-time="2026-11-05 15:09:01Z" duration="3.255360" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1038" name="BoatCameraJointTests" fullname="BoatCameraJointTests" classname="BoatCameraJointTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:11:38Z" end-time="2026-11-05 20:11:47Z" duration="9.579215" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1039" name="OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" fullname="BoatCameraJointTests.OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" methodname="OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" classname="BoatCameraJointTests" runstate="Runnable" seed="422401670" result="Passed" start-time="2026-11-05 15:08:58Z" end-time="2026-11-05 15:09:01Z" duration="3.254752" asserts="0">
+        <test-case id="1039" name="OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" fullname="BoatCameraJointTests.OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" methodname="OriginalHullDriftsWithReversedFlowAndCameraFollowsOnChoppyWaves" classname="BoatCameraJointTests" runstate="Runnable" seed="2024415913" result="Passed" start-time="2026-11-05 20:11:38Z" end-time="2026-11-05 20:11:47Z" duration="9.578022" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -126,16 +126,16 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1040" name="BoatProbesControlsTests" fullname="BoatProbesControlsTests" classname="BoatProbesControlsTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:09:01Z" end-time="2026-11-05 15:09:04Z" duration="2.464843" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1040" name="BoatProbesControlsTests" fullname="BoatProbesControlsTests" classname="BoatProbesControlsTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:11:47Z" end-time="2026-11-05 20:11:53Z" duration="5.474044" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1042" name="BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" fullname="BoatProbesControlsTests.BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" methodname="BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" classname="BoatProbesControlsTests" runstate="Runnable" seed="539312106" result="Passed" start-time="2026-11-05 15:09:01Z" end-time="2026-11-05 15:09:02Z" duration="0.259484" asserts="0">
+        <test-case id="1042" name="BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" fullname="BoatProbesControlsTests.BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" methodname="BuoyancyCapIsPerProbeAndCanBeZeroOrInfinite" classname="BoatProbesControlsTests" runstate="Runnable" seed="478429036" result="Passed" start-time="2026-11-05 20:11:47Z" end-time="2026-11-05 20:11:48Z" duration="0.613624" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1041" name="ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" fullname="BoatProbesControlsTests.ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" methodname="ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" classname="BoatProbesControlsTests" runstate="Runnable" seed="85305166" result="Passed" start-time="2026-11-05 15:09:02Z" end-time="2026-11-05 15:09:04Z" duration="2.204575" asserts="0">
+        <test-case id="1041" name="ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" fullname="BoatProbesControlsTests.ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" methodname="ThrottleCoastReverseAndSignedSteeringKeepOriginalForces" classname="BoatProbesControlsTests" runstate="Runnable" seed="410226934" result="Passed" start-time="2026-11-05 20:11:48Z" end-time="2026-11-05 20:11:53Z" duration="4.858359" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -143,16 +143,16 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1043" name="BoatProbesTests" fullname="BoatProbesTests" classname="BoatProbesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:09:04Z" end-time="2026-11-05 15:09:09Z" duration="5.531484" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1043" name="BoatProbesTests" fullname="BoatProbesTests" classname="BoatProbesTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:11:53Z" end-time="2026-11-05 20:12:10Z" duration="17.145922" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1045" name="BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" fullname="BoatProbesTests.BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" methodname="BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" classname="BoatProbesTests" runstate="Runnable" seed="1828879300" result="Passed" start-time="2026-11-05 15:09:04Z" end-time="2026-11-05 15:09:07Z" duration="3.663008" asserts="0">
+        <test-case id="1045" name="BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" fullname="BoatProbesTests.BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" methodname="BoatsRemainStableWithWavesWindSpectrumAndFrozenTime" classname="BoatProbesTests" runstate="Runnable" seed="980198948" result="Passed" start-time="2026-11-05 20:11:53Z" end-time="2026-11-05 20:12:06Z" duration="13.206147" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1044" name="DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" fullname="BoatProbesTests.DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" methodname="DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" classname="BoatProbesTests" runstate="Runnable" seed="1854951095" result="Passed" start-time="2026-11-05 15:09:07Z" end-time="2026-11-05 15:09:09Z" duration="1.867649" asserts="0">
+        <test-case id="1044" name="DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" fullname="BoatProbesTests.DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" methodname="DifferentMassBoatsSettleRightThemselvesAndFollowSeaLevel" classname="BoatProbesTests" runstate="Runnable" seed="1711346351" result="Passed" start-time="2026-11-05 20:12:06Z" end-time="2026-11-05 20:12:10Z" duration="3.938374" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -160,9 +160,9 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1046" name="BuiltInReferenceTests" fullname="BuiltInReferenceTests" classname="BuiltInReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:09Z" end-time="2026-11-05 15:09:12Z" duration="2.260243" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1046" name="BuiltInReferenceTests" fullname="BuiltInReferenceTests" classname="BuiltInReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:10Z" end-time="2026-11-05 20:12:15Z" duration="5.059656" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1047" name="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" fullname="BuiltInReferenceTests.OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" methodname="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" classname="BuiltInReferenceTests" runstate="Runnable" seed="1587616265" result="Passed" start-time="2026-11-05 15:09:09Z" end-time="2026-11-05 15:09:12Z" duration="2.259417" asserts="0">
+        <test-case id="1047" name="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" fullname="BuiltInReferenceTests.OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" methodname="OriginalBuiltInAndUrpRenderSameFrozenFlatAndCompactHeightSurface" classname="BuiltInReferenceTests" runstate="Runnable" seed="470348208" result="Passed" start-time="2026-11-05 20:12:10Z" end-time="2026-11-05 20:12:15Z" duration="5.057805" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -174,9 +174,9 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1048" name="BuoyancyGraphicsTests" fullname="BuoyancyGraphicsTests" classname="BuoyancyGraphicsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:12Z" end-time="2026-11-05 15:09:12Z" duration="0.898090" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1048" name="BuoyancyGraphicsTests" fullname="BuoyancyGraphicsTests" classname="BuoyancyGraphicsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:15Z" end-time="2026-11-05 20:12:17Z" duration="2.096953" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1049" name="DifferentBodiesRemainBuoyant" fullname="BuoyancyGraphicsTests.DifferentBodiesRemainBuoyant" methodname="DifferentBodiesRemainBuoyant" classname="BuoyancyGraphicsTests" runstate="Runnable" seed="547753356" result="Passed" start-time="2026-11-05 15:09:12Z" end-time="2026-11-05 15:09:12Z" duration="0.897558" asserts="0">
+        <test-case id="1049" name="DifferentBodiesRemainBuoyant" fullname="BuoyancyGraphicsTests.DifferentBodiesRemainBuoyant" methodname="DifferentBodiesRemainBuoyant" classname="BuoyancyGraphicsTests" runstate="Runnable" seed="1093040984" result="Passed" start-time="2026-11-05 20:12:15Z" end-time="2026-11-05 20:12:17Z" duration="2.095640" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -184,9 +184,9 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1050" name="CameraSettingsTests" fullname="CameraSettingsTests" classname="CameraSettingsTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:09:12Z" end-time="2026-11-05 15:09:14Z" duration="1.360790" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1050" name="CameraSettingsTests" fullname="CameraSettingsTests" classname="CameraSettingsTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:12:17Z" end-time="2026-11-05 20:12:20Z" duration="3.170476" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1051" name="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" fullname="CameraSettingsTests.IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" methodname="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" classname="CameraSettingsTests" runstate="Runnable" seed="2002295169" result="Passed" start-time="2026-11-05 15:09:12Z" end-time="2026-11-05 15:09:13Z" duration="0.401074" asserts="0">
+        <test-case id="1051" name="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" fullname="CameraSettingsTests.IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" methodname="IndependentCamerasAndActualStackKeepBackgroundAndSimulationState" classname="CameraSettingsTests" runstate="Runnable" seed="1419986663" result="Passed" start-time="2026-11-05 20:12:17Z" end-time="2026-11-05 20:12:18Z" duration="0.880651" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="90000" />
@@ -194,7 +194,7 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1053" name="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" fullname="CameraSettingsTests.ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" methodname="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" classname="CameraSettingsTests" runstate="Runnable" seed="558473446" result="Passed" start-time="2026-11-05 15:09:13Z" end-time="2026-11-05 15:09:13Z" duration="0.444147" asserts="0">
+        <test-case id="1053" name="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" fullname="CameraSettingsTests.ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" methodname="ResizeMsaaRenderScaleAndDynamicCapabilityUseActualDescriptors" classname="CameraSettingsTests" runstate="Runnable" seed="953065778" result="Passed" start-time="2026-11-05 20:12:18Z" end-time="2026-11-05 20:12:19Z" duration="0.965600" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="90000" />
@@ -202,7 +202,7 @@ Crest Validation: Collision Source in Animated Waves Settings is set to None. Th
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1052" name="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" fullname="CameraSettingsTests.UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" methodname="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" classname="CameraSettingsTests" runstate="Runnable" seed="319409564" result="Passed" start-time="2026-11-05 15:09:13Z" end-time="2026-11-05 15:09:14Z" duration="0.514122" asserts="0">
+        <test-case id="1052" name="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" fullname="CameraSettingsTests.UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" methodname="UnderwaterViewsAndGeometryOverlayStackIsolateFogWithMsaa" classname="CameraSettingsTests" runstate="Runnable" seed="1301929715" result="Passed" start-time="2026-11-05 20:12:19Z" end-time="2026-11-05 20:12:20Z" duration="1.321880" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="90000" />
@@ -232,9 +232,9 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1054" name="ChoppyQueryTests" fullname="ChoppyQueryTests" classname="ChoppyQueryTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:14Z" end-time="2026-11-05 15:09:19Z" duration="4.991218" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1054" name="ChoppyQueryTests" fullname="ChoppyQueryTests" classname="ChoppyQueryTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:20Z" end-time="2026-11-05 20:12:33Z" duration="12.483355" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1055" name="ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" fullname="ChoppyQueryTests.ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" methodname="ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" classname="ChoppyQueryTests" runstate="Runnable" seed="472319937" result="Passed" start-time="2026-11-05 15:09:14Z" end-time="2026-11-05 15:09:19Z" duration="4.990592" asserts="0">
+        <test-case id="1055" name="ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" fullname="ChoppyQueryTests.ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" methodname="ChoppyDisplacementNormalHeightAndVelocityMatchIndependentInverse" classname="ChoppyQueryTests" runstate="Runnable" seed="566071519" result="Passed" start-time="2026-11-05 20:12:20Z" end-time="2026-11-05 20:12:33Z" duration="12.481940" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -242,32 +242,32 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1056" name="DepthCachePersistenceTests" fullname="DepthCachePersistenceTests" classname="DepthCachePersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:19Z" end-time="2026-11-05 15:09:20Z" duration="1.117617" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1056" name="DepthCachePersistenceTests" fullname="DepthCachePersistenceTests" classname="DepthCachePersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:33Z" end-time="2026-11-05 20:12:35Z" duration="2.154424" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1057" name="BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" fullname="DepthCachePersistenceTests.BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" methodname="BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" classname="DepthCachePersistenceTests" runstate="Runnable" seed="1110517997" result="Passed" start-time="2026-11-05 15:09:19Z" end-time="2026-11-05 15:09:20Z" duration="1.116915" asserts="0">
+        <test-case id="1057" name="BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" fullname="DepthCachePersistenceTests.BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" methodname="BakedDepthSurvivesDiskPrefabReloadAndRelativeMovement" classname="DepthCachePersistenceTests" runstate="Runnable" seed="153168688" result="Passed" start-time="2026-11-05 20:12:33Z" end-time="2026-11-05 20:12:35Z" duration="2.153145" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
           <output><![CDATA[Crest: Persistent baked cache (Crest.OceanDepthCache) depth is now relative!
-Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34729a4b3fd7570c69834/Depth.exr
-Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34729a4b3fd7570c69834/Depth.exr
+Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_3b4181f4f7144089b42e0cd16947b118/Depth.exr
+Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_3b4181f4f7144089b42e0cd16947b118/Depth.exr
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1058" name="EditorPersistenceTests" fullname="EditorPersistenceTests" classname="EditorPersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:20Z" end-time="2026-11-05 15:09:20Z" duration="0.396637" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1058" name="EditorPersistenceTests" fullname="EditorPersistenceTests" classname="EditorPersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:35Z" end-time="2026-11-05 20:12:36Z" duration="0.738369" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1059" name="ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" fullname="EditorPersistenceTests.ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" methodname="ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" classname="EditorPersistenceTests" runstate="Runnable" seed="814770761" result="Passed" start-time="2026-11-05 15:09:20Z" end-time="2026-11-05 15:09:20Z" duration="0.395717" asserts="0">
+        <test-case id="1059" name="ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" fullname="EditorPersistenceTests.ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" methodname="ProfilesSplineReferencesAndUndoSurviveAssetRoundTrip" classname="EditorPersistenceTests" runstate="Runnable" seed="699118985" result="Passed" start-time="2026-11-05 20:12:35Z" end-time="2026-11-05 20:12:36Z" duration="0.736942" asserts="0">
           <properties>
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1060" name="ExampleBakeTests" fullname="ExampleBakeTests" classname="ExampleBakeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:20Z" end-time="2026-11-05 15:09:32Z" duration="11.674713" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1060" name="ExampleBakeTests" fullname="ExampleBakeTests" classname="ExampleBakeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:36Z" end-time="2026-11-05 20:12:55Z" duration="19.461592" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1061" name="SourceExampleMaterialsReceiveActualBakedLighting" fullname="ExampleBakeTests.SourceExampleMaterialsReceiveActualBakedLighting" methodname="SourceExampleMaterialsReceiveActualBakedLighting" classname="ExampleBakeTests" runstate="Runnable" seed="1373869600" result="Passed" start-time="2026-11-05 15:09:20Z" end-time="2026-11-05 15:09:32Z" duration="11.672193" asserts="0">
+        <test-case id="1061" name="SourceExampleMaterialsReceiveActualBakedLighting" fullname="ExampleBakeTests.SourceExampleMaterialsReceiveActualBakedLighting" methodname="SourceExampleMaterialsReceiveActualBakedLighting" classname="ExampleBakeTests" runstate="Runnable" seed="754777475" result="Passed" start-time="2026-11-05 20:12:36Z" end-time="2026-11-05 20:12:55Z" duration="19.458034" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="600000" />
@@ -276,9 +276,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1062" name="ExampleMetaTests" fullname="ExampleMetaTests" classname="ExampleMetaTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:32Z" end-time="2026-11-05 15:09:32Z" duration="0.268241" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1062" name="ExampleMetaTests" fullname="ExampleMetaTests" classname="ExampleMetaTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:12:55Z" end-time="2026-11-05 20:12:56Z" duration="0.411541" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1063" name="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" fullname="ExampleMetaTests.OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" methodname="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" classname="ExampleMetaTests" runstate="Runnable" seed="2024956944" result="Passed" start-time="2026-11-05 15:09:32Z" end-time="2026-11-05 15:09:32Z" duration="0.267465" asserts="0">
+        <test-case id="1063" name="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" fullname="ExampleMetaTests.OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" methodname="OriginalExampleMetaMatchesInstalledLitAlbedoAndEmission" classname="ExampleMetaTests" runstate="Runnable" seed="762403532" result="Passed" start-time="2026-11-05 20:12:55Z" end-time="2026-11-05 20:12:56Z" duration="0.410147" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -288,23 +288,37 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1064" name="FFTCacheLifetimeTests" fullname="FFTCacheLifetimeTests" classname="FFTCacheLifetimeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:09:32Z" end-time="2026-11-05 15:09:33Z" duration="0.969117" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1064" name="FFTCacheLifetimeTests" fullname="FFTCacheLifetimeTests" classname="FFTCacheLifetimeTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-05 20:12:56Z" end-time="2026-11-05 20:12:58Z" duration="2.303027" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1066" name="MixedFFTFirstRetainsGerstnerAndCleansEachFamily" fullname="FFTCacheLifetimeTests.MixedFFTFirstRetainsGerstnerAndCleansEachFamily" methodname="MixedFFTFirstRetainsGerstnerAndCleansEachFamily" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="2048977990" result="Passed" start-time="2026-11-05 15:09:32Z" end-time="2026-11-05 15:09:33Z" duration="0.434741" asserts="0">
+        <test-case id="1066" name="MixedFFTFirstRetainsGerstnerAndCleansEachFamily" fullname="FFTCacheLifetimeTests.MixedFFTFirstRetainsGerstnerAndCleansEachFamily" methodname="MixedFFTFirstRetainsGerstnerAndCleansEachFamily" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="1174459592" result="Passed" start-time="2026-11-05 20:12:56Z" end-time="2026-11-05 20:12:56Z" duration="0.694732" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1067" name="MixedGerstnerFirstRetainsFFTAndCleansSwell" fullname="FFTCacheLifetimeTests.MixedGerstnerFirstRetainsFFTAndCleansSwell" methodname="MixedGerstnerFirstRetainsFFTAndCleansSwell" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="144091990" result="Passed" start-time="2026-11-05 15:09:33Z" end-time="2026-11-05 15:09:33Z" duration="0.237118" asserts="0">
+        <test-case id="1067" name="MixedGerstnerFirstRetainsFFTAndCleansSwell" fullname="FFTCacheLifetimeTests.MixedGerstnerFirstRetainsFFTAndCleansSwell" methodname="MixedGerstnerFirstRetainsFFTAndCleansSwell" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="577358017" result="Passed" start-time="2026-11-05 20:12:56Z" end-time="2026-11-05 20:12:57Z" duration="0.410820" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1065" name="SharedGeneratorSurvivesOneOwnerAndSameTimeRegeneratesAfterLastCleanup" fullname="FFTCacheLifetimeTests.SharedGeneratorSurvivesOneOwnerAndSameTimeRegeneratesAfterLastCleanup" methodname="SharedGeneratorSurvivesOneOwnerAndSameTimeRegeneratesAfterLastCleanup" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="1594784934" result="Passed" start-time="2026-11-05 15:09:33Z" end-time="2026-11-05 15:09:33Z" duration="0.296393" asserts="0">
+        <test-case id="1068" name="RekeyConvergenceDisposesOldResourcesAndUpdatesFrozenConditions" fullname="FFTCacheLifetimeTests.RekeyConvergenceDisposesOldResourcesAndUpdatesFrozenConditions" methodname="RekeyConvergenceDisposesOldResourcesAndUpdatesFrozenConditions" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="5128795" result="Passed" start-time="2026-11-05 20:12:57Z" end-time="2026-11-05 20:12:57Z" duration="0.477331" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1069" name="RekeyKeepsAlreadyQueuedFFTCommandsValidInEditMode" fullname="FFTCacheLifetimeTests.RekeyKeepsAlreadyQueuedFFTCommandsValidInEditMode" methodname="RekeyKeepsAlreadyQueuedFFTCommandsValidInEditMode" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="1519907954" result="Passed" start-time="2026-11-05 20:12:57Z" end-time="2026-11-05 20:12:57Z" duration="0.146624" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1065" name="SharedGeneratorSurvivesOneOwnerAndSameTimeRegeneratesAfterLastCleanup" fullname="FFTCacheLifetimeTests.SharedGeneratorSurvivesOneOwnerAndSameTimeRegeneratesAfterLastCleanup" methodname="SharedGeneratorSurvivesOneOwnerAndSameTimeRegeneratesAfterLastCleanup" classname="FFTCacheLifetimeTests" runstate="Runnable" seed="511423910" result="Passed" start-time="2026-11-05 20:12:57Z" end-time="2026-11-05 20:12:58Z" duration="0.571616" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -312,23 +326,23 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1068" name="FlowSurfaceTests" fullname="FlowSurfaceTests" classname="FlowSurfaceTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:09:33Z" end-time="2026-11-05 15:09:35Z" duration="1.358253" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1070" name="FlowSurfaceTests" fullname="FlowSurfaceTests" classname="FlowSurfaceTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:12:58Z" end-time="2026-11-05 20:13:01Z" duration="3.116584" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1070" name="FlowChangesSurfaceFoamAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceFoamAtFixedTime" methodname="FlowChangesSurfaceFoamAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="799010845" result="Passed" start-time="2026-11-05 15:09:33Z" end-time="2026-11-05 15:09:34Z" duration="0.277162" asserts="0">
+        <test-case id="1072" name="FlowChangesSurfaceFoamAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceFoamAtFixedTime" methodname="FlowChangesSurfaceFoamAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="1958784490" result="Passed" start-time="2026-11-05 20:12:58Z" end-time="2026-11-05 20:12:58Z" duration="0.569956" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1069" name="FlowChangesSurfaceNormalsAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceNormalsAtFixedTime" methodname="FlowChangesSurfaceNormalsAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="862560025" result="Passed" start-time="2026-11-05 15:09:34Z" end-time="2026-11-05 15:09:34Z" duration="0.269060" asserts="0">
+        <test-case id="1071" name="FlowChangesSurfaceNormalsAtFixedTime" fullname="FlowSurfaceTests.FlowChangesSurfaceNormalsAtFixedTime" methodname="FlowChangesSurfaceNormalsAtFixedTime" classname="FlowSurfaceTests" runstate="Runnable" seed="1635931332" result="Passed" start-time="2026-11-05 20:12:58Z" end-time="2026-11-05 20:12:59Z" duration="0.604193" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1071" name="SplineFlowUpdatesDirectionSpeedPositionAndRegistration" fullname="FlowSurfaceTests.SplineFlowUpdatesDirectionSpeedPositionAndRegistration" methodname="SplineFlowUpdatesDirectionSpeedPositionAndRegistration" classname="FlowSurfaceTests" runstate="Runnable" seed="366468164" result="Passed" start-time="2026-11-05 15:09:34Z" end-time="2026-11-05 15:09:35Z" duration="0.810854" asserts="0">
+        <test-case id="1073" name="SplineFlowUpdatesDirectionSpeedPositionAndRegistration" fullname="FlowSurfaceTests.SplineFlowUpdatesDirectionSpeedPositionAndRegistration" methodname="SplineFlowUpdatesDirectionSpeedPositionAndRegistration" classname="FlowSurfaceTests" runstate="Runnable" seed="230273513" result="Passed" start-time="2026-11-05 20:12:59Z" end-time="2026-11-05 20:13:01Z" duration="1.940014" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -336,30 +350,30 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1072" name="FoamSimulationTests" fullname="FoamSimulationTests" classname="FoamSimulationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 15:09:35Z" end-time="2026-11-05 15:09:44Z" duration="9.154844" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1074" name="FoamSimulationTests" fullname="FoamSimulationTests" classname="FoamSimulationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 20:13:01Z" end-time="2026-11-05 20:13:15Z" duration="14.371082" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1073" name="KnownFlowTransportsFoamPatchByThreeMetres" fullname="FoamSimulationTests.KnownFlowTransportsFoamPatchByThreeMetres" methodname="KnownFlowTransportsFoamPatchByThreeMetres" classname="FoamSimulationTests" runstate="Runnable" seed="1646886960" result="Passed" start-time="2026-11-05 15:09:35Z" end-time="2026-11-05 15:09:36Z" duration="0.891347" asserts="0">
+        <test-case id="1075" name="KnownFlowTransportsFoamPatchByThreeMetres" fullname="FoamSimulationTests.KnownFlowTransportsFoamPatchByThreeMetres" methodname="KnownFlowTransportsFoamPatchByThreeMetres" classname="FoamSimulationTests" runstate="Runnable" seed="1394776299" result="Passed" start-time="2026-11-05 20:13:01Z" end-time="2026-11-05 20:13:04Z" duration="2.516729" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1074" name="KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" fullname="FoamSimulationTests.KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" methodname="KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" classname="FoamSimulationTests" runstate="Runnable" seed="779066255" result="Passed" start-time="2026-11-05 15:09:36Z" end-time="2026-11-05 15:09:37Z" duration="1.545540" asserts="0">
+        <test-case id="1076" name="KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" fullname="FoamSimulationTests.KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" methodname="KnownShallowDepthGeneratesFoamAndToggleRecreatesEmptyTargets" classname="FoamSimulationTests" runstate="Runnable" seed="1549371302" result="Passed" start-time="2026-11-05 20:13:04Z" end-time="2026-11-05 20:13:06Z" duration="2.276376" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1075" name="ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" fullname="FoamSimulationTests.ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" methodname="ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" classname="FoamSimulationTests" runstate="Runnable" seed="2114509771" result="Passed" start-time="2026-11-05 15:09:37Z" end-time="2026-11-05 15:09:38Z" duration="1.438960" asserts="0">
+        <test-case id="1077" name="ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" fullname="FoamSimulationTests.ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" methodname="ShorelinePrewarmAtZeroDeltaSurvivesSceneReload" classname="FoamSimulationTests" runstate="Runnable" seed="435459215" result="Passed" start-time="2026-11-05 20:13:06Z" end-time="2026-11-05 20:13:09Z" duration="3.611092" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1076" name="WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" fullname="FoamSimulationTests.WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" methodname="WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" classname="FoamSimulationTests" runstate="Runnable" seed="89535410" result="Passed" start-time="2026-11-05 15:09:38Z" end-time="2026-11-05 15:09:44Z" duration="5.277725" asserts="0">
+        <test-case id="1078" name="WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" fullname="FoamSimulationTests.WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" methodname="WaveFoamGeneratesAndDecaysAtOriginalDiscreteRate" classname="FoamSimulationTests" runstate="Runnable" seed="1765458777" result="Passed" start-time="2026-11-05 20:13:09Z" end-time="2026-11-05 20:13:15Z" duration="5.963858" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -367,9 +381,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1077" name="GerstnerQueryAccuracyTests" fullname="GerstnerQueryAccuracyTests" classname="GerstnerQueryAccuracyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:44Z" end-time="2026-11-05 15:09:47Z" duration="3.230320" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1079" name="GerstnerQueryAccuracyTests" fullname="GerstnerQueryAccuracyTests" classname="GerstnerQueryAccuracyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:15Z" end-time="2026-11-05 20:13:23Z" duration="7.365268" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1078" name="GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" fullname="GerstnerQueryAccuracyTests.GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" methodname="GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" classname="GerstnerQueryAccuracyTests" runstate="Runnable" seed="2057666701" result="Passed" start-time="2026-11-05 15:09:44Z" end-time="2026-11-05 15:09:47Z" duration="3.229290" asserts="0">
+        <test-case id="1080" name="GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" fullname="GerstnerQueryAccuracyTests.GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" methodname="GPUHeightNormalAndVelocityMatchOriginalGerstnerModes" classname="GerstnerQueryAccuracyTests" runstate="Runnable" seed="1218445344" result="Passed" start-time="2026-11-05 20:13:15Z" end-time="2026-11-05 20:13:23Z" duration="7.363043" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -377,9 +391,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1079" name="InputPersistenceTests" fullname="InputPersistenceTests" classname="InputPersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:47Z" end-time="2026-11-05 15:09:52Z" duration="5.129292" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1081" name="InputPersistenceTests" fullname="InputPersistenceTests" classname="InputPersistenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:23Z" end-time="2026-11-05 20:13:35Z" duration="11.939527" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1080" name="SavedSceneRestoresInputFieldsReferencesAndRegistration" fullname="InputPersistenceTests.SavedSceneRestoresInputFieldsReferencesAndRegistration" methodname="SavedSceneRestoresInputFieldsReferencesAndRegistration" classname="InputPersistenceTests" runstate="Runnable" seed="1451162018" result="Passed" start-time="2026-11-05 15:09:47Z" end-time="2026-11-05 15:09:52Z" duration="5.128649" asserts="0">
+        <test-case id="1082" name="SavedSceneRestoresInputFieldsReferencesAndRegistration" fullname="InputPersistenceTests.SavedSceneRestoresInputFieldsReferencesAndRegistration" methodname="SavedSceneRestoresInputFieldsReferencesAndRegistration" classname="InputPersistenceTests" runstate="Runnable" seed="1865425145" result="Passed" start-time="2026-11-05 20:13:23Z" end-time="2026-11-05 20:13:35Z" duration="11.937948" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -387,9 +401,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1081" name="LerpCamTests" fullname="LerpCamTests" classname="LerpCamTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:52Z" end-time="2026-11-05 15:09:53Z" duration="0.919786" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1083" name="LerpCamTests" fullname="LerpCamTests" classname="LerpCamTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:35Z" end-time="2026-11-05 20:13:37Z" duration="2.084559" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1082" name="ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" fullname="LerpCamTests.ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" methodname="ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" classname="LerpCamTests" runstate="Runnable" seed="1585440931" result="Passed" start-time="2026-11-05 15:09:52Z" end-time="2026-11-05 15:09:53Z" duration="0.918967" asserts="0">
+        <test-case id="1084" name="ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" fullname="LerpCamTests.ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" methodname="ActualUpdateFollowsMovingTargetClampsHeightAndRespectsOceanDelta" classname="LerpCamTests" runstate="Runnable" seed="1888480490" result="Passed" start-time="2026-11-05 20:13:35Z" end-time="2026-11-05 20:13:37Z" duration="2.082045" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -397,9 +411,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1083" name="LocalWaveSplineTests" fullname="LocalWaveSplineTests" classname="LocalWaveSplineTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:53Z" end-time="2026-11-05 15:09:55Z" duration="2.228077" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1085" name="LocalWaveSplineTests" fullname="LocalWaveSplineTests" classname="LocalWaveSplineTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:37Z" end-time="2026-11-05 20:13:41Z" duration="4.509037" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1084" name="LocalGerstnerSplineWeightsFeatherMovementAndQueries" fullname="LocalWaveSplineTests.LocalGerstnerSplineWeightsFeatherMovementAndQueries" methodname="LocalGerstnerSplineWeightsFeatherMovementAndQueries" classname="LocalWaveSplineTests" runstate="Runnable" seed="796680268" result="Passed" start-time="2026-11-05 15:09:53Z" end-time="2026-11-05 15:09:55Z" duration="2.227452" asserts="0">
+        <test-case id="1086" name="LocalGerstnerSplineWeightsFeatherMovementAndQueries" fullname="LocalWaveSplineTests.LocalGerstnerSplineWeightsFeatherMovementAndQueries" methodname="LocalGerstnerSplineWeightsFeatherMovementAndQueries" classname="LocalWaveSplineTests" runstate="Runnable" seed="1059954183" result="Passed" start-time="2026-11-05 20:13:37Z" end-time="2026-11-05 20:13:41Z" duration="4.508019" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -407,9 +421,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1085" name="LodHeightSeamTests" fullname="LodHeightSeamTests" classname="LodHeightSeamTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:55Z" end-time="2026-11-05 15:09:59Z" duration="3.858132" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1087" name="LodHeightSeamTests" fullname="LodHeightSeamTests" classname="LodHeightSeamTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:41Z" end-time="2026-11-05 20:13:49Z" duration="7.512282" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1086" name="ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" fullname="LodHeightSeamTests.ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" methodname="ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" classname="LodHeightSeamTests" runstate="Runnable" seed="918165856" result="Passed" start-time="2026-11-05 15:09:55Z" end-time="2026-11-05 15:09:59Z" duration="3.857270" asserts="0">
+        <test-case id="1088" name="ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" fullname="LodHeightSeamTests.ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" methodname="ActualTileBoundaryVerticesWeldAcrossLocalSlopeSmoothEdgeAndChoppyWaves" classname="LodHeightSeamTests" runstate="Runnable" seed="1763035238" result="Passed" start-time="2026-11-05 20:13:41Z" end-time="2026-11-05 20:13:49Z" duration="7.510414" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -417,9 +431,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1087" name="LodTransitionTests" fullname="LodTransitionTests" classname="LodTransitionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:09:59Z" end-time="2026-11-05 15:10:03Z" duration="4.088556" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1089" name="LodTransitionTests" fullname="LodTransitionTests" classname="LodTransitionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:49Z" end-time="2026-11-05 20:13:57Z" duration="8.588897" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1088" name="CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" fullname="LodTransitionTests.CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" methodname="CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" classname="LodTransitionTests" runstate="Runnable" seed="463365278" result="Passed" start-time="2026-11-05 15:09:59Z" end-time="2026-11-05 15:10:03Z" duration="4.087735" asserts="0">
+        <test-case id="1090" name="CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" fullname="LodTransitionTests.CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" methodname="CameraSnapScaleHistoryAndFlatQueriesSurviveSignedBoundaryCrossings" classname="LodTransitionTests" runstate="Runnable" seed="1787615054" result="Passed" start-time="2026-11-05 20:13:49Z" end-time="2026-11-05 20:13:57Z" duration="8.586940" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -427,9 +441,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1089" name="LodWaveSurfaceTests" fullname="LodWaveSurfaceTests" classname="LodWaveSurfaceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:10:03Z" end-time="2026-11-05 15:10:05Z" duration="1.796042" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1091" name="LodWaveSurfaceTests" fullname="LodWaveSurfaceTests" classname="LodWaveSurfaceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:13:57Z" end-time="2026-11-05 20:14:01Z" duration="3.155179" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1090" name="FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" fullname="LodWaveSurfaceTests.FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" methodname="FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" classname="LodWaveSurfaceTests" runstate="Runnable" seed="1632797516" result="Passed" start-time="2026-11-05 15:10:03Z" end-time="2026-11-05 15:10:05Z" duration="1.795246" asserts="0">
+        <test-case id="1092" name="FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" fullname="LodWaveSurfaceTests.FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" methodname="FrozenChoppyWorldPhaseAndRenderedCoverageSurviveLodTransitions" classname="LodWaveSurfaceTests" runstate="Runnable" seed="958594555" result="Passed" start-time="2026-11-05 20:13:57Z" end-time="2026-11-05 20:14:01Z" duration="3.153604" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -437,9 +451,9 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1013" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-05 15:10:05Z" end-time="2026-11-05 15:10:15Z" duration="10.204646" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1013" name="MaskedExampleTests" fullname="MaskedExampleTests" classname="MaskedExampleTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-11-05 20:14:01Z" end-time="2026-11-05 20:14:22Z" duration="21.655908" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1014" name="AuxiliaryDepthOnlyOccludesWithoutWritingColour" fullname="MaskedExampleTests.AuxiliaryDepthOnlyOccludesWithoutWritingColour" methodname="AuxiliaryDepthOnlyOccludesWithoutWritingColour" classname="MaskedExampleTests" runstate="Runnable" seed="1752591498" result="Passed" start-time="2026-11-05 15:10:05Z" end-time="2026-11-05 15:10:06Z" duration="0.809183" asserts="0">
+        <test-case id="1014" name="AuxiliaryDepthOnlyOccludesWithoutWritingColour" fullname="MaskedExampleTests.AuxiliaryDepthOnlyOccludesWithoutWritingColour" methodname="AuxiliaryDepthOnlyOccludesWithoutWritingColour" classname="MaskedExampleTests" runstate="Runnable" seed="1599498379" result="Passed" start-time="2026-11-05 20:14:01Z" end-time="2026-11-05 20:14:02Z" duration="1.878342" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -447,7 +461,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1015" name="AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" fullname="MaskedExampleTests.AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" methodname="AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" classname="MaskedExampleTests" runstate="Runnable" seed="966412942" result="Passed" start-time="2026-11-05 15:10:06Z" end-time="2026-11-05 15:10:07Z" duration="0.852869" asserts="0">
+        <test-case id="1015" name="AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" fullname="MaskedExampleTests.AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" methodname="AuxiliaryMaskDepthControlsLaterGeometryAndPreservesColour" classname="MaskedExampleTests" runstate="Runnable" seed="1941023653" result="Passed" start-time="2026-11-05 20:14:02Z" end-time="2026-11-05 20:14:04Z" duration="1.909348" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -455,7 +469,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1017" name="AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" fullname="MaskedExampleTests.AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" methodname="AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" classname="MaskedExampleTests" runstate="Runnable" seed="738513004" result="Passed" start-time="2026-11-05 15:10:07Z" end-time="2026-11-05 15:10:07Z" duration="0.389400" asserts="0">
+        <test-case id="1017" name="AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" fullname="MaskedExampleTests.AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" methodname="AuxiliaryMaskedNonEmissiveLightingMatchesInstalledUrpLit" classname="MaskedExampleTests" runstate="Runnable" seed="155189979" result="Passed" start-time="2026-11-05 20:14:04Z" end-time="2026-11-05 20:14:05Z" duration="0.867627" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -463,7 +477,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1016" name="AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" fullname="MaskedExampleTests.AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" methodname="AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" classname="MaskedExampleTests" runstate="Runnable" seed="65844812" result="Passed" start-time="2026-11-05 15:10:07Z" end-time="2026-11-05 15:10:08Z" duration="0.500830" asserts="0">
+        <test-case id="1016" name="AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" fullname="MaskedExampleTests.AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" methodname="AuxiliarySphereGradientMatchesOriginalDirectionAndExponentLaw" classname="MaskedExampleTests" runstate="Runnable" seed="1757465452" result="Passed" start-time="2026-11-05 20:14:05Z" end-time="2026-11-05 20:14:07Z" duration="1.650253" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -471,7 +485,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1018" name="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" fullname="MaskedExampleTests.ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" methodname="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" classname="MaskedExampleTests" runstate="Runnable" seed="38815207" result="Passed" start-time="2026-11-05 15:10:08Z" end-time="2026-11-05 15:10:08Z" duration="0.280011" asserts="0">
+        <test-case id="1018" name="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" fullname="MaskedExampleTests.ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" methodname="ColourDepthNormalsAlphaAndEmissionUseDeclaredMasks" classname="MaskedExampleTests" runstate="Runnable" seed="1619611429" result="Passed" start-time="2026-11-05 20:14:07Z" end-time="2026-11-05 20:14:07Z" duration="0.515361" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -479,7 +493,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1019" name="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" fullname="MaskedExampleTests.LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" methodname="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" classname="MaskedExampleTests" runstate="Runnable" seed="692968087" result="Passed" start-time="2026-11-05 15:10:08Z" end-time="2026-11-05 15:10:08Z" duration="0.414387" asserts="0">
+        <test-case id="1019" name="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" fullname="MaskedExampleTests.LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" methodname="LegacyFillCallbackRunsInGraphAndClearsOnDisableResizeAndEmptyList" classname="MaskedExampleTests" runstate="Runnable" seed="146316169" result="Passed" start-time="2026-11-05 20:14:07Z" end-time="2026-11-05 20:14:08Z" duration="0.779713" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -487,7 +501,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1021" name="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" fullname="MaskedExampleTests.MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" methodname="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" classname="MaskedExampleTests" runstate="Runnable" seed="1474295128" result="Passed" start-time="2026-11-05 15:10:08Z" end-time="2026-11-05 15:10:09Z" duration="0.804813" asserts="0">
+        <test-case id="1021" name="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" fullname="MaskedExampleTests.MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" methodname="MaskedShadowCasterIgnoresViewMaskButPreservesAlphaCutoff" classname="MaskedExampleTests" runstate="Runnable" seed="2087415626" result="Passed" start-time="2026-11-05 20:14:08Z" end-time="2026-11-05 20:14:10Z" duration="1.699271" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -495,7 +509,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1020" name="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" fullname="MaskedExampleTests.OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" methodname="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" classname="MaskedExampleTests" runstate="Runnable" seed="393959743" result="Passed" start-time="2026-11-05 15:10:09Z" end-time="2026-11-05 15:10:10Z" duration="0.664646" asserts="0">
+        <test-case id="1020" name="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" fullname="MaskedExampleTests.OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" methodname="OpaqueMaskedGeometryReadsActualOceanMaskBeforeDepthAndColour" classname="MaskedExampleTests" runstate="Runnable" seed="1342389065" result="Passed" start-time="2026-11-05 20:14:10Z" end-time="2026-11-05 20:14:11Z" duration="1.396841" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -506,7 +520,7 @@ Crest: Cache saved to Assets/Crest/URP/Tests/Editor/CacheRoundTrip_11f5f08ea3e34
 Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1025" name="TransparentActualAboveBelowAndVolumeUseCurrentMask" fullname="MaskedExampleTests.TransparentActualAboveBelowAndVolumeUseCurrentMask" methodname="TransparentActualAboveBelowAndVolumeUseCurrentMask" classname="MaskedExampleTests" runstate="Runnable" seed="1259841115" result="Passed" start-time="2026-11-05 15:10:10Z" end-time="2026-11-05 15:10:11Z" duration="1.264229" asserts="0">
+        <test-case id="1025" name="TransparentActualAboveBelowAndVolumeUseCurrentMask" fullname="MaskedExampleTests.TransparentActualAboveBelowAndVolumeUseCurrentMask" methodname="TransparentActualAboveBelowAndVolumeUseCurrentMask" classname="MaskedExampleTests" runstate="Runnable" seed="1563089467" result="Passed" start-time="2026-11-05 20:14:11Z" end-time="2026-11-05 20:14:13Z" duration="1.684604" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -517,7 +531,7 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
 Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Calm</i>. The underside of the ocean surface will not be rendered. Set <i>Cull Mode</i> to <i>Off</i> (or <i>Front</i>) on <i>Ocean_Calm</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1024" name="TransparentFogVolumeShadowAndSssFollowOriginalLaw" fullname="MaskedExampleTests.TransparentFogVolumeShadowAndSssFollowOriginalLaw" methodname="TransparentFogVolumeShadowAndSssFollowOriginalLaw" classname="MaskedExampleTests" runstate="Runnable" seed="131475905" result="Passed" start-time="2026-11-05 15:10:11Z" end-time="2026-11-05 15:10:13Z" duration="2.378662" asserts="0">
+        <test-case id="1024" name="TransparentFogVolumeShadowAndSssFollowOriginalLaw" fullname="MaskedExampleTests.TransparentFogVolumeShadowAndSssFollowOriginalLaw" methodname="TransparentFogVolumeShadowAndSssFollowOriginalLaw" classname="MaskedExampleTests" runstate="Runnable" seed="1508946079" result="Passed" start-time="2026-11-05 20:14:13Z" end-time="2026-11-05 20:14:18Z" duration="5.007905" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -525,7 +539,7 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1022" name="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" fullname="MaskedExampleTests.TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" methodname="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" classname="MaskedExampleTests" runstate="Runnable" seed="90368015" result="Passed" start-time="2026-11-05 15:10:13Z" end-time="2026-11-05 15:10:14Z" duration="0.563399" asserts="0">
+        <test-case id="1022" name="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" fullname="MaskedExampleTests.TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" methodname="TransparentOwnCasterRetainsOriginalOpaqueAlphaSemantics" classname="MaskedExampleTests" runstate="Runnable" seed="332232134" result="Passed" start-time="2026-11-05 20:14:18Z" end-time="2026-11-05 20:14:19Z" duration="1.153553" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -533,7 +547,7 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1023" name="TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit" fullname="MaskedExampleTests.TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit" methodname="TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit" classname="MaskedExampleTests" runstate="Runnable" seed="1440411969" result="Passed" start-time="2026-11-05 15:10:14Z" end-time="2026-11-05 15:10:15Z" duration="1.279709" asserts="0">
+        <test-case id="1023" name="TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit" fullname="MaskedExampleTests.TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit" methodname="TransparentPbrAlphaAndUnityFogFallbackMatchUrpLit" classname="MaskedExampleTests" runstate="Runnable" seed="1233337866" result="Passed" start-time="2026-11-05 20:14:19Z" end-time="2026-11-05 20:14:22Z" duration="3.107298" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -542,26 +556,16 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1091" name="OceanGraphicsTests" fullname="OceanGraphicsTests" classname="OceanGraphicsTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-05 15:10:15Z" end-time="2026-11-05 15:10:18Z" duration="2.391314" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1093" name="OceanGraphicsTests" fullname="OceanGraphicsTests" classname="OceanGraphicsTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-05 20:14:22Z" end-time="2026-11-05 20:14:28Z" duration="5.783902" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1095" name="DepthCacheCapturesKnownHeight" fullname="OceanGraphicsTests.DepthCacheCapturesKnownHeight" methodname="DepthCacheCapturesKnownHeight" classname="OceanGraphicsTests" runstate="Runnable" seed="1997436412" result="Passed" start-time="2026-11-05 15:10:15Z" end-time="2026-11-05 15:10:15Z" duration="0.232677" asserts="0">
+        <test-case id="1097" name="DepthCacheCapturesKnownHeight" fullname="OceanGraphicsTests.DepthCacheCapturesKnownHeight" methodname="DepthCacheCapturesKnownHeight" classname="OceanGraphicsTests" runstate="Runnable" seed="1974200715" result="Passed" start-time="2026-11-05 20:14:22Z" end-time="2026-11-05 20:14:23Z" duration="0.495427" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1094" name="ReflectionsRenderAndQuery" fullname="OceanGraphicsTests.ReflectionsRenderAndQuery" methodname="ReflectionsRenderAndQuery" classname="OceanGraphicsTests" runstate="Runnable" seed="533946173" result="Passed" start-time="2026-11-05 15:10:15Z" end-time="2026-11-05 15:10:16Z" duration="0.776656" asserts="0">
-          <properties>
-            <property name="_JOINTYPE" value="UnityCombinatorial" />
-            <property name="retryIteration" value="0" />
-            <property name="repeatIteration" value="0" />
-          </properties>
-          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
-Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
-]]></output>
-        </test-case>
-        <test-case id="1096" name="ShadowAtlasAccumulatesOcclusion" fullname="OceanGraphicsTests.ShadowAtlasAccumulatesOcclusion" methodname="ShadowAtlasAccumulatesOcclusion" classname="OceanGraphicsTests" runstate="Runnable" seed="1367134524" result="Passed" start-time="2026-11-05 15:10:16Z" end-time="2026-11-05 15:10:17Z" duration="0.591871" asserts="0">
+        <test-case id="1096" name="ReflectionsRenderAndQuery" fullname="OceanGraphicsTests.ReflectionsRenderAndQuery" methodname="ReflectionsRenderAndQuery" classname="OceanGraphicsTests" runstate="Runnable" seed="1210255648" result="Passed" start-time="2026-11-05 20:14:23Z" end-time="2026-11-05 20:14:24Z" duration="1.499708" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -571,7 +575,17 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1093" name="UnderwaterRendersAndQueries" fullname="OceanGraphicsTests.UnderwaterRendersAndQueries" methodname="UnderwaterRendersAndQueries" classname="OceanGraphicsTests" runstate="Runnable" seed="793644934" result="Passed" start-time="2026-11-05 15:10:17Z" end-time="2026-11-05 15:10:17Z" duration="0.420533" asserts="0">
+        <test-case id="1098" name="ShadowAtlasAccumulatesOcclusion" fullname="OceanGraphicsTests.ShadowAtlasAccumulatesOcclusion" methodname="ShadowAtlasAccumulatesOcclusion" classname="OceanGraphicsTests" runstate="Runnable" seed="192200382" result="Passed" start-time="2026-11-05 20:14:24Z" end-time="2026-11-05 20:14:26Z" duration="1.461884" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
+]]></output>
+        </test-case>
+        <test-case id="1095" name="UnderwaterRendersAndQueries" fullname="OceanGraphicsTests.UnderwaterRendersAndQueries" methodname="UnderwaterRendersAndQueries" classname="OceanGraphicsTests" runstate="Runnable" seed="2005296855" result="Passed" start-time="2026-11-05 20:14:26Z" end-time="2026-11-05 20:14:27Z" duration="1.453188" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -581,7 +595,7 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1092" name="WavesProduceChangingGpuQueriesAndCapture" fullname="OceanGraphicsTests.WavesProduceChangingGpuQueriesAndCapture" methodname="WavesProduceChangingGpuQueriesAndCapture" classname="OceanGraphicsTests" runstate="Runnable" seed="882867078" result="Passed" start-time="2026-11-05 15:10:17Z" end-time="2026-11-05 15:10:18Z" duration="0.368426" asserts="0">
+        <test-case id="1094" name="WavesProduceChangingGpuQueriesAndCapture" fullname="OceanGraphicsTests.WavesProduceChangingGpuQueriesAndCapture" methodname="WavesProduceChangingGpuQueriesAndCapture" classname="OceanGraphicsTests" runstate="Runnable" seed="1587729625" result="Passed" start-time="2026-11-05 20:14:27Z" end-time="2026-11-05 20:14:28Z" duration="0.871252" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -589,9 +603,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1097" name="OpticalReferenceTests" fullname="OpticalReferenceTests" classname="OpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:10:18Z" end-time="2026-11-05 15:10:20Z" duration="2.711679" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1099" name="OpticalReferenceTests" fullname="OpticalReferenceTests" classname="OpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:14:28Z" end-time="2026-11-05 20:14:34Z" duration="6.247029" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1098" name="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" fullname="OpticalReferenceTests.OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" methodname="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" classname="OpticalReferenceTests" runstate="Runnable" seed="240613131" result="Passed" start-time="2026-11-05 15:10:18Z" end-time="2026-11-05 15:10:20Z" duration="2.710688" asserts="0">
+        <test-case id="1100" name="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" fullname="OpticalReferenceTests.OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" methodname="OriginalPerspectiveOpaqueControlTransparencyRefractionScatteringAndCaustics" classname="OpticalReferenceTests" runstate="Runnable" seed="419805655" result="Passed" start-time="2026-11-05 20:14:28Z" end-time="2026-11-05 20:14:34Z" duration="6.244979" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -602,9 +616,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1099" name="OriginalBoatSceneTests" fullname="OriginalBoatSceneTests" classname="OriginalBoatSceneTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:10:20Z" end-time="2026-11-05 15:10:23Z" duration="3.153744" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1101" name="OriginalBoatSceneTests" fullname="OriginalBoatSceneTests" classname="OriginalBoatSceneTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:14:34Z" end-time="2026-11-05 20:14:39Z" duration="5.057557" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1100" name="OriginalBoatRendersFloatsAndMovesWithNativeThrottle" fullname="OriginalBoatSceneTests.OriginalBoatRendersFloatsAndMovesWithNativeThrottle" methodname="OriginalBoatRendersFloatsAndMovesWithNativeThrottle" classname="OriginalBoatSceneTests" runstate="Runnable" seed="1595408603" result="Passed" start-time="2026-11-05 15:10:20Z" end-time="2026-11-05 15:10:22Z" duration="1.845887" asserts="0">
+        <test-case id="1102" name="OriginalBoatRendersFloatsAndMovesWithNativeThrottle" fullname="OriginalBoatSceneTests.OriginalBoatRendersFloatsAndMovesWithNativeThrottle" methodname="OriginalBoatRendersFloatsAndMovesWithNativeThrottle" classname="OriginalBoatSceneTests" runstate="Runnable" seed="1172195169" result="Passed" start-time="2026-11-05 20:14:34Z" end-time="2026-11-05 20:14:37Z" duration="3.186521" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -614,7 +628,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           <output><![CDATA[Computing lightmaps is not available in play mode.
 ]]></output>
         </test-case>
-        <test-case id="1101" name="ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" fullname="OriginalBoatSceneTests.ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" methodname="ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" classname="OriginalBoatSceneTests" runstate="Runnable" seed="1488332223" result="Passed" start-time="2026-11-05 15:10:22Z" end-time="2026-11-05 15:10:23Z" duration="1.307059" asserts="0">
+        <test-case id="1103" name="ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" fullname="OriginalBoatSceneTests.ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" methodname="ThreeOriginalBoatsFloatMoveAndRenderWithSavedBiases" classname="OriginalBoatSceneTests" runstate="Runnable" seed="1044327190" result="Passed" start-time="2026-11-05 20:14:37Z" end-time="2026-11-05 20:14:39Z" duration="1.869903" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -625,9 +639,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1102" name="OriginalExampleSceneTests" fullname="OriginalExampleSceneTests" classname="OriginalExampleSceneTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:10:23Z" end-time="2026-11-05 15:10:28Z" duration="4.456753" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1104" name="OriginalExampleSceneTests" fullname="OriginalExampleSceneTests" classname="OriginalExampleSceneTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:14:39Z" end-time="2026-11-05 20:14:50Z" duration="10.497044" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1104" name="ExamplesConfigurationsCycleAndRenderWithoutErrorShader" fullname="OriginalExampleSceneTests.ExamplesConfigurationsCycleAndRenderWithoutErrorShader" methodname="ExamplesConfigurationsCycleAndRenderWithoutErrorShader" classname="OriginalExampleSceneTests" runstate="Runnable" seed="1414550892" result="Passed" start-time="2026-11-05 15:10:23Z" end-time="2026-11-05 15:10:27Z" duration="3.015533" asserts="0">
+        <test-case id="1106" name="ExamplesConfigurationsCycleAndRenderWithoutErrorShader" fullname="OriginalExampleSceneTests.ExamplesConfigurationsCycleAndRenderWithoutErrorShader" methodname="ExamplesConfigurationsCycleAndRenderWithoutErrorShader" classname="OriginalExampleSceneTests" runstate="Runnable" seed="787288966" result="Passed" start-time="2026-11-05 20:14:39Z" end-time="2026-11-05 20:14:46Z" duration="6.458651" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="300000" />
@@ -637,7 +651,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           <output><![CDATA[Computing lightmaps is not available in play mode.
 ]]></output>
         </test-case>
-        <test-case id="1105" name="ExamplesOriginalFillCallbacksAndTransparentFogChangeVisibleOutput" fullname="OriginalExampleSceneTests.ExamplesOriginalFillCallbacksAndTransparentFogChangeVisibleOutput" methodname="ExamplesOriginalFillCallbacksAndTransparentFogChangeVisibleOutput" classname="OriginalExampleSceneTests" runstate="Runnable" seed="1304498945" result="Passed" start-time="2026-11-05 15:10:27Z" end-time="2026-11-05 15:10:28Z" duration="1.062238" asserts="0">
+        <test-case id="1107" name="ExamplesOriginalFillCallbacksAndTransparentFogChangeVisibleOutput" fullname="OriginalExampleSceneTests.ExamplesOriginalFillCallbacksAndTransparentFogChangeVisibleOutput" methodname="ExamplesOriginalFillCallbacksAndTransparentFogChangeVisibleOutput" classname="OriginalExampleSceneTests" runstate="Runnable" seed="1878986686" result="Passed" start-time="2026-11-05 20:14:46Z" end-time="2026-11-05 20:14:49Z" duration="2.987740" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="300000" />
@@ -647,7 +661,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           <output><![CDATA[Computing lightmaps is not available in play mode.
 ]]></output>
         </test-case>
-        <test-case id="1103" name="MainExampleRendersVisibleGeometryWithoutErrorShader" fullname="OriginalExampleSceneTests.MainExampleRendersVisibleGeometryWithoutErrorShader" methodname="MainExampleRendersVisibleGeometryWithoutErrorShader" classname="OriginalExampleSceneTests" runstate="Runnable" seed="78323019" result="Passed" start-time="2026-11-05 15:10:28Z" end-time="2026-11-05 15:10:28Z" duration="0.377917" asserts="0">
+        <test-case id="1105" name="MainExampleRendersVisibleGeometryWithoutErrorShader" fullname="OriginalExampleSceneTests.MainExampleRendersVisibleGeometryWithoutErrorShader" methodname="MainExampleRendersVisibleGeometryWithoutErrorShader" classname="OriginalExampleSceneTests" runstate="Runnable" seed="1897078692" result="Passed" start-time="2026-11-05 20:14:49Z" end-time="2026-11-05 20:14:50Z" duration="1.049289" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -658,9 +672,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1106" name="OriginalLakesRiversTests" fullname="OriginalLakesRiversTests" classname="OriginalLakesRiversTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:10:28Z" end-time="2026-11-05 15:10:32Z" duration="3.799151" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1108" name="OriginalLakesRiversTests" fullname="OriginalLakesRiversTests" classname="OriginalLakesRiversTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:14:50Z" end-time="2026-11-05 20:14:58Z" duration="8.223402" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1107" name="OriginalRiverHeightAndFlowInputsChangeAndRestore" fullname="OriginalLakesRiversTests.OriginalRiverHeightAndFlowInputsChangeAndRestore" methodname="OriginalRiverHeightAndFlowInputsChangeAndRestore" classname="OriginalLakesRiversTests" runstate="Runnable" seed="552929947" result="Passed" start-time="2026-11-05 15:10:28Z" end-time="2026-11-05 15:10:32Z" duration="3.798420" asserts="0">
+        <test-case id="1109" name="OriginalRiverHeightAndFlowInputsChangeAndRestore" fullname="OriginalLakesRiversTests.OriginalRiverHeightAndFlowInputsChangeAndRestore" methodname="OriginalRiverHeightAndFlowInputsChangeAndRestore" classname="OriginalLakesRiversTests" runstate="Runnable" seed="623679174" result="Passed" start-time="2026-11-05 20:14:50Z" end-time="2026-11-05 20:14:58Z" duration="8.222125" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -669,18 +683,18 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1108" name="OriginalRendererFlagsTests" fullname="OriginalRendererFlagsTests" classname="OriginalRendererFlagsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:10:32Z" end-time="2026-11-05 15:10:32Z" duration="0.173002" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1110" name="OriginalRendererFlagsTests" fullname="OriginalRendererFlagsTests" classname="OriginalRendererFlagsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:14:58Z" end-time="2026-11-05 20:14:58Z" duration="0.266272" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1109" name="ResolvedOriginalExampleRendererFlagsMatchUnchangedSourcePrefabFields" fullname="OriginalRendererFlagsTests.ResolvedOriginalExampleRendererFlagsMatchUnchangedSourcePrefabFields" methodname="ResolvedOriginalExampleRendererFlagsMatchUnchangedSourcePrefabFields" classname="OriginalRendererFlagsTests" runstate="Runnable" seed="1061481372" result="Passed" start-time="2026-11-05 15:10:32Z" end-time="2026-11-05 15:10:32Z" duration="0.172390" asserts="0">
+        <test-case id="1111" name="ResolvedOriginalExampleRendererFlagsMatchUnchangedSourcePrefabFields" fullname="OriginalRendererFlagsTests.ResolvedOriginalExampleRendererFlagsMatchUnchangedSourcePrefabFields" methodname="ResolvedOriginalExampleRendererFlagsMatchUnchangedSourcePrefabFields" classname="OriginalRendererFlagsTests" runstate="Runnable" seed="730367039" result="Passed" start-time="2026-11-05 20:14:58Z" end-time="2026-11-05 20:14:58Z" duration="0.265368" asserts="0">
           <properties>
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1110" name="OriginalWakeSceneTests" fullname="OriginalWakeSceneTests" classname="OriginalWakeSceneTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:10:32Z" end-time="2026-11-05 15:10:46Z" duration="14.097608" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1112" name="OriginalWakeSceneTests" fullname="OriginalWakeSceneTests" classname="OriginalWakeSceneTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:14:58Z" end-time="2026-11-05 20:15:36Z" duration="38.050861" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1111" name="OriginalWakeRigGeneratesNativeWavesWithSourceOffControl" fullname="OriginalWakeSceneTests.OriginalWakeRigGeneratesNativeWavesWithSourceOffControl" methodname="OriginalWakeRigGeneratesNativeWavesWithSourceOffControl" classname="OriginalWakeSceneTests" runstate="Runnable" seed="1926327804" result="Passed" start-time="2026-11-05 15:10:32Z" end-time="2026-11-05 15:10:35Z" duration="3.374393" asserts="0">
+        <test-case id="1113" name="OriginalWakeRigGeneratesNativeWavesWithSourceOffControl" fullname="OriginalWakeSceneTests.OriginalWakeRigGeneratesNativeWavesWithSourceOffControl" methodname="OriginalWakeRigGeneratesNativeWavesWithSourceOffControl" classname="OriginalWakeSceneTests" runstate="Runnable" seed="2111055558" result="Passed" start-time="2026-11-05 20:14:58Z" end-time="2026-11-05 20:15:07Z" duration="8.790324" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="300000" />
@@ -692,7 +706,7 @@ Computing lightmaps is not available in play mode.
 Computing lightmaps is not available in play mode.
 ]]></output>
         </test-case>
-        <test-case id="1113" name="OriginalWakeSourcesContributeIndependently" fullname="OriginalWakeSceneTests.OriginalWakeSourcesContributeIndependently" methodname="OriginalWakeSourcesContributeIndependently" classname="OriginalWakeSceneTests" runstate="Runnable" seed="1020936450" result="Passed" start-time="2026-11-05 15:10:35Z" end-time="2026-11-05 15:10:44Z" duration="8.860982" asserts="0">
+        <test-case id="1115" name="OriginalWakeSourcesContributeIndependently" fullname="OriginalWakeSceneTests.OriginalWakeSourcesContributeIndependently" methodname="OriginalWakeSourcesContributeIndependently" classname="OriginalWakeSceneTests" runstate="Runnable" seed="1886864579" result="Passed" start-time="2026-11-05 20:15:07Z" end-time="2026-11-05 20:15:31Z" duration="24.250772" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="300000" />
@@ -709,7 +723,7 @@ Computing lightmaps is not available in play mode.
 Computing lightmaps is not available in play mode.
 ]]></output>
         </test-case>
-        <test-case id="1112" name="SourceCameraGeometryVisibilityAndRestoration" fullname="OriginalWakeSceneTests.SourceCameraGeometryVisibilityAndRestoration" methodname="SourceCameraGeometryVisibilityAndRestoration" classname="OriginalWakeSceneTests" runstate="Runnable" seed="134552978" result="Passed" start-time="2026-11-05 15:10:44Z" end-time="2026-11-05 15:10:46Z" duration="1.861128" asserts="0">
+        <test-case id="1114" name="SourceCameraGeometryVisibilityAndRestoration" fullname="OriginalWakeSceneTests.SourceCameraGeometryVisibilityAndRestoration" methodname="SourceCameraGeometryVisibilityAndRestoration" classname="OriginalWakeSceneTests" runstate="Runnable" seed="575477940" result="Passed" start-time="2026-11-05 20:15:31Z" end-time="2026-11-05 20:15:36Z" duration="5.007969" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -722,9 +736,9 @@ Computing lightmaps is not available in play mode.
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1114" name="OriginalWhirlpoolTests" fullname="OriginalWhirlpoolTests" classname="OriginalWhirlpoolTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:10:46Z" end-time="2026-11-05 15:10:48Z" duration="1.844082" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1116" name="OriginalWhirlpoolTests" fullname="OriginalWhirlpoolTests" classname="OriginalWhirlpoolTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:15:36Z" end-time="2026-11-05 20:15:41Z" duration="4.409199" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1115" name="NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" fullname="OriginalWhirlpoolTests.NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" methodname="NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" classname="OriginalWhirlpoolTests" runstate="Runnable" seed="2006266001" result="Passed" start-time="2026-11-05 15:10:46Z" end-time="2026-11-05 15:10:47Z" duration="1.007724" asserts="0">
+        <test-case id="1117" name="NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" fullname="OriginalWhirlpoolTests.NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" methodname="NativeWhirlpoolDisplacementAndFlowInputsChangeAndRestore" classname="OriginalWhirlpoolTests" runstate="Runnable" seed="28081991" result="Passed" start-time="2026-11-05 20:15:36Z" end-time="2026-11-05 20:15:38Z" duration="2.097484" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -736,7 +750,7 @@ Crest Validation: <i>SphereWaterInteraction</i> requires dynamic wave simulation
 Crest Validation: <i>SphereWaterInteraction</i> requires dynamic wave simulation to be enabled on <i>OceanRenderer</i>. Enable the <i>Create Dynamic Wave Sim</i> option on the <i>OceanRenderer</i> component. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1116" name="OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations" fullname="OriginalWhirlpoolTests.OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations" methodname="OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations" classname="OriginalWhirlpoolTests" runstate="Runnable" seed="2057856607" result="Passed" start-time="2026-11-05 15:10:47Z" end-time="2026-11-05 15:10:48Z" duration="0.835499" asserts="0">
+        <test-case id="1118" name="OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations" fullname="OriginalWhirlpoolTests.OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations" methodname="OriginalCombinedWhirlpoolSceneRendersWithNativeSimulations" classname="OriginalWhirlpoolTests" runstate="Runnable" seed="1867993862" result="Passed" start-time="2026-11-05 20:15:38Z" end-time="2026-11-05 20:15:41Z" duration="2.310417" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -747,9 +761,9 @@ Crest Validation: <i>SphereWaterInteraction</i> requires dynamic wave simulation
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1117" name="PlanarReflectionTests" fullname="PlanarReflectionTests" classname="PlanarReflectionTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-05 15:10:48Z" end-time="2026-11-05 15:10:50Z" duration="2.065859" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1119" name="PlanarReflectionTests" fullname="PlanarReflectionTests" classname="PlanarReflectionTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-05 20:15:41Z" end-time="2026-11-05 20:15:45Z" duration="4.030797" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1125" name="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" fullname="PlanarReflectionTests.PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" methodname="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" classname="PlanarReflectionTests" runstate="Runnable" seed="1336353809" result="Passed" start-time="2026-11-05 15:10:48Z" end-time="2026-11-05 15:10:48Z" duration="0.257925" asserts="0">
+        <test-case id="1127" name="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" fullname="PlanarReflectionTests.PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" methodname="PixelLightOptionChangesReflectionWithoutChangingPipelineAsset" classname="PlanarReflectionTests" runstate="Runnable" seed="1108989906" result="Passed" start-time="2026-11-05 20:15:41Z" end-time="2026-11-05 20:15:41Z" duration="0.427446" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -759,7 +773,7 @@ Crest Validation: <i>SphereWaterInteraction</i> requires dynamic wave simulation
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1123" name="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" fullname="PlanarReflectionTests.ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" methodname="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" classname="PlanarReflectionTests" runstate="Runnable" seed="1557097607" result="Passed" start-time="2026-11-05 15:10:48Z" end-time="2026-11-05 15:10:48Z" duration="0.191243" asserts="0">
+        <test-case id="1125" name="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" fullname="PlanarReflectionTests.ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" methodname="ReflectionClipsSubmergedObjectsAndRestoresCullingAfterRecursiveCallback" classname="PlanarReflectionTests" runstate="Runnable" seed="258121878" result="Passed" start-time="2026-11-05 20:15:41Z" end-time="2026-11-05 20:15:42Z" duration="0.366843" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -769,7 +783,7 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1126" name="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" fullname="PlanarReflectionTests.ReflectionContainsVisibleObjectAndUpdatesWhenHidden" methodname="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" classname="PlanarReflectionTests" runstate="Runnable" seed="1614176543" result="Passed" start-time="2026-11-05 15:10:48Z" end-time="2026-11-05 15:10:49Z" duration="0.222545" asserts="0">
+        <test-case id="1128" name="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" fullname="PlanarReflectionTests.ReflectionContainsVisibleObjectAndUpdatesWhenHidden" methodname="ReflectionContainsVisibleObjectAndUpdatesWhenHidden" classname="PlanarReflectionTests" runstate="Runnable" seed="95151760" result="Passed" start-time="2026-11-05 20:15:42Z" end-time="2026-11-05 20:15:42Z" duration="0.443079" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -779,7 +793,7 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1124" name="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" fullname="PlanarReflectionTests.ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" methodname="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" classname="PlanarReflectionTests" runstate="Runnable" seed="863497038" result="Passed" start-time="2026-11-05 15:10:49Z" end-time="2026-11-05 15:10:49Z" duration="0.217744" asserts="0">
+        <test-case id="1126" name="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" fullname="PlanarReflectionTests.ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" methodname="ReflectionDistanceCullsOffAxisObjectsAndPreservesViewCamera" classname="PlanarReflectionTests" runstate="Runnable" seed="1507088996" result="Passed" start-time="2026-11-05 20:15:42Z" end-time="2026-11-05 20:15:42Z" duration="0.438253" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -789,7 +803,7 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1118" name="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" fullname="PlanarReflectionTests.ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" methodname="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" classname="PlanarReflectionTests" runstate="Runnable" seed="922516208" result="Passed" start-time="2026-11-05 15:10:49Z" end-time="2026-11-05 15:10:49Z" duration="0.216636" asserts="0">
+        <test-case id="1120" name="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" fullname="PlanarReflectionTests.ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" methodname="ReflectionDistanceCullsWorldCanvasAndRestoresTerrainFlags" classname="PlanarReflectionTests" runstate="Runnable" seed="815420988" result="Passed" start-time="2026-11-05 20:15:42Z" end-time="2026-11-05 20:15:43Z" duration="0.429409" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -799,7 +813,7 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1121" name="ReflectionRestoresStateAfterCameraCallbackException" fullname="PlanarReflectionTests.ReflectionRestoresStateAfterCameraCallbackException" methodname="ReflectionRestoresStateAfterCameraCallbackException" classname="PlanarReflectionTests" runstate="Runnable" seed="1035342348" result="Passed" start-time="2026-11-05 15:10:49Z" end-time="2026-11-05 15:10:49Z" duration="0.199698" asserts="0">
+        <test-case id="1123" name="ReflectionRestoresStateAfterCameraCallbackException" fullname="PlanarReflectionTests.ReflectionRestoresStateAfterCameraCallbackException" methodname="ReflectionRestoresStateAfterCameraCallbackException" classname="PlanarReflectionTests" runstate="Runnable" seed="1488191787" result="Passed" start-time="2026-11-05 20:15:43Z" end-time="2026-11-05 20:15:43Z" duration="0.395375" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -823,7 +837,7 @@ UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
 
 ]]></output>
         </test-case>
-        <test-case id="1119" name="ReflectionSelectsForwardOrInheritsViewpointRenderer" fullname="PlanarReflectionTests.ReflectionSelectsForwardOrInheritsViewpointRenderer" methodname="ReflectionSelectsForwardOrInheritsViewpointRenderer" classname="PlanarReflectionTests" runstate="Runnable" seed="1616605257" result="Passed" start-time="2026-11-05 15:10:49Z" end-time="2026-11-05 15:10:49Z" duration="0.294400" asserts="0">
+        <test-case id="1121" name="ReflectionSelectsForwardOrInheritsViewpointRenderer" fullname="PlanarReflectionTests.ReflectionSelectsForwardOrInheritsViewpointRenderer" methodname="ReflectionSelectsForwardOrInheritsViewpointRenderer" classname="PlanarReflectionTests" runstate="Runnable" seed="1387388562" result="Passed" start-time="2026-11-05 20:15:43Z" end-time="2026-11-05 20:15:44Z" duration="0.570428" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -833,7 +847,7 @@ UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1120" name="ReflectionShadowOptionChangesReceiverWithoutChangingMainView" fullname="PlanarReflectionTests.ReflectionShadowOptionChangesReceiverWithoutChangingMainView" methodname="ReflectionShadowOptionChangesReceiverWithoutChangingMainView" classname="PlanarReflectionTests" runstate="Runnable" seed="14016933" result="Passed" start-time="2026-11-05 15:10:49Z" end-time="2026-11-05 15:10:50Z" duration="0.241766" asserts="0">
+        <test-case id="1122" name="ReflectionShadowOptionChangesReceiverWithoutChangingMainView" fullname="PlanarReflectionTests.ReflectionShadowOptionChangesReceiverWithoutChangingMainView" methodname="ReflectionShadowOptionChangesReceiverWithoutChangingMainView" classname="PlanarReflectionTests" runstate="Runnable" seed="1626151696" result="Passed" start-time="2026-11-05 20:15:44Z" end-time="2026-11-05 20:15:44Z" duration="0.522585" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -843,7 +857,7 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 Crest: Planar reflections are not enabled on the current ocean material and will not be visible.
 ]]></output>
         </test-case>
-        <test-case id="1122" name="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" fullname="PlanarReflectionTests.ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" methodname="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" classname="PlanarReflectionTests" runstate="Runnable" seed="1212195163" result="Passed" start-time="2026-11-05 15:10:50Z" end-time="2026-11-05 15:10:50Z" duration="0.221607" asserts="0">
+        <test-case id="1124" name="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" fullname="PlanarReflectionTests.ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" methodname="ReflectionTargetTracksFormatSamplesAndSizeWithoutRepeatedAllocation" classname="PlanarReflectionTests" runstate="Runnable" seed="122916790" result="Passed" start-time="2026-11-05 20:15:44Z" end-time="2026-11-05 20:15:45Z" duration="0.433663" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -854,9 +868,9 @@ Crest: Planar reflections are not enabled on the current ocean material and will
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1127" name="PublicTimeControlTests" fullname="PublicTimeControlTests" classname="PublicTimeControlTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:10:50Z" end-time="2026-11-05 15:11:02Z" duration="12.325165" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1129" name="PublicTimeControlTests" fullname="PublicTimeControlTests" classname="PublicTimeControlTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:15:45Z" end-time="2026-11-05 20:16:12Z" duration="27.455830" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1128" name="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" fullname="PublicTimeControlTests.PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" methodname="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" classname="PublicTimeControlTests" runstate="Runnable" seed="260405349" result="Passed" start-time="2026-11-05 15:10:50Z" end-time="2026-11-05 15:11:02Z" duration="12.324178" asserts="0">
+        <test-case id="1130" name="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" fullname="PublicTimeControlTests.PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" methodname="PublicClockAndUnityPauseResumePreserveWaveTimeAndQueryStatuses" classname="PublicTimeControlTests" runstate="Runnable" seed="88006031" result="Passed" start-time="2026-11-05 20:15:45Z" end-time="2026-11-05 20:16:12Z" duration="27.454290" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -864,9 +878,9 @@ Crest: Planar reflections are not enabled on the current ocean material and will
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1129" name="QueryContractTests" fullname="QueryContractTests" classname="QueryContractTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:02Z" end-time="2026-11-05 15:11:03Z" duration="0.351122" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1131" name="QueryContractTests" fullname="QueryContractTests" classname="QueryContractTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:12Z" end-time="2026-11-05 20:16:13Z" duration="0.740432" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1130" name="SlopedNormalsMovingVelocityAndReadbackLatency" fullname="QueryContractTests.SlopedNormalsMovingVelocityAndReadbackLatency" methodname="SlopedNormalsMovingVelocityAndReadbackLatency" classname="QueryContractTests" runstate="Runnable" seed="1739559851" result="Passed" start-time="2026-11-05 15:11:02Z" end-time="2026-11-05 15:11:03Z" duration="0.350486" asserts="0">
+        <test-case id="1132" name="SlopedNormalsMovingVelocityAndReadbackLatency" fullname="QueryContractTests.SlopedNormalsMovingVelocityAndReadbackLatency" methodname="SlopedNormalsMovingVelocityAndReadbackLatency" classname="QueryContractTests" runstate="Runnable" seed="1442673853" result="Passed" start-time="2026-11-05 20:16:12Z" end-time="2026-11-05 20:16:13Z" duration="0.739417" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -874,9 +888,9 @@ Crest: Planar reflections are not enabled on the current ocean material and will
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1131" name="QueryLayoutTests" fullname="QueryLayoutTests" classname="QueryLayoutTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:03Z" end-time="2026-11-05 15:11:03Z" duration="0.444381" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1133" name="QueryLayoutTests" fullname="QueryLayoutTests" classname="QueryLayoutTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:13Z" end-time="2026-11-05 20:16:14Z" duration="0.878399" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1132" name="OwnersCountsAndOptionalOutputsKeepResultsSeparated" fullname="QueryLayoutTests.OwnersCountsAndOptionalOutputsKeepResultsSeparated" methodname="OwnersCountsAndOptionalOutputsKeepResultsSeparated" classname="QueryLayoutTests" runstate="Runnable" seed="471488972" result="Passed" start-time="2026-11-05 15:11:03Z" end-time="2026-11-05 15:11:03Z" duration="0.443529" asserts="0">
+        <test-case id="1134" name="OwnersCountsAndOptionalOutputsKeepResultsSeparated" fullname="QueryLayoutTests.OwnersCountsAndOptionalOutputsKeepResultsSeparated" methodname="OwnersCountsAndOptionalOutputsKeepResultsSeparated" classname="QueryLayoutTests" runstate="Runnable" seed="235739865" result="Passed" start-time="2026-11-05 20:16:13Z" end-time="2026-11-05 20:16:14Z" duration="0.877171" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -884,9 +898,9 @@ Crest: Planar reflections are not enabled on the current ocean material and will
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1133" name="QueryPressureTests" fullname="QueryPressureTests" classname="QueryPressureTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:03Z" end-time="2026-11-05 15:11:03Z" duration="0.365051" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1135" name="QueryPressureTests" fullname="QueryPressureTests" classname="QueryPressureTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:14Z" end-time="2026-11-05 20:16:15Z" duration="0.765524" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1134" name="QueriesRecoverAfterCpuBurst" fullname="QueryPressureTests.QueriesRecoverAfterCpuBurst" methodname="QueriesRecoverAfterCpuBurst" classname="QueryPressureTests" runstate="Runnable" seed="114621217" result="Passed" start-time="2026-11-05 15:11:03Z" end-time="2026-11-05 15:11:03Z" duration="0.364506" asserts="0">
+        <test-case id="1136" name="QueriesRecoverAfterCpuBurst" fullname="QueryPressureTests.QueriesRecoverAfterCpuBurst" methodname="QueriesRecoverAfterCpuBurst" classname="QueryPressureTests" runstate="Runnable" seed="1457600583" result="Passed" start-time="2026-11-05 20:16:14Z" end-time="2026-11-05 20:16:15Z" duration="0.764306" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -894,9 +908,9 @@ Crest: Planar reflections are not enabled on the current ocean material and will
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1135" name="RayQueryEdgeTests" fullname="RayQueryEdgeTests" classname="RayQueryEdgeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:03Z" end-time="2026-11-05 15:11:04Z" duration="0.443880" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1137" name="RayQueryEdgeTests" fullname="RayQueryEdgeTests" classname="RayQueryEdgeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:15Z" end-time="2026-11-05 20:16:16Z" duration="0.973709" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1136" name="EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" fullname="RayQueryEdgeTests.EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" methodname="EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" classname="RayQueryEdgeTests" runstate="Runnable" seed="511575121" result="Passed" start-time="2026-11-05 15:11:03Z" end-time="2026-11-05 15:11:04Z" duration="0.443010" asserts="0">
+        <test-case id="1138" name="EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" fullname="RayQueryEdgeTests.EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" methodname="EndpointsSampleCapAndMovedRaysRetainOriginalSemantics" classname="RayQueryEdgeTests" runstate="Runnable" seed="236051063" result="Passed" start-time="2026-11-05 20:16:15Z" end-time="2026-11-05 20:16:16Z" duration="0.971521" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -907,9 +921,9 @@ Crest: RayTraceHelper: ray steps exceed maximum (128), step size increased to 0,
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1137" name="RayQueryTests" fullname="RayQueryTests" classname="RayQueryTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:04Z" end-time="2026-11-05 15:11:04Z" duration="0.312382" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1139" name="RayQueryTests" fullname="RayQueryTests" classname="RayQueryTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:16Z" end-time="2026-11-05 20:16:16Z" duration="0.806551" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1138" name="RaysIntersectKnownSlopedAndMovingWater" fullname="RayQueryTests.RaysIntersectKnownSlopedAndMovingWater" methodname="RaysIntersectKnownSlopedAndMovingWater" classname="RayQueryTests" runstate="Runnable" seed="545657007" result="Passed" start-time="2026-11-05 15:11:04Z" end-time="2026-11-05 15:11:04Z" duration="0.311758" asserts="0">
+        <test-case id="1140" name="RaysIntersectKnownSlopedAndMovingWater" fullname="RayQueryTests.RaysIntersectKnownSlopedAndMovingWater" methodname="RaysIntersectKnownSlopedAndMovingWater" classname="RayQueryTests" runstate="Runnable" seed="301873209" result="Passed" start-time="2026-11-05 20:16:16Z" end-time="2026-11-05 20:16:16Z" duration="0.805217" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -917,9 +931,9 @@ Crest: RayTraceHelper: ray steps exceed maximum (128), step size increased to 0,
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1139" name="RemainingClockTests" fullname="RemainingClockTests" classname="RemainingClockTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:04Z" end-time="2026-11-05 15:11:05Z" duration="0.372694" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1141" name="RemainingClockTests" fullname="RemainingClockTests" classname="RemainingClockTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:16Z" end-time="2026-11-05 20:16:17Z" duration="0.951707" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1140" name="NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" fullname="RemainingClockTests.NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" methodname="NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" classname="RemainingClockTests" runstate="Runnable" seed="1185440216" result="Passed" start-time="2026-11-05 15:11:04Z" end-time="2026-11-05 15:11:05Z" duration="0.372144" asserts="0">
+        <test-case id="1142" name="NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" fullname="RemainingClockTests.NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" methodname="NetworkOffsetAndDirectorFallbackRestoreOriginalClockStack" classname="RemainingClockTests" runstate="Runnable" seed="1327482943" result="Passed" start-time="2026-11-05 20:16:16Z" end-time="2026-11-05 20:16:17Z" duration="0.950225" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -927,9 +941,9 @@ Crest: RayTraceHelper: ray steps exceed maximum (128), step size increased to 0,
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1141" name="ResourceLifecycleTests" fullname="ResourceLifecycleTests" classname="ResourceLifecycleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:05Z" end-time="2026-11-05 15:11:06Z" duration="1.850472" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1143" name="ResourceLifecycleTests" fullname="ResourceLifecycleTests" classname="ResourceLifecycleTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:17Z" end-time="2026-11-05 20:16:22Z" duration="4.615798" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1142" name="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" fullname="ResourceLifecycleTests.RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" methodname="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" classname="ResourceLifecycleTests" runstate="Runnable" seed="1274032156" result="Passed" start-time="2026-11-05 15:11:05Z" end-time="2026-11-05 15:11:06Z" duration="1.849883" asserts="0">
+        <test-case id="1144" name="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" fullname="ResourceLifecycleTests.RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" methodname="RepeatedUnderwaterSceneLoadsKeepTextureFootprintStable" classname="ResourceLifecycleTests" runstate="Runnable" seed="1686129426" result="Passed" start-time="2026-11-05 20:16:17Z" end-time="2026-11-05 20:16:22Z" duration="4.614472" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -952,9 +966,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1143" name="RippleGeneratorTests" fullname="RippleGeneratorTests" classname="RippleGeneratorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:06Z" end-time="2026-11-05 15:11:12Z" duration="5.824536" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1145" name="RippleGeneratorTests" fullname="RippleGeneratorTests" classname="RippleGeneratorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:22Z" end-time="2026-11-05 20:16:38Z" duration="15.934504" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1144" name="OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" fullname="RippleGeneratorTests.OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" methodname="OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" classname="RippleGeneratorTests" runstate="Runnable" seed="1080835492" result="Passed" start-time="2026-11-05 15:11:06Z" end-time="2026-11-05 15:11:12Z" duration="5.823554" asserts="0">
+        <test-case id="1146" name="OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" fullname="RippleGeneratorTests.OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" methodname="OriginalGateAndGPUImpulseMatchShaderThenPropagateWithoutSource" classname="RippleGeneratorTests" runstate="Runnable" seed="344511380" result="Passed" start-time="2026-11-05 20:16:22Z" end-time="2026-11-05 20:16:38Z" duration="15.932757" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -962,9 +976,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1147" name="ShadowedOpticalReferenceTests" fullname="ShadowedOpticalReferenceTests" classname="ShadowedOpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:12Z" end-time="2026-11-05 15:11:14Z" duration="1.784656" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1149" name="ShadowedOpticalReferenceTests" fullname="ShadowedOpticalReferenceTests" classname="ShadowedOpticalReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:38Z" end-time="2026-11-05 20:16:42Z" duration="4.289332" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1148" name="OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" fullname="ShadowedOpticalReferenceTests.OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" methodname="OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" classname="ShadowedOpticalReferenceTests" runstate="Runnable" seed="98324993" result="Passed" start-time="2026-11-05 15:11:12Z" end-time="2026-11-05 15:11:14Z" duration="1.783863" asserts="0">
+        <test-case id="1150" name="OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" fullname="ShadowedOpticalReferenceTests.OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" methodname="OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors" classname="ShadowedOpticalReferenceTests" runstate="Runnable" seed="372481512" result="Passed" start-time="2026-11-05 20:16:38Z" end-time="2026-11-05 20:16:42Z" duration="4.287796" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="240000" />
@@ -1081,9 +1095,9 @@ Crest Validation: <i>Cull Mode</i> is set to <i>Back</i> on material <i>Ocean_Ca
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1145" name="ShadowReferenceTests" fullname="ShadowReferenceTests" classname="ShadowReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:14Z" end-time="2026-11-05 15:11:16Z" duration="1.972221" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1147" name="ShadowReferenceTests" fullname="ShadowReferenceTests" classname="ShadowReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:16:42Z" end-time="2026-11-05 20:16:46Z" duration="4.215758" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1146" name="OriginalLightEventsProduceIndependentMaskAndLodOcclusion" fullname="ShadowReferenceTests.OriginalLightEventsProduceIndependentMaskAndLodOcclusion" methodname="OriginalLightEventsProduceIndependentMaskAndLodOcclusion" classname="ShadowReferenceTests" runstate="Runnable" seed="82871819" result="Passed" start-time="2026-11-05 15:11:14Z" end-time="2026-11-05 15:11:16Z" duration="1.971547" asserts="0">
+        <test-case id="1148" name="OriginalLightEventsProduceIndependentMaskAndLodOcclusion" fullname="ShadowReferenceTests.OriginalLightEventsProduceIndependentMaskAndLodOcclusion" methodname="OriginalLightEventsProduceIndependentMaskAndLodOcclusion" classname="ShadowReferenceTests" runstate="Runnable" seed="1056562187" result="Passed" start-time="2026-11-05 20:16:42Z" end-time="2026-11-05 20:16:46Z" duration="4.214404" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -1096,23 +1110,23 @@ Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1149" name="SpectrumTests" fullname="SpectrumTests" classname="SpectrumTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:16Z" duration="0.002806" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1151" name="SpectrumTests" fullname="SpectrumTests" classname="SpectrumTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:46Z" duration="0.006642" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1153" name="SpectrumGenerationIsRepeatableForFixedSeed" fullname="SpectrumTests.SpectrumGenerationIsRepeatableForFixedSeed" methodname="SpectrumGenerationIsRepeatableForFixedSeed" classname="SpectrumTests" runstate="Runnable" seed="36606715" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:16Z" duration="0.000629" asserts="0">
+        <test-case id="1155" name="SpectrumGenerationIsRepeatableForFixedSeed" fullname="SpectrumTests.SpectrumGenerationIsRepeatableForFixedSeed" methodname="SpectrumGenerationIsRepeatableForFixedSeed" classname="SpectrumTests" runstate="Runnable" seed="1054024813" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:46Z" duration="0.001328" asserts="0">
           <properties>
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-suite type="ParameterizedMethod" id="1152" name="SpectrumSamplingIsOrderedAndInsideOctaves" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:16Z" duration="0.001473" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="ParameterizedMethod" id="1154" name="SpectrumSamplingIsOrderedAndInsideOctaves" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:46Z" duration="0.003644" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
           <properties />
-          <test-case id="1150" name="SpectrumSamplingIsOrderedAndInsideOctaves(1)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(1)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="43446575" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:16Z" duration="0.000641" asserts="0">
+          <test-case id="1152" name="SpectrumSamplingIsOrderedAndInsideOctaves(1)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(1)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="832094452" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:46Z" duration="0.001616" asserts="0">
             <properties>
               <property name="retryIteration" value="0" />
               <property name="repeatIteration" value="0" />
             </properties>
           </test-case>
-          <test-case id="1151" name="SpectrumSamplingIsOrderedAndInsideOctaves(8)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(8)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="1167585977" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:16Z" duration="0.000395" asserts="0">
+          <test-case id="1153" name="SpectrumSamplingIsOrderedAndInsideOctaves(8)" fullname="SpectrumTests.SpectrumSamplingIsOrderedAndInsideOctaves(8)" methodname="SpectrumSamplingIsOrderedAndInsideOctaves" classname="SpectrumTests" runstate="Runnable" seed="1022741998" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:46Z" duration="0.000947" asserts="0">
             <properties>
               <property name="retryIteration" value="0" />
               <property name="repeatIteration" value="0" />
@@ -1120,16 +1134,16 @@ Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
           </test-case>
         </test-suite>
       </test-suite>
-      <test-suite type="TestFixture" id="1154" name="SplineGeometryTests" fullname="SplineGeometryTests" classname="SplineGeometryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:18Z" duration="1.731614" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1156" name="SplineGeometryTests" fullname="SplineGeometryTests" classname="SplineGeometryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:50Z" duration="4.019170" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1155" name="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" fullname="SplineGeometryTests.CurvedClosedFlowHasTangentVectorsAndNoSeamGap" methodname="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" classname="SplineGeometryTests" runstate="Runnable" seed="1060481074" result="Passed" start-time="2026-11-05 15:11:16Z" end-time="2026-11-05 15:11:17Z" duration="0.791851" asserts="0">
+        <test-case id="1157" name="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" fullname="SplineGeometryTests.CurvedClosedFlowHasTangentVectorsAndNoSeamGap" methodname="CurvedClosedFlowHasTangentVectorsAndNoSeamGap" classname="SplineGeometryTests" runstate="Runnable" seed="1651395496" result="Passed" start-time="2026-11-05 20:16:46Z" end-time="2026-11-05 20:16:48Z" duration="1.585246" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1156" name="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" fullname="SplineGeometryTests.SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" methodname="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" classname="SplineGeometryTests" runstate="Runnable" seed="1126236805" result="Passed" start-time="2026-11-05 15:11:17Z" end-time="2026-11-05 15:11:18Z" duration="0.939101" asserts="0">
+        <test-case id="1158" name="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" fullname="SplineGeometryTests.SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" methodname="SlopedGeometryAndSplineMatchPlaneAndPublicHeightQueries" classname="SplineGeometryTests" runstate="Runnable" seed="1045077613" result="Passed" start-time="2026-11-05 20:16:48Z" end-time="2026-11-05 20:16:50Z" duration="2.432519" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1137,9 +1151,9 @@ Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1157" name="SplineSceneCloseTests" fullname="SplineSceneCloseTests" classname="SplineSceneCloseTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 15:11:18Z" end-time="2026-11-05 15:11:19Z" duration="1.243906" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1159" name="SplineSceneCloseTests" fullname="SplineSceneCloseTests" classname="SplineSceneCloseTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 20:16:50Z" end-time="2026-11-05 20:16:53Z" duration="2.892132" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1158" name="OriginalRiverSceneClosesWithoutRecreatingMeshes" fullname="SplineSceneCloseTests.OriginalRiverSceneClosesWithoutRecreatingMeshes" methodname="OriginalRiverSceneClosesWithoutRecreatingMeshes" classname="SplineSceneCloseTests" runstate="Runnable" seed="2097616427" result="Passed" start-time="2026-11-05 15:11:18Z" end-time="2026-11-05 15:11:19Z" duration="1.213424" asserts="0">
+        <test-case id="1160" name="OriginalRiverSceneClosesWithoutRecreatingMeshes" fullname="SplineSceneCloseTests.OriginalRiverSceneClosesWithoutRecreatingMeshes" methodname="OriginalRiverSceneClosesWithoutRecreatingMeshes" classname="SplineSceneCloseTests" runstate="Runnable" seed="1163642293" result="Passed" start-time="2026-11-05 20:16:50Z" end-time="2026-11-05 20:16:53Z" duration="2.832098" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="120000" />
@@ -1147,7 +1161,7 @@ Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1159" name="PointMoveDisableDeleteAndUndoStillNotify" fullname="SplineSceneCloseTests.PointMoveDisableDeleteAndUndoStillNotify" methodname="PointMoveDisableDeleteAndUndoStillNotify" classname="SplineSceneCloseTests" runstate="Runnable" seed="824026149" result="Passed" start-time="2026-11-05 15:11:19Z" end-time="2026-11-05 15:11:19Z" duration="0.029763" asserts="0">
+        <test-case id="1161" name="PointMoveDisableDeleteAndUndoStillNotify" fullname="SplineSceneCloseTests.PointMoveDisableDeleteAndUndoStillNotify" methodname="PointMoveDisableDeleteAndUndoStillNotify" classname="SplineSceneCloseTests" runstate="Runnable" seed="525653494" result="Passed" start-time="2026-11-05 20:16:53Z" end-time="2026-11-05 20:16:53Z" duration="0.058611" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1155,23 +1169,23 @@ Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1160" name="SurfaceInputTests" fullname="SurfaceInputTests" classname="SurfaceInputTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:11:19Z" end-time="2026-11-05 15:11:25Z" duration="6.312851" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1162" name="SurfaceInputTests" fullname="SurfaceInputTests" classname="SurfaceInputTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:16:53Z" end-time="2026-11-05 20:17:08Z" duration="14.473121" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1162" name="AlbedoColorBlendCutoffAndRegistrationAffectSurface" fullname="SurfaceInputTests.AlbedoColorBlendCutoffAndRegistrationAffectSurface" methodname="AlbedoColorBlendCutoffAndRegistrationAffectSurface" classname="SurfaceInputTests" runstate="Runnable" seed="1222214037" result="Passed" start-time="2026-11-05 15:11:19Z" end-time="2026-11-05 15:11:24Z" duration="4.991277" asserts="0">
+        <test-case id="1164" name="AlbedoColorBlendCutoffAndRegistrationAffectSurface" fullname="SurfaceInputTests.AlbedoColorBlendCutoffAndRegistrationAffectSurface" methodname="AlbedoColorBlendCutoffAndRegistrationAffectSurface" classname="SurfaceInputTests" runstate="Runnable" seed="328990388" result="Passed" start-time="2026-11-05 20:16:53Z" end-time="2026-11-05 20:17:05Z" duration="11.570369" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1163" name="CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" fullname="SurfaceInputTests.CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" methodname="CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" classname="SurfaceInputTests" runstate="Runnable" seed="92193661" result="Passed" start-time="2026-11-05 15:11:24Z" end-time="2026-11-05 15:11:24Z" duration="0.547293" asserts="0">
+        <test-case id="1165" name="CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" fullname="SurfaceInputTests.CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" methodname="CubeSphereAndGeometryClipSurfaceAndDeregisterCleanly" classname="SurfaceInputTests" runstate="Runnable" seed="158795113" result="Passed" start-time="2026-11-05 20:17:05Z" end-time="2026-11-05 20:17:06Z" duration="0.966193" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
             <property name="repeatIteration" value="0" />
           </properties>
         </test-case>
-        <test-case id="1161" name="LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" fullname="SurfaceInputTests.LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" methodname="LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" classname="SurfaceInputTests" runstate="Runnable" seed="1177007539" result="Passed" start-time="2026-11-05 15:11:24Z" end-time="2026-11-05 15:11:25Z" duration="0.773346" asserts="0">
+        <test-case id="1163" name="LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" fullname="SurfaceInputTests.LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" methodname="LocalWaterHeightUpdatesGpuQueriesAndHeightBounds" classname="SurfaceInputTests" runstate="Runnable" seed="131687861" result="Passed" start-time="2026-11-05 20:17:06Z" end-time="2026-11-05 20:17:08Z" duration="1.934932" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1179,9 +1193,9 @@ Light.GetCommandBuffers is compatible only with the Built-In Render Pipeline.
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1164" name="UnderwaterBoundaryTests" fullname="UnderwaterBoundaryTests" classname="UnderwaterBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:11:25Z" end-time="2026-11-05 15:11:26Z" duration="0.878568" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1166" name="UnderwaterBoundaryTests" fullname="UnderwaterBoundaryTests" classname="UnderwaterBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:17:08Z" end-time="2026-11-05 20:17:10Z" duration="2.199317" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1167" name="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" fullname="UnderwaterBoundaryTests.EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" methodname="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="394181144" result="Passed" start-time="2026-11-05 15:11:25Z" end-time="2026-11-05 15:11:26Z" duration="0.246802" asserts="0">
+        <test-case id="1169" name="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" fullname="UnderwaterBoundaryTests.EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" methodname="EffectOrderingPreservesUnfoggedTransparentShaderBeforeTransparents" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="184146611" result="Passed" start-time="2026-11-05 20:17:08Z" end-time="2026-11-05 20:17:09Z" duration="0.836396" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1193,7 +1207,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1166" name="OverlayFogsGeometryAndPreservesBackground" fullname="UnderwaterBoundaryTests.OverlayFogsGeometryAndPreservesBackground" methodname="OverlayFogsGeometryAndPreservesBackground" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1375303043" result="Passed" start-time="2026-11-05 15:11:26Z" end-time="2026-11-05 15:11:26Z" duration="0.236257" asserts="0">
+        <test-case id="1168" name="OverlayFogsGeometryAndPreservesBackground" fullname="UnderwaterBoundaryTests.OverlayFogsGeometryAndPreservesBackground" methodname="OverlayFogsGeometryAndPreservesBackground" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="2004682206" result="Passed" start-time="2026-11-05 20:17:09Z" end-time="2026-11-05 20:17:09Z" duration="0.530484" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1204,7 +1218,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1165" name="SurfaceCrossingAndMeniscusRespondAtFixedTime" fullname="UnderwaterBoundaryTests.SurfaceCrossingAndMeniscusRespondAtFixedTime" methodname="SurfaceCrossingAndMeniscusRespondAtFixedTime" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="57859367" result="Passed" start-time="2026-11-05 15:11:26Z" end-time="2026-11-05 15:11:26Z" duration="0.394170" asserts="0">
+        <test-case id="1167" name="SurfaceCrossingAndMeniscusRespondAtFixedTime" fullname="UnderwaterBoundaryTests.SurfaceCrossingAndMeniscusRespondAtFixedTime" methodname="SurfaceCrossingAndMeniscusRespondAtFixedTime" classname="UnderwaterBoundaryTests" runstate="Runnable" seed="1202805884" result="Passed" start-time="2026-11-05 20:17:09Z" end-time="2026-11-05 20:17:10Z" duration="0.830066" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1217,9 +1231,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1168" name="UnderwaterReferenceTests" fullname="UnderwaterReferenceTests" classname="UnderwaterReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:26Z" end-time="2026-11-05 15:11:27Z" duration="0.612764" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1170" name="UnderwaterReferenceTests" fullname="UnderwaterReferenceTests" classname="UnderwaterReferenceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:17:10Z" end-time="2026-11-05 20:17:11Z" duration="1.206126" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1169" name="OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" fullname="UnderwaterReferenceTests.OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" methodname="OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" classname="UnderwaterReferenceTests" runstate="Runnable" seed="1246490935" result="Passed" start-time="2026-11-05 15:11:26Z" end-time="2026-11-05 15:11:27Z" duration="0.611701" asserts="0">
+        <test-case id="1171" name="OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" fullname="UnderwaterReferenceTests.OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" methodname="OriginalFullscreenUnderwaterMaskFogAndMeniscusMatchUrp" classname="UnderwaterReferenceTests" runstate="Runnable" seed="1590465197" result="Passed" start-time="2026-11-05 20:17:10Z" end-time="2026-11-05 20:17:11Z" duration="1.204535" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="180000" />
@@ -1268,9 +1282,9 @@ Your project uses a scriptable render pipeline. You can use Camera.GetCommandBuf
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1170" name="UnderwaterVolumeTests" fullname="UnderwaterVolumeTests" classname="UnderwaterVolumeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 15:11:27Z" end-time="2026-11-05 15:11:27Z" duration="0.683167" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1172" name="UnderwaterVolumeTests" fullname="UnderwaterVolumeTests" classname="UnderwaterVolumeTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 20:17:11Z" end-time="2026-11-05 20:17:13Z" duration="1.769417" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1173" name="FlyThroughRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.FlyThroughRestrictsFogToGeometry" methodname="FlyThroughRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="1846075105" result="Passed" start-time="2026-11-05 15:11:27Z" end-time="2026-11-05 15:11:27Z" duration="0.246484" asserts="0">
+        <test-case id="1175" name="FlyThroughRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.FlyThroughRestrictsFogToGeometry" methodname="FlyThroughRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="2095523602" result="Passed" start-time="2026-11-05 20:17:11Z" end-time="2026-11-05 20:17:12Z" duration="0.635552" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1281,7 +1295,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1171" name="PortalRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.PortalRestrictsFogToGeometry" methodname="PortalRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="275412308" result="Passed" start-time="2026-11-05 15:11:27Z" end-time="2026-11-05 15:11:27Z" duration="0.225059" asserts="0">
+        <test-case id="1173" name="PortalRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.PortalRestrictsFogToGeometry" methodname="PortalRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="1174385679" result="Passed" start-time="2026-11-05 20:17:12Z" end-time="2026-11-05 20:17:12Z" duration="0.553604" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1292,7 +1306,7 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwater</i>. The underside of the ocean surface will not be rendered correctly. Enable <i>Underwater</i> on <i>Ocean_Underwater</i>. Click this message to highlight the problem object.
 ]]></output>
         </test-case>
-        <test-case id="1172" name="VolumeRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.VolumeRestrictsFogToGeometry" methodname="VolumeRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="827035950" result="Passed" start-time="2026-11-05 15:11:27Z" end-time="2026-11-05 15:11:27Z" duration="0.210634" asserts="0">
+        <test-case id="1174" name="VolumeRestrictsFogToGeometry" fullname="UnderwaterVolumeTests.VolumeRestrictsFogToGeometry" methodname="VolumeRestrictsFogToGeometry" classname="UnderwaterVolumeTests" runstate="Runnable" seed="1052755002" result="Passed" start-time="2026-11-05 20:17:12Z" end-time="2026-11-05 20:17:13Z" duration="0.578518" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />
@@ -1304,9 +1318,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
 ]]></output>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1174" name="WaterBodyTests" fullname="WaterBodyTests" classname="WaterBodyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:27Z" end-time="2026-11-05 15:11:30Z" duration="2.372326" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1176" name="WaterBodyTests" fullname="WaterBodyTests" classname="WaterBodyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:17:13Z" end-time="2026-11-05 20:17:18Z" duration="5.518154" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1175" name="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" fullname="WaterBodyTests.BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" methodname="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" classname="WaterBodyTests" runstate="Runnable" seed="2094268655" result="Passed" start-time="2026-11-05 15:11:27Z" end-time="2026-11-05 15:11:30Z" duration="2.371454" asserts="0">
+        <test-case id="1177" name="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" fullname="WaterBodyTests.BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" methodname="BoundsTileCullingMaterialDominanceAndIncludedAreasRestore" classname="WaterBodyTests" runstate="Runnable" seed="855208556" result="Passed" start-time="2026-11-05 20:17:13Z" end-time="2026-11-05 20:17:18Z" duration="5.516707" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="Timeout" value="120000" />
@@ -1315,9 +1329,9 @@ Crest Validation: <i>Underwater</i> is not enabled on material <i>Ocean_Underwat
           </properties>
         </test-case>
       </test-suite>
-      <test-suite type="TestFixture" id="1176" name="WaveRayTests" fullname="WaveRayTests" classname="WaveRayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 15:11:30Z" end-time="2026-11-05 15:11:41Z" duration="10.746296" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestFixture" id="1178" name="WaveRayTests" fullname="WaveRayTests" classname="WaveRayTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 20:17:18Z" end-time="2026-11-05 20:17:45Z" duration="26.832360" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-case id="1177" name="OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" fullname="WaveRayTests.OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" methodname="OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" classname="WaveRayTests" runstate="Runnable" seed="1539613909" result="Passed" start-time="2026-11-05 15:11:30Z" end-time="2026-11-05 15:11:41Z" duration="10.745663" asserts="0">
+        <test-case id="1179" name="OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" fullname="WaveRayTests.OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" methodname="OriginalRayTracksWavePacketsAndRecoversAfterEndpointMotion" classname="WaveRayTests" runstate="Runnable" seed="1237845189" result="Passed" start-time="2026-11-05 20:17:18Z" end-time="2026-11-05 20:17:45Z" duration="26.830951" asserts="0">
           <properties>
             <property name="_JOINTYPE" value="UnityCombinatorial" />
             <property name="retryIteration" value="0" />

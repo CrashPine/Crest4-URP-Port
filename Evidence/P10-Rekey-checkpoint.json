@@ -1,0 +1,421 @@
+{
+  "recordedUtc": "2026-11-05T20:27:18.738822+00:00",
+  "suites": [
+    {
+      "path": "Evidence/P10-Rekey-EditMode-DX11.xml",
+      "sha256": "E71E8B623119D589C365E68488FA68EE97DAADDD89E1A88F5C4F70DF8E9DE85F",
+      "bytes": 154762,
+      "modifiedUtc": "2026-11-05T20:09:49.404171+00:00",
+      "passed": 115,
+      "start": "2026-11-05 20:04:44Z",
+      "end": "2026-11-05 20:09:49Z"
+    },
+    {
+      "path": "Evidence/P10-Rekey-EditMode-DX11-interactive.xml",
+      "sha256": "D1881FCC58489FD4C9D030B2F9EE6A1B439DD446FB67D776EAF2C29EDFB78A64",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-05T20:10:53.558598+00:00",
+      "passed": 2,
+      "start": "2026-11-05 20:10:15Z",
+      "end": "2026-11-05 20:10:53Z"
+    },
+    {
+      "path": "Evidence/P10-Rekey-EditMode-DX12.xml",
+      "sha256": "A6D398F8CD3A39585855780083EBCA010B09D0AED04284FFB22B90E9F5BB73D0",
+      "bytes": 154780,
+      "modifiedUtc": "2026-11-05T20:17:45.925513+00:00",
+      "passed": 115,
+      "start": "2026-11-05 20:11:12Z",
+      "end": "2026-11-05 20:17:45Z"
+    },
+    {
+      "path": "Evidence/P10-Rekey-EditMode-DX12-interactive.xml",
+      "sha256": "24FEE8AEC258CD077E1D0EE8293DA14C1576067EAF6B19BF53673026141D8A20",
+      "bytes": 4021,
+      "modifiedUtc": "2026-11-05T20:19:15.787284+00:00",
+      "passed": 2,
+      "start": "2026-11-05 20:18:34Z",
+      "end": "2026-11-05 20:19:15Z"
+    }
+  ],
+  "cause": {
+    "cause": "Existing-target re-key removes old generator without cleanup; no-target adaptation invalidates spectrum but same-time early return ignores invalidation.",
+    "baseline": {
+      "tenTexturesAliveAfterEviction": 10,
+      "tenOrphanedAfterFullCleanup": 10,
+      "targetRetained": true,
+      "oldConsumerRestored": true,
+      "frozenUpdatedMatchesFresh": false
+    },
+    "correction": "Owned retirement queue released after ocean command submission/full teardown; cached time result requires initialized generator+spectrum.",
+    "scope": "Original re-key control exposes10 orphaned native textures and stale frozen-time spectrum. Corrected focused5/API and full115+interactive2/API, both builds/4 Players accepted. Queued EditMode16-layer commands remain valid; shared/frozen/mixed regressions retained. Two fixture setup failures preserved separately."
+  },
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "38423C93D4579655B822F0EC99B9E73DE497CC4BFD6063E29E8C0A546366F6E2",
+    "bytes": 29732,
+    "modifiedUtc": "2026-11-05T20:27:18.916683+00:00"
+  },
+  "limitation": "Evicted FFT generators retain ownership until ocean command submission/full cleanup; invalidated spectra recompute at unchanged time. Controlled shared/queued16-layer comparisons; no compute math change. GPU timing/driver NonLocal/P11 gaps remain open.",
+  "captureControls": [
+    {
+      "configuration": "Development",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5614,
+          "lodFrame": 5614
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11333,
+          "lodFrame": 11333
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16493,
+          "lodFrame": 16493
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22176,
+          "lodFrame": 22176
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 26766,
+          "lodFrame": 26766
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 31940,
+          "lodFrame": 31940
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 34316,
+          "lodFrame": 34316
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Development",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 2992,
+          "lodFrame": 2992
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 5750,
+          "lodFrame": 5750
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 7826,
+          "lodFrame": 7826
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 10114,
+          "lodFrame": 10114
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 12629,
+          "lodFrame": 12629
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 15018,
+          "lodFrame": 15018
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 16340,
+          "lodFrame": 16340
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5671,
+          "lodFrame": 5671
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11396,
+          "lodFrame": 11396
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16574,
+          "lodFrame": 16574
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22296,
+          "lodFrame": 22296
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 26900,
+          "lodFrame": 26900
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32104,
+          "lodFrame": 32104
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 34060,
+          "lodFrame": 34060
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 3206,
+          "lodFrame": 3206
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 6415,
+          "lodFrame": 6415
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 9214,
+          "lodFrame": 9214
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 12654,
+          "lodFrame": 12654
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 15321,
+          "lodFrame": 15321
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 18355,
+          "lodFrame": 18355
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 19809,
+          "lodFrame": 19809
+        }
+      ],
+      "renderDataWarnings": 0
+    }
+  ],
+  "unchangedCoreSources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/Shadows/LodDataMgrShadow.URP.cs",
+      "sha256": "9AF6CAEB68CA7EF5ECA2C84D1DD40F58AE6300997D6B81F830180147A61C1A36",
+      "bytes": 3817,
+      "modifiedUtc": "2026-11-04T18:54:46.169622+00:00"
+    }
+  ],
+  "smokeSources": [
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
+      "sha256": "A325A07F15071E78794D9E5879E4D34ED80BA140B2C431759A87A6A727F90DD3",
+      "bytes": 7577,
+      "modifiedUtc": "2026-11-04T18:54:46.224198+00:00"
+    },
+    {
+      "path": "Tools/Run-Player.ps1",
+      "sha256": "348EEDEF67ECFE1AFB515C67824ED1F40D357D9197CE9A493E1600640C2A64C1",
+      "bytes": 2802,
+      "modifiedUtc": "2026-11-04T18:51:50.357066+00:00"
+    }
+  ],
+  "fftReports": [
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D11.txt",
+      "sha256": "5C86E219B083B05CC596DD33ACE8233BFF89321FA7A83A6ED5B2C707FFC4847A",
+      "bytes": 356,
+      "modifiedUtc": "2026-11-05T20:05:56.534228+00:00",
+      "all16LayerHash": "8FAA604DFC9A4AF812250E9CA741C7D1AC08B7BD3046491AB76D383B1B3F3693"
+    },
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D12.txt",
+      "sha256": "054CA154277DB6BBD41DE9340E54BFB648D9253D462F37D617988A82A4735D24",
+      "bytes": 356,
+      "modifiedUtc": "2026-11-05T20:12:58.163621+00:00",
+      "all16LayerHash": "574B26D63D1BED9FD56E37871E36839960418729E3A0D2D3B70098B57DD37A2E"
+    }
+  ],
+  "regressionSources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/FFTCacheLifetimeTests.cs",
+      "sha256": "D647DBAFBDF0E8044212D25CB947337C5E9BE3585A442B2096CC114306CC11CB",
+      "bytes": 15394,
+      "modifiedUtc": "2026-11-05T19:17:01.879402+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/FFTCacheLifetimeTests.cs.meta",
+      "sha256": "4E7869E2D4EDD1B909396A180B7E41D267706023D4AC19594A16539CAC53EF0C",
+      "bytes": 62,
+      "modifiedUtc": "2026-11-05T11:41:35.197120+00:00"
+    }
+  ],
+  "rekeyReports": [
+    {
+      "report": {
+        "path": "Evidence/P10-Rekey-Direct3D11.txt",
+        "sha256": "061EBAB4478B5AD6475DAC4501EDE4C7B3DEA03F23BB3468B8AFA7C95DD74B51",
+        "bytes": 276,
+        "modifiedUtc": "2026-11-05T20:05:56.088001+00:00"
+      },
+      "queued": {
+        "path": "Evidence/P10-Rekey-Queued-Direct3D11.txt",
+        "sha256": "81FA1B2DDB6BCF04F099599E14F1DEBEF86CA2888A12F281BE9CBF072F33FE30",
+        "bytes": 52,
+        "modifiedUtc": "2026-11-05T20:05:56.244457+00:00"
+      },
+      "values": {
+        "Unity": "6000.6.5f1; API=Direct3D11",
+        "OldTextureCount": "10",
+        "AliveAfterEviction": "0",
+        "CacheAfterMerge": "1",
+        "TargetRetained": "True",
+        "TargetBytesUnchanged": "True",
+        "OldConsumerBytesRecovered": "True",
+        "OrphanedAfterCleanup": "0",
+        "AdaptedTextureReused": "True",
+        "FrozenUpdateMatchesFresh": "True",
+        "ChangedWindChangesBytes": "True"
+      }
+    },
+    {
+      "report": {
+        "path": "Evidence/P10-Rekey-Direct3D12.txt",
+        "sha256": "04748F4B3821DF8FF24F733FDA06524636D285B6DD8CF12A7AD5DB24CC56CB19",
+        "bytes": 276,
+        "modifiedUtc": "2026-11-05T20:12:57.586371+00:00"
+      },
+      "queued": {
+        "path": "Evidence/P10-Rekey-Queued-Direct3D12.txt",
+        "sha256": "81FA1B2DDB6BCF04F099599E14F1DEBEF86CA2888A12F281BE9CBF072F33FE30",
+        "bytes": 52,
+        "modifiedUtc": "2026-11-05T20:12:57.812174+00:00"
+      },
+      "values": {
+        "Unity": "6000.6.5f1; API=Direct3D12",
+        "OldTextureCount": "10",
+        "AliveAfterEviction": "0",
+        "CacheAfterMerge": "1",
+        "TargetRetained": "True",
+        "TargetBytesUnchanged": "True",
+        "OldConsumerBytesRecovered": "True",
+        "OrphanedAfterCleanup": "0",
+        "AdaptedTextureReused": "True",
+        "FrozenUpdateMatchesFresh": "True",
+        "ChangedWindChangesBytes": "True"
+      }
+    }
+  ],
+  "focused": [
+    {
+      "path": "Evidence/P10-Rekey-after-DX11.xml",
+      "sha256": "64E69131CB4F6CD033C3A225324BA36772FA0C4D9407C8C2E8582F0437BAA118",
+      "bytes": 5501,
+      "modifiedUtc": "2026-11-05T20:01:12.638968+00:00",
+      "passed": 5
+    },
+    {
+      "path": "Evidence/P10-Rekey-EditMode-DX12-focused.xml",
+      "sha256": "AF4F9576A68062718DAA95ECEB919A1509CA36F98CEC40B9BE02A93BB3A1114C",
+      "bytes": 5503,
+      "modifiedUtc": "2026-11-05T20:04:27.158797+00:00",
+      "passed": 5
+    }
+  ],
+  "originalPreservation": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  },
+  "criticalWarningCounts": {
+    "EditMode-DX11": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "EditMode-DX11-interactive": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "EditMode-DX12": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "EditMode-DX12-interactive": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "Development-DX11": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "Release-DX11": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    }
+  },
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "5C048859EB3B9A846CF3C93939B8E145095644EE0715CF3AF7601F8D1BECDEA7",
+    "fileCount": 1404,
+    "rootMarkdownCount": 8
+  },
+  "evidenceArchive": {
+    "path": "Evidence/P10-Rekey-evidence.zip",
+    "sha256": "22D20F705F06FA4CCF451443599468CB1E7EA3BAEEE79CE5515AAEFD1412B5EC",
+    "entries": 261
+  }
+}

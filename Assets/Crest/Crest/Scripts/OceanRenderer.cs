@@ -1171,6 +1171,9 @@ namespace Crest
             }
 #endif
 
+            // Wave generators retired during recording can be released after submission.
+            FFTCompute.ReleaseRetiredGenerators();
+
             // Run queries at end of update. For CollProviderBakedFFT calling this kicks off
             // collision processing job, and the next call to Query() will force a complete, and
             // we don't want that to happen until they've had a chance to run, so schedule them

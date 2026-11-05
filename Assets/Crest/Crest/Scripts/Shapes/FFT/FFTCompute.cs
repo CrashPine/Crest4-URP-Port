@@ -211,6 +211,20 @@ namespace Crest
             // This is the full shared-resource teardown, not an individual owner's disable.
             // Reusing a released generator at the same simulation time can return its null output.
             _generators.Clear();
+            ReleaseRetiredGenerators();
+        }
+
+        // A generator can be evicted while another input's commands still reference its textures.
+        // Keep it owned until the ocean command buffer has been submitted.
+        static readonly List<FFTCompute> s_RetiredGenerators = new List<FFTCompute>();
+        internal static void ReleaseRetiredGenerators()
+        {
+            foreach (var generator in s_RetiredGenerators)
+            {
+                generator.Release();
+                generator.CleanUp();
+            }
+            s_RetiredGenerators.Clear();
         }
 
         static Dictionary<int, FFTCompute> _generators = new Dictionary<int, FFTCompute>();
@@ -218,6 +232,7 @@ namespace Crest
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void InitStatics()
         {
+            ReleaseRetiredGenerators();
             _generators.Clear();
         }
 
@@ -257,7 +272,7 @@ namespace Crest
         RenderTexture GenerateDisplacementsInternal(CommandBuffer buf, float time, bool updateSpectrum)
         {
             // Check if already generated, and we're not being asked to re-update the spectrum
-            if (_generationTime == time && !updateSpectrum)
+            if (_isInitialised && _spectrumInitialised && _generationTime == time && !updateSpectrum)
             {
                 return _waveBuffers;
             }
@@ -329,7 +344,11 @@ namespace Crest
                 // There is already a new generator which will be used. Remove the previous one - if it really is needed
                 // then it will be created later.
                 var oldHash = CalculateWaveConditionsHash(resolution, loopPeriod, windTurbulenceOld, windDirRadOld, windSpeedOld, spectrumOld);
-                _generators.Remove(oldHash);
+                if (_generators.TryGetValue(oldHash, out var retired))
+                {
+                    s_RetiredGenerators.Add(retired);
+                    _generators.Remove(oldHash);
+                }
             }
         }
 

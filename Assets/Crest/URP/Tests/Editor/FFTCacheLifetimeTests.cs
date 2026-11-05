@@ -16,17 +16,20 @@ using Object=UnityEngine.Object;
 public class FFTCacheLifetimeTests
 {
     OceanWaveSpectrum _spectrum;
+    Texture[] _evictedTextures;
+    RenderTexture _queueCopy;
+    OceanRenderer _editorOcean;
     static void Cleanup()=>typeof(FFTCompute).GetMethod("CleanUpAll",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,null);
     static RenderTexture SharedOutput()
     {
         var cache=(System.Collections.IDictionary)typeof(FFTCompute).GetField("_generators",BindingFlags.Static|BindingFlags.NonPublic).GetValue(null);
         return cache.Values.Cast<object>().Select(g=>(RenderTexture)typeof(FFTCompute).GetField("_waveBuffers",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(g)).First(t=>t!=null&&t.IsCreated());
     }
-    static RenderTexture Generate(OceanWaveSpectrum spectrum,float time)
+    static RenderTexture Generate(OceanWaveSpectrum spectrum,float time,float wind=10)
     {
         using(var cmd=new CommandBuffer())
         {
-            var result=FFTCompute.GenerateDisplacements(cmd,32,60,.145f,0,10,time,spectrum,false);
+            var result=FFTCompute.GenerateDisplacements(cmd,32,60,.145f,0,wind,time,spectrum,false);
             Graphics.ExecuteCommandBuffer(cmd);return result;
         }
     }
@@ -117,11 +120,88 @@ public class FFTCacheLifetimeTests
         Assert.That(cacheAfterFirst,Is.EqualTo(fftFirst?0:1));Assert.That(swellReleased,Is.True);
         Assert.That(fftReleased&&gerstnerReleased&&spectraReleased,Is.True);Assert.That(finalCache,Is.Zero);
     }
+    static Texture[] GeneratorTextures(float wind)
+    {
+        var cache=(System.Collections.IDictionary)typeof(FFTCompute).GetField("_generators",BindingFlags.Static|BindingFlags.NonPublic).GetValue(null);
+        var generator=cache.Values.Cast<object>().Single(g=>(float)typeof(FFTCompute).GetField("_windSpeed",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(g)==wind);
+        return typeof(FFTCompute).GetFields(BindingFlags.Instance|BindingFlags.NonPublic)
+            .Where(f=>typeof(Texture).IsAssignableFrom(f.FieldType)).Select(f=>(Texture)f.GetValue(generator)).Where(t=>t!=null).ToArray();
+    }
+    static void Rekey(OceanWaveSpectrum spectrum,float from,float to)=>FFTCompute.OnGenerationDataUpdated(32,60,.145f,0,from,spectrum,.145f,0,to,spectrum);
+    [UnityTest]
+    public IEnumerator RekeyConvergenceDisposesOldResourcesAndUpdatesFrozenConditions()
+    {
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Interactions.unity");
+        yield return new EnterPlayMode();OceanRenderer.EnableGraphicsInBatchMode=true;
+        for(int i=0;i<16;i++)yield return null;
+        foreach(var wave in Object.FindObjectsByType<ShapeWaves>())Object.Destroy(wave.gameObject);
+        for(int i=0;i<8;i++)yield return null;Assert.That(FFTCompute.GeneratorCount,Is.Zero);
+        _spectrum=ScriptableObject.CreateInstance<OceanWaveSpectrum>();
+        var a=Generate(_spectrum,123.5f,10);var b=Generate(_spectrum,123.5f,20);
+        Assert.That(FFTCompute.GeneratorCount,Is.EqualTo(2));_evictedTextures=GeneratorTextures(10);
+        Assert.That(_evictedTextures.Length,Is.EqualTo(10));byte[] originalA=null,originalB=null;
+        yield return Read(a,data=>originalA=data);yield return Read(b,data=>originalB=data);
+        Rekey(_spectrum,10,20);for(int i=0;i<8;i++)yield return null;
+        int aliveAfterEviction=_evictedTextures.Count(t=>t!=null);int cacheAfterMerge=FFTCompute.GeneratorCount;
+        var target=Generate(_spectrum,123.5f,20);bool targetRetained=ReferenceEquals(target,b);byte[] targetData=null;
+        yield return Read(target,data=>targetData=data);
+        var oldConsumer=Generate(_spectrum,123.5f,10);byte[] oldData=null;yield return Read(oldConsumer,data=>oldData=data);
+        bool oldRecovered=oldData.SequenceEqual(originalA),targetUnchanged=targetData.SequenceEqual(originalB);
+        Cleanup();for(int i=0;i<4;i++)yield return null;
+        int orphanedAfterCleanup=_evictedTextures.Count(t=>t!=null);
+        var moving=Generate(_spectrum,456.5f,30);byte[] beforeMove=null;yield return Read(moving,data=>beforeMove=data);
+        Rekey(_spectrum,30,40);var adapted=Generate(_spectrum,456.5f,40);bool reused=ReferenceEquals(adapted,moving);
+        byte[] adaptedData=null;yield return Read(adapted,data=>adaptedData=data);
+        Cleanup();var reference=Generate(_spectrum,456.5f,40);byte[] freshData=null;yield return Read(reference,data=>freshData=data);
+        bool correctFrozenUpdate=adaptedData.SequenceEqual(freshData),changed=!adaptedData.SequenceEqual(beforeMove);
+        File.WriteAllText("Evidence/P10-Rekey-"+SystemInfo.graphicsDeviceType+".txt",
+            $"Unity={Application.unityVersion}; API={SystemInfo.graphicsDeviceType}\nOldTextureCount=10\nAliveAfterEviction={aliveAfterEviction}\nCacheAfterMerge={cacheAfterMerge}\nTargetRetained={targetRetained}\nTargetBytesUnchanged={targetUnchanged}\nOldConsumerBytesRecovered={oldRecovered}\nOrphanedAfterCleanup={orphanedAfterCleanup}\nAdaptedTextureReused={reused}\nFrozenUpdateMatchesFresh={correctFrozenUpdate}\nChangedWindChangesBytes={changed}\n");
+        Assert.That(targetRetained&&targetUnchanged&&oldRecovered&&reused,Is.True);
+        Assert.That(aliveAfterEviction,Is.Zero,"Removed generator must release its ten owned native textures");
+        Assert.That(orphanedAfterCleanup,Is.Zero);Assert.That(cacheAfterMerge,Is.EqualTo(1));
+        Assert.That(correctFrozenUpdate&&changed,Is.True,"Changed conditions must regenerate at unchanged time");
+    }
+    [UnityTest]
+    public IEnumerator RekeyKeepsAlreadyQueuedFFTCommandsValidInEditMode()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode=true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Interactions.unity");
+        foreach(var wave in Object.FindObjectsByType<ShapeWaves>())wave.enabled=false;
+        if(OceanRenderer.Instance==null)
+        {
+            _editorOcean=Object.FindObjectsByType<OceanRenderer>().Single();
+            typeof(OceanRenderer).GetMethod("OnEnable",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(_editorOcean,null);
+        }
+        Assert.That(OceanRenderer.Instance,Is.Not.Null);
+        Cleanup();_spectrum=ScriptableObject.CreateInstance<OceanWaveSpectrum>();
+        RenderTexture recovered;
+        using(var cmd=new CommandBuffer())
+        {
+            var a=FFTCompute.GenerateDisplacements(cmd,32,60,.145f,0,10,123.5f,_spectrum,false);
+            _evictedTextures=GeneratorTextures(10);
+            _queueCopy=new RenderTexture(a.descriptor);_queueCopy.Create();cmd.CopyTexture(a,_queueCopy);
+            FFTCompute.GenerateDisplacements(cmd,32,60,.145f,0,20,123.5f,_spectrum,false);
+            Rekey(_spectrum,10,20);
+            recovered=FFTCompute.GenerateDisplacements(cmd,32,60,.145f,0,10,123.5f,_spectrum,false);
+            Graphics.ExecuteCommandBuffer(cmd);
+        }
+        byte[] queued=null,fresh=null;yield return Read(_queueCopy,b=>queued=b);yield return Read(recovered,b=>fresh=b);
+        bool exact=queued.SequenceEqual(fresh);Cleanup();yield return null;
+        File.WriteAllText("Evidence/P10-Rekey-Queued-"+SystemInfo.graphicsDeviceType+".txt",$"PlayMode={Application.isPlaying}\nAll16QueuedLayersEqualRecreated={exact}\n");
+        Assert.That(exact,Is.True,"Eviction must not invalidate commands recorded earlier in the same buffer");
+    }
+    static void DestroyOwned(Object value)
+    {
+        if(value==null)return;if(value is RenderTexture texture)texture.Release();
+        if(Application.isPlaying)Object.Destroy(value);else Object.DestroyImmediate(value);
+    }
     [UnityTearDown]
     public IEnumerator Restore()
     {
-        Cleanup();if(_spectrum!=null)Object.Destroy(_spectrum);
-        OceanRenderer.EnableGraphicsInBatchMode=false;
+        Cleanup();foreach(var texture in _evictedTextures??Array.Empty<Texture>())DestroyOwned(texture);
+        _evictedTextures=null;DestroyOwned(_queueCopy);_queueCopy=null;DestroyOwned(_spectrum);
+        if(_editorOcean!=null&&!Application.isPlaying)typeof(OceanRenderer).GetMethod("OnDisable",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(_editorOcean,null);
+        _editorOcean=null;OceanRenderer.EnableGraphicsInBatchMode=false;
         if(Application.isPlaying)yield return new ExitPlayMode();
     }
 }
