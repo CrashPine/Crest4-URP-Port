@@ -1,0 +1,10 @@
+{
+  "cause": "Original full cleanup releases outputs but retains generator/time cache; same-time lookup returns null output. Shared-owner destruction preserves original output; last-owner/full cleanup must evict released entries.",
+  "baseline": {
+    "entriesAfterLastOwner": 1,
+    "entriesAfterExplicitCleanup": 2,
+    "sameTimeRecovered": false,
+    "advancedTimeValid": true
+  },
+  "scope": "Original focused DX11 fails same-time recovery; corrected full111+interactive2/API and4 Players accepted. Shared owner and exact16-layer same-time regeneration verified."
+}

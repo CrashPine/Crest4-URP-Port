@@ -1,4 +1,4 @@
-﻿// Crest Ocean System
+// Crest Ocean System
 
 // This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
 
@@ -208,6 +208,9 @@ namespace Crest
                 generator.Value.Release();
                 generator.Value.CleanUp();
             }
+            // This is the full shared-resource teardown, not an individual owner's disable.
+            // Reusing a released generator at the same simulation time can return its null output.
+            _generators.Clear();
         }
 
         static Dictionary<int, FFTCompute> _generators = new Dictionary<int, FFTCompute>();

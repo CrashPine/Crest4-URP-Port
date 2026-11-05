@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-11-04T19:14:23.194139+00:00",
+  "recordedUtc": "2026-11-05T14:50:41.490647+00:00",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
   "strictShaderVariantMatching": true,
@@ -135,22 +135,28 @@
       "sha256": "2F7AFCFB7003736A0B0EC038841B29998BA80A9EB356BDED580D0423597493A5",
       "bytes": 25222,
       "modifiedUtc": "2026-10-30T17:07:51.251256+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTCompute.cs",
+      "sha256": "BFF5CC57D60E5D98B0CBC336DC3A15EC23D4EAACBF2EF2821CBB9FE9478D06F3",
+      "bytes": 22941,
+      "modifiedUtc": "2026-11-05T11:44:00.393789+00:00"
     }
   ],
   "builds": [
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "sha256": "5A0F95402327C175E9594D6E218369AB2873A39AD87111666330DC6F276B6764",
+      "sha256": "4061000BE71BBA113711B2E685001B735725061BAED7279C05C36A3F1F123EF1",
       "bytes": 287232,
-      "modifiedUtc": "2026-11-04T19:09:40.233388+00:00"
+      "modifiedUtc": "2026-11-05T11:59:12.994857+00:00"
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
-      "sha256": "82727E0E70E2DC0161A276C63229EDB10DD20D53439A7CD568C5D85C76852CBB",
+      "sha256": "00437B159A328E914F4D60193D141C296350F1E0887291A6BC3CDE78F13AB88D",
       "bytes": 22528,
-      "modifiedUtc": "2026-11-04T19:09:40.839672+00:00"
+      "modifiedUtc": "2026-11-05T11:59:13.558760+00:00"
     },
     {
       "configuration": "Development",
@@ -162,16 +168,16 @@
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "sha256": "741CB52E65E21D5538680631DF357FEB5A64970FF43F51CB1273B32AE7B3BFA1",
+      "sha256": "E70B6D6DADDC48AEE36C169E0EBCCAF58910741DD40A791740AA894408E4AF50",
       "bytes": 283648,
-      "modifiedUtc": "2026-11-04T19:10:20.638255+00:00"
+      "modifiedUtc": "2026-11-05T11:59:57.882241+00:00"
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
-      "sha256": "654EDC7AA7BF44440DE3A8C79EDA2B68FFA198F040B88E0337C034E21E700E05",
+      "sha256": "6D5D229CB61C6D9E607CB4714F480F0B85BC56C45FD1A5887DFBD4753924E952",
       "bytes": 22528,
-      "modifiedUtc": "2026-11-04T19:10:20.640881+00:00"
+      "modifiedUtc": "2026-11-05T11:59:57.882241+00:00"
     },
     {
       "configuration": "Release",
@@ -181,137 +187,137 @@
       "modifiedUtc": "2026-11-04T19:10:20.570978+00:00"
     }
   ],
-  "limitation": "Demo smoke capture scheduled after Ocean LateUpdate; trace proves prior coroutine used previous-frame LOD. Shadow algorithm/validation unchanged. Remaining P10 resources/GPU/NonLocal and P11 configurations open; real XR/Intel unavailable.",
+  "limitation": "Full FFT shared-resource teardown now evicts released cache entries. Shared-owner retention and exact all16 same-time FFT layer recovery tested. No compute algorithm change; mixed FFT/Gerstner destruction order and broader P10 GPU/NonLocal/P11 configurations remain unaccepted.",
   "packedAssets": [
     {
       "configuration": "Development",
       "path": "CrestPort_Data/resources.assets",
       "bytes": 1117380,
-      "modifiedUtc": "2026-11-04T19:09:37.966215+00:00",
+      "modifiedUtc": "2026-11-05T11:59:05.797906+00:00",
       "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688"
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/sharedassets0.assets",
       "bytes": 294928,
-      "modifiedUtc": "2026-11-04T19:09:37.959052+00:00",
+      "modifiedUtc": "2026-11-05T11:59:05.796398+00:00",
       "sha256": "DCE5A6DD6D605C5F69542844C9F81FAD128E7B5E86CA5777DE11AC6086F9FC0B"
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/globalgamemanagers",
       "bytes": 95716,
-      "modifiedUtc": "2026-11-04T19:09:37.973963+00:00",
+      "modifiedUtc": "2026-11-05T11:59:05.801609+00:00",
       "sha256": "B678AFC5E6612A9053E0FE30F34CF0D5EE5152D53AD61E23C57A379CC42F8D84"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/resources.assets",
       "bytes": 1117380,
-      "modifiedUtc": "2026-11-04T19:10:17.943495+00:00",
-      "sha256": "EB8D740C93F288B56F42FA0318E92AB068A0A065C098F88715DEA3B959DD4825"
+      "modifiedUtc": "2026-11-05T11:59:55.032199+00:00",
+      "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/sharedassets0.assets",
       "bytes": 294928,
-      "modifiedUtc": "2026-11-04T19:10:17.947057+00:00",
+      "modifiedUtc": "2026-11-05T11:59:55.029687+00:00",
       "sha256": "A8D9A6ABC78A6A4BC3520DFE39F62328E478E15E6FB3916676E416557083FB4F"
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/globalgamemanagers",
       "bytes": 95716,
-      "modifiedUtc": "2026-11-04T19:10:17.949070+00:00",
-      "sha256": "0ED274E57CF563B2F8821B7EFDFE9AFC1F0F2F453291F868D167CEE74B86C4B1"
+      "modifiedUtc": "2026-11-05T11:59:55.032712+00:00",
+      "sha256": "EA451D31928BB6EC060F253E0982587341B863A0859B52214BE54485586A108A"
     }
   ],
-  "validationStatus": "Full110+actual interactive2/API Passed; Development/Release Success;4 sequential Player smokes Errors0,7 scenes+4 reflection captures each.",
+  "validationStatus": "Full111+actual interactive2/API Passed; Development/Release Success;4 sequential Player smokes Errors0,7 scenes+4 reflection captures each.",
   "smokes": [
     {
       "configuration": "Development",
       "graphicsAPI": "DX11",
       "report": {
         "path": "Evidence/Player-Development-DX11/player-smoke.txt",
-        "sha256": "6EC93BD8B6A4D50AB77B454FF6221C188F58EC07FE2088DF73FD7970A04AEB0B",
-        "bytes": 1177,
-        "modifiedUtc": "2026-11-04T19:11:34.554262+00:00"
+        "sha256": "D75142DE221FC0E0D1B9AB2D7E82B03950734B3194BED7010913D0EC8E5C9BF5",
+        "bytes": 1179,
+        "modifiedUtc": "2026-11-05T12:01:10.910336+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Buoyancy.png",
-          "sha256": "5FE7CD7FAAF74F4CB8587E515192DE588C0D3AD31F8EE6A9A6F479659873B669",
-          "bytes": 523403,
-          "modifiedUtc": "2026-11-04T19:11:18.941212+00:00"
+          "sha256": "B076FF3C6C3CF96420935B44273FCB9CBCBD2DEB7D4298F085FEA877570FCCDA",
+          "bytes": 523329,
+          "modifiedUtc": "2026-11-05T12:00:55.218020+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Calm.png",
-          "sha256": "FD7504FA682136432AD59FB0C491F386C1FBC581F46CBC12D2B77B7ECC4195DB",
-          "bytes": 550094,
-          "modifiedUtc": "2026-11-04T19:11:03.376704+00:00"
+          "sha256": "D8314D600981699DF905EA8510F88F1A7A5C2A58762BAA14E2FA3D0B513404A3",
+          "bytes": 549504,
+          "modifiedUtc": "2026-11-05T12:00:39.681773+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Interactions.png",
-          "sha256": "598680AA902988C386A7D0E43074F7DA2BC282B346F013F68CFED7B759AEE9C5",
-          "bytes": 550594,
-          "modifiedUtc": "2026-11-04T19:11:24.134133+00:00"
+          "sha256": "36213F398BDD09A7A576CD9B88AF5B506DE8D5A7D44EEFC6ECBA187A3E794B71",
+          "bytes": 549706,
+          "modifiedUtc": "2026-11-05T12:01:00.408210+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Reflections.png",
-          "sha256": "0BE28B0E7A7DA49089944F26E52D46A438F2BF381C131F0518EBFE4A6FD9840E",
-          "bytes": 543424,
-          "modifiedUtc": "2026-11-04T19:11:34.432819+00:00"
+          "sha256": "0C7ABCDD2BFA61D07B927472B5DBDA0C7D46D45BF0A2BACCBDCEE3555900ED12",
+          "bytes": 543533,
+          "modifiedUtc": "2026-11-05T12:01:10.718071+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Storm.png",
-          "sha256": "59809AF3E07756D4A7E56D508E13D876FF44684B51AE779EF6D0FA254075D792",
-          "bytes": 510032,
-          "modifiedUtc": "2026-11-04T19:11:13.762700+00:00"
+          "sha256": "57E86917B3C5B9A6C2D2FE6B12BBF629878054D925428F954B0B59462439D81E",
+          "bytes": 509950,
+          "modifiedUtc": "2026-11-05T12:00:50.041840+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Underwater.png",
-          "sha256": "E69C493AAA1C04DA0D2A7DDF740A5E9BF3152C7FB207C491CD92F125E5743E38",
-          "bytes": 102377,
-          "modifiedUtc": "2026-11-04T19:11:29.341773+00:00"
+          "sha256": "7DBD92B81C389B1176DA8F5C282A617446D5C0A8CFD945089D22DA714F8E68B5",
+          "bytes": 102171,
+          "modifiedUtc": "2026-11-05T12:01:05.606270+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/Ocean_Waves.png",
-          "sha256": "ABE511E4A62D00A5848FED6FEAC7A69A54DD0AD21D41CDF721CC03C334D6A5F0",
-          "bytes": 601303,
-          "modifiedUtc": "2026-11-04T19:11:08.577115+00:00"
+          "sha256": "775A4C8F2CD4E1C8516C1CF68D005B84693FF8CD322816FB91BDC2C373E647D6",
+          "bytes": 601443,
+          "modifiedUtc": "2026-11-05T12:00:44.863959+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T19:11:34.491723+00:00"
+          "modifiedUtc": "2026-11-05T12:01:10.802832+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T19:11:34.510230+00:00"
+          "modifiedUtc": "2026-11-05T12:01:10.832860+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T19:11:34.532529+00:00"
+          "modifiedUtc": "2026-11-05T12:01:10.875642+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX11/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T19:11:34.550368+00:00"
+          "modifiedUtc": "2026-11-05T12:01:10.902090+00:00"
         }
       ],
       "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Development-DX11/Player.log",
-        "sha256": "0D8A1B8EF144FD1472C95CCE235E7C4985C88D6EF08455441C74239A64FC1829",
+        "sha256": "C4A865B21173828FBF262132C68850B4705A1708240A9892D56BA188C8B77131",
         "bytes": 7303,
-        "modifiedUtc": "2026-11-04T19:11:34.745989+00:00"
+        "modifiedUtc": "2026-11-05T12:01:11.156811+00:00"
       }
     },
     {
@@ -319,85 +325,85 @@
       "graphicsAPI": "DX12",
       "report": {
         "path": "Evidence/Player-Development-DX12/player-smoke.txt",
-        "sha256": "A4E5B9D4A8E584081B0848E2326056F68BEF907FC5C382F99590260F185E11C2",
-        "bytes": 1176,
-        "modifiedUtc": "2026-11-04T19:12:13.552325+00:00"
+        "sha256": "472EDC8B3BC298F2AD548D5B7DCA5DE4CB1CCA66115E148B5E99A4DB175E62A1",
+        "bytes": 1177,
+        "modifiedUtc": "2026-11-05T12:01:49.633185+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Buoyancy.png",
-          "sha256": "A750768CB76C1F328CAA292539163A62F907D15E2FCD281527B7FE3061D7BAE3",
-          "bytes": 524860,
-          "modifiedUtc": "2026-11-04T19:11:57.767223+00:00"
+          "sha256": "FAC1553BA1CED58263971DE332A8308FA4A9C2754A74B3404F049994799DB165",
+          "bytes": 525864,
+          "modifiedUtc": "2026-11-05T12:01:33.894877+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Calm.png",
-          "sha256": "81C510311025C16987E7671DEAB00EF19F273D6EAE6A3BC8425525874EF469CF",
-          "bytes": 549360,
-          "modifiedUtc": "2026-11-04T19:11:42.327722+00:00"
+          "sha256": "AA27E8889CD026B12D45B0256EA7EB8285820EA6AC782A8AE32CCF941AE33713",
+          "bytes": 549484,
+          "modifiedUtc": "2026-11-05T12:01:18.580000+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Interactions.png",
-          "sha256": "C056CBBBEEF1ECC2273D25395B2D5DA786DBAFA34A898B15C54DB9627947FCF5",
-          "bytes": 548705,
-          "modifiedUtc": "2026-11-04T19:12:02.911984+00:00"
+          "sha256": "BEE90CEFB824DDCAA787533F2948E97B57FF2A9C9B3C6AB4830BF6F75EE38D6E",
+          "bytes": 545801,
+          "modifiedUtc": "2026-11-05T12:01:38.997280+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Reflections.png",
-          "sha256": "012E5D82BC6421A7042A1487E242C9FA100A164E9A1FECDCAB61EBE85125F86F",
-          "bytes": 536458,
-          "modifiedUtc": "2026-11-04T19:12:13.209239+00:00"
+          "sha256": "F8D9EF81F0281446761329E01B661C7ADEDD6861B85DEE2D9FAD5AAD13052BB4",
+          "bytes": 537629,
+          "modifiedUtc": "2026-11-05T12:01:49.275551+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Storm.png",
-          "sha256": "1E3B1974E7A57FF478D7054C4BBA4549CCE777737A2E4F3FA6937937A1EA2ADB",
-          "bytes": 508194,
-          "modifiedUtc": "2026-11-04T19:11:52.623870+00:00"
+          "sha256": "A225AFC96BDB3EF6D0E6460800932340231370B5917677035F9713467F457BCB",
+          "bytes": 508542,
+          "modifiedUtc": "2026-11-05T12:01:28.801189+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Underwater.png",
-          "sha256": "D45537639CE613CC0BC7C9D53A36ECFA4303FF0DD55B6AF55E8F69BDECD09081",
-          "bytes": 102382,
-          "modifiedUtc": "2026-11-04T19:12:08.067945+00:00"
+          "sha256": "20B18DC1CFE3B176E1D853E350AC6635C22910BBCC27B119FE4D66AB33591E7F",
+          "bytes": 103459,
+          "modifiedUtc": "2026-11-05T12:01:44.144303+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/Ocean_Waves.png",
-          "sha256": "308F0CF870DE1F087BB725B0B5620E08533F7FBC6F54002A4D3AD2FC00319A83",
-          "bytes": 601428,
-          "modifiedUtc": "2026-11-04T19:11:47.455462+00:00"
+          "sha256": "CD068633B2D5E3099A9CC03F8CDDFB4072D14ECC68F70853A309A434CE980696",
+          "bytes": 602749,
+          "modifiedUtc": "2026-11-05T12:01:23.690003+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T19:12:13.398862+00:00"
+          "modifiedUtc": "2026-11-05T12:01:49.432732+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T19:12:13.466957+00:00"
+          "modifiedUtc": "2026-11-05T12:01:49.491730+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T19:12:13.511609+00:00"
+          "modifiedUtc": "2026-11-05T12:01:49.560652+00:00"
         },
         {
           "path": "Evidence/Player-Development-DX12/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T19:12:13.547065+00:00"
+          "modifiedUtc": "2026-11-05T12:01:49.624063+00:00"
         }
       ],
       "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Development-DX12/Player.log",
-        "sha256": "E5238638A7C8A4BE42AFF8AC7719E0BE6DBB9191027262064813D2041E8F113B",
-        "bytes": 7420,
-        "modifiedUtc": "2026-11-04T19:12:13.851672+00:00"
+        "sha256": "63B7A19D836730D692EAC836DB6ABB0B5B54D63CE8CD6D886759129CB9B2E590",
+        "bytes": 7417,
+        "modifiedUtc": "2026-11-05T12:01:50.011607+00:00"
       }
     },
     {
@@ -405,85 +411,85 @@
       "graphicsAPI": "DX11",
       "report": {
         "path": "Evidence/Player-Release-DX11/player-smoke.txt",
-        "sha256": "ADAB3BF18082D7EACF5ACE77B0810D1812FEA2E05F76567D75B84EB567B2814A",
-        "bytes": 1179,
-        "modifiedUtc": "2026-11-04T19:13:07.997544+00:00"
+        "sha256": "C30D6038B325CDD27A28D2208149CB322E909DD8B02A17BE36B52C32F27C5FAF",
+        "bytes": 1180,
+        "modifiedUtc": "2026-11-05T12:02:42.760346+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Buoyancy.png",
-          "sha256": "2AA89D4B636C438F4C6AB423369CAF6414E90941FAA891ACF9D2673BC198A586",
-          "bytes": 523857,
-          "modifiedUtc": "2026-11-04T19:12:52.391990+00:00"
+          "sha256": "BBC50F62AFD317167896C7262C444E3ED6161095BDCAB85DE349E1B202521918",
+          "bytes": 523463,
+          "modifiedUtc": "2026-11-05T12:02:27.174586+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Calm.png",
-          "sha256": "1D8FFC59892F0B7E8BC3CBE8F2C40D16920CE4BBA1E8DFFEEAC169BEDCD22F89",
-          "bytes": 549567,
-          "modifiedUtc": "2026-11-04T19:12:36.839071+00:00"
+          "sha256": "5D087DBEAFE6D3AD4C05BDF79AF7F08979F9BDCDE4D2FABBAEA2F444A41FEE12",
+          "bytes": 550341,
+          "modifiedUtc": "2026-11-05T12:02:11.658249+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Interactions.png",
-          "sha256": "C2166B2D319BB7A644172CA9DF7F6D7B8DDCAE4138C8F5E55E26E5B1B32DD944",
-          "bytes": 550262,
-          "modifiedUtc": "2026-11-04T19:12:57.578217+00:00"
+          "sha256": "2FE61969F18B56264676B3092BF593D633B8EF33D921C9C911851978DDFA5F15",
+          "bytes": 550577,
+          "modifiedUtc": "2026-11-05T12:02:32.361829+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Reflections.png",
-          "sha256": "18892F4C58CE87B62EB7C3B7ACA2D36316279CE5CEA69186F5014CC5C0934896",
-          "bytes": 544061,
-          "modifiedUtc": "2026-11-04T19:13:07.874282+00:00"
+          "sha256": "D5DCE21A48D23F777B8CAC9C16D6B7F3AFC9E9A541A69A2029A25DB19FC9855F",
+          "bytes": 543467,
+          "modifiedUtc": "2026-11-05T12:02:42.643153+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Storm.png",
-          "sha256": "0CF94264DCB2227A5B3F0196BCC48EC87257AA0707A053BDF53D121C014DB57F",
-          "bytes": 510452,
-          "modifiedUtc": "2026-11-04T19:12:47.219584+00:00"
+          "sha256": "3F726C574F436DC00D2B8503C5740D72A0BF5E041566AC6CFC050DBFB56EB673",
+          "bytes": 510448,
+          "modifiedUtc": "2026-11-05T12:02:22.004562+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Underwater.png",
-          "sha256": "980B673915197A53AE107429CCA627EB6AF1A2945754484EDC70C40097545798",
-          "bytes": 102950,
-          "modifiedUtc": "2026-11-04T19:13:02.779653+00:00"
+          "sha256": "9C09D52E779A86275979322CDB406D12AAE1B499194F86C82296AA06629F8CE1",
+          "bytes": 102407,
+          "modifiedUtc": "2026-11-05T12:02:37.553020+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/Ocean_Waves.png",
-          "sha256": "B1CB8869359AAAB904713959AB7A46869253EA22EBB7F8049299E0C3929C02A2",
-          "bytes": 600940,
-          "modifiedUtc": "2026-11-04T19:12:42.032905+00:00"
+          "sha256": "D93935D5FBD9F2F05A071F54BDDCD92BC2D06DAD28806B576DB90BFD12181160",
+          "bytes": 600964,
+          "modifiedUtc": "2026-11-05T12:02:16.831256+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T19:13:07.932755+00:00"
+          "modifiedUtc": "2026-11-05T12:02:42.695210+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T19:13:07.951698+00:00"
+          "modifiedUtc": "2026-11-05T12:02:42.711901+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T19:13:07.975415+00:00"
+          "modifiedUtc": "2026-11-05T12:02:42.736687+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX11/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T19:13:07.992476+00:00"
+          "modifiedUtc": "2026-11-05T12:02:42.755353+00:00"
         }
       ],
       "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Release-DX11/Player.log",
-        "sha256": "2AF08178414A802C1944BC34F2FE33B3C999ED462296311BF511B3CBA78022BE",
-        "bytes": 4386,
-        "modifiedUtc": "2026-11-04T19:13:09.115107+00:00"
+        "sha256": "A3D3E2D83C60F549388EC95D936C21AE7649F780B94DA5E3416BE72FF437C855",
+        "bytes": 4385,
+        "modifiedUtc": "2026-11-05T12:02:43.870685+00:00"
       }
     },
     {
@@ -491,100 +497,100 @@
       "graphicsAPI": "DX12",
       "report": {
         "path": "Evidence/Player-Release-DX12/player-smoke.txt",
-        "sha256": "AF19A2486641769A7C28C6927A23E6F9D46B44F4C3E53F2AF27F68458031E26B",
+        "sha256": "A4653F0AC1A161AE296D63152CA1FDB5A680278E1C4EA3CB02A66A11961E841D",
         "bytes": 1178,
-        "modifiedUtc": "2026-11-04T19:13:48.433366+00:00"
+        "modifiedUtc": "2026-11-05T12:03:22.949033+00:00"
       },
       "errors": 0,
       "images": [
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Buoyancy.png",
-          "sha256": "2F00D64077D9727B6887F5F777D70A3C0C5D89010E5C8972F0C1954A230EB1BD",
-          "bytes": 525494,
-          "modifiedUtc": "2026-11-04T19:13:32.693369+00:00"
+          "sha256": "1F05976B97F3247825AC62EC3FF05B9852A945E74D4FA57CBE49A13D079488A6",
+          "bytes": 525149,
+          "modifiedUtc": "2026-11-05T12:03:07.298958+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Calm.png",
-          "sha256": "8826AFDF0F2F4F9ED764CF53378177A8BD3BD20869CF03D999D7D0690F95C560",
-          "bytes": 549397,
-          "modifiedUtc": "2026-11-04T19:13:17.267447+00:00"
+          "sha256": "3618C57CE74042728EF4838EB6E02C53D59DF33A9FF236241B3AE8792A1FA97A",
+          "bytes": 549294,
+          "modifiedUtc": "2026-11-05T12:02:51.983369+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Interactions.png",
-          "sha256": "43CD2A63D48D532D3E717496FB7E9FE92F11BDA59EC7862ED48531D56840A86B",
-          "bytes": 547074,
-          "modifiedUtc": "2026-11-04T19:13:37.804611+00:00"
+          "sha256": "0E3681043F4EDA1C430EC5ABFEE23944E1E9793B11DF91A88A73833F8917EF7C",
+          "bytes": 545496,
+          "modifiedUtc": "2026-11-05T12:03:12.411627+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Reflections.png",
-          "sha256": "D6D7BE425CBBFF05C373C4CFEB5A5D472DA44FFE0CD95ACDB417AA71BF1669BB",
-          "bytes": 537054,
-          "modifiedUtc": "2026-11-04T19:13:48.106828+00:00"
+          "sha256": "1DCDC4F9026E241EE171580D08922607162A2B23E65988FA1C1134331F03D270",
+          "bytes": 536554,
+          "modifiedUtc": "2026-11-05T12:03:22.726501+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Storm.png",
-          "sha256": "7651D29BD96BBD16ACE07CBC9654AD7C629B183E511ECE8F79EBBC0FE548AF60",
-          "bytes": 508027,
-          "modifiedUtc": "2026-11-04T19:13:27.565763+00:00"
+          "sha256": "D2D613D30DF89261FAC16262EDF0C595CBE8181B5B58A3FC2F205F8B62F46F09",
+          "bytes": 508069,
+          "modifiedUtc": "2026-11-05T12:03:02.209077+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Underwater.png",
-          "sha256": "C0F56CA416A0795EEF5AA266F8EF695B08534DC4039057E54013D94CC3CFDF7D",
-          "bytes": 102842,
-          "modifiedUtc": "2026-11-04T19:13:42.956138+00:00"
+          "sha256": "620659271E453FDA839D046C87A2CD98BBFBC840856ABD9E742B5F01D73D667B",
+          "bytes": 103036,
+          "modifiedUtc": "2026-11-05T12:03:17.595564+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/Ocean_Waves.png",
-          "sha256": "711B1FC5791E7A4E8B8AA22769DA8C0552303B5FBC5108AC241FC8D0EA20D507",
-          "bytes": 601447,
-          "modifiedUtc": "2026-11-04T19:13:22.418562+00:00"
+          "sha256": "7752FB8771DC087B20ADA92FFDF848C3F0D3FF8C7ABD3E87CE3FF47C1B0A8718",
+          "bytes": 601569,
+          "modifiedUtc": "2026-11-05T12:02:57.083009+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Distance-100.png",
           "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-04T19:13:48.266231+00:00"
+          "modifiedUtc": "2026-11-05T12:03:22.838341+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Distance-20.png",
           "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-04T19:13:48.322029+00:00"
+          "modifiedUtc": "2026-11-05T12:03:22.878556+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Pixel-lights.png",
           "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-04T19:13:48.374590+00:00"
+          "modifiedUtc": "2026-11-05T12:03:22.915288+00:00"
         },
         {
           "path": "Evidence/Player-Release-DX12/ReflectionOptions-Vertex-lights.png",
           "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-04T19:13:48.424187+00:00"
+          "modifiedUtc": "2026-11-05T12:03:22.943920+00:00"
         }
       ],
       "warnings": [],
       "playerLog": {
         "path": "Evidence/Player-Release-DX12/Player.log",
-        "sha256": "6EBBC518EB31BF22D8121A87AF06FB8DF25354935598AAD307D06271119E09F4",
-        "bytes": 4507,
-        "modifiedUtc": "2026-11-04T19:13:49.589615+00:00"
+        "sha256": "F18AA197A0BB2E4C539F0C816485CC24862C9F1F23D84BBC4B9E2E8A1CF3F649",
+        "bytes": 4508,
+        "modifiedUtc": "2026-11-05T12:03:24.064638+00:00"
       }
     }
   ],
   "buildLogs": [
     {
       "path": "Evidence/Development-DX11.log",
-      "sha256": "FC4AEF3343378C28AC97C10F16C2AD31DFC3CF381C1AEEF29586463E6C2F81CE",
-      "bytes": 677233,
-      "modifiedUtc": "2026-11-04T19:09:54.912122+00:00"
+      "sha256": "D4088C6C48BF68DD2633B14E246E2BF095308B371E765421C99D039BE7BEDD7F",
+      "bytes": 672318,
+      "modifiedUtc": "2026-11-05T11:59:33.083276+00:00"
     },
     {
       "path": "Evidence/Release-DX11.log",
-      "sha256": "FF4C0093E9EA59D52C075F47F23D8EB5F32DF428450161D7165389E69F765115",
-      "bytes": 621915,
-      "modifiedUtc": "2026-11-04T19:10:35.400174+00:00"
+      "sha256": "4D9310BE7D1383BCB159B88D92490E29B7B1D5C2184FA53782018FC4FF1D572B",
+      "bytes": 619227,
+      "modifiedUtc": "2026-11-05T12:00:12.525129+00:00"
     }
   ],
   "materialSources": [
@@ -599,7 +605,7 @@
       "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
       "sha256": "645FE3F9916615B95D9A4CF5BC07EE69B62FE7676CE3F62B609E1BFA8A548593",
       "bytes": 4006,
-      "modifiedUtc": "2026-11-04T19:09:01.094032+00:00",
+      "modifiedUtc": "2026-11-05T11:58:18.501287+00:00",
       "guid": "ecfe7530e35f6ef4599de91f34369545"
     },
     {
@@ -634,7 +640,7 @@
       "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
       "sha256": "ED107E4897AE5307ECFBB8D2DFA59110DC91C93D7862C01479C58AD187FAA06D",
       "bytes": 3927,
-      "modifiedUtc": "2026-11-04T19:09:01.137183+00:00",
+      "modifiedUtc": "2026-11-05T11:58:18.545062+00:00",
       "guid": "95e214cf788f645edbb5bed42ff8d653"
     },
     {
@@ -668,7 +674,7 @@
     "entry": "Evidence/Build-checkpoint.json"
   },
   "previousGPUCacheArchive": {
-    "path": "Evidence/P10-ShadowOrder-before.zip",
+    "path": "Evidence/P10-FFTCache-before.zip",
     "entry": "Evidence/Build-checkpoint.json"
   }
 }
