@@ -527,6 +527,8 @@ namespace Crest
             }
         }
 
+        protected override System.Type SharedResourceFamily => typeof(ShapeGerstner);
+
         protected override void DestroySharedResources()
         {
             if (s_SwellSpectrum != null)

@@ -444,4 +444,8 @@ Manual URP `SubmitRenderRequest` must run after the current frame's OceanRendere
 
 ### FFT shared-resource teardown
 
-In the tested FFT-only lifecycle, full FFT shared-resource teardown releases native textures and evicts the corresponding generator cache entries. Subsequent generation at unchanged simulation time recreates valid output. Individual ShapeFFT disable/re-enable and removal of one of two shared FFT consumers retain the existing shared cache/output until the original last-owner cleanup boundary. Mixed FFT/Gerstner destruction order remains a separate unaccepted lifecycle case.
+In the tested FFT-only lifecycle, full FFT shared-resource teardown releases native textures and evicts the corresponding generator cache entries. Subsequent generation at unchanged simulation time recreates valid output. Individual ShapeFFT disable/re-enable and removal of one of two shared FFT consumers retain the existing shared cache/output until the last owner in the FFT resource family. Both built-in mixed FFT/Gerstner destruction orders are covered by the family lifecycle below.
+
+### Wave shared-resource families
+
+ShapeWaves invokes DestroySharedResources when the last instance of its SharedResourceFamily is destroyed. Built-in FFT and Gerstner implementations return their base type as a stable family key, including derived instances. Custom implementations that share native resources across concrete types must return the same stable Type key; the default groups by concrete type. The default wind spectrum retains the separate global ShapeWaves lifetime. Disabling does not decrement shared-family/global owner counts; existing per-instance OnDisable cleanup is unchanged. Explicit spectrum assets retain their existing ownership. Both built-in destruction orders and live remaining-family queries are covered; this is not acceptance of arbitrary custom cleanup overrides.

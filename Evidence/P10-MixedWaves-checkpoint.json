@@ -1,0 +1,437 @@
+{
+  "recordedUtc": "2026-11-05T15:17:39.120864+00:00",
+  "suites": [
+    {
+      "path": "Evidence/P10-MixedWaves-EditMode-DX11.xml",
+      "sha256": "F795155D23B113F444B5FDD4A96847BF8A271BD07116FD74108480C4BE7EEFF8",
+      "bytes": 153361,
+      "modifiedUtc": "2026-11-05T15:08:04.760020+00:00",
+      "passed": 113,
+      "start": "2026-11-05 15:05:35Z",
+      "end": "2026-11-05 15:08:04Z"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-EditMode-DX11-interactive.xml",
+      "sha256": "E2868F808DDBC2721670CE228548A0F6313E9C991A5B555130B9ED0479588CAE",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-05T15:08:36.858211+00:00",
+      "passed": 2,
+      "start": "2026-11-05 15:08:19Z",
+      "end": "2026-11-05 15:08:36Z"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-EditMode-DX12.xml",
+      "sha256": "3D2D8B3F776137636DEEEDCAED7A604EFD19C802CCEBC7A30A487A208B5AF604",
+      "bytes": 153356,
+      "modifiedUtc": "2026-11-05T15:11:41.113860+00:00",
+      "passed": 113,
+      "start": "2026-11-05 15:08:47Z",
+      "end": "2026-11-05 15:11:41Z"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-EditMode-DX12-interactive.xml",
+      "sha256": "94BAD93CB1E8D0C5E896D647E2176E18E19C40D95AA3A9B377B95D007844F17F",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-05T15:12:12.032454+00:00",
+      "passed": 2,
+      "start": "2026-11-05 15:11:54Z",
+      "end": "2026-11-05 15:12:11Z"
+    }
+  ],
+  "cause": {
+    "cause": "One global ShapeWaves count dispatches cleanup only on final concrete type, leaving other-family resources. Count resource families independently, retain shared wind spectrum on global count.",
+    "baseline": {
+      "fftFirst": {
+        "finalFFTNativeAlive": true,
+        "finalCache": 1
+      },
+      "gerstnerFirst": {
+        "finalSwellNativeAlive": true,
+        "finalCache": 0
+      }
+    },
+    "focusedDX11": "3/3 Passed after correction; initial fixture reflection failure preserved separately",
+    "scope": "Original mixed controls fail both resource/spectrum destruction orders; corrected focused3/API and full113+interactive2/API, both builds/4 Players accepted. Prior frozen-time16-layer regression retained."
+  },
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "4540CF347392000E525E60E94534BA62BE1A53BC900067CF1A18546F68D1A9AD",
+    "bytes": 29778,
+    "modifiedUtc": "2026-11-05T15:17:39.151320+00:00"
+  },
+  "limitation": "Built-in FFT/Gerstner native shared resources counted by stable family key; shared wind spectrum uses global count. Both destruction orders and previous frozen-time recovery tested. No wave computation/shader change; GPU timing stability, NonLocal and other P10/P11 configurations remain open.",
+  "captureControls": [
+    {
+      "configuration": "Development",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 7037,
+          "lodFrame": 7037
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 14150,
+          "lodFrame": 14150
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 20493,
+          "lodFrame": 20493
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 27600,
+          "lodFrame": 27600
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 33414,
+          "lodFrame": 33414
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 39786,
+          "lodFrame": 39786
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 44747,
+          "lodFrame": 44747
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Development",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5843,
+          "lodFrame": 5843
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11729,
+          "lodFrame": 11729
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 17170,
+          "lodFrame": 17170
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22958,
+          "lodFrame": 22958
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 27735,
+          "lodFrame": 27735
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32978,
+          "lodFrame": 32978
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 36041,
+          "lodFrame": 36041
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 7043,
+          "lodFrame": 7043
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 14117,
+          "lodFrame": 14117
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 20437,
+          "lodFrame": 20437
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 27507,
+          "lodFrame": 27507
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 33286,
+          "lodFrame": 33286
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 39622,
+          "lodFrame": 39622
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 45860,
+          "lodFrame": 45860
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 6153,
+          "lodFrame": 6153
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 12206,
+          "lodFrame": 12206
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 17631,
+          "lodFrame": 17631
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 23576,
+          "lodFrame": 23576
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 28674,
+          "lodFrame": 28674
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 34168,
+          "lodFrame": 34168
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 37800,
+          "lodFrame": 37800
+        }
+      ],
+      "renderDataWarnings": 0
+    }
+  ],
+  "unchangedCoreSources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/OceanRenderer.cs",
+      "sha256": "8AD863F2E19E7C1D62CB887A692F2618A5580FE290C1EF76954FAAF1949E24F5",
+      "bytes": 92022,
+      "modifiedUtc": "2026-11-04T18:54:46.110705+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/Shadows/LodDataMgrShadow.URP.cs",
+      "sha256": "9AF6CAEB68CA7EF5ECA2C84D1DD40F58AE6300997D6B81F830180147A61C1A36",
+      "bytes": 3817,
+      "modifiedUtc": "2026-11-04T18:54:46.169622+00:00"
+    }
+  ],
+  "smokeSources": [
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
+      "sha256": "A325A07F15071E78794D9E5879E4D34ED80BA140B2C431759A87A6A727F90DD3",
+      "bytes": 7577,
+      "modifiedUtc": "2026-11-04T18:54:46.224198+00:00"
+    },
+    {
+      "path": "Tools/Run-Player.ps1",
+      "sha256": "348EEDEF67ECFE1AFB515C67824ED1F40D357D9197CE9A493E1600640C2A64C1",
+      "bytes": 2802,
+      "modifiedUtc": "2026-11-04T18:51:50.357066+00:00"
+    }
+  ],
+  "fftReports": [
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D11.txt",
+      "sha256": "5C86E219B083B05CC596DD33ACE8233BFF89321FA7A83A6ED5B2C707FFC4847A",
+      "bytes": 356,
+      "modifiedUtc": "2026-11-05T15:06:12.872187+00:00",
+      "all16LayerHash": "8FAA604DFC9A4AF812250E9CA741C7D1AC08B7BD3046491AB76D383B1B3F3693"
+    },
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D12.txt",
+      "sha256": "054CA154277DB6BBD41DE9340E54BFB648D9253D462F37D617988A82A4735D24",
+      "bytes": 356,
+      "modifiedUtc": "2026-11-05T15:09:33.644375+00:00",
+      "all16LayerHash": "574B26D63D1BED9FD56E37871E36839960418729E3A0D2D3B70098B57DD37A2E"
+    }
+  ],
+  "regressionSources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/FFTCacheLifetimeTests.cs",
+      "sha256": "5CA3D8AD3C2FE692A19753EB2657D2F6CF2F817F41ED250E79ED51A4EE85647C",
+      "bytes": 8803,
+      "modifiedUtc": "2026-11-05T14:59:10.187753+00:00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/FFTCacheLifetimeTests.cs.meta",
+      "sha256": "4E7869E2D4EDD1B909396A180B7E41D267706023D4AC19594A16539CAC53EF0C",
+      "bytes": 62,
+      "modifiedUtc": "2026-11-05T11:41:35.197120+00:00"
+    }
+  ],
+  "mixedReports": [
+    {
+      "path": "Evidence/P10-MixedWaves-FFTFirst-Direct3D11.txt",
+      "sha256": "9F2559973FEF10B338191384C799AFB5F7AAFC5F1C45D9AA6712EEA37C1222AA",
+      "bytes": 266,
+      "modifiedUtc": "2026-11-05T15:06:12.507258+00:00",
+      "observations": {
+        "CacheAfterFirst": "0",
+        "FFTAliveAfterFirst": "False",
+        "GerstnerAliveAfterFirst": "True",
+        "SurvivorSpectrumAlive": "True",
+        "SwellReleasedAfterFirst": "True",
+        "Ready": "8",
+        "FFTReleasedAfterAll": "True",
+        "GerstnerReleasedAfterAll": "True",
+        "SpectraReleasedAfterAll": "True",
+        "FinalCache": "0"
+      }
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-GerstnerFirst-Direct3D11.txt",
+      "sha256": "A79279AF5EEAD5E7AFAB6B935AE0C80A3CB359C5D0865DF72784350CFDAC3FA3",
+      "bytes": 266,
+      "modifiedUtc": "2026-11-05T15:06:12.683224+00:00",
+      "observations": {
+        "CacheAfterFirst": "1",
+        "FFTAliveAfterFirst": "True",
+        "GerstnerAliveAfterFirst": "False",
+        "SurvivorSpectrumAlive": "True",
+        "SwellReleasedAfterFirst": "True",
+        "Ready": "8",
+        "FFTReleasedAfterAll": "True",
+        "GerstnerReleasedAfterAll": "True",
+        "SpectraReleasedAfterAll": "True",
+        "FinalCache": "0"
+      }
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-FFTFirst-Direct3D12.txt",
+      "sha256": "CE371361EA95E1A4E9E073FBBBB11877D9F1649E2BA875E0AC1EA039B72F8C29",
+      "bytes": 266,
+      "modifiedUtc": "2026-11-05T15:09:33.175270+00:00",
+      "observations": {
+        "CacheAfterFirst": "0",
+        "FFTAliveAfterFirst": "False",
+        "GerstnerAliveAfterFirst": "True",
+        "SurvivorSpectrumAlive": "True",
+        "SwellReleasedAfterFirst": "True",
+        "Ready": "8",
+        "FFTReleasedAfterAll": "True",
+        "GerstnerReleasedAfterAll": "True",
+        "SpectraReleasedAfterAll": "True",
+        "FinalCache": "0"
+      }
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-GerstnerFirst-Direct3D12.txt",
+      "sha256": "A1D99F8921AADAF061758871E2CA45930EE03D94A4CE2361B26E454B25E777B9",
+      "bytes": 266,
+      "modifiedUtc": "2026-11-05T15:09:33.414608+00:00",
+      "observations": {
+        "CacheAfterFirst": "1",
+        "FFTAliveAfterFirst": "True",
+        "GerstnerAliveAfterFirst": "False",
+        "SurvivorSpectrumAlive": "True",
+        "SwellReleasedAfterFirst": "True",
+        "Ready": "8",
+        "FFTReleasedAfterAll": "True",
+        "GerstnerReleasedAfterAll": "True",
+        "SpectraReleasedAfterAll": "True",
+        "FinalCache": "0"
+      }
+    }
+  ],
+  "focused": [
+    {
+      "path": "Evidence/P10-MixedWaves-after-DX11.xml",
+      "sha256": "2A9FE3173ECF335711B92CC6BF794B2E7BEE15DA5A624350374E68AAF85CECEB",
+      "bytes": 4106,
+      "modifiedUtc": "2026-11-05T15:02:24.536261+00:00",
+      "passed": 3
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-EditMode-DX12-focused.xml",
+      "sha256": "C809680892B2BB4E6E4743A642A2AD39C16C13CB2913B012109F7BD3ABD1A284",
+      "bytes": 4107,
+      "modifiedUtc": "2026-11-05T15:05:26.929924+00:00",
+      "passed": 3
+    }
+  ],
+  "criticalWarningChecks": {
+    "EditMode-DX11": {
+      "Persistent allocates": 0,
+      "evictable": 0,
+      "temporary render texture": 0,
+      "SetGlobalTexture: texture parameter is null": 0
+    },
+    "EditMode-DX12": {
+      "Persistent allocates": 0,
+      "evictable": 0,
+      "temporary render texture": 0,
+      "SetGlobalTexture: texture parameter is null": 0
+    },
+    "Player-Development-DX11/Player": {
+      "Persistent allocates": 0,
+      "evictable": 0,
+      "temporary render texture": 0,
+      "SetGlobalTexture: texture parameter is null": 0
+    },
+    "Player-Development-DX12/Player": {
+      "Persistent allocates": 0,
+      "evictable": 0,
+      "temporary render texture": 0,
+      "SetGlobalTexture: texture parameter is null": 0
+    },
+    "Player-Release-DX11/Player": {
+      "Persistent allocates": 0,
+      "evictable": 0,
+      "temporary render texture": 0,
+      "SetGlobalTexture: texture parameter is null": 0
+    },
+    "Player-Release-DX12/Player": {
+      "Persistent allocates": 0,
+      "evictable": 0,
+      "temporary render texture": 0,
+      "SetGlobalTexture: texture parameter is null": 0
+    }
+  },
+  "sourceCheck": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  },
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "dd1fb71100f23b20ce36bdc34c617bcff17d71dbfa4d8eef89df210f4a8c0c0d",
+    "fileCount": 1404,
+    "rootMarkdown": 8
+  }
+}

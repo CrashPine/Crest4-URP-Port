@@ -77,6 +77,46 @@ public class FFTCacheLifetimeTests
         Assert.That(restored,Is.EqualTo(initial),"All16 native FFT layers must regenerate exactly");
         Assert.That(entriesAfterLastOwner,Is.Zero);Assert.That(entriesAfterCleanup,Is.Zero);Assert.That(advancedValid,Is.True);
     }
+    [UnityTest]
+    public IEnumerator MixedFFTFirstRetainsGerstnerAndCleansEachFamily()=>Mixed(true);
+    [UnityTest]
+    public IEnumerator MixedGerstnerFirstRetainsFFTAndCleansSwell()=>Mixed(false);
+    IEnumerator Mixed(bool fftFirst)
+    {
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Interactions.unity");
+        yield return new EnterPlayMode();OceanRenderer.EnableGraphicsInBatchMode=true;
+        for(int i=0;i<16;i++)yield return null;
+        var fft=Object.FindObjectsByType<ShapeFFT>().Single();var fftTexture=SharedOutput();
+        var go=new GameObject("Mixed lifetime Gerstner");var gerstner=go.AddComponent<ShapeGerstner>();
+        gerstner.enabled=false;gerstner._swell=!fftFirst;gerstner.enabled=true;
+        for(int i=0;i<16;i++)yield return null;
+        var gerstnerTexture=gerstner._waveBuffers;
+        var field=typeof(ShapeWaves).GetField("_activeSpectrum",BindingFlags.Instance|BindingFlags.NonPublic);
+        var fftSpectrum=(OceanWaveSpectrum)field.GetValue(fft);var gerstnerSpectrum=(OceanWaveSpectrum)field.GetValue(gerstner);
+        Assert.That(fftTexture!=null&&fftTexture.IsCreated()&&gerstnerTexture!=null&&gerstnerTexture.IsCreated(),Is.True);
+        Assert.That(fftFirst?fftSpectrum==gerstnerSpectrum:fftSpectrum!=gerstnerSpectrum,Is.True);
+        Object.Destroy(fftFirst?fft.gameObject:go);for(int i=0;i<8;i++)yield return null;
+        int cacheAfterFirst=FFTCompute.GeneratorCount;
+        bool fftAlive=fftTexture!=null&&fftTexture.IsCreated(),gerstnerAlive=gerstnerTexture!=null&&gerstnerTexture.IsCreated();
+        bool survivorSpectrum=fftFirst?gerstnerSpectrum!=null:fftSpectrum!=null;
+        bool swellReleased=fftFirst||gerstnerSpectrum==null;
+        var height=new SampleHeightHelper();int ready=0;double start=Time.realtimeSinceStartupAsDouble;
+        while(Time.realtimeSinceStartupAsDouble-start<5&&ready<8)
+        {
+            height.Init(Vector3.zero,1,true);bool valid=height.Sample(out float h)&&!float.IsNaN(h)&&!float.IsInfinity(h);
+            ready=valid?ready+1:0;yield return null;
+        }
+        Object.Destroy(fftFirst?go:fft.gameObject);for(int i=0;i<8;i++)yield return null;
+        bool fftReleased=fftTexture==null||!fftTexture.IsCreated(),gerstnerReleased=gerstnerTexture==null||!gerstnerTexture.IsCreated();
+        bool spectraReleased=fftSpectrum==null&&gerstnerSpectrum==null;
+        int finalCache=FFTCompute.GeneratorCount;
+        File.WriteAllText("Evidence/P10-MixedWaves-"+(fftFirst?"FFTFirst":"GerstnerFirst")+"-"+SystemInfo.graphicsDeviceType+".txt",
+            $"Unity={Application.unityVersion}; API={SystemInfo.graphicsDeviceType}\nCacheAfterFirst={cacheAfterFirst}\nFFTAliveAfterFirst={fftAlive}\nGerstnerAliveAfterFirst={gerstnerAlive}\nSurvivorSpectrumAlive={survivorSpectrum}\nSwellReleasedAfterFirst={swellReleased}\nReady={ready}\nFFTReleasedAfterAll={fftReleased}\nGerstnerReleasedAfterAll={gerstnerReleased}\nSpectraReleasedAfterAll={spectraReleased}\nFinalCache={finalCache}\n");
+        Assert.That(ready,Is.EqualTo(8));Assert.That(survivorSpectrum,Is.True);
+        Assert.That(fftFirst?!fftAlive&&gerstnerAlive:fftAlive&&!gerstnerAlive,Is.True,"Only the destroyed family's native output is released");
+        Assert.That(cacheAfterFirst,Is.EqualTo(fftFirst?0:1));Assert.That(swellReleased,Is.True);
+        Assert.That(fftReleased&&gerstnerReleased&&spectraReleased,Is.True);Assert.That(finalCache,Is.Zero);
+    }
     [UnityTearDown]
     public IEnumerator Restore()
     {

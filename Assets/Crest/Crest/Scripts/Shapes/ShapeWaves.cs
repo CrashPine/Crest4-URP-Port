@@ -246,6 +246,10 @@ namespace Crest
         protected static readonly int sp_AxisX = Shader.PropertyToID("_AxisX");
 
         static int s_InstanceCount = 0;
+        static readonly System.Collections.Generic.Dictionary<System.Type, int> s_SharedResourceCounts = new System.Collections.Generic.Dictionary<System.Type, int>();
+
+        // Derived implementations sharing native resources must use the same stable family key.
+        protected virtual System.Type SharedResourceFamily => GetType();
 
         protected bool UpdateDataEachFrame
         {
@@ -384,20 +388,30 @@ namespace Crest
         void Awake()
         {
             s_InstanceCount++;
+            var family = SharedResourceFamily;
+            s_SharedResourceCounts.TryGetValue(family, out var count);
+            s_SharedResourceCounts[family] = count + 1;
             CreateOrUpdateSplineMesh();
         }
 
         void OnDestroy()
         {
-            // Since FFTCompute resources are shared we will clear after last ShapeFFT is destroyed.
-            if (--s_InstanceCount <= 0)
+            var lastInstance = --s_InstanceCount <= 0;
+            var family = SharedResourceFamily;
+            if (s_SharedResourceCounts.TryGetValue(family, out var count))
             {
-                DestroySharedResources();
-
-                if (s_WindSpectrum != null)
+                if (count <= 1)
                 {
-                    Helpers.Destroy(s_WindSpectrum);
+                    s_SharedResourceCounts.Remove(family);
+                    DestroySharedResources();
                 }
+                else s_SharedResourceCounts[family] = count - 1;
+            }
+
+            // The default wind spectrum is shared across wave families.
+            if (lastInstance && s_WindSpectrum != null)
+            {
+                Helpers.Destroy(s_WindSpectrum);
             }
         }
 
