@@ -1,4 +1,4 @@
-﻿// Crest Ocean System
+// Crest Ocean System
 
 // This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
 
@@ -353,6 +353,7 @@ namespace Crest
 #pragma warning restore 414
 #if UNITY_EDITOR
         GameObject _proxyPlane;
+        Material _proxyPlaneMaterial;
         const string kProxyShader = "Hidden/Crest/OceanProxy";
 #endif
 
@@ -1572,6 +1573,14 @@ namespace Crest
             }
             _lodDatas.Clear();
 
+#if UNITY_EDITOR
+            // The proxy owns its material, but borrows Unity's built-in plane mesh.
+            Helpers.Destroy(_proxyPlaneMaterial);
+            _proxyPlaneMaterial = null;
+            Helpers.Destroy(_proxyPlane);
+            _proxyPlane = null;
+#endif
+
             // Clean up everything created through the Ocean Builder.
             OceanBuilder.CleanUp(this);
             Root = null;
@@ -1687,7 +1696,8 @@ namespace Crest
                 _proxyPlane.transform.localRotation = Quaternion.identity;
                 _proxyPlane.transform.localScale = 4000f * Vector3.one;
 
-                _proxyPlane.GetComponent<Renderer>().sharedMaterial = new Material(Shader.Find(kProxyShader));
+                _proxyPlaneMaterial = new Material(Shader.Find(kProxyShader));
+                _proxyPlane.GetComponent<Renderer>().sharedMaterial = _proxyPlaneMaterial;
             }
 
             // Change active state of proxy if necessary

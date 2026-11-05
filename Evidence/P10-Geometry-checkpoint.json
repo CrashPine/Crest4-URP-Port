@@ -1,0 +1,410 @@
+{
+  "recordedUtc": "2026-11-05T20:59:28.407200+00:00",
+  "suites": [
+    {
+      "path": "Evidence/P10-Geometry-EditMode-DX11.xml",
+      "sha256": "79D16DCA5F9F76C6FA0E17B826448313E13528B23BEF55C17E8E92B13FDB507B",
+      "bytes": 156605,
+      "modifiedUtc": "2026-11-05T20:40:54.398928+00:00",
+      "passed": 117,
+      "start": "2026-11-05 20:36:08Z",
+      "end": "2026-11-05 20:40:54Z"
+    },
+    {
+      "path": "Evidence/P10-Geometry-EditMode-DX11-interactive.xml",
+      "sha256": "94396D3BCECF224B1B65AA93F67E15FBEC4EFBE6044E4DA2AC36393899B1E88F",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-05T20:47:16.007767+00:00",
+      "passed": 2,
+      "start": "2026-11-05 20:46:37Z",
+      "end": "2026-11-05 20:47:15Z"
+    },
+    {
+      "path": "Evidence/P10-Geometry-EditMode-DX12.xml",
+      "sha256": "3B02F64464A843DE4623FD33E245A0D9083F953B05982BA1B63EB4F1467305D7",
+      "bytes": 156630,
+      "modifiedUtc": "2026-11-05T20:54:14.333891+00:00",
+      "passed": 117,
+      "start": "2026-11-05 20:47:35Z",
+      "end": "2026-11-05 20:54:14Z"
+    },
+    {
+      "path": "Evidence/P10-Geometry-EditMode-DX12-interactive.xml",
+      "sha256": "EFB77FDCB364A464BB6524F478C090DD92E7E0A6D601926F68189C3762843056",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-05T20:55:16.158888+00:00",
+      "passed": 2,
+      "start": "2026-11-05 20:54:36Z",
+      "end": "2026-11-05 20:55:16Z"
+    }
+  ],
+  "cause": {
+    "cause": "Editor proxy material/plane missing cleanup ownership",
+    "baseline": {
+      "materialDestroyed": false,
+      "planeDestroyed": false,
+      "borrowedMeshPreserved": true,
+      "gameMeshesPass": true
+    },
+    "correction": "Editor-only owned material field and plane released/reset during OceanRenderer.CleanUp; built-in plane mesh borrowed",
+    "scope": "Original proxy owned plane/material survive cleanup; corrected focused2/API, full117+interactive2/API, both builds/4 smokes accepted. Game geometry3 states and Editor proxy2 cycles/API; initial test assumption failure archived separately."
+  },
+  "buildCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "8118AD627F43BCB4F731CE11549FF06513C6A1F09638BA42C6437D2CA3224E25",
+    "bytes": 29715,
+    "modifiedUtc": "2026-11-05T21:00:47.754185+00:00"
+  },
+  "limitation": "Geometry ownership covers10 templates plus88/52/88 unique tile mesh clones and roots across density/LOD rebuilds. Editor proxy material/plane cleanup fixed; borrowed primitive mesh preserved. GPU stability/NonLocal/P11 remain open.",
+  "captureControls": [
+    {
+      "configuration": "Development",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5668,
+          "lodFrame": 5668
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11407,
+          "lodFrame": 11407
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16571,
+          "lodFrame": 16571
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22271,
+          "lodFrame": 22271
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 26867,
+          "lodFrame": 26867
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32068,
+          "lodFrame": 32068
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 34265,
+          "lodFrame": 34265
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Development",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 2867,
+          "lodFrame": 2867
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 5468,
+          "lodFrame": 5468
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 7875,
+          "lodFrame": 7875
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 10482,
+          "lodFrame": 10482
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 12864,
+          "lodFrame": 12864
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 14906,
+          "lodFrame": 14906
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 16314,
+          "lodFrame": 16314
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX11",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 5690,
+          "lodFrame": 5690
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 11487,
+          "lodFrame": 11487
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 16730,
+          "lodFrame": 16730
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 22513,
+          "lodFrame": 22513
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 27216,
+          "lodFrame": 27216
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 32510,
+          "lodFrame": 32510
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 35426,
+          "lodFrame": 35426
+        }
+      ],
+      "renderDataWarnings": 0
+    },
+    {
+      "configuration": "Release",
+      "api": "DX12",
+      "captures": [
+        {
+          "scene": "Ocean_Calm",
+          "frame": 3452,
+          "lodFrame": 3452
+        },
+        {
+          "scene": "Ocean_Waves",
+          "frame": 6813,
+          "lodFrame": 6813
+        },
+        {
+          "scene": "Ocean_Storm",
+          "frame": 9481,
+          "lodFrame": 9481
+        },
+        {
+          "scene": "Ocean_Buoyancy",
+          "frame": 12571,
+          "lodFrame": 12571
+        },
+        {
+          "scene": "Ocean_Interactions",
+          "frame": 15816,
+          "lodFrame": 15816
+        },
+        {
+          "scene": "Ocean_Underwater",
+          "frame": 18171,
+          "lodFrame": 18171
+        },
+        {
+          "scene": "Ocean_Reflections",
+          "frame": 19232,
+          "lodFrame": 19232
+        }
+      ],
+      "renderDataWarnings": 0
+    }
+  ],
+  "unchangedCoreSources": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/Shadows/LodDataMgrShadow.URP.cs",
+      "sha256": "9AF6CAEB68CA7EF5ECA2C84D1DD40F58AE6300997D6B81F830180147A61C1A36",
+      "bytes": 3817,
+      "modifiedUtc": "2026-11-04T18:54:46.169622+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/OceanBuilder.cs",
+      "sha256": "435E241C7BAD4D1CFAF1BF366BFB7E5253F12B899AC7BD7E3CAE6193298822D1",
+      "bytes": 24135,
+      "modifiedUtc": "2026-10-18T15:58:57.184899+00:00"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/OceanChunkRenderer.cs",
+      "sha256": "492C48242C9B8A06456760710FBC9E0128A78330FE54F268629343275C823BDE",
+      "bytes": 16686,
+      "modifiedUtc": "2026-10-18T15:58:57.184899+00:00"
+    }
+  ],
+  "smokeSources": [
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
+      "sha256": "A325A07F15071E78794D9E5879E4D34ED80BA140B2C431759A87A6A727F90DD3",
+      "bytes": 7577,
+      "modifiedUtc": "2026-11-04T18:54:46.224198+00:00"
+    },
+    {
+      "path": "Tools/Run-Player.ps1",
+      "sha256": "348EEDEF67ECFE1AFB515C67824ED1F40D357D9197CE9A493E1600640C2A64C1",
+      "bytes": 2802,
+      "modifiedUtc": "2026-11-04T18:51:50.357066+00:00"
+    }
+  ],
+  "fftReports": [
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D11.txt",
+      "sha256": "5C86E219B083B05CC596DD33ACE8233BFF89321FA7A83A6ED5B2C707FFC4847A",
+      "bytes": 356,
+      "modifiedUtc": "2026-11-05T20:37:13.208416+00:00",
+      "all16LayerHash": "8FAA604DFC9A4AF812250E9CA741C7D1AC08B7BD3046491AB76D383B1B3F3693"
+    },
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D12.txt",
+      "sha256": "054CA154277DB6BBD41DE9340E54BFB648D9253D462F37D617988A82A4735D24",
+      "bytes": 356,
+      "modifiedUtc": "2026-11-05T20:49:31.027553+00:00",
+      "all16LayerHash": "574B26D63D1BED9FD56E37871E36839960418729E3A0D2D3B70098B57DD37A2E"
+    }
+  ],
+  "regressionSources": [
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ResourceLifecycleTests.cs",
+      "sha256": "22A39F4E207BE1E03F0B20F64909176A35F24A1B65E7A7C41C6BF8CDBC11A33C",
+      "bytes": 11324,
+      "modifiedUtc": "2026-11-05T20:34:12.079790+00:00"
+    }
+  ],
+  "geometryReports": [
+    {
+      "game": {
+        "path": "Evidence/P10-Geometry-Direct3D11.txt",
+        "sha256": "DAFAE398107D3B8C70B87A3C70B4694CA9ED73D2CA349F69F447181A7B5A00D6",
+        "bytes": 518,
+        "modifiedUtc": "2026-11-05T20:38:26.900437+00:00"
+      },
+      "editorProxy": {
+        "path": "Evidence/P10-Geometry-Proxy-Direct3D11.txt",
+        "sha256": "4910FB1DA5EB6AE781EC90DB877D5F916FB51C6651402F27E6505C333C1AD62C",
+        "bytes": 209,
+        "modifiedUtc": "2026-11-05T20:38:26.586962+00:00"
+      },
+      "gameMeshObjectsTracked": 258,
+      "tileObjectsTracked": 228,
+      "rootsTracked": 3,
+      "proxyCycles": 2
+    },
+    {
+      "game": {
+        "path": "Evidence/P10-Geometry-Direct3D12.txt",
+        "sha256": "D66F00D6B9D0D61950D1E10E7B26E4377DD25DA393EAB4C922DE51011B3453BC",
+        "bytes": 518,
+        "modifiedUtc": "2026-11-05T20:50:55.939287+00:00"
+      },
+      "editorProxy": {
+        "path": "Evidence/P10-Geometry-Proxy-Direct3D12.txt",
+        "sha256": "4910FB1DA5EB6AE781EC90DB877D5F916FB51C6651402F27E6505C333C1AD62C",
+        "bytes": 209,
+        "modifiedUtc": "2026-11-05T20:50:55.404952+00:00"
+      },
+      "gameMeshObjectsTracked": 258,
+      "tileObjectsTracked": 228,
+      "rootsTracked": 3,
+      "proxyCycles": 2
+    }
+  ],
+  "focused": [
+    {
+      "path": "Evidence/P10-Geometry-after-DX11.xml",
+      "sha256": "1D053056B29C4808ED6C47F859C35D2DC6CB64927A6C90117B46A270E41815F6",
+      "bytes": 3478,
+      "modifiedUtc": "2026-11-05T20:35:30.023338+00:00",
+      "passed": 2
+    },
+    {
+      "path": "Evidence/P10-Geometry-EditMode-DX12-focused.xml",
+      "sha256": "51754D3BED81F769F18A2AF3C88D7B10D1C51D1615D9EB53A4D5EF18015D59E6",
+      "bytes": 3479,
+      "modifiedUtc": "2026-11-05T20:35:48.551223+00:00",
+      "passed": 2
+    }
+  ],
+  "originalPreservation": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  },
+  "criticalWarningCounts": {
+    "EditMode-DX11": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "EditMode-DX11-interactive": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "EditMode-DX12": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "EditMode-DX12-interactive": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "Development-DX11": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    },
+    "Release-DX11": {
+      "persistentAllocation": 0,
+      "renderData": 0,
+      "shaderError": 0,
+      "compileError": 0,
+      "evictable": 0
+    }
+  },
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "64BEE69E43686B8859B937B392333391CA7C02E21B8596B07AECFBAC31AE9E3D",
+    "fileCount": 1404,
+    "rootMarkdownCount": 8
+  },
+  "evidenceArchive": {
+    "path": "Evidence/P10-Geometry-evidence.zip",
+    "sha256": "5651B2241F1F91069C755251DAD3A533845B373DAE5F1C2552096643981B9879",
+    "entries": 272
+  },
+  "unchangedCoreComparison": "HEAD comparison normalizes CRLF/LF; fingerprints are raw working-file SHA256. No OceanBuilder/OceanChunkRenderer code changes.",
+  "editorOnlyChange": "New proxy material field and cleanup entirely UNITY_EDITOR; OceanRenderer UTF8 BOM normalized. No Player geometry algorithm change."
+}

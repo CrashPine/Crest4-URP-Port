@@ -1,0 +1,11 @@
+{
+  "cause": "Editor proxy material/plane missing cleanup ownership",
+  "baseline": {
+    "materialDestroyed": false,
+    "planeDestroyed": false,
+    "borrowedMeshPreserved": true,
+    "gameMeshesPass": true
+  },
+  "correction": "Editor-only owned material field and plane released/reset during OceanRenderer.CleanUp; built-in plane mesh borrowed",
+  "scope": "Original proxy owned plane/material survive cleanup; corrected focused2/API, full117+interactive2/API, both builds/4 smokes accepted. Game geometry3 states and Editor proxy2 cycles/API; initial test assumption failure archived separately."
+}

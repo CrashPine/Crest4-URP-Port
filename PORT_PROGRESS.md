@@ -8,15 +8,15 @@ P00–P09 DONE в scoped-области PORT_PLAN; P11/P12 TODO. Единств�
 
 ## Последний завершённый checkpoint
 
-P10-Rekey scoped DONE: existing-target convergence терял10 native FFT textures; adaptation при frozen time возвращала старый spectrum output. Retired generators остаются owned до Ocean command submission/full cleanup; fast path требует initialized spectrum. Focused5/API/full115+actual interactive2/API, оба normal builds/4 smokes Passed. Target bytes/RT сохранены, старый consumer восстановлен точно, updated frozen output совпадает со fresh reference;16 queued EditMode layers корректны. Original runtime failure/queued before-control и2 setup failures архивированы отдельно. GUID/compute597, audit1404/rootMD8 pass. Активных операций нет.
+P10-Geometry scoped DONE. Game geometry tracks258 meshes (30 templates+228 tile clones),228 tiles/3 roots/API over density/LOD2/7→4/4→2/7, all old objects destroyed and vertices restored. Editor proxy owned plane/material previously survived cleanup; Editor-only tracking/cleanup fixed,2 recreate cycles/API pass and borrowed built-in mesh survives. Initial fixture template/clone assumption error retained separately from production failure.
 
-Current normal fingerprints — Build-checkpoint.json, P10-Rekey-checkpoint.json; raw/source/5 actual Player+Editor DLLs — -evidence.zip/-files.json. Previous full113 bytes — -before.zip.28 capture frame pairs match, RenderData warnings0. Historical canonical fixture reports restored after verified archive; they are not current acceptance.
+Focused2/API/full117+actual interactive2/API, both normal builds/4 smokes Passed.28 capture pairs current, RenderData warnings0. GUID/compute597, audit1404/rootMD8 pass. Current fingerprints Build-checkpoint/P10-Geometry-checkpoint; raw/source/5 actual assemblies -evidence.zip/-files.json; previous115 normal bytes -before.zip. Historical fixture reports archived/restored; exact pre-existing foreign reports restored. No active operation.
 
 ## Точное следующее действие
 
-PORT_PLAN «Приёмка P10», пункт3 NEXT — geometry resource inventory. Прочитать OceanBuilder s_Meshes/GenerateMesh/CleanUp и OceanRenderer rebuild/cleanup, проверить existing tests перед новым запуском. Подготовить bounded native Mesh identity control create→geometry-density/LOD rebuild→destroy на обеих API, включая patch meshes без tile assignment, tile/root/proxy ownership. Сначала доказать actual lifetime; не менять geometry algorithms заранее. Не повторять принятые FFT, Calm, active-owner, GPU-counter capability и retention windows.
+PORT_PLAN P10.3 NEXT — stable GPU cost window. Read P10-Counters-summary.json and ResourceShutdownProbe.Profile.cs CounterCapability before changes. Local nvidia-smi supports clock/load/temperature/power sampling; availability CSV is archived, not a cost result. Fix one visible/focused normal-rendered Player configuration (scene/camera/resolution/warm-up), capture focus/render counts and available clock/load telemetry; bounded A–B–A window, reject attribution if baseline drifts. Existing counter capability is accepted: do not repeat hidden0-render/duplicate-name pilots, Calm/FFT/geometry/retention generic controls. P10 finite ownership inventory and explicit limits are in PORT_PLAN; no new unbounded owner hunt.
 
-GPU timing attribution требует отдельного stable controlled window с focus/environment telemetry; наличие counters уже доказано. Driver NonLocal attribution/other configurations открыты. P11 combined Whirlpool damping, UnderwaterLighting fill0, остальные exact supported configurations и final acceptance остаются в плане.
+GPU stability/cost and driver NonLocal attribution remain open; physical Intel/XR unavailable. P11 Whirlpool combined damping, UnderwaterLighting fill0, supported configuration list and final acceptance remain TODO. Complete P10 criteria with evidence or documented external limits before P11.
 
 ## Сохраняемые изменения и ограничения
 
