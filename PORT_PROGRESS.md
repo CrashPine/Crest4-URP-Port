@@ -1,6 +1,6 @@
 # Точка продолжения
 
-Обновлено: **2026-11-04**. Цель: Unity **6000.6.5f1**, URP **17.6.0**, Windows DX11/DX12 Render Graph. Работать только в `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-11-05**. Цель: Unity **6000.6.5f1**, URP **17.6.0**, Windows DX11/DX12 Render Graph. Работать только в `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущий этап: P10 ACTIVE
 
@@ -10,13 +10,15 @@ P00–P09 DONE в scoped-области PORT_PLAN; P11/P12 TODO. Единств�
 
 ## Последний завершённый checkpoint
 
-Активных Unity/Player операций нет. P10-ShadowOrder: smoke capture before LateUpdate caused14 Shadow warnings; queued capture at controller order300 after preserved Ocean200 fixes the cause. Diagnostic7 stale→7 current captures/14→0 warnings; exact variants/3DLLs preserved in before/after-trace.zip. Core OceanRenderer/shadow/builder restored; only demo controller +strict Run-Player check changed. Current full110+interactive2/API, both rebuilt Players and4 smokes passed;28 frame pairs match/RenderData warnings0. GUID/compute597 PASSED, stable audit1402/root Markdown8.
+Активных Unity/Player операций нет. P10-Counters scoped capability DONE:4 visible nonbatch regular-camera Empty/Ocean xDX11/DX12 controls, positive64 cubes дают точные+64 draws/+768 triangles/+1536 vertices и полное geometry restoration. Render-category lookup устраняет коллизию UI Toolkit; GPU timings ненулевые, но дрейфуют после restoration — cost/API/FPS acceptance нет. Hidden0-render pilots и name-only UI collision pilots rejected/preserved. User authorized temporary visible windows; all closed. Exact raw/source/3DLLs/hashes — P10-Counters-evidence.zip/-files.json, accepted summary -summary.json; pilot archives рядом. Ordinary12 managed/packed fingerprints unchanged; default source/runtime не изменён (conditional probe +Editor builder only).
+
+Последний normal runtime checkpoint bf92647: full110+interactive2/API, both builds/4 smokes;28 capture frame pairs match, RenderData warnings0. P10-GpuCache/P10-Retention historical acceptance/limits — TEST_RESULTS. Не переоткрывать закрытые windows. Root Markdown8, stable audit — Evidence/workspace-audit.json.
 
 Текущие source/build/material/report fingerprints — Evidence/Build-checkpoint.json и P10-ShadowOrder-checkpoint.json. Причинный контроль — -cause-summary.json; raw/full reports/source/assembly — -evidence.zip/-files.json, previous normal bytes — -before.zip. Historical P10-GpuCache и P10-Retention evidence остаются в TEST_RESULTS: cache optimization принята, retention10-cycle ограниченная область закрыта; это не general VRAM/GPU acceptance. Не повторять закрытые windows. Old full-suite reports восстановлены после сохранения новых bytes в архиве; их canonical paths не являются новой полной visual acceptance всех функций.
 
 ## Точное следующее действие
 
-Следовать PORT_PLAN разделу «Приёмка P10 — оставшаяся последовательность», пункт3 NEXT: GPU/draw capability control. Сначала прочитать прошлые failed/zero counters TEST_RESULTS P10 и ResourceShutdownProbe.Profile.cs; не повторять CPU60s/reflection/GC windows. В diagnostic Player перечислить реально доступные counters и проверить ограниченный regular-camera/nonbatch positive workload versus Empty с actual GPU/draw response. Zero/unavailable не считать принятой производительностью; сохранить support flags/raw. Затем решить конкретный следующий контроль по evidence. NonLocal attribution/remaining resource owners и P11 configurations остаются открытыми.
+Следовать PORT_PLAN разделу «Приёмка P10 — оставшаяся последовательность», пункт3 NEXT: remaining active resource owners. Сначала прочитать TEST_RESULTS ResourceLifecycle/ownership и FEATURE_MATRIX; сопоставить активные FFT/DynamicWaves/Flow/Foam native owners в existing Waves/Interactions fixtures с уже принятым Calm. Выбрать один bounded enable/disable/unload сценарий для непроверенных владельцев, сохранить logical bytes/IsValid/disposal/RT и walker limits. Не повторять Calm10-cycle/counter capability/60s CPU windows. GPU timing repeatability/attribution и NonLocal ownership остаются открытыми, не выдавать nonzero counter за accepted benchmark.
 
 Предыдущие14 Shadow RenderData warnings/Player теперь resolved только для установленной smoke-capture причины; validation не подавлялась. Для обычных пользовательских manual Submit до Ocean update требуется соблюдать порядок обновления, это не автоматическая поддержка любого порядка внешнего rendering. P10 ACTIVE, P11/P12 TODO; полный порт не завершён.
 

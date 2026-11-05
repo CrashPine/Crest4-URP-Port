@@ -85,6 +85,97 @@ namespace Crest.URP.Diagnostics
             public WorkloadCost beforeCost,afterCost;
             public long[] underwaterGcBytes,underwaterGcCalls,gpuNameCalibration;
         }
+        [Serializable] class CapabilitySample
+        {
+            public int frame;public double[] last,current;public ulong timestamp;public bool freshTiming;public double gpuMs,cpuMs;
+        }
+        [Serializable] class CapabilityPhase
+        {
+            public string name;public int enabledControls,visibleControls;public long cameraRenders;
+            public double seconds;public Metric[] counters;public CapabilitySample[] samples;
+        }
+        [Serializable] class CapabilityResult
+        {
+            public string unity,api,gpu,mode;public bool batch,development,gpuRecorderSupported,frameTimingEnabled,cameraEnabled,featureDisabled;
+            public ulong gpuTimerFrequency;public int width,height,errors,vsync,targetFrameRate;
+            public CounterInfo[] availableCounters,selectedCounters;public CapabilityPhase[] phases;
+        }
+        IEnumerator CounterCapability(string mode)
+        {
+            if(Application.isBatchMode)throw new InvalidOperationException("Counter capability requires ordinary non-batch camera rendering");
+            QualitySettings.vSyncCount=0;Application.targetFrameRate=60;
+            _profileCamera=Camera.main;_profileCamera.enabled=true;
+            _profileCamera.transform.position=new Vector3(0,5,-15);_profileCamera.transform.LookAt(new Vector3(0,2,0));
+            _profileCamera.aspect=(float)Screen.width/Screen.height;
+            var controls=new GameObject("Counter positive control");controls.SetActive(false);
+            var shader=Shader.Find("Universal Render Pipeline/Unlit");
+            if(shader==null)throw new InvalidOperationException("Counter control shader not retained");
+            var material=new Material(shader){enableInstancing=false};
+            var renderers=new List<Renderer>();
+            for(int i=0;i<64;i++)
+            {
+                var cube=GameObject.CreatePrimitive(PrimitiveType.Cube);cube.transform.SetParent(controls.transform);
+                cube.transform.position=new Vector3((i%8-3.5f)*.6f,2.5f,(i/8-3.5f)*.6f);
+                cube.transform.localScale=Vector3.one*.4f;
+                var renderer=cube.GetComponent<Renderer>();renderer.sharedMaterial=material;renderers.Add(renderer);
+            }
+            var handles=new List<ProfilerRecorderHandle>();ProfilerRecorderHandle.GetAvailable(handles);
+            var available=handles.Select(h=>ProfilerRecorderHandle.GetDescription(h)).ToArray();
+            string[] names={"GPU Frame Time","Draw Calls Count","Batches Count","SetPass Calls Count","Triangles Count","Vertices Count","Dynamic Batches Count","Static Batches Count","Instanced Batches Count","SRP Batcher Draw Calls Count"};
+            var counters=new List<Counter>();var selected=new List<CounterInfo>();
+            foreach(var name in names)
+            {
+                int index=Array.FindIndex(available,d=>d.Name==name&&d.Category.Name=="Render");if(index<0)continue;
+                var d=available[index];var recorder=new ProfilerRecorder(handles[index],1,ProfilerRecorderOptions.Default);recorder.Start();
+                counters.Add(new Counter{recorder=recorder,floating=d.DataType.ToString().Contains("Double")||d.DataType.ToString().Contains("Float")});
+                selected.Add(new CounterInfo{name=d.Name,category=d.Category.Name,unit=d.UnitType.ToString(),dataType=d.DataType.ToString()});
+            }
+            var phases=new List<CapabilityPhase>();var timings=new FrameTiming[1];ulong lastTimestamp=0;
+            RenderPipelineManager.endCameraRendering+=CountRender;
+            try
+            {
+                for(int phase=0;phase<3;phase++)
+                {
+                    controls.SetActive(phase==1);
+                    double warm=Time.realtimeSinceStartupAsDouble;
+                    while(Time.realtimeSinceStartupAsDouble-warm<2){FrameTimingManager.CaptureFrameTimings();yield return null;}
+                    var planes=GeometryUtility.CalculateFrustumPlanes(_profileCamera);
+                    int visible=phase==1?renderers.Count(r=>GeometryUtility.TestPlanesAABB(planes,r.bounds)):0;
+                    var samples=new List<CapabilitySample>();
+                    var metrics=selected.Select(d=>new Accumulator(d.name,d.unit)).ToArray();
+                    long before=_mainRenders;double start=Time.realtimeSinceStartupAsDouble;
+                    while(Time.realtimeSinceStartupAsDouble-start<3)
+                    {
+                        FrameTimingManager.CaptureFrameTimings();yield return null;
+                        var sample=new CapabilitySample{frame=Time.frameCount,last=new double[counters.Count],current=new double[counters.Count]};
+                        for(int c=0;c<counters.Count;c++)
+                        {
+                            var counter=counters[c];sample.last[c]=sample.current[c]=-1;
+                            if(!counter.recorder.Valid||counter.recorder.Count==0)continue;
+                            sample.last[c]=counter.floating?counter.recorder.LastValueAsDouble:counter.recorder.LastValue;
+                            sample.current[c]=counter.floating?-1:counter.recorder.CurrentValue;metrics[c].Add(sample.last[c]);
+                        }
+                        if(FrameTimingManager.GetLatestTimings(1,timings)>0)
+                        {
+                            sample.timestamp=timings[0].frameStartTimestamp;sample.gpuMs=timings[0].gpuFrameTime;sample.cpuMs=timings[0].cpuFrameTime;
+                            sample.freshTiming=sample.timestamp!=lastTimestamp;lastTimestamp=sample.timestamp;
+                        }
+                        if(samples.Count>=4096)throw new InvalidOperationException("Capability sample bound exceeded");samples.Add(sample);
+                    }
+                    phases.Add(new CapabilityPhase{name=phase==0?"baseline":phase==1?"positive64":"restored",enabledControls=phase==1?64:0,visibleControls=visible,
+                        cameraRenders=_mainRenders-before,seconds=Time.realtimeSinceStartupAsDouble-start,counters=metrics.Select(m=>m.Finish("Observed regular camera LastValue")).ToArray(),samples=samples.ToArray()});
+                    Debug.Log("COUNTER_CAPABILITY_PHASE "+phases.Last().name+" renders="+phases.Last().cameraRenders);
+                }
+            }
+            finally {RenderPipelineManager.endCameraRendering-=CountRender;foreach(var c in counters)c.recorder.Dispose();Destroy(controls);Destroy(material);}
+            var result=new CapabilityResult{unity=Application.unityVersion,api=SystemInfo.graphicsDeviceType.ToString(),gpu=SystemInfo.graphicsDeviceName,mode=mode,
+                batch=Application.isBatchMode,development=Debug.isDebugBuild,gpuRecorderSupported=SystemInfo.supportsGpuRecorder,frameTimingEnabled=FrameTimingManager.IsFeatureEnabled(),
+                gpuTimerFrequency=FrameTimingManager.GetGpuTimerFrequency(),cameraEnabled=_profileCamera.enabled,featureDisabled=Array.IndexOf(Environment.GetCommandLineArgs(),"-crestProbeDisableFeature")>=0,
+                width=Screen.width,height=Screen.height,errors=_errors,vsync=QualitySettings.vSyncCount,targetFrameRate=Application.targetFrameRate,
+                availableCounters=available.Select(d=>new CounterInfo{name=d.Name,category=d.Category.Name,unit=d.UnitType.ToString(),dataType=d.DataType.ToString()}).ToArray(),selectedCounters=selected.ToArray(),phases=phases.ToArray()};
+            File.WriteAllText(Argument("-crestProbeOutput","CounterCapability.json"),JsonUtility.ToJson(result,true));
+            Debug.Log("COUNTER_CAPABILITY_COMPLETED errors="+_errors);Application.Quit(_errors==0?0:1);
+        }
         static long ThreadAllocated()
         {
             try{return GC.GetAllocatedBytesForCurrentThread();}

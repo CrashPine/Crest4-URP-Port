@@ -1,6 +1,23 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-04**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-05**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P10: regular-camera counter capability (2026-11-05)
+
+Four accepted visible/nonbatch diagnostic Development controls (Empty/Ocean_Calm xDX11/DX12),960x540,target60/vsync0, regular Camera rendering; each baseline/64 Unlit cubes/restored phase has2s warm-up +3s sampling. At least60 real camera callbacks per phase, callback/sample counts differ at most1;64 controls in the camera frustum. Exact selected Render-category counter descriptors and raw per-frame Last/current/timestamp data retained. User explicitly authorized the temporary visible windows, all closed automatically. No screenshot matrix or repeated60s CPU windows.
+
+| API / scene | Draw calls baseline→64→restore | Triangles baseline→64→restore | Unique FrameTiming GPU mean ms baseline /64 /restore |
+|---|---:|---:|---:|
+|DX11 Empty|5→69→5|7→775→7|0.041056 / 0.271690 / 0.319590|
+|DX11 Ocean|97→161→97|277456→278224→277456|1.082594 / 1.837244 / 3.584228|
+|DX12 Empty|4→68→4|5→773→5|0.034867 / 0.344798 / 0.403228|
+|DX12 Ocean|96→160→96|277454→278222→277454|0.555724 / 1.262855 / 2.064401|
+
+All4 controls exactly add64 Draw Calls,768 triangles,1536 vertices,1 SetPass and64 SRP Batcher Draw Calls, then restore every geometry count exactly. GPU Frame Time/unique FrameTiming GPU are nonzero; support/feature flags true and timer frequency nonzero. These are full diagnostic-frame observations, not isolated Crest pass GPU timings. GPU timing does not restore with geometry: substantial upward drift remains, so these short fixed-order windows do not establish attributable ocean/64-cube GPU cost, API ranking or FPS/performance acceptance. Scene totals are not intrinsic Crest-only draw counts. Generic Batches Count has no Render-category match; it is not an accepted3D batching measurement. Floating counter current uses−1 sentinel; floating LastValueAsDouble is the accepted raw read.
+
+Two hidden DX11 pilots exited0/errors0 but had0 camera renders: rejected for capability acceptance, not proof of unsupported counters. Four initial visible name-only pilots had real rendering, but Draw Calls/Batches/Vertices resolved to UI Toolkit due duplicate names. Those3D zero readings are rejected; corrected lookup requires category Render. Exact pilot source/3DLLs, raw reports and assessments preserved, never relabeled green. Existing historical offscreen profiling skipped render counters and does not gain3D/GPU acceptance retrospectively.
+
+Only CREST_RESOURCE_PROBE code and the Editor diagnostic builder changed; ordinary12 managed/packed hashes match current Build-checkpoint. Prior bf92647 full110+interactive2/API/both normal builds/four smokes remain their checkpoint. Diagnostic Unlit material retained through a temporary serialized dependency; cleanup/variant whitespace restored, foreign Ocean/bakes untouched. Evidence P10-Counters-summary.json and -evidence.zip/-files.json plus pilot archives. Counter capability scoped DONE; GPU repeatability/attribution, remaining active subsystem buffer owners and NonLocal/physical residency still open. Next ordered action is PORT_PLAN P10.
 
 ## P10: smoke shadow frame-order corrected (2026-11-04)
 

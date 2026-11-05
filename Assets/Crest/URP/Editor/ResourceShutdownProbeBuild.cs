@@ -38,7 +38,9 @@ namespace Crest.URP.Editor
                 var planar=new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Ocean_Calm.mat"));
                 planar.EnableKeyword("_PLANARREFLECTIONS_ON");
                 AssetDatabase.CreateAsset(planar,folder+"/DiagnosticPlanar.mat");
-                retention.sharedMaterials=new[]{underwater,planar};
+                var counterControl=new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+                AssetDatabase.CreateAsset(counterControl,folder+"/DiagnosticCounterControl.mat");
+                retention.sharedMaterials=new[]{underwater,planar,counterControl};
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;

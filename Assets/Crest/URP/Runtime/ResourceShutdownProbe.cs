@@ -67,6 +67,10 @@ namespace Crest.URP.Diagnostics
             if (disableFeature) foreach (var feature in features) feature.SetActive(false);
             OceanRenderer.EnableGraphicsInBatchMode = true;
             if (mode != "Empty") yield return SceneManager.LoadSceneAsync(1);
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestCounterCapability") >= 0)
+            {
+                yield return CounterCapability(mode);yield break;
+            }
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestReflectionCost") >= 0)
             {
                 yield return ReflectionCost();yield break;

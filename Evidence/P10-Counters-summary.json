@@ -1,0 +1,1295 @@
+{
+  "recordedUtc": "2026-11-05T11:26:08.373953+00:00",
+  "validation": "PASSED scoped counter capability",
+  "cases": [
+    {
+      "file": "Evidence/P10-Counters-Render-Empty-DX11.json",
+      "sha256": "36625e8004e20af18b93c5d4962c4e3768bfc8457c81fdd891b9d895c8bdab80",
+      "api": "DX11",
+      "mode": "Empty",
+      "selectedCounters": [
+        {
+          "name": "GPU Frame Time",
+          "category": "Render",
+          "unit": "TimeNanoseconds",
+          "dataType": "Double"
+        },
+        {
+          "name": "Draw Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SetPass Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Triangles Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Vertices Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Dynamic Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Static Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Instanced Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SRP Batcher Draw Calls Count",
+          "category": "Render",
+          "unit": "Undefined",
+          "dataType": "Int32"
+        }
+      ],
+      "phases": [
+        {
+          "name": "baseline",
+          "cameraRenders": 181,
+          "samples": 181,
+          "seconds": 3.0152465999999993,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 41044.86187845304,
+              "min": 39936.0,
+              "max": 53248.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 5.0,
+              "min": 5.0,
+              "max": 5.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 4.0,
+              "min": 4.0,
+              "max": 4.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 7.0,
+              "min": 7.0,
+              "max": 7.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 17.0,
+              "min": 17.0,
+              "max": 17.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            }
+          ],
+          "uniqueTimings": 181,
+          "positiveGpuTimings": 181,
+          "gpuMsMean": 0.041056176795580115
+        },
+        {
+          "name": "positive64",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.0006988000000003,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 270745.6,
+              "min": 157696.0,
+              "max": 384000.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 69.0,
+              "min": 69.0,
+              "max": 69.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 5.0,
+              "min": 5.0,
+              "max": 5.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 775.0,
+              "min": 775.0,
+              "max": 775.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 1553.0,
+              "min": 1553.0,
+              "max": 1553.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 64.0,
+              "min": 64.0,
+              "max": 64.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 0.2716899555555556
+        },
+        {
+          "name": "restored",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.0030699,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 319584.7111111111,
+              "min": 314368.0,
+              "max": 377856.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 5.0,
+              "min": 5.0,
+              "max": 5.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 4.0,
+              "min": 4.0,
+              "max": 4.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 7.0,
+              "min": 7.0,
+              "max": 7.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 17.0,
+              "min": 17.0,
+              "max": 17.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 0.3195904
+        }
+      ],
+      "gpuStatus": "AVAILABLE_NONZERO",
+      "frameTimingEnabled": true,
+      "gpuRecorderSupported": true,
+      "gpuTimerFrequency": 1000000000,
+      "missingRenderCounterNames": [
+        "Batches Count"
+      ],
+      "warnings": {
+        "RenderData validation failed": 0,
+        "evictable": 0,
+        "Persistent allocates": 0,
+        "temporary render texture": 0,
+        "Shader error": 0
+      }
+    },
+    {
+      "file": "Evidence/P10-Counters-Render-Ocean-DX11.json",
+      "sha256": "5e5880e445f17ca99ff0fe314880de2393efab8c1c17d7ef352334e2164b9061",
+      "api": "DX11",
+      "mode": "Ocean",
+      "selectedCounters": [
+        {
+          "name": "GPU Frame Time",
+          "category": "Render",
+          "unit": "TimeNanoseconds",
+          "dataType": "Double"
+        },
+        {
+          "name": "Draw Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SetPass Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Triangles Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Vertices Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Dynamic Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Static Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Instanced Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SRP Batcher Draw Calls Count",
+          "category": "Render",
+          "unit": "Undefined",
+          "dataType": "Int32"
+        }
+      ],
+      "phases": [
+        {
+          "name": "baseline",
+          "cameraRenders": 181,
+          "samples": 181,
+          "seconds": 3.0161932,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 1082554.6961325966,
+              "min": 1074176.0,
+              "max": 1104896.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 97.0,
+              "min": 97.0,
+              "max": 97.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 43.0,
+              "min": 43.0,
+              "max": 43.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 277456.0,
+              "min": 277456.0,
+              "max": 277456.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 148862.0,
+              "min": 148862.0,
+              "max": 148862.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 2.0,
+              "min": 2.0,
+              "max": 2.0
+            }
+          ],
+          "uniqueTimings": 181,
+          "positiveGpuTimings": 181,
+          "gpuMsMean": 1.0825942983425414
+        },
+        {
+          "name": "positive64",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.0021453000000005,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 1830473.9555555556,
+              "min": 1363968.0,
+              "max": 2585600.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 161.0,
+              "min": 161.0,
+              "max": 161.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 44.0,
+              "min": 44.0,
+              "max": 44.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 278224.0,
+              "min": 278224.0,
+              "max": 278224.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 150398.0,
+              "min": 150398.0,
+              "max": 150398.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 66.0,
+              "min": 66.0,
+              "max": 66.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 1.8372437333333334
+        },
+        {
+          "name": "restored",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.0043808999999975,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 3580478.577777778,
+              "min": 3201024.0,
+              "max": 3915776.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 97.0,
+              "min": 97.0,
+              "max": 97.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 43.0,
+              "min": 43.0,
+              "max": 43.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 277456.0,
+              "min": 277456.0,
+              "max": 277456.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 148862.0,
+              "min": 148862.0,
+              "max": 148862.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 2.0,
+              "min": 2.0,
+              "max": 2.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 3.5842275555555556
+        }
+      ],
+      "gpuStatus": "AVAILABLE_NONZERO",
+      "frameTimingEnabled": true,
+      "gpuRecorderSupported": true,
+      "gpuTimerFrequency": 1000000000,
+      "missingRenderCounterNames": [
+        "Batches Count"
+      ],
+      "warnings": {
+        "RenderData validation failed": 0,
+        "evictable": 0,
+        "Persistent allocates": 0,
+        "temporary render texture": 0,
+        "Shader error": 0
+      }
+    },
+    {
+      "file": "Evidence/P10-Counters-Render-Empty-DX12.json",
+      "sha256": "074e5a7d322fddfa00c1ed1de141a8548244991755862f5fadb4615f6c0a37bc",
+      "api": "DX12",
+      "mode": "Empty",
+      "selectedCounters": [
+        {
+          "name": "GPU Frame Time",
+          "category": "Render",
+          "unit": "TimeNanoseconds",
+          "dataType": "Double"
+        },
+        {
+          "name": "Draw Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SetPass Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Triangles Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Vertices Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Dynamic Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Static Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Instanced Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SRP Batcher Draw Calls Count",
+          "category": "Render",
+          "unit": "Undefined",
+          "dataType": "Int32"
+        }
+      ],
+      "phases": [
+        {
+          "name": "baseline",
+          "cameraRenders": 181,
+          "samples": 181,
+          "seconds": 3.014823999999999,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 34866.91712707182,
+              "min": 33792.0,
+              "max": 35840.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 4.0,
+              "min": 4.0,
+              "max": 4.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 4.0,
+              "min": 4.0,
+              "max": 4.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 5.0,
+              "min": 5.0,
+              "max": 5.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 13.0,
+              "min": 13.0,
+              "max": 13.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            }
+          ],
+          "uniqueTimings": 181,
+          "positiveGpuTimings": 181,
+          "gpuMsMean": 0.03486691712707182
+        },
+        {
+          "name": "positive64",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.001563300000001,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 343569.06666666665,
+              "min": 188416.0,
+              "max": 420864.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 68.0,
+              "min": 68.0,
+              "max": 68.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 5.0,
+              "min": 5.0,
+              "max": 5.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 773.0,
+              "min": 773.0,
+              "max": 773.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 1549.0,
+              "min": 1549.0,
+              "max": 1549.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 64.0,
+              "min": 64.0,
+              "max": 64.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 0.3447978666666667
+        },
+        {
+          "name": "restored",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.0044538000000003,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 403211.3777777778,
+              "min": 393216.0,
+              "max": 416768.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 4.0,
+              "min": 4.0,
+              "max": 4.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 4.0,
+              "min": 4.0,
+              "max": 4.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 5.0,
+              "min": 5.0,
+              "max": 5.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 13.0,
+              "min": 13.0,
+              "max": 13.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 0.40322844444444444
+        }
+      ],
+      "gpuStatus": "AVAILABLE_NONZERO",
+      "frameTimingEnabled": true,
+      "gpuRecorderSupported": true,
+      "gpuTimerFrequency": 1000000000,
+      "missingRenderCounterNames": [
+        "Batches Count"
+      ],
+      "warnings": {
+        "RenderData validation failed": 0,
+        "evictable": 0,
+        "Persistent allocates": 0,
+        "temporary render texture": 0,
+        "Shader error": 0
+      }
+    },
+    {
+      "file": "Evidence/P10-Counters-Render-Ocean-DX12.json",
+      "sha256": "ae14e24db6b4b8f08fd4d5abe91ae076f1f60a6a1638c070207783223d8d6615",
+      "api": "DX12",
+      "mode": "Ocean",
+      "selectedCounters": [
+        {
+          "name": "GPU Frame Time",
+          "category": "Render",
+          "unit": "TimeNanoseconds",
+          "dataType": "Double"
+        },
+        {
+          "name": "Draw Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SetPass Calls Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Triangles Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Vertices Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int64"
+        },
+        {
+          "name": "Dynamic Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Static Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "Instanced Batches Count",
+          "category": "Render",
+          "unit": "Count",
+          "dataType": "Int32"
+        },
+        {
+          "name": "SRP Batcher Draw Calls Count",
+          "category": "Render",
+          "unit": "Undefined",
+          "dataType": "Int32"
+        }
+      ],
+      "phases": [
+        {
+          "name": "baseline",
+          "cameraRenders": 181,
+          "samples": 181,
+          "seconds": 3.014434099999999,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 555746.2983425414,
+              "min": 550912.0,
+              "max": 564224.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 96.0,
+              "min": 96.0,
+              "max": 96.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 43.0,
+              "min": 43.0,
+              "max": 43.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 277454.0,
+              "min": 277454.0,
+              "max": 277454.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 148858.0,
+              "min": 148858.0,
+              "max": 148858.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 2.0,
+              "min": 2.0,
+              "max": 2.0
+            }
+          ],
+          "uniqueTimings": 181,
+          "positiveGpuTimings": 181,
+          "gpuMsMean": 0.5557236685082872
+        },
+        {
+          "name": "positive64",
+          "cameraRenders": 181,
+          "samples": 181,
+          "seconds": 3.0163151,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 1259570.9171270719,
+              "min": 972544.0,
+              "max": 1530112.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 160.0,
+              "min": 160.0,
+              "max": 160.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 44.0,
+              "min": 44.0,
+              "max": 44.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 278222.0,
+              "min": 278222.0,
+              "max": 278222.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 150394.0,
+              "min": 150394.0,
+              "max": 150394.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 66.0,
+              "min": 66.0,
+              "max": 66.0
+            }
+          ],
+          "uniqueTimings": 181,
+          "positiveGpuTimings": 181,
+          "gpuMsMean": 1.2628550718232043
+        },
+        {
+          "name": "restored",
+          "cameraRenders": 180,
+          "samples": 180,
+          "seconds": 3.0031785000000006,
+          "metrics": [
+            {
+              "name": "GPU Frame Time",
+              "unit": "TimeNanoseconds",
+              "mean": 2062768.3555555556,
+              "min": 1898496.0,
+              "max": 2193408.0
+            },
+            {
+              "name": "Draw Calls Count",
+              "unit": "Count",
+              "mean": 96.0,
+              "min": 96.0,
+              "max": 96.0
+            },
+            {
+              "name": "SetPass Calls Count",
+              "unit": "Count",
+              "mean": 43.0,
+              "min": 43.0,
+              "max": 43.0
+            },
+            {
+              "name": "Triangles Count",
+              "unit": "Count",
+              "mean": 277454.0,
+              "min": 277454.0,
+              "max": 277454.0
+            },
+            {
+              "name": "Vertices Count",
+              "unit": "Count",
+              "mean": 148858.0,
+              "min": 148858.0,
+              "max": 148858.0
+            },
+            {
+              "name": "Dynamic Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Static Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "Instanced Batches Count",
+              "unit": "Count",
+              "mean": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            {
+              "name": "SRP Batcher Draw Calls Count",
+              "unit": "Undefined",
+              "mean": 2.0,
+              "min": 2.0,
+              "max": 2.0
+            }
+          ],
+          "uniqueTimings": 180,
+          "positiveGpuTimings": 180,
+          "gpuMsMean": 2.0644010666666666
+        }
+      ],
+      "gpuStatus": "AVAILABLE_NONZERO",
+      "frameTimingEnabled": true,
+      "gpuRecorderSupported": true,
+      "gpuTimerFrequency": 1000000000,
+      "missingRenderCounterNames": [
+        "Batches Count"
+      ],
+      "warnings": {
+        "RenderData validation failed": 0,
+        "evictable": 0,
+        "Persistent allocates": 0,
+        "temporary render texture": 0,
+        "Shader error": 0
+      }
+    }
+  ],
+  "normalBuildsUnchanged": [
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "5A0F95402327C175E9594D6E218369AB2873A39AD87111666330DC6F276B6764"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "82727E0E70E2DC0161A276C63229EDB10DD20D53439A7CD568C5D85C76852CBB"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "85BD2674A924ED33D7DD5ABB7266E54DA4BB90713BD23F6D46746DF2FA84F738"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "741CB52E65E21D5538680631DF357FEB5A64970FF43F51CB1273B32AE7B3BFA1"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "654EDC7AA7BF44440DE3A8C79EDA2B68FFA198F040B88E0337C034E21E700E05"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "1949DE107C0D421737846CF7BF9381A919F382561ACDB9BF502A10DE36D26323"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/resources.assets",
+      "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/sharedassets0.assets",
+      "sha256": "DCE5A6DD6D605C5F69542844C9F81FAD128E7B5E86CA5777DE11AC6086F9FC0B"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/globalgamemanagers",
+      "sha256": "B678AFC5E6612A9053E0FE30F34CF0D5EE5152D53AD61E23C57A379CC42F8D84"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/resources.assets",
+      "sha256": "EB8D740C93F288B56F42FA0318E92AB068A0A065C098F88715DEA3B959DD4825"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/sharedassets0.assets",
+      "sha256": "A8D9A6ABC78A6A4BC3520DFE39F62328E478E15E6FB3916676E416557083FB4F"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/globalgamemanagers",
+      "sha256": "0ED274E57CF563B2F8821B7EFDFE9AFC1F0F2F453291F868D167CEE74B86C4B1"
+    }
+  ],
+  "limitation": "GPU timing is nonzero but baseline/restored drift prevents attributable GPU cost or API/FPS ranking. Single short fixed-order3s phase after2s warm-up, Development/nonbatch/visible960x540/target60. Draw/geometry controls exactly restore; no VRAM/lifetime acceptance.",
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "26a45ff32e61a5b48b964c3579f6bc0fc09b5b6444ac62d26936a97f3a0c61b6",
+    "fileCount": 1402,
+    "rootMarkdown": 8
+  },
+  "pilots": [
+    {
+      "status": "REJECTED_NO_CAMERA_RENDERS",
+      "reports": [
+        "P10-Counters-Empty-DX11.json",
+        "P10-Counters-Ocean-DX11.json"
+      ],
+      "reason": "Hidden nonbatch Player updated but every cameraRenders=0. Completion exit0/errors0 is not valid capability acceptance. Support flags True and zero counters do not establish unavailable GPU/draw instrumentation."
+    },
+    {
+      "status": "PARTIAL_CATEGORY_COLLISION",
+      "reason": "Actual renders, Render triangles/setpass and GPU timings observed. Name-only lookup selects UI Toolkit Draw Calls/Batches/Vertices, not Render; those zero measurements rejected. Exact compiled source/DLLs are also preserved in hidden-source.zip."
+    }
+  ],
+  "visibleAuthorization": "User explicitly approved temporary visible diagnostic Player windows; all finished/closed. Hidden PowerShell helpers remained hidden.",
+  "diagnosticAssemblies": [
+    {
+      "path": "Builds/P10-ResourceProbe/ResourceProbe_Data/Managed/Crest.dll",
+      "sha256": "c47c3d8b5f70908c840b77daeee3a0908ed9226c152b0c0ab135ce87c4a4cd44",
+      "bytes": 288256
+    },
+    {
+      "path": "Builds/P10-ResourceProbe/ResourceProbe_Data/Managed/Crest.Examples.dll",
+      "sha256": "6f6b381dbecbbed51d0744f5252a65e811e43f098bfa04e8ffdda9004b4ac6c6",
+      "bytes": 36352
+    },
+    {
+      "path": "Builds/P10-ResourceProbe/ResourceProbe_Data/Managed/Crest.URP.dll",
+      "sha256": "20c9ac12ee022b01cbaadcaf159ab821aed96dfa0db40b09c4de4ea7d4e74505",
+      "bytes": 73728
+    }
+  ]
+}
