@@ -1,0 +1,86 @@
+{
+  "validation": "P11.1 scoped matched-history damping control Passed1/API",
+  "results": [
+    {
+      "api": "DX11",
+      "passed": 1,
+      "values": {
+        "MatchedSphereSources": 2.0,
+        "Radius": 3.0,
+        "NativeStrength": 0.01,
+        "Frequency": 120.0,
+        "Interior": 256.0,
+        "Outside": 146234.0,
+        "NativeRGError": 0.000188499689,
+        "StrongRGError": 0.000262498856,
+        "NativeInteriorDelta": 0.0054591503,
+        "OutsideDelta": 0.0,
+        "MatchedOffRepeatError": 0.0
+      },
+      "warnings": {
+        "shaderErrors": 0,
+        "renderData": 0,
+        "persistent": 0,
+        "evictable": 0
+      }
+    },
+    {
+      "api": "DX12",
+      "passed": 1,
+      "values": {
+        "MatchedSphereSources": 2.0,
+        "Radius": 3.0,
+        "NativeStrength": 0.01,
+        "Frequency": 120.0,
+        "Interior": 256.0,
+        "Outside": 146234.0,
+        "NativeRGError": 0.000188499689,
+        "StrongRGError": 0.000262498856,
+        "NativeInteriorDelta": 0.0054591503,
+        "OutsideDelta": 0.0,
+        "MatchedOffRepeatError": 0.0
+      },
+      "warnings": {
+        "shaderErrors": 0,
+        "renderData": 0,
+        "persistent": 0,
+        "evictable": 0
+      }
+    }
+  ],
+  "crossApiLod0PairsByteIdentical": 4,
+  "productionSourcesAndMaterialsUnchanged": true,
+  "normalArtifactsUnchanged": 12,
+  "normalCheckpoint": "e4cbf02 full117+interactive2/API; no new full118 suite claimed",
+  "correction": "Test-only matched sphere forcing snapshot at order199 before Ocean200, no tolerance change;2 sphere components/registration remain active",
+  "limits": "Seeded dynamic RG history and matched forcing with one positive native substep; no long-term combined temporal/API visual/standalone/performance claim; old .015754165 failure retained, not explained by this control.",
+  "recordedUtc": "2026-11-06T10:03:46.636114+00:00",
+  "originalPreservation": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  },
+  "editorAssemblies": [
+    "Library/ScriptAssemblies/Crest.dll",
+    "Library/ScriptAssemblies/Crest.Examples.dll",
+    "Library/ScriptAssemblies/Crest.Helpers.Editor.dll",
+    "Library/ScriptAssemblies/Crest.URP.dll",
+    "Library/ScriptAssemblies/Crest.URP.Editor.dll",
+    "Library/ScriptAssemblies/Crest.URP.Interactive.Tests.dll",
+    "Library/ScriptAssemblies/Crest.URP.Tests.dll"
+  ],
+  "originalFocusedReportsRestored": true,
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "0B574A8F4C4ED5B7F7B9B30872BCE633D6C9BBD0D75D5CC7509ECE6BD4372F7A",
+    "fileCount": 1405,
+    "rootMarkdownCount": 8
+  }
+}
