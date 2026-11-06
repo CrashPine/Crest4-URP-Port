@@ -1,0 +1,152 @@
+{
+  "validation": "P11.2 scoped source-equivalent mask/positive consumer control Passed1/API",
+  "results": [
+    {
+      "api": "DX11",
+      "passed": 1,
+      "poses": [
+        {
+          "ReferencePose": 0.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 37692.0
+        },
+        {
+          "ReferencePose": 1.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 37844.0
+        },
+        {
+          "ReferencePose": 2.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 28998.0
+        },
+        {
+          "ReferencePose": 3.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 0.0
+        }
+      ],
+      "positive": {
+        "OutsideMaskInteriorCompared": 221008,
+        "OutsideMaskChanged": 0,
+        "PositiveBackfaceMask": 7056,
+        "FillConsumerChanged": 7043,
+        "RestoredPixels": 0
+      },
+      "warnings": {
+        "compileErrors": 0,
+        "shaderErrors": 0,
+        "renderData": 0,
+        "persistent": 0,
+        "evictable": 0
+      }
+    },
+    {
+      "api": "DX12",
+      "passed": 1,
+      "poses": [
+        {
+          "ReferencePose": 0.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 37692.0
+        },
+        {
+          "ReferencePose": 1.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 37846.0
+        },
+        {
+          "ReferencePose": 2.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 28998.0
+        },
+        {
+          "ReferencePose": 3.0,
+          "ReferenceNonzero": 0.0,
+          "NativeReferenceMaxError": 0.0,
+          "FrontNonzero": 0.0
+        }
+      ],
+      "positive": {
+        "OutsideMaskInteriorCompared": 221008,
+        "OutsideMaskChanged": 0,
+        "PositiveBackfaceMask": 7056,
+        "FillConsumerChanged": 7042,
+        "RestoredPixels": 0
+      },
+      "warnings": {
+        "compileErrors": 0,
+        "shaderErrors": 0,
+        "renderData": 0,
+        "persistent": 0,
+        "evictable": 0
+      }
+    }
+  ],
+  "referenceProvenance": {
+    "method": "Only shader name renamed and existing original local includes recursively expanded; no vertex/fragment/clip math change. Engine UnityCG remains current editor include. Compared under shared URP matrices/front-depth, not a complete Built-in renderer reference.",
+    "sources": [
+      {
+        "path": "Crest-Examples/Examples/Shaders/Resources/MaskFill.shader",
+        "sha256": "78B016F0FC3DDB2178B23F2A31544A6383933BC389644703D993F8E966523B16"
+      },
+      {
+        "path": "Crest/Shaders/Helpers/BIRP/Core.hlsl",
+        "sha256": "407E3EA388BB9AF68AE1B2E7FE7B19643AE431FCE9827677C2173C5D310B050B"
+      },
+      {
+        "path": "Crest/Shaders/Helpers/BIRP/Common.hlsl",
+        "sha256": "E80430559B286FC0D325F8D3D322ACF90E30E498403CD4AA8E912050D5C67B84"
+      }
+    ],
+    "compiledSourceSHA256": "214B1364D010435A03501C3DC0E0449FEE6E15531932853E2F4A5BDE3E42C319"
+  },
+  "historicalInsidePose": {
+    "pose": [
+      0,
+      -1,
+      -3
+    ],
+    "evidence": "Evidence/OriginalExamples-controls-inside-probe-Direct3D11.txt",
+    "sha256": "C34CE7A67C9CF44A4756A66376E3C23AFE43BACEB7C62E7DD4F32AF38F6C341F"
+  },
+  "normalRuntimeMaterialsAnd12ArtifactsUnchanged": true,
+  "normalCheckpoint": "e4cbf02 full117+interactive2/API; no new full119 or Player rebuild claimed",
+  "limits": "Original shader source compared under identical URP matrices/native front-depth; not a complete Built-in renderer/RGB/all-view/XR reference. Temporary invisible8m backface quad replaces fill producer only for explicit positive probe; original consumer/camera/volume retained. Existing source-view>200 failure not relabeled passed; its all-zero producer makes it an invalid positive-control expectation.",
+  "recordedUtc": "2026-11-06T10:44:46.851881+00:00",
+  "originalPreservation": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  },
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "88833D0192F8B454CFADCE8EFC51372D67B0B800F668D4A00DE671834847F929",
+    "fileCount": 1405,
+    "rootMarkdownCount": 8
+  },
+  "originalFocusedReportsAndKnownMaterialsRestored": true,
+  "editorAssemblies": [
+    "Library/ScriptAssemblies/Crest.dll",
+    "Library/ScriptAssemblies/Crest.Examples.dll",
+    "Library/ScriptAssemblies/Crest.Helpers.Editor.dll",
+    "Library/ScriptAssemblies/Crest.URP.dll",
+    "Library/ScriptAssemblies/Crest.URP.Editor.dll",
+    "Library/ScriptAssemblies/Crest.URP.Interactive.Tests.dll",
+    "Library/ScriptAssemblies/Crest.URP.Tests.dll"
+  ]
+}

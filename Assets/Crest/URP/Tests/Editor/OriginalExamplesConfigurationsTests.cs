@@ -7,6 +7,8 @@ using System.Linq;
 using System.Reflection;
 using Crest;
 using Crest.Examples;
+using Crest.URP;
+using UnityEngine.Rendering.RenderGraphModule;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -154,4 +156,137 @@ public partial class OriginalExampleSceneTests
         }
     }
 
+}
+
+
+public class UnderwaterLightingFillTests
+{
+    const BindingFlags Private=BindingFlags.Instance|BindingFlags.NonPublic;
+    RenderTexture _target;float _scale;int _capture;
+    Material _referenceMaterial,_probeMaterial;Shader _referenceShader;ReferencePass _reference;
+    GameObject _positive;List<MeshFilter> _fillMeshes;MeshFilter[] _originalMeshes;
+    readonly List<RenderTexture> _resources=new List<RenderTexture>();
+    sealed class ReferencePass : ICameraGraphPass
+    {
+        public Camera Camera;public RTHandle Colour,Depth,Front;public Material Material,Probe;public List<MeshFilter> Meshes;
+        public RenderPassEvent Stage=>(RenderPassEvent)((int)RenderPassEvent.BeforeRenderingPrePasses+1);
+        sealed class Data{public TextureHandle Colour,Depth,Front;public Material Material,Probe;public MeshFilter[] Meshes;public Matrix4x4 View,Projection;public int Width,Height;}
+        public void Record(RenderGraph graph,ContextContainer frame)
+        {
+            var camera=frame.Get<UniversalCameraData>();if(camera.camera!=Camera)return;
+            using var b=graph.AddUnsafePass<Data>("Test original fill shader reference",out var d);
+            d.Colour=graph.ImportTexture(Colour);d.Depth=graph.ImportTexture(Depth);d.Front=graph.ImportTexture(Front);d.Material=Material;d.Probe=Probe;d.Meshes=Meshes.ToArray();
+            d.View=camera.GetViewMatrix();d.Projection=camera.GetProjectionMatrix();d.Width=Colour.rt.width;d.Height=Colour.rt.height;
+            b.UseTexture(d.Colour,AccessFlags.Write);b.UseTexture(d.Depth,AccessFlags.Write);b.UseTexture(d.Front,AccessFlags.Write);b.UseAllGlobalTextures(true);b.AllowGlobalStateModification(true);b.AllowPassCulling(false);
+            b.SetRenderFunc((Data data,UnsafeGraphContext context)=>
+            {
+                var cmd=CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);cmd.SetViewport(new Rect(0,0,data.Width,data.Height));
+                cmd.SetRenderTarget(data.Front);cmd.DrawProcedural(Matrix4x4.identity,data.Probe,0,MeshTopology.Triangles,3);
+                cmd.SetRenderTarget(data.Colour,data.Depth);cmd.ClearRenderTarget(true,true,Color.black);cmd.SetViewProjectionMatrices(data.View,data.Projection);
+                foreach(var mesh in data.Meshes)if(mesh!=null)cmd.DrawMesh(mesh.sharedMesh,mesh.transform.localToWorldMatrix,data.Material,0,0);
+                cmd.SetViewProjectionMatrices(data.View,data.Projection);
+            });
+        }
+    }
+    string ExpandReference(string file)
+    {
+        string text=File.ReadAllText(file);
+        return System.Text.RegularExpressions.Regex.Replace(text,@"(?m)^\s*#include\s+""([^""]+)""[^\r\n]*",m=>
+        {string path=Path.GetFullPath(Path.Combine(Path.GetDirectoryName(file),m.Groups[1].Value));return File.Exists(path)?ExpandReference(path):m.Value;});
+    }
+    RenderTexture Resource(RenderTextureFormat format,int depth)
+    {var t=new RenderTexture(640,360,depth,format,RenderTextureReadWrite.Linear);t.Create();_resources.Add(t);return t;}
+    static float[] ReadMask(RenderTexture texture)
+    {var r=AsyncGPUReadback.Request(texture,0,TextureFormat.RFloat);r.WaitForCompletion();Assert.That(r.hasError,Is.False);var values=r.GetData<float>().ToArray();Assert.That(values.All(float.IsFinite),Is.True);return values;}
+    static int Changed(Color32[] a,Color32[] b)=>a.Zip(b,(x,y)=>Math.Abs(x.r-y.r)+Math.Abs(x.g-y.g)+Math.Abs(x.b-y.b)>6?1:0).Sum();
+    [UnityTest,Timeout(180000)]
+    public IEnumerator OriginalUnderwaterLightingFillProducerAndConsumers()
+    {
+        _scale=Time.timeScale;_capture=Time.captureFramerate;OceanRenderer.EnableGraphicsInBatchMode=true;
+        EditorSceneManager.OpenScene("Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity");
+        foreach(var c in Object.FindObjectsByType<ExamplesController>(FindObjectsInactive.Include,FindObjectsSortMode.None))c.enabled=false;
+        yield return new EnterPlayMode();
+        var controller=Object.FindObjectsByType<ExamplesController>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(c=>c.transform.childCount==24&&c.transform.GetChild(0).name=="Albedo");
+        foreach(Transform child in controller.transform)child.gameObject.SetActive(false);
+        var config=controller.transform.Cast<Transform>().Single(c=>c.name=="UnderwaterLighting");config.gameObject.SetActive(true);
+        for(int i=0;i<45;i++)yield return null;
+        var ocean=OceanRenderer.Instance;var camera=Camera.main;ocean.ViewCamera=camera;
+        var animator=camera.GetComponent<Animator>();if(animator!=null)animator.enabled=false;
+        var clock=new GameObject("Fill reference fixed clock").AddComponent<TimeProviderCustom>();clock._overrideTime=clock._overrideDeltaTime=clock._paused=true;clock._time=1;clock._deltaTime=0;ocean.PushTimeProvider(clock);
+        Time.timeScale=0;camera.allowMSAA=false;camera.aspect=16f/9;camera.GetUniversalAdditionalCameraData().requiresDepthTexture=true;camera.GetUniversalAdditionalCameraData().renderPostProcessing=false;
+        for(int i=0;i<16;i++)yield return null;
+        string report="Evidence/P11-Fill-"+SystemInfo.graphicsDeviceType;
+        var callbacks=config.GetComponentsInChildren<CustomPassForCamera>(true).Where(c=>
+        {
+            var ev=(UnityEventBase)typeof(CustomPassForCamera).GetField("_onExecute",Private).GetValue(c);
+            return Enumerable.Range(0,ev.GetPersistentEventCount()).Any(i=>ev.GetPersistentMethodName(i)==nameof(MaskFill.ExecuteFillMask));
+        }).ToArray();Assert.That(callbacks.Length,Is.EqualTo(1));
+        var fill=config.GetComponentInChildren<MaskFill>(true);Assert.That(fill,Is.Not.Null);
+        var meshes=(System.Collections.Generic.List<MeshFilter>)typeof(MaskFill).GetField("_meshes",Private).GetValue(fill);
+        File.WriteAllText(report+".txt",$"Only original UnderwaterLighting config; callbackStage={callbacks[0].Stage}; FillMeshes={meshes.Count}; Camera={camera.transform.position}; Original fill shader reference +native front-depth/consumer control; four views including exact historical inside pose and explicit positive backface probe.\n");
+        foreach(var mesh in meshes)File.AppendAllText(report+".txt",$"FillMesh={mesh.name}; Position={mesh.transform.position}; Bounds={mesh.sharedMesh.bounds}; Scale={mesh.transform.lossyScale}\n");
+        foreach(var r in Object.FindObjectsByType<Renderer>().Where(r=>r.enabled&&r.gameObject.activeInHierarchy))
+            foreach(var m in r.sharedMaterials.Where(m=>m!=null))File.AppendAllText(report+".txt",$"Renderer={r.name}; Material={m.name}; Shader={m.shader.name}; Mask={(m.HasProperty("_Mask")?m.GetFloat("_Mask"):-1)}; FillKeyword={m.IsKeywordEnabled("_MASK_FILL")}; Bounds={r.bounds}\n");
+        _target=new RenderTexture(640,360,24,RenderTextureFormat.ARGB32);_target.Create();
+        string sourcePath=Path.GetFullPath("../../work/crest-upstream/crest/Assets/Crest/Crest-Examples/Examples/Shaders/Resources/MaskFill.shader");
+        string code=ExpandReference(sourcePath).Replace("Shader \"Hidden/Crest/Examples/Mask Fill\"","Shader \"Hidden/Crest/Tests/OriginalFillReference\"");
+        File.WriteAllText(report+"-reference.shader.txt",code);_referenceShader=ShaderUtil.CreateShaderAsset(code,false);_referenceMaterial=new Material(_referenceShader);ShaderUtil.CompilePass(_referenceMaterial,0,true);
+        Assert.That(ShaderUtil.GetShaderMessages(_referenceShader).Where(m=>m.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error),Is.Empty);
+        _probeMaterial=new Material(Shader.Find("Hidden/Crest/Tests/MaskTimingProbe"));_probeMaterial.SetInt("_ProbeField",1);
+        _reference=new ReferencePass{Camera=camera,Colour=RTHandles.Alloc(Resource(RenderTextureFormat.RFloat,0)),Depth=RTHandles.Alloc(Resource(RenderTextureFormat.Depth,24)),Front=RTHandles.Alloc(Resource(RenderTextureFormat.RFloat,0)),Material=_referenceMaterial,Probe=_probeMaterial,Meshes=meshes};CameraGraphPassRegistry.Register(_reference);
+        var originalPosition=camera.transform.position;var originalRotation=camera.transform.rotation;
+        for(int pose=0;pose<4;pose++)
+        {
+            if(pose==3)camera.transform.position=new Vector3(0,-1,-3);
+            else if(pose>0)camera.transform.position=new Vector3(camera.transform.position.x,pose==1?-3:-12,camera.transform.position.z);
+            for(int i=0;i<8;i++)yield return null;
+            var on=Capture(camera);var texture=(RenderTexture)typeof(MaskFill).GetField("_texture",Private).GetValue(fill);
+            var data=AsyncGPUReadback.Request(texture,0,TextureFormat.RFloat);data.WaitForCompletion();Assert.That(data.hasError,Is.False);var values=data.GetData<float>().ToArray();
+            int nonzero=values.Count(v=>v>0),ones=values.Count(v=>v==1);
+            var reference=ReadMask(_reference.Colour.rt);var front=ReadMask(_reference.Front.rt);float error=values.Zip(reference,(a,b)=>Math.Abs(a-b)).Max();
+            File.AppendAllText(report+".txt",$"ReferencePose={pose}; ReferenceNonzero={reference.Count(v=>v>0)}; NativeReferenceMaxError={error:R}; FrontNonzero={front.Count(v=>v>0)}\n");
+            Assert.That(error,Is.LessThan(.000001f));
+            if(pose<3)Assert.That(front.Count(v=>v>0),Is.GreaterThan(1000));
+            else{Assert.That(UnderwaterRenderer.ForUrpCamera(camera)._mode,Is.EqualTo(UnderwaterRenderer.Mode.Volume));Assert.That(front.Count(v=>v>0),Is.Zero,"Volume mode has no front face when viewed from inside");}
+            callbacks[0].enabled=false;var off=Capture(camera);callbacks[0].enabled=true;var restored=Capture(camera);
+            int changed=on.Zip(off,(a,b)=>Math.Abs(a.r-b.r)+Math.Abs(a.g-b.g)+Math.Abs(a.b-b.b)>6?1:0).Sum();
+            File.AppendAllText(report+".txt",$"Pose={pose}; Camera={camera.transform.position}; NonzeroFill={nonzero}; Ones={ones}; FillMax={values.Max():R}; Changed={changed}; Restore={on.Zip(restored,(a,b)=>a.Equals(b)?0:1).Sum()}\n");
+        }
+        _fillMeshes=meshes;_originalMeshes=meshes.ToArray();
+        _positive=GameObject.CreatePrimitive(PrimitiveType.Quad);_positive.name="Fill source-reference positive control";_positive.GetComponent<Renderer>().enabled=false;
+        _positive.transform.position=Vector3.zero;_positive.transform.rotation=Quaternion.Euler(0,180,0);_positive.transform.localScale=Vector3.one*8;
+        camera.transform.SetPositionAndRotation(originalPosition,originalRotation);meshes.Clear();meshes.Add(_positive.GetComponent<MeshFilter>());
+        for(int i=0;i<8;i++)yield return null;
+        var positive=Capture(camera);var native=ReadMask((RenderTexture)typeof(MaskFill).GetField("_texture",Private).GetValue(fill));var expected=ReadMask(_reference.Colour.rt);
+        float positiveError=native.Zip(expected,(a,b)=>Math.Abs(a-b)).Max();int positivePixels=native.Count(v=>v>0);
+        callbacks[0].enabled=false;var positiveOff=Capture(camera);callbacks[0].enabled=true;var positiveRestore=Capture(camera);
+        int colourDelta=Changed(positive,positiveOff),restore=positive.Zip(positiveRestore,(a,b)=>a.Equals(b)?0:1).Sum();
+        int deepOutsideChanges=0,interiorCompared=0;
+        for(int y=1;y<359;y++)for(int x=1;x<639;x++)
+        {
+            int i=y*640+x;bool deepOutside=true;
+            for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++)if(native[(y+dy)*640+x+dx]!=0)deepOutside=false;
+            if(!deepOutside)continue;interiorCompared++;
+            if(Math.Abs(positive[i].r-positiveOff[i].r)+Math.Abs(positive[i].g-positiveOff[i].g)+Math.Abs(positive[i].b-positiveOff[i].b)>6)deepOutsideChanges++;
+        }
+        File.AppendAllText(report+".txt",$"OutsideMaskInteriorCompared={interiorCompared}; OutsideMaskChanged={deepOutsideChanges}\n");Assert.That(deepOutsideChanges,Is.Zero);
+        File.AppendAllText(report+".txt",$"PositiveBackfaceMask={positivePixels}; ReferenceMaxError={positiveError:R}; FillConsumerChanged={colourDelta}; RestoredPixels={restore}\n");
+        Assert.That(positivePixels,Is.GreaterThan(1000));Assert.That(positiveError,Is.LessThan(.000001f));Assert.That(colourDelta,Is.GreaterThan(200));Assert.That(restore,Is.Zero);
+        meshes.Clear();meshes.AddRange(_originalMeshes);ocean.PopTimeProvider(clock);
+    }
+    Color32[] Capture(Camera camera)
+    {
+        RenderPipeline.SubmitRenderRequest(camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});var old=RenderTexture.active;var cpu=new Texture2D(640,360,TextureFormat.RGBA32,false);
+        try{RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,640,360),0,0);cpu.Apply();return cpu.GetPixels32();}
+        finally{RenderTexture.active=old;Object.DestroyImmediate(cpu);}
+    }
+    [UnityTearDown]public IEnumerator Cleanup()
+    {
+        if(_fillMeshes!=null){_fillMeshes.Clear();_fillMeshes.AddRange(_originalMeshes.Where(m=>m!=null));}
+        if(_reference!=null){CameraGraphPassRegistry.Unregister(_reference);_reference.Colour.Release();_reference.Depth.Release();_reference.Front.Release();}
+        OceanRenderer.EnableGraphicsInBatchMode=false;if(Application.isPlaying)yield return new ExitPlayMode();
+        foreach(var t in _resources)if(t!=null){t.Release();Object.DestroyImmediate(t);}_resources.Clear();
+        if(_positive!=null)Object.DestroyImmediate(_positive);if(_referenceMaterial!=null)Object.DestroyImmediate(_referenceMaterial);if(_probeMaterial!=null)Object.DestroyImmediate(_probeMaterial);if(_referenceShader!=null)Object.DestroyImmediate(_referenceShader);
+        if(_target!=null){_target.Release();Object.DestroyImmediate(_target);}EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);Time.timeScale=_scale;Time.captureFramerate=_capture;
+    }
 }
