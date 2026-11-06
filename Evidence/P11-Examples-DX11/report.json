@@ -1,0 +1,448 @@
+{
+    "unity": "6000.6.5f1",
+    "api": "Direct3D11",
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "scene": "Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity",
+    "quality": "PC",
+    "scope": "Compiled original24 scene navigation/material smoke +3 fill causal controls at LateUpdate300 after ocean200. Public Next/Previous via reflection avoids Crest.Examples assembly cycle. Not keyboard/GUI/all-feature/performance acceptance.",
+    "errors": 0,
+    "msaa": 1,
+    "renderScale": 1.0,
+    "nextWrap": true,
+    "previousWrap": true,
+    "rows": [
+        {
+            "name": "Albedo",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 0,
+            "pink": 0,
+            "nonBackground": 223855,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 50,
+            "lodFrame": 50,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "Whirlpool",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 1,
+            "pink": 0,
+            "nonBackground": 223857,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 98,
+            "lodFrame": 98,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "Wake",
+            "camera": "(-0.432149976, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 2,
+            "pink": 0,
+            "nonBackground": 223863,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 146,
+            "lodFrame": 146,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "River",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 3,
+            "pink": 0,
+            "nonBackground": 224007,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 194,
+            "lodFrame": 194,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_MaskedTerrain:Crest/Examples/Masked:True",
+                "Examples_Material_MaskFillTerrain:Crest/Examples/Masked:True"
+            ],
+            "fillChanged": 9452,
+            "restoration": 0
+        },
+        {
+            "name": "ComplexObjectWaterInteraction",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 4,
+            "pink": 0,
+            "nonBackground": 223859,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 251,
+            "lodFrame": 251,
+            "materials": [
+                "BoatGray:Universal Render Pipeline/Lit:True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "Ripple",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 5,
+            "pink": 0,
+            "nonBackground": 223859,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 299,
+            "lodFrame": 299,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "WavesPatch",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 6,
+            "pink": 0,
+            "nonBackground": 223859,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 347,
+            "lodFrame": 347,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "AnimatedObjectWaterInteraction",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 7,
+            "pink": 0,
+            "nonBackground": 223859,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 395,
+            "lodFrame": 395,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "Clipping",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 8,
+            "pink": 0,
+            "nonBackground": 223859,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 443,
+            "lodFrame": 443,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_TransparentPrimitive:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "Flow",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 9,
+            "pink": 0,
+            "nonBackground": 223854,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 491,
+            "lodFrame": 491,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "ScaleWaves",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 10,
+            "pink": 0,
+            "nonBackground": 223846,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 539,
+            "lodFrame": 539,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "DynamicWavesReflections",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 11,
+            "pink": 0,
+            "nonBackground": 223912,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 587,
+            "lodFrame": 587,
+            "materials": [
+                "Examples_Material_DepthOnly:Crest/Examples/DepthOnly:True",
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_MaskedWhite:Crest/Examples/Masked:True",
+                "Examples_Material_MaskFillWhite:Crest/Examples/Masked:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": 12626,
+            "restoration": 0
+        },
+        {
+            "name": "Buoyancy",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 12,
+            "pink": 0,
+            "nonBackground": 223854,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 644,
+            "lodFrame": 644,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "FoamOverride",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 13,
+            "pink": 0,
+            "nonBackground": 223859,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 692,
+            "lodFrame": 692,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "ShadowOverride",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 14,
+            "pink": 0,
+            "nonBackground": 223866,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 740,
+            "lodFrame": 740,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "VaryingWaterLevel",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 15,
+            "pink": 0,
+            "nonBackground": 223483,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 788,
+            "lodFrame": 788,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_MaskedWhite:Crest/Examples/Masked:True",
+                "Examples_Material_MaskFillWhite:Crest/Examples/Masked:True"
+            ],
+            "fillChanged": 7922,
+            "restoration": 0
+        },
+        {
+            "name": "TrailRenderer",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 16,
+            "pink": 0,
+            "nonBackground": 223854,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 845,
+            "lodFrame": 845,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "FoamOverride:Crest/Inputs/Foam/Override Foam:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "ParticleRenderer",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 17,
+            "pink": 0,
+            "nonBackground": 223851,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 893,
+            "lodFrame": 893,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "UnderwaterLighting",
+            "camera": "(0, -0.0005278677, -30)",
+            "renderer": "UniversalRenderer",
+            "index": 18,
+            "pink": 0,
+            "nonBackground": 223981,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 941,
+            "lodFrame": 941,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_MaskedDepth:Crest/Examples/Mask Depth:True",
+                "Examples_Material_MaskedMarineSnow:Crest/Examples/Masked:True",
+                "Examples_Material_MaskedNavalMine:Crest/Examples/Masked:True",
+                "Examples_Material_MaskedTerrain:Crest/Examples/Masked:True",
+                "Examples_Material_MaskFillTerrain:Crest/Examples/Masked:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "PushWaterBelowGeometry",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 19,
+            "pink": 0,
+            "nonBackground": 223857,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 989,
+            "lodFrame": 989,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "WaveParticle",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 20,
+            "pink": 0,
+            "nonBackground": 223857,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 1037,
+            "lodFrame": 1037,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "WaveComparison",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 21,
+            "pink": 0,
+            "nonBackground": 223857,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 1085,
+            "lodFrame": 1085,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "TransparentObjectUnderwater",
+            "camera": "(0, 0, -30)",
+            "renderer": "UniversalRenderer",
+            "index": 22,
+            "pink": 0,
+            "nonBackground": 223981,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 1133,
+            "lodFrame": 1133,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_TransparentWithUnderwaterFog:Crest/Examples/UnderwaterTransparentSurfaceShader:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        },
+        {
+            "name": "AudioFromHeightEvents",
+            "camera": "(0, 10, -21)",
+            "renderer": "UniversalRenderer",
+            "index": 23,
+            "pink": 0,
+            "nonBackground": 223855,
+            "missingScripts": 0,
+            "activeChildren": 1,
+            "frame": 1181,
+            "lodFrame": 1181,
+            "materials": [
+                "Examples_Material_GradientBackground:Hidden/Crest/SphereGradientBackground:True",
+                "Examples_Material_MaskedTerrain:Crest/Examples/Masked:True",
+                "Examples_Material_MaskFillTerrain:Crest/Examples/Masked:True",
+                "OffWhite:Universal Render Pipeline/Lit:True"
+            ],
+            "fillChanged": -1,
+            "restoration": -1
+        }
+    ]
+}

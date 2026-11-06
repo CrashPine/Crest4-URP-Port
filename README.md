@@ -152,3 +152,17 @@ P10 GPU classification cache: current runtime/build/regression fingerprints and 
 GPU/draw diagnostic capability: `Evidence/P10-Counters-summary.json`; exact raw/source/assemblies/commands are indexed by `Evidence/P10-Counters-files.json`. Recorder lookup requires category Render as well as name (UI Toolkit duplicates exist). Positive draw restoration passes; GPU timing drift is not performance acceptance.
 
 For the bounded regular-render GPU experiment, build the isolated diagnostic Player as above, then run `./Tools/Run-StableGpuWindow.ps1 -API DX11` or `-API DX12` sequentially. It opens a temporary visible Player and logs nvidia-smi telemetry; keep it focused until it closes. The Player flag is `-crestStableGpu` with Ocean mode. Evidence and rejected attribution gates are in P10-StableGpu-summary.json/TEST_RESULTS. Do not rerun accepted windows without the new trigger required by PORT_PLAN.
+
+## Исходная Examples.unity в отдельном Player
+
+P11.3-A проверяет24 исходные конфигурации и3 контролируемых callback заливки на DX11/DX12. Это ограниченная приёмка материалов/навигации/заливки, не всех функций каждого примера и не физического ввода. Подробности и оставшиеся6 исходных сцен — TEST_RESULTS/PORT_PLAN.
+
+При закрытом Editor из корня проекта:
+
+```powershell
+./Evidence/P11-Examples-build.ps1
+./Evidence/P11-Examples-run.ps1 -API DX11
+./Evidence/P11-Examples-run.ps1 -API DX12
+```
+
+Builder использует Unity6000.6.5f1, Development +strict shader matching и отдельный define `CREST_RESOURCE_PROBE`; пишет только `Builds/P11-OriginalExamples`. Временный build fixture удаляется по проверенному пути/GUID, исходная сцена не сохраняется заново. Обычные Dev/Release находятся отдельно. Команды Player перезаписывают текущую одноимённую диагностическую папку Evidence; принятые и неуспешные результаты текущей работы сохранены в архивах `P11-Examples-*`. Не запускать всю регрессию повторно ради воспроизведения одного такого контроля.

@@ -37,7 +37,9 @@ namespace Crest.Examples
         void Update()
         {
 #if INPUT_SYSTEM_ENABLED
-            if (UnityEngine.InputSystem.Keyboard.current[UnityEngine.InputSystem.Key.N].wasReleasedThisFrame)
+            var keyboard = UnityEngine.InputSystem.Keyboard.current;
+            if (keyboard == null) return;
+            if (keyboard[UnityEngine.InputSystem.Key.N].wasReleasedThisFrame)
 #else
             if (Input.GetKeyUp(KeyCode.N))
 #endif
@@ -45,7 +47,7 @@ namespace Crest.Examples
                 Previous();
             }
 #if INPUT_SYSTEM_ENABLED
-            else if (UnityEngine.InputSystem.Keyboard.current[UnityEngine.InputSystem.Key.M].wasReleasedThisFrame)
+            else if (keyboard[UnityEngine.InputSystem.Key.M].wasReleasedThisFrame)
 #else
             else if (Input.GetKeyUp(KeyCode.M))
 #endif

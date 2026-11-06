@@ -12,11 +12,14 @@ namespace Crest.URP.Editor
 {
     public static class ResourceShutdownProbeBuild
     {
-        public static void Build()
+        public static void Build() => BuildImpl(false);
+        public static void BuildOriginalExamples() => BuildImpl(true);
+        static void BuildImpl(bool originalExamples)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
             var preloadedAssets=PlayerSettings.GetPreloadedAssets();
             bool timing=PlayerSettings.enableFrameTimingStats;
+            bool strict=PlayerSettings.strictShaderVariantMatching;
             const string parent="Assets";
             string folder=parent+"/CrestResourceProbe_"+Guid.NewGuid().ToString("N");
             string guid=AssetDatabase.CreateFolder(parent, Path.GetFileName(folder));
@@ -44,10 +47,11 @@ namespace Crest.URP.Editor
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;
+                if(originalExamples)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
+                    scenes=originalExamples?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName="Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=originalExamples?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });
@@ -58,6 +62,7 @@ namespace Crest.URP.Editor
             {
                 PlayerSettings.SetPreloadedAssets(preloadedAssets);
                 PlayerSettings.enableFrameTimingStats=timing;
+                PlayerSettings.strictShaderVariantMatching=strict;
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
                 if(Path.GetFullPath(folder).StartsWith(Path.GetFullPath(parent)+Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)
                     && AssetDatabase.AssetPathToGUID(folder)==guid) AssetDatabase.DeleteAsset(folder);

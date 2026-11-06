@@ -12,6 +12,37 @@ using UnityEngine.TestTools;
 
 public class SurfaceInputTests
 {
+    [Test]
+    public void FreshSphereClipMaterialSelectsItsRequiredVariant()
+    {
+        var owner = new GameObject("Fresh primitive variant"); owner.SetActive(false);
+        var input = owner.AddComponent<RegisterClipSurfaceInput>();
+        const System.Reflection.BindingFlags flags = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
+        var primitive = typeof(RegisterClipSurfaceInput).GetField("_primitive", flags);
+        var material = typeof(RegisterClipSurfaceInput).GetField("_signedDistancedMaterial", flags);
+        var initialize = typeof(RegisterClipSurfaceInput).GetMethod("InitializeSignedDistanceMaterial", flags);
+        try
+        {
+            primitive.SetValue(input, RegisterClipSurfaceInput.Primitive.Sphere);
+            for (int lifetime = 0; lifetime < 2; lifetime++)
+            {
+                initialize.Invoke(input, null); var current = (Material)material.GetValue(input);
+                Assert.That(current.IsKeywordEnabled("_SPHERE"), Is.True, "Fresh/recreated sphere must select a compiled variant");
+                Assert.That(current.IsKeywordEnabled("_CUBE"), Is.False);
+                Object.DestroyImmediate(current); material.SetValue(input, null);
+            }
+            primitive.SetValue(input, RegisterClipSurfaceInput.Primitive.Cube);
+            initialize.Invoke(input, null); var cube = (Material)material.GetValue(input);
+            Assert.That(cube.IsKeywordEnabled("_CUBE"), Is.True);
+            Assert.That(cube.IsKeywordEnabled("_SPHERE"), Is.False);
+        }
+        finally
+        {
+            var current = (Material)material.GetValue(input); if (current != null) Object.DestroyImmediate(current);
+            Object.DestroyImmediate(owner);
+        }
+    }
+
     const int Size = 192;
     readonly List<Material> _materials = new List<Material>();
     RenderTexture _target;

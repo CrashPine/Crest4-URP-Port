@@ -140,13 +140,14 @@ namespace Crest
 
         void InitializeSignedDistanceMaterial()
         {
-            if (_signedDistancedMaterial == null)
+            var materialCreated = _signedDistancedMaterial == null;
+            if (materialCreated)
             {
                 _signedDistancedMaterial = new Material(Shader.Find(k_SignedDistanceShaderPath));
             }
 
-            // Could refactor using hashy.
-            if (_primitive != _activePrimitive)
+            // Sphere is enum zero, so the cache alone cannot detect first initialization.
+            if (materialCreated || _primitive != _activePrimitive)
             {
                 foreach (var primitive in System.Enum.GetNames(typeof(Primitive)))
                 {

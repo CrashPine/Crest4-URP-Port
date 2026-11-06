@@ -124,8 +124,14 @@ namespace Crest.Examples
             }
 
 #if INPUT_SYSTEM_ENABLED
-            if (!Mouse.current.leftButton.isPressed && _requireLMBToMove) return;
-            float forward = (Keyboard.current.wKey.isPressed ? 1 : 0) - (Keyboard.current.sKey.isPressed ? 1 : 0);
+            UpdateMovement(dt, Keyboard.current, Mouse.current);
+        }
+
+        // Devices can be absent or disconnected independently.
+        void UpdateMovement(float dt, Keyboard keyboard, Mouse mouse)
+        {
+            if (_requireLMBToMove && (mouse == null || !mouse.leftButton.isPressed)) return;
+            float forward = (keyboard?.wKey.isPressed == true ? 1 : 0) - (keyboard?.sKey.isPressed == true ? 1 : 0);
 #else
             if (!Input.GetMouseButton(0) && _requireLMBToMove) return;
             float forward = (Input.GetKey(KeyCode.W) ? 1 : 0) - (Input.GetKey(KeyCode.S) ? 1 : 0);
@@ -139,7 +145,7 @@ namespace Crest.Examples
             var speed = linSpeed;
 
 #if INPUT_SYSTEM_ENABLED
-            if (Keyboard.current.leftShiftKey.isPressed)
+            if (keyboard?.leftShiftKey.isPressed == true)
 #else
             if (Input.GetKey(KeyCode.LeftShift))
 #endif
@@ -150,14 +156,14 @@ namespace Crest.Examples
             _targetTransform.position += speed * _targetTransform.forward * forward * dt;
             //_transform.position += linSpeed * _transform.right * Input.GetAxis( "Horizontal" ) * dt;
 #if INPUT_SYSTEM_ENABLED
-            _targetTransform.position += linSpeed * _targetTransform.up * (Keyboard.current.eKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position -= linSpeed * _targetTransform.up * (Keyboard.current.qKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position -= linSpeed * _targetTransform.right * (Keyboard.current.aKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position += linSpeed * _targetTransform.right * (Keyboard.current.dKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position += speed * _targetTransform.up * (Keyboard.current.eKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position -= speed * _targetTransform.up * (Keyboard.current.qKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position -= speed * _targetTransform.right * (Keyboard.current.aKey.isPressed ? 1 : 0) * dt;
-            _targetTransform.position += speed * _targetTransform.right * (Keyboard.current.dKey.isPressed ? 1 : 0) * dt;
+            _targetTransform.position += linSpeed * _targetTransform.up * (keyboard?.eKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position -= linSpeed * _targetTransform.up * (keyboard?.qKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position -= linSpeed * _targetTransform.right * (keyboard?.aKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position += linSpeed * _targetTransform.right * (keyboard?.dKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position += speed * _targetTransform.up * (keyboard?.eKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position -= speed * _targetTransform.up * (keyboard?.qKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position -= speed * _targetTransform.right * (keyboard?.aKey.isPressed == true ? 1 : 0) * dt;
+            _targetTransform.position += speed * _targetTransform.right * (keyboard?.dKey.isPressed == true ? 1 : 0) * dt;
 #else
             _targetTransform.position += linSpeed * _targetTransform.up * (Input.GetKey(KeyCode.E) ? 1 : 0) * dt;
             _targetTransform.position -= linSpeed * _targetTransform.up * (Input.GetKey(KeyCode.Q) ? 1 : 0) * dt;
@@ -171,8 +177,8 @@ namespace Crest.Examples
             {
                 float rotate = 0f;
 #if INPUT_SYSTEM_ENABLED
-                rotate += (Keyboard.current.rightArrowKey.isPressed ? 1 : 0);
-                rotate -= (Keyboard.current.leftArrowKey.isPressed ? 1 : 0);
+                rotate += (keyboard?.rightArrowKey.isPressed == true ? 1 : 0);
+                rotate -= (keyboard?.leftArrowKey.isPressed == true ? 1 : 0);
 #else
                 rotate += (Input.GetKey(KeyCode.RightArrow) ? 1 : 0);
                 rotate -= (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
@@ -193,16 +199,29 @@ namespace Crest.Examples
                 return;
             }
 
+#if INPUT_SYSTEM_ENABLED
+            UpdateDragging(dt, Mouse.current);
+        }
+
+        void UpdateDragging(float dt, Mouse mouse)
+        {
+            if (mouse == null)
+            {
+                _dragging = false;
+                _lastMousePos = -Vector2.one;
+                return;
+            }
+#endif
             Vector2 mousePos =
 #if INPUT_SYSTEM_ENABLED
-                Mouse.current.position.ReadValue();
+                mouse.position.ReadValue();
 #else
                 Input.mousePosition;
 #endif
 
             var wasLeftMouseButtonPressed =
 #if INPUT_SYSTEM_ENABLED
-                Mouse.current.leftButton.wasPressedThisFrame;
+                mouse.leftButton.wasPressedThisFrame;
 #else
                 Input.GetMouseButtonDown(0);
 #endif
@@ -214,7 +233,7 @@ namespace Crest.Examples
                 _lastMousePos = mousePos;
             }
 #if INPUT_SYSTEM_ENABLED
-            if (_dragging && Mouse.current.leftButton.wasReleasedThisFrame)
+            if (_dragging && mouse.leftButton.wasReleasedThisFrame)
 #else
             if (_dragging && Input.GetMouseButtonUp(0))
 #endif

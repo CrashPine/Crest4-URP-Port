@@ -1,0 +1,148 @@
+{
+  "recordedUtc": "2026-11-06T15:51:16.362978+00:00",
+  "scope": "P11.3-A original Examples Player baseline, not full port/GUI/all-feature acceptance",
+  "target": "Unity6000.6.5f1 URP17.6.0",
+  "planAudit": {
+    "optional": "P11.3-E alternative Unity GPU lightmapper backend; not mandatory Crest functionality",
+    "mandatory": "P11.3 A-D,F-G; H prerequisite audit; P11.4 final milestone remains"
+  },
+  "failures": [
+    {
+      "archive": "Evidence/P11-Examples-input-failure.zip",
+      "errors": 1852,
+      "inputNullReference": 1180,
+      "missingSignedDistanceShaderStages": 672
+    },
+    {
+      "archive": "Evidence/P11-Examples-sphere-variant-failure.zip",
+      "errors": 672,
+      "inputNullReference": 0,
+      "missingSignedDistanceShaderStages": 672
+    }
+  ],
+  "fixes": [
+    "CamController tolerates absent independent Keyboard/Mouse; drag loss reset; ExamplesController absent Keyboard guard",
+    "RegisterClipSurfaceInput explicitly initializes shape keyword for fresh/recreated material, including Sphere enum0; shader and compute algorithms unchanged"
+  ],
+  "player": [
+    {
+      "api": "DX11",
+      "report": "Evidence/P11-Examples-DX11/report.json",
+      "sha256": "6defc4202c75f5699e45459b7865622e78dd1d796105cd65fcdc6fbbd51f1152",
+      "cases": 24,
+      "errors": 0,
+      "quality": "PC",
+      "msaa": 1,
+      "renderScale": 1.0,
+      "minimumNonBackground": 223483,
+      "fillControls": [
+        {
+          "name": "River",
+          "changed": 9452,
+          "restoration": 0
+        },
+        {
+          "name": "DynamicWavesReflections",
+          "changed": 12626,
+          "restoration": 0
+        },
+        {
+          "name": "VaryingWaterLevel",
+          "changed": 7922,
+          "restoration": 0
+        }
+      ]
+    },
+    {
+      "api": "DX12",
+      "report": "Evidence/P11-Examples-DX12/report.json",
+      "sha256": "a87b613074403ad01e2152f3e1cbbd760ff8ea00535a4313dbc95ab0a1f82135",
+      "cases": 24,
+      "errors": 0,
+      "quality": "PC",
+      "msaa": 1,
+      "renderScale": 1.0,
+      "minimumNonBackground": 223481,
+      "fillControls": [
+        {
+          "name": "River",
+          "changed": 9452,
+          "restoration": 0
+        },
+        {
+          "name": "DynamicWavesReflections",
+          "changed": 12626,
+          "restoration": 0
+        },
+        {
+          "name": "VaryingWaterLevel",
+          "changed": 7921,
+          "restoration": 0
+        }
+      ]
+    }
+  ],
+  "runtimeMilestone": "Full121+actual interactive2/API Passed; Development/Release Success;4 sequential Player smokes Errors0,7 scenes+4 reflection captures each. Isolated original Examples24/24/API with3 fill controls/errors0.",
+  "testReports": [
+    {
+      "path": "Evidence/EditMode-DX11.xml",
+      "sha256": "62E6E9BC3F1F1B0BA58A5E7BCAC129BE4F7AD6E4AFD83510E262624DF060219D",
+      "bytes": 160807,
+      "modifiedUtc": "2026-11-06T15:36:28.482274+00:00",
+      "total": 121,
+      "result": "Passed",
+      "api": "DX11",
+      "interactive": false
+    },
+    {
+      "path": "Evidence/EditMode-DX11-interactive.xml",
+      "sha256": "543C5708547093B1FCBE3F86DDDCDC4F8C6C8B352AEB241B9C2A3FF7B2D80BAC",
+      "bytes": 4019,
+      "modifiedUtc": "2026-11-06T15:44:54.120152+00:00",
+      "total": 2,
+      "result": "Passed",
+      "api": "DX11",
+      "interactive": true
+    },
+    {
+      "path": "Evidence/EditMode-DX12.xml",
+      "sha256": "E3DBE3CBDA66CE0DF0656D1AB2AABE14F31A41E3781B7DD3ECDB1664F619B4A2",
+      "bytes": 160835,
+      "modifiedUtc": "2026-11-06T15:43:49.129378+00:00",
+      "total": 121,
+      "result": "Passed",
+      "api": "DX12",
+      "interactive": false
+    },
+    {
+      "path": "Evidence/EditMode-DX12-interactive.xml",
+      "sha256": "795379A78A36128DF5959F6127978927DCFB56CA60E3EDEB2F835561C6E77255",
+      "bytes": 4020,
+      "modifiedUtc": "2026-11-06T15:45:52.074475+00:00",
+      "total": 2,
+      "result": "Passed",
+      "api": "DX12",
+      "interactive": true
+    }
+  ],
+  "normalCheckpoint": {
+    "path": "Evidence/Build-checkpoint.json",
+    "sha256": "0D063DA5AA9A9E730B1DBC044DE7AF4FACED11D5C52B6299C95B4636CFCEBD32",
+    "bytes": 33072,
+    "modifiedUtc": "2026-11-06T15:51:16.517138+00:00"
+  },
+  "runtimeWarnings": {
+    "DX11": {
+      "Persistent allocates": 0,
+      "RenderData validation failed": 0,
+      "variant <no keywords> not found": 0,
+      "error CS": 0
+    },
+    "DX12": {
+      "Persistent allocates": 0,
+      "RenderData validation failed": 0,
+      "variant <no keywords> not found": 0,
+      "error CS": 0
+    }
+  }
+}

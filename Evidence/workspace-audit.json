@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-11-06T10:56:26.7149957Z",
+  "recordedUtc": "2026-11-06T15:54:11.2962638Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1405,
+  "fileCount": 1409,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -13,6 +13,7 @@
     "Crest\\Scripts\\Collision\\QueryBase.cs",
     "Crest\\Scripts\\LodData\\LodDataMgrClipSurface.cs",
     "Crest\\Scripts\\LodData\\OceanDepthCache.cs",
+    "Crest\\Scripts\\LodData\\RegisterClipSurfaceInput.cs",
     "Crest\\Scripts\\LodData\\Shadows\\LodDataMgrShadow.cs",
     "Crest\\Scripts\\Reflection\\OceanPlanarReflection.cs",
     "Crest\\Scripts\\Shapes\\ShapeGerstner.cs",
@@ -40,6 +41,7 @@
     "Crest-Examples\\BoatDev\\Materials\\BoatGray.mat",
     "Crest-Examples\\Examples\\Materials\\Examples_Material_TransparentPrimitive.mat",
     "Crest-Examples\\Examples\\Scripts\\CustomPassForCamera.cs",
+    "Crest-Examples\\Examples\\Scripts\\ExamplesController.cs",
     "Crest-Examples\\Examples\\Scripts\\MaskFill.cs",
     "Crest-Examples\\Examples\\Shaders\\DepthOnly.shader",
     "Crest-Examples\\Examples\\Shaders\\MaskDepth.shader",
@@ -55,6 +57,7 @@
     "Crest-Examples\\Main\\Models\\Island0\\Materials\\blockout.mat",
     "Crest-Examples\\Shared\\Materials\\OffWhite.mat",
     "Crest-Examples\\Shared\\Materials\\White.mat",
+    "Crest-Examples\\Shared\\Scripts\\CamController.cs",
     "Crest-Examples\\Shared\\Shaders\\ExampleUnderwaterTransparentSurfaceShader.shader"
   ],
   "currentTestReports": [
@@ -84,7 +87,7 @@
     },
     {
       "file": "EditMode-DX11-interactive.xml",
-      "start": "2026-11-05 20:46:37Z",
+      "start": "2026-11-06 15:44:12Z",
       "result": "Passed",
       "total": "2",
       "passed": "2",
@@ -100,10 +103,10 @@
     },
     {
       "file": "EditMode-DX11.xml",
-      "start": "2026-11-05 20:36:08Z",
+      "start": "2026-11-06 15:31:02Z",
       "result": "Passed",
-      "total": "117",
-      "passed": "117",
+      "total": "121",
+      "passed": "121",
       "failed": "0"
     },
     {
@@ -124,7 +127,7 @@
     },
     {
       "file": "EditMode-DX12-interactive.xml",
-      "start": "2026-11-05 20:54:36Z",
+      "start": "2026-11-06 15:45:13Z",
       "result": "Passed",
       "total": "2",
       "passed": "2",
@@ -140,10 +143,10 @@
     },
     {
       "file": "EditMode-DX12.xml",
-      "start": "2026-11-05 20:47:35Z",
+      "start": "2026-11-06 15:36:45Z",
       "result": "Passed",
-      "total": "117",
-      "passed": "117",
+      "total": "121",
+      "passed": "121",
       "failed": "0"
     }
   ],
@@ -1280,8 +1283,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/LodData/RegisterClipSurfaceInput.cs",
-      "bytes": 13458,
-      "sha256": "417F4065458FD2463DA596DC23AFB7C8B6C1DDF580865261B3557EBF75E8420E"
+      "bytes": 13577,
+      "sha256": "3ED3239073E36D9A2B74C22F635EFEE81EE0E6121931B9A876B2CC60E63E169C"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/LodData/RegisterClipSurfaceInput.cs.meta",
@@ -3830,8 +3833,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scripts/ExamplesController.cs",
-      "bytes": 3854,
-      "sha256": "6CA1A3FB00B8B7747C961B12C7219D6165A6921064FA093E034C4D6E52673565"
+      "bytes": 3903,
+      "sha256": "56826C4F8312A702AB28B7EBDD8B15656AA2DD6C596A8839E66B0C38203F2B5A"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Examples/Scripts/ExamplesController.cs.meta",
@@ -5260,8 +5263,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/Shared/Scripts/CamController.cs",
-      "bytes": 9440,
-      "sha256": "C5437087F99D096AA84F5F3595A0A86E3709039FDD70498EA078E688F9C4BCEB"
+      "bytes": 9994,
+      "sha256": "08A29664A22303844D1C66F483ACD21B4EC67EDA6FF21AF89F61CAD0C7DE9A59"
     },
     {
       "path": "Assets/Crest/Crest-Examples/Shared/Scripts/CamController.cs.meta",
@@ -5710,8 +5713,8 @@
     },
     {
       "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs",
-      "bytes": 4123,
-      "sha256": "3B2CE05C228A414272130EFBCFA7D37E0FA17CB882A4869140A10FE8F24819BA"
+      "bytes": 4651,
+      "sha256": "D0F14920811C7917588EF3532165974275527414209BD1F60C903AE01F761776"
     },
     {
       "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs.meta",
@@ -5790,8 +5793,8 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs",
-      "bytes": 8309,
-      "sha256": "BBE6D5329723E286A00D6D12072BFA151582700610330B55247A09D531BA1DDC"
+      "bytes": 8500,
+      "sha256": "2704CDCA24817681D1AC0387C874BAF4B5C5E5CB1E0AB24CAEF355D8384BA684"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs.meta",
@@ -5807,6 +5810,16 @@
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.DriverMemory.cs.meta",
       "bytes": 62,
       "sha256": "A10E42040AEBA333AA3BDDDB2F18AAE5AC295F1DC68F4CEDDCC2EB150D9BED00"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalExamples.cs",
+      "bytes": 10035,
+      "sha256": "B5841C814E263D425AD365F0A682505F9AD2A6B185AB0F6B3CACC91BF55DF868"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalExamples.cs.meta",
+      "bytes": 62,
+      "sha256": "A1D009988017586B6A7ED2A8BE80CA92DDB52283A91910D260771CBD5D4D3447"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Ownership.cs",
@@ -6077,6 +6090,16 @@
       "path": "Assets/Crest/URP/Tests/Editor/ExampleBakeTests.cs.meta",
       "bytes": 62,
       "sha256": "190EFE7D884F4BA522324A2C94A67CA610CFCDF071056D8E496D8BE1F3D380BC"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleInputDevicesTests.cs",
+      "bytes": 5797,
+      "sha256": "7D88ED6DCD14E7F923DB3A75753A46231926DCB0D91B8464D31051DA55684ED2"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleInputDevicesTests.cs.meta",
+      "bytes": 62,
+      "sha256": "D6736620C1D4CE5382363B8538B8B3A3D9D86508491CFBD5B330373B01404E71"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/ExampleMetaTests.cs",
@@ -6470,8 +6493,8 @@
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs",
-      "bytes": 27564,
-      "sha256": "D001E8EEB4F6E4C76D5383427969D2A5A3BC9CA1BF040995B961551333414454"
+      "bytes": 29847,
+      "sha256": "3C525B2F4F27618D1844878E7C8B35D59473924BC8E50DF6815905812E576E00"
     },
     {
       "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs.meta",
@@ -7130,8 +7153,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 31584,
-      "sha256": "99CA18D40C53C54AE41ABADE6E8F5CD332FF50A7F76A5BFA474E4A4E24EDD160"
+      "bytes": 32355,
+      "sha256": "58F4BE8C66FFF50D1E3010EBAC934416DFB6F1D85AD9BE9967F8904EF07855B4"
     },
     {
       "path": "LICENSE.Crest",
@@ -7145,18 +7168,18 @@
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 35949,
-      "sha256": "8DCA7B3C86C6A399D5A0C5D8DA185F931BA8C83C1532E5F5E88656B3938996D5"
+      "bytes": 44477,
+      "sha256": "6367FDBAE79F903BEFC99E6854BC3E78C6EBD8C375A7D2B56F6C5131BDBA0B6B"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 4284,
-      "sha256": "2B4AF672688435F978235333D56CC963E8C0A3D7F28E15B75409D01949E06CCB"
+      "bytes": 6406,
+      "sha256": "A52E9EBDFBCE908C6CA9AAA418A596DA87EB2A7B1B6972BF8C752912F9AF9540"
     },
     {
       "path": "README.md",
-      "bytes": 21824,
-      "sha256": "9BBE10170F0A76EFC3401630B46ABD2FAD927402AB1D6CD0F0ECA6A681CDB258"
+      "bytes": 23415,
+      "sha256": "A1AE2013950D2F6861193CCE5BC5114C761233365325B2D6D07E6D32A8E85344"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -7165,8 +7188,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 313819,
-      "sha256": "904BAE48AF2D56B14543B98A596A52E3C5A89B4489FD458D9F43BED10E613334"
+      "bytes": 318389,
+      "sha256": "C984CC12E2BF1745D7E014194A02F1B7CE9D974B92A012FA6F0D1917A15D6A8D"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

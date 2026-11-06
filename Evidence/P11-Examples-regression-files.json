@@ -1,0 +1,1803 @@
+{
+  "archive": "Evidence/P11-Examples-regression-evidence.zip",
+  "changedHistoricalReportsRestored": [
+    "Evidence/AsyncQueryDelay-Direct3D11.txt",
+    "Evidence/AsyncQueryDelay-Direct3D12.txt",
+    "Evidence/BakedFFT-Direct3D11.txt",
+    "Evidence/BakedFFT-Direct3D12.txt",
+    "Evidence/BakedIntegration-Direct3D11.txt",
+    "Evidence/BakedIntegration-Direct3D12.txt",
+    "Evidence/BoatControls-Direct3D12.txt",
+    "Evidence/Buoyancy-Direct3D11.txt",
+    "Evidence/Buoyancy-Direct3D12.txt",
+    "Evidence/DynamicWaves-Direct3D11.txt",
+    "Evidence/DynamicWaves-Direct3D12.txt",
+    "Evidence/EditMode-DX11-focused.xml",
+    "Evidence/EditMode-DX12-focused.xml",
+    "Evidence/ExampleBake-Direct3D11.txt",
+    "Evidence/ExampleBake-Direct3D12.txt",
+    "Evidence/ExampleBake-on-Direct3D11.png",
+    "Evidence/ExampleBake-on-Direct3D12.png",
+    "Evidence/ExampleBake-restored-Direct3D11.png",
+    "Evidence/ExampleBake-restored-Direct3D12.png",
+    "Evidence/Gerstner-Direct3D11.txt",
+    "Evidence/Gerstner-Direct3D12.txt",
+    "Evidence/Ocean_Reflections-Direct3D11-queries.txt",
+    "Evidence/Ocean_Reflections-Direct3D11.png",
+    "Evidence/Ocean_Reflections-Direct3D12-queries.txt",
+    "Evidence/Ocean_Reflections-Direct3D12.png",
+    "Evidence/Ocean_Underwater-Direct3D11-queries.txt",
+    "Evidence/Ocean_Underwater-Direct3D11.png",
+    "Evidence/Ocean_Underwater-Direct3D12-queries.txt",
+    "Evidence/Ocean_Underwater-Direct3D12.png",
+    "Evidence/Ocean_Waves-Direct3D11-queries.txt",
+    "Evidence/Ocean_Waves-Direct3D11.png",
+    "Evidence/Ocean_Waves-Direct3D12-queries.txt",
+    "Evidence/Ocean_Waves-Direct3D12.png",
+    "Evidence/OriginWaveTransport-Direct3D11.txt",
+    "Evidence/OriginWaveTransport-Direct3D12.txt",
+    "Evidence/OriginalBoat-Direct3D11.txt",
+    "Evidence/OriginalBoat-Direct3D12.txt",
+    "Evidence/OriginalBoat-after-throttle-Direct3D11.png",
+    "Evidence/OriginalBoat-after-throttle-Direct3D12.png",
+    "Evidence/OriginalBoat-hull-off-Direct3D11.png",
+    "Evidence/OriginalBoat-hull-off-Direct3D12.png",
+    "Evidence/OriginalBoat-on-Direct3D11.png",
+    "Evidence/OriginalBoat-on-Direct3D12.png",
+    "Evidence/OriginalBoat-repeat-Direct3D11.png",
+    "Evidence/OriginalBoat-repeat-Direct3D12.png",
+    "Evidence/OriginalBoat-restored-Direct3D11.png",
+    "Evidence/OriginalBoat-restored-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-fill-off-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-fill-off-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-on-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-on-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-repeat-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-repeat-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-restored-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-DynamicWavesReflections-restored-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-River-fill-off-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-River-fill-off-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-River-on-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-River-on-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-River-repeat-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-River-repeat-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-River-restored-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-River-restored-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-Transparent-fog-off-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-Transparent-fog-off-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-Transparent-on-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-Transparent-on-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-Transparent-restored-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-Transparent-restored-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-UnderwaterLighting-attenuated-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-UnderwaterLighting-attenuated-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-off-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-off-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-restored-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-restored-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-fill-off-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-fill-off-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-on-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-on-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-repeat-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-repeat-Direct3D12.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-restored-Direct3D11.png",
+    "Evidence/OriginalExamples-Control-VaryingWaterLevel-restored-Direct3D12.png",
+    "Evidence/OriginalExamples-Controls-Direct3D11.txt",
+    "Evidence/OriginalExamples-Controls-Direct3D12.txt",
+    "Evidence/OriginalExamples-Direct3D11.json",
+    "Evidence/OriginalExamples-Direct3D11/00-Albedo.png",
+    "Evidence/OriginalExamples-Direct3D11/01-Whirlpool.png",
+    "Evidence/OriginalExamples-Direct3D11/02-Wake.png",
+    "Evidence/OriginalExamples-Direct3D11/03-River.png",
+    "Evidence/OriginalExamples-Direct3D11/04-ComplexObjectWaterInteraction.png",
+    "Evidence/OriginalExamples-Direct3D11/06-WavesPatch.png",
+    "Evidence/OriginalExamples-Direct3D11/07-AnimatedObjectWaterInteraction.png",
+    "Evidence/OriginalExamples-Direct3D11/08-Clipping.png",
+    "Evidence/OriginalExamples-Direct3D11/09-Flow.png",
+    "Evidence/OriginalExamples-Direct3D11/10-ScaleWaves.png",
+    "Evidence/OriginalExamples-Direct3D11/11-DynamicWavesReflections.png",
+    "Evidence/OriginalExamples-Direct3D11/12-Buoyancy.png",
+    "Evidence/OriginalExamples-Direct3D11/13-FoamOverride.png",
+    "Evidence/OriginalExamples-Direct3D11/14-ShadowOverride.png",
+    "Evidence/OriginalExamples-Direct3D11/15-VaryingWaterLevel.png",
+    "Evidence/OriginalExamples-Direct3D11/16-TrailRenderer.png",
+    "Evidence/OriginalExamples-Direct3D11/17-ParticleRenderer.png",
+    "Evidence/OriginalExamples-Direct3D11/18-UnderwaterLighting.png",
+    "Evidence/OriginalExamples-Direct3D11/19-PushWaterBelowGeometry.png",
+    "Evidence/OriginalExamples-Direct3D11/20-WaveParticle.png",
+    "Evidence/OriginalExamples-Direct3D11/21-WaveComparison.png",
+    "Evidence/OriginalExamples-Direct3D11/22-TransparentObjectUnderwater.png",
+    "Evidence/OriginalExamples-Direct3D11/23-AudioFromHeightEvents.png",
+    "Evidence/OriginalExamples-Direct3D12.json",
+    "Evidence/OriginalExamples-Direct3D12/00-Albedo.png",
+    "Evidence/OriginalExamples-Direct3D12/01-Whirlpool.png",
+    "Evidence/OriginalExamples-Direct3D12/02-Wake.png",
+    "Evidence/OriginalExamples-Direct3D12/03-River.png",
+    "Evidence/OriginalExamples-Direct3D12/04-ComplexObjectWaterInteraction.png",
+    "Evidence/OriginalExamples-Direct3D12/05-Ripple.png",
+    "Evidence/OriginalExamples-Direct3D12/06-WavesPatch.png",
+    "Evidence/OriginalExamples-Direct3D12/07-AnimatedObjectWaterInteraction.png",
+    "Evidence/OriginalExamples-Direct3D12/08-Clipping.png",
+    "Evidence/OriginalExamples-Direct3D12/09-Flow.png",
+    "Evidence/OriginalExamples-Direct3D12/10-ScaleWaves.png",
+    "Evidence/OriginalExamples-Direct3D12/11-DynamicWavesReflections.png",
+    "Evidence/OriginalExamples-Direct3D12/12-Buoyancy.png",
+    "Evidence/OriginalExamples-Direct3D12/13-FoamOverride.png",
+    "Evidence/OriginalExamples-Direct3D12/14-ShadowOverride.png",
+    "Evidence/OriginalExamples-Direct3D12/15-VaryingWaterLevel.png",
+    "Evidence/OriginalExamples-Direct3D12/16-TrailRenderer.png",
+    "Evidence/OriginalExamples-Direct3D12/17-ParticleRenderer.png",
+    "Evidence/OriginalExamples-Direct3D12/18-UnderwaterLighting.png",
+    "Evidence/OriginalExamples-Direct3D12/19-PushWaterBelowGeometry.png",
+    "Evidence/OriginalExamples-Direct3D12/20-WaveParticle.png",
+    "Evidence/OriginalExamples-Direct3D12/21-WaveComparison.png",
+    "Evidence/OriginalExamples-Direct3D12/22-TransparentObjectUnderwater.png",
+    "Evidence/OriginalExamples-Direct3D12/23-AudioFromHeightEvents.png",
+    "Evidence/OriginalLakesRivers-Direct3D11.txt",
+    "Evidence/OriginalLakesRivers-Direct3D12.txt",
+    "Evidence/OriginalMain-Direct3D11-geometry-off.png",
+    "Evidence/OriginalMain-Direct3D11.png",
+    "Evidence/OriginalMain-Direct3D11.txt",
+    "Evidence/OriginalMain-Direct3D12-geometry-off.png",
+    "Evidence/OriginalMain-Direct3D12.png",
+    "Evidence/OriginalMain-Direct3D12.txt",
+    "Evidence/OriginalRendererFlags.txt",
+    "Evidence/OriginalThreeBoats-Direct3D11.txt",
+    "Evidence/OriginalThreeBoats-Direct3D12.txt",
+    "Evidence/OriginalThreeBoats-hulls-off-Direct3D11.png",
+    "Evidence/OriginalThreeBoats-hulls-off-Direct3D12.png",
+    "Evidence/OriginalThreeBoats-on-Direct3D11.png",
+    "Evidence/OriginalThreeBoats-on-Direct3D12.png",
+    "Evidence/OriginalThreeBoats-repeat-Direct3D11.png",
+    "Evidence/OriginalThreeBoats-repeat-Direct3D12.png",
+    "Evidence/OriginalThreeBoats-restored-Direct3D11.png",
+    "Evidence/OriginalThreeBoats-restored-Direct3D12.png",
+    "Evidence/OriginalWakes-Direct3D11.txt",
+    "Evidence/OriginalWakes-Direct3D12.txt",
+    "Evidence/OriginalWakes-Isolation-Direct3D11.txt",
+    "Evidence/OriginalWakes-Isolation-Direct3D12.txt",
+    "Evidence/OriginalWakes-True-Direct3D11.png",
+    "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-off.png",
+    "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-on.png",
+    "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-restored.png",
+    "Evidence/OriginalWhirlpool-Combined-Direct3D11-native.png",
+    "Evidence/OriginalWhirlpool-Combined-Direct3D11.txt",
+    "Evidence/OriginalWhirlpool-Combined-Direct3D12-native.png",
+    "Evidence/OriginalWhirlpool-Combined-Direct3D12.txt",
+    "Evidence/P10-BakedLifetime-Direct3D11.txt",
+    "Evidence/P10-BakedLifetime-Direct3D12.txt",
+    "Evidence/QueryContract-Direct3D11.txt",
+    "Evidence/QueryContract-Direct3D12.txt",
+    "Evidence/RayQuery-Direct3D11.txt",
+    "Evidence/RayQuery-Direct3D12.txt",
+    "Evidence/ReflectionOptions-Main-pixel-after-Direct3D11.png",
+    "Evidence/ReflectionOptions-Main-pixel-after-Direct3D12.png",
+    "Evidence/ReflectionOptions-Main-pixel-before-Direct3D11.png",
+    "Evidence/ReflectionOptions-Main-pixel-before-Direct3D12.png",
+    "Evidence/ReflectionOptions-Main-shadow-after-Direct3D11.png",
+    "Evidence/ReflectionOptions-Main-shadow-after-Direct3D12.png",
+    "Evidence/ReflectionOptions-Main-shadow-before-Direct3D11.png",
+    "Evidence/ReflectionOptions-Main-shadow-before-Direct3D12.png",
+    "Evidence/ReflectionOptions-Resized-main-Direct3D11.png",
+    "Evidence/ReflectionOptions-Resized-main-Direct3D12.png",
+    "Evidence/ResourceLifecycle-Direct3D11.txt",
+    "Evidence/ResourceLifecycle-Direct3D12.txt",
+    "Evidence/ResourceLifecycle-QueryRecovery-Direct3D11.txt",
+    "Evidence/ResourceLifecycle-QueryRecovery-Direct3D12.txt"
+  ],
+  "newHistoricalFilesArchivedAndRemoved": [
+    "Evidence/P10-FFTCache-Direct3D11.txt",
+    "Evidence/P10-FFTCache-Direct3D12.txt",
+    "Evidence/P10-Geometry-Direct3D11.txt",
+    "Evidence/P10-Geometry-Direct3D12.txt",
+    "Evidence/P10-Geometry-Proxy-Direct3D11.txt",
+    "Evidence/P10-Geometry-Proxy-Direct3D12.txt",
+    "Evidence/P10-MixedWaves-FFTFirst-Direct3D11.txt",
+    "Evidence/P10-MixedWaves-FFTFirst-Direct3D12.txt",
+    "Evidence/P10-MixedWaves-GerstnerFirst-Direct3D11.txt",
+    "Evidence/P10-MixedWaves-GerstnerFirst-Direct3D12.txt",
+    "Evidence/P10-Rekey-Direct3D11.txt",
+    "Evidence/P10-Rekey-Direct3D12.txt",
+    "Evidence/P10-Rekey-Queued-Direct3D11.txt",
+    "Evidence/P10-Rekey-Queued-Direct3D12.txt",
+    "Evidence/P11-Fill-Direct3D11-reference.shader.txt",
+    "Evidence/P11-Fill-Direct3D11.txt",
+    "Evidence/P11-Fill-Direct3D12-reference.shader.txt",
+    "Evidence/P11-Fill-Direct3D12.txt",
+    "Evidence/P11-Whirlpool-Direct3D11-trial0-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D11-trial1-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D11-trial2-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D11-trial3-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D11.txt",
+    "Evidence/P11-Whirlpool-Direct3D12-trial0-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D12-trial1-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D12-trial2-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D12-trial3-lod0.bin",
+    "Evidence/P11-Whirlpool-Direct3D12.txt"
+  ],
+  "files": [
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/RegisterClipSurfaceInput.cs",
+      "bytes": 13577,
+      "sha256": "3ed3239073e36d9a2b74c22f635efee81ee0e6121931b9a876b2cc60e63e169c"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/RegisterClipSurfaceInput.cs.meta",
+      "bytes": 298,
+      "sha256": "69bfc8ff5f592c1415736d9bc3db112a78209d27388782aa1d09d40fce003f11"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/ExamplesController.cs",
+      "bytes": 3903,
+      "sha256": "56826c4f8312a702ab28b7ebdd8b15656aa2dd6c596a8839e66b0c38203f2b5a"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/ExamplesController.cs.meta",
+      "bytes": 254,
+      "sha256": "6ea254c5194d835493b7b302be95bdfa23396ae8a592d034c4a57ddc166e3602"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Scripts/CamController.cs",
+      "bytes": 9994,
+      "sha256": "08a29664a22303844d1c66f483acd21b4ec67eda6ff21af89f61cad0c7de9a59"
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Scripts/CamController.cs.meta",
+      "bytes": 275,
+      "sha256": "ced6f2e7a50a8e43d6c74c46c89b36c70b63a8a2bda0f04ede5cdd01980d83ec"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs",
+      "bytes": 4651,
+      "sha256": "d0f14920811c7917588ef3532165974275527414209bd1f60c903ae01f761776"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs.meta",
+      "bytes": 62,
+      "sha256": "706272c4a4649964cbd979e6377c364a7e331c8d9f5450b190c573ff8f73bc32"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs",
+      "bytes": 8500,
+      "sha256": "2704cdca24817681d1ac0387c874baf4b5c5e5cb1e0ab24caef355d8384ba684"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs.meta",
+      "bytes": 62,
+      "sha256": "f107fe55e38f08e5089f3f8dfbfeac43f4ef21726cf9b08630dd38f1d5e4e3a7"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalExamples.cs",
+      "bytes": 10035,
+      "sha256": "b5841c814e263d425ad365f0a682505f9ad2a6b185ab0f6b3cacc91bf55df868"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalExamples.cs.meta",
+      "bytes": 62,
+      "sha256": "a1d009988017586b6a7ed2a8be80ca92ddb52283a91910d260771cbd5d4d3447"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleInputDevicesTests.cs",
+      "bytes": 5797,
+      "sha256": "7d88ed6dcd14e7f923db3a75753a46231926dcb0d91b8464d31051da55684ed2"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/ExampleInputDevicesTests.cs.meta",
+      "bytes": 62,
+      "sha256": "d6736620c1d4ce5382363b8538b8b3a3d9d86508491cfbd5b330373b01404e71"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs",
+      "bytes": 29847,
+      "sha256": "3c525b2f4f27618d1844878e7c8b35d59473924bc8e50df6815905812e576e00"
+    },
+    {
+      "path": "Assets/Crest/URP/Tests/Editor/SurfaceInputTests.cs.meta",
+      "bytes": 60,
+      "sha256": "1aa873d6da735a816bd9d56f65acda3e485634a45f4a1d387c4655094aaaa775"
+    },
+    {
+      "path": "Assets/CrestPortDemos/ReflectionVertexVariants.asset",
+      "bytes": 4929,
+      "sha256": "363fe14b4513ba41224a3de86f70c0f83e622bc065f89d0c38632ae7b5599243"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.dll",
+      "bytes": 288256,
+      "sha256": "1d90c76a0e35bcbcc37b4b2bbc8fbd3090b89e0049c27e242fba4af363b24300"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.Examples.dll",
+      "bytes": 36352,
+      "sha256": "bda69011d45b3ca7a6dafbf48b446be457ae82941fb3b6eaf7b33e56361a4c56"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.URP.dll",
+      "bytes": 22528,
+      "sha256": "3db3b4c80faf5315da0f3a5a3e6b6fe4be64e76d114e1dd747d9f2fc93165549"
+    },
+    {
+      "path": "Builds/P11-OriginalExamples/OriginalExamples_Data/Managed/Crest.dll",
+      "bytes": 288768,
+      "sha256": "91eff6c91c5f6bac6d38c93775391202487fba0258cf0298c59c7a8cff3e1715"
+    },
+    {
+      "path": "Builds/P11-OriginalExamples/OriginalExamples_Data/Managed/Crest.Examples.dll",
+      "bytes": 36352,
+      "sha256": "334c694ba631d94242007537157e1580334a3ee154b799ced70ce954ddad24c0"
+    },
+    {
+      "path": "Builds/P11-OriginalExamples/OriginalExamples_Data/Managed/Crest.URP.dll",
+      "bytes": 96256,
+      "sha256": "a454b9a1a8d195332126d3732d3b16bd1eaee3f382dfbe972c5f754841f34b51"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.dll",
+      "bytes": 284160,
+      "sha256": "92d6511bd444dc59b0fcb1ccfeabe234ff29d2b224f482a4af4849501d733730"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.Examples.dll",
+      "bytes": 36352,
+      "sha256": "ead0f8598cad6ca8fab27448b26e3252eb8a4569e91dfb98d66b7539b021f954"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.URP.dll",
+      "bytes": 22528,
+      "sha256": "a5804e0f9110216b51b6cbee6fff526b214a0b6cce4fad16ce139887baec0724"
+    },
+    {
+      "path": "Evidence/AsyncQueryDelay-Direct3D11.txt",
+      "bytes": 54571,
+      "sha256": "cdb153f4a51d586e60dcf1f4982c976ff16c8898cb1e51c0681026cb5ec8e5cc"
+    },
+    {
+      "path": "Evidence/AsyncQueryDelay-Direct3D12.txt",
+      "bytes": 54545,
+      "sha256": "71098d63f40de6c8b203ffe6611e5a8d8ae2472d34c216bb3426114cafcc5d99"
+    },
+    {
+      "path": "Evidence/BakedFFT-Direct3D11.txt",
+      "bytes": 6304,
+      "sha256": "95ec983ee3768765d277f1f348cc714e563ca3b6be10246772b3020fa5c6a999"
+    },
+    {
+      "path": "Evidence/BakedFFT-Direct3D12.txt",
+      "bytes": 6304,
+      "sha256": "9e0defcc955c91eeb8749a7c9024ef194463ad8b1364a37ac7067c76b33c82a9"
+    },
+    {
+      "path": "Evidence/BakedIntegration-Direct3D11.txt",
+      "bytes": 8962,
+      "sha256": "5f096bf3b8a5a3ed439207aba05eb2ce6c96a7a9db417e3c23b36544be6aee86"
+    },
+    {
+      "path": "Evidence/BakedIntegration-Direct3D12.txt",
+      "bytes": 8962,
+      "sha256": "6013e6c16e68aad694bfc01899001e0e76b01562ab902a392862a0b6cc6990f0"
+    },
+    {
+      "path": "Evidence/BoatControls-Direct3D12.txt",
+      "bytes": 6373,
+      "sha256": "69b39ce598e0373e3f6a8fd4b2fb708327f485a55e9b46a98a73632be9c4ac4f"
+    },
+    {
+      "path": "Evidence/Build-checkpoint.json",
+      "bytes": 33072,
+      "sha256": "0d063da5aa9a9e730b1dbc044de7af4faced11d5c52b6299c95b4636cfcebd32"
+    },
+    {
+      "path": "Evidence/Buoyancy-Direct3D11.txt",
+      "bytes": 433,
+      "sha256": "5f5354618db6e9de780af55a37d4d4f48948aed07c11fcd6f6f92dee3c33de7b"
+    },
+    {
+      "path": "Evidence/Buoyancy-Direct3D12.txt",
+      "bytes": 430,
+      "sha256": "462873522b1c0d9fdff89f57f5feac433048eda4c8c9537a72702c624853fa32"
+    },
+    {
+      "path": "Evidence/Development-DX11.log",
+      "bytes": 657211,
+      "sha256": "dd6ecd6d608659a9e4081a36774217de7454ba5faafb539d2aefe1e3ace23188"
+    },
+    {
+      "path": "Evidence/DynamicWaves-Direct3D11.txt",
+      "bytes": 96,
+      "sha256": "b7feb3699a685262993e2b14f4ec39a9b65c6421b3fadde2fc931a39e1d895e9"
+    },
+    {
+      "path": "Evidence/DynamicWaves-Direct3D12.txt",
+      "bytes": 97,
+      "sha256": "5f19067ff5abe6fad05b9b99bfb1e5833abb44bd06740997f16cccc6b4af6375"
+    },
+    {
+      "path": "Evidence/EditMode-DX11-focused.xml",
+      "bytes": 2626,
+      "sha256": "7e273a9f30dd5695ab78eeee2199f6c4b60ec08cd9e4f2c946a12f6b42da4fbb"
+    },
+    {
+      "path": "Evidence/EditMode-DX11-interactive.log",
+      "bytes": 69885,
+      "sha256": "c5bfefba1b11603a862df51d6949bdbd54bf0f8024382aa83913b32037905335"
+    },
+    {
+      "path": "Evidence/EditMode-DX11-interactive.xml",
+      "bytes": 4019,
+      "sha256": "543c5708547093b1fcbe3f86dddcdc4f8c6c8b352aeb241b9c2a3ff7b2d80bac"
+    },
+    {
+      "path": "Evidence/EditMode-DX11.log",
+      "bytes": 1812117,
+      "sha256": "3c633a274d90f6699a5186f9dbf239b9ff70e4c9943701c8bdc7b3f761df2679"
+    },
+    {
+      "path": "Evidence/EditMode-DX11.xml",
+      "bytes": 160807,
+      "sha256": "62e6e9bc3f1f1b0ba58a5e7bcac129be4f7ad6e4afd83510e262624df060219d"
+    },
+    {
+      "path": "Evidence/EditMode-DX12-focused.xml",
+      "bytes": 2792,
+      "sha256": "08507d7bb41c72dbcc92ee4f74e7e143eca444a2eb1b5c1b5feced8bff4aa119"
+    },
+    {
+      "path": "Evidence/EditMode-DX12-interactive.log",
+      "bytes": 68672,
+      "sha256": "04d81f4d8eb50182d769b8416fecc419a8a981d7ee81fe330ae8859a62c95694"
+    },
+    {
+      "path": "Evidence/EditMode-DX12-interactive.xml",
+      "bytes": 4020,
+      "sha256": "795379a78a36128df5959f6127978927dcfb56ca60e3edeb2f835561c6e77255"
+    },
+    {
+      "path": "Evidence/EditMode-DX12.log",
+      "bytes": 1831533,
+      "sha256": "c06a7449015124678d3060c72de490b69064d4c0936c611ce75306bdd7d1e697"
+    },
+    {
+      "path": "Evidence/EditMode-DX12.xml",
+      "bytes": 160835,
+      "sha256": "e3dbe3cbda66ce0df0656d1ab2aabe14f31a41e3781b7dd3ecdb1664f619b4a2"
+    },
+    {
+      "path": "Evidence/ExampleBake-Direct3D11.txt",
+      "bytes": 1779,
+      "sha256": "961e1327dd04a1015a6ea38ae8938e8c59994daae5ea42d16eead43eb809a71c"
+    },
+    {
+      "path": "Evidence/ExampleBake-Direct3D12.txt",
+      "bytes": 1779,
+      "sha256": "201cb396599ce01e592cdb0c97603dc69d5f3e6729eab3d7678c3e9330c9e9ec"
+    },
+    {
+      "path": "Evidence/ExampleBake-on-Direct3D11.png",
+      "bytes": 10856,
+      "sha256": "38254f9c315994a3c4600d5aa9bfcac0931ea3c39132e007724b4f75b856551a"
+    },
+    {
+      "path": "Evidence/ExampleBake-on-Direct3D12.png",
+      "bytes": 10900,
+      "sha256": "eb5ccb759092959394ec286dd652c672e905157362a1b1eaebfd7797bf590dbf"
+    },
+    {
+      "path": "Evidence/ExampleBake-restored-Direct3D11.png",
+      "bytes": 10856,
+      "sha256": "38254f9c315994a3c4600d5aa9bfcac0931ea3c39132e007724b4f75b856551a"
+    },
+    {
+      "path": "Evidence/ExampleBake-restored-Direct3D12.png",
+      "bytes": 10900,
+      "sha256": "eb5ccb759092959394ec286dd652c672e905157362a1b1eaebfd7797bf590dbf"
+    },
+    {
+      "path": "Evidence/Gerstner-Direct3D11.txt",
+      "bytes": 79,
+      "sha256": "15cd45093dfa7c15a7cfb1ec5d0ef503eff30d8342055c810fad55ca385b74cd"
+    },
+    {
+      "path": "Evidence/Gerstner-Direct3D12.txt",
+      "bytes": 79,
+      "sha256": "7d31789f2b18fd341b468de61255b9d574bdd94388583b37308af36bcea30dfa"
+    },
+    {
+      "path": "Evidence/Ocean_Reflections-Direct3D11-queries.txt",
+      "bytes": 217,
+      "sha256": "6ec9c34c304048018f4b58cfc23384493bda6dadc6173026ccfeccf9de21c9a5"
+    },
+    {
+      "path": "Evidence/Ocean_Reflections-Direct3D11.png",
+      "bytes": 525409,
+      "sha256": "31eb508ebeb456b0b6ea0d6c8a0e984fa644cca96c6c7175a1928b0fc0dc094f"
+    },
+    {
+      "path": "Evidence/Ocean_Reflections-Direct3D12-queries.txt",
+      "bytes": 216,
+      "sha256": "41ed06af155e4b7cde0b1016b12910eb5695ae5ec843ad9ffbac7acf347ec3f3"
+    },
+    {
+      "path": "Evidence/Ocean_Reflections-Direct3D12.png",
+      "bytes": 556208,
+      "sha256": "5f9f9a811cc844946f72dbc9df01151ba58c0f4998b4db33f1666c91dd380c26"
+    },
+    {
+      "path": "Evidence/Ocean_Underwater-Direct3D11-queries.txt",
+      "bytes": 216,
+      "sha256": "e093e7b9705971a9a64daa9d1ee9808be86ef330bd060880720e095c6f0347d0"
+    },
+    {
+      "path": "Evidence/Ocean_Underwater-Direct3D11.png",
+      "bytes": 99010,
+      "sha256": "86765c4086ae12f52185b529f5fd40983140119c9900ec2d361d26b7eca957e5"
+    },
+    {
+      "path": "Evidence/Ocean_Underwater-Direct3D12-queries.txt",
+      "bytes": 216,
+      "sha256": "23332034f3588b83b5a158c3c5b9e09e06df93a5c7ba66908474a7cbd0c50fd2"
+    },
+    {
+      "path": "Evidence/Ocean_Underwater-Direct3D12.png",
+      "bytes": 100108,
+      "sha256": "ab88849a7af54e13872bebac6dd01c0e43a3f0f177f31462232e097418aefa6e"
+    },
+    {
+      "path": "Evidence/Ocean_Waves-Direct3D11-queries.txt",
+      "bytes": 217,
+      "sha256": "9d3ccadc77f54e2d8074b52cab5cca6cb2bd542d1009bc34cabfee7b3afad15b"
+    },
+    {
+      "path": "Evidence/Ocean_Waves-Direct3D11.png",
+      "bytes": 519803,
+      "sha256": "89ff62571754f1af5ed55463074d5cf77ecf9d292e5aba6dbff152d284225e2b"
+    },
+    {
+      "path": "Evidence/Ocean_Waves-Direct3D12-queries.txt",
+      "bytes": 216,
+      "sha256": "ffab274589991a477374dc710fdaaa0a03efc51f5d57ed8494c04fa0f8208bd9"
+    },
+    {
+      "path": "Evidence/Ocean_Waves-Direct3D12.png",
+      "bytes": 531229,
+      "sha256": "28b554de72bfd918918d6759d5bc6fa8379247613bb27709b92872cf9115f599"
+    },
+    {
+      "path": "Evidence/OriginalBoat-after-throttle-Direct3D11.png",
+      "bytes": 260867,
+      "sha256": "a8b9ee195a3601121cbcbe58372c5f2fe967f37664e89449adffb6b64795c8b7"
+    },
+    {
+      "path": "Evidence/OriginalBoat-after-throttle-Direct3D12.png",
+      "bytes": 260967,
+      "sha256": "d229194245ccf7cef45a0864d2120470a36841b15d613a8f027567800b55126d"
+    },
+    {
+      "path": "Evidence/OriginalBoat-Direct3D11.txt",
+      "bytes": 959,
+      "sha256": "03fa588a2f57faa7ee9f77376b15cb1e4bcb41378b803f59bba73c9583457af6"
+    },
+    {
+      "path": "Evidence/OriginalBoat-Direct3D12.txt",
+      "bytes": 959,
+      "sha256": "125e71e0bc765197d5f7e6b8dba49ac70b924086262835b89b9c6597b666f7af"
+    },
+    {
+      "path": "Evidence/OriginalBoat-hull-off-Direct3D11.png",
+      "bytes": 245060,
+      "sha256": "53acc8431198e89c68fb5bc043e2152c91de1c69a769cbf52cc687105a55f2cc"
+    },
+    {
+      "path": "Evidence/OriginalBoat-hull-off-Direct3D12.png",
+      "bytes": 245226,
+      "sha256": "e57ec073d4b0ddb957d8278fcfb71cf22a8aca0613fd43e6ae7d3b97e4b3f44d"
+    },
+    {
+      "path": "Evidence/OriginalBoat-on-Direct3D11.png",
+      "bytes": 238042,
+      "sha256": "90e39838cded4a0869da364d68db7421bd15e0570e052521e1456fc2cdd61e07"
+    },
+    {
+      "path": "Evidence/OriginalBoat-on-Direct3D12.png",
+      "bytes": 238442,
+      "sha256": "6246bc7aa55f6bffeb3a8607cafd34b5f8424ca7c1548564f8506e295ab9e5e5"
+    },
+    {
+      "path": "Evidence/OriginalBoat-repeat-Direct3D11.png",
+      "bytes": 238042,
+      "sha256": "90e39838cded4a0869da364d68db7421bd15e0570e052521e1456fc2cdd61e07"
+    },
+    {
+      "path": "Evidence/OriginalBoat-repeat-Direct3D12.png",
+      "bytes": 238442,
+      "sha256": "6246bc7aa55f6bffeb3a8607cafd34b5f8424ca7c1548564f8506e295ab9e5e5"
+    },
+    {
+      "path": "Evidence/OriginalBoat-restored-Direct3D11.png",
+      "bytes": 238042,
+      "sha256": "90e39838cded4a0869da364d68db7421bd15e0570e052521e1456fc2cdd61e07"
+    },
+    {
+      "path": "Evidence/OriginalBoat-restored-Direct3D12.png",
+      "bytes": 238442,
+      "sha256": "6246bc7aa55f6bffeb3a8607cafd34b5f8424ca7c1548564f8506e295ab9e5e5"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-fill-off-Direct3D11.png",
+      "bytes": 45226,
+      "sha256": "9e867b22c5e4c4eca839b2cbbfedca3d497aacd283f42cf60b15e62b88df8c4e"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-fill-off-Direct3D12.png",
+      "bytes": 45152,
+      "sha256": "151e72e6ebb7cb7cccc079de6e212eb30d0dfb62cd2d3b2afab2d704745af3c7"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-on-Direct3D11.png",
+      "bytes": 36717,
+      "sha256": "da5fce9ce40b64423f47507db71294df443506bfcf24e876939ca8ed56b507b5"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-on-Direct3D12.png",
+      "bytes": 36686,
+      "sha256": "283c4e0c43fd197bb9a84f6975f56e776ed2175635c881cbb2cb1b9407e235da"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-repeat-Direct3D11.png",
+      "bytes": 36717,
+      "sha256": "da5fce9ce40b64423f47507db71294df443506bfcf24e876939ca8ed56b507b5"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-repeat-Direct3D12.png",
+      "bytes": 36686,
+      "sha256": "283c4e0c43fd197bb9a84f6975f56e776ed2175635c881cbb2cb1b9407e235da"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-restored-Direct3D11.png",
+      "bytes": 36717,
+      "sha256": "da5fce9ce40b64423f47507db71294df443506bfcf24e876939ca8ed56b507b5"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-DynamicWavesReflections-restored-Direct3D12.png",
+      "bytes": 36686,
+      "sha256": "283c4e0c43fd197bb9a84f6975f56e776ed2175635c881cbb2cb1b9407e235da"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-fill-off-Direct3D11.png",
+      "bytes": 87258,
+      "sha256": "9cca98ecb56ef9200f3360964e274e9f9dd8000632b34eb7a451828364396a7a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-fill-off-Direct3D12.png",
+      "bytes": 87272,
+      "sha256": "54751560b26b33b918810714b6803ea3abf3f8ad7975fbcc1b5213730bb48093"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-on-Direct3D11.png",
+      "bytes": 80808,
+      "sha256": "0c6ee3b7e94e7b20a0b4bbc6c37f171545622ad315da5d071cdcd58b40bed6ef"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-on-Direct3D12.png",
+      "bytes": 80853,
+      "sha256": "b4f5b3060791ff38e6556163e7602c05f9d288c1a84175daf79dcf2b9a272c53"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-repeat-Direct3D11.png",
+      "bytes": 80808,
+      "sha256": "0c6ee3b7e94e7b20a0b4bbc6c37f171545622ad315da5d071cdcd58b40bed6ef"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-repeat-Direct3D12.png",
+      "bytes": 80853,
+      "sha256": "b4f5b3060791ff38e6556163e7602c05f9d288c1a84175daf79dcf2b9a272c53"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-restored-Direct3D11.png",
+      "bytes": 80808,
+      "sha256": "0c6ee3b7e94e7b20a0b4bbc6c37f171545622ad315da5d071cdcd58b40bed6ef"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-River-restored-Direct3D12.png",
+      "bytes": 80853,
+      "sha256": "b4f5b3060791ff38e6556163e7602c05f9d288c1a84175daf79dcf2b9a272c53"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-Transparent-fog-off-Direct3D11.png",
+      "bytes": 47575,
+      "sha256": "ba99900852705353f110d16ffdb50b41644e52db4676f6855eeb8e7dd0b513a7"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-Transparent-fog-off-Direct3D12.png",
+      "bytes": 47579,
+      "sha256": "2925276d09efc375c3ccacdb6c156ae6a5389c35e24b72a7d1efea607e9175b5"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-Transparent-on-Direct3D11.png",
+      "bytes": 47532,
+      "sha256": "015d6592fa8b4225cb238f41e067ac06924696e8cf3c77d58579c025d9944d69"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-Transparent-on-Direct3D12.png",
+      "bytes": 47574,
+      "sha256": "0eb411df92c40ff497fe69e66fd06f5203a68a6213c70176c755969a3270dce2"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-Transparent-restored-Direct3D11.png",
+      "bytes": 47532,
+      "sha256": "015d6592fa8b4225cb238f41e067ac06924696e8cf3c77d58579c025d9944d69"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-Transparent-restored-Direct3D12.png",
+      "bytes": 47574,
+      "sha256": "0eb411df92c40ff497fe69e66fd06f5203a68a6213c70176c755969a3270dce2"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-UnderwaterLighting-attenuated-Direct3D11.png",
+      "bytes": 45797,
+      "sha256": "89c9958fa181730dca637ea2745354a5012435fc161010348bf87426836f1b34"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-UnderwaterLighting-attenuated-Direct3D12.png",
+      "bytes": 45676,
+      "sha256": "077a58889aaec31b63e744f913f645a305faf6eba1cd86c2822329ad0f571f92"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-off-Direct3D11.png",
+      "bytes": 47591,
+      "sha256": "e9b73d1c1c9a99b5eca10417330226bc7036c35ef301d99242fe684057675549"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-off-Direct3D12.png",
+      "bytes": 47380,
+      "sha256": "baa390673b2c824761d28e3ef0e8219339855168fe49838340177ce522d9e897"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-restored-Direct3D11.png",
+      "bytes": 45797,
+      "sha256": "89c9958fa181730dca637ea2745354a5012435fc161010348bf87426836f1b34"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-restored-Direct3D12.png",
+      "bytes": 45676,
+      "sha256": "077a58889aaec31b63e744f913f645a305faf6eba1cd86c2822329ad0f571f92"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-fill-off-Direct3D11.png",
+      "bytes": 61652,
+      "sha256": "3f0f193a09a91741cb220065542cea42f04bbf9ad2dfce370d861a209b5c700c"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-fill-off-Direct3D12.png",
+      "bytes": 61633,
+      "sha256": "ce96aec0ecb1fa08e08d4e551725f7489fac8f12951737448805936d13537cdc"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-on-Direct3D11.png",
+      "bytes": 57584,
+      "sha256": "21613e39553a9998608fd8d79881d4d0677fb1b4aab75c8a3a3aed097a150bb8"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-on-Direct3D12.png",
+      "bytes": 57539,
+      "sha256": "583e75601c11407086515622828890716f0f13e0dd5596b5cfa4b975ae73e2c0"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-repeat-Direct3D11.png",
+      "bytes": 57584,
+      "sha256": "21613e39553a9998608fd8d79881d4d0677fb1b4aab75c8a3a3aed097a150bb8"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-repeat-Direct3D12.png",
+      "bytes": 57539,
+      "sha256": "583e75601c11407086515622828890716f0f13e0dd5596b5cfa4b975ae73e2c0"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-restored-Direct3D11.png",
+      "bytes": 57584,
+      "sha256": "21613e39553a9998608fd8d79881d4d0677fb1b4aab75c8a3a3aed097a150bb8"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Control-VaryingWaterLevel-restored-Direct3D12.png",
+      "bytes": 57539,
+      "sha256": "583e75601c11407086515622828890716f0f13e0dd5596b5cfa4b975ae73e2c0"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Controls-Direct3D11.txt",
+      "bytes": 1653,
+      "sha256": "7f2d31c02cd04cb86976fd3712e1307cee7394fc165f9872f1e27862c702c20c"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Controls-Direct3D12.txt",
+      "bytes": 1654,
+      "sha256": "eff8284a521515d4f58a0c68b58fcd4f4e645746edc10fa46707e51d4779d3ca"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/00-Albedo.png",
+      "bytes": 68267,
+      "sha256": "773c0b176f9abce3ef38e82146b687195a268ffbcc6e5ec47833ef7bea2757c4"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/01-Whirlpool.png",
+      "bytes": 60844,
+      "sha256": "1a86c98b12c9b96d7368db3d438536c31e378133227dd7a533c9d4071533ed35"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/02-Wake.png",
+      "bytes": 63082,
+      "sha256": "8e4d08ad2fad6aaf60f861221f008d3e403fe6425c3aafb1f521a5303d39c7cf"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/03-River.png",
+      "bytes": 81628,
+      "sha256": "c2ad2c8e20148d8504920c93cb80b066b548b610d1771f6a63e4d101a07b9815"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/04-ComplexObjectWaterInteraction.png",
+      "bytes": 47270,
+      "sha256": "932995ce2ca27a4238ec567f97b4d35e7619cd2ee57439a423356990741c2077"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/06-WavesPatch.png",
+      "bytes": 48672,
+      "sha256": "0ce9aa99f1a0d0dc1c354c817bf8676cdd40eaa3ad272e577fc50707ce6bc53a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/07-AnimatedObjectWaterInteraction.png",
+      "bytes": 46028,
+      "sha256": "5a26246bf3e642b153b5364d70dcf3b601b28153e6eca6efdd644d875cd0efb5"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/08-Clipping.png",
+      "bytes": 44399,
+      "sha256": "912a599ccfe1e8756c520a8d3a3cdb62af3e61995db4cd6c5d91ddee2942b6b2"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/09-Flow.png",
+      "bytes": 61409,
+      "sha256": "0d5715b3b36066c4c7eb42ce6bea57f69bdb7183579d537399c05990f7442b47"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/10-ScaleWaves.png",
+      "bytes": 57376,
+      "sha256": "3f3df8657edcb1679e678aaf26340a16bcff9b9f3582f56b5e99c3eebe607cb2"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/11-DynamicWavesReflections.png",
+      "bytes": 36793,
+      "sha256": "f2e3bea11dfa2295ecb7286d625eb142b115e29e4271db47579e6511488f14ad"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/12-Buoyancy.png",
+      "bytes": 62799,
+      "sha256": "e34f2b583dfe249ebad11656c72d56b9af2d4951bfafc4029b010e9b3a22923a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/13-FoamOverride.png",
+      "bytes": 72122,
+      "sha256": "7c4dfb8cdb3eb9ca23f24ba6c5e1f4a3d1bbfe396c8441239840b8ec372f006d"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/14-ShadowOverride.png",
+      "bytes": 62615,
+      "sha256": "2c17bddbe3c31f95b36a8961e428de59ac15b3ba4e9b2ad09abe45f3298e4cc9"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/15-VaryingWaterLevel.png",
+      "bytes": 57710,
+      "sha256": "22c9c0f8e50db35a452ab6eebde97ce96b34722751031b70b00c52cd722ae3aa"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/16-TrailRenderer.png",
+      "bytes": 63620,
+      "sha256": "183f756a3b989e338a24dd97355066bd716add3090d1bb4e766b075eec38780d"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/17-ParticleRenderer.png",
+      "bytes": 62542,
+      "sha256": "ad7587b7342e9891a946e45b2585aae6da21deca166506af789086426538016c"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/18-UnderwaterLighting.png",
+      "bytes": 44129,
+      "sha256": "c291abdeb312d4d10588412b0486eeafbf7b684c151773d34672cfde38c42ea7"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/19-PushWaterBelowGeometry.png",
+      "bytes": 60992,
+      "sha256": "fee7b0ddded5dad926254fd8f6c603dd434ac0757222af215daba0d39ae0fc25"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/20-WaveParticle.png",
+      "bytes": 60597,
+      "sha256": "7d6f313798a7aa4dd02820809fb4abda944eedc652c552e5be498d0c954b287a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/21-WaveComparison.png",
+      "bytes": 65080,
+      "sha256": "99ae45b51c6f2da582e67e3545c322a9f78ea80a1b5f79124ae66a2ff8dd0076"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/22-TransparentObjectUnderwater.png",
+      "bytes": 46892,
+      "sha256": "0cb3b6900915a4080f99c22aff69d18810b2887efac079854f6480a2edbc4627"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11/23-AudioFromHeightEvents.png",
+      "bytes": 66640,
+      "sha256": "53981e21a41b5e41c7bc98318b5ec2071e12b572663a659ec05a4b19a8717666"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D11.json",
+      "bytes": 44800,
+      "sha256": "c90079357177c0a5ac78419779ad29c5ec94acbddfa725f5a66377619f9f81c9"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/00-Albedo.png",
+      "bytes": 68323,
+      "sha256": "4b69f7ea16fbc6f8c62ee4958a41fd27fcb3a370bc06a5be14c6ab7aa9f0120d"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/01-Whirlpool.png",
+      "bytes": 61121,
+      "sha256": "e4b08c3350195f30d9808259de27382bd7bc8c28697dde1bccdb272eb0375bae"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/02-Wake.png",
+      "bytes": 61863,
+      "sha256": "f68c8c5de36d4ba4d3e17466c945e821355067bde6e51f9e837edad9c7cf6abf"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/03-River.png",
+      "bytes": 80972,
+      "sha256": "db429d65cdd7d25c7fb7779ec62d72d2dc92fb84d34442b60cf96d5812506d32"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/04-ComplexObjectWaterInteraction.png",
+      "bytes": 48557,
+      "sha256": "6022c253f5342c605bf3c28c7a32659222b0376ee91591ac43a274506b15835a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/05-Ripple.png",
+      "bytes": 44898,
+      "sha256": "9757f15dfa0f77e68ecfb0520935ceeeeaac6abbb2a21fe1272667abeb3c6216"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/06-WavesPatch.png",
+      "bytes": 49143,
+      "sha256": "1ace0e3424f0969ac17196a91e451e325fc18fcf4059b63aec598a7fbe985808"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/07-AnimatedObjectWaterInteraction.png",
+      "bytes": 46358,
+      "sha256": "611b2e9d57de0405f5b09148a8625b3c2387625eb1c41226c9eef679291e0ce4"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/08-Clipping.png",
+      "bytes": 44412,
+      "sha256": "749fa966b137b562f12ade4592cfe6c36639c2776f01c0c0d03ca6535d5ec073"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/09-Flow.png",
+      "bytes": 62260,
+      "sha256": "0bc9a763825a1c8a115bbdbc8e2fde548c80670714d81cbe206890ce6353ff5b"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/10-ScaleWaves.png",
+      "bytes": 56841,
+      "sha256": "2b62f89dbd4f718c0d139677b17964321af845d8ad58397d0b43d942cec294d8"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/11-DynamicWavesReflections.png",
+      "bytes": 36857,
+      "sha256": "c13330567190f4b7b5c2eb75a087167a6c6a5fd74a76e73df6de10dc482abf6f"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/12-Buoyancy.png",
+      "bytes": 62726,
+      "sha256": "bdd3ecd4a3467a658b0dcd02b48afd8a238fcc10651f76030111617a83e253aa"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/13-FoamOverride.png",
+      "bytes": 71685,
+      "sha256": "ec7306ac2460368b93f19446e59eb3462a910d26fe6a9a90cc4973af0e550a79"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/14-ShadowOverride.png",
+      "bytes": 61771,
+      "sha256": "761852d290df40e2042b1aedcae96aeac167453cff7e93aa7f2bb823d3fed105"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/15-VaryingWaterLevel.png",
+      "bytes": 57405,
+      "sha256": "6f128dffb68f611450d2d870bbe5fd8d25cce4693f5f98f966105d6e62737732"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/16-TrailRenderer.png",
+      "bytes": 62128,
+      "sha256": "7dbc05026bac757329bb0bc83084d1b2cdb7487e5072bcad150c6559f52af07d"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/17-ParticleRenderer.png",
+      "bytes": 62684,
+      "sha256": "ed4e38542260f7e04d5bd5399c39dd72db2320f50fe78b313d2e3be039b29a8d"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/18-UnderwaterLighting.png",
+      "bytes": 43891,
+      "sha256": "bce08203acf07985f74d2c1a2005fd96a821c78747a35c8daa491c8a5261f2fe"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/19-PushWaterBelowGeometry.png",
+      "bytes": 61392,
+      "sha256": "110832e0cd1369388b128a94ff52b3dcca2710a4e4238410e274cfddba49a97a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/20-WaveParticle.png",
+      "bytes": 66212,
+      "sha256": "99baa33263447c92a14c16ed6d2322c00051cd8c6b7ecd37385c0c31d5ff0332"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/21-WaveComparison.png",
+      "bytes": 65079,
+      "sha256": "125877eabf6612cae5833057d84b654a8f1ea30786a220f3728e86a16e6b8d3a"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/22-TransparentObjectUnderwater.png",
+      "bytes": 46774,
+      "sha256": "d68aa3a4e5f7579fd8ba4ff5c8fc6843a592775d6ac3d3d37eae58a427408179"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12/23-AudioFromHeightEvents.png",
+      "bytes": 66284,
+      "sha256": "dcfe0e80dbfb57a2d476a839f1ffd6cdae21b248fb6b1286e6a04138919fcaf1"
+    },
+    {
+      "path": "Evidence/OriginalExamples-Direct3D12.json",
+      "bytes": 44794,
+      "sha256": "03898fc7592259f1e71d37616ab8a598435237aeca05f4b053e829d462bede9e"
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D11.txt",
+      "bytes": 477,
+      "sha256": "b17b2064b78596fa0c11ad56eca16a475611bd4ae40032d406adcf22be27acae"
+    },
+    {
+      "path": "Evidence/OriginalLakesRivers-Direct3D12.txt",
+      "bytes": 477,
+      "sha256": "bbb7133de2d1cb36402c485ca8ac6228520cf8815b29eed5a2af0e6f2cca8233"
+    },
+    {
+      "path": "Evidence/OriginalMain-Direct3D11-geometry-off.png",
+      "bytes": 228823,
+      "sha256": "2be10f2ce28f1d9d31222fbcc1b26c39cd514f3128c8d5dffd27bb72fc1ec4cb"
+    },
+    {
+      "path": "Evidence/OriginalMain-Direct3D11.png",
+      "bytes": 236071,
+      "sha256": "a4e163cb4ecee2c5c20f02a7864b90e04e175755a21cca51ec1d3f064b20a1a9"
+    },
+    {
+      "path": "Evidence/OriginalMain-Direct3D11.txt",
+      "bytes": 268,
+      "sha256": "61467e6aa0f63caa38f6e1f7a6b6dc671b02d648d03bc0fc4dba04227bf1c524"
+    },
+    {
+      "path": "Evidence/OriginalMain-Direct3D12-geometry-off.png",
+      "bytes": 227405,
+      "sha256": "3204087a81242e9aea24b3a1912c7dcf4375e8ee1e11208f98dfac97b19e1707"
+    },
+    {
+      "path": "Evidence/OriginalMain-Direct3D12.png",
+      "bytes": 234784,
+      "sha256": "d791aad484b740f7d532c728d7fad5689d502702823148a804bed23c90e8cba5"
+    },
+    {
+      "path": "Evidence/OriginalMain-Direct3D12.txt",
+      "bytes": 268,
+      "sha256": "dedcb0e9074f3e86a372f86122a20a7fc98c16514d3cf26e856e86a6eeac8fde"
+    },
+    {
+      "path": "Evidence/OriginalRendererFlags.txt",
+      "bytes": 10637,
+      "sha256": "72cbbab5c7f8133f8603af93179de12269e3e9bfbc51a03a34e99cfbd07a26d9"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-Direct3D11.txt",
+      "bytes": 1120,
+      "sha256": "27434fddf2da3bf58341816ebc323122be6d8fe169a30296f1604e9eb367b9c7"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-Direct3D12.txt",
+      "bytes": 1114,
+      "sha256": "c9978b4a4d2cf80b44261b8be3b590ca0e09b131c19f19995b38c53694c2fc42"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-hulls-off-Direct3D11.png",
+      "bytes": 165856,
+      "sha256": "47e27b40c8835e7a131b041eaf68a7c5d96155751a35bba8b6c44c059841466f"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-hulls-off-Direct3D12.png",
+      "bytes": 165803,
+      "sha256": "bae0b8bbdcc82f435ad89f072b4952a5b41116960b5e2fb9224af98bbdaf6812"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-on-Direct3D11.png",
+      "bytes": 168602,
+      "sha256": "432669f5112654cccef0f6986e197a692beece5ae8ddc6ab54c9dc79b06360fb"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-on-Direct3D12.png",
+      "bytes": 168482,
+      "sha256": "9e0badfb16a0cd141b77022bd5df184a16321d8ea6080d761d0901d45686b77a"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-repeat-Direct3D11.png",
+      "bytes": 168602,
+      "sha256": "432669f5112654cccef0f6986e197a692beece5ae8ddc6ab54c9dc79b06360fb"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-repeat-Direct3D12.png",
+      "bytes": 168482,
+      "sha256": "9e0badfb16a0cd141b77022bd5df184a16321d8ea6080d761d0901d45686b77a"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-restored-Direct3D11.png",
+      "bytes": 168602,
+      "sha256": "432669f5112654cccef0f6986e197a692beece5ae8ddc6ab54c9dc79b06360fb"
+    },
+    {
+      "path": "Evidence/OriginalThreeBoats-restored-Direct3D12.png",
+      "bytes": 168482,
+      "sha256": "9e0badfb16a0cd141b77022bd5df184a16321d8ea6080d761d0901d45686b77a"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Direct3D11.txt",
+      "bytes": 1860,
+      "sha256": "45dfe67d3188831831e347255156247bc4eab9ecb471759b328e6529c23677d5"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Direct3D12.txt",
+      "bytes": 1862,
+      "sha256": "1a9b8cc0c403923616fc73402a33b2b45d89a4a6d22c22952449c40f74df0473"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Isolation-Direct3D11.txt",
+      "bytes": 4538,
+      "sha256": "eddce2fc6e6fe92ec81d8b2c45fba296fa07f08e703be45b66db64cfdeb280f8"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Isolation-Direct3D12.txt",
+      "bytes": 4539,
+      "sha256": "dac74abe99394c0c554391657ac1d351db33b6bba47ece69cede95aec015dfa5"
+    },
+    {
+      "path": "Evidence/OriginalWakes-True-Direct3D11.png",
+      "bytes": 157528,
+      "sha256": "94b195cb97c2559b5098a7c6993ea2a31f316b2412ad0a47cb17c375bcb73b97"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-off.png",
+      "bytes": 141512,
+      "sha256": "f8c6fa94527c57222170766abb614a2a2fc3de31baa17aec2a9d475165dbdb75"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-on.png",
+      "bytes": 157545,
+      "sha256": "663f974d33cbf11b7832b916a42655256defa58a8e1394667dcf7bde12fb073d"
+    },
+    {
+      "path": "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-restored.png",
+      "bytes": 157545,
+      "sha256": "663f974d33cbf11b7832b916a42655256defa58a8e1394667dcf7bde12fb073d"
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D11-native.png",
+      "bytes": 205323,
+      "sha256": "59398b36b11390f02795eb2f96218c37fc0dd2847959d70c6cfd92c827ccb624"
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D11.txt",
+      "bytes": 340,
+      "sha256": "34ce5fc074992e5d943e560bf346e16e1a7a46f3cde96f7484ab9cec72f32fe4"
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D12-native.png",
+      "bytes": 205520,
+      "sha256": "7b39a07047d3fb0df0fc5600a8ae3b1a3e84866dc033a0c66c6f05318ea41a81"
+    },
+    {
+      "path": "Evidence/OriginalWhirlpool-Combined-Direct3D12.txt",
+      "bytes": 340,
+      "sha256": "262f73662e40e27aa1b02e75229379407717f5135c8c931c1dadcff89db6be26"
+    },
+    {
+      "path": "Evidence/OriginWaveTransport-Direct3D11.txt",
+      "bytes": 4862,
+      "sha256": "f6e54283334af507a00d9a3a4b34c0c2113c0921bf19c859cd06018cc3d813c0"
+    },
+    {
+      "path": "Evidence/OriginWaveTransport-Direct3D12.txt",
+      "bytes": 4862,
+      "sha256": "3923ed5f0c090b1e0154dfaa1fc6597096b1a8ffc5c0776881a0dca43869f59c"
+    },
+    {
+      "path": "Evidence/P10-BakedLifetime-Direct3D11.txt",
+      "bytes": 7731,
+      "sha256": "bc62775cc622e6aa6585cd4fc4fbae4441edc936528e1f55f6c4c7dd0a246822"
+    },
+    {
+      "path": "Evidence/P10-BakedLifetime-Direct3D12.txt",
+      "bytes": 17314,
+      "sha256": "f2a0ad94069903b17dc481d60e7af499d00ec615bffc40aa22aac8c63ea7082a"
+    },
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D11.txt",
+      "bytes": 356,
+      "sha256": "5c86e219b083b05cc596dd33ace8233bff89321fa7a83a6ed5b2c707ffc4847a"
+    },
+    {
+      "path": "Evidence/P10-FFTCache-Direct3D12.txt",
+      "bytes": 356,
+      "sha256": "054ca154277db6bbd41de9340e54bfb648d9253d462f37d617988a82a4735d24"
+    },
+    {
+      "path": "Evidence/P10-Geometry-Direct3D11.txt",
+      "bytes": 518,
+      "sha256": "dafae398107d3b8c70b87a3c70b4694ca9ed73d2ca349f69f447181a7b5a00d6"
+    },
+    {
+      "path": "Evidence/P10-Geometry-Direct3D12.txt",
+      "bytes": 518,
+      "sha256": "d66f00d6b9d0d61950d1e10e7b26e4377dd25da393eab4c922de51011b3453bc"
+    },
+    {
+      "path": "Evidence/P10-Geometry-Proxy-Direct3D11.txt",
+      "bytes": 209,
+      "sha256": "4910fb1da5eb6ae781ec90db877d5f916fb51c6651402f27e6505c333c1ad62c"
+    },
+    {
+      "path": "Evidence/P10-Geometry-Proxy-Direct3D12.txt",
+      "bytes": 209,
+      "sha256": "4910fb1da5eb6ae781ec90db877d5f916fb51c6651402f27e6505c333c1ad62c"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-FFTFirst-Direct3D11.txt",
+      "bytes": 266,
+      "sha256": "9f2559973fef10b338191384c799afb5f7aafc5f1c45d9aa6712eea37c1222aa"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-FFTFirst-Direct3D12.txt",
+      "bytes": 266,
+      "sha256": "ce371361ea95e1a4e9e073fbbbb11877d9f1649e2ba875e0ac1ea039b72f8c29"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-GerstnerFirst-Direct3D11.txt",
+      "bytes": 266,
+      "sha256": "a79279af5eead5e7afab6b935ae0c80a3cb359c5d0865df72784350cfdac3fa3"
+    },
+    {
+      "path": "Evidence/P10-MixedWaves-GerstnerFirst-Direct3D12.txt",
+      "bytes": 266,
+      "sha256": "a1d99f8921aadaf061758871e2ca45930ee03d94a4ce2361b26e454b25e777b9"
+    },
+    {
+      "path": "Evidence/P10-Rekey-Direct3D11.txt",
+      "bytes": 276,
+      "sha256": "061ebab4478b5ad6475dac4501ede4c7b3dea03f23bb3468b8afa7c95dd74b51"
+    },
+    {
+      "path": "Evidence/P10-Rekey-Direct3D12.txt",
+      "bytes": 276,
+      "sha256": "04748f4b3821df8ff24f733fda06524636d285b6dd8cf12a7ad5db24cc56cb19"
+    },
+    {
+      "path": "Evidence/P10-Rekey-Queued-Direct3D11.txt",
+      "bytes": 52,
+      "sha256": "81fa1b2ddb6bcf04f099599e14f1debef86ca2888a12f281be9cbf072f33fe30"
+    },
+    {
+      "path": "Evidence/P10-Rekey-Queued-Direct3D12.txt",
+      "bytes": 52,
+      "sha256": "81fa1b2ddb6bcf04f099599e14f1debef86ca2888a12f281be9cbf072f33fe30"
+    },
+    {
+      "path": "Evidence/P11-Examples-build.log",
+      "bytes": 679290,
+      "sha256": "ebd457af911b6d63c3e8e4da8486aa47eadcf81f36b3d1fe2a8a7b0e3b3fa322"
+    },
+    {
+      "path": "Evidence/P11-Examples-build.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Evidence/P11-Examples-build.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11/Player.log",
+      "bytes": 36017,
+      "sha256": "a8f786f54a3570aead0bd33b81b011906515497316a0dada0ae51e0a5a4a0131"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11/report.json",
+      "bytes": 15662,
+      "sha256": "6defc4202c75f5699e45459b7865622e78dd1d796105cd65fcdc6fbbd51f1152"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11/River-off.png",
+      "bytes": 103514,
+      "sha256": "9b188abcea854b21dd6a6e3ff49f1d85d15402afb50c80cdca378c90dfb37e40"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11/River-on.png",
+      "bytes": 102774,
+      "sha256": "ad6c641115ccee86648d6f8ddab2f1784e04374354b7cac062aafd8ddd9083de"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11/River-restored.png",
+      "bytes": 102774,
+      "sha256": "ad6c641115ccee86648d6f8ddab2f1784e04374354b7cac062aafd8ddd9083de"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11.stderr.log",
+      "bytes": 366,
+      "sha256": "79e8960a9ee6400ab5d7fbb8ff4bc4d10d0a548cf67370ce6ba55d4bf7689add"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX11.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX12/Player.log",
+      "bytes": 36138,
+      "sha256": "c38b9804495a220e347a3ed8f819ede17aa03ce2818d7ba4a797a10171900c67"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX12/report.json",
+      "bytes": 15660,
+      "sha256": "a87b613074403ad01e2152f3e1cbbd760ff8ea00535a4313dbc95ab0a1f82135"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX12/River-off.png",
+      "bytes": 103465,
+      "sha256": "ab40ec9fd24b6693171401c36ac112af96754e951e230349cbcf81f0c2d600ef"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX12/River-on.png",
+      "bytes": 102826,
+      "sha256": "90c0345112b184a79dfaf8dc30b1634083e6052416138eb9cb1ae06ddc11e3ac"
+    },
+    {
+      "path": "Evidence/P11-Examples-DX12/River-restored.png",
+      "bytes": 102826,
+      "sha256": "90c0345112b184a79dfaf8dc30b1634083e6052416138eb9cb1ae06ddc11e3ac"
+    },
+    {
+      "path": "Evidence/P11-Examples-focus.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Evidence/P11-Examples-focus.stdout.log",
+      "bytes": 135,
+      "sha256": "7aa4e1508c38ef241ca3fa0163b36f79793bb1abde3f91ca3410be75899d6334"
+    },
+    {
+      "path": "Evidence/P11-Examples-input-focused-DX11.log",
+      "bytes": 76694,
+      "sha256": "759181e9cc61220b8b82c644d0bbc43b3d3392fa82c22e5875a7a31b835112ec"
+    },
+    {
+      "path": "Evidence/P11-Examples-input-focused-DX12.log",
+      "bytes": 60475,
+      "sha256": "187a67c3c5c9feb7d24ca2fa7a008ad7fdd2820b867ecebca4bb1ce265cb4b7e"
+    },
+    {
+      "path": "Evidence/P11-Examples-milestone.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Evidence/P11-Examples-milestone.stdout.log",
+      "bytes": 5667,
+      "sha256": "57cd9f21974420c0fcbf7c3a16287630b6a9ccb9d4f5f48ced487218ae8023fb"
+    },
+    {
+      "path": "Evidence/P11-Examples-sphere-focused-DX11.log",
+      "bytes": 80660,
+      "sha256": "ae65abbf41789ee69e3b9b8b221b53afdb0c71706b9e4c223cbc31386db203e5"
+    },
+    {
+      "path": "Evidence/P11-Fill-Direct3D11-reference.shader.txt",
+      "bytes": 19668,
+      "sha256": "214b1364d010435a03501c3dc0e0449fee6e15531932853e2f4a5bde3e42c319"
+    },
+    {
+      "path": "Evidence/P11-Fill-Direct3D11.txt",
+      "bytes": 3718,
+      "sha256": "3a4e2fb7dbe241d5bef8852a0d6a473a018ac4f28b7e264232e95f845d18774b"
+    },
+    {
+      "path": "Evidence/P11-Fill-Direct3D12-reference.shader.txt",
+      "bytes": 19668,
+      "sha256": "214b1364d010435a03501c3dc0e0449fee6e15531932853e2f4a5bde3e42c319"
+    },
+    {
+      "path": "Evidence/P11-Fill-Direct3D12.txt",
+      "bytes": 3718,
+      "sha256": "4178fa86ae4ff8c3009a42f7d1e814ce67c391631efb399178b78fb7ea6f9aa7"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D11-trial0-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "b39fde1f1a57e0cb1b73956b3d8178543ed3ca26054864b437b710ad7c61f336"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D11-trial1-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "fd70e275128baab82761eb91e5ad4d4938626ff732d6f6d9ad4773fd5d9516ce"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D11-trial2-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "d48fda9db9636854ebc5a0d7d03b53de6f50114d258054a28c11efba030f77b6"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D11-trial3-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "b39fde1f1a57e0cb1b73956b3d8178543ed3ca26054864b437b710ad7c61f336"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D11.txt",
+      "bytes": 1081,
+      "sha256": "4ceda833b8286fa21c0175dee2b0f0b30103e507598c383151bf2e63f3eb8860"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D12-trial0-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "b39fde1f1a57e0cb1b73956b3d8178543ed3ca26054864b437b710ad7c61f336"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D12-trial1-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "fd70e275128baab82761eb91e5ad4d4938626ff732d6f6d9ad4773fd5d9516ce"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D12-trial2-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "d48fda9db9636854ebc5a0d7d03b53de6f50114d258054a28c11efba030f77b6"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D12-trial3-lod0.bin",
+      "bytes": 1179648,
+      "sha256": "b39fde1f1a57e0cb1b73956b3d8178543ed3ca26054864b437b710ad7c61f336"
+    },
+    {
+      "path": "Evidence/P11-Whirlpool-Direct3D12.txt",
+      "bytes": 1081,
+      "sha256": "4ceda833b8286fa21c0175dee2b0f0b30103e507598c383151bf2e63f3eb8860"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Buoyancy.png",
+      "bytes": 523862,
+      "sha256": "1b994165889ac4baad01625e993d1babb8017f57d729986ffaeafa0d8f3b8ca6"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Calm.png",
+      "bytes": 549588,
+      "sha256": "8b3014294f2d6fe7201d6ffa03bf23e769de3bb22c99d0b8c1eb94134dc97847"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Interactions.png",
+      "bytes": 549689,
+      "sha256": "386ccc443b9b0c1ad07eb000fa99147398c8c717b14177b6aec97ee52abb776c"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Reflections.png",
+      "bytes": 543541,
+      "sha256": "dcd785557f67492b3ac7118a901f57a7cc1e02596ba44369cf69b8506a19ce60"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Storm.png",
+      "bytes": 510203,
+      "sha256": "c1840d1e71d2a8c54056e2fe4eb9d5f7edc4286a97552ccdc56618ec7650efe5"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Underwater.png",
+      "bytes": 102218,
+      "sha256": "b9e4ddd6596d76fee22637c8f40f7db3f1ed01919ddf28d59f5ee3b0f9b22b9b"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Ocean_Waves.png",
+      "bytes": 600865,
+      "sha256": "e95e082a11d96d14a0da51665efe5fc908c5d715492ba292b391ca144223ce8d"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/player-smoke.txt",
+      "bytes": 1176,
+      "sha256": "56d719249ec882e5002a34e12c0699251366315f29c55e013abc44175b50ffec"
+    },
+    {
+      "path": "Evidence/Player-Development-DX11/Player.log",
+      "bytes": 7305,
+      "sha256": "46b4255d941bdddf499dabbf50a163a44aef6b06432d10aac57cf3f9ebb70d30"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Buoyancy.png",
+      "bytes": 525844,
+      "sha256": "d97b0966918fa50d00e7d324d4fa0aa1ef3509d14560bef0b34f4a037f8644a0"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Calm.png",
+      "bytes": 547597,
+      "sha256": "16fa21222536ff78717673b520a92daf4e13d0bdb6cbe45c0d13626a487c7823"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Interactions.png",
+      "bytes": 547834,
+      "sha256": "9aa972bda21f41ec5c40b7cf956d9aa71b2d8dc37c285a6e3872b20a6d221257"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Reflections.png",
+      "bytes": 537314,
+      "sha256": "dea2ee85acf6eae7884fc59fa1dc92dcc8181a81d3a02f6d6d307beb7bfb7b4a"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Storm.png",
+      "bytes": 508460,
+      "sha256": "0f53cd9f94db2988d4586f773537566b4f1c8158ffbc48ded75373a165c12635"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Underwater.png",
+      "bytes": 102893,
+      "sha256": "df4bd1f06902004f1e15a70ad961899849cd7780080982daa00a8c2198dcd9d1"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Ocean_Waves.png",
+      "bytes": 601239,
+      "sha256": "861eca34bdca42d50474669c6a90160e9021a3f70072f592fa5db27a278dbe28"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/player-smoke.txt",
+      "bytes": 1174,
+      "sha256": "ff0b7d95ccffd528a4a7d222aa2aaafd0bf7799cedfe3bbb2f02cb9a33622e15"
+    },
+    {
+      "path": "Evidence/Player-Development-DX12/Player.log",
+      "bytes": 7424,
+      "sha256": "6f73f2902a071f3cd343436296db149c67d24d7a22649cf8625aa963505e00ec"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Buoyancy.png",
+      "bytes": 524714,
+      "sha256": "a83fef9e7c284b961fc96a98c1459d9966f95ffde39560c9d42a9d3b03a991d2"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Calm.png",
+      "bytes": 549761,
+      "sha256": "26af3e4cecb64fff205f80e6c9eeb6cd934ac5b7dc9170bcbf03c4b17d40117d"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Interactions.png",
+      "bytes": 550271,
+      "sha256": "a2cbb61fe5d4bf431dd3b2f2e1c04f7b9162bce149e2a7497e9d8f28c862fad4"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Reflections.png",
+      "bytes": 542951,
+      "sha256": "ce281894899e3375a9cee09146e981be9296f215fa3224f45a65417cd7344d07"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Storm.png",
+      "bytes": 510441,
+      "sha256": "625e52ccaa44bc27750fa410d18e2d3677ebce2a84bd735c5e8517cf18689508"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Underwater.png",
+      "bytes": 102239,
+      "sha256": "34a8f7962b877dc5d911a4bfa098f4367fadacddb53c98b41533dba4d938dfe8"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Ocean_Waves.png",
+      "bytes": 601311,
+      "sha256": "be3653e5a7e3d3471227d20db20f18c8d8aed57a0b97c3fed33cb1e8a6718de5"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/player-smoke.txt",
+      "bytes": 1176,
+      "sha256": "996ca6fae0ec4eec11f5ff0c64f29ce2cb67befe6109f9068024b66bf851d49d"
+    },
+    {
+      "path": "Evidence/Player-Release-DX11/Player.log",
+      "bytes": 4386,
+      "sha256": "5e4b15dfc6a766d1d3783b76fba67a13d60fe7ef2fa43faad3a13d7c6299d025"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Buoyancy.png",
+      "bytes": 525036,
+      "sha256": "5bb4cc993cc92284d332e61235664316f8e6cb420f3afc0cf7a600bedd56c0ef"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Calm.png",
+      "bytes": 548981,
+      "sha256": "f9fe8a6fbeadd671bc3c3979b6a3533776e240330bb913b7beb843c6b2bc8e73"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Interactions.png",
+      "bytes": 549092,
+      "sha256": "5cf5852dbc3412b692fc0fdc1c1e9acd5defebd6a9a72e176c004be7ad30785d"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Reflections.png",
+      "bytes": 537119,
+      "sha256": "98d87a43276b8a28dfe4e73a5dae5b4247fd37d5bbce12abcceb6f2e1beafe08"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Storm.png",
+      "bytes": 508357,
+      "sha256": "1c470618b00fd3e0f85764b13eb57c50dbf3d50594e512b1ad78ec5a18107907"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Underwater.png",
+      "bytes": 103250,
+      "sha256": "3136204070bbe341d7f82c4e2a57c6fc0e4e3895d61d9ffc5935df8a3df56fb6"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Ocean_Waves.png",
+      "bytes": 601378,
+      "sha256": "fe51d0706bc514ed876e73c059b06d2a1515afba9f29f6ca4098576f94b74997"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/player-smoke.txt",
+      "bytes": 1178,
+      "sha256": "bcdd06f98f5584e11da10e573d0caacd3c489c2ca4f4e5d580cabc2f496c60bf"
+    },
+    {
+      "path": "Evidence/Player-Release-DX12/Player.log",
+      "bytes": 4508,
+      "sha256": "be06f43acf9763364e400c528b518ba41647cf5e378be5a458860d14b853c1a7"
+    },
+    {
+      "path": "Evidence/QueryContract-Direct3D11.txt",
+      "bytes": 16384,
+      "sha256": "fb5563b4b225a88da854d038bea14e55cb2ec17406c2c4f265ae795a37c54a5a"
+    },
+    {
+      "path": "Evidence/QueryContract-Direct3D12.txt",
+      "bytes": 16681,
+      "sha256": "ce2bc5a92d2f47b6aaaaacdf865a4e7773361956404b085cc91dd4e31eef18b8"
+    },
+    {
+      "path": "Evidence/RayQuery-Direct3D11.txt",
+      "bytes": 9219,
+      "sha256": "20f95c140abb494c31a8ee4efba64d31ccb9977ae4eba143c8319447baf21f0d"
+    },
+    {
+      "path": "Evidence/RayQuery-Direct3D12.txt",
+      "bytes": 9200,
+      "sha256": "a946e0da9685e33d9f13fcbe33a5a28bed10fbfbdce80441ddbbbdbc42551141"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-pixel-after-Direct3D11.png",
+      "bytes": 41895,
+      "sha256": "d11a70b6dbb688bdd2fb166b71d8006a7768ce05134af366f09e78287696758a"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-pixel-after-Direct3D12.png",
+      "bytes": 42107,
+      "sha256": "4ea7e09daa3a6e38930b24b7ea2667eafe69b20a07ed4dbb7c8a0e96b9e1b7f7"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-pixel-before-Direct3D11.png",
+      "bytes": 41912,
+      "sha256": "f9af929b3cf3f72d9ed935b5e5f8343f2684b52bc4fe5c55b1e9f71870690451"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-pixel-before-Direct3D12.png",
+      "bytes": 41728,
+      "sha256": "89133546edc770ba10692aed52db2134a437f225ac58e2c64e8f2fb24f1b3073"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-shadow-after-Direct3D11.png",
+      "bytes": 47588,
+      "sha256": "f60d030147458b3360cead1548b05291c12519492cad4e92011daefee2f8644c"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-shadow-after-Direct3D12.png",
+      "bytes": 47176,
+      "sha256": "e8fb478e634fa1d04479435764e3dd0f0f1be4a26f2a3a8186c7b25f96ca41b6"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-shadow-before-Direct3D11.png",
+      "bytes": 47089,
+      "sha256": "7a020600adbac4ac9b0fcbf59ab96c8b9828f68b0e89815e615eb1b301f004fd"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Main-shadow-before-Direct3D12.png",
+      "bytes": 47520,
+      "sha256": "eda7acf29de4b5392798882c1f428573457558f4847c49875f2a027827f05414"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Resized-main-Direct3D11.png",
+      "bytes": 104288,
+      "sha256": "1fc0c2781a0e7b495fbf4552fb83e189bfd893785defe9e5967c2d018cbe8351"
+    },
+    {
+      "path": "Evidence/ReflectionOptions-Resized-main-Direct3D12.png",
+      "bytes": 104632,
+      "sha256": "67aadbc5de23d7eccccab2342aabfd0c976ad63a8a754f00663dd7eaeb25c83c"
+    },
+    {
+      "path": "Evidence/Release-DX11.log",
+      "bytes": 623245,
+      "sha256": "e9fcb1d024946aa2b0a61b64cea321643474638f3dad0436772bf3ceb005420f"
+    },
+    {
+      "path": "Evidence/ResourceLifecycle-Direct3D11.txt",
+      "bytes": 1421,
+      "sha256": "2662ac7021341f5ddf0489ed6a5133dc6b5123d3e4990f3048ca1803f3007e8f"
+    },
+    {
+      "path": "Evidence/ResourceLifecycle-Direct3D12.txt",
+      "bytes": 1415,
+      "sha256": "c85b75a4caac674220d7beb88210d6da87c209bce9ed675ac2e7da7d53e4afd7"
+    },
+    {
+      "path": "Evidence/ResourceLifecycle-QueryRecovery-Direct3D11.txt",
+      "bytes": 71,
+      "sha256": "5271ef9f7cf24f3493e4c8dbf0673c8eed250fbbc2192061ca9dfe38e5d11ee9"
+    },
+    {
+      "path": "Evidence/ResourceLifecycle-QueryRecovery-Direct3D12.txt",
+      "bytes": 71,
+      "sha256": "f7c0c77e8014c206389d527bfa9ed0fc7fbc2b92c2fe6070a630a8176daaf591"
+    },
+    {
+      "path": "Evidence/ValidateAssets-DX11.log",
+      "bytes": 51585,
+      "sha256": "fde22ffeebfd345e87407029a6dfd78119daa80cc290d0867f7f70813b7adc10"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.dll",
+      "bytes": 400896,
+      "sha256": "26b68c6d1a1e99f2cbce7ff682dac79b44c6e28ebb2d4fe4b7ac8cbafd0739c1"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.Examples.dll",
+      "bytes": 43008,
+      "sha256": "6bc5abdcda137af09d2b45dea930f50817cb78c5648ea3c4bc16aca3c2cc35fa"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.Helpers.Editor.dll",
+      "bytes": 11776,
+      "sha256": "ffb4432cbb596a2ccc0862a3471f9080e82316d9269d5974add3ecddd9109fe8"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.URP.dll",
+      "bytes": 24576,
+      "sha256": "1f2e662fc4dd23b4b45db132aca84b7f051b5a1074dd6e1b374318741831a4eb"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.URP.Editor.dll",
+      "bytes": 28160,
+      "sha256": "3f07803f9c9689a7c8ad0a43f57644a55c619033d93518596fb7f21907086b83"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.URP.Interactive.Tests.dll",
+      "bytes": 36352,
+      "sha256": "4ab825cc497946f2b5fc10c1e3a5987516365f114c16847253229350cc242b80"
+    },
+    {
+      "path": "Library/ScriptAssemblies/Crest.URP.Tests.dll",
+      "bytes": 752128,
+      "sha256": "2cc4d0bf95501b557e535aaad69aaaec88115f4460ed8f6e92f6225373cd5b9a"
+    }
+  ],
+  "organizationCorrection": "Own diagnostic ancestor directories were initially misclassified by a basename-only historical-file filter. Both current API folders restored byte-for-byte from accepted raw archive; report hashes match measured summary. No rerun/relabeling. Removed duplicate own files from foreign-before snapshot; filters now exclude own prefixed ancestor directories."
+}
