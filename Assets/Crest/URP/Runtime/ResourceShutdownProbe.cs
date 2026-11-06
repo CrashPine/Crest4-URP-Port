@@ -71,6 +71,10 @@ namespace Crest.URP.Diagnostics
             {
                 yield return ActiveOwners();yield break;
             }
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestStableGpu") >= 0)
+            {
+                yield return StableGpuWindow(mode);yield break;
+            }
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestCounterCapability") >= 0)
             {
                 yield return CounterCapability(mode);yield break;

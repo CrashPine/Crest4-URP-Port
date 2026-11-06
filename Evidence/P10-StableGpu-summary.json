@@ -1,0 +1,319 @@
+{
+  "protocol": {
+    "scope": "Frozen Calm surface draw cost only; simulation retained, fixed camera/resolution960x540, vsync0 target60. Diagnostic-only code. One bounded A-B-A/API; no retry absent new causal evidence.",
+    "gates": {
+      "samplesPerPhaseMin": 300,
+      "focusedFractionMin": 0.99,
+      "positiveUniqueGpuFractionMin": 0.8,
+      "renderSampleMismatchMax": 1,
+      "baselineGpuMedianRelativeDriftMax": 0.05,
+      "allPhaseGraphicsClockMedianRelativeSpreadMax": 0.1,
+      "baselineTemperatureMedianDeltaMaxC": 3,
+      "drawRestoration": "exact median and positive visible-surface delta"
+    },
+    "normalArtifactsBefore": [
+      {
+        "path": "Builds/Development/CrestPort_Data/Managed/Crest.dll",
+        "sha256": "2836D319D6BAB4FAE5F9DDEAE6F40A98DF6EF7FCFE35B1E4B8804D1AB19E65A5"
+      },
+      {
+        "path": "Builds/Development/CrestPort_Data/Managed/Crest.URP.dll",
+        "sha256": "F225AC994DAFA7C0200E3770A9D20CDB84CD9CE628C344CD57D81C65E9EC4DF0"
+      },
+      {
+        "path": "Builds/Development/CrestPort_Data/Managed/Crest.Examples.dll",
+        "sha256": "239E31A295771C6D475A0D148F6F98D630FF330839685F0ECC68EABA88D755D7"
+      },
+      {
+        "path": "Builds/Release/CrestPort_Data/Managed/Crest.dll",
+        "sha256": "7A186EA44FB4D78229CD7EB8A4DE3A132D309EF38C4DFAB80C78FE46259F65B6"
+      },
+      {
+        "path": "Builds/Release/CrestPort_Data/Managed/Crest.URP.dll",
+        "sha256": "7BE8ED558A58C46CB2611C8D87B6916607CA66381EC82F33000971C7609545F2"
+      },
+      {
+        "path": "Builds/Release/CrestPort_Data/Managed/Crest.Examples.dll",
+        "sha256": "511374C347D0838AFAD85A3BF4888E29DDEC2A4CAC44E2F4D86FF8ACBE439CE6"
+      },
+      {
+        "path": "Builds/Development/CrestPort_Data/resources.assets",
+        "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688"
+      },
+      {
+        "path": "Builds/Development/CrestPort_Data/sharedassets0.assets",
+        "sha256": "DCE5A6DD6D605C5F69542844C9F81FAD128E7B5E86CA5777DE11AC6086F9FC0B"
+      },
+      {
+        "path": "Builds/Development/CrestPort_Data/globalgamemanagers",
+        "sha256": "B678AFC5E6612A9053E0FE30F34CF0D5EE5152D53AD61E23C57A379CC42F8D84"
+      },
+      {
+        "path": "Builds/Release/CrestPort_Data/resources.assets",
+        "sha256": "EB8D740C93F288B56F42FA0318E92AB068A0A065C098F88715DEA3B959DD4825"
+      },
+      {
+        "path": "Builds/Release/CrestPort_Data/sharedassets0.assets",
+        "sha256": "A8D9A6ABC78A6A4BC3520DFE39F62328E478E15E6FB3916676E416557083FB4F"
+      },
+      {
+        "path": "Builds/Release/CrestPort_Data/globalgamemanagers",
+        "sha256": "0ED274E57CF563B2F8821B7EFDFE9AFC1F0F2F453291F868D167CEE74B86C4B1"
+      }
+    ]
+  },
+  "results": [
+    {
+      "api": "DX11",
+      "phases": [
+        {
+          "name": "A0_hidden",
+          "samples": 600,
+          "focusedFraction": 1.0,
+          "freshPositiveGpuFraction": 1.0,
+          "renderSampleMismatch": 0,
+          "gpuMedianMs": 4.332544,
+          "gpuP95Ms": 4.399104,
+          "counterMedians": [
+            4332544.0,
+            37.0,
+            1740.0,
+            5192.0
+          ],
+          "clockMedianMHz": 513.5,
+          "clockRangeMHz": [
+            427.0,
+            667.0
+          ],
+          "temperatureMedianC": 51.0,
+          "telemetrySamples": 20,
+          "loadKnownSamples": 20,
+          "powerKnownSamples": 20,
+          "loadMedianPercent": 35.0,
+          "powerMedianW": 8.62,
+          "sampleGates": true
+        },
+        {
+          "name": "B_surface",
+          "samples": 597,
+          "focusedFraction": 0.3969849246231156,
+          "freshPositiveGpuFraction": 0.998324958123953,
+          "renderSampleMismatch": 0,
+          "gpuMedianMs": 2.71616,
+          "gpuP95Ms": 6.183936,
+          "counterMedians": [
+            2702336.0,
+            97.0,
+            277456.0,
+            148862.0
+          ],
+          "clockMedianMHz": 663.5,
+          "clockRangeMHz": [
+            420.0,
+            960.0
+          ],
+          "temperatureMedianC": 52.0,
+          "telemetrySamples": 20,
+          "loadKnownSamples": 20,
+          "powerKnownSamples": 20,
+          "loadMedianPercent": 25.0,
+          "powerMedianW": 12.809999999999999,
+          "sampleGates": false
+        },
+        {
+          "name": "A1_hidden",
+          "samples": 600,
+          "focusedFraction": 0.0,
+          "freshPositiveGpuFraction": 1.0,
+          "renderSampleMismatch": 0,
+          "gpuMedianMs": 4.330496,
+          "gpuP95Ms": 4.39808,
+          "counterMedians": [
+            4330496.0,
+            37.0,
+            1740.0,
+            5192.0
+          ],
+          "clockMedianMHz": 513.5,
+          "clockRangeMHz": [
+            427.0,
+            675.0
+          ],
+          "temperatureMedianC": 53.0,
+          "telemetrySamples": 20,
+          "loadKnownSamples": 20,
+          "powerKnownSamples": 20,
+          "loadMedianPercent": 35.0,
+          "powerMedianW": 8.8,
+          "sampleGates": false
+        }
+      ],
+      "baselineDriftFraction": 0.00047270148900975306,
+      "clockSpreadFraction": 0.2921129503407984,
+      "drawMedians": [
+        37.0,
+        97.0,
+        37.0
+      ],
+      "gates": {
+        "samples": false,
+        "baselineDrift": true,
+        "graphicsClocks": false,
+        "temperature": true,
+        "drawRestoration": true
+      },
+      "attributionAccepted": false,
+      "visibleSurfaceMedianDifferenceMs": null
+    },
+    {
+      "api": "DX12",
+      "phases": [
+        {
+          "name": "A0_hidden",
+          "samples": 600,
+          "focusedFraction": 1.0,
+          "freshPositiveGpuFraction": 1.0,
+          "renderSampleMismatch": 0,
+          "gpuMedianMs": 0.487424,
+          "gpuP95Ms": 0.575232,
+          "counterMedians": [
+            487424.0,
+            36.0,
+            1738.0,
+            5188.0
+          ],
+          "clockMedianMHz": 705.0,
+          "clockRangeMHz": [
+            420.0,
+            757.0
+          ],
+          "temperatureMedianC": 58.0,
+          "telemetrySamples": 20,
+          "loadKnownSamples": 20,
+          "powerKnownSamples": 20,
+          "loadMedianPercent": 39.0,
+          "powerMedianW": 7.29,
+          "sampleGates": true
+        },
+        {
+          "name": "B_surface",
+          "samples": 600,
+          "focusedFraction": 1.0,
+          "freshPositiveGpuFraction": 1.0,
+          "renderSampleMismatch": 0,
+          "gpuMedianMs": 1.6192,
+          "gpuP95Ms": 2.321664,
+          "counterMedians": [
+            1619200.0,
+            96.0,
+            277454.0,
+            148858.0
+          ],
+          "clockMedianMHz": 540.0,
+          "clockRangeMHz": [
+            375.0,
+            1035.0
+          ],
+          "temperatureMedianC": 60.0,
+          "telemetrySamples": 19,
+          "loadKnownSamples": 19,
+          "powerKnownSamples": 19,
+          "loadMedianPercent": 27.0,
+          "powerMedianW": 11.8,
+          "sampleGates": true
+        },
+        {
+          "name": "A1_hidden",
+          "samples": 600,
+          "focusedFraction": 1.0,
+          "freshPositiveGpuFraction": 1.0,
+          "renderSampleMismatch": 0,
+          "gpuMedianMs": 0.5466880000000001,
+          "gpuP95Ms": 0.599552,
+          "counterMedians": [
+            546688.0,
+            36.0,
+            1738.0,
+            5188.0
+          ],
+          "clockMedianMHz": 465.0,
+          "clockRangeMHz": [
+            382.0,
+            1695.0
+          ],
+          "temperatureMedianC": 60.0,
+          "telemetrySamples": 20,
+          "loadKnownSamples": 20,
+          "powerKnownSamples": 20,
+          "loadMedianPercent": 40.0,
+          "powerMedianW": 7.72,
+          "sampleGates": true
+        }
+      ],
+      "baselineDriftFraction": 0.12158613445378158,
+      "clockSpreadFraction": 0.5161290322580645,
+      "drawMedians": [
+        36.0,
+        96.0,
+        36.0
+      ],
+      "gates": {
+        "samples": true,
+        "baselineDrift": false,
+        "graphicsClocks": false,
+        "temperature": true,
+        "drawRestoration": true
+      },
+      "attributionAccepted": false,
+      "visibleSurfaceMedianDifferenceMs": null
+    }
+  ],
+  "limitation": "One bounded frozen-Calm surface A-B-A/API, complete-frame observations; no full-asset GPU cost/API ranking/FPS/physical VRAM acceptance. Rejected gates retained.",
+  "recordedUtc": "2026-11-06T09:37:32.142287+00:00",
+  "validation": "Bounded measurements complete; isolated GPU attribution REJECTED on both APIs by original gates",
+  "normalArtifactsVerified": 12,
+  "normalRuntimeAndMaterialSourcesVerified": true,
+  "normalCheckpointContentUnchangedAfterEOLNormalization": true,
+  "normalBuildCheckpointSHA256": "8118AD627F43BCB4F731CE11549FF06513C6A1F09638BA42C6437D2CA3224E25",
+  "originalPreservation": {
+    "check": "Original asset GUIDs and compute shader bytes",
+    "checked": 597,
+    "status": "PASSED",
+    "failures": [],
+    "changedMetadata": [
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+      "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+    ],
+    "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+  },
+  "criticalWarnings": {
+    "build": {
+      "compileErrors": 0,
+      "shaderErrors": 0,
+      "renderData": 0,
+      "persistent": 0,
+      "evictable": 0
+    },
+    "DX11": {
+      "compileErrors": 0,
+      "shaderErrors": 0,
+      "renderData": 0,
+      "persistent": 0,
+      "evictable": 0
+    },
+    "DX12": {
+      "compileErrors": 0,
+      "shaderErrors": 0,
+      "renderData": 0,
+      "persistent": 0,
+      "evictable": 0
+    }
+  },
+  "workspaceAudit": {
+    "path": "Evidence/workspace-audit.json",
+    "sha256": "2819E4C6FB82149090E2F64B7B6697F62D507AF8056ADD0429A31FBAB190D7D9",
+    "fileCount": 1405,
+    "rootMarkdownCount": 8
+  }
+}

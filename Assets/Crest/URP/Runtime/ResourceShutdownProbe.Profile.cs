@@ -176,6 +176,99 @@ namespace Crest.URP.Diagnostics
             File.WriteAllText(Argument("-crestProbeOutput","CounterCapability.json"),JsonUtility.ToJson(result,true));
             Debug.Log("COUNTER_CAPABILITY_COMPLETED errors="+_errors);Application.Quit(_errors==0?0:1);
         }
+
+        sealed class StableTime : ITimeProvider
+        {
+            public float CurrentTime => 123.5f;
+            public float DeltaTime => 0;
+            public float DeltaTimeDynamics => 0;
+        }
+        [Serializable] class StableSample
+        {
+            public int frame;public long utcTicks,renders;public bool focused,freshTiming;
+            public double[] counters;public ulong timestamp;public double gpuMs,cpuMs;
+        }
+        [Serializable] class StablePhase
+        {
+            public string name;public bool surfaceVisible;public double startUnixSeconds,endUnixSeconds;
+            public int width,height,tiles;public StableSample[] samples;
+        }
+        [Serializable] class StableResult
+        {
+            public string unity,api,gpu,method;public int errors,width,height,vsync,targetFrameRate,lods,resolution;
+            public float fixedTime;public CounterInfo[] counters;public StablePhase[] phases;
+        }
+        IEnumerator StableGpuWindow(string mode)
+        {
+            if(Application.isBatchMode||mode!="Ocean")throw new InvalidOperationException("Stable GPU window requires visible non-batch Ocean mode");
+            QualitySettings.vSyncCount=0;Application.targetFrameRate=60;
+            foreach(var controller in FindObjectsByType<PortDemoController>(FindObjectsSortMode.None))controller.enabled=false;
+            _profileCamera=Camera.main;_profileCamera.enabled=true;
+            _profileCamera.transform.SetPositionAndRotation(new Vector3(0,5,-15),Quaternion.LookRotation(new Vector3(0,-3,15)));
+            _profileCamera.aspect=(float)Screen.width/Screen.height;
+            var ocean=OceanRenderer.Instance;ocean.ViewCamera=_profileCamera;
+            var time=new StableTime();ocean.PushTimeProvider(time);
+            var renderers=ocean.Root.GetComponentsInChildren<Renderer>(true);
+            var handles=new List<ProfilerRecorderHandle>();ProfilerRecorderHandle.GetAvailable(handles);
+            var available=handles.Select(h=>ProfilerRecorderHandle.GetDescription(h)).ToArray();
+            var counters=new List<Counter>();var selected=new List<CounterInfo>();
+            foreach(var name in new[]{"GPU Frame Time","Draw Calls Count","Triangles Count","Vertices Count"})
+            {
+                int i=Array.FindIndex(available,d=>d.Name==name&&d.Category.Name=="Render");
+                if(i<0)throw new InvalidOperationException("Missing accepted Render counter: "+name);
+                var d=available[i];var recorder=new ProfilerRecorder(handles[i],1,ProfilerRecorderOptions.Default);recorder.Start();
+                counters.Add(new Counter{recorder=recorder,floating=d.DataType.ToString().Contains("Double")||d.DataType.ToString().Contains("Float")});
+                selected.Add(new CounterInfo{name=d.Name,category=d.Category.Name,unit=d.UnitType.ToString(),dataType=d.DataType.ToString()});
+            }
+            var phases=new List<StablePhase>();var timings=new FrameTiming[1];ulong lastTimestamp=0;
+            RenderPipelineManager.endCameraRendering+=CountRender;
+            try
+            {
+                // Prewarm the visible surface before starting either baseline.
+                double warm=Time.realtimeSinceStartupAsDouble;
+                while(Time.realtimeSinceStartupAsDouble-warm<20){FrameTimingManager.CaptureFrameTimings();yield return null;}
+                for(int phase=0;phase<3;phase++)
+                {
+                    bool visible=phase==1;
+                    foreach(var renderer in renderers)renderer.forceRenderingOff=!visible;
+                    warm=Time.realtimeSinceStartupAsDouble;
+                    while(Time.realtimeSinceStartupAsDouble-warm<5){FrameTimingManager.CaptureFrameTimings();yield return null;}
+                    var samples=new List<StableSample>(1024);double start=Time.realtimeSinceStartupAsDouble;
+                    var data=new StablePhase{name=phase==0?"A0_hidden":phase==1?"B_surface":"A1_hidden",surfaceVisible=visible,
+                        startUnixSeconds=(DateTime.UtcNow.Ticks-621355968000000000L)/10000000.0,width=Screen.width,height=Screen.height,tiles=renderers.Length};
+                    while(Time.realtimeSinceStartupAsDouble-start<10)
+                    {
+                        FrameTimingManager.CaptureFrameTimings();yield return null;
+                        var sample=new StableSample{frame=Time.frameCount,utcTicks=DateTime.UtcNow.Ticks,focused=Application.isFocused,renders=_mainRenders,counters=new double[counters.Count]};
+                        for(int i=0;i<counters.Count;i++)
+                        {
+                            var c=counters[i];sample.counters[i]=!c.recorder.Valid||c.recorder.Count==0?-1:c.floating?c.recorder.LastValueAsDouble:c.recorder.LastValue;
+                        }
+                        if(FrameTimingManager.GetLatestTimings(1,timings)>0)
+                        {
+                            sample.timestamp=timings[0].frameStartTimestamp;sample.gpuMs=timings[0].gpuFrameTime;sample.cpuMs=timings[0].cpuFrameTime;
+                            sample.freshTiming=sample.timestamp!=lastTimestamp;lastTimestamp=sample.timestamp;
+                        }
+                        if(samples.Count>=4096)throw new InvalidOperationException("Stable window sample bound exceeded");samples.Add(sample);
+                    }
+                    data.endUnixSeconds=(DateTime.UtcNow.Ticks-621355968000000000L)/10000000.0;data.samples=samples.ToArray();phases.Add(data);
+                    Debug.Log("STABLE_GPU_PHASE "+data.name+" samples="+samples.Count);
+                }
+            }
+            finally
+            {
+                RenderPipelineManager.endCameraRendering-=CountRender;
+                foreach(var counter in counters)counter.recorder.Dispose();foreach(var renderer in renderers)if(renderer!=null)renderer.forceRenderingOff=false;
+                ocean.PopTimeProvider(time);
+            }
+            var result=new StableResult{unity=Application.unityVersion,api=SystemInfo.graphicsDeviceType.ToString(),gpu=SystemInfo.graphicsDeviceName,
+                method="Ordinary camera frames; frozen Calm; surface hidden-visible-hidden;20s prewarm/5s settle/10s samples per phase; simulation retained",
+                errors=_errors,width=Screen.width,height=Screen.height,vsync=QualitySettings.vSyncCount,targetFrameRate=Application.targetFrameRate,
+                lods=ocean.CurrentLodCount,resolution=ocean.LodDataResolution,fixedTime=123.5f,counters=selected.ToArray(),phases=phases.ToArray()};
+            File.WriteAllText(Argument("-crestProbeOutput","StableGpu.json"),JsonUtility.ToJson(result,true));
+            Debug.Log("STABLE_GPU_COMPLETED errors="+_errors);Application.Quit(_errors==0?0:1);
+        }
+
         static long ThreadAllocated()
         {
             try{return GC.GetAllocatedBytesForCurrentThread();}
