@@ -1,0 +1,715 @@
+{
+  "scope": "P11.3-F finite compiled NonDirectional0/CombinedDirectional1 source3 materials scoped Passed/API; wholeP11/port unfinished. Not all lighting/reference/XR/performance/leak-free acceptance.",
+  "recordedUtc": "2026-11-07T20:36:25.831089+00:00",
+  "rows": [
+    {
+      "api": "DX11",
+      "report": "Evidence/P11-Lightmaps-DX11/report.json",
+      "sha256": "f4d64199b908b7d3269d5d6ad1dba1a04d894e7aec49fef9fca1280fc05ae525",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scope": "P11.3-F finite compiled NonDirectional/CombinedDirectional CPU-baked fixture; three source material clones and individual/all lightmap binding controls, serialized bindings, strict matching. No original scene flags/rebake, all lighting/XR/performance/leak-free acceptance.",
+        "failure": "",
+        "errors": 0,
+        "provenance": {
+          "unity": "6000.6.5f1",
+          "scope": "F finite two-mode compiled retention fixture; original material flags retained, owned ContributeGI/UV2 meshes. No original scene rebake or full lighting acceptance.",
+          "scenes": [
+            {
+              "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/NonDirectional/Bake.unity",
+              "sceneGuid": "7d9d24fdc92a9b84582ab8f7b074a28f",
+              "mode": "NonDirectional",
+              "backend": "ProgressiveCPU",
+              "lightingDataGuid": "34eeb0eccf102234fa476f93da5e6ae1",
+              "modeValue": 0,
+              "colorGuids": [
+                "a124ad4a72bee244aaefd1a312741903"
+              ],
+              "directionGuids": [
+                ""
+              ],
+              "receivers": [
+                {
+                  "name": "Examples_Material_MaskedWhite",
+                  "materialGuid": "6dc89852dd08a95479ad201ffea1e3dc",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4173770844936371,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_MaskedNavalMine",
+                  "materialGuid": "39b2ca9ef3e3aef4f97f6f6557137ea2",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4720645844936371,
+                    "w": 0.0033145907800644636
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_TransparentWithUnderwaterFog",
+                  "materialGuid": "4cb396b4a79587f4c846bfd9119330b1",
+                  "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 2,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.24550208449363708,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Lit floor reference",
+                  "materialGuid": "ad5750087a482024d8c6ba14b722debe",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 5,
+                  "st": {
+                    "x": 0.6776064038276672,
+                    "y": 0.6776054501533508,
+                    "z": 0.0012593499850481749,
+                    "w": 0.0012593537103384733
+                  },
+                  "shadowPass": true
+                }
+              ]
+            },
+            {
+              "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/CombinedDirectional/Bake.unity",
+              "sceneGuid": "274c6dd7b6c581143a5e3bcb12539e0d",
+              "mode": "CombinedDirectional",
+              "backend": "ProgressiveCPU",
+              "lightingDataGuid": "9458befb95a57ff47ae00c266a946ca1",
+              "modeValue": 1,
+              "colorGuids": [
+                "5655b1fd56e5bc246990ee3154946495"
+              ],
+              "directionGuids": [
+                "9433b852bbbefca4188ae84bca52da46"
+              ],
+              "receivers": [
+                {
+                  "name": "Examples_Material_MaskedWhite",
+                  "materialGuid": "fc4152f433e0b2c468ea161210dd59b5",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4720645844936371,
+                    "w": 0.0033145907800644636
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_MaskedNavalMine",
+                  "materialGuid": "8d80d74408a23d248867bf1600844087",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.24550208449363708,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_TransparentWithUnderwaterFog",
+                  "materialGuid": "8dc8b2624fdb14c4ab2520f3e244d6a3",
+                  "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 2,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4173770844936371,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Lit floor reference",
+                  "materialGuid": "f339023eef1ea654f9f948b1760f9ea4",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 5,
+                  "st": {
+                    "x": 0.6776064038276672,
+                    "y": 0.6776054501533508,
+                    "z": 0.0012593499850481749,
+                    "w": 0.0012593537103384733
+                  },
+                  "shadowPass": true
+                }
+              ]
+            }
+          ]
+        },
+        "rows": [
+          {
+            "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/NonDirectional/Bake.unity",
+            "mode": "NonDirectional",
+            "colorFormat": "R8G8B8A8_SRGB",
+            "depthFormat": "D32_SFloat_S8_UInt",
+            "modeValue": 0,
+            "width": 640,
+            "height": 360,
+            "samples": 1,
+            "atlases": 1,
+            "bright": 20436,
+            "allChanged": 20436,
+            "restored": 0,
+            "pink": 0,
+            "enabledLights": 0,
+            "renderScale": 1.0,
+            "directionalityMatches": true,
+            "serializedBindings": true,
+            "colors": [
+              "Lightmap-0_comp_light:RGB_BC6H_UFloat"
+            ],
+            "directions": [
+              "null"
+            ],
+            "receivers": [
+              {
+                "name": "Examples_Material_MaskedWhite",
+                "material": "Examples_Material_MaskedWhite",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 968,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4173770844936371,
+                  "w": 0.4720645844936371
+                }
+              },
+              {
+                "name": "Examples_Material_MaskedNavalMine",
+                "material": "Examples_Material_MaskedNavalMine",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1118,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4720645844936371,
+                  "w": 0.0033145907800644636
+                }
+              },
+              {
+                "name": "Examples_Material_TransparentWithUnderwaterFog",
+                "material": "Examples_Material_TransparentWithUnderwaterFog",
+                "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1300,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.24550208449363708,
+                  "w": 0.4720645844936371
+                }
+              }
+            ]
+          },
+          {
+            "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/CombinedDirectional/Bake.unity",
+            "mode": "CombinedDirectional",
+            "colorFormat": "R8G8B8A8_SRGB",
+            "depthFormat": "D32_SFloat_S8_UInt",
+            "modeValue": 1,
+            "width": 640,
+            "height": 360,
+            "samples": 1,
+            "atlases": 1,
+            "bright": 20436,
+            "allChanged": 20436,
+            "restored": 0,
+            "pink": 0,
+            "enabledLights": 0,
+            "renderScale": 1.0,
+            "directionalityMatches": true,
+            "serializedBindings": true,
+            "colors": [
+              "Lightmap-0_comp_light:RGB_BC6H_UFloat"
+            ],
+            "directions": [
+              "Lightmap-0_comp_dir:RGBA_BC7_UNorm"
+            ],
+            "receivers": [
+              {
+                "name": "Examples_Material_MaskedWhite",
+                "material": "Examples_Material_MaskedWhite",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 968,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4720645844936371,
+                  "w": 0.0033145907800644636
+                }
+              },
+              {
+                "name": "Examples_Material_MaskedNavalMine",
+                "material": "Examples_Material_MaskedNavalMine",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1118,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.24550208449363708,
+                  "w": 0.4720645844936371
+                }
+              },
+              {
+                "name": "Examples_Material_TransparentWithUnderwaterFog",
+                "material": "Examples_Material_TransparentWithUnderwaterFog",
+                "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1300,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4173770844936371,
+                  "w": 0.4720645844936371
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "unityImmediateLeakTelemetry": 1
+    },
+    {
+      "api": "DX12",
+      "report": "Evidence/P11-Lightmaps-DX12/report.json",
+      "sha256": "b0d69a91c1e08febff6a5bb6ddb0fd8e7a851b981ee8b2b823cd60abd73dbdbf",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scope": "P11.3-F finite compiled NonDirectional/CombinedDirectional CPU-baked fixture; three source material clones and individual/all lightmap binding controls, serialized bindings, strict matching. No original scene flags/rebake, all lighting/XR/performance/leak-free acceptance.",
+        "failure": "",
+        "errors": 0,
+        "provenance": {
+          "unity": "6000.6.5f1",
+          "scope": "F finite two-mode compiled retention fixture; original material flags retained, owned ContributeGI/UV2 meshes. No original scene rebake or full lighting acceptance.",
+          "scenes": [
+            {
+              "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/NonDirectional/Bake.unity",
+              "sceneGuid": "7d9d24fdc92a9b84582ab8f7b074a28f",
+              "mode": "NonDirectional",
+              "backend": "ProgressiveCPU",
+              "lightingDataGuid": "34eeb0eccf102234fa476f93da5e6ae1",
+              "modeValue": 0,
+              "colorGuids": [
+                "a124ad4a72bee244aaefd1a312741903"
+              ],
+              "directionGuids": [
+                ""
+              ],
+              "receivers": [
+                {
+                  "name": "Examples_Material_MaskedWhite",
+                  "materialGuid": "6dc89852dd08a95479ad201ffea1e3dc",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4173770844936371,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_MaskedNavalMine",
+                  "materialGuid": "39b2ca9ef3e3aef4f97f6f6557137ea2",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4720645844936371,
+                    "w": 0.0033145907800644636
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_TransparentWithUnderwaterFog",
+                  "materialGuid": "4cb396b4a79587f4c846bfd9119330b1",
+                  "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 2,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.24550208449363708,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Lit floor reference",
+                  "materialGuid": "ad5750087a482024d8c6ba14b722debe",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 5,
+                  "st": {
+                    "x": 0.6776064038276672,
+                    "y": 0.6776054501533508,
+                    "z": 0.0012593499850481749,
+                    "w": 0.0012593537103384733
+                  },
+                  "shadowPass": true
+                }
+              ]
+            },
+            {
+              "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/CombinedDirectional/Bake.unity",
+              "sceneGuid": "274c6dd7b6c581143a5e3bcb12539e0d",
+              "mode": "CombinedDirectional",
+              "backend": "ProgressiveCPU",
+              "lightingDataGuid": "9458befb95a57ff47ae00c266a946ca1",
+              "modeValue": 1,
+              "colorGuids": [
+                "5655b1fd56e5bc246990ee3154946495"
+              ],
+              "directionGuids": [
+                "9433b852bbbefca4188ae84bca52da46"
+              ],
+              "receivers": [
+                {
+                  "name": "Examples_Material_MaskedWhite",
+                  "materialGuid": "fc4152f433e0b2c468ea161210dd59b5",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4720645844936371,
+                    "w": 0.0033145907800644636
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_MaskedNavalMine",
+                  "materialGuid": "8d80d74408a23d248867bf1600844087",
+                  "shader": "Crest/Examples/Masked",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 4,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.24550208449363708,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Examples_Material_TransparentWithUnderwaterFog",
+                  "materialGuid": "8dc8b2624fdb14c4ab2520f3e244d6a3",
+                  "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 2,
+                  "st": {
+                    "x": 0.15146495401859283,
+                    "y": 0.15146474540233612,
+                    "z": 0.4173770844936371,
+                    "w": 0.4720645844936371
+                  },
+                  "shadowPass": true
+                },
+                {
+                  "name": "Lit floor reference",
+                  "materialGuid": "f339023eef1ea654f9f948b1760f9ea4",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "giFlags": "EmissiveIsBlack",
+                  "index": 0,
+                  "metaPass": 5,
+                  "st": {
+                    "x": 0.6776064038276672,
+                    "y": 0.6776054501533508,
+                    "z": 0.0012593499850481749,
+                    "w": 0.0012593537103384733
+                  },
+                  "shadowPass": true
+                }
+              ]
+            }
+          ]
+        },
+        "rows": [
+          {
+            "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/NonDirectional/Bake.unity",
+            "mode": "NonDirectional",
+            "colorFormat": "R8G8B8A8_SRGB",
+            "depthFormat": "D32_SFloat_S8_UInt",
+            "modeValue": 0,
+            "width": 640,
+            "height": 360,
+            "samples": 1,
+            "atlases": 1,
+            "bright": 20436,
+            "allChanged": 20436,
+            "restored": 0,
+            "pink": 0,
+            "enabledLights": 0,
+            "renderScale": 1.0,
+            "directionalityMatches": true,
+            "serializedBindings": true,
+            "colors": [
+              "Lightmap-0_comp_light:RGB_BC6H_UFloat"
+            ],
+            "directions": [
+              "null"
+            ],
+            "receivers": [
+              {
+                "name": "Examples_Material_MaskedWhite",
+                "material": "Examples_Material_MaskedWhite",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 968,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4173770844936371,
+                  "w": 0.4720645844936371
+                }
+              },
+              {
+                "name": "Examples_Material_MaskedNavalMine",
+                "material": "Examples_Material_MaskedNavalMine",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1118,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4720645844936371,
+                  "w": 0.0033145907800644636
+                }
+              },
+              {
+                "name": "Examples_Material_TransparentWithUnderwaterFog",
+                "material": "Examples_Material_TransparentWithUnderwaterFog",
+                "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1300,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.24550208449363708,
+                  "w": 0.4720645844936371
+                }
+              }
+            ]
+          },
+          {
+            "scene": "Assets/CrestLightmaps_d2ccc8562c26458ea7de4c078e17f01a/CombinedDirectional/Bake.unity",
+            "mode": "CombinedDirectional",
+            "colorFormat": "R8G8B8A8_SRGB",
+            "depthFormat": "D32_SFloat_S8_UInt",
+            "modeValue": 1,
+            "width": 640,
+            "height": 360,
+            "samples": 1,
+            "atlases": 1,
+            "bright": 20436,
+            "allChanged": 20436,
+            "restored": 0,
+            "pink": 0,
+            "enabledLights": 0,
+            "renderScale": 1.0,
+            "directionalityMatches": true,
+            "serializedBindings": true,
+            "colors": [
+              "Lightmap-0_comp_light:RGB_BC6H_UFloat"
+            ],
+            "directions": [
+              "Lightmap-0_comp_dir:RGBA_BC7_UNorm"
+            ],
+            "receivers": [
+              {
+                "name": "Examples_Material_MaskedWhite",
+                "material": "Examples_Material_MaskedWhite",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 968,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4720645844936371,
+                  "w": 0.0033145907800644636
+                }
+              },
+              {
+                "name": "Examples_Material_MaskedNavalMine",
+                "material": "Examples_Material_MaskedNavalMine",
+                "shader": "Crest/Examples/Masked",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1118,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.24550208449363708,
+                  "w": 0.4720645844936371
+                }
+              },
+              {
+                "name": "Examples_Material_TransparentWithUnderwaterFog",
+                "material": "Examples_Material_TransparentWithUnderwaterFog",
+                "shader": "Crest/Examples/UnderwaterTransparentSurfaceShader",
+                "giFlags": "EmissiveIsBlack",
+                "index": 0,
+                "changed": 1300,
+                "restored": 0,
+                "st": {
+                  "x": 0.15146495401859283,
+                  "y": 0.15146474540233612,
+                  "z": 0.4173770844936371,
+                  "w": 0.4720645844936371
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "unityImmediateLeakTelemetry": 1
+    }
+  ],
+  "sourceReuse": "58 saved scene/mesh/material/atlas/lighting/metadata files byte-identical; only manifest schema/canonical label changed. No repeated CPU bake for alias fixture correction.",
+  "failure": "enum-alias-failure.zip: Editor Single,Dual vs Player CombinedDirectional at same value1; initial NonDirectional passed, whole run FAILED. Numeric modeValue+actual direction texture gate corrects fixture, thresholds unchanged.",
+  "editorJobTempAllocWarnings": {
+    "firstBakeBuild": 2,
+    "noBakeReuseBuild": 2,
+    "attribution": "Unattributed/not fixed. Both Editor builds show2; no Player JobTemp warnings. Preserve for finalP11.4 resource disposition, no blanket P10 rerun/leak-free acceptance."
+  },
+  "foreignFilesPreserved": 36,
+  "normalArtifactsPreserved": [
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "1d90c76a0e35bcbcc37b4b2bbc8fbd3090b89e0049c27e242fba4af363b24300"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "3db3b4c80faf5315da0f3a5a3e6b6fe4be64e76d114e1dd747d9f2fc93165549"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "bda69011d45b3ca7a6dafbf48b446be457ae82941fb3b6eaf7b33e56361a4c56"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "92d6511bd444dc59b0fcb1ccfeabe234ff29d2b224f482a4af4849501d733730"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "a5804e0f9110216b51b6cbee6fff526b214a0b6cce4fad16ce139887baec0724"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "ead0f8598cad6ca8fab27448b26e3252eb8a4569e91dfb98d66b7539b021f954"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/resources.assets",
+      "sha256": "f086168d2c93fe5b15b368450075440dbf2cc6a428f14436a8b594b0f2b99688"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/sharedassets0.assets",
+      "sha256": "dce5a6dd6d605c5f69542844c9f81fad128e7b5e86ca5777de11ac6086f9fc0b"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/globalgamemanagers",
+      "sha256": "b678afc5e6612a9053e0fe30f34cf0d5ee5152d53ad61e23c57a379cc42f8d84"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/resources.assets",
+      "sha256": "eb8d740c93f288b56f42fa0318e92ab068a0a065c098f88715dea3b959dd4825"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/sharedassets0.assets",
+      "sha256": "a8d9a6abc78a6a4bc3520dfe39f62328e478e15e6fb3916676e416557083fb4f"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/globalgamemanagers",
+      "sha256": "0ed274e57cf563b2f8821b7efdfe9afc1f0f2f453291f868d167cee74b86c4b1"
+    }
+  ],
+  "normalLimitation": "0f833b4 artifacts unchanged but production B guards/GraphicsSettings newer, finalP11.4 required. Diagnostic-only C/D/F has no normal runtime change.",
+  "structuralAudit": {
+    "files": 1435,
+    "rootMarkdown": 8,
+    "missingMeta": 0,
+    "duplicateGUID": 0,
+    "missingOriginal": 0,
+    "protectedGUIDCompute": 597,
+    "normalizedSpriteMetas": 3
+  },
+  "archive": {
+    "path": "Evidence/P11-Lightmaps-evidence.zip",
+    "sha256": "2304395fbff01ab3182169a860de1cc0e6470b4e3ac2cc700670b7770edaecbb"
+  },
+  "next": "G actual UI/input, H hardware audit, finalP11.4/P12; E optional."
+}
