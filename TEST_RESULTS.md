@@ -2,6 +2,14 @@
 
 Актуальная сверка: **2026-11-07**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P11.3-C2: compiled geometry-overlay camera stack (scoped,2026-11-07)
+
+Four states/API Passed: after/before transparents at1x/4x,256x256/Forward/renderScale1. Actual read-only URP records show Base then Overlay with requested1/4 samples on both cameras, R8G8B8A8_UNorm/D32S8. StandardRequest renders the real stack; SingleCameraRequest renders independent above-water control. Each state changes4096 geometry pixels and4096 geometry-fog pixels; background/outside independently projected quad/above-camera differences0; stack removal restoration0. RGB summed-byte difference threshold15 is unchanged from CameraSettingsTests; zero restoration means no pixels above that threshold, not an asserted byte-identical RGBA result. Original geometry>100/<half frame, fog>100, exclusions<20 remain unchanged.
+
+Native nonzero foam guard retains positive delta1/30, peak.302490234375,147456 finite samples, exact max difference0 and same native RT identity/frame/LOD frame46 before/after requests, all8 states. Extra camera requests do not advance this native history. Frozen Unity time and explicit clock disclosed; no gameplay latency/performance claim. Diagnostic pipeline clone/materials/seed only; original scene/asset settings unchanged, required flat surface/foam shader dependencies serialized in owned build fixture.
+
+Complete logs errors0, no missing variants/exceptions; no active-RT release warning here, Unity immediate memory telemetry remains (not leak-free acceptance). DX11 4x-before image inspected. P11-Stack-summary/files/evidence.zip retain raw/source/actual Editor+Player DLLs. Foreign36 fingerprints and12 normal managed/packed artifacts preserved; generated whitespace restored. C2 scoped DONE; C3 NEXT. FinalP11.4 still required for B runtime changes; no full rerun/normal rebuild for this diagnostic-only transfer.
+
 ## P11.3-C1: compiled underwater volume/view controls (scoped,2026-11-07)
 
 Five states/API Passed in isolated strict-matching Development Player: FullScreen outside, Portal outside, Volume outside, VolumeFlyThrough outside/inside. Actual URP frame data:320x180/renderScale1/MSAA1/R8G8B8A8_SRGB/D32_SFloat_S8_UInt; one composite execution/state, capture after current ocean LOD update. Changed pixels57600/12996/12100/12100/57600 on both APIs, exterior Portal/Volume/Fly border changes0; FullScreen/inside tinted57600. Every Off/On/Off restored RGBA exactly0. Original positive>500, exterior border<100 and inside/fullscreen tint>1000 thresholds retained. Volume interior is unsupported by original contract; inside uses FlyThrough. Portal DX11 and FlyThrough-inside DX12 images inspected.

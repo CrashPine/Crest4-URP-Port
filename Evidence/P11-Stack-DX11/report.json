@@ -1,0 +1,170 @@
+{
+    "unity": "6000.6.5f1",
+    "api": "Direct3D11",
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "scope": "P11.3-C2: four geometry-overlay controls/API, before/after transparents x1x/4x; actual base/overlay descriptors, independent above camera, same-frame positive-delta nonzero native foam guard. Not original Built-in reference/XR/performance/all stacks.",
+    "failure": "",
+    "errors": 0,
+    "rows": [
+        {
+            "samples": 1,
+            "aboveChanged": 0,
+            "geometry": 4096,
+            "geometryFogChanged": 4096,
+            "backgroundChanged": 0,
+            "outsideBaseChanged": 0,
+            "outsideFogChanged": 0,
+            "restoration": 0,
+            "beforeTransparents": false,
+            "projected": "(x:94, y:94, width:68, height:68)",
+            "frame": 46,
+            "lodFrame": 46,
+            "foamSamples": 147456,
+            "delta": 0.03333333507180214,
+            "foamPeak": 0.302490234375,
+            "foamError": 0.0,
+            "cameras": [
+                {
+                    "camera": "Stack base below",
+                    "type": "Base",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 1,
+                    "scale": 1.0
+                },
+                {
+                    "camera": "Geometry overlay",
+                    "type": "Overlay",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 1,
+                    "scale": 1.0
+                }
+            ]
+        },
+        {
+            "samples": 1,
+            "aboveChanged": 0,
+            "geometry": 4096,
+            "geometryFogChanged": 4096,
+            "backgroundChanged": 0,
+            "outsideBaseChanged": 0,
+            "outsideFogChanged": 0,
+            "restoration": 0,
+            "beforeTransparents": true,
+            "projected": "(x:94, y:94, width:68, height:68)",
+            "frame": 46,
+            "lodFrame": 46,
+            "foamSamples": 147456,
+            "delta": 0.03333333507180214,
+            "foamPeak": 0.302490234375,
+            "foamError": 0.0,
+            "cameras": [
+                {
+                    "camera": "Stack base below",
+                    "type": "Base",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 1,
+                    "scale": 1.0
+                },
+                {
+                    "camera": "Geometry overlay",
+                    "type": "Overlay",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 1,
+                    "scale": 1.0
+                }
+            ]
+        },
+        {
+            "samples": 4,
+            "aboveChanged": 0,
+            "geometry": 4096,
+            "geometryFogChanged": 4096,
+            "backgroundChanged": 0,
+            "outsideBaseChanged": 0,
+            "outsideFogChanged": 0,
+            "restoration": 0,
+            "beforeTransparents": false,
+            "projected": "(x:94, y:94, width:68, height:68)",
+            "frame": 46,
+            "lodFrame": 46,
+            "foamSamples": 147456,
+            "delta": 0.03333333507180214,
+            "foamPeak": 0.302490234375,
+            "foamError": 0.0,
+            "cameras": [
+                {
+                    "camera": "Stack base below",
+                    "type": "Base",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 4,
+                    "scale": 1.0
+                },
+                {
+                    "camera": "Geometry overlay",
+                    "type": "Overlay",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 4,
+                    "scale": 1.0
+                }
+            ]
+        },
+        {
+            "samples": 4,
+            "aboveChanged": 0,
+            "geometry": 4096,
+            "geometryFogChanged": 4096,
+            "backgroundChanged": 0,
+            "outsideBaseChanged": 0,
+            "outsideFogChanged": 0,
+            "restoration": 0,
+            "beforeTransparents": true,
+            "projected": "(x:94, y:94, width:68, height:68)",
+            "frame": 46,
+            "lodFrame": 46,
+            "foamSamples": 147456,
+            "delta": 0.03333333507180214,
+            "foamPeak": 0.302490234375,
+            "foamError": 0.0,
+            "cameras": [
+                {
+                    "camera": "Stack base below",
+                    "type": "Base",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 4,
+                    "scale": 1.0
+                },
+                {
+                    "camera": "Geometry overlay",
+                    "type": "Overlay",
+                    "color": "R8G8B8A8_UNorm",
+                    "depth": "D32_SFloat_S8_UInt",
+                    "width": 256,
+                    "height": 256,
+                    "samples": 4,
+                    "scale": 1.0
+                }
+            ]
+        }
+    ]
+}

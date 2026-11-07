@@ -190,3 +190,5 @@ P11.3-C1: пять режимов/положений камеры на кажд�
 ```
 
 Отдельная сборка `Builds/P11-RenderModes`, define `CREST_RESOURCE_PROBE`, strict matching. Повторный запуск перезаписывает папку своего API; текущие принятые результаты и исходная ошибочная проверка Mobile сохранены отдельно в архивах P11-Modes. Mobile исключён из Standalone исходными настройками, поэтому Windows переключение качества не принято как проверенное. Контроли/оставшиеся C2/C3 и shutdown warnings — TEST_RESULTS/PORT_PLAN.
+
+P11.3-C2 compiled geometry-overlay stack: `./Evidence/P11-Stack-build.ps1`, затем `./Evidence/P11-Stack-run.ps1 -API DX11` и `-API DX12` при закрытом Editor. Отдельная сборка `Builds/P11-CameraStack`, четыре состояния order/MSAA на API; source scenes/pipeline assets не сохраняются заново. Повторный запуск перезаписывает API folder, текущие результаты сохранены в P11-Stack-evidence.zip. Это целевой контроль stack/background/native history, не вся приёмка C или финальная регрессия.

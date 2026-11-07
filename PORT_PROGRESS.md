@@ -8,7 +8,7 @@ P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11
 
 ## Активные операции
 
-Нет активных Unity/Player операций. C1 scoped DONE: five mode/view states/API, exact restores0, actual descriptors/effect execution; raw/source/actual DLLs in P11-Modes-evidence.zip. Windows PC-only inventory checked, Mobile switch NOT APPLICABLE; initial failed fixture assumption retained separately. C2 NEXT. No C1 production/quality-setting edits; normal finalP11.4 still pending.
+Нет активных операций. C1/C2 scoped DONE; C3 NEXT. P11-Modes/P11-Stack summary/files/evidence.zip preserve raw/source/actual DLLs. No production edits in C1/C2; finalP11.4 remains required for B guards/GraphicsSettings.
 
 ## Последний checkpoint: P11.3-B
 
@@ -22,7 +22,7 @@ P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11
 
 ## Точное следующее действие
 
-**P11.3-C2:** перенести конечный geometry-overlay контроль из CameraSettingsTests в отдельный Player: before/after-transparent ×1x/4x (4 states/API), StandardRequest для stack, SingleCameraRequest для независимого above camera. Сохранить projected exclusion/background/restoration и same-frame nonzero native foam guard; наблюдать реальные base/overlay descriptors. C1 не повторять без изменений/нового дефекта. Затем C3 reflection branches по PORT_PLAN. Mobile исходно исключён из Standalone; не включать искусственно.
+**P11.3-C3:** перенести конечные reflection controls из PlanarReflectionTests в Player:4 renderer-selection branches, LDR128/HDR-stencil128/MSAA-resize256, stable target reuse и actual surface binding. Observe actual reflection camera data and known reflected geometry. C1/C2 не повторять без изменений/нового дефекта; затем D по PORT_PLAN.
 
 Сделать отдельный diagnostic Player transfer с owned serialized dependencies/variants и фактическими descriptors/bindings/causal controls. Позднейшие runtime fixes группировать для P11.4; diagnostic-only изменения проверять адресно. Не перегенерировать demos/не перепекать исходные сцены. D/F/G/H/finalP11.4/P12 остаются в PORT_PLAN.
 
@@ -38,3 +38,7 @@ P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11
 В корне8 обязательных Markdown. Commit checkpoint — `git log -1`.
 
 C1 checkpoint: P11-Modes-summary/files/evidence.zip, five states/API Passed, changed57600/12996/12100/12100/57600, exterior border0, exact restores0. Complete logs retain shutdown active-RT warning/Unity telemetry (not leak-free acceptance). Foreign36 fingerprints unchanged; normal builds not rebuilt.
+
+C2 implementation: diagnostic-only CameraStack partial + serialized flat underwater/above and foam-seed dependencies. Original four states/thresholds, actual observer and nonzero positive-delta native foam guard. Source scenes/pipeline assets unchanged; runtime pipeline clone. No accepted C2 results yet. Source-preparation script hit a Windows-default decoding error only at final documentation read; source/build scripts had already been written, documentation corrected explicitly with UTF-8.
+
+C2 checkpoint: compiled4 states/API Passed,4096 geometry/fog pixels, background/projected/above/restoration0 at original summedRGB15 threshold (not byte-identical claim). Native147456 foam samples exact max0/identity/frame46/positive delta1/30. No active-RT warning, Unity telemetry disclosed. Foreign36 and12 normal artifact hashes unchanged.
