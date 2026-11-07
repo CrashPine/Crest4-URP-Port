@@ -41,7 +41,7 @@ namespace Crest.URP.Diagnostics
             File.WriteAllText(Argument("-crestProbeOutput","OriginalScene.json"),JsonUtility.ToJson(_originalSceneReport,true));
         }
         // Flatten child routines so a failed assertion saves the partial report and exits, rather than hanging.
-        IEnumerator GuardOriginalScene(IEnumerator root)
+        IEnumerator GuardOriginalScene(IEnumerator root,Action<Exception> failureWriter=null)
         {
             var stack=new Stack<IEnumerator>();stack.Push(root);
             while(stack.Count>0)
@@ -49,7 +49,7 @@ namespace Crest.URP.Diagnostics
                 object item=null;bool next=false;Exception failure=null;
                 try{next=stack.Peek().MoveNext();if(next)item=stack.Peek().Current;}
                 catch(Exception error){failure=error;}
-                if(failure!=null){Debug.LogException(failure);if(_originalSceneReport!=null)_originalSceneReport.failure=failure.ToString();SaveOriginalScene();Application.Quit(1);yield break;}
+                if(failure!=null){Debug.LogException(failure);if(failureWriter!=null)failureWriter(failure);else{if(_originalSceneReport!=null)_originalSceneReport.failure=failure.ToString();SaveOriginalScene();}Application.Quit(1);yield break;}
                 if(!next){stack.Pop();continue;}
                 if(item is IEnumerator child)stack.Push(child);else yield return item;
             }

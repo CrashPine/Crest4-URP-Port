@@ -1,14 +1,14 @@
 # Точка продолжения
 
-Обновлено: **2026-11-06**. Цель **Unity6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Работать только в `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-11-07**. Цель **Unity6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Работать только в `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущий этап
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11.2/P11.3-A/B scoped DONE; **P11.3-C NEXT**. E optional/non-gating. Единственный порядок/критерии — PORT_PLAN, измерения — TEST_RESULTS, приёмка подсистем — FEATURE_MATRIX. Не переоткрывать P09, не создавать новый status/roadmap Markdown.
+P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11.2/P11.3-A/B scoped DONE; **P11.3-C ACTIVE**. E optional/non-gating. Единственный порядок/критерии — PORT_PLAN, измерения — TEST_RESULTS, приёмка подсистем — FEATURE_MATRIX. Не переоткрывать P09, не создавать новый status/roadmap Markdown.
 
 ## Активные операции
 
-Нет. P11-Scenes-batch-operation.json complete:20 итоговых Player states (10/API) проверены. Main DX11 принят отдельным запуском на той же сборке и не повторялся внутри batch. Перед любым новым Unity запуском проверить реальные процессы и timestamp логов.
+Нет активных Unity/Player операций. C1 scoped DONE: five mode/view states/API, exact restores0, actual descriptors/effect execution; raw/source/actual DLLs in P11-Modes-evidence.zip. Windows PC-only inventory checked, Mobile switch NOT APPLICABLE; initial failed fixture assumption retained separately. C2 NEXT. No C1 production/quality-setting edits; normal finalP11.4 still pending.
 
 ## Последний checkpoint: P11.3-B
 
@@ -22,7 +22,7 @@ P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11
 
 ## Точное следующее действие
 
-**P11.3-C:** прочитать UnderwaterVolumeTests, CameraSettingsTests, PlanarReflectionTests и заморозить конечный список переносимых состояний в существующем PORT_PLAN: FullScreen/Portal/Volume outside, FlyThrough outside/inside1x; before/after-transparent geometry overlay1x/4x; reflection Forward/Forward+/Deferred HDR/stencil/resize; существующие Mobile/PC quality. Не строить декартов продукт и не повторять Editor proof. Volume inside исходно не поддерживается — использовать FlyThrough.
+**P11.3-C2:** перенести конечный geometry-overlay контроль из CameraSettingsTests в отдельный Player: before/after-transparent ×1x/4x (4 states/API), StandardRequest для stack, SingleCameraRequest для независимого above camera. Сохранить projected exclusion/background/restoration и same-frame nonzero native foam guard; наблюдать реальные base/overlay descriptors. C1 не повторять без изменений/нового дефекта. Затем C3 reflection branches по PORT_PLAN. Mobile исходно исключён из Standalone; не включать искусственно.
 
 Сделать отдельный diagnostic Player transfer с owned serialized dependencies/variants и фактическими descriptors/bindings/causal controls. Позднейшие runtime fixes группировать для P11.4; diagnostic-only изменения проверять адресно. Не перегенерировать demos/не перепекать исходные сцены. D/F/G/H/finalP11.4/P12 остаются в PORT_PLAN.
 
@@ -36,3 +36,5 @@ P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11
 Структурный аудит1413 файлов: missing meta0/duplicate GUID0/missing original0. Пустая generated Resources (creation08:15:50 во время interrupted build) и meta также сохранены обратимым переносом вне Assets, Evidence/P11-Scenes-empty-build-resources.
 
 В корне8 обязательных Markdown. Commit checkpoint — `git log -1`.
+
+C1 checkpoint: P11-Modes-summary/files/evidence.zip, five states/API Passed, changed57600/12996/12100/12100/57600, exterior border0, exact restores0. Complete logs retain shutdown active-RT warning/Unity telemetry (not leak-free acceptance). Foreign36 fingerprints unchanged; normal builds not rebuilt.

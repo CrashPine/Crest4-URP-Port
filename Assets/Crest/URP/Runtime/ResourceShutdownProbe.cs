@@ -66,6 +66,10 @@ namespace Crest.URP.Diagnostics
             var features=Resources.FindObjectsOfTypeAll<CrestBackgroundFeature>();
             if (disableFeature) foreach (var feature in features) feature.SetActive(false);
             OceanRenderer.EnableGraphicsInBatchMode = true;
+            if(Array.IndexOf(Environment.GetCommandLineArgs(),"-crestRenderModes")>=0)
+            {
+                yield return GuardOriginalScene(RenderModesPlayer(),error=>{if(_modeReport!=null)_modeReport.failure=error.ToString();SaveModes();});yield break;
+            }
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"-crestOriginalSceneCase")>=0)
             {
                 yield return GuardOriginalScene(OriginalScenePlayer());yield break;

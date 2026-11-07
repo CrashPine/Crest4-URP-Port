@@ -15,6 +15,7 @@ namespace Crest.URP.Editor
         public static void Build() => BuildImpl(0);
         public static void BuildOriginalExamples() => BuildImpl(1);
         public static void BuildOriginalScenes() => BuildImpl(2);
+        public static void BuildRenderModes() => BuildImpl(3);
         static void BuildImpl(int mode)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
@@ -50,7 +51,7 @@ namespace Crest.URP.Editor
                 PlayerSettings.enableFrameTimingStats=true;
                 if(mode != 0)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=mode==2?new[]{path,
+                    scenes=mode==3?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==2?new[]{path,
                         "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
@@ -59,7 +60,7 @@ namespace Crest.URP.Editor
                         "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity"}:
                         mode==1?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName=mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });

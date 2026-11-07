@@ -178,3 +178,15 @@ P11.3-B: main,boat,BoatWakes,threeboats,LakesAndRivers,whirlpool. При зак�
 ```
 
 Сборка пишет только `Builds/P11-OriginalScenes`. Доступные cases: input,main,boat,threeboats,wakes-off,wakes-on,wakes-off-repeat,rivers,whirl-combined,whirl-isolated. `P11-Scenes-batch.ps1` запускает их последовательно на обоих API; `-SkipAcceptedMainDX11` применять только после отдельного успешного Main на той же сборке. Повторный запуск перезаписывает одноимённую evidence folder, поэтому неуспешный результат сначала сохранять. Контроли/границы и текущая пригодность обычных Dev/Release указаны в TEST_RESULTS/PORT_PROGRESS. Source guard/GraphicsSettings изменения B ещё требуют финального P11.4 milestone.
+
+## Режимы подводного рендера в Player
+
+P11.3-C1: пять режимов/положений камеры на каждом API,320x180/1x/Forward. При закрытом Editor:
+
+```powershell
+./Evidence/P11-Modes-build.ps1
+./Evidence/P11-Modes-run.ps1 -API DX11
+./Evidence/P11-Modes-run.ps1 -API DX12
+```
+
+Отдельная сборка `Builds/P11-RenderModes`, define `CREST_RESOURCE_PROBE`, strict matching. Повторный запуск перезаписывает папку своего API; текущие принятые результаты и исходная ошибочная проверка Mobile сохранены отдельно в архивах P11-Modes. Mobile исключён из Standalone исходными настройками, поэтому Windows переключение качества не принято как проверенное. Контроли/оставшиеся C2/C3 и shutdown warnings — TEST_RESULTS/PORT_PLAN.

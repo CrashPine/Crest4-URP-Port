@@ -1,6 +1,14 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-06**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-07**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P11.3-C1: compiled underwater volume/view controls (scoped,2026-11-07)
+
+Five states/API Passed in isolated strict-matching Development Player: FullScreen outside, Portal outside, Volume outside, VolumeFlyThrough outside/inside. Actual URP frame data:320x180/renderScale1/MSAA1/R8G8B8A8_SRGB/D32_SFloat_S8_UInt; one composite execution/state, capture after current ocean LOD update. Changed pixels57600/12996/12100/12100/57600 on both APIs, exterior Portal/Volume/Fly border changes0; FullScreen/inside tinted57600. Every Off/On/Off restored RGBA exactly0. Original positive>500, exterior border<100 and inside/fullscreen tint>1000 thresholds retained. Volume interior is unsupported by original contract; inside uses FlyThrough. Portal DX11 and FlyThrough-inside DX12 images inspected.
+
+First DX11 attempt FAILED on fixture assumption that Mobile exists in Windows Player, after all5 functional states passed. Original Mobile excludes Standalone; runtime inventory is only PC. Source exclusions unchanged; cross-tier switch explicitly NOT APPLICABLE, booleans false/metrics-1, not passed. Exact failure/raw/source/actual DLLs retained in P11-Modes-quality-exclusion-failure.zip. Corrected fixture checks PC-only inventory and keeps all fog thresholds. Final reports errors0, complete logs inspected: no exceptions/missing variants; each API retains one OceanDepthCache shutdown active-RT release warning and Unity immediate memory telemetry. These are disclosed, not leak-free acceptance or a new P10 fix.
+
+P11-Modes-summary/files/evidence.zip retain reports/logs/limited PNGs/source/actual Editor+Player DLLs and archive manifest. No production renderer/shader/scene/quality-setting edits. Foreign36-file baseline preserved; generated variant whitespace archived then restored. C1 scoped DONE; C2 stack/order/MSAA and C3 reflection remain. Normal0f833b4 artifacts remain stale relative to B input/GraphicsSettings fixes; finalP11.4 required. No repeated full suite/normal build for diagnostic-only work.
 
 ## P11.3-B: compiled original standalone scenes (scoped,2026-11-06)
 
