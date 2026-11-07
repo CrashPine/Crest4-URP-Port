@@ -1,0 +1,90 @@
+{
+    "unity": "6000.6.5f1",
+    "api": "Direct3D11",
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "scope": "P11.3-D2 compiled existing EXR/prefab/scene; no rebake/source geometry. Owner movement, deregistration/recovery, actual saved scene reload and old ocean RT release. .02m original tolerance. Not all cache modes/terrain/export GUI/performance/leak-free acceptance.",
+    "failure": "",
+    "errors": 0,
+    "provenance": {
+        "scene": "Assets/CrestSavedDepth_972d3b21ec8246418333b040806e06b9/SavedDepth.unity",
+        "sceneGuid": "dcd1b84bb8ae3674ba888df31c690c8e",
+        "textureGuid": "e64249077d5fc104b9cd49dca0557643",
+        "prefabGuid": "f24274c2162d1f247b9ca14cd322b0c9",
+        "textureName": "Depth",
+        "exportSHA256": "86f77cab942f2654fde0514557c2d5ac5cc37f648b51d0051b66779cbb1b9a18",
+        "importedFloatSHA256": "b97c88ce469154144f5e1c1a44cfeb5bbe7be82a0f90b544aa30eaf8f8ca8301",
+        "source": "Evidence/DepthBaked-Direct3D11.exr: accepted original Inspector export, relative-6.5m; no new Editor bake."
+    },
+    "rows": [
+        {
+            "state": "SavedPrefab",
+            "textureSHA256": "b97c88ce469154144f5e1c1a44cfeb5bbe7be82a0f90b544aa30eaf8f8ca8301",
+            "format": "R32_SFloat",
+            "actual": "-4.5",
+            "ownerY": 2.0,
+            "expected": -4.5,
+            "sentinel": false,
+            "binding": true,
+            "noRealtimeCache": true,
+            "sourceGeometryAbsent": true,
+            "oldOceanDestroyed": false,
+            "oldDepthTargetDestroyed": false
+        },
+        {
+            "state": "MovedOwner",
+            "textureSHA256": "b97c88ce469154144f5e1c1a44cfeb5bbe7be82a0f90b544aa30eaf8f8ca8301",
+            "format": "R32_SFloat",
+            "actual": "-1.5",
+            "ownerY": 5.0,
+            "expected": -1.5,
+            "sentinel": false,
+            "binding": true,
+            "noRealtimeCache": true,
+            "sourceGeometryAbsent": true,
+            "oldOceanDestroyed": false,
+            "oldDepthTargetDestroyed": false
+        },
+        {
+            "state": "Disabled",
+            "textureSHA256": "b97c88ce469154144f5e1c1a44cfeb5bbe7be82a0f90b544aa30eaf8f8ca8301",
+            "format": "R32_SFloat",
+            "actual": "-Infinity",
+            "ownerY": 5.0,
+            "expected": 0.0,
+            "sentinel": true,
+            "binding": true,
+            "noRealtimeCache": true,
+            "sourceGeometryAbsent": true,
+            "oldOceanDestroyed": false,
+            "oldDepthTargetDestroyed": false
+        },
+        {
+            "state": "Reenabled",
+            "textureSHA256": "b97c88ce469154144f5e1c1a44cfeb5bbe7be82a0f90b544aa30eaf8f8ca8301",
+            "format": "R32_SFloat",
+            "actual": "-1.5",
+            "ownerY": 5.0,
+            "expected": -1.5,
+            "sentinel": false,
+            "binding": true,
+            "noRealtimeCache": true,
+            "sourceGeometryAbsent": true,
+            "oldOceanDestroyed": false,
+            "oldDepthTargetDestroyed": false
+        },
+        {
+            "state": "ReloadedSavedPrefab",
+            "textureSHA256": "b97c88ce469154144f5e1c1a44cfeb5bbe7be82a0f90b544aa30eaf8f8ca8301",
+            "format": "R32_SFloat",
+            "actual": "-4.5",
+            "ownerY": 2.0,
+            "expected": -4.5,
+            "sentinel": false,
+            "binding": true,
+            "noRealtimeCache": true,
+            "sourceGeometryAbsent": true,
+            "oldOceanDestroyed": true,
+            "oldDepthTargetDestroyed": true
+        }
+    ]
+}

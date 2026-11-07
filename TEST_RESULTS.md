@@ -2,6 +2,14 @@
 
 Актуальная сверка: **2026-11-07**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P11.3-D2: compiled exported depth/prefab/scene integration (scoped,2026-11-07)
+
+Five states/API Passed without source layer30 geometry or realtime CacheTexture allocation. Reused accepted original Inspector export Evidence/DepthBaked-Direct3D11.exr byte-for-byte (SHA25686f77cab...), no repeated Editor bake. Owned import retains SingleChannel/Red/linear/RFloat/uncompressed/no mipmaps/Bilinear/Clamp/NPOT None; serialized prefab/scene references and Editor GUID provenance archived. Actual Player64x64 R32_SFloat texture4096 floats has identical SHA256b97c88ce... before/after toggles, movement and scene reload on both APIs; center relative depth-6.5. Player checks actual texture/scene/config/data identities, not runtime AssetDatabase access.
+
+Native ocean depth at world origin exactly-4.5m at ownerY2, -1.5m at ownerY5, negative infinity when disabled, -1.5m after re-enable and -4.5m after actual saved-scene reload. Four distinct actual ocean updates settle each phase, snapped-cascade bounds checked, original .02m tolerance unchanged. Disabled sentinel recorded as exact string '-Infinity', no fabricated finite measurement. Reload destroys previous ocean and its native depth RT. Baked mode allocates no realtime cache; old realtime-cache release remains the prior accepted Editor control, not a new Player allocation claim.
+
+Strict diagnostic build succeeds, complete Player logs errors0/exceptions0/missing variants0/active-RT warnings0; Unity immediate memory telemetry retained, no leak-free acceptance. Source EXR and Player/Quality settings byte-identical, foreign36/12 normal artifacts unchanged. P11-SavedDepth-summary/files/evidence.zip preserve accepted source report/XML/export, owned serialized fixture/import metadata, raw/current code/actual Editor+Player DLLs/packed data. No production renderer/shader/source scene edits, no new full suite/normal build. D2 scoped DONE; D3 saved inputs NEXT, wholeD ACTIVE. FinalP11.4 remains required for earlier B runtime changes.
+
 ## P11.3-D1: compiled saved FFT/profile/scene integration (scoped,2026-11-07)
 
 Seven finite states/API Passed. Real original FFTBaker bake16x16/two LODs/16 frames/period4/4fps/chop1.6/one octave7/power-2/wind60 saved into owned scene/profile/data/spectrum and clock. Player loads those serialized references without assigning settings/data in code; scene reload preserves binding and SHA256 of32768 raw half values:0e26db3ef8cab5faa1ad25b0a84f54e9464b0445d7f4be581c593444c7a910b5. Editor GUIDs come from archived source/manifest; Player verifies actual scene path/object names/parameters/raw bytes, not simulated runtime AssetDatabase access.
