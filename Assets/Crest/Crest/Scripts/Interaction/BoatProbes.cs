@@ -179,11 +179,14 @@ namespace Crest
         {
             var forcePosition = _rb.worldCenterOfMass;
 
+#if INPUT_SYSTEM_ENABLED
+            var keyboard = Keyboard.current;
+#endif
             var forward = _engineBias;
             if (_playerControlled) forward +=
 #if INPUT_SYSTEM_ENABLED
-                !Application.isFocused ? 0 :
-                ((Keyboard.current.wKey.isPressed ? 1 : 0) + (Keyboard.current.sKey.isPressed ? -1 : 0));
+                !Application.isFocused || keyboard == null ? 0 :
+                ((keyboard.wKey.isPressed ? 1 : 0) + (keyboard.sKey.isPressed ? -1 : 0));
 #else
                 Input.GetAxis("Vertical");
 #endif
@@ -192,9 +195,9 @@ namespace Crest
             var sideways = _turnBias;
             if (_playerControlled) sideways +=
 #if INPUT_SYSTEM_ENABLED
-                !Application.isFocused ? 0 :
-                ((Keyboard.current.aKey.isPressed ? -1f : 0f) +
-                (Keyboard.current.dKey.isPressed ? 1f : 0f));
+                !Application.isFocused || keyboard == null ? 0 :
+                ((keyboard.aKey.isPressed ? -1f : 0f) +
+                (keyboard.dKey.isPressed ? 1f : 0f));
 #else
                 (Input.GetKey(KeyCode.A) ? -1f : 0f) +
                 (Input.GetKey(KeyCode.D) ? 1f : 0f);

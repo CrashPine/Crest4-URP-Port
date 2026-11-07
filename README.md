@@ -166,3 +166,15 @@ P11.3-A проверяет24 исходные конфигурации и3 ко�
 ```
 
 Builder использует Unity6000.6.5f1, Development +strict shader matching и отдельный define `CREST_RESOURCE_PROBE`; пишет только `Builds/P11-OriginalExamples`. Временный build fixture удаляется по проверенному пути/GUID, исходная сцена не сохраняется заново. Обычные Dev/Release находятся отдельно. Команды Player перезаписывают текущую одноимённую диагностическую папку Evidence; принятые и неуспешные результаты текущей работы сохранены в архивах `P11-Examples-*`. Не запускать всю регрессию повторно ради воспроизведения одного такого контроля.
+
+## Остальные исходные сцены в диагностическом Player
+
+P11.3-B: main,boat,BoatWakes,threeboats,LakesAndRivers,whirlpool. При закрытом Editor:
+
+```powershell
+./Evidence/P11-Scenes-build.ps1
+./Evidence/P11-Scenes-run.ps1 -API DX11 -Case boat
+./Evidence/P11-Scenes-run.ps1 -API DX12 -Case rivers
+```
+
+Сборка пишет только `Builds/P11-OriginalScenes`. Доступные cases: input,main,boat,threeboats,wakes-off,wakes-on,wakes-off-repeat,rivers,whirl-combined,whirl-isolated. `P11-Scenes-batch.ps1` запускает их последовательно на обоих API; `-SkipAcceptedMainDX11` применять только после отдельного успешного Main на той же сборке. Повторный запуск перезаписывает одноимённую evidence folder, поэтому неуспешный результат сначала сохранять. Контроли/границы и текущая пригодность обычных Dev/Release указаны в TEST_RESULTS/PORT_PROGRESS. Source guard/GraphicsSettings изменения B ещё требуют финального P11.4 milestone.

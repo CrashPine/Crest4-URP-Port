@@ -138,7 +138,9 @@ namespace Crest
             }
 
 #if INPUT_SYSTEM_ENABLED
-            if (Keyboard.current.gKey.wasPressedThisFrame)
+            var keyboard = Keyboard.current;
+            if (keyboard == null) return;
+            if (keyboard.gKey.wasPressedThisFrame)
 #else
             if (Input.GetKeyDown(KeyCode.G))
 #endif
@@ -146,7 +148,7 @@ namespace Crest
                 ToggleGUI();
             }
 #if INPUT_SYSTEM_ENABLED
-            if (Keyboard.current.fKey.wasPressedThisFrame)
+            if (keyboard.fKey.wasPressedThisFrame)
 #else
             if (Input.GetKeyDown(KeyCode.F))
 #endif
@@ -154,7 +156,7 @@ namespace Crest
                 Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
             }
 #if INPUT_SYSTEM_ENABLED
-            if (Keyboard.current.rKey.wasPressedThisFrame)
+            if (keyboard.rKey.wasPressedThisFrame)
 #else
             if (Input.GetKeyDown(KeyCode.R))
 #endif

@@ -1,8 +1,8 @@
 {
-  "recordedUtc": "2026-11-06T15:54:11.2962638Z",
+  "recordedUtc": "2026-11-06T21:31:54.6897974Z",
   "scope": "All files in Assets, Packages, ProjectSettings, Tools, and repository root; generated Library/Builds and historical work copies excluded.",
   "limitation": "Inventory and structural checks, not a line-by-line semantic review or functional acceptance. Changed upstream files are disclosed, not automatically failures.",
-  "fileCount": 1409,
+  "fileCount": 1413,
   "missingAssetMeta": [],
   "duplicateGuids": [],
   "missingOriginalFiles": [],
@@ -11,6 +11,8 @@
     "Crest\\Scripts\\Crest.asmdef",
     "Crest\\Scripts\\OceanRenderer.cs",
     "Crest\\Scripts\\Collision\\QueryBase.cs",
+    "Crest\\Scripts\\Helpers\\OceanDebugGUI.cs",
+    "Crest\\Scripts\\Interaction\\BoatProbes.cs",
     "Crest\\Scripts\\LodData\\LodDataMgrClipSurface.cs",
     "Crest\\Scripts\\LodData\\OceanDepthCache.cs",
     "Crest\\Scripts\\LodData\\RegisterClipSurfaceInput.cs",
@@ -39,6 +41,7 @@
     "Crest\\Shaders\\Underwater\\Resources\\WaterVolumeGeometry.shader",
     "Crest-Examples\\Crest.Examples.asmdef",
     "Crest-Examples\\BoatDev\\Materials\\BoatGray.mat",
+    "Crest-Examples\\BoatDev\\Scripts\\BoatAlignNormal.cs",
     "Crest-Examples\\Examples\\Materials\\Examples_Material_TransparentPrimitive.mat",
     "Crest-Examples\\Examples\\Scripts\\CustomPassForCamera.cs",
     "Crest-Examples\\Examples\\Scripts\\ExamplesController.cs",
@@ -868,8 +871,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs",
-      "bytes": 18039,
-      "sha256": "8A8E358FCF5F4B67D4F4F37BBFA86AC0409519CA29DDD648310480C735C5335A"
+      "bytes": 18104,
+      "sha256": "51EF8D4DEF8C040287764EAFCB4070B3D62BBDA0A97553CC08C4A7F3C8CCDB06"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs.meta",
@@ -1093,8 +1096,8 @@
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Interaction/BoatProbes.cs",
-      "bytes": 9868,
-      "sha256": "13CB4A0A705165C27B7B5846269630C15B5954DB32A40393BCD8A4BE6AA8354D"
+      "bytes": 9956,
+      "sha256": "38E2D58A8BE9F20904EF60FF3078B843DBBAFD17DED22D46E84F4606F3AD1057"
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Interaction/BoatProbes.cs.meta",
@@ -3278,8 +3281,8 @@
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs",
-      "bytes": 9774,
-      "sha256": "691D3DA22F6436F9DC098242CD43BE544B20E1F3B99784B67198D0011F8B308D"
+      "bytes": 9828,
+      "sha256": "98A70DFC7FFF6D6057CCAEA4C6CDD79C55B58E8A149ADE6041CE8AF5C9627B8B"
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs.meta",
@@ -5692,9 +5695,19 @@
       "sha256": "4D83414314B89691C395880A2C096A2510393D53D6BD3CFE82D3CAC9EFB29468"
     },
     {
+      "path": "Assets/Crest/URP/Editor/MixedVariantTrace.cs",
+      "bytes": 2508,
+      "sha256": "7996931C0B35DA1CF3F4C25282D755D9E659EDA4B14E9C1FB01FEBC005FF9156"
+    },
+    {
+      "path": "Assets/Crest/URP/Editor/MixedVariantTrace.cs.meta",
+      "bytes": 62,
+      "sha256": "E3127E760A23C68BDF02CE3B55FBF96558405DB7AF6A25865897117DEC2B16C9"
+    },
+    {
       "path": "Assets/Crest/URP/Editor/PortAutomation.cs",
-      "bytes": 9550,
-      "sha256": "2BF16FCA67C7B72C49F0EAB33F79BC5F7A891C5243C7270BB6EB68644766D472"
+      "bytes": 9723,
+      "sha256": "F84CC6BDABCDFAB9D7DBB3D4252A17236448140C6433E8B2E8DDD2BCE5086A9C"
     },
     {
       "path": "Assets/Crest/URP/Editor/PortAutomation.cs.meta",
@@ -5713,8 +5726,8 @@
     },
     {
       "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs",
-      "bytes": 4651,
-      "sha256": "D0F14920811C7917588EF3532165974275527414209BD1F60C903AE01F761776"
+      "bytes": 5298,
+      "sha256": "606493D2E6ECF549F92DA1F4E99744C8535270C0789758B56D4A71882FDD1BA5"
     },
     {
       "path": "Assets/Crest/URP/Editor/ResourceShutdownProbeBuild.cs.meta",
@@ -5793,8 +5806,8 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs",
-      "bytes": 8500,
-      "sha256": "2704CDCA24817681D1AC0387C874BAF4B5C5E5CB1E0AB24CAEF355D8384BA684"
+      "bytes": 8709,
+      "sha256": "EEBDC373307376759CA3E29C2ADF63D6CC5175A943DB45FF313E74A16564AA58"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.cs.meta",
@@ -5813,13 +5826,23 @@
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalExamples.cs",
-      "bytes": 10035,
-      "sha256": "B5841C814E263D425AD365F0A682505F9AD2A6B185AB0F6B3CACC91BF55DF868"
+      "bytes": 10109,
+      "sha256": "4ED4E0B142A54A8B50B7052A7C416D3FD183D826A5C497C7F9795F92A7667D9D"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalExamples.cs.meta",
       "bytes": 62,
       "sha256": "A1D009988017586B6A7ED2A8BE80CA92DDB52283A91910D260771CBD5D4D3447"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalScenes.cs",
+      "bytes": 18462,
+      "sha256": "EC47E77F71FC44F25E73B8A31CADD962CAE8324E7136C32ED3FFB80409FF60B7"
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.OriginalScenes.cs.meta",
+      "bytes": 62,
+      "sha256": "3F825A3DADDB88AD093DE9CDA9B77F4CF4806F60EC32633D93CDD6F6E42D2898"
     },
     {
       "path": "Assets/Crest/URP/Runtime/ResourceShutdownProbe.Ownership.cs",
@@ -6984,7 +7007,7 @@
     {
       "path": "ProjectSettings/GraphicsSettings.asset",
       "bytes": 3007,
-      "sha256": "C4F372E81A239C3D631CD83FAB404AB38F67135DEAE6825F41A51A49848B2E54"
+      "sha256": "F24917F55CBE137AA18AC83CEAE1DC271D7E72FE518E29158F16F4BA7BF1A65A"
     },
     {
       "path": "ProjectSettings/InputManager.asset",
@@ -7153,8 +7176,8 @@
     },
     {
       "path": "FEATURE_MATRIX.md",
-      "bytes": 32355,
-      "sha256": "58F4BE8C66FFF50D1E3010EBAC934416DFB6F1D85AD9BE9967F8904EF07855B4"
+      "bytes": 32933,
+      "sha256": "E62E019B5C9980F234BC1581DAAD4C28B9D453B35DC5C1D5A1311EAA447480A0"
     },
     {
       "path": "LICENSE.Crest",
@@ -7163,23 +7186,23 @@
     },
     {
       "path": "MIGRATION.md",
-      "bytes": 37004,
-      "sha256": "DDB71520FC521EBADDC81D929AD31D6FF78E8C72D12376FE64E8DF796BDED9B5"
+      "bytes": 38658,
+      "sha256": "B3F7B58E97979372561FFC447206880726AC13A0984E9B900FFF2DD163F31986"
     },
     {
       "path": "PORT_PLAN.md",
-      "bytes": 44477,
-      "sha256": "6367FDBAE79F903BEFC99E6854BC3E78C6EBD8C375A7D2B56F6C5131BDBA0B6B"
+      "bytes": 45171,
+      "sha256": "5EE6AC394A8DBDA5A887682E7855A6FEE740140177BC5E876A409455E80652BA"
     },
     {
       "path": "PORT_PROGRESS.md",
-      "bytes": 6406,
-      "sha256": "A52E9EBDFBCE908C6CA9AAA418A596DA87EB2A7B1B6972BF8C752912F9AF9540"
+      "bytes": 6636,
+      "sha256": "96384C56CF7FE72EAE1275E719949E57C7FE7B4429EFD0DFF081D058954F1FB0"
     },
     {
       "path": "README.md",
-      "bytes": 23415,
-      "sha256": "A1AE2013950D2F6861193CCE5BC5114C761233365325B2D6D07E6D32A8E85344"
+      "bytes": 24657,
+      "sha256": "8998A57F0CE088AC08CEDB8AE605FCD4EB60E1028309DAEDD360C20E94E7F4AC"
     },
     {
       "path": "SOURCE_BASELINE.md",
@@ -7188,8 +7211,8 @@
     },
     {
       "path": "TEST_RESULTS.md",
-      "bytes": 318389,
-      "sha256": "C984CC12E2BF1745D7E014194A02F1B7CE9D974B92A012FA6F0D1917A15D6A8D"
+      "bytes": 322910,
+      "sha256": "C8C083103766D2F147703A908A2624BE092E6E4D1C8ED3B14E087D27157987EA"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",

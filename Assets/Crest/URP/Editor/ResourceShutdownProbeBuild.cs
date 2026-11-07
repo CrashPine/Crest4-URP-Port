@@ -12,9 +12,10 @@ namespace Crest.URP.Editor
 {
     public static class ResourceShutdownProbeBuild
     {
-        public static void Build() => BuildImpl(false);
-        public static void BuildOriginalExamples() => BuildImpl(true);
-        static void BuildImpl(bool originalExamples)
+        public static void Build() => BuildImpl(0);
+        public static void BuildOriginalExamples() => BuildImpl(1);
+        public static void BuildOriginalScenes() => BuildImpl(2);
+        static void BuildImpl(int mode)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
             var preloadedAssets=PlayerSettings.GetPreloadedAssets();
@@ -47,11 +48,18 @@ namespace Crest.URP.Editor
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;
-                if(originalExamples)PlayerSettings.strictShaderVariantMatching=true;
+                if(mode != 0)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=originalExamples?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
+                    scenes=mode==2?new[]{path,
+                        "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
+                        "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+                        "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+                        "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats.unity",
+                        "Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/LakesAndRivers.unity",
+                        "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity"}:
+                        mode==1?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName=originalExamples?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });

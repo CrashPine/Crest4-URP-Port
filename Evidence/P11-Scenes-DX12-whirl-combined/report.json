@@ -1,0 +1,33 @@
+{
+    "unity": "6000.6.5f1",
+    "api": "Direct3D12",
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "scene": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+    "test": "whirl-combined",
+    "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+    "failure": "",
+    "quality": "PC",
+    "camera": "(-22.6, 7.4, 15.2)",
+    "keyboardPresent": false,
+    "focused": true,
+    "errors": 0,
+    "missingScripts": 0,
+    "frame": 125,
+    "lodFrame": 125,
+    "changed": -1,
+    "restoration": -1,
+    "metrics": [
+        {
+            "name": "waveSum",
+            "value": 1312270.946053505
+        },
+        {
+            "name": "flowSum",
+            "value": 1273259.9375073314
+        },
+        {
+            "name": "nonBackground",
+            "value": 230399.0
+        }
+    ]
+}

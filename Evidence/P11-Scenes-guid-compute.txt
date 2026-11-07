@@ -1,0 +1,12 @@
+{
+  "check": "Original asset GUIDs and compute shader bytes",
+  "checked": 597,
+  "status": "PASSED",
+  "failures": [],
+  "changedMetadata": [
+    "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowLeft.png.meta",
+    "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\ArrowRight.png.meta",
+    "Crest-Examples\\Examples\\Sprites\\MaterialIcons\\Flask.png.meta"
+  ],
+  "limitation": "Metadata changes are reported, not classified as byte-identical. Run Verify-Source.ps1 for the separate strict byte-preservation check. Neither check establishes feature acceptance."
+}

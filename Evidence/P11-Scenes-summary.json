@@ -1,0 +1,908 @@
+{
+  "scope": "P11.3-B scoped compiled original6 scene transfer plus missing-device preflight,10 states/API. Not complete port or physical input/GUI/performance/all configurations.",
+  "normalMilestone": "Normal0f833b4 full121+interactive2/API and12 normal managed/packed artifacts preserved unchanged. THREE production input files and GraphicsSettings changed; finalP11.4 regression/build still required.",
+  "failures": [
+    "input-failure.zip:17 missing-keyboard exceptions",
+    "main-lighting-failure.zip: strict URP Lit missing mixed-light combination",
+    "build-interrupted.zip: lost FXC connection/no success",
+    "broad-retention-aborted.zip: rejected excessive16128 variant trial",
+    "svc-failure.zip: explicit collection did not rescue native-stripped state",
+    "native-strip-trace.zip: exact requested variant absent before all C# strippers"
+  ],
+  "lightingFix": "Custom lightmap profile: Plain,Directional,Subtractive,ShadowMask retained; unused dynamic map types excluded. Automatic fog/URP feature stripping and strict matching unchanged; no baked data/light flags/scene edits. Final trace exact1 before/after for both stages/APIs.",
+  "rows": [
+    {
+      "api": "DX11",
+      "case": "input",
+      "report": "Evidence/P11-Scenes-DX11-input/report.json",
+      "sha256": "a37119182dbf0701bd036a5725fce32d89c736a7ea258389a9e6edb762f53202",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+        "test": "input",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-27.1962852, 7.88019133, 23.3683567)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": -1,
+        "lodFrame": -1,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "sourceAlignNormalCount",
+            "value": 2.0
+          },
+          {
+            "name": "probeEngineInvoked",
+            "value": 1.0
+          },
+          {
+            "name": "probeBiasForce",
+            "value": 7.0
+          },
+          {
+            "name": "probeBiasTorque",
+            "value": 0.2648702561855316
+          },
+          {
+            "name": "debugGuiInvoked",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "main",
+      "report": "Evidence/P11-Scenes-DX11-main/report.json",
+      "sha256": "e3e2a089532a6731d46cfdfc00073e1edbebd0daaa0ce5b243c8459b33431362",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
+        "test": "main",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(42, 12.5, 39)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 63,
+        "lodFrame": 63,
+        "changed": 67724,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "nonBackground",
+            "value": 230395.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "boat",
+      "report": "Evidence/P11-Scenes-DX11-boat/report.json",
+      "sha256": "16bbd3f6b740586f0a30ac11ffa7ca95084d15bccb62640903df29b63fc5f66f",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+        "test": "boat",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-25.86505, 5.92209673, 23.4807472)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 561,
+        "lodFrame": 561,
+        "changed": 8513,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "BoatAlignNormalPlayer.wet",
+            "value": 100.0
+          },
+          {
+            "name": "nonBackground",
+            "value": 230395.0
+          },
+          {
+            "name": "throttleWet",
+            "value": 150.0
+          },
+          {
+            "name": "forwardMetres",
+            "value": 22.838077545166016
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "threeboats",
+      "report": "Evidence/P11-Scenes-DX11-threeboats/report.json",
+      "sha256": "5a63333b072e870e66196b5f7721d0c7edfebedc994ee289fdca4fd91dfb749e",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats.unity",
+        "test": "threeboats",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-37.1, 9.94, 1)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 563,
+        "lodFrame": 563,
+        "changed": 8964,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "BoatAlignNormal (1).wet",
+            "value": 150.0
+          },
+          {
+            "name": "BoatAlignNormal (1).metres",
+            "value": 19.76462745666504
+          },
+          {
+            "name": "BoatAlignNormal (1).turn",
+            "value": 146.49720764160156
+          },
+          {
+            "name": "BoatAlignNormal (2).wet",
+            "value": 150.0
+          },
+          {
+            "name": "BoatAlignNormal (2).metres",
+            "value": 23.705015182495117
+          },
+          {
+            "name": "BoatAlignNormal (2).turn",
+            "value": 117.013916015625
+          },
+          {
+            "name": "BoatAlignNormal (3).wet",
+            "value": 150.0
+          },
+          {
+            "name": "BoatAlignNormal (3).metres",
+            "value": 25.504032135009766
+          },
+          {
+            "name": "BoatAlignNormal (3).turn",
+            "value": 102.77421569824219
+          },
+          {
+            "name": "nonBackground",
+            "value": 230384.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "wakes-off",
+      "report": "Evidence/P11-Scenes-DX11-wakes-off/report.json",
+      "sha256": "2e136398d03e9cd0ea636c1c9c9c274c3a563ba310c425f754d55d5495c9dd31",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+        "test": "wakes-off",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(91.10611, 4.962348, 2.43580627)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": -1,
+        "lodFrame": -1,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "energy",
+            "value": 0.0
+          },
+          {
+            "name": "nonzero",
+            "value": 0.0
+          },
+          {
+            "name": "rigDistance",
+            "value": 18.149978637695312
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "wakes-on",
+      "report": "Evidence/P11-Scenes-DX11-wakes-on/report.json",
+      "sha256": "04e2e3519866eaa9ddedd554ec38c909d253cb03188dff4f8bb859a775a52c5f",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+        "test": "wakes-on",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(91.10611, 4.962348, 20.5857773)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 123,
+        "lodFrame": 123,
+        "changed": 13841,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "energy",
+            "value": 3546.7513294816017
+          },
+          {
+            "name": "nonzero",
+            "value": 67710.0
+          },
+          {
+            "name": "rigDistance",
+            "value": 18.149978637695312
+          },
+          {
+            "name": "nonBackground",
+            "value": 230394.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "wakes-off-repeat",
+      "report": "Evidence/P11-Scenes-DX11-wakes-off-repeat/report.json",
+      "sha256": "1a384f62b09305381306994bafd63915e13366514c8e65332aa74885ed0123cd",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+        "test": "wakes-off-repeat",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(91.10611, 4.962348, 2.43580627)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": -1,
+        "lodFrame": -1,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "energy",
+            "value": 0.0
+          },
+          {
+            "name": "nonzero",
+            "value": 0.0
+          },
+          {
+            "name": "rigDistance",
+            "value": 18.149978637695312
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "rivers",
+      "report": "Evidence/P11-Scenes-DX11-rivers/report.json",
+      "sha256": "1d5702a67091ab7797ec0299fb8e2be9bec166920b0c6080791ea5ba56ad18af",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/LakesAndRivers.unity",
+        "test": "rivers",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(0, 107.5, 0)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 5290,
+        "lodFrame": 5290,
+        "changed": 723,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "heightDelta",
+            "value": 89162.04134178162
+          },
+          {
+            "name": "flowDelta",
+            "value": 14085.30897897482
+          },
+          {
+            "name": "heightRestore",
+            "value": 0.0
+          },
+          {
+            "name": "flowRestore",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "whirl-combined",
+      "report": "Evidence/P11-Scenes-DX11-whirl-combined/report.json",
+      "sha256": "4fadd2e10ba09a7f4b57efbe54f2af17d6c7e84ee581ef8b0cd6224749463def",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+        "test": "whirl-combined",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-22.6, 7.4, 15.2)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 221,
+        "lodFrame": 221,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "waveSum",
+            "value": 1201255.8499931097
+          },
+          {
+            "name": "flowSum",
+            "value": 1273259.9375073314
+          },
+          {
+            "name": "nonBackground",
+            "value": 230370.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX11",
+      "case": "whirl-isolated",
+      "report": "Evidence/P11-Scenes-DX11-whirl-isolated/report.json",
+      "sha256": "f10a064326dd9b1a37184256b4effa82d2a26821368b1efde0b2bea1b0f56d06",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+        "test": "whirl-isolated",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-22.6, 7.4, 15.2)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 296,
+        "lodFrame": 296,
+        "changed": 50700,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "heightDelta",
+            "value": 495746.0465903282
+          },
+          {
+            "name": "flowDelta",
+            "value": 1273259.9375073314
+          },
+          {
+            "name": "heightRestore",
+            "value": 0.0
+          },
+          {
+            "name": "flowRestore",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "input",
+      "report": "Evidence/P11-Scenes-DX12-input/report.json",
+      "sha256": "804f948a72723a83ca2630b61d565f1f0be76d33a8cceef812ec47dc89c7924d",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+        "test": "input",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-27.1962852, 7.88019133, 23.3683567)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": -1,
+        "lodFrame": -1,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "sourceAlignNormalCount",
+            "value": 2.0
+          },
+          {
+            "name": "probeEngineInvoked",
+            "value": 1.0
+          },
+          {
+            "name": "probeBiasForce",
+            "value": 7.0
+          },
+          {
+            "name": "probeBiasTorque",
+            "value": 0.2648702561855316
+          },
+          {
+            "name": "debugGuiInvoked",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "main",
+      "report": "Evidence/P11-Scenes-DX12-main/report.json",
+      "sha256": "29594926cf82179698020aef6d4a6a92f5eae67898b8475fda08ecb1f1c92bca",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
+        "test": "main",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(42, 12.5, 39)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 63,
+        "lodFrame": 63,
+        "changed": 67754,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "nonBackground",
+            "value": 230395.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "boat",
+      "report": "Evidence/P11-Scenes-DX12-boat/report.json",
+      "sha256": "a33ea7d545821501dadc05cd5a3fbd51437e1772003d5ec4b94941b8b1fc22c5",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
+        "test": "boat",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-26.8738213, 4.63873434, 23.479)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 304,
+        "lodFrame": 304,
+        "changed": 8093,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "BoatAlignNormalPlayer.wet",
+            "value": 100.0
+          },
+          {
+            "name": "nonBackground",
+            "value": 230393.0
+          },
+          {
+            "name": "throttleWet",
+            "value": 150.0
+          },
+          {
+            "name": "forwardMetres",
+            "value": 22.595760345458984
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "threeboats",
+      "report": "Evidence/P11-Scenes-DX12-threeboats/report.json",
+      "sha256": "b0388d0a0b4aa9e6e1b0e8ee4095052dfa754f5142ed229d9b23b6ea8aa41e07",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats.unity",
+        "test": "threeboats",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-37.1, 9.94, 1)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 421,
+        "lodFrame": 421,
+        "changed": 7607,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "BoatAlignNormal (1).wet",
+            "value": 150.0
+          },
+          {
+            "name": "BoatAlignNormal (1).metres",
+            "value": 19.415306091308594
+          },
+          {
+            "name": "BoatAlignNormal (1).turn",
+            "value": 149.4307861328125
+          },
+          {
+            "name": "BoatAlignNormal (2).wet",
+            "value": 150.0
+          },
+          {
+            "name": "BoatAlignNormal (2).metres",
+            "value": 23.817996978759766
+          },
+          {
+            "name": "BoatAlignNormal (2).turn",
+            "value": 115.9482650756836
+          },
+          {
+            "name": "BoatAlignNormal (3).wet",
+            "value": 150.0
+          },
+          {
+            "name": "BoatAlignNormal (3).metres",
+            "value": 25.620670318603516
+          },
+          {
+            "name": "BoatAlignNormal (3).turn",
+            "value": 103.41987609863281
+          },
+          {
+            "name": "nonBackground",
+            "value": 230343.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "wakes-off",
+      "report": "Evidence/P11-Scenes-DX12-wakes-off/report.json",
+      "sha256": "be5254e32712ac2c2db44937f6b4ac33f9dff3339a10718f24a3a479c1048f09",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+        "test": "wakes-off",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(91.10611, 4.962348, 2.43580627)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": -1,
+        "lodFrame": -1,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "energy",
+            "value": 0.0
+          },
+          {
+            "name": "nonzero",
+            "value": 0.0
+          },
+          {
+            "name": "rigDistance",
+            "value": 18.149978637695312
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "wakes-on",
+      "report": "Evidence/P11-Scenes-DX12-wakes-on/report.json",
+      "sha256": "c57ab9820cc64e093fd4a301a3c0c1bf06eeafc4372baa526dbdd92eccfffaeb",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+        "test": "wakes-on",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(91.10611, 4.962348, 20.5857773)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 124,
+        "lodFrame": 124,
+        "changed": 13837,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "energy",
+            "value": 3547.0529277920723
+          },
+          {
+            "name": "nonzero",
+            "value": 67716.0
+          },
+          {
+            "name": "rigDistance",
+            "value": 18.149978637695312
+          },
+          {
+            "name": "nonBackground",
+            "value": 230389.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "wakes-off-repeat",
+      "report": "Evidence/P11-Scenes-DX12-wakes-off-repeat/report.json",
+      "sha256": "3fe2c933a7304747e60601e8dac5c884cb4d31cca415d0e62483b9246f83fe3d",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
+        "test": "wakes-off-repeat",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(91.10611, 4.962348, 2.43580627)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": -1,
+        "lodFrame": -1,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "energy",
+            "value": 0.0
+          },
+          {
+            "name": "nonzero",
+            "value": 0.0
+          },
+          {
+            "name": "rigDistance",
+            "value": 18.149978637695312
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "rivers",
+      "report": "Evidence/P11-Scenes-DX12-rivers/report.json",
+      "sha256": "3cd56bb418e7db25b55f7e8c4df5970a258bf45e5ae5c664d3303115ec1ed2b9",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/LakesAndRivers.unity",
+        "test": "rivers",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(0, 107.5, 0)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 113,
+        "lodFrame": 113,
+        "changed": 723,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "heightDelta",
+            "value": 89162.04134178162
+          },
+          {
+            "name": "flowDelta",
+            "value": 14085.30897897482
+          },
+          {
+            "name": "heightRestore",
+            "value": 0.0
+          },
+          {
+            "name": "flowRestore",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "whirl-combined",
+      "report": "Evidence/P11-Scenes-DX12-whirl-combined/report.json",
+      "sha256": "22614154642179679995bb1944831ece28ee048f34f2dcc5cd33b6253a37a6bf",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+        "test": "whirl-combined",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-22.6, 7.4, 15.2)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 125,
+        "lodFrame": 125,
+        "changed": -1,
+        "restoration": -1,
+        "metrics": [
+          {
+            "name": "waveSum",
+            "value": 1312270.946053505
+          },
+          {
+            "name": "flowSum",
+            "value": 1273259.9375073314
+          },
+          {
+            "name": "nonBackground",
+            "value": 230399.0
+          }
+        ]
+      }
+    },
+    {
+      "api": "DX12",
+      "case": "whirl-isolated",
+      "report": "Evidence/P11-Scenes-DX12-whirl-isolated/report.json",
+      "sha256": "f936941a386bf155de0cfc1a07b5df36b7c10c5ed86973039e16f7f0237bc192",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scene": "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity",
+        "test": "whirl-isolated",
+        "scope": "P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance.",
+        "failure": "",
+        "quality": "PC",
+        "camera": "(-22.6, 7.4, 15.2)",
+        "keyboardPresent": false,
+        "focused": true,
+        "errors": 0,
+        "missingScripts": 0,
+        "frame": 115,
+        "lodFrame": 115,
+        "changed": 50826,
+        "restoration": 0,
+        "metrics": [
+          {
+            "name": "heightDelta",
+            "value": 495746.0465903282
+          },
+          {
+            "name": "flowDelta",
+            "value": 1273259.9375073314
+          },
+          {
+            "name": "heightRestore",
+            "value": 0.0
+          },
+          {
+            "name": "flowRestore",
+            "value": 0.0
+          }
+        ]
+      }
+    }
+  ],
+  "recordedUtc": "2026-11-06T21:30:06.274606+00:00",
+  "guidCompute": {
+    "checked": 597,
+    "status": "PASSED",
+    "metadataByteChanges": "same3 normalized sprite metas disclosed"
+  },
+  "normalCheckpointHash": "0d063da5aa9a9e730b1dbc044de7af4faced11d5c52b6299c95b4636cfcebd32",
+  "currentSources": [
+    {
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs",
+      "sha256": "98a70dfc7fff6d6057ccaea4c6cdd79c55b58e8a149ade6041ce8af5c9627b8b"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Interaction/BoatProbes.cs",
+      "sha256": "38e2d58a8be9f20904ef60ff3078b843dbbafd17ded22d46e84f4606f3ad1057"
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs",
+      "sha256": "51ef8d4def8c040287764eafcb4070b3d62bbda0a97553cc08c4a7f3c8ccdb06"
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "f24917f55cbe137aa18ac83ceae1dc271d7e72fe518e29158f16f4ba7bf1a65a"
+    }
+  ]
+}
