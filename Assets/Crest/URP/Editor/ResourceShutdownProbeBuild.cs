@@ -17,9 +17,11 @@ namespace Crest.URP.Editor
         public static void BuildOriginalScenes() => BuildImpl(2);
         public static void BuildRenderModes() => BuildImpl(3);
         public static void BuildCameraStack() => BuildImpl(4);
+        public static void BuildReflectionModes() => BuildImpl(5);
         static void BuildImpl(int mode)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
+            var qualityPipeline=QualitySettings.renderPipeline;
             var preloadedAssets=PlayerSettings.GetPreloadedAssets();
             bool timing=PlayerSettings.enableFrameTimingStats;
             bool strict=PlayerSettings.strictShaderVariantMatching;
@@ -56,12 +58,26 @@ namespace Crest.URP.Editor
                     var foam=new Material(Shader.Find("Crest/Inputs/Foam/Override Foam"));AssetDatabase.CreateAsset(foam,folder+"/StackFoamSeed.mat");
                     retention.sharedMaterials=new[]{underwater,planar,counterControl,flat,flatAbove,foam};
                 }
+                if(mode==5)
+                {
+                    var original=AssetDatabase.LoadAssetAtPath<UniversalRendererData>("Assets/CrestPortDemos/Renderer.asset");
+                    var forward=UnityEngine.Object.Instantiate(original);forward.renderingMode=RenderingMode.Forward;AssetDatabase.CreateAsset(forward,folder+"/Forward.asset");
+                    var clustered=UnityEngine.Object.Instantiate(original);clustered.renderingMode=RenderingMode.ForwardPlus;AssetDatabase.CreateAsset(clustered,folder+"/ForwardPlus.asset");
+                    var deferred=UnityEngine.Object.Instantiate(original);deferred.renderingMode=RenderingMode.Deferred;AssetDatabase.CreateAsset(deferred,folder+"/Deferred.asset");
+                    var pipeline=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>("Assets/CrestPortDemos/Pipeline.asset"));
+                    var serialized=new SerializedObject(pipeline);var renderers=serialized.FindProperty("m_RendererDataList");renderers.arraySize=3;
+                    renderers.GetArrayElementAtIndex(0).objectReferenceValue=forward;renderers.GetArrayElementAtIndex(1).objectReferenceValue=clustered;renderers.GetArrayElementAtIndex(2).objectReferenceValue=deferred;
+                    serialized.ApplyModifiedPropertiesWithoutUndo();AssetDatabase.CreateAsset(pipeline,folder+"/ReflectionModesPipeline.asset");
+                    // Build against this owned pipeline so native URP stripping sees all three
+                    // renderer modes; source pipeline and source quality exclusions are preserved.
+                    QualitySettings.renderPipeline=pipeline;AssetDatabase.SaveAssets();
+                }
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
                 PlayerSettings.enableFrameTimingStats=true;
                 if(mode != 0)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==3?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==2?new[]{path,
+                    scenes=mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==3?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==2?new[]{path,
                         "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
@@ -70,7 +86,7 @@ namespace Crest.URP.Editor
                         "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity"}:
                         mode==1?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName=mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });
@@ -79,6 +95,7 @@ namespace Crest.URP.Editor
             }
             finally
             {
+                QualitySettings.renderPipeline=qualityPipeline;
                 PlayerSettings.SetPreloadedAssets(preloadedAssets);
                 PlayerSettings.enableFrameTimingStats=timing;
                 PlayerSettings.strictShaderVariantMatching=strict;
