@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 namespace Crest.URP.Editor
 {
-    public static class ResourceShutdownProbeBuild
+    public static partial class ResourceShutdownProbeBuild
     {
         public static void Build() => BuildImpl(0);
         public static void BuildOriginalExamples() => BuildImpl(1);

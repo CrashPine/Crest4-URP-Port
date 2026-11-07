@@ -4,13 +4,13 @@
 
 ## Текущий этап и операции
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11.2/P11.3-A/B/C scoped DONE. **P11.3-D NEXT**, затем F/G/H, finalP11.4/P12. E optional/non-gating. Единственный порядок/критерии — PORT_PLAN, измерения — TEST_RESULTS, приёмка подсистем — FEATURE_MATRIX. Не переоткрывать P09/P10 и не создавать новый status/roadmap Markdown.
+P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11.2/P11.3-A/B/C scoped DONE. **P11.3-D ACTIVE (D1 scoped DONE; D2 NEXT)**, затем F/G/H, finalP11.4/P12. E optional/non-gating. Единственный порядок/критерии — PORT_PLAN, измерения — TEST_RESULTS, приёмка подсистем — FEATURE_MATRIX. Не переоткрывать P09/P10 и не создавать новый status/roadmap Markdown.
 
-Нет активных Unity Editor/Player/build операций. Последняя диагностическая сборка `Builds/P11-ReflectionModes`, build success2026-11-07T09:45:10Z; свежие DX11/DX12 Player exit0, reports7 rows/API/errors0. Проверять реальные processes/timestamps перед новым запуском.
+Нет активных Unity Editor/Player/build операций. D1 build success and fresh DX11/DX12 exit0, seven rows/API/errors0; inspect P11-SavedFFT-summary/files/evidence.zip. Initial Editor lifecycle failure retained separately.
 
 ## Точное следующее действие
 
-**P11.3-D:** прочитать `BakedFFTIntegrationTests.cs`, `DepthCachePersistenceTests.cs`, `InputPersistenceTests.cs` и соответствующие строки FEATURE_MATRIX/результаты TEST_RESULTS. В PORT_PLAN зафиксировать конечные Player states этих существующих fixtures: saved baked FFT GPU/CPU/None provider switching/public query recovery/old native-owner release; exported depth cache reload without source geometry; saved local-height/flow bindings and fields. Затем отдельный serialized diagnostic Player transfer с owned assets и фактическими GUID/profile/query/native данными. Не перегенерировать demos, не перепекать исходные сцены, не вводить новую wave inversion/model law и не повторять Editor proof.
+**P11.3-D2:** перенести accepted DepthCachePersistence exported EXR64/prefab в Player без source geometry. Использовать существующий `Evidence/DepthBaked-Direct3D11.exr` (относительные-6.5m после original rebake; accepted Editor report/XML в TEST_RESULTS), сохранить byte hash и importer SingleChannel/Red/linear/RFloat/uncompressed/no mipmaps/Bilinear/Clamp/NPOT None. Не повторять Editor bake без причины. Owned imported EXR/prefab/saved scene, ownerY2->5 даёт world-4.5->-1.5, disable sentinel/re-enable, original tolerance.02. Проверить реальный native depth field, SavedCache binding, отсутствие realtime CacheTexture/source layer30 geometry, actual scene reload/old ocean RT release. Runtime GUID lookup недоступен: Editor GUID/source provenance + Player object/texture bytes. Затем D3 saved inputs по PORT_PLAN.
 
 C1/C2/C3 не повторять без изменений или конкретного дефекта. Для fixture-only правок — адресный контроль; runtime fixes группировать для P11.4. Перед новой операцией читать TEST_RESULTS и relevant FEATURE_MATRIX row. Никаких одновременно запущенных Editors на этом проекте.
 
@@ -36,4 +36,6 @@ Loose backups outside Assets (`P11-Scenes-retained-CrestResourceProbe_*`, reject
 
 P10 GPU-cost/driver-memory/Intel/XR limits явны. Historical evictable2490368B NOT REPRODUCED/not fixed; old .015754165 history-restoration failure не объяснён новыми bounded controls. Не повторять неизменённые profiling windows/галерею воды.
 
-Структурный аудит1419 файлов: missing meta0/duplicate GUID0/missing original0;597 GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Точный Git checkpoint — `git log -1`.
+Структурный аудит1423 файлов: missing meta0/duplicate GUID0/missing original0;597 GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Точный Git checkpoint — `git log -1`.
+
+D1 checkpoint:7 states/API Passed;32768 raw halves SHA0e26db3e...,40 CPU reference points/API max height2.99514e-6m;3x2 GPU buffers +2x16 CPU positions released/API, saved scene reload without settings/data assignment. GPU velocity unrequested under timeScale0 (metric-1), CPU derivative retained. No production edits. Loose P11-SavedFFT-fixture-* copies already archived; do not stage duplicates.
