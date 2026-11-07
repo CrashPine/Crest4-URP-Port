@@ -1,0 +1,524 @@
+{
+  "scope": "P11.3-D3 four finite saved inputs states/API scoped Passed; D1/D2/D3 finite transfer DONE. WholeP11/port unfinished. Native LOD0 inputs only, not all material/optical/other LOD/physical input/performance/leak-free acceptance.",
+  "recordedUtc": "2026-11-07T14:58:11.773733+00:00",
+  "rows": [
+    {
+      "api": "DX11",
+      "report": "Evidence/P11-SavedInputs-DX11/report.json",
+      "sha256": "68259b5a52cdef82940951a3c579d6918860887e2d0bd1a3512edba72fa9989a",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D11",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scope": "P11.3-D3: existing InputPersistence fixture in compiled Player, four saved-scene/reload/toggle states. Native LOD0 fields/profile/material/clock/reporter binding and old4RT release. Original tolerances retained; not all materials/rendered optics/other LODs/physical input/performance/leak-free acceptance.",
+        "failure": "",
+        "errors": 0,
+        "provenance": {
+          "scene": "Assets/CrestSavedInputs_23564305f68f4c5094beb99c27ca8440/Inputs.unity",
+          "sceneGuid": "bb399d9ecc5d9734eb46cc4fcf10ff7f",
+          "profileGuid": "ef31720e40727624990d45ffc133b0b0",
+          "surfaceGuid": "9c14bc583e036e241a119a7eb86effac",
+          "profileName": "Depth",
+          "surfaceName": "Surface",
+          "scope": "D3: saved scene/profile/material/clock provenance. Player has no AssetDatabase; observe actual references/properties/native fields, not simulated runtime GUID lookup.",
+          "materialGuids": [
+            "3e3637556ee99aa4e95c2be765b2b398",
+            "8ef96a964f449984c95e0de436040ed2",
+            "77b49749086ba2a458f306bcc2608b7e"
+          ],
+          "materialNames": [
+            "Flow",
+            "Albedo",
+            "Height"
+          ],
+          "shaderNames": [
+            "Crest/Inputs/Flow/Fixed Direction",
+            "Crest/Inputs/Albedo/Color",
+            "Crest/Inputs/Sea Floor Depth/Set Base Water Height Using Geometry"
+          ]
+        },
+        "rows": [
+          {
+            "state": "Initial",
+            "bindings": true,
+            "heightReporter": true,
+            "oldOceanDestroyed": false,
+            "oldHeightDestroyed": false,
+            "oldTargetsDestroyed": 0,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 9,
+            "lodFrame": 9,
+            "flowCenter": {
+              "x": 3.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 2.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.49803924560546875,
+            "clipExpected": 0.5,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.7490196228027344,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.5607843399047852
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": false,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          },
+          {
+            "state": "Reloaded",
+            "bindings": true,
+            "heightReporter": true,
+            "oldOceanDestroyed": true,
+            "oldHeightDestroyed": true,
+            "oldTargetsDestroyed": 4,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 18,
+            "lodFrame": 18,
+            "flowCenter": {
+              "x": 3.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 2.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.49803924560546875,
+            "clipExpected": 0.5,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.7490196228027344,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.5607843399047852
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": false,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          },
+          {
+            "state": "Disabled",
+            "bindings": true,
+            "heightReporter": false,
+            "oldOceanDestroyed": false,
+            "oldHeightDestroyed": false,
+            "oldTargetsDestroyed": 0,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 23,
+            "lodFrame": 23,
+            "flowCenter": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 0.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.0,
+            "clipExpected": 0.0,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": true,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          },
+          {
+            "state": "Reenabled",
+            "bindings": true,
+            "heightReporter": true,
+            "oldOceanDestroyed": false,
+            "oldHeightDestroyed": false,
+            "oldTargetsDestroyed": 0,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 28,
+            "lodFrame": 28,
+            "flowCenter": {
+              "x": 3.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 2.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.49803924560546875,
+            "clipExpected": 0.5,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.7490196228027344,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.5607843399047852
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": false,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          }
+        ]
+      },
+      "unityImmediateLeakTelemetry": 1
+    },
+    {
+      "api": "DX12",
+      "report": "Evidence/P11-SavedInputs-DX12/report.json",
+      "sha256": "c429108621c403d2517b0c478b360c6a3843b4d29c8927ac0e9915cfa4a9da0d",
+      "result": {
+        "unity": "6000.6.5f1",
+        "api": "Direct3D12",
+        "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+        "scope": "P11.3-D3: existing InputPersistence fixture in compiled Player, four saved-scene/reload/toggle states. Native LOD0 fields/profile/material/clock/reporter binding and old4RT release. Original tolerances retained; not all materials/rendered optics/other LODs/physical input/performance/leak-free acceptance.",
+        "failure": "",
+        "errors": 0,
+        "provenance": {
+          "scene": "Assets/CrestSavedInputs_23564305f68f4c5094beb99c27ca8440/Inputs.unity",
+          "sceneGuid": "bb399d9ecc5d9734eb46cc4fcf10ff7f",
+          "profileGuid": "ef31720e40727624990d45ffc133b0b0",
+          "surfaceGuid": "9c14bc583e036e241a119a7eb86effac",
+          "profileName": "Depth",
+          "surfaceName": "Surface",
+          "scope": "D3: saved scene/profile/material/clock provenance. Player has no AssetDatabase; observe actual references/properties/native fields, not simulated runtime GUID lookup.",
+          "materialGuids": [
+            "3e3637556ee99aa4e95c2be765b2b398",
+            "8ef96a964f449984c95e0de436040ed2",
+            "77b49749086ba2a458f306bcc2608b7e"
+          ],
+          "materialNames": [
+            "Flow",
+            "Albedo",
+            "Height"
+          ],
+          "shaderNames": [
+            "Crest/Inputs/Flow/Fixed Direction",
+            "Crest/Inputs/Albedo/Color",
+            "Crest/Inputs/Sea Floor Depth/Set Base Water Height Using Geometry"
+          ]
+        },
+        "rows": [
+          {
+            "state": "Initial",
+            "bindings": true,
+            "heightReporter": true,
+            "oldOceanDestroyed": false,
+            "oldHeightDestroyed": false,
+            "oldTargetsDestroyed": 0,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 9,
+            "lodFrame": 9,
+            "flowCenter": {
+              "x": 3.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 2.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.49803924560546875,
+            "clipExpected": 0.5,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.7490196228027344,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.5607843399047852
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": false,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          },
+          {
+            "state": "Reloaded",
+            "bindings": true,
+            "heightReporter": true,
+            "oldOceanDestroyed": true,
+            "oldHeightDestroyed": true,
+            "oldTargetsDestroyed": 4,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 18,
+            "lodFrame": 18,
+            "flowCenter": {
+              "x": 3.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 2.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.49803924560546875,
+            "clipExpected": 0.5,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.7490196228027344,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.5607843399047852
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": false,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          },
+          {
+            "state": "Disabled",
+            "bindings": true,
+            "heightReporter": false,
+            "oldOceanDestroyed": false,
+            "oldHeightDestroyed": false,
+            "oldTargetsDestroyed": 0,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 23,
+            "lodFrame": 23,
+            "flowCenter": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 0.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.0,
+            "clipExpected": 0.0,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": true,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          },
+          {
+            "state": "Reenabled",
+            "bindings": true,
+            "heightReporter": true,
+            "oldOceanDestroyed": false,
+            "oldHeightDestroyed": false,
+            "oldTargetsDestroyed": 0,
+            "flowSamples": 147456,
+            "heightSamples": 147456,
+            "clipSamples": 147456,
+            "albedoSamples": 589824,
+            "frame": 28,
+            "lodFrame": 28,
+            "flowCenter": {
+              "x": 3.0,
+              "y": 0.0
+            },
+            "flowOutside": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "heightCenter": 2.0,
+            "heightOutside": 0.0,
+            "clipCenter": 0.49803924560546875,
+            "clipExpected": 0.5,
+            "clipOutside": 0.0,
+            "albedoCenter": {
+              "r": 0.7490196228027344,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.5607843399047852
+            },
+            "albedoOutside": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 0.0
+            },
+            "disabledFieldsZero": false,
+            "materialIdentities": [
+              "1772:256",
+              "1771:256",
+              "1773:256"
+            ]
+          }
+        ]
+      },
+      "unityImmediateLeakTelemetry": 1
+    }
+  ],
+  "failedAttempts": [
+    "occupied-editor-attempt.zip: startup exit1 before compilation/executeMethod; target opened via Hub after initial check.",
+    "frame-order-failure.zip: first DX11 frame9/LOD8, rejected before field sampling. Fixture now uses existing order300 ModeCapture after Ocean200; current-frame gate/numeric thresholds retained."
+  ],
+  "userEditorHandoff": "User authorized normal close/save. Before any UI input both Editors had already exited normally; no agent close/save/discard UI actions. Target preflight added.",
+  "priorForeignChangesPreserved": [
+    "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes/LightingData.asset",
+    "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat/LightingData.asset",
+    "Assets/Crest/Crest-Examples/BoatDev/Scenes/threeboats/LightingData.asset",
+    "Assets/Crest/Crest-Examples/Examples/Scenes/Examples/LightingData.asset",
+    "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool/LightingData.asset"
+  ],
+  "currentForeignBaseline": "Evidence/P11-SavedInputs-foreign-files.json:36 files, captured after live Editor closed. All preserved through diagnostic builds/runs; do not revert five earlier changed LightingData files.",
+  "normalArtifactsPreserved": [
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "1d90c76a0e35bcbcc37b4b2bbc8fbd3090b89e0049c27e242fba4af363b24300"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "3db3b4c80faf5315da0f3a5a3e6b6fe4be64e76d114e1dd747d9f2fc93165549"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "bda69011d45b3ca7a6dafbf48b446be457ae82941fb3b6eaf7b33e56361a4c56"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.dll",
+      "sha256": "92d6511bd444dc59b0fcb1ccfeabe234ff29d2b224f482a4af4849501d733730"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.URP.dll",
+      "sha256": "a5804e0f9110216b51b6cbee6fff526b214a0b6cce4fad16ce139887baec0724"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/Managed/Crest.Examples.dll",
+      "sha256": "ead0f8598cad6ca8fab27448b26e3252eb8a4569e91dfb98d66b7539b021f954"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/resources.assets",
+      "sha256": "f086168d2c93fe5b15b368450075440dbf2cc6a428f14436a8b594b0f2b99688"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/sharedassets0.assets",
+      "sha256": "dce5a6dd6d605c5f69542844c9f81fad128e7b5e86ca5777de11ac6086f9fc0b"
+    },
+    {
+      "path": "Builds/Development/CrestPort_Data/globalgamemanagers",
+      "sha256": "b678afc5e6612a9053e0fe30f34cf0d5ee5152d53ad61e23c57a379cc42f8d84"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/resources.assets",
+      "sha256": "eb8d740c93f288b56f42fa0318e92ab068a0a065c098f88715dea3b959dd4825"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/sharedassets0.assets",
+      "sha256": "a8d9a6abc78a6a4bc3520dfe39f62328e478e15e6fb3916676e416557083fb4f"
+    },
+    {
+      "path": "Builds/Release/CrestPort_Data/globalgamemanagers",
+      "sha256": "0ed274e57cf563b2f8821b7efdfe9afc1f0f2f453291f868d167cee74b86c4b1"
+    }
+  ],
+  "normalLimitation": "0f833b4 normal artifacts unchanged but stale wrt B production input guards/GraphicsSettings; finalP11.4 pending.",
+  "archive": {
+    "path": "Evidence/P11-SavedInputs-evidence.zip",
+    "sha256": "fc5829aca82b3f3dbc8e05e8d51ec64a7e7f8898f770a88eb18c67971a1cb959"
+  },
+  "next": "P11.3-F compiled lightmap retention, then G/H/finalP11.4/P12; E optional.",
+  "structuralAudit": {
+    "files": 1431,
+    "rootMarkdown": 8,
+    "missingMeta": 0,
+    "duplicateGUID": 0,
+    "missingOriginal": 0,
+    "protectedGUIDCompute": 597,
+    "normalizedSpriteMetas": 3
+  }
+}
