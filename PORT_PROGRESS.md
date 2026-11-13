@@ -6,11 +6,11 @@
 
 P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked. **P11.4 ACTIVE**, P12 pending.
 
-G1b and G2 sessions finished. Their evidence and the initial paused NaN run are archived. The owned Editor fixture was moved to Evidence after the Editor closed. Final runner `Evidence/P11-Final-run.ps1` writes `P11-Final-operation.json` with step and timestamps. Check actual processes and artifacts before any retry.
+G1b and G2 sessions finished and are archived. The first normal runner completed. The current normal runner started at 22:35 UTC and writes `Evidence/P11-Current-operation.json`. Check actual processes and artifact timestamps before any retry.
 
 ## Точное следующее действие
 
-**P11.4:** the first regression completed, with 121+2 tests per API, ValidateAssets, two builds and four passing smoke reports. Every smoke reproduced two active RenderTexture release warnings from OceanDepthCache. The focused DX11 pre-fix regression uses the existing DepthCachePersistenceTests with an active-target sentinel. After reading its XML, apply the saved `Evidence/P11-Final-depth-cache-fix.patch`, run the focused check on both APIs and confirm zero active release warnings in rebuilt Players. Reconcile remaining local Reflection Probe, Player keyboard and physical XR coverage in P12.
+**P11.4:** the initial 121+2/API regression is archived. Corrected OceanDepthCache passed both sentinel tests and compiled Underwater create/render/unload on both APIs. Local Reflection Probe single and overlap tests each passed on both APIs, with 40634 blended pixels and exact restoration. The current sequential regression uses `Evidence/P11-Current-operation.json`. After its two 123-test batches, interactive checks, builds and four smokes complete, run `py -3.13 Evidence/P11-Final-collect.py --prefix P11-Current --count 123`, check smoke warnings and selected captures, and update P12.
 
 H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 

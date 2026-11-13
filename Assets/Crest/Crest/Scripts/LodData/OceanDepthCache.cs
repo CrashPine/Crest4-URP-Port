@@ -434,7 +434,15 @@ namespace Crest
             _copyDepthMaterial.SetVector(ShaderIDs.s_HeightNearHeightFar, new Vector2(ymax, ymin));
 
             // Copy from depth buffer into the cache
-            Graphics.Blit(null, _cacheTexture, _copyDepthMaterial);
+            var previousTarget = RenderTexture.active;
+            try
+            {
+                Graphics.Blit(null, _cacheTexture, _copyDepthMaterial);
+            }
+            finally
+            {
+                RenderTexture.active = previousTarget;
+            }
         }
 
 #if UNITY_EDITOR

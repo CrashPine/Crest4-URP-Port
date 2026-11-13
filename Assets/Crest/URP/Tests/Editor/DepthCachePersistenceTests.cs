@@ -48,13 +48,23 @@ public class DepthCachePersistenceTests
         configuration.FindProperty("_refreshMode").intValue = (int)OceanDepthCache.OceanDepthCacheRefreshMode.OnDemand;
         configuration.FindProperty("_relative").boolValue = false;
         configuration.ApplyModifiedPropertiesWithoutUndo();
-        cache.PopulateCache();
+        _sentinel = new RenderTexture(8, 8, 0);
+        _sentinel.Create();
+        var previousTarget = RenderTexture.active;
+        try
+        {
+            RenderTexture.active = _sentinel;
+            cache.PopulateCache();
+            Assert.That(RenderTexture.active, Is.SameAs(_sentinel), "Populating the realtime cache must restore the caller's active render texture.");
+        }
+        finally
+        {
+            RenderTexture.active = previousTarget;
+        }
         string report = $"Evidence/DepthPersistence-{SystemInfo.graphicsDeviceType}.txt";
         File.WriteAllText(report, "Known floor=-3.5m, owner=2m; original Inspector export method; EXR disk import and prefab round-trip; tolerance=0.02m\n");
         yield return CheckTexture(cache.CacheTexture, -3.5f, "LegacyRealtime", report);
 
-        _sentinel = new RenderTexture(8, 8, 0);
-        _sentinel.Create();
         RenderTexture.active = _sentinel;
         string path = _folder + "/Depth.exr";
         Assert.That(OceanDepthCacheEditor.SaveCacheToFile(cache, path), Is.EqualTo(path));

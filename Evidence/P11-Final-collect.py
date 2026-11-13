@@ -1,5 +1,6 @@
 """Validate completed P11.4 evidence and refresh the normal-build checkpoint."""
 from datetime import datetime, timezone
+import argparse
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -35,7 +36,12 @@ def refresh(row, path):
 
 
 def main():
-    operation = read_json(EVIDENCE / "P11-Final-operation.json")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--prefix", default="P11-Final")
+    parser.add_argument("--count", type=int, default=121)
+    args = parser.parse_args()
+    prefix = args.prefix
+    operation = read_json(EVIDENCE / f"{prefix}-operation.json")
     assert operation["state"] == "complete" and operation["step"] == "All commands", operation
     steps = {row["step"]: datetime.fromisoformat(row["startedUtc"]) for row in operation["history"]}
     expected = [f"{mode} {api}" for mode in ("Full", "Interactive") for api in ("DX11", "DX12")]
@@ -48,13 +54,13 @@ def main():
         assert datetime.fromisoformat(result["modifiedUtc"]) >= steps[step], (path, step)
         return result
 
-    baseline = EVIDENCE / "P11-Final-before.zip"
+    baseline = EVIDENCE / f"{prefix}-before.zip"
     with ZipFile(baseline) as before:
         checkpoint = json.loads(before.read("Evidence/Build-checkpoint.json"))
-    log_paths = [EVIDENCE / "P11-Final-operation.json", EVIDENCE / "P11-Final.stdout.log", EVIDENCE / "P11-Final.stderr.log"]
+    log_paths = [EVIDENCE / name for name in (f"{prefix}-operation.json", f"{prefix}.stdout.log", f"{prefix}.stderr.log")]
     reports = []
     for api in ("DX11", "DX12"):
-        for interactive, expected_count in ((False, 121), (True, 2)):
+        for interactive, expected_count in ((False, args.count), (True, 2)):
             name = f"EditMode-{api}" + ("-interactive" if interactive else "")
             path = EVIDENCE / f"{name}.xml"
             run = ElementTree.parse(path).getroot()
@@ -105,6 +111,8 @@ def main():
     for path in (
         "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs",
         "Assets/Crest/Crest/Scripts/LodData/OceanDepthCache.cs",
+        "Assets/Crest/Crest/Shaders/Ocean.shader",
+        "Assets/Crest/Crest/Shaders/OceanReflection.hlsl",
         "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs",
         "Assets/Crest/Crest/Scripts/Interaction/BoatProbes.cs",
         "ProjectSettings/GraphicsSettings.asset",
@@ -124,11 +132,11 @@ def main():
             data = before.read(path) if path.startswith("Evidence/") and path not in {p.relative_to(ROOT).as_posix() for p in log_paths} else (ROOT / path).read_bytes()
             assert sha256(data).hexdigest() == row["sha256"].lower(), path
     checkpoint["recordedUtc"] = datetime.now(timezone.utc).isoformat()
-    checkpoint["previousNormalCheckpoint"] = {"path": "Evidence/P11-Final-previous-build.json"}
-    checkpoint["validationStatus"] = "P11.4 full 121 plus interactive 2 per API, asset validation, both builds and four Player smokes passed."
-    checkpoint["limitation"] = "Acceptance covers the recorded Windows scope. Local Reflection Probe coverage, Player keyboard and physical XR remain outstanding. See TEST_RESULTS for warning and resource outcomes."
+    checkpoint["previousNormalCheckpoint"] = {"path": f"Evidence/{prefix}-previous-build.json"}
+    checkpoint["validationStatus"] = f"P11.4 full {args.count} plus interactive 2 per API, asset validation, both builds and four Player smokes passed."
+    checkpoint["limitation"] = "Acceptance covers the recorded Windows scope. See TEST_RESULTS for outstanding keyboard, physical XR and warning coverage."
 
-    archive = EVIDENCE / "P11-Final-evidence.zip"
+    archive = EVIDENCE / f"{prefix}-evidence.zip"
     keep = {path.relative_to(ROOT).as_posix() for path in log_paths}
     mutations = []
     created = []
@@ -136,7 +144,7 @@ def main():
         initial = set(before.namelist())
         for path in sorted(set(log_paths)):
             output.write(path, path.relative_to(ROOT).as_posix())
-        for path in sorted(EVIDENCE.glob("P11-Final-mutated-*")):
+        for path in sorted(EVIDENCE.glob(f"{prefix}-mutated-*")):
             output.write(path, path.relative_to(ROOT).as_posix())
         variant = "Assets/CrestPortDemos/ReflectionVertexVariants.asset"
         original_variant = before.read(variant)
@@ -153,7 +161,7 @@ def main():
                 output.write(path, name)
                 mutations.append(name)
         for path in sorted(EVIDENCE.iterdir()):
-            if path.is_file() and not path.name.startswith("P11-Final-") and path.suffix in (".txt", ".png", ".gz", ".json") and path.stat().st_mtime >= steps["Full DX11"].timestamp():
+            if path.is_file() and not path.name.startswith(f"{prefix}-") and path.suffix in (".txt", ".png", ".gz", ".json") and path.stat().st_mtime >= steps["Full DX11"].timestamp():
                 name = path.relative_to(ROOT).as_posix()
                 if name not in keep and name not in initial:
                     output.write(path, name)
@@ -165,7 +173,7 @@ def main():
             (ROOT / name).write_bytes(before.read(name))
         if original_variant != generated_variant:
             (ROOT / variant).write_bytes(original_variant)
-        (EVIDENCE / "P11-Final-previous-build.json").write_bytes(before.read("Evidence/Build-checkpoint.json"))
+        (EVIDENCE / f"{prefix}-previous-build.json").write_bytes(before.read("Evidence/Build-checkpoint.json"))
     assert all(record(row["path"])["sha256"].lower() == row["sha256"].lower() for row in foreign)
     checkpoint["evidenceArchive"] = record(archive)
     checkpoint["archivedSideEffects"] = {"restoredHistorical": mutations, "newEvidence": created}

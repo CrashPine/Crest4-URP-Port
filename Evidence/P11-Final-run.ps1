@@ -1,8 +1,9 @@
+param([string]$Prefix = 'P11-Final')
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Set-Location -LiteralPath $root
 $editor = 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe'
-$operation = 'Evidence/P11-Final-operation.json'
+$operation = "Evidence/$Prefix-operation.json"
 $history = [Collections.Generic.List[object]]::new()
 $materialPaths = @(
     'Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat',
@@ -35,7 +36,7 @@ try {
     }
     Invoke-Step 'Restore known fixture material normalization' {
         Add-Type -AssemblyName System.IO.Compression.FileSystem
-        $baseline = [IO.Compression.ZipFile]::OpenRead((Resolve-Path Evidence/P11-Final-before.zip))
+        $baseline = [IO.Compression.ZipFile]::OpenRead((Resolve-Path "Evidence/$Prefix-before.zip"))
         $known = [IO.Compression.ZipFile]::OpenRead((Resolve-Path Evidence/P11-Examples-test-mutated-materials.zip))
         try {
             foreach ($path in $materialPaths) {
@@ -49,7 +50,7 @@ try {
                     $stream = $known.GetEntry($path).Open()
                     try { $expected = [Convert]::ToHexString($sha.ComputeHash($stream)) } finally { $stream.Dispose() }
                     if ($current -ne $expected) { throw "Unexpected test mutation in $path. Preserve and inspect." }
-                    $archive = Join-Path $PSScriptRoot ('P11-Final-mutated-' + (Split-Path $path -Leaf))
+                    $archive = Join-Path $PSScriptRoot ("$Prefix-mutated-" + (Split-Path $path -Leaf))
                     Copy-Item -LiteralPath $path -Destination $archive
                     [IO.Compression.ZipFileExtensions]::ExtractToFile($entry, (Resolve-Path -LiteralPath $path), $true)
                 } finally { $sha.Dispose() }

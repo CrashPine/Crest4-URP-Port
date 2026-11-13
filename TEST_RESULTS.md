@@ -8,6 +8,18 @@ The current OceanDebugGUI fix and the earlier input and mixed-light variant chan
 
 Each smoke log reported two releases of an active RenderTexture at `OceanDepthCache.OnDestroy`. The full suites, interactive checks and normal builds did not report that warning, JobTempAlloc or the historical DX12 evictable warning. This checkpoint precedes the depth-cache correction. The archive preserves the full logs and test-generated evidence. Historical reports were restored from the pre-run snapshot, including the 36 recorded foreign paths. The initial evidence collector checked a test-overwritten Buoyancy report before restoring it and stopped. Collection then validated the saved baseline, archived the new output and verified the restored hashes.
 
+## P11.4: active depth-cache target correction (2026-11-13)
+
+The pre-fix DX11 test observed that `PopulateCache` left its RFloat cache active in place of the caller's sentinel. The correction restores the previous target around the depth-copy Blit. The expanded persistence test passed on DX11 and DX12, including its original EXR and native depth checks.
+
+The first compiled Calm control had zero cache textures, so its zero warnings do not verify cache teardown. The rebuilt Underwater fixture on each API created the 256×256 RFloat cache and depth target, submitted a render request, unloaded the ocean and reported zero remaining cache targets and zero active-target releases. Each returned exit0 and errors0. The explicit render request still produced seven stale Shadow frame warnings per API. The earlier normal smoke runner records its own frame ordering. Raw runs, the pre-fix XML and diagnostic assemblies are archived in `P11-DepthLifecycle-evidence.zip`.
+
+## P12: local reflection probes (2026-11-13)
+
+At fixed camera and ocean time, a custom red-to-green cubemap changed 42240 pixels on the flat water target on DX11 and DX12. Disabling the local probe changed the same number of pixels. Re-enabling red restored every RGB pixel. The isolated overlap fixture enables blending in a cloned Forward pipeline asset and adds a second probe of equal size. The previous shader produced zero pixels with an intermediate contribution from both maps. With the position-aware URP probe function and blending variant, 40634 of 57600 pixels show contributions between the red-only and green-only controls on both APIs, with exact red restoration. The original single-probe path remains in use with blending disabled.
+
+Both focused test cases passed on each API. The first overlap fixture failed to compile because the pipeline property is read-only. The fixture then set the serialized option on the clone and reproduced the rendering failure before the shader change. Raw reports and both failures are in `P11-ReflectionProbe-evidence.zip`. Clustered probe atlases and box projection are outside this recorded Forward fixture.
+
 ## P11.3-G1b: OceanDebugGUI mouse controls (2026-11-13)
 
 The original GUI ran in an isolated ordinary Windows Player with Ocean_Calm. DX11 and DX12 each recorded six states from five window clicks. Show sim data toggled true/false/true and the right-hand LOD texture column visibly disappeared and returned. The wind slider moved from 12 to 109.18 km/h. Readback of 147456 LOD0 displacement texels after the current Ocean update at fixed ocean time 1s gave a maximum XYZ component change of 2.27392578125 m on each API. The Freeze time checkbox switched Unity time scale from 1 to 0 and back.

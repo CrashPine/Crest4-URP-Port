@@ -239,6 +239,7 @@ Shader "Crest/Ocean"
 			#pragma multi_compile_fog
 			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
 			#pragma multi_compile_fragment _ _SHADOWS_SOFT
+			#pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
 
 			// #pragma enable_d3d11_debug_symbols
 
@@ -743,7 +744,7 @@ Shader "Crest/Ocean"
 				else
 				#endif
 				{
-					ApplyReflectionSky(view, n_pixel, lightDir, shadow.y, screenPos.xyzz, pixelZ, 1.0, col);
+					ApplyReflectionSky(view, n_pixel, lightDir, shadow.y, screenPos.xyzz, pixelZ, 1.0, col, input.worldPos);
 				}
 
 				// Override final result with white foam - bubbles on surface
