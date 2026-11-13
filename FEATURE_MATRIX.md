@@ -82,3 +82,15 @@ P11.3-B scoped (2026-11-06): compiled6 original standalone scenes,20 states/API 
 P11.3-G/H (2026-11-13): native keyboard navigation NOT TESTED successfully; ordinary DX11 window rendered Albedo but recorded no release from the attempted automation path. Debug GUI and live Editor field changes remain open. Physical Intel Iris Xe underwater format PASSED (scoped): actual R32_SFloat DX11/DX12, compared with R16_SFloat on NVIDIA DX11. Physical XR stereo NOT TESTED; no matching headset/provider available. Warning and scope details in TEST_RESULTS.
 
 P11.3-G1b mouse controls PASSED on DX11 and DX12. The LOD panel hides and returns, the wind slider changes the native displacement field, and the pause checkbox freezes and resumes Unity time. Corrected the NaN speed display on pause. G2 live DX11 Editor checks PASSED for Inspector Radius, Scene View spline movement, Spectrum Multiplier, Undo recovery and the configured collision query display. Player shortcut coverage remains open.
+
+## Исходные критерии завершения
+
+| Критерии раздела 11 | Подтверждение и границы |
+|---|---|
+| 1–2. Компиляция, материалы и шейдеры | P11.4 проверяет актуальный исходный код, ValidateAssets и строгий подбор вариантов в обеих сборках. |
+| 3–6. Волны, LOD, поверхность, пена и взаимодействия | Сопоставление с исходными формулами, чтение текстур GPU, переходы LOD, контрольные снимки и обратимые изменения перечислены в соответствующих строках. |
+| 7. Отражения, преломление и подводные эффекты | Планарное отражение, преломление, подводный композит и режимы объёма имеют измерения. Вклад локального Reflection Probe и физический XR остаются открыты. |
+| 8. Плавучесть и Surface Queries | Численные проверки пакетов GPU, сохранённых FFT-данных и движения исходных лодок перечислены в соответствующих строках. |
+| 9–10. Render Graph и Windows Player | P11.4 запускает Development и Release на DX11 и DX12 с актуальными сценами. |
+| 11. Критические утечки | Проверки жизненного цикла и наблюдения драйвера перечислены в P10 и TEST_RESULTS. Открытые предупреждения сверяются с итоговыми логами P11.4. |
+| 12. Матрица функциональности | Статусы проверенных областей, незакрытых вариантов и аппаратных ограничений остаются в этой матрице. |

@@ -84,7 +84,7 @@ def main():
         log_paths.append(log)
 
     for smoke in checkpoint["smokes"]:
-        label, api = smoke["configuration"], smoke["api"]
+        label, api = smoke["configuration"], smoke["graphicsAPI"]
         step = f"Smoke {label} {api}"
         directory = EVIDENCE / f"Player-{label}-{api}"
         report = directory / "player-smoke.txt"
@@ -128,6 +128,7 @@ def main():
     mutations = []
     created = []
     with ZipFile(baseline) as before, ZipFile(archive, "x", ZIP_DEFLATED) as output:
+        initial = set(before.namelist())
         for path in sorted(set(log_paths)):
             output.write(path, path.relative_to(ROOT).as_posix())
         for name in before.namelist():
@@ -141,7 +142,7 @@ def main():
         for path in sorted(EVIDENCE.iterdir()):
             if path.is_file() and not path.name.startswith("P11-Final-") and path.suffix in (".txt", ".png", ".gz", ".json") and path.stat().st_mtime >= steps["Full DX11"].timestamp():
                 name = path.relative_to(ROOT).as_posix()
-                if name not in keep and name not in before.namelist():
+                if name not in keep and name not in initial:
                     output.write(path, name)
                     created.append(name)
     with ZipFile(archive) as output:
