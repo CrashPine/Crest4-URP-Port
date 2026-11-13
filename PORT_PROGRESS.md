@@ -26,9 +26,9 @@ BOTH async bake/build and no-bake reuse Editor shutdowns emit2 JobTempAlloc warn
 
 ## Обычные сборки и финальный milestone
 
-**Normal Dev/Release устарели относительно production кода B.** Checkpoint0f833b4 =full121+actual interactive2/API/ValidateAssets/Dev+Release/4smokes;12 managed/packed hashes unchanged. B newer3 input guards +GraphicsSettings Custom Plain/Directional/Subtractive/ShadowMask retention have targeted compiled evidence but still require finalP11.4. Strict matching/fog/URP stripping enabled; original scene/bake/physics retained. Subsequent C/D/F diagnostic-only source has no normal runtime change.
+**Normal Dev/Release:** the current recorded build checkpoint is `3fe0cbd` with 121+2 tests per API, ValidateAssets, both builds and four smokes. It includes the B input guards and mixed-light retention and the paused speed fix. The depth-cache and reflection changes are newer than those binaries. The sequential P11.4 run will supersede them once all results are verified.
 
-После G/H обязательны **P11.4 full/API+actual interactive/ValidateAssets/Dev+Release/4 Player smokes**, source/build fingerprints/resource outcomes, затем P12 mandatory-item accounting/package. Не выдавать old full121 за final acceptance новых исходников. F Editor JobTemp warnings need explicit final disposition, not silently dropped.
+P12 follows the fresh build evidence and resource warning review. F Editor JobTempAlloc warnings remain in the resource record.
 
 ## Сохраняемые изменения и ограничения
 
