@@ -1,0 +1,120 @@
+{
+  "scope": "G1a unsuccessful keyboard delivery; H physical adapter format criterion only; XR not tested",
+  "unity": "6000.6.5f1",
+  "urp": "17.6.0",
+  "navigation": {
+    "api": "Direct3D11",
+    "initialConfiguration": "Albedo",
+    "outcome": "No M release or navigation after targeted M and one retry after client focus click. N and DX12 not attempted.",
+    "rawReport": "Evidence/P11-NavigationInput-DX11-20261113T121502461Z/report.json",
+    "runner": "timeout"
+  },
+  "hardware": [
+    {
+      "api": "Direct3D11",
+      "gpu": "Intel(R) Iris(R) Xe Graphics",
+      "deviceIndex": 1,
+      "format": "R32_SFloat",
+      "mask": {
+        "name": "Crest Underwater Mask_640x360_R32_SFloat_Tex2D",
+        "id": "1774:768",
+        "format": "R32_SFloat",
+        "depthFormat": "None",
+        "flags": "HideAndDontSave",
+        "width": 640,
+        "height": 360,
+        "layers": 1,
+        "msaa": 1,
+        "created": true,
+        "nativeBytes": 922670
+      },
+      "exitCode": 0,
+      "errors": 0,
+      "logWarnings": {
+        "lodFrameValidation": 7,
+        "activeRTRelease": 1,
+        "jobTemp": 0
+      },
+      "rawReport": "Evidence/P11-H-Mask-DX11-20261113T121908Z/report.json"
+    },
+    {
+      "api": "Direct3D12",
+      "gpu": "Intel(R) Iris(R) Xe Graphics",
+      "deviceIndex": 1,
+      "format": "R32_SFloat",
+      "mask": {
+        "name": "Crest Underwater Mask_640x360_R32_SFloat_Tex2D",
+        "id": "1774:768",
+        "format": "R32_SFloat",
+        "depthFormat": "None",
+        "flags": "HideAndDontSave",
+        "width": 640,
+        "height": 360,
+        "layers": 1,
+        "msaa": 1,
+        "created": true,
+        "nativeBytes": 922670
+      },
+      "exitCode": 0,
+      "errors": 0,
+      "logWarnings": {
+        "lodFrameValidation": 7,
+        "activeRTRelease": 1,
+        "jobTemp": 0
+      },
+      "rawReport": "Evidence/P11-H-Mask-DX12-Intel-20261113T122012Z/report.json"
+    },
+    {
+      "api": "Direct3D11",
+      "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+      "deviceIndex": 0,
+      "format": "R16_SFloat",
+      "mask": {
+        "name": "Crest Underwater Mask_640x360_R16_SFloat_Tex2D",
+        "id": "1774:768",
+        "format": "R16_SFloat",
+        "depthFormat": "None",
+        "flags": "HideAndDontSave",
+        "width": 640,
+        "height": 360,
+        "layers": 1,
+        "msaa": 1,
+        "created": true,
+        "nativeBytes": 461870
+      },
+      "exitCode": 0,
+      "errors": 0,
+      "logWarnings": {
+        "lodFrameValidation": 7,
+        "activeRTRelease": 1,
+        "jobTemp": 0
+      },
+      "rawReport": "Evidence/P11-H-Mask-DX11-Nvidia-20261113T122017Z/report.json"
+    }
+  ],
+  "xr": "Prior XRDisplays=0; no matching currently present XR headset and no provider dependency in project",
+  "hPlayerArchivedAssemblyHashes": [
+    {
+      "path": "Builds/P11-RenderModes/RenderModes_Data/Managed/Crest.dll",
+      "sha256": "7e5c0a5d5cdbceb0f228c5373a67fe3a1436ba5e2ddfa8e6e71beb455538afc5",
+      "bytes": 288768
+    },
+    {
+      "path": "Builds/P11-RenderModes/RenderModes_Data/Managed/Crest.Examples.dll",
+      "sha256": "e98690103cdc605b115fb57bce79e12fa9a71ce30dc9983ee72dd227028893ba",
+      "bytes": 36352
+    },
+    {
+      "path": "Builds/P11-RenderModes/RenderModes_Data/Managed/Crest.URP.dll",
+      "sha256": "0ee9995f7e4d26dffb314f2e2f0d03dda7f5b59395c21e1d346c8cd722ced2b9",
+      "bytes": 129024
+    }
+  ],
+  "foreignFilesUnchanged": 36,
+  "normalArtifactsUnchanged": 12,
+  "archive": {
+    "path": "Evidence/P11-InputAndHardware-evidence.zip",
+    "sha256": "034dbb1b43ad64b71eb5febcd42c824fb31b2896bf5786013de043f26aefe896",
+    "bytes": 11942540
+  }
+}

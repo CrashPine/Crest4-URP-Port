@@ -18,6 +18,7 @@ namespace Crest.URP.Editor
         public static void BuildRenderModes() => BuildImpl(3);
         public static void BuildCameraStack() => BuildImpl(4);
         public static void BuildReflectionModes() => BuildImpl(5);
+        public static void BuildNavigationInput() => BuildImpl(6);
         static void BuildImpl(int mode)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
@@ -77,7 +78,7 @@ namespace Crest.URP.Editor
                 PlayerSettings.enableFrameTimingStats=true;
                 if(mode != 0)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==3?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==2?new[]{path,
+                    scenes=mode==6?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==3?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==2?new[]{path,
                         "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
@@ -86,7 +87,7 @@ namespace Crest.URP.Editor
                         "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity"}:
                         mode==1?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName=mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=mode==6?"Builds/P11-NavigationInput/NavigationInput.exe":mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });

@@ -33,6 +33,7 @@ namespace Crest.URP.Diagnostics
         ExamplePlayerReport _examplesReport;
         void LateUpdate()
         {
+            ObserveNavigationInput();
             if(_originalScenePacing) AsyncGPUReadback.WaitAllRequests();
             if(_examplesCapture==null)return;
             var capture=_examplesCapture;_examplesCapture=null;

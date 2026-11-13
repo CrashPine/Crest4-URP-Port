@@ -1,6 +1,14 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-07**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, NVIDIA RTX 3050 Ti Laptop GPU, Render Graph. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-13**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P11.3-G1a and H: original Examples input and hardware (2026-11-13)
+
+G1a isolated strict Development Player build succeeded. Ordinary focused DX11 window rendered the original `Albedo` example with index0 and one active child. The Windows computer-use helper sent M once, then after an explicit client focus click sent it once more. Visible configuration stayed at Albedo; no M release reached the observer. N was not sent, DX12 was not run with the same path. The report ended failed with zero rows and one diagnostic timeout error; the runner reached its outer timeout during shutdown. This cannot distinguish unavailable keyboard delivery from a Player input defect; no native keyboard acceptance or production fix is claimed. No fake devices or direct controller calls. Raw logs, source, binary fingerprints and failed report are preserved in `P11-InputAndHardware-evidence.zip`.
+
+H: Windows enumerated both physical adapters; Unity's [Player device selector](https://docs.unity.com/en-us/engine/6000.0/manual/unity-editor/command-line-arguments/player) index1 selected Intel Iris Xe (0x46a6, driver32.0.101.6790). Reused the P11-Modes compiled Player and its Underwater scene with one explicit render request at640x360: actual created single-sample Crest mask `R32_SFloat` on Intel DX11 and DX12; same-build index0 NVIDIA DX11 control created `R16_SFloat`. Each passed the format criterion, exit0/reported errors0. Each raw log also has seven LOD frame validation warnings from explicit submission and one active RT release warning at OceanDepthCache.OnDestroy (also recorded in P11-Modes); not a clean-log or leak-free result. XR inventory found no matching connected headset; project manifest has the engine XR module but no XR provider, and the previous Unity runtime reported XRDisplays0. Physical stereo remains NOT TESTED.
+
+No new full suite, normal Player rebuild or repeated scene gallery. All36 foreign file hashes and12 normal managed/packed hashes match prior baselines. Generated variant whitespace was archived and exact pre-build bytes restored. `P11-InputAndHardware-summary.json` binds the raw runs and artifacts.
 
 ## P11.3-F: compiled CPU lightmap retention in two modes (scoped,2026-11-07)
 

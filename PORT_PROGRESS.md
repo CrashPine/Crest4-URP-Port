@@ -1,18 +1,18 @@
 # Точка продолжения
 
-Обновлено: **2026-11-07**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-11-13**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущий этап и операции
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. **P11.3-G NEXT**, затем H, finalP11.4/P12. E optional/non-gating. Единственный порядок/критерии — PORT_PLAN, измерения — TEST_RESULTS, приёмка — FEATURE_MATRIX. Не создавать новый status/roadmap Markdown и не переоткрывать P09/P10 без конкретного нового дефекта.
+P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11 ACTIVE: P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. **P11.3-G ACTIVE: G1a blocked on keyboard delivery; G1b pointer controls next, then G2.** H audited independently during the G1a blocker: Intel format criterion scoped DONE; XR blocked. Final P11.4/P12 pending; E optional/non-gating.
 
-Нет активных Unity Editor/Player/build операций. Last isolated `Builds/P11-Lightmaps`: reused-fixture build success20:31:11Z, fresh DX11/DX12 two-row reports/errors0/exit0, последний run20:32:20Z. Перед запуском сверять actual processes/timestamps/Git. Build wrappers проверяют target-project occupancy. Не печатать raw GUI Editor command lines: Hub может включать access tokens.
+No active diagnostic operation. G1a isolated build succeeded 2026-11-07; 2026-11-13 DX11 reached Albedo and timed out with zero release rows; Player closed. DX12 not attempted with the same input path. Last H Player exited0, logs and allocations archived. Перед запуском сверять processes/timestamps/Git; target-project occupancy preflight and no raw GUI command lines.
 
 ## Точное следующее действие
 
-**P11.3-G:** сначала прочитать source ExamplesController/CamController/OceanDebugGUI/VisualiseCollisionArea и прежние interactive evidence в TEST_RESULTS. Зафиксировать конечный список UI/input states в PORT_PLAN перед действием: original Examples N/M release navigation через реальный supported event/UI path; Inspector/scene/profile изменение с фактическим native GPU update; configured OceanDebugGUI/VisualiseCollisionArea display. Public Next/Previous вA и прямой method invocation не заменяют доставку клавиш/жестов. Проверить доступный OS/device/window path, не создавать fake keyboard для acceptance; unavailable physical input явно описать. Использовать purpose-built tool/CLI если достаточен; для Windows UI — computer-use skill, выбирать ровно target окно и сохранять пользовательскую работу. Исходные scenes/profiles не перезаписывать; использовать owned copies/fixtures и native causal observations.
+**G1b pointer path:** reuse Ocean_Calm in an isolated Player and configure the original OceanDebugGUI before measurement. Observe initial state and one actual mouse change at a time using the finite controls in PORT_PLAN. Read native flags, timescale and fixed-time animated field; inspect only the relevant panel. Stop at the first delivery failure with evidence. Continue G2 with the owned Editor fixture. Reuse the G1a executable and runner for physical M/N input or another verified native path; use the verified path for G1b shortcuts when its fixture is ready.
 
-H затем: prerequisite audit physical XR/Intel-specific runtime path. Не повторять рендер при прежнем отсутствующем hardware; retained source/emulated vendor string не physical acceptance. После G/H — finalP11.4.
+H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 
 F/D/C closed checks не повторять без changed code/конкретного дефекта. Fixture-only — targeted; runtime fixes группировать для P11.4. Никаких simultaneous Editors, не force-close работу. User ранее разрешил normal close/save target Editor; тогда окна уже закрылись до UI input, агент не выполнял close/save/discard.
 
@@ -38,4 +38,4 @@ Foreign Ocean.mat (4 fields), original baked LightingData/ReflectionProbe dirs,1
 
 P10 GPU-cost/driver-memory/Intel/XR limits remain. Historical evictable2490368B NOT REPRODUCED/not fixed; old .015754165 restoration failure not explained by bounded controls. Не повторять неизменённые profiling windows/галерею воды.
 
-Структурный аудит1435 файлов: missing meta0/duplicate GUID0/missing original0;597 protected GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Git checkpoint — `git log -1`.
+Структурный аудит1437 файлов: missing meta0/duplicate GUID0/missing original0;597 protected GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Git checkpoint — `git log -1`.
