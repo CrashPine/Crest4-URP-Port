@@ -20,6 +20,8 @@ At fixed camera and ocean time, a custom red-to-green cubemap changed 42240 pixe
 
 Both focused test cases passed on each API. The first overlap fixture failed to compile because the pipeline property is read-only. The fixture then set the serialized option on the clone and reproduced the rendering failure before the shader change. Raw reports and both failures are in `P11-ReflectionProbe-evidence.zip`. Clustered probe atlases and box projection are outside this recorded Forward fixture.
 
+The first combined DX11 regression passed 122/123. LakesAndRivers restored its rendered pixels exactly but differed by 0.00390625 in the native Flow field against the existing 0.002 limit. The fixture now re-enables inputs in the captured registrar draw order and asserts that order before comparing fields. Both focused runs pass with exact height, flow and RGB restoration under the original limits. The failed full run and focused reports are archived in `P11-Current-river-order-failure.zip` and `P11-RiverOrder-evidence.zip`. The corrected fixture requires fresh full results.
+
 ## P11.3-G1b: OceanDebugGUI mouse controls (2026-11-13)
 
 The original GUI ran in an isolated ordinary Windows Player with Ocean_Calm. DX11 and DX12 each recorded six states from five window clicks. Show sim data toggled true/false/true and the right-hand LOD texture column visibly disappeared and returned. The wind slider moved from 12 to 109.18 km/h. Readback of 147456 LOD0 displacement texels after the current Ocean update at fixed ocean time 1s gave a maximum XYZ component change of 2.27392578125 m on each API. The Freeze time checkbox switched Unity time scale from 1 to 0 and back.

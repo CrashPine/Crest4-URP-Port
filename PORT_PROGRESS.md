@@ -6,7 +6,7 @@
 
 P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked. **P11.4 ACTIVE**, P12 pending.
 
-G1b and G2 sessions finished and are archived. The first normal runner completed. The current normal runner started at 22:35 UTC and writes `Evidence/P11-Current-operation.json`. Check actual processes and artifact timestamps before any retry.
+G1b and G2 sessions finished and are archived. The 22:35 UTC normal DX11 run passed 122/123 with a LakesAndRivers Flow restoration mismatch. That run is archived. The fixture now replays the observed draw order and passed focused DX11/DX12 with exact restoration. The retried normal runner writes `Evidence/P11-Current-operation.json`. Check actual processes and artifact timestamps before any retry.
 
 ## Точное следующее действие
 

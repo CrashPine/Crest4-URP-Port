@@ -35,7 +35,15 @@ public class OriginalLakesRiversTests
         yield return new EnterPlayMode();Time.captureFramerate=60;Time.timeScale=1;_stem=$"Evidence/OriginalLakesRivers-{SystemInfo.graphicsDeviceType}";
         var ocean=OceanRenderer.Instance;var camera=Camera.main;Assert.That(ocean,Is.Not.Null);Assert.That(camera,Is.Not.Null);ocean.ViewCamera=camera;
         new GameObject("River query pacing").AddComponent<BoatProbesQueryFence>();for(int i=0;i<60;i++)yield return null;
-        var heights=Object.FindObjectsByType<RegisterHeightInput>();var flows=Object.FindObjectsByType<RegisterFlowInput>();Assert.That(heights.Length,Is.GreaterThan(0));Assert.That(flows.Length,Is.GreaterThan(0));
+        var heights=Object.FindObjectsByType<RegisterHeightInput>();
+        var discoveredFlows=Object.FindObjectsByType<RegisterFlowInput>();
+        // Replay the original draw order on re-enable. Equal sort keys can preserve the
+        // registration order, which need not match FindObjectsByType enumeration.
+        var flowRegistrar=RegisterLodDataInputBase.GetRegistrar(typeof(LodDataMgrFlow));
+        var flows=flowRegistrar.Select(entry=>entry.Value).OfType<RegisterFlowInput>().ToArray();
+        Assert.That(heights.Length,Is.GreaterThan(0));
+        Assert.That(flows,Is.Not.Empty);
+        Assert.That(flows,Is.EquivalentTo(discoveredFlows));
         var clock=new GameObject("River fixed ocean clock").AddComponent<TimeProviderCustom>();clock._overrideTime=clock._overrideDeltaTime=clock._paused=true;clock._time=1;clock._deltaTime=0;ocean.PushTimeProvider(clock);Time.timeScale=0;
         camera.GetUniversalAdditionalCameraData().requiresDepthTexture=true;camera.GetUniversalAdditionalCameraData().renderPostProcessing=false;camera.allowMSAA=false;camera.aspect=16f/9;
         for(int i=0;i<16;i++)yield return null;_position=camera.transform.position;_rotation=camera.transform.rotation;
@@ -45,6 +53,8 @@ public class OriginalLakesRiversTests
         foreach(var h in heights)h.enabled=false;foreach(var f in flows)f.enabled=false;for(int i=0;i<16;i++)yield return null;
         var offW=Read(ocean._lodDataSeaDepths.DataTexture,true);var offF=Read(ocean._lodDataFlow.DataTexture);var off=Capture(camera,"off");
         foreach(var h in heights)h.enabled=true;foreach(var f in flows)f.enabled=true;for(int i=0;i<16;i++)yield return null;
+        Assert.That(flowRegistrar.Select(entry=>entry.Value).OfType<RegisterFlowInput>(),Is.EqualTo(flows),
+            "Flow restoration must compare matching draw order.");
         var reW=Read(ocean._lodDataSeaDepths.DataTexture,true);var reF=Read(ocean._lodDataFlow.DataTexture);var restored=Capture(camera,"restored");
         double heightDelta=onW.Zip(offW,(a,b)=>(double)Math.Abs(a.y-b.y)).Sum();double flowDelta=onF.Zip(offF,(a,b)=>(double)(Math.Abs(a.x-b.x)+Math.Abs(a.y-b.y))).Sum();float heightRestore=onW.Zip(reW,(a,b)=>Math.Abs(a.y-b.y)).Max();float flowRestore=onF.Zip(reF,(a,b)=>(a-b).magnitude).Max();int changed=on.Zip(off,(a,b)=>Math.Abs(a.r-b.r)+Math.Abs(a.g-b.g)+Math.Abs(a.b-b.b)>6?1:0).Sum();int restore=on.Zip(restored,(a,b)=>a.Equals(b)?0:1).Sum();
         File.AppendAllText(_stem+".txt",$"Samples={onW.Length}; HeightDelta={heightDelta:R}; FlowDelta={flowDelta:R}; HeightRestoreMax={heightRestore:R}; FlowRestoreMax={flowRestore:R}; ChangedPixels={changed}; RestorePixels={restore}\n");
