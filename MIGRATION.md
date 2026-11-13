@@ -8,6 +8,11 @@ URP Core/Lighting, URP environment lookup and fog. Displacement, LOD snapping, f
 scattering and Fresnel equations remain the original implementation. Original
 Built-in simulation input passes are not mechanically retagged.
 
+For overlapping local reflection probes in Forward, enable Reflection Probe
+Blending in the URP pipeline asset. Crest uses the displaced world position
+when URP enables the blending variant. With blending disabled, Crest samples
+the single environment cubemap. The default demo pipeline uses that setting.
+
 Add `CrestBackgroundFeature` to the active Universal Renderer. It copies camera
 color before transparents and publishes `_BackgroundTexture`. Depth and intermediate
 camera color are required. The generated validation renderer includes this feature.
