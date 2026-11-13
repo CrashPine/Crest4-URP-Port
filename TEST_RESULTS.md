@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-13**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P11.4: Windows regression before depth-cache correction (2026-11-13)
+
+The current OceanDebugGUI fix and the earlier input and mixed-light variant changes passed 121/121 batch tests and 2/2 non-batch Game View tests on each API. All leaves passed with no failures or skips. ValidateAssets reported no material or shader errors. Development and Release built successfully and all four smoke runs reported Errors=0, seven current-frame LOD captures and four reflection-option captures each. The fresh Development DX11 underwater and Release DX12 reflection images were inspected. Original GUID and compute verification passed all 597 checks.
+
+Each smoke log reported two releases of an active RenderTexture at `OceanDepthCache.OnDestroy`. The full suites, interactive checks and normal builds did not report that warning, JobTempAlloc or the historical DX12 evictable warning. This checkpoint precedes the depth-cache correction. The archive preserves the full logs and test-generated evidence. Historical reports were restored from the pre-run snapshot, including the 36 recorded foreign paths. The initial evidence collector checked a test-overwritten Buoyancy report before restoring it and stopped. Collection then validated the saved baseline, archived the new output and verified the restored hashes.
+
 ## P11.3-G1b: OceanDebugGUI mouse controls (2026-11-13)
 
 The original GUI ran in an isolated ordinary Windows Player with Ocean_Calm. DX11 and DX12 each recorded six states from five window clicks. Show sim data toggled true/false/true and the right-hand LOD texture column visibly disappeared and returned. The wind slider moved from 12 to 109.18 km/h. Readback of 147456 LOD0 displacement texels after the current Ocean update at fixed ocean time 1s gave a maximum XYZ component change of 2.27392578125 m on each API. The Freeze time checkbox switched Unity time scale from 1 to 0 and back.

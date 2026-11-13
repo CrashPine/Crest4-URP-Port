@@ -104,6 +104,7 @@ def main():
 
     for path in (
         "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs",
+        "Assets/Crest/Crest/Scripts/LodData/OceanDepthCache.cs",
         "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs",
         "Assets/Crest/Crest/Scripts/Interaction/BoatProbes.cs",
         "ProjectSettings/GraphicsSettings.asset",
@@ -116,12 +117,16 @@ def main():
         checkpoint[key] = [
             refresh(row, f"Builds/{row['configuration']}/{row[field]}") for row in checkpoint[key]
         ]
-    for row in read_json(EVIDENCE / "P11-SavedInputs-foreign-files.json"):
-        assert record(row["path"])["sha256"].lower() == row["sha256"].lower(), row["path"]
+    foreign = read_json(EVIDENCE / "P11-SavedInputs-foreign-files.json")
+    with ZipFile(baseline) as before:
+        for row in foreign:
+            path = row["path"]
+            data = before.read(path) if path.startswith("Evidence/") and path not in {p.relative_to(ROOT).as_posix() for p in log_paths} else (ROOT / path).read_bytes()
+            assert sha256(data).hexdigest() == row["sha256"].lower(), path
     checkpoint["recordedUtc"] = datetime.now(timezone.utc).isoformat()
     checkpoint["previousNormalCheckpoint"] = {"path": "Evidence/P11-Final-previous-build.json"}
     checkpoint["validationStatus"] = "P11.4 full 121 plus interactive 2 per API, asset validation, both builds and four Player smokes passed."
-    checkpoint["limitation"] = "Acceptance covers the recorded Windows scope. Player keyboard and physical XR remain outstanding. See TEST_RESULTS for warning and resource outcomes."
+    checkpoint["limitation"] = "Acceptance covers the recorded Windows scope. Local Reflection Probe coverage, Player keyboard and physical XR remain outstanding. See TEST_RESULTS for warning and resource outcomes."
 
     archive = EVIDENCE / "P11-Final-evidence.zip"
     keep = {path.relative_to(ROOT).as_posix() for path in log_paths}
@@ -131,6 +136,14 @@ def main():
         initial = set(before.namelist())
         for path in sorted(set(log_paths)):
             output.write(path, path.relative_to(ROOT).as_posix())
+        for path in sorted(EVIDENCE.glob("P11-Final-mutated-*")):
+            output.write(path, path.relative_to(ROOT).as_posix())
+        variant = "Assets/CrestPortDemos/ReflectionVertexVariants.asset"
+        original_variant = before.read(variant)
+        generated_variant = (ROOT / variant).read_bytes()
+        assert original_variant.split() == generated_variant.split(), variant
+        if original_variant != generated_variant:
+            output.write(ROOT / variant, variant)
         for name in before.namelist():
             path = ROOT / name
             if name in keep or not name.startswith("Evidence/") or not path.is_file():
@@ -150,7 +163,10 @@ def main():
     with ZipFile(baseline) as before:
         for name in mutations:
             (ROOT / name).write_bytes(before.read(name))
+        if original_variant != generated_variant:
+            (ROOT / variant).write_bytes(original_variant)
         (EVIDENCE / "P11-Final-previous-build.json").write_bytes(before.read("Evidence/Build-checkpoint.json"))
+    assert all(record(row["path"])["sha256"].lower() == row["sha256"].lower() for row in foreign)
     checkpoint["evidenceArchive"] = record(archive)
     checkpoint["archivedSideEffects"] = {"restoredHistorical": mutations, "newEvidence": created}
     (EVIDENCE / "Build-checkpoint.json").write_text(json.dumps(checkpoint, indent=2) + "\n", encoding="utf-8")

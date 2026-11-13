@@ -10,7 +10,7 @@ G1b and G2 sessions finished. Their evidence and the initial paused NaN run are 
 
 ## Точное следующее действие
 
-**P11.4:** wait for the sequential runner, verify fresh XML leaves, asset validation, two builds and four smoke reports/images. Use the pre-run snapshot to retain and restore unrelated evidence changed by tests. Include the OceanDebugGUI paused-speed fix and B input guards/GraphicsSettings in current build provenance. Then reconcile original criteria against measured evidence in P12. Reuse existing diagnostic binaries for keyboard verification when a verified input path is available.
+**P11.4:** the first regression completed, with 121+2 tests per API, ValidateAssets, two builds and four passing smoke reports. Every smoke reproduced two active RenderTexture release warnings from OceanDepthCache. The focused DX11 pre-fix regression uses the existing DepthCachePersistenceTests with an active-target sentinel. After reading its XML, apply the saved `Evidence/P11-Final-depth-cache-fix.patch`, run the focused check on both APIs and confirm zero active release warnings in rebuilt Players. Reconcile remaining local Reflection Probe, Player keyboard and physical XR coverage in P12.
 
 H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 
