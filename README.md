@@ -54,6 +54,8 @@ Player предоставляет переключение сцен, ветер,
 
 ## Воспроизведение Editor UI стенда
 
+Для проверки с живым океаном используйте `CrestEditorInteractionProbe.PrepareLiveOcean` вместо `Prepare`. В этой сцене Radius и перемещение сплайна меняют текстуру Flow, а Spectrum Multiplier меняет амплитуду Animated Waves. Наблюдения записываются в `Evidence/P11-LiveEditor.jsonl`.
+
 При закрытом Editor запуск `Unity.exe -projectPath <этот проект> -force-d3d11 -executeMethod CrestEditorInteractionProbe.Prepare` создаёт отдельную owned scene/profile в Tests/Editor. Редактировать исходные spline/spline-point/spectrum inspectors и Scene view; меню `Crest > Port Validation` выбирает объекты, записывает checkpoint и повторно открывает saved fixture. Observer записывает изменения в Evidence/EditorInteraction.jsonl, но не выполняет проверяемые edits. Горячих клавиш стенд не назначает. После Ctrl+S и закрытия Editor запуск `Unity.exe -batchmode -quit -projectPath <этот проект> -executeMethod CrestEditorInteractionProbe.Cleanup` проверяет owner path/GUID и удаляет только временную папку. Не запускать Prepare повторно, пока существует EditorInteraction-owner.json; для прерванного стенда использовать ReloadSavedFixture.
 
 

@@ -2,6 +2,18 @@
 
 Актуальная сверка: **2026-11-13**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P11.3-G1b: OceanDebugGUI mouse controls (2026-11-13)
+
+The original GUI ran in an isolated ordinary Windows Player with Ocean_Calm. DX11 and DX12 each recorded six states from five window clicks. Show sim data toggled true/false/true and the right-hand LOD texture column visibly disappeared and returned. The wind slider moved from 12 to 109.18 km/h. Readback of 147456 LOD0 displacement texels after the current Ocean update at fixed ocean time 1s gave a maximum XYZ component change of 2.27392578125 m on each API. The Freeze time checkbox switched Unity time scale from 1 to 0 and back.
+
+The first DX11 run exposed a NaN camera speed label on pause. `OceanDebugGUI` now reports zero when delta time is zero and still updates the previous camera position. Rebuilt Players verified the visible 0 km/h label and finite underlying velocity during pause on both APIs. Both completed with exit0 and no counted Unity script errors. DX12 logged one native D3D12 pipeline-library cache recreation message. The last click completes the session and closes the window before the screenshot refresh. The resumed report and exit status confirm that step. Raw logs, reports and built artifacts are in `P11-DebugGui-evidence.zip`. The initial run is preserved separately in `P11-DebugGui-paused-NaN.zip`.
+
+## P11.3-G2: live Editor changes and collision display (2026-11-13)
+
+DX11 Scene View rendered the owned Calm fixture and its original `VisualiseCollisionArea` green crosses. The component returned 25 finite, varying heights. Editing Radius from 8 to 6 in the original Inspector and dragging the spline 4 m along X in Scene View each changed the LOD0 Flow hash. Undo returned the original hash for each edit. At fixed ocean time 1s, editing Spectrum Multiplier from 1 to 2 changed peak LOD0 displacement from 0.498291 to 0.996582 m. Undo restored the peak. The waves hash varies across baseline observations, so the FFT restoration criterion is the peak. The flow hash remained identical during the spectrum edit. The observer sampled after the current ocean update.
+
+The Editor session logged one asset import worker warning about an unbound `_CrestCascadeData` buffer when previewing the material. The live Scene View and GPU observations passed, and the fixture recorded zero script errors. Scope is the observed DX11 UI and the configured collision height display. The owned scene, source and raw reports are in `P11-LiveEditor-evidence.zip`.
+
 ## P11.3-G1a and H: original Examples input and hardware (2026-11-13)
 
 G1a isolated strict Development Player build succeeded. Ordinary focused DX11 window rendered the original `Albedo` example with index0 and one active child. The Windows computer-use helper sent M once, then after an explicit client focus click sent it once more. Visible configuration stayed at Albedo; no M release reached the observer. N was not sent, DX12 was not run with the same path. The report ended failed with zero rows and one diagnostic timeout error; the runner reached its outer timeout during shutdown. This cannot distinguish unavailable keyboard delivery from a Player input defect; no native keyboard acceptance or production fix is claimed. No fake devices or direct controller calls. Raw logs, source, binary fingerprints and failed report are preserved in `P11-InputAndHardware-evidence.zip`.

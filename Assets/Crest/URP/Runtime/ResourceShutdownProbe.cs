@@ -66,6 +66,11 @@ namespace Crest.URP.Diagnostics
             var features=Resources.FindObjectsOfTypeAll<CrestBackgroundFeature>();
             if (disableFeature) foreach (var feature in features) feature.SetActive(false);
             OceanRenderer.EnableGraphicsInBatchMode = true;
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestDebugGui") >= 0)
+            {
+                yield return GuardOriginalScene(DebugGuiPlayer(), error => SaveDebugGui("failed", error.ToString()));
+                yield break;
+            }
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"-crestNavigationInput")>=0)
             {
                 yield return GuardOriginalScene(NavigationInputPlayer(),error=>{if(_navigationInput!=null){_navigationInput.failure=error.ToString();_navigationInput.phase="failed";}SaveNavigationInput();});yield break;
