@@ -38,7 +38,8 @@ foreach ($api in 'Direct3D11', 'Direct3D12') {
         $playerArguments = @($playerArguments | Where-Object { $_ -ne '-batchmode' })
         $playerArguments += '-crestProbeAutomaticCamera', '-screen-fullscreen', '0', '-screen-width', '320', '-screen-height', '180'
     }
-    $player = Start-Process (Join-Path $root 'Builds/P12-LocalProbes/LocalProbes.exe') -WorkingDirectory $root -WindowStyle Hidden -PassThru -ArgumentList $playerArguments
+    $windowStyle = if ($AutomaticCamera) { 'Normal' } else { 'Hidden' }
+    $player = Start-Process (Join-Path $root 'Builds/P12-LocalProbes/LocalProbes.exe') -WorkingDirectory $root -WindowStyle $windowStyle -PassThru -ArgumentList $playerArguments
     if (!$player.WaitForExit(90000)) { throw "Probe Player still running (PID $($player.Id)). See $directory" }
     $path = Join-Path $directory 'report.json'
     $report = if (Test-Path -LiteralPath $path) { Get-Content -Raw -LiteralPath $path | ConvertFrom-Json }
