@@ -1,10 +1,13 @@
 // Builds an isolated diagnostic Player without replacing deliverable builds. MIT.
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
+using UnityEditor.Rendering;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +28,10 @@ namespace Crest.URP.Editor
         static void BuildImpl(int mode)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
+            var arguments = Environment.GetCommandLineArgs();
+            bool activateProbeBox = mode == 9 && Array.IndexOf(arguments, "-crestProbeBoxOnly") >= 0;
+            bool activateProbeAtlas = mode == 9 && Array.IndexOf(arguments, "-crestProbeAtlasOnly") >= 0;
+            bool restoreQualityPipeline = mode != 9 || activateProbeBox || activateProbeAtlas;
             var qualityPipeline=QualitySettings.renderPipeline;
             var preloadedAssets=PlayerSettings.GetPreloadedAssets();
             bool timing=PlayerSettings.enableFrameTimingStats;
@@ -74,17 +81,45 @@ namespace Crest.URP.Editor
                     if (mode == 9)
                     {
                         serialized.FindProperty("m_ReflectionProbeBlending").boolValue = true;
-                        serialized.FindProperty("m_ReflectionProbeBoxProjection").boolValue = true;
+                        serialized.FindProperty("m_ReflectionProbeBoxProjection").boolValue = false;
                         serialized.FindProperty("m_ReflectionProbeAtlas").boolValue = true;
                         AssetDatabase.CreateFolder(folder, "Resources");
                         var surface = new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Ocean_Calm.mat"));
                         ConfigureLocalProbeMaterial(surface);
                         AssetDatabase.CreateAsset(surface, folder + "/Resources/CrestLocalProbeSurface.mat");
                     }
-                    serialized.ApplyModifiedPropertiesWithoutUndo();AssetDatabase.CreateAsset(pipeline,folder+"/ReflectionModesPipeline.asset");
-                    // Build against this owned pipeline so native URP stripping sees all three
-                    // renderer modes; source pipeline and source quality exclusions are preserved.
-                    QualitySettings.renderPipeline=pipeline;AssetDatabase.SaveAssets();
+                    serialized.ApplyModifiedPropertiesWithoutUndo();
+                    AssetDatabase.CreateAsset(pipeline, folder + (mode == 9 ? "/Resources/CrestLocalProbeAtlasPipeline.asset" : "/ReflectionModesPipeline.asset"));
+                    if (mode == 9)
+                    {
+                        var boxPipeline = UnityEngine.Object.Instantiate(pipeline);
+                        var boxSettings = new SerializedObject(boxPipeline);
+                        boxSettings.FindProperty("m_ReflectionProbeBlending").boolValue = false;
+                        boxSettings.FindProperty("m_ReflectionProbeBoxProjection").boolValue = true;
+                        boxSettings.FindProperty("m_ReflectionProbeAtlas").boolValue = false;
+                        var boxRenderers = boxSettings.FindProperty("m_RendererDataList");
+                        boxRenderers.arraySize = 1;
+                        boxRenderers.GetArrayElementAtIndex(0).objectReferenceValue = forward;
+                        boxSettings.ApplyModifiedPropertiesWithoutUndo();
+                        AssetDatabase.CreateAsset(boxPipeline, folder + "/Resources/CrestLocalProbeBoxPipeline.asset");
+                        var includer = GraphicsSettings.GetRenderPipelineSettings<IncludeAdditionalRPAssets>();
+                        if (includer == null || !includer.includeAssetsByLabel || string.IsNullOrEmpty(includer.labelToInclude))
+                            throw new InvalidOperationException("The diagnostic requires URP's additional pipeline asset label.");
+                        // Windows has an explicit PC pipeline override, so URP skips the default fallback when collecting variants.
+                        AssetDatabase.SetLabels(pipeline, new[] { includer.labelToInclude });
+                        AssetDatabase.SetLabels(boxPipeline, new[] { includer.labelToInclude });
+                        var included = new List<UniversalRenderPipelineAsset>();
+                        if (!BuildTarget.StandaloneWindows64.TryGetRenderPipelineAssets(included) ||
+                            !included.Contains(pipeline) || !included.Contains(boxPipeline))
+                            throw new InvalidOperationException("URP's Windows build inventory is missing a diagnostic pipeline.");
+                        if (activateProbeBox) QualitySettings.renderPipeline = boxPipeline;
+                        if (activateProbeAtlas) QualitySettings.renderPipeline = pipeline;
+                    }
+                    else
+                    {
+                        QualitySettings.renderPipeline = pipeline;
+                    }
+                    AssetDatabase.SaveAssets();
                 }
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
@@ -109,13 +144,17 @@ namespace Crest.URP.Editor
             }
             finally
             {
-                QualitySettings.renderPipeline=qualityPipeline;
+                if (restoreQualityPipeline) QualitySettings.renderPipeline=qualityPipeline;
                 PlayerSettings.SetPreloadedAssets(preloadedAssets);
                 PlayerSettings.enableFrameTimingStats=timing;
                 PlayerSettings.strictShaderVariantMatching=strict;
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
                 if(Path.GetFullPath(folder).StartsWith(Path.GetFullPath(parent)+Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)
-                    && AssetDatabase.AssetPathToGUID(folder)==guid) AssetDatabase.DeleteAsset(folder);
+                    && AssetDatabase.AssetPathToGUID(folder)==guid)
+                {
+                    if (activateProbeBox || activateProbeAtlas) AssetDatabase.SaveAssets();
+                    AssetDatabase.DeleteAsset(folder);
+                }
             }
         }
 

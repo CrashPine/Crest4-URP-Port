@@ -15,6 +15,17 @@ namespace Crest.URP.Editor
         static bool started;
         public static void Record(string phase, Shader shader, ShaderSnippetData snippet, IList<ShaderCompilerData> data)
         {
+            if (shader.name == "Crest/Ocean" && snippet.shaderType == ShaderType.Fragment &&
+                Environment.GetCommandLineArgs().Contains("-crestTraceLocalProbes"))
+            {
+                var retained = data.Select(variant => variant.shaderKeywordSet.GetShaderKeywords()
+                        .Select(keyword => keyword.name).OrderBy(name => name).ToArray())
+                    .Where(keys => keys.Contains("_REFLECTION_PROBE_BOX_PROJECTION") || keys.Contains("_REFLECTION_PROBE_ATLAS"))
+                    .Select(keys => string.Join(" ", keys)).Distinct().OrderBy(keys => keys).ToArray();
+                Debug.Log($"CREST_LOCAL_PROBE_VARIANTS {phase} {snippet.passName} total={data.Count} optional={retained.Length}\n" +
+                    string.Join("\n", retained));
+                return;
+            }
             if (shader.name != "Universal Render Pipeline/Lit" || snippet.passName != "ForwardLit" ||
                 !Environment.GetCommandLineArgs().Contains("-crestTraceMixedVariants")) return;
             const string path = "Evidence/P11-Scenes-variant-trace.jsonl";

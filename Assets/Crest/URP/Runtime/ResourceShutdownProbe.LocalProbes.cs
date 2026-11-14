@@ -17,7 +17,7 @@ namespace Crest.URP.Diagnostics
         sealed class LocalProbeReport
         {
             public string api, unity, failure, forwardMode, clusterMode;
-            public int boxPixels, atlasPixels, boxRestore, atlasRestore, errors;
+            public int boxPixels, atlasPixels, boxRestore, atlasRestore, boxProbeResponse, errors;
             public bool passed;
         }
 
@@ -33,12 +33,18 @@ namespace Crest.URP.Diagnostics
         IEnumerator LocalProbesPlayer()
         {
             _localProbes = new LocalProbeReport { api = SystemInfo.graphicsDeviceType.ToString(), unity = Application.unityVersion };
+            var arguments = Environment.GetCommandLineArgs();
+            bool runBox = Array.IndexOf(arguments, "-crestProbeAtlasOnly") < 0;
+            bool runAtlas = Array.IndexOf(arguments, "-crestProbeBoxOnly") < 0;
             yield return SceneManager.LoadSceneAsync(1);
             var camera = Camera.main;
             var settings = camera.GetUniversalAdditionalCameraData();
-            var pipeline = (UniversalRenderPipelineAsset)GraphicsSettings.currentRenderPipeline;
-            CheckExample(pipeline.reflectionProbeBlending && pipeline.reflectionProbeBoxProjection && pipeline.reflectionProbeAtlas,
-                "Missing serialized probe pipeline settings");
+            var qualityPipeline = QualitySettings.renderPipeline;
+            var atlasPipeline = Resources.Load<UniversalRenderPipelineAsset>("CrestLocalProbeAtlasPipeline");
+            var boxPipeline = Resources.Load<UniversalRenderPipelineAsset>("CrestLocalProbeBoxPipeline");
+            CheckExample(atlasPipeline != null && atlasPipeline.reflectionProbeBlending && atlasPipeline.reflectionProbeAtlas && !atlasPipeline.reflectionProbeBoxProjection
+                && boxPipeline != null && boxPipeline.reflectionProbeBoxProjection && !boxPipeline.reflectionProbeBlending,
+                "Missing distinct serialized probe pipeline settings");
             camera.enabled = false;
             camera.transform.SetPositionAndRotation(new Vector3(0, 4, -12), Quaternion.Euler(16, 0, 0));
             camera.cullingMask = 1 << 4;
@@ -65,59 +71,78 @@ namespace Crest.URP.Diagnostics
             target.Create();
             try
             {
-                settings.SetRenderer(0);
                 probe.mode = ReflectionProbeMode.Custom;
-                probe.customBakedTexture = red;
-                probe.transform.position = new Vector3(12, 0, 0);
-                probe.size = new Vector3(80, 50, 160);
-                probe.blendDistance = 1;
                 second.enabled = false;
-                for (int i = 0; i < 12; i++) yield return null;
-                Color32[] baseline = null, changed = null, restored = null;
-                yield return ModeCapture(() => baseline = CaptureProbe(camera, target, pixels, "Forward"));
-                probe.boxProjection = true;
-                yield return ModeCapture(() => changed = CaptureProbe(camera, target, pixels, "Forward"));
-                probe.boxProjection = false;
-                yield return ModeCapture(() => restored = CaptureProbe(camera, target, pixels, "Forward"));
-                _localProbes.forwardMode = ActualProbeRenderer(settings);
-                for (int i = 0; i < baseline.Length; i++)
+                Color32[] baseline = null, restored = null;
+                if (runBox)
                 {
-                    if (ProbeDifference(baseline[i], changed[i]) > 12) _localProbes.boxPixels++;
-                    if (ProbeDifference(baseline[i], restored[i]) != 0) _localProbes.boxRestore++;
+                    QualitySettings.renderPipeline = boxPipeline;
+                    settings.SetRenderer(0);
+                    probe.customBakedTexture = red;
+                    probe.transform.position = new Vector3(12, 0, 0);
+                    probe.size = new Vector3(80, 50, 160);
+                    probe.blendDistance = 1;
+                    for (int i = 0; i < 12; i++) yield return null;
+                    Color32[] changed = null, probeOff = null;
+                    yield return ModeCapture(() => baseline = CaptureProbe(camera, target, pixels, "Forward"));
+                    probe.boxProjection = true;
+                    yield return ModeCapture(() => changed = CaptureProbe(camera, target, pixels, "Forward"));
+                    probe.boxProjection = false;
+                    yield return ModeCapture(() => restored = CaptureProbe(camera, target, pixels, "Forward"));
+                    probe.enabled = false;
+                    yield return ModeCapture(() => probeOff = CaptureProbe(camera, target, pixels, "Forward"));
+                    probe.enabled = true;
+                    _localProbes.forwardMode = ActualProbeRenderer(settings);
+                    for (int i = 0; i < baseline.Length; i++)
+                    {
+                        if (ProbeDifference(baseline[i], changed[i]) > 12) _localProbes.boxPixels++;
+                        if (ProbeDifference(baseline[i], restored[i]) != 0) _localProbes.boxRestore++;
+                        if (ProbeDifference(baseline[i], probeOff[i]) > 12) _localProbes.boxProbeResponse++;
+                    }
+                    SaveLocalProbes();
                 }
-                SaveLocalProbes();
-                CheckExample(_localProbes.boxPixels > 500 && _localProbes.boxRestore == 0, "Compiled box projection did not change and restore the surface");
-
-                settings.SetRenderer(1);
-                probe.transform.position = Vector3.zero;
-                probe.customBakedTexture = solidRed;
-                probe.size = second.size = new Vector3(160, 64, 160);
-                probe.blendDistance = second.blendDistance = 64;
-                second.mode = ReflectionProbeMode.Custom;
-                second.customBakedTexture = green;
-                Color32[] both = null, onlyGreen = null;
-                for (int i = 0; i < 4; i++) yield return null;
-                yield return ModeCapture(() => baseline = CaptureProbe(camera, target, pixels, "ForwardPlus"));
-                second.enabled = true;
-                yield return ModeCapture(() => both = CaptureProbe(camera, target, pixels, "ForwardPlus"));
-                probe.enabled = false;
-                yield return ModeCapture(() => onlyGreen = CaptureProbe(camera, target, pixels, "ForwardPlus"));
-                probe.enabled = true;
-                second.enabled = false;
-                yield return ModeCapture(() => restored = CaptureProbe(camera, target, pixels, "ForwardPlus"));
-                _localProbes.clusterMode = ActualProbeRenderer(settings);
-                for (int i = 0; i < both.Length; i++)
+                if (runAtlas)
                 {
-                    if (baseline[i].r - both[i].r > 5 && both[i].r - onlyGreen[i].r > 5 &&
-                        onlyGreen[i].g - both[i].g > 5 && both[i].g - baseline[i].g > 5) _localProbes.atlasPixels++;
-                    if (ProbeDifference(baseline[i], restored[i]) != 0) _localProbes.atlasRestore++;
+                    QualitySettings.renderPipeline = atlasPipeline;
+                    settings.SetRenderer(1);
+                    probe.transform.position = Vector3.zero;
+                    probe.customBakedTexture = solidRed;
+                    probe.size = second.size = new Vector3(160, 64, 160);
+                    probe.blendDistance = second.blendDistance = 64;
+                    second.mode = ReflectionProbeMode.Custom;
+                    second.customBakedTexture = green;
+                    Color32[] both = null, onlyGreen = null;
+                    for (int i = 0; i < 4; i++) yield return null;
+                    yield return ModeCapture(() => baseline = CaptureProbe(camera, target, pixels, "ForwardPlus"));
+                    second.enabled = true;
+                    yield return ModeCapture(() => both = CaptureProbe(camera, target, pixels, "ForwardPlus"));
+                    probe.enabled = false;
+                    yield return ModeCapture(() => onlyGreen = CaptureProbe(camera, target, pixels, "ForwardPlus"));
+                    probe.enabled = true;
+                    second.enabled = false;
+                    yield return ModeCapture(() => restored = CaptureProbe(camera, target, pixels, "ForwardPlus"));
+                    _localProbes.clusterMode = ActualProbeRenderer(settings);
+                    for (int i = 0; i < both.Length; i++)
+                    {
+                        if (baseline[i].r - both[i].r > 5 && both[i].r - onlyGreen[i].r > 5 &&
+                            onlyGreen[i].g - both[i].g > 5 && both[i].g - baseline[i].g > 5) _localProbes.atlasPixels++;
+                        if (ProbeDifference(baseline[i], restored[i]) != 0) _localProbes.atlasRestore++;
+                    }
+                    SaveLocalProbes();
                 }
-                CheckExample(_localProbes.atlasPixels > 500 && _localProbes.atlasRestore == 0, "Compiled atlas did not blend and restore the surface");
+                if (runBox)
+                {
+                    CheckExample(_localProbes.boxProbeResponse > 500, "Compiled Forward surface did not respond to probe registration");
+                    CheckExample(_localProbes.boxPixels > 500 && _localProbes.boxRestore == 0, "Compiled box projection did not change and restore the surface");
+                }
+                if (runAtlas)
+                    CheckExample(_localProbes.atlasPixels > 500 && _localProbes.atlasRestore == 0, "Compiled atlas did not blend and restore the surface");
                 CheckExample(_errors == 0, "Local probe Player logged errors");
                 _localProbes.passed = true;
             }
             finally
             {
+                QualitySettings.renderPipeline = qualityPipeline;
                 ocean.PopTimeProvider(clock);
                 ocean.OceanMaterial = original;
                 Destroy(probe.gameObject);

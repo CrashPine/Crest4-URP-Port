@@ -4,15 +4,13 @@
 
 ## Текущий этап и операции
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. **P12 ACTIVE**. The first P11.4 checkpoint is complete. Its shader follow-up regression is running. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked.
+P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. **P12 ACTIVE**. P11.4 and the Windows shader follow-up regression are complete. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked.
 
-The latest runner completed. Its initial Release DX11 attempt exited 1 with no fresh summary. Targeted retry on the same binary passed, then Release DX12 passed. The failure archive and accepted reports are separate. Check actual processes and artifact timestamps before any further run.
+The first P11.4 Release DX11 attempt exited 1 with no fresh summary. Targeted retry on the same binary passed, then Release DX12 passed. The failure archive and accepted reports are separate. Check actual processes and artifact timestamps before any further run.
 
 ## Точное следующее действие
 
-**P12:** Forward box projection and Forward+ atlas passed focused Editor controls on both APIs. The Windows archives currently available cover the earlier 123+2/API checkpoint. The refreshed shader regression uses `Evidence/P12-ProbeRegression-operation.json`, followed by `py -3.13 Evidence/P11-Final-collect.py --prefix P12-ProbeRegression --count 125` and refreshed packages after verified smokes. The default demo pipeline differs from the optional probe pipeline. Follow with a strict standalone control for optional variant retention and native M/N and G/F checks. Physical XR remains blocked on hardware and a configured provider.
-
-The compiled local-probe wrapper `Evidence/P12-CompiledProbes-run.ps1` is queued behind successful normal regression collection. It builds one isolated strict Player, then checks Forward box projection and the Forward+ atlas on both APIs. Inspect its stdout, stderr and per-API report before claiming acceptance. The diagnostic code is excluded from ordinary Players.
+**P12:** the 125+2/API regression and four normal Player smokes passed. Updated Development and Release archives carry suffix `066a5c0`. The combined strict probe build strips the optional variants before the first shader callback. Separate builds (`Evidence/P12-CompiledProbes-run.ps1 -Probe Box` or `-Probe Atlas`) retain the active variant and log no missing shader variants. Both still report zero response on DX11/DX12. Turning the Forward probe off also gives zero changed pixels, including non-batch runs on the same binary. Next inspect actual non-clear water pixels, camera culling's visible probe textures and a URP/Lit comparison using the same probes before editing the production shader. The diagnostic runs are complete and archived. Native M/N and G/F and physical XR remain open.
 
 H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 
@@ -28,7 +26,7 @@ BOTH async bake/build and no-bake reuse Editor shutdowns emit2 JobTempAlloc warn
 
 ## Обычные сборки и финальный milestone
 
-**Normal Dev/Release:** `Build-checkpoint.json` records the published 123+2 tests per API, ValidateAssets, both builds and four passing smokes. These binaries include the depth-cache and Forward blending fixes. Box projection and Forward+ atlas are newer than these binaries.
+**Normal Dev/Release:** `Build-checkpoint.json` records the published 125+2 tests per API, ValidateAssets, both builds and four passing smokes. These binaries include the current box projection and atlas shader code. The demo pipeline uses the single-probe path.
 
 P12 follows the fresh build evidence and resource warning review. F Editor JobTempAlloc warnings remain in the resource record.
 
@@ -40,4 +38,4 @@ Foreign Ocean.mat (4 fields), original baked LightingData/ReflectionProbe dirs,1
 
 P10 GPU-cost/driver-memory/Intel/XR limits remain. Historical evictable2490368B NOT REPRODUCED/not fixed; old .015754165 restoration failure not explained by bounded controls. Не повторять неизменённые profiling windows/галерею воды.
 
-Структурный аудит1437 файлов: missing meta0/duplicate GUID0/missing original0;597 protected GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Git checkpoint — `git log -1`.
+Структурный аудит1443 файлов: missing meta0/duplicate GUID0/missing original0;597 protected GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Git checkpoint — `git log -1`.
