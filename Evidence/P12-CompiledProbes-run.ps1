@@ -1,6 +1,7 @@
 param(
     [string]$Editor = 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe',
-    [ValidateSet('Both', 'Box', 'Atlas')][string]$Probe = 'Both'
+    [ValidateSet('Both', 'Box', 'Atlas')][string]$Probe = 'Both',
+    [switch]$AutomaticCamera
 )
 
 $ErrorActionPreference = 'Stop'
@@ -33,6 +34,10 @@ foreach ($api in 'Direct3D11', 'Direct3D12') {
         '-crestProbeOutput', ('"{0}/report.json"' -f $directory), '-logFile', ('"{0}/Player.log"' -f $directory)
     )
     $playerArguments += @($probeFlags | Where-Object { $_ })
+    if ($AutomaticCamera) {
+        $playerArguments = @($playerArguments | Where-Object { $_ -ne '-batchmode' })
+        $playerArguments += '-crestProbeAutomaticCamera', '-screen-fullscreen', '0', '-screen-width', '320', '-screen-height', '180'
+    }
     $player = Start-Process (Join-Path $root 'Builds/P12-LocalProbes/LocalProbes.exe') -WorkingDirectory $root -WindowStyle Hidden -PassThru -ArgumentList $playerArguments
     if (!$player.WaitForExit(90000)) { throw "Probe Player still running (PID $($player.Id)). See $directory" }
     $path = Join-Path $directory 'report.json'

@@ -87,6 +87,10 @@ namespace Crest.URP.Editor
                         var surface = new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Ocean_Calm.mat"));
                         ConfigureLocalProbeMaterial(surface);
                         AssetDatabase.CreateAsset(surface, folder + "/Resources/CrestLocalProbeSurface.mat");
+                        var lit = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                        lit.SetFloat("_Metallic", 1);
+                        lit.SetFloat("_Smoothness", 0.95f);
+                        AssetDatabase.CreateAsset(lit, folder + "/Resources/CrestLocalProbeLit.mat");
                     }
                     serialized.ApplyModifiedPropertiesWithoutUndo();
                     AssetDatabase.CreateAsset(pipeline, folder + (mode == 9 ? "/Resources/CrestLocalProbeAtlasPipeline.asset" : "/ReflectionModesPipeline.asset"));
@@ -123,10 +127,21 @@ namespace Crest.URP.Editor
                 }
                 string path=folder+"/Resource_Control.unity";
                 EditorSceneManager.SaveScene(scene,path);
+                string localProbeScene = mode == 9 ? SaveLocalProbeScene(folder) : null;
+                string projectedProbeScene = null;
+                if (activateProbeBox)
+                {
+                    GameObject.Find("Crest Local Probe Primary").GetComponent<ReflectionProbe>().boxProjection = true;
+                    projectedProbeScene = folder + "/LocalProbeProjected.unity";
+                    if (!EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), projectedProbeScene, saveAsCopy: true))
+                        throw new InvalidOperationException("Could not save the projected probe scene.");
+                }
+                string[] localProbeScenes = activateProbeAtlas ? SaveLocalProbeAtlasScenes(folder, path, localProbeScene) :
+                    activateProbeBox ? new[] { path, localProbeScene, projectedProbeScene } : new[] { path, localProbeScene };
                 PlayerSettings.enableFrameTimingStats=true;
                 if(mode != 0)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=mode is 3 or 8?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode is 7 or 9?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==6?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==2?new[]{path,
+                    scenes=mode is 3 or 8?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==9?localProbeScenes:mode==7?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==6?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==2?new[]{path,
                         "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
@@ -156,6 +171,62 @@ namespace Crest.URP.Editor
                     AssetDatabase.DeleteAsset(folder);
                 }
             }
+        }
+
+        static string SaveLocalProbeScene(string folder)
+        {
+            var scene = EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+            var primary = new GameObject("Crest Local Probe Primary").AddComponent<ReflectionProbe>();
+            var secondary = new GameObject("Crest Local Probe Secondary").AddComponent<ReflectionProbe>();
+            primary.gameObject.layer = secondary.gameObject.layer = 4;
+            primary.mode = secondary.mode = ReflectionProbeMode.Custom;
+            primary.transform.position = new Vector3(12, 0, 0);
+            primary.size = new Vector3(80, 50, 160);
+            secondary.size = new Vector3(160, 64, 160);
+            primary.customBakedTexture = SaveLocalProbeCubemap(folder, "Directional red-green", Color.red, true);
+            secondary.customBakedTexture = SaveLocalProbeCubemap(folder, "Solid green", Color.green);
+            secondary.enabled = false;
+            SaveLocalProbeCubemap(folder, "Solid red", Color.red);
+            string path = folder + "/LocalProbeOcean.unity";
+            if (!EditorSceneManager.SaveScene(scene, path, saveAsCopy: true))
+                throw new InvalidOperationException("Could not save the owned local-probe scene.");
+            EditorSceneManager.OpenScene(path);
+            return path;
+        }
+
+        static Cubemap SaveLocalProbeCubemap(string folder, string name, Color color, bool directional = false)
+        {
+            var cube = new Cubemap(16, TextureFormat.RGBA32, true) { name = name };
+            var face = new Color[16 * 16];
+            for (int i = 0; i < 6; i++)
+            {
+                Array.Fill(face, directional && i == (int)CubemapFace.PositiveX ? Color.green : color);
+                cube.SetPixels(face, (CubemapFace)i);
+            }
+            cube.Apply();
+            AssetDatabase.CreateAsset(cube, folder + "/Resources/" + name + ".asset");
+            return cube;
+        }
+
+        static string[] SaveLocalProbeAtlasScenes(string folder, string control, string liveScene)
+        {
+            var scene = EditorSceneManager.GetActiveScene();
+            var primary = GameObject.Find("Crest Local Probe Primary").GetComponent<ReflectionProbe>();
+            var secondary = GameObject.Find("Crest Local Probe Secondary").GetComponent<ReflectionProbe>();
+            primary.transform.position = Vector3.zero;
+            primary.customBakedTexture = AssetDatabase.LoadAssetAtPath<Cubemap>(folder + "/Resources/Solid red.asset");
+            primary.size = secondary.size = new Vector3(160, 64, 160);
+            primary.blendDistance = secondary.blendDistance = 64;
+            string red = folder + "/LocalProbeRed.unity";
+            string overlap = folder + "/LocalProbeOverlap.unity";
+            string green = folder + "/LocalProbeGreen.unity";
+            bool redSaved = EditorSceneManager.SaveScene(scene, red, saveAsCopy: true);
+            secondary.enabled = true;
+            bool overlapSaved = EditorSceneManager.SaveScene(scene, overlap, saveAsCopy: true);
+            primary.enabled = false;
+            if (!EditorSceneManager.SaveScene(scene, green, saveAsCopy: true) || !overlapSaved || !redSaved)
+                throw new InvalidOperationException("Could not save all atlas probe scenes.");
+            return new[] { control, liveScene, red, overlap, green };
         }
 
         static void ConfigureLocalProbeMaterial(Material surface)
