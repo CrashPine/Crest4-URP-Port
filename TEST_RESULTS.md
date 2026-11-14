@@ -1,6 +1,12 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-13**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-14**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P12: Windows shader follow-up (2026-11-14)
+
+Both APIs passed 125 batch and 2 Game View tests. ValidateAssets, both builds and four normal Player smokes passed. Updated archives use the `066a5c0` suffix. Their file hashes and archive hashes were verified. Inspected the Release DX12 underwater capture and Development DX11 reflections capture. The normal demo pipeline covers the default probe path. The manifest is `Evidence/P12-Windows-packages-066a5c0.json` and raw regression evidence is `Evidence/P12-ProbeRegression-evidence.zip`.
+
+The first separate strict DX11 Player produced zero changed box pixels and stopped before the atlas step. Its pipeline enabled blending and box projection together. The Editor box test had blending disabled and the Editor atlas test had box projection disabled. The retry matches these modes with two serialized pipelines. The initial logs and report are preserved separately.
 
 ## P12: box projection and clustered reflection atlas (2026-11-14)
 

@@ -30,7 +30,7 @@
 
 ## Воспроизведение
 
-Проверенные Windows-сборки лежат в `Builds/Crest4-URP-Windows-Development.zip` и `Builds/Crest4-URP-Windows-Release.zip`. Распакуйте выбранный архив целиком и запустите `CrestPort.exe`. SHA-256 архивов записаны в `Evidence/P12-Windows-packages.jsonl`, а контрольные суммы файлов находятся в каждом архиве.
+Проверенные Windows-сборки лежат в `Builds/Crest4-URP-Windows-Development-066a5c0.zip` и `Builds/Crest4-URP-Windows-Release-066a5c0.zip`. Распакуйте выбранный архив целиком и запустите `CrestPort.exe`. SHA-256 архивов записаны в `Evidence/P12-Windows-packages-066a5c0.json`, а контрольные суммы файлов находятся в каждом архиве.
 
 Открыть проект Unity 6000.6.5f1. Renderer в `Assets/CrestPortDemos` содержит CrestBackgroundFeature; Render Graph, depth и intermediate camera color необходимы.
 
