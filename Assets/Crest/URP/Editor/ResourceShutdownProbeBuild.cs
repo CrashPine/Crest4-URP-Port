@@ -21,6 +21,7 @@ namespace Crest.URP.Editor
         public static void BuildNavigationInput() => BuildImpl(6);
         public static void BuildDebugGui() => BuildImpl(7);
         public static void BuildDepthCacheLifecycle() => BuildImpl(8);
+        public static void BuildLocalProbes() => BuildImpl(9);
         static void BuildImpl(int mode)
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
@@ -61,7 +62,7 @@ namespace Crest.URP.Editor
                     var foam=new Material(Shader.Find("Crest/Inputs/Foam/Override Foam"));AssetDatabase.CreateAsset(foam,folder+"/StackFoamSeed.mat");
                     retention.sharedMaterials=new[]{underwater,planar,counterControl,flat,flatAbove,foam};
                 }
-                if(mode==5)
+                if(mode is 5 or 9)
                 {
                     var original=AssetDatabase.LoadAssetAtPath<UniversalRendererData>("Assets/CrestPortDemos/Renderer.asset");
                     var forward=UnityEngine.Object.Instantiate(original);forward.renderingMode=RenderingMode.Forward;AssetDatabase.CreateAsset(forward,folder+"/Forward.asset");
@@ -70,6 +71,16 @@ namespace Crest.URP.Editor
                     var pipeline=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>("Assets/CrestPortDemos/Pipeline.asset"));
                     var serialized=new SerializedObject(pipeline);var renderers=serialized.FindProperty("m_RendererDataList");renderers.arraySize=3;
                     renderers.GetArrayElementAtIndex(0).objectReferenceValue=forward;renderers.GetArrayElementAtIndex(1).objectReferenceValue=clustered;renderers.GetArrayElementAtIndex(2).objectReferenceValue=deferred;
+                    if (mode == 9)
+                    {
+                        serialized.FindProperty("m_ReflectionProbeBlending").boolValue = true;
+                        serialized.FindProperty("m_ReflectionProbeBoxProjection").boolValue = true;
+                        serialized.FindProperty("m_ReflectionProbeAtlas").boolValue = true;
+                        AssetDatabase.CreateFolder(folder, "Resources");
+                        var surface = new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/CrestPortDemos/Ocean_Calm.mat"));
+                        ConfigureLocalProbeMaterial(surface);
+                        AssetDatabase.CreateAsset(surface, folder + "/Resources/CrestLocalProbeSurface.mat");
+                    }
                     serialized.ApplyModifiedPropertiesWithoutUndo();AssetDatabase.CreateAsset(pipeline,folder+"/ReflectionModesPipeline.asset");
                     // Build against this owned pipeline so native URP stripping sees all three
                     // renderer modes; source pipeline and source quality exclusions are preserved.
@@ -80,7 +91,7 @@ namespace Crest.URP.Editor
                 PlayerSettings.enableFrameTimingStats=true;
                 if(mode != 0)PlayerSettings.strictShaderVariantMatching=true;
                 var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                    scenes=mode is 3 or 8?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode==7?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==6?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==2?new[]{path,
+                    scenes=mode is 3 or 8?new[]{path,"Assets/CrestPortDemos/Ocean_Underwater.unity"}:mode is 7 or 9?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==6?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:mode==5?new[]{path,"Assets/CrestPortDemos/Ocean_Reflections.unity"}:mode==4?new[]{path,"Assets/CrestPortDemos/Ocean_Calm.unity"}:mode==2?new[]{path,
                         "Assets/Crest/Crest-Examples/Main/Scenes/main.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/boat.unity",
                         "Assets/Crest/Crest-Examples/BoatDev/Scenes/BoatWakes.unity",
@@ -89,7 +100,7 @@ namespace Crest.URP.Editor
                         "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity"}:
                         mode==1?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName=mode==8?"Builds/P11-DepthCacheLifecycle/DepthCacheLifecycle.exe":mode==7?"Builds/P11-DebugGui/DebugGui.exe":mode==6?"Builds/P11-NavigationInput/NavigationInput.exe":mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=mode==9?"Builds/P12-LocalProbes/LocalProbes.exe":mode==8?"Builds/P11-DepthCacheLifecycle/DepthCacheLifecycle.exe":mode==7?"Builds/P11-DebugGui/DebugGui.exe":mode==6?"Builds/P11-NavigationInput/NavigationInput.exe":mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });
@@ -106,6 +117,15 @@ namespace Crest.URP.Editor
                 if(Path.GetFullPath(folder).StartsWith(Path.GetFullPath(parent)+Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)
                     && AssetDatabase.AssetPathToGUID(folder)==guid) AssetDatabase.DeleteAsset(folder);
             }
+        }
+
+        static void ConfigureLocalProbeMaterial(Material surface)
+        {
+            foreach (string keyword in new[] { "_PLANARREFLECTIONS_ON", "_OVERRIDEREFLECTIONCUBEMAP_ON",
+                         "_PROCEDURALSKY_ON", "_COMPUTEDIRECTIONALLIGHT_ON", "_TRANSPARENCY_ON",
+                         "_APPLYNORMALMAPPING_ON", "_FOAM_ON" })
+                surface.DisableKeyword(keyword);
+            surface.SetFloat("_Specular", 1);
         }
     }
 }
