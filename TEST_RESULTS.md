@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-13**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P11.4: current Windows regression (2026-11-14)
+
+Both APIs passed 123/123 batch and 2/2 Game View tests. ValidateAssets passed, as did the original 597 GUID and compute checks. Both Windows builds succeeded. Four final Player runs recorded Errors=0, seven current-frame LOD captures and four reflection settings each. Final smoke logs contain zero active RenderTexture release, stale LOD, JobTempAlloc or evictable warnings. Release DX11 reflections and Release DX12 underwater captures were inspected.
+
+The first Release DX11 attempt exited 1 after six fresh scene captures and left an older summary on disk. The cause is undetermined. The same Release binary passed the focused retry, followed by Release DX12. The failed attempt is archived separately. Build and report hashes are in `Build-checkpoint.json`; the current regression archive preserves raw results and the overlapping historical outputs restored after testing.
+
 ## P11.4: Windows regression before depth-cache correction (2026-11-13)
 
 The current OceanDebugGUI fix and the earlier input and mixed-light variant changes passed 121/121 batch tests and 2/2 non-batch Game View tests on each API. All leaves passed with no failures or skips. ValidateAssets reported no material or shader errors. Development and Release built successfully and all four smoke runs reported Errors=0, seven current-frame LOD captures and four reflection-option captures each. The fresh Development DX11 underwater and Release DX12 reflection images were inspected. Original GUID and compute verification passed all 597 checks.

@@ -1,16 +1,16 @@
 # Точка продолжения
 
-Обновлено: **2026-11-13**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-11-14**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущий этап и операции
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked. **P11.4 ACTIVE**, P12 pending.
+P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. **P11.4 DONE, P12 ACTIVE**. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked.
 
-G1b and G2 sessions finished and are archived. The 22:35 UTC normal DX11 run passed 122/123 with a LakesAndRivers Flow restoration mismatch. That run is archived. The fixture now replays the observed draw order and passed focused DX11/DX12 with exact restoration. The retried normal runner writes `Evidence/P11-Current-operation.json`. Check actual processes and artifact timestamps before any retry.
+The latest runner completed. Its initial Release DX11 attempt exited 1 with no fresh summary. Targeted retry on the same binary passed, then Release DX12 passed. The failure archive and accepted reports are separate. Check actual processes and artifact timestamps before any further run.
 
 ## Точное следующее действие
 
-**P11.4:** the initial 121+2/API regression is archived. Corrected OceanDepthCache passed both sentinel tests and compiled Underwater create/render/unload on both APIs. Local Reflection Probe single and overlap tests each passed on both APIs, with 40634 blended pixels and exact restoration. The current sequential regression uses `Evidence/P11-Current-operation.json`. After its two 123-test batches, interactive checks, builds and four smokes complete, run `py -3.13 Evidence/P11-Final-collect.py --prefix P11-Current --count 123`, check smoke warnings and selected captures, and update P12.
+**P12:** current Windows artifacts are covered by the 123+2/API regression and four Player smokes. Verify M/N and G/F with a verified native keyboard path. For the remaining local probe acceptance, start with isolated controls for box projection in Forward and two probes in the clustered atlas. Use measured shader differences before choosing any runtime change. Physical XR remains blocked on hardware and a configured provider.
 
 H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 
@@ -26,7 +26,7 @@ BOTH async bake/build and no-bake reuse Editor shutdowns emit2 JobTempAlloc warn
 
 ## Обычные сборки и финальный milestone
 
-**Normal Dev/Release:** the current recorded build checkpoint is `3fe0cbd` with 121+2 tests per API, ValidateAssets, both builds and four smokes. It includes the B input guards and mixed-light retention and the paused speed fix. The depth-cache and reflection changes are newer than those binaries. The sequential P11.4 run will supersede them once all results are verified.
+**Normal Dev/Release:** `Build-checkpoint.json` records the current 123+2 tests per API, ValidateAssets, both builds and four passing smokes. The binaries include the depth-cache and Forward reflection fixes. The final Player logs have zero warnings in the tracked resource categories.
 
 P12 follows the fresh build evidence and resource warning review. F Editor JobTempAlloc warnings remain in the resource record.
 
