@@ -51,7 +51,7 @@ void ApplyReflectionSky
 	in const half i_weight,
 	inout half3 io_col
 #if defined(CREST_URP)
-	, in const float3 i_positionWS
+	, in const float3 i_positionWS, in const float2 i_normalizedScreenUV
 #endif
 )
 {
@@ -75,8 +75,8 @@ void ApplyReflectionSky
 	skyColour = val.rgb;
 #else
 #if defined(CREST_URP)
-	#if _REFLECTION_PROBE_BLENDING
-	skyColour = CalculateIrradianceFromReflectionProbes(refl, i_positionWS, _Roughness, i_screenPos.xy / i_screenPos.w);
+	#if _REFLECTION_PROBE_BLENDING || _REFLECTION_PROBE_BOX_PROJECTION
+	skyColour = GlossyEnvironmentReflection(refl, i_positionWS, _Roughness, 1.0, i_normalizedScreenUV);
 	#else
 	skyColour = GlossyEnvironmentReflection(refl, _Roughness, 1.0);
 	#endif

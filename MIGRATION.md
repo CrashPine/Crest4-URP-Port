@@ -9,9 +9,11 @@ scattering and Fresnel equations remain the original implementation. Original
 Built-in simulation input passes are not mechanically retagged.
 
 For overlapping local reflection probes in Forward, enable Reflection Probe
-Blending in the URP pipeline asset. Crest uses the displaced world position
-when URP enables the blending variant. With blending disabled, Crest samples
-the single environment cubemap. The default demo pipeline uses that setting.
+Blending in the URP pipeline asset. For box projection, enable it on the pipeline
+and on the Reflection Probe. Forward+ can use the URP reflection probe atlas when
+enabled in the pipeline. Crest passes displaced world position and normalized
+pixel coordinates to URP for these modes. The default demo pipeline uses the
+single environment cubemap path.
 
 Add `CrestBackgroundFeature` to the active Universal Renderer. It copies camera
 color before transparents and publishes `_BackgroundTexture`. Depth and intermediate

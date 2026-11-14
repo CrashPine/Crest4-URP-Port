@@ -2,7 +2,11 @@
 
 Актуальная сверка: **2026-11-13**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
-## P11.4: current Windows regression (2026-11-14)
+## P12: box projection and clustered reflection atlas (2026-11-14)
+
+Baseline DX11 measured zero projected pixels for a directional cubemap and zero blended pixels for two Forward+ probes. Crest now declares URP's box projection, atlas and cluster variants and supplies the displaced world position and normalized screen UV to the URP environment function. The four local probe tests passed on each API. Forward box projection changed 1677 pixels of 57600 and Forward+ blended 15641 pixels. Disabling each control restored the original RGB values exactly. The single-probe and Forward blend controls also passed. These tests use cloned pipeline assets in Editor Play Mode. The raw reports, failed baseline and initial fixture compilation failure are in `P12-Probe-evidence.zip`.
+
+## P11.4: Windows regression before box and atlas changes (2026-11-14)
 
 Both APIs passed 123/123 batch and 2/2 Game View tests. ValidateAssets passed, as did the original 597 GUID and compute checks. Both Windows builds succeeded. Four final Player runs recorded Errors=0, seven current-frame LOD captures and four reflection settings each. Final smoke logs contain zero active RenderTexture release, stale LOD, JobTempAlloc or evictable warnings. Release DX11 reflections and Release DX12 underwater captures were inspected.
 

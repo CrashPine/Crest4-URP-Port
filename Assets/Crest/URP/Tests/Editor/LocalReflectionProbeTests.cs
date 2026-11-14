@@ -18,7 +18,13 @@ public class LocalReflectionProbeTests
     [UnityTest]
     public IEnumerator OverlappingProbesBlendBothCubemaps() => CheckProbe(true);
 
-    static IEnumerator CheckProbe(bool overlap)
+    [UnityTest]
+    public IEnumerator ForwardProjectsDirectionalCubemapIntoProbeBox() => CheckProbe(false, box: true);
+
+    [UnityTest]
+    public IEnumerator ClusteredAtlasBlendsTwoLocalProbes() => CheckProbe(true, clustered: true);
+
+    static IEnumerator CheckProbe(bool overlap, bool box = false, bool clustered = false)
     {
         OceanRenderer.EnableGraphicsInBatchMode = true;
         EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
@@ -57,79 +63,132 @@ public class LocalReflectionProbeTests
         target.Create();
         var previousPipeline = QualitySettings.renderPipeline;
         UniversalRenderPipelineAsset pipeline = null;
+        UniversalRendererData renderer = null;
         GameObject secondOwner = null;
         try
         {
             probe.customBakedTexture = red;
             ReflectionProbe second = null;
-            if (overlap)
+            if (overlap || box)
             {
                 pipeline = Object.Instantiate((UniversalRenderPipelineAsset)GraphicsSettings.currentRenderPipeline);
                 var settings = new SerializedObject(pipeline);
-                settings.FindProperty("m_ReflectionProbeBlending").boolValue = true;
+                settings.FindProperty("m_ReflectionProbeBlending").boolValue = overlap;
+                settings.FindProperty("m_ReflectionProbeBoxProjection").boolValue = box;
+                if (clustered)
+                {
+                    var renderers = settings.FindProperty("m_RendererDataList");
+                    int index = settings.FindProperty("m_DefaultRendererIndex").intValue;
+                    renderer = Object.Instantiate((UniversalRendererData)renderers.GetArrayElementAtIndex(index).objectReferenceValue);
+                    renderer.renderingMode = RenderingMode.ForwardPlus;
+                    renderers.GetArrayElementAtIndex(index).objectReferenceValue = renderer;
+                    settings.FindProperty("m_ReflectionProbeAtlas").boolValue = true;
+                }
                 settings.ApplyModifiedPropertiesWithoutUndo();
                 QualitySettings.renderPipeline = pipeline;
-                secondOwner = new GameObject("Second local reflection reference");
-                second = secondOwner.AddComponent<ReflectionProbe>();
-                second.mode = ReflectionProbeMode.Custom;
-                second.size = probe.size;
-                second.customBakedTexture = green;
-                second.enabled = false;
             }
-            for (int i = 0; i < 12; i++) yield return null;
-            var redPixels = Capture(camera, target);
-            if (overlap)
+            if (box)
             {
-                second.enabled = true;
-                yield return null;
-                var both = Capture(camera, target);
-                probe.enabled = false;
-                yield return null;
-                var onlyGreen = Capture(camera, target);
-                probe.enabled = true;
-                second.enabled = false;
-                yield return null;
-                var redAgain = Capture(camera, target);
-                int blended = 0, restoredRed = 0;
-                for (int i = 0; i < both.Length; i++)
+                owner.transform.position = new Vector3(12, 0, 0);
+                probe.size = new Vector3(80, 50, 160);
+                for (int i = 0; i < 6; i++)
                 {
-                    if (redPixels[i].r - both[i].r > 5 && both[i].r - onlyGreen[i].r > 5 &&
-                        onlyGreen[i].g - both[i].g > 5 && both[i].g - redPixels[i].g > 5)
-                        blended++;
-                    if (ColorDifference(redPixels[i], redAgain[i]) != 0) restoredRed++;
+                    var face = new Color[16 * 16];
+                    System.Array.Fill(face, i == (int)CubemapFace.PositiveX ? Color.green : Color.red);
+                    red.SetPixels(face, (CubemapFace)i);
                 }
-                string result = $"BlendedPixels={blended}; RestoreDifference={restoredRed}; Pixels={both.Length}";
-                File.WriteAllText($"Evidence/P11-OverlapReflection-{SystemInfo.graphicsDeviceType}.txt", result + System.Environment.NewLine);
-                Assert.That(blended, Is.GreaterThan(500), result);
-                Assert.That(restoredRed, Is.Zero, result);
+                red.Apply();
+                for (int i = 0; i < 12; i++) yield return null;
+                var unprojected = Capture(camera, target);
+                probe.boxProjection = true;
+                yield return null;
+                var projected = Capture(camera, target);
+                probe.boxProjection = false;
+                yield return null;
+                var restored = Capture(camera, target);
+                int changed = 0, restoredPixels = 0;
+                for (int i = 0; i < projected.Length; i++)
+                {
+                    if (ColorDifference(unprojected[i], projected[i]) > 12) changed++;
+                    if (ColorDifference(unprojected[i], restored[i]) != 0) restoredPixels++;
+                }
+                string result = $"ProjectedPixels={changed}; RestoreDifference={restoredPixels}; Pixels={projected.Length}";
+                File.WriteAllText($"Evidence/P12-BoxProbe-{SystemInfo.graphicsDeviceType}.txt", result + System.Environment.NewLine);
+                Assert.That(changed, Is.GreaterThan(500), result);
+                Assert.That(restoredPixels, Is.Zero, result);
             }
             else
             {
-                probe.customBakedTexture = green;
-                yield return null;
-                var greenPixels = Capture(camera, target);
-                probe.enabled = false;
-                yield return null;
-                var offPixels = Capture(camera, target);
-                probe.enabled = true;
-                probe.customBakedTexture = red;
-                yield return null;
-                var restored = Capture(camera, target);
-
-                int colorResponse = 0, registrationResponse = 0, restoration = 0;
-                for (int i = 0; i < redPixels.Length; i++)
+                if (overlap)
                 {
-                    var a = redPixels[i];
-                    var b = greenPixels[i];
-                    if (a.r - b.r > 8 && b.g - a.g > 8) colorResponse++;
-                    if (ColorDifference(a, offPixels[i]) > 12) registrationResponse++;
-                    if (ColorDifference(a, restored[i]) != 0) restoration++;
+                    secondOwner = new GameObject("Second local reflection reference");
+                    second = secondOwner.AddComponent<ReflectionProbe>();
+                    second.mode = ReflectionProbeMode.Custom;
+                    second.size = probe.size;
+                    second.customBakedTexture = green;
+                    second.enabled = false;
+                    if (clustered)
+                    {
+                        probe.size = second.size = new Vector3(160, 64, 160);
+                        probe.blendDistance = second.blendDistance = 64;
+                    }
                 }
-                string report = $"RedGreenResponse={colorResponse}; ProbeOffResponse={registrationResponse}; RestoreDifference={restoration}; Pixels={redPixels.Length}";
-                File.WriteAllText($"Evidence/P11-LocalReflection-{SystemInfo.graphicsDeviceType}.txt", report + System.Environment.NewLine);
-                Assert.That(colorResponse, Is.GreaterThan(500), report);
-                Assert.That(registrationResponse, Is.GreaterThan(500), report);
-                Assert.That(restoration, Is.Zero, report);
+                for (int i = 0; i < 12; i++) yield return null;
+                var redPixels = Capture(camera, target);
+                if (overlap)
+                {
+                    second.enabled = true;
+                    yield return null;
+                    var both = Capture(camera, target);
+                    probe.enabled = false;
+                    yield return null;
+                    var onlyGreen = Capture(camera, target);
+                    probe.enabled = true;
+                    second.enabled = false;
+                    yield return null;
+                    var redAgain = Capture(camera, target);
+                    int blended = 0, restoredRed = 0;
+                    for (int i = 0; i < both.Length; i++)
+                    {
+                        if (redPixels[i].r - both[i].r > 5 && both[i].r - onlyGreen[i].r > 5 &&
+                            onlyGreen[i].g - both[i].g > 5 && both[i].g - redPixels[i].g > 5)
+                            blended++;
+                        if (ColorDifference(redPixels[i], redAgain[i]) != 0) restoredRed++;
+                    }
+                    string result = $"BlendedPixels={blended}; RestoreDifference={restoredRed}; Pixels={both.Length}";
+                    string label = clustered ? "P12-ClusterProbe" : "P11-OverlapReflection";
+                    File.WriteAllText($"Evidence/{label}-{SystemInfo.graphicsDeviceType}.txt", result + System.Environment.NewLine);
+                    Assert.That(blended, Is.GreaterThan(500), result);
+                    Assert.That(restoredRed, Is.Zero, result);
+                }
+                else
+                {
+                    probe.customBakedTexture = green;
+                    yield return null;
+                    var greenPixels = Capture(camera, target);
+                    probe.enabled = false;
+                    yield return null;
+                    var offPixels = Capture(camera, target);
+                    probe.enabled = true;
+                    probe.customBakedTexture = red;
+                    yield return null;
+                    var restored = Capture(camera, target);
+
+                    int colorResponse = 0, registrationResponse = 0, restoration = 0;
+                    for (int i = 0; i < redPixels.Length; i++)
+                    {
+                        var a = redPixels[i];
+                        var b = greenPixels[i];
+                        if (a.r - b.r > 8 && b.g - a.g > 8) colorResponse++;
+                        if (ColorDifference(a, offPixels[i]) > 12) registrationResponse++;
+                        if (ColorDifference(a, restored[i]) != 0) restoration++;
+                    }
+                    string report = $"RedGreenResponse={colorResponse}; ProbeOffResponse={registrationResponse}; RestoreDifference={restoration}; Pixels={redPixels.Length}";
+                    File.WriteAllText($"Evidence/P11-LocalReflection-{SystemInfo.graphicsDeviceType}.txt", report + System.Environment.NewLine);
+                    Assert.That(colorResponse, Is.GreaterThan(500), report);
+                    Assert.That(registrationResponse, Is.GreaterThan(500), report);
+                    Assert.That(restoration, Is.Zero, report);
+                }
             }
         }
         finally
@@ -141,6 +200,7 @@ public class LocalReflectionProbeTests
                 QualitySettings.renderPipeline = previousPipeline;
                 Object.Destroy(pipeline);
             }
+            if (renderer != null) Object.Destroy(renderer);
             if (secondOwner != null) Object.Destroy(secondOwner);
             probe.enabled = false;
             Object.Destroy(owner);
