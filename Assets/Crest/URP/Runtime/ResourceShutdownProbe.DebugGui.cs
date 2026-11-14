@@ -4,6 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -27,9 +29,47 @@ namespace Crest.URP.Diagnostics
             public string unity, api, gpu, phase, failure;
             public int errors;
             public List<DebugGuiRow> rows = new List<DebugGuiRow>();
+            public List<DebugGuiKeyRow> keys = new List<DebugGuiKeyRow>();
+        }
+
+        [Serializable]
+        sealed class DebugGuiKeyRow
+        {
+            public string key, layout;
+            public bool native, focused, visible;
+            public float timeScale;
+            public int frame;
         }
 
         DebugGuiReport _debugGuiReport;
+        OceanDebugGUI _debugGuiKeyboardTarget;
+        PropertyInfo _debugGuiCurrentKeyboard;
+
+        void ObserveDebugGuiKeyboard()
+        {
+            if (_debugGuiKeyboardTarget == null || _debugGuiReport.phase != "keyboard-ready") return;
+            var keyboard = _debugGuiCurrentKeyboard.GetValue(null);
+            foreach (string key in new[] { "g", "f" })
+            {
+                if (NavigationProperty(NavigationProperty(keyboard, key + "Key"), "wasPressedThisFrame") is not true)
+                    continue;
+                int step = _debugGuiReport.keys.Count;
+                var row = new DebugGuiKeyRow
+                {
+                    key = key, layout = NavigationProperty(keyboard, "layout")?.ToString(),
+                    native = NavigationProperty(keyboard, "native") is true, focused = Application.isFocused,
+                    visible = _debugGuiKeyboardTarget._guiVisible, timeScale = Time.timeScale, frame = Time.frameCount,
+                };
+                _debugGuiReport.keys.Add(row);
+                bool valid = row.native && row.focused && key == (step < 2 ? "g" : "f") &&
+                    row.visible == (step != 0) && row.timeScale == (step == 2 ? 0f : 1f);
+                if (!valid)
+                    SaveDebugGui("keyboard-failed", "Unexpected native input sequence or GUI state");
+                else
+                    SaveDebugGui(step == 3 ? "keyboard-complete" : "keyboard-ready");
+                return;
+            }
+        }
         static readonly System.Reflection.FieldInfo s_DebugViewerVelocity =
             typeof(OceanDebugGUI).GetField("_viewerVel", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
 
@@ -88,6 +128,11 @@ namespace Crest.URP.Diagnostics
             var ocean = OceanRenderer.Instance;
             CheckExample(ocean != null, "Calm ocean not loaded");
             var gui = ocean.GetComponent<OceanDebugGUI>() ?? ocean.gameObject.AddComponent<OceanDebugGUI>();
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestDebugGuiKeyboard") >= 0)
+            {
+                yield return DebugGuiKeyboard(gui);
+                yield break;
+            }
             var clock = new ExampleFixedTime();
             ocean.PushTimeProvider(clock);
             try
@@ -131,6 +176,32 @@ namespace Crest.URP.Diagnostics
             finally
             {
                 ocean.PopTimeProvider(clock);
+            }
+        }
+
+        IEnumerator DebugGuiKeyboard(OceanDebugGUI gui)
+        {
+            _debugGuiCurrentKeyboard = AppDomain.CurrentDomain.GetAssemblies()
+                .Select(assembly => assembly.GetType("UnityEngine.InputSystem.Keyboard"))
+                .FirstOrDefault(type => type != null)?.GetProperty("current", BindingFlags.Public | BindingFlags.Static);
+            CheckExample(_debugGuiCurrentKeyboard != null, "Native keyboard type unavailable");
+            yield return WaitForDebugGui(() => Application.isFocused && gui._guiVisible, "focused visible GUI");
+            CheckExample(Time.timeScale == 1f, "Expected normal time before keyboard input");
+            _debugGuiKeyboardTarget = gui;
+            SaveDebugGui("keyboard-ready");
+            float deadline = Time.realtimeSinceStartup + 120;
+            try
+            {
+                while (_debugGuiReport.phase == "keyboard-ready" && Time.realtimeSinceStartup < deadline)
+                    yield return null;
+                CheckExample(_debugGuiReport.phase == "keyboard-complete" && _debugGuiReport.keys.Count == 4,
+                    "Native G/G/F/F controls incomplete: " + _debugGuiReport.failure);
+                Application.Quit(_errors == 0 ? 0 : 1);
+            }
+            finally
+            {
+                _debugGuiKeyboardTarget = null;
+                Time.timeScale = 1f;
             }
         }
     }

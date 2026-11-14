@@ -34,6 +34,7 @@ namespace Crest.URP.Diagnostics
         void LateUpdate()
         {
             ObserveNavigationInput();
+            ObserveDebugGuiKeyboard();
             if(_originalScenePacing) AsyncGPUReadback.WaitAllRequests();
             if(_examplesCapture==null)return;
             var capture=_examplesCapture;_examplesCapture=null;
