@@ -2,6 +2,10 @@
 
 Актуальная сверка: **2026-11-14**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P12: Ocean_Storm Play Mode wind control (2026-11-14)
+
+The original Ocean_Storm scene ran with its FFT and foam configuration. At fixed ocean time 1 s, changing wind from 100 to 25 km/h reduced the LOD0 peak absolute height from 1.63867 m to 0.99365 m. Maximum change across 147456 displacement samples was 1.40931 m. Restoring the scene's original wind reproduced all measured XYZ values exactly. Both APIs passed one focused test with zero skipped tests. This measures the simulation control used during Play Mode and does not measure the transient response of foam or the demo slider's pointer input. XML, logs and native measurements are in `Evidence/P12-StormWind-evidence.zip`. No production scene, shader or Player was rebuilt for this check.
+
 ## P12: Windows shader follow-up (2026-11-14)
 
 Both APIs passed 125 batch and 2 Game View tests. ValidateAssets, both builds and four normal Player smokes passed. Updated archives use the `066a5c0` suffix. Their file hashes and archive hashes were verified. Inspected the Release DX12 underwater capture and Development DX11 reflections capture. The normal demo pipeline covers the default probe path. The manifest is `Evidence/P12-Windows-packages-066a5c0.json` and raw regression evidence is `Evidence/P12-ProbeRegression-evidence.zip`.
