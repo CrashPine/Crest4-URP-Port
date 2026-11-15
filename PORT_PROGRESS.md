@@ -1,43 +1,19 @@
 # Точка продолжения
 
-Обновлено: **2026-11-15**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено **2026-11-15**. Unity **6000.6.5f1 / URP 17.6.0**, Windows x64 DX11/DX12, Render Graph. Репозиторий `outputs/Crest4-URP-Port`, ветка `port/unity-6.6-urp`.
 
-## Текущий этап и операции
+## Текущий статус
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F/G scoped DONE. **P12 ACTIVE**. P11.4 and the Windows shader follow-up regression are complete. H Intel format scoped DONE and physical XR blocked.
+Windows-поставка P12 завершена в пределах проверенных конфигураций. В `Builds` лежат архивы Development и Release с суффиксом `066a5c0`. `Evidence/Build-checkpoint.json` связывает код, артефакты, ValidateAssets, 125 batch + 2 Game View на каждом API и четыре запуска Player. Оба архива прошли проверку после распаковки.
 
-The first P11.4 Release DX11 attempt exited 1 with no fresh summary. Targeted retry on the same binary passed, then Release DX12 passed. The failure archive and accepted reports are separate. Check actual processes and artifact timestamps before any further run.
+Отдельные проверки прошли для M/N и G/F, локальных отражений с обычной камерой и ручным render request, ветра в Ocean_Storm, накопления и переноса истории теней и мягкой границы. Результаты и точные границы — в TEST_RESULTS.md и FEATURE_MATRIX.md.
 
-## Точное следующее действие
+## Следующее действие
 
-**P12:** the 125+2/API regression and four normal Player smokes passed. Both versioned Windows archives were freshly extracted and verified against their manifests. The four user-driven keyboard runs passed. Both optional reflection modes also passed explicit render requests after `ReflectionProbe.UpdateCachedState()` on DX11/DX12. See MIGRATION.md for caller timing. The remaining hardware gate is physical XR with a configured device and provider. If available, begin with XR display and stereo image validation. If unavailable, retain the matrix limit and leave full acceptance open. No replay of accepted tests without a related change.
+**Физический XR BLOCKED:** пользователь подтвердил, что гарнитуры нет. В этом проекте доступен модуль XR, а провайдер не настроен. При появлении устройства и провайдера начните с подтверждения активного XRDisplaySubsystem и проверки изображения обоих глаз над водой и под водой. До этого физическое стерео остаётся непроверенным. Обновлённые условия или воспроизводимый дефект определяют следующий доступный тест. Активных операций Unity нет.
 
-H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
+## Состояние артефактов и сохранённые ограничения
 
-The Ocean_Storm wind control, temporal shadow history, soft edge profile and shadow history transfer through camera scale changes passed focused GPU tests on DX11/DX12. These are test-only additions. The cascade transfer scope is centers with valid overlapping history. No active Unity operation remains.
-
-F/D/C closed checks не повторять без changed code/конкретного дефекта. Fixture-only — targeted; runtime fixes группировать для P11.4. Никаких simultaneous Editors, не force-close работу. User ранее разрешил normal close/save target Editor; тогда окна уже закрылись до UI input, агент не выполнял close/save/discard.
-
-## Последний checkpoint: F
-
-Two real owned ProgressiveCPU bakes NonDirectional0/CombinedDirectional1, same3 original material clones+Lit floor/UV2/ContributeGI. Preserved source GI/pass flags and saved mode/atlas/index/ST. Player actual640x360/1x: bright/all binding-off changes20436; each material968/1118/1300; all restores RGBA exact0, errors0/API. Actual direction atlas only mode1. Visible source emission remains in all-off image, not asserted black. DX12 Combined on/off inspected. No original scene/static/material/shader change.
-
-First DX11 FAILED after NonDirectional success: Editor enum alias 'Single, Dual' vs Player 'CombinedDirectional' at same value1. Raw/source/DLL/packed failure retained. Numeric modeValue gate fixes fixture only.58 original baked scene/material/mesh/atlas/metadata files reused byte-identically, only manifest schema/canonical mode label changed; no repeated CPU bakes. Original/reused fixtures +raw/source/actual Editor+Player DLLs/packed bytes in P11-Lightmaps-summary/files/evidence.zip; enum-alias-failure/generated-metadata archives separate. Loose fixture/reused copies do not stage duplicates.
-
-BOTH async bake/build and no-bake reuse Editor shutdowns emit2 JobTempAlloc warnings; owner/cause unknown, NOT FIXED. Final Players have0 JobTemp warnings/errors; Unity immediate memory telemetry remains. No leak-free/performance claim; retain for P11.4 resource disposition, no broad P10 replay. Temporary native preload/URP-path/variant whitespace archived and restored after exact-diff checks; PerformanceTestRun Resources auto-cleaned by Unity.
-
-## Обычные сборки и финальный milestone
-
-**Normal Dev/Release:** `Build-checkpoint.json` records the published 125+2 tests per API, ValidateAssets, both builds and four passing smokes. These binaries include the current box projection and atlas shader code. The demo pipeline uses the single-probe path.
-
-P12 follows the fresh build evidence and resource warning review. F Editor JobTempAlloc warnings remain in the resource record.
-
-## Сохраняемые изменения и ограничения
-
-**Current foreign baseline: P11-SavedInputs-foreign-files.json / foreign-before.zip (36 файлов).** Five LightingData assets BoatWakes/boat/threeboats/Examples/whirlpool differ from historical B baseline after live Editor activity; current bytes unchanged through F builds/runs. Не восстанавливать старые B версии. P11-Scenes-foreign-files.json remains historical only.
-
-Foreign Ocean.mat (4 fields), original baked LightingData/ReflectionProbe dirs,13 untracked historical diagnostics, dirty Buoyancy/ResourceLifecycle/focused XML не stage/reset/delete. Known TransparentPrimitive/OffWhite/PlayerSettings unchanged. Old loose SavedInputs/FFT/Depth fixtures and P11-Scenes-retained-CrestResourceProbe_*/rejected-svc/empty-build-resources.meta уже archived, не stage. Earlier recursive cleanup rejected by policy; verified reversible moves preserved everything.
-
-P10 GPU-cost/driver-memory/Intel/XR limits remain. Historical evictable2490368B NOT REPRODUCED/not fixed; old .015754165 restoration failure not explained by bounded controls. Не повторять неизменённые profiling windows/галерею воды.
-
-Структурный аудит1443 файлов: missing meta0/duplicate GUID0/missing original0;597 protected GUID/compute checks pass,3 normalized sprite metas disclosed. В корне8 обязательных Markdown. Git checkpoint — `git log -1`.
+- В итоговых Windows-запусках известных предупреждений JobTempAlloc, Persistent и освобождения активной RenderTexture нет. Подтверждение исправления depth cache и отдельные предупреждения Editor/lightmap и старых диагностических запусков остаются в TEST_RESULTS.md. Раздел P10 сохраняет ограничения измерения GPU и памяти драйвера.
+- Сверка исходных GUID и compute-шейдеров прошла все 597 проверок. Отчёт структурного аудита находится в `Evidence/workspace-audit.json`, сведения об исходном релизе — в SOURCE_BASELINE.md.
+- Чужие изменения сверяются с `Evidence/P11-SavedInputs-foreign-files.json`. Сохранены Ocean.mat, оригинальные LightingData и ReflectionProbe, отчёты Buoyancy/ResourceLifecycle/focused XML и исторические диагностические артефакты. Исторический `P11-Scenes-foreign-files.json` относится к более раннему снимку. `git log -1` показывает текущий коммит.

@@ -1,6 +1,6 @@
 # План выполнения порта Crest 4
 
-Единственный список задач и их очередности. Дата ревизии: 2026-11-07.
+Единственный список задач и их очередности. Дата ревизии: 2026-11-15.
 Цель: полный перенос открытого Crest 4.23.0 на **Unity 6000.6.5f1 / URP 17.6.0**, Windows x64, DX11/DX12, Render Graph. Пользователь заменил исходную цель 6.3 на свою установленную версию. Полная приёмка пока не достигнута.
 
 ## Как продолжать
@@ -10,7 +10,7 @@
 3. Записать результаты в TEST_RESULTS.md, границы приёмки — в FEATURE_MATRIX.md.
 4. Обновить PORT_PROGRESS.md: следующий конкретный шаг, незавершённые команды, ограничения и коммит.
 
-Статусы задач: DONE — конкретный этап выполнен; ACTIVE — текущая работа; TODO — впереди. DONE этапа не означает PASSED всей подсистемы: функциональная приёмка ведётся только в FEATURE_MATRIX.md.
+Статусы задач: DONE — конкретный этап выполнен; ACTIVE — текущая работа; TODO — впереди; BLOCKED — отсутствует указанная зависимость. Функциональная приёмка ведётся в FEATURE_MATRIX.md.
 
 ## Выполненные этапы — не начинать заново
 
@@ -32,8 +32,8 @@
 | P08 | DONE (scoped) | Стресс LOD/движения камеры, швы, floating origin, water bodies, несколько камер, MSAA, качество/разрешение/dynamic resolution. XR отдельно при доступности устройства. | Проверки границ и снимки; корректное восстановление ресурсов/камер. Недоступный XR явно BLOCKED с причиной, не PASSED. |
 | P09 | DONE (scoped) | Визуальное сравнение с исходным Built-in Crest и миграция необходимых материалов примеров. | Сопоставимые условия/камеры, зафиксированные расхождения по foam/refraction/scattering/caustics/shadows/underwater. Проверка материалов не равна успешной компиляции. |
 | P10 | DONE (bounded scope; measurement limits recorded) | Required resource families inventoried, identified allocation/lifetime/cold-binding/capture-order defects corrected. Current normal full117+interactive2/API/both builds/4 smokes unchanged. StableGpu ordinary-frame A–B–A completed on both APIs with raw focus/render/time/clock telemetry. Draw deltas restore exactly; isolated GPU cost rejected by predeclared gates. | Full GPU/FPS/physical VRAM/Intel/XR acceptance is not claimed. DX12 remained focused but baseline drift12.2%/clock median spread51.6%; DX11 focus loss/clock spread29.2%. External measurement limitations recorded, not source defects declared fixed. Historical evictable warning NOT REPRODUCED/not fixed; NonLocal attribution unresolved. |
-| P11 | ACTIVE | Финальная регрессия и пересборка Development/Release после runtime/shader/scene изменений. | Полный набор DX11/DX12, 4 player runs, свежие PNG/XML, отсутствие критических ошибок; проверки исходных GUID/compute. Зависит от P04–P10. |
-| P12 | ACTIVE | Упаковка проверенных Windows-сборок и сверка полной приёмки. | Обновлённые Windows-архивы проверены. Открытые проверки учитываются по FEATURE_MATRIX. |
+| P11 | DONE (Windows scope); XR BLOCKED | Windows-регрессия и пересборка Development/Release завершены. Принятые конфигурации и ограничения описаны в матрице. | 125 batch и 2 Game View на каждом API, 4 запуска Player, ValidateAssets, 597 проверок исходных GUID/compute. |
+| P12 | DONE (Windows delivery); XR BLOCKED | Версионные архивы Windows распакованы и проверены. Дополнительная приёмка клавиатуры и локальных отражений завершена на DX11/DX12. | Физическая стереопроверка ждёт гарнитуру и провайдер. Остальные границы проверенных конфигураций зафиксированы в FEATURE_MATRIX. |
 
 ## Оставшаяся приёмка P07
 
@@ -115,7 +115,7 @@ Do not append generic lifecycle reruns to this inventory. Reopen an accepted own
 
 - **P11.1 DONE (scoped) — combined Whirlpool damping:** original combined wave/flow/displacement/dynamic/foam systems retained,120 live warm frames; then matched seeded RG history and one positive120Hz substep/trial. Native strength.01 and strong.5 match independent projected blend/falloff in both channels (max.0001885/.0002625), outside delta0/matched-Off repeat0. Two original sphere components remain active with test-only frozen input snapshot at order199; this fixes unmatched forcing without weakening the.0006 threshold or removing global controls. Focused1/API Passed,4 LOD0 snapshot pairs byte-identical. Exact first unmatched failure retained. Old .015754165 history-restoration failure is not explained/fixed by this bounded control; no long-term combined temporal/standalone/performance acceptance. Production sources/12 normal artifacts unchanged; final full suite remains P11.4.
 - **P11.2 DONE (scoped) — UnderwaterLighting fill/source reference:** focused1/API passes exact original CG shader comparison under shared URP view/projection/native front-depth. Three exterior poses and historical inside pose(0,-1,-3) all produce source/native fill0, max error0. Native front-depth is nonzero outside but0 inside original Volume mode (interior view unsupported by that mode). Explicit invisible backface producer probe keeps original volume/camera/consumer, yields7056 mask pixels and7043/7042 RGB changes DX11/12, outside-mask interior changes0/restoration0; original>200 positive threshold retained. No production fix; former zero-RGB diagnostic is not a valid positive-control expectation for all-zero fill. This is not full Built-in renderer/RGB/all-view parity. Inventory/three-view intermediates and teardown-only failure retained; environment lighting not retested.
-- **P11.3 ACTIVE — remaining supported lighting/renderer/usage configurations:** original volume/overlay/MSAA/quality combinations and original standalone/GUI/input cases not covered by scoped fixtures; GPU baker/other bake settings and lightmap variant retention in Player. Finite inventoryA–H below is frozen from FEATURE_MATRIX/TEST_RESULTS and source settings; NEXT P11.3-D saved-data Player integration. Map FullScreen/Portal/Volume/VolumeFlyThrough (respect Volume interior limitation), Forward/Forward+/Deferred, MSAA/overlay/quality, original standalone/GUI/input, GPU bake and Player lightmap variants to prior Editor evidence vs exact remaining Player/config gaps. Record concrete fixture/settings/acceptance and dependency per row; no arbitrary Cartesian product or new parameter laws. Unavailable physical XR/Intel explicit NOT TESTED/BLOCKED, never PASSED.
+- **P11.3 DONE (Windows scope); XR BLOCKED:** A–D and F–G passed their defined Windows controls. E is an optional GPU lightmapper path. The H Intel format test passed on both APIs. Physical XR remains blocked on a headset and configured provider.
 - **P11.4 DONE — Windows regression:** 123 batch and 2 Game View tests per API, ValidateAssets, 597 GUID/compute checks, Development/Release build results and four passing Player smokes are recorded. The initial Release DX11 interruption is preserved separately. P12 covers remaining acceptance.
 
 ### P11.3 — фиксированный остаток конфигураций (2026-11-06)

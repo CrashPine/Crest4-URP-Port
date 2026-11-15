@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P12: Windows delivery audit (2026-11-15)
+
+Rechecked the four regression XML reports against the build checkpoint. Each API has 125/125 batch and 2/2 Game View tests with zero skipped tests. All 12 managed and packed artifacts and all checkpointed runtime sources and materials match their hashes. ValidateAssets and the four zero-error Windows Player runs remain the recorded execution evidence. The source audit passed all 597 GUID and compute checks. Three sprite metadata files were normalized by Unity and keep their original GUIDs.
+
+The current Player smoke logs have zero tracked JobTempAlloc, Persistent or active RenderTexture release warnings. Earlier diagnostic Editor warnings during shutdown and the historical driver-memory observations remain documented. The user confirmed no VR headset is available. Physical stereo rendering remains blocked and no XR provider was added to the Windows project.
+
 ## P12: manual camera requests after probe changes (2026-11-15)
 
 The isolated Windows Players called Unity's static `ReflectionProbe.UpdateCachedState()` immediately before the manual request. All four runs passed. Forward box projection changed 1627 pixels, disabling the probe changed 40548, and Forward+ overlapped 15641 pixels. Restorations were RGB-exact on DX11/DX12. The FrameData culling entries tracked probe enablement, texture and box projection after refresh. All accepted logs had zero errors and no missing variants. The initial diagnostic compile used an instance call to the static method and is archived separately. Previous stale-culling failures without refresh are retained below. Evidence is in `P12-ProbeRefresh-Box-evidence.zip` and `P12-ProbeRefresh-Atlas-evidence.zip`. The integration contract is in MIGRATION.md. Normal Player code and packages were unchanged.
