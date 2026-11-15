@@ -1,6 +1,6 @@
 # Migration notes
 
-The Windows x64 integration is tested with Unity 6000.6.5f1, URP 17.6.0 and Render Graph on DX11 and DX12. Use FEATURE_MATRIX.md to check the accepted configurations and open limits, including physical XR.
+The Windows x64 integration is tested with Unity 6000.6.5f1, URP 17.6.0 and Render Graph on DX11 and DX12. Use FEATURE_MATRIX.md to check the accepted configurations. VR/XR is outside the current target.
 
 The original ocean shader asset and GUID remain in place, so original ocean
 materials resolve to the ported shader. The surface now uses `UniversalForwardOnly`,
@@ -57,6 +57,8 @@ No FishNet, Steam, weather, flooding or vessel-gameplay dependency has been adde
 ## Underwater, shadows and depth capture
 
 Underwater rendering records graph mask and composite passes and reuses the original volume and artifact-fix algorithms. Temporal shadows import the original ping-pong arrays and sample the URP main-light atlas. Simulation matrices are restored before subsequent camera passes. Depth-cache capture uses a depth-only URP render request and restores the caller's active render target.
+
+For URP scenes migrating today, use the camera's `UnderwaterRenderer` and a double-sided underwater-capable ocean material. The older `UnderWaterCurtainGeom` prefab still references the Built-in `GrabPass` shader. The legacy Curtain and Meniscus prefab workflow remains open under P13.1.
 
 URP teardown skips legacy Camera.RemoveCommandBuffer because graph passes are registered by the renderer feature, not camera events. Built-in retains its matching add/remove path. Fixed-time Editor fixtures now cover surface crossings in both directions, a localized meniscus, geometry-only overlay and before/after-transparent scheduling. A standard transparent shader without the Crest fog API is intentionally drawn after the before-transparent composite; integrations using that mode must apply underwater fog in their transparent shader.
 

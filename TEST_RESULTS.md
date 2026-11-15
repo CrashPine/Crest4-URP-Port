@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13: source and coverage audit (2026-11-15)
+
+The local Git tag `4.23.0` resolves to `db0658ff0b2e93e4a9e28cc2867509658b0ecc00`. Compared the versioned manual's underwater, clipping, water body and CPU collision workflows with the retained source and the existing test records. The legacy Curtain and Meniscus prefabs are present. `UnderwaterCurtain.shader` is unchanged since import and still uses Built-in `GrabPass`. This is a source-level compatibility gap. The comparative runtime test is queued as P13.1. The existing modern underwater and meniscus measurements cover a separate path. [Crest Underwater manual](https://crest.readthedocs.io/en/4.23.0/user/underwater.html), [Unity GrabPass compatibility](https://docs.unity3d.com/6000.0/Documentation/Manual/SL-GrabPass.html).
+
+Convex Hull and texture clip shaders are present. The recorded clip acceptance covers geometry and primitive controls, and WaterBodyTests also passed Everything Clipped with included areas. The recorded CPU FFT tests ran with a graphics device. No builds or tests were rerun during this audit. VR/XR is excluded from P13 by the user. [Crest Water Exclusion manual](https://crest.readthedocs.io/en/4.23.0/user/clipping.html), [Crest Water Bodies manual](https://crest.readthedocs.io/en/4.23.0/user/water-bodies.html).
+
 ## P12: Windows delivery audit (2026-11-15)
 
 Rechecked the four regression XML reports against the build checkpoint. Each API has 125/125 batch and 2/2 Game View tests with zero skipped tests. All 12 managed and packed artifacts and all checkpointed runtime sources and materials match their hashes. ValidateAssets and the four zero-error Windows Player runs remain the recorded execution evidence. The source audit passed all 597 GUID and compute checks. Three sprite metadata files were normalized by Unity and keep their original GUIDs.
