@@ -1,6 +1,6 @@
 # Точка продолжения
 
-Обновлено: **2026-11-14**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
+Обновлено: **2026-11-15**. Unity **6000.6.5f1 + URP17.6.0**, Windows DX11/DX12 Render Graph. Только `outputs/Crest4-URP-Port`, branch `port/unity-6.6-urp`. Полный порт **не завершён**.
 
 ## Текущий этап и операции
 
@@ -14,7 +14,7 @@ The first P11.4 Release DX11 attempt exited 1 with no fresh summary. Targeted re
 
 H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 
-The original Ocean_Storm Play Mode wind requirement passed a new focused GPU control on DX11/DX12. This is a test-only addition. The previous 125+2/API regression and Windows archives remain their established checkpoint. No active Unity operation remains.
+The Ocean_Storm wind control and temporal shadow control passed focused GPU tests on DX11/DX12. Both are test-only additions. The previous 125+2/API regression and Windows archives remain their established checkpoint. No active Unity operation remains.
 
 F/D/C closed checks не повторять без changed code/конкретного дефекта. Fixture-only — targeted; runtime fixes группировать для P11.4. Никаких simultaneous Editors, не force-close работу. User ранее разрешил normal close/save target Editor; тогда окна уже закрылись до UI input, агент не выполнял close/save/discard.
 

@@ -1,6 +1,10 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-14**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P12: temporal shadow history (2026-11-15)
+
+Both APIs passed the focused test on the native RG8 LOD0 sample for 65 consecutive 60 Hz frames. A real directional-light caster covers the whole jitter footprint. The original frame weights 0.03 and 0.15 produce soft/hard peaks 158 and 252 out of 255 after 32 shadowed frames. After 32 lit frames these decay to 60 and 2. The largest measured error against the per-frame recurrence is 0.56 byte on both APIs. Spatial penumbra and multi-cascade temporal behaviour are outside this test. First DX11 runs failed validation because of the test material and later its teardown ordering. Both failures are archived. The accepted logs and XML are in `Evidence/P12-ShadowHistory-evidence.zip`. The test changes no production shaders, scenes or Player builds.
 
 ## P12: Ocean_Storm Play Mode wind control (2026-11-14)
 
