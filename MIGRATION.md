@@ -449,6 +449,8 @@ For offscreen manual rendering with the original main-scene camera disabled, set
 
 Manual URP `SubmitRenderRequest` must run after the current frame's OceanRenderer LateUpdate (preserved script execution order200), with its ViewCamera assigned as above. The supplied smoke controller queues capture in LateUpdate at order300 and verifies current LOD frame equality. A coroutine resumed by `yield return null` runs before LateUpdate and can render previous-frame LOD/shadow state. Keep simulation updating once through its existing lifecycle; camera capture does not drive an extra ocean update.
 
+If an integration changes a local `ReflectionProbe` before submitting a manual camera request, call `ReflectionProbe.UpdateCachedState()` after the probe changes and before `RenderPipeline.SubmitRenderRequest`. Unity's normal camera loop already propagated these changes in the Windows tests. An explicit request can render a stale culling record until the caller refreshes it. This sequence was verified with strict shader matching for Forward box projection and the Forward+ atlas on DX11 and DX12.
+
 ### FFT shared-resource teardown
 
 In the tested FFT-only lifecycle, full FFT shared-resource teardown releases native textures and evicts the corresponding generator cache entries. Subsequent generation at unchanged simulation time recreates valid output. Individual ShapeFFT disable/re-enable and removal of one of two shared FFT consumers retain the existing shared cache/output until the last owner in the FFT resource family. Both built-in mixed FFT/Gerstner destruction orders are covered by the family lifecycle below.

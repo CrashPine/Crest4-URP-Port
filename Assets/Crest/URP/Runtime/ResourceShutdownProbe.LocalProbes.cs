@@ -22,7 +22,7 @@ namespace Crest.URP.Diagnostics
             public int boxPixels, atlasPixels, boxRestore, atlasRestore, boxProbeResponse, errors;
             public int savedBoxPixels, savedBoxRestore, savedAtlasPixels, savedAtlasRestore;
             public bool passed;
-            public bool automaticCamera;
+            public bool automaticCamera, refreshProbeCulling;
             public List<LocalProbeCapture> captures = new List<LocalProbeCapture>();
         }
 
@@ -74,6 +74,7 @@ namespace Crest.URP.Diagnostics
             {
                 api = SystemInfo.graphicsDeviceType.ToString(), unity = Application.unityVersion,
                 automaticCamera = Array.IndexOf(arguments, "-crestProbeAutomaticCamera") >= 0,
+                refreshProbeCulling = Array.IndexOf(arguments, "-crestProbeRefreshCulling") >= 0,
             };
             bool runBox = Array.IndexOf(arguments, "-crestProbeAtlasOnly") < 0;
             bool runAtlas = Array.IndexOf(arguments, "-crestProbeBoxOnly") < 0;
@@ -315,8 +316,12 @@ namespace Crest.URP.Diagnostics
                 }
                 else
                 {
-                    yield return ModeCapture(() => RenderPipeline.SubmitRenderRequest(camera,
-                        new UniversalRenderPipeline.SingleCameraRequest { destination = target }));
+                    yield return ModeCapture(() =>
+                    {
+                        // Keep the explicit request aligned with probe changes made in the player loop.
+                        if (_localProbes.refreshProbeCulling) ReflectionProbe.UpdateCachedState();
+                        RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
+                    });
                 }
                 CheckExample(observer.Capture.observerCalls > 0, "No probe camera frame was recorded");
                 save(ReadLocalProbeState(target, pixels, observer.Capture));

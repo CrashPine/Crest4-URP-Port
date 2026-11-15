@@ -189,7 +189,7 @@ P12 inventory found a reflection gap. The original shader can blend two environm
 
 P12 follow-up (2026-11-14): Forward box projection and Forward+ clustered atlas pass focused Editor controls on DX11/DX12. The shader follow-up passed 125 batch and 2 Game View tests per API, asset validation, both builds and four default-pipeline smokes. Windows archives are verified against the build checkpoint. Optional variant retention is checked separately in an isolated strict Player.
 
-P12 strict Windows Player controls pass on both APIs with each optional pipeline active at build time and the game camera rendering normally. Saved and live Custom probe states pass for Forward box projection and Forward+ atlas. Stale live culling in the explicit-render-request fixture and physical XR remain open.
+P12 strict Windows Player controls pass on both APIs with each optional pipeline active at build time. Saved and live Custom probe states pass for Forward box projection and Forward+ atlas through native camera rendering and explicit requests after updating the probe culling cache. Physical XR remains open.
 
 The original demo requirement for changing wave parameters in Ocean_Storm during Play Mode is covered by the focused Storm wind control on both APIs. The seven demo load/render/query checks remain in the Windows regression. Neither check needs another demo run without a relevant change.
 

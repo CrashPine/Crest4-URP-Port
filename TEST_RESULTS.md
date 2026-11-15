@@ -2,6 +2,10 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P12: manual camera requests after probe changes (2026-11-15)
+
+The isolated Windows Players called Unity's static `ReflectionProbe.UpdateCachedState()` immediately before the manual request. All four runs passed. Forward box projection changed 1627 pixels, disabling the probe changed 40548, and Forward+ overlapped 15641 pixels. Restorations were RGB-exact on DX11/DX12. The FrameData culling entries tracked probe enablement, texture and box projection after refresh. All accepted logs had zero errors and no missing variants. The initial diagnostic compile used an instance call to the static method and is archived separately. Previous stale-culling failures without refresh are retained below. Evidence is in `P12-ProbeRefresh-Box-evidence.zip` and `P12-ProbeRefresh-Atlas-evidence.zip`. The integration contract is in MIGRATION.md. Normal Player code and packages were unchanged.
+
 ## P12: native keyboard and Windows archive extraction (2026-11-15)
 
 Four user-driven Windows Player runs passed without logged errors. On each API, native M/N releases in the focused original Examples window move the sole active child from Albedo (0) to Whirlpool (1) and back. Native G/G toggles the original debug panel from visible to hidden to visible. F/F changes Unity time scale from 1 to 0 and back to 1. The accepted reports and Player logs are in `Evidence/P12-NativeKeyboard-evidence.zip`. Earlier unsuccessful automation and input timeouts remain recorded below.

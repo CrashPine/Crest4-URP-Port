@@ -1,7 +1,8 @@
 param(
     [string]$Editor = 'C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe',
     [ValidateSet('Both', 'Box', 'Atlas')][string]$Probe = 'Both',
-    [switch]$AutomaticCamera
+    [switch]$AutomaticCamera,
+    [switch]$RefreshProbeCulling
 )
 
 $ErrorActionPreference = 'Stop'
@@ -34,6 +35,7 @@ foreach ($api in 'Direct3D11', 'Direct3D12') {
         '-crestProbeOutput', ('"{0}/report.json"' -f $directory), '-logFile', ('"{0}/Player.log"' -f $directory)
     )
     $playerArguments += @($probeFlags | Where-Object { $_ })
+    if ($RefreshProbeCulling) { $playerArguments += '-crestProbeRefreshCulling' }
     if ($AutomaticCamera) {
         $playerArguments = @($playerArguments | Where-Object { $_ -ne '-batchmode' })
         $playerArguments += '-crestProbeAutomaticCamera', '-screen-fullscreen', '0', '-screen-width', '320', '-screen-height', '180'
