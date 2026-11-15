@@ -2,6 +2,10 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.0: open release inventory (2026-11-15)
+
+The exact upstream checkout and tag both resolve to `db0658ff0b2e93e4a9e28cc2867509658b0ecc00`. All 115 original files under Crest/Scripts, 35 OceanInputs shaders, seven original example scenes and 39 example .asset files exist at the corresponding port paths. Compared public component groups and every OceanInputs shader declaration with the tests and scene reports. FEATURE_MATRIX maps the remaining inputs and P13 now includes explicit checks for the original texture/vertex inputs, hull displacement, Wave Particle, shadow override, scaling input and auxiliary user components. File presence establishes the inventory only.
+
 ## P13: source and coverage audit (2026-11-15)
 
 The local Git tag `4.23.0` resolves to `db0658ff0b2e93e4a9e28cc2867509658b0ecc00`. Compared the versioned manual's underwater, clipping, water body and CPU collision workflows with the retained source and the existing test records. The legacy Curtain and Meniscus prefabs are present. `UnderwaterCurtain.shader` is unchanged since import and still uses Built-in `GrabPass`. This is a source-level compatibility gap. The comparative runtime test is queued as P13.1. The existing modern underwater and meniscus measurements cover a separate path. [Crest Underwater manual](https://crest.readthedocs.io/en/4.23.0/user/underwater.html), [Unity GrabPass compatibility](https://docs.unity3d.com/6000.0/Documentation/Manual/SL-GrabPass.html).

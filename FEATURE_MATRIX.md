@@ -12,7 +12,18 @@
 | Конфигурации исполнения | Сдвиг мира с совместными динамическими волнами и пеной и запуск сохранённых CPU FFT-запросов в Player без графического устройства остаются открытыми. P13.5. |
 | Ресурсы и сборка | Есть Windows-артефакты P12 и целевые проверки освобождения ресурсов. Часть прежних диагностических предупреждений и измерений памяти драйвера сохраняет описанные ограничения. P13.6–P13.7. |
 
-Предварительная сверка опирается на [руководство Crest 4.23.0](https://crest.readthedocs.io/en/4.23.0/) и код открытого тега. P13.0 завершает привязку каждой исходной функции к доказательству или задаче. Критерии и порядок работ находятся в PORT_PLAN.md.
+Сверка опирается на [руководство Crest 4.23.0](https://crest.readthedocs.io/en/4.23.0/) и код открытого тега. Инвентаризация ниже учитывает исходные декларации шейдеров и пользовательские компоненты. Критерии находятся в PORT_PLAN.md.
+
+| Исходные входы OceanInputs | Принятая область и оставшиеся проверки |
+|---|---|
+| Animated Waves (10), Shape Waves (1) | Global/Geometry Gerstner, спектр, локальные волны и задаваемая геометрией высота имеют проверки. Для Add From Texture, Wave Particle и Push Water Under Convex Hull нужен прямой контроль P13.2. Hidden Add Height From Geometry учтён как внутренний путь локальной высоты. |
+| Dynamic Waves (4) | Add Bump, Dampening и Sphere-Water Interaction покрыты RippleGenerator, Whirlpool и BoatWakes. Старый Object Interaction/Adaptor добавлен в P13.6. |
+| Foam (4), Flow (3), Albedo (1) | Базовые Override Foam, Fixed Direction, сплайновое течение и Albedo Color покрыты измерениями. Карты, vertex colours и отдельный сплайновый ввод пены относятся к P13.2, переменные данные закрытого сплайна — к P13.6. |
+| Clip Surface (5) | Signed Distance, включение площади и базовое удаление проверены в ClipSurface/WaterBody. Для Convex Hull, Remove Area Texture и перекрывающихся SDF остаётся P13.2. |
+| Depth/cache (4) | Capture, Cached Depths, Copy Depth Buffer Into Cache и Set Base Water Height относятся к принятым проверкам GPU depth, локального уровня и сохранённого EXR. |
+| Shadows (1), All (1), Moved (1) | Нативная история теней принята. Override Shadows и Scale By Factor остаются в P13.2. Hidden/Crest/Moved — совместимость имени старого ассета. |
+
+Исходные сцены Main, Boat, BoatWakes, ThreeBoats, Examples, LakesAndRivers и Whirlpool имеют раздельные Windows-отчёты в TEST_RESULTS. Открыт составной сценарий LakesAndRivers/P13.3. Остальные функции сгруппированы в основной таблице, включая legacy подводный путь, физику, профили, часы, запросы и открытый мир. Сторонняя интеграция Gaia не требуется для работы ядра.
 
 | Original subsystem | Source evidence | Port state | Target validation |
 |---|---|---|---|
