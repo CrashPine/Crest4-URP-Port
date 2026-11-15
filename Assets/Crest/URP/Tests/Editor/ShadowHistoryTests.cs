@@ -29,15 +29,21 @@ public sealed class ShadowHistoryCapture : MonoBehaviour
 
 public class ShadowHistoryTests
 {
+    enum Control { History, Penumbra, CascadeTransfer }
+
     [UnityTest]
     public IEnumerator OcclusionHistoryAccumulatesAndDecaysAtOriginalWeights()
-        => ValidateShadowHistory(false);
+        => ValidateShadowHistory(Control.History);
 
     [UnityTest]
     public IEnumerator SoftJitterWidensTheShadowEdgeAndRestores()
-        => ValidateShadowHistory(true);
+        => ValidateShadowHistory(Control.Penumbra);
 
-    IEnumerator ValidateShadowHistory(bool checkPenumbra)
+    [UnityTest]
+    public IEnumerator ScaleChangesReadTheMatchingPreviousShadowCascade()
+        => ValidateShadowHistory(Control.CascadeTransfer);
+
+    IEnumerator ValidateShadowHistory(Control control)
     {
         bool graphics = OceanRenderer.EnableGraphicsInBatchMode;
         int captureRate = Time.captureFramerate;
@@ -54,12 +60,17 @@ public class ShadowHistoryTests
         var receiver = GameObject.CreatePrimitive(PrimitiveType.Plane);
         var recorder = camera.gameObject.AddComponent<ShadowHistoryCapture>();
         var report = new StringBuilder();
-        string reportName = checkPenumbra ? "ShadowPenumbra" : "ShadowHistory";
+        string reportName = control switch
+        {
+            Control.Penumbra => "ShadowPenumbra",
+            Control.CascadeTransfer => "ShadowCascadeTransfer",
+            _ => "ShadowHistory",
+        };
         try
         {
             Time.captureFramerate = 60;
             camera.enabled = false;
-            camera.transform.SetPositionAndRotation(new Vector3(0, 24, 0), Quaternion.Euler(90, 0, 0));
+            camera.transform.SetPositionAndRotation(new Vector3(0, control == Control.CascadeTransfer ? 12 : 24, 0), Quaternion.Euler(90, 0, 0));
             camera.orthographic = true;
             camera.orthographicSize = 20;
             camera.aspect = 4f / 3f;
@@ -80,7 +91,7 @@ public class ShadowHistoryTests
             var serialized = new SerializedObject(ocean);
             serialized.FindProperty("_createShadowData").boolValue = true;
             serialized.FindProperty("_minScale").floatValue = 8;
-            serialized.FindProperty("_maxScale").floatValue = 8;
+            serialized.FindProperty("_maxScale").floatValue = control == Control.CascadeTransfer ? 32 : 8;
             serialized.ApplyModifiedPropertiesWithoutUndo();
             caster.layer = receiver.layer = 5;
             receiver.transform.position = new Vector3(0, -3, 0);
@@ -99,10 +110,14 @@ public class ShadowHistoryTests
             var shadows = ocean._lodDataShadow;
             Assert.That(shadows, Is.Not.Null);
             Assert.That(shadows.DataTexture.graphicsFormat, Is.EqualTo(GraphicsFormat.R8G8_UNorm));
-            if (checkPenumbra)
+            if (control == Control.Penumbra)
             {
                 caster.SetActive(true);
                 yield return CheckPenumbra(ocean, camera, target, recorder, shadows, shadowSettings, report);
+            }
+            else if (control == Control.CascadeTransfer)
+            {
+                yield return CheckCascadeTransfer(ocean, camera, target, recorder, shadows, shadowSettings, report);
             }
             else
             {
@@ -125,6 +140,79 @@ public class ShadowHistoryTests
         }
         yield return new ExitPlayMode();
     }
+
+    static IEnumerator CheckCascadeTransfer(OceanRenderer ocean, Camera camera, RenderTexture target,
+        ShadowHistoryCapture recorder, LodDataMgrShadow shadows, SimSettingsShadow settings, StringBuilder report)
+    {
+        float[] heights = { 24, 40, 12, 12 };
+        float[] scales = { 16, 32, 8, 8 };
+        int[] changes = { 1, 1, -2, 0 };
+        Assert.That(ocean.Scale, Is.EqualTo(8f));
+        report.AppendLine("Each prior RG8 slice has a distinct uniform value. The caster stays off so valid history decays by the original weights.");
+        report.AppendLine("height,scale,delta,layer,sourceLayer,sourceSoft,sourceHard,actualSoft,actualHard,maxError");
+        for (int state = 0; state < heights.Length; state++)
+        {
+            var source = shadows.DataTexture;
+            using (var seed = new CommandBuffer { name = "Seed distinct shadow history slices" })
+            {
+                for (int slice = 0; slice < source.volumeDepth; slice++)
+                {
+                    var value = CascadeSignature(slice);
+                    seed.SetRenderTarget(source, 0, CubemapFace.Unknown, slice);
+                    seed.ClearRenderTarget(false, true, new Color(value.x / 255f, value.y / 255f, 0f, 1f));
+                }
+                Graphics.ExecuteCommandBuffer(seed);
+            }
+            camera.transform.position = new Vector3(0, heights[state], 0);
+            int transition = state;
+            bool rendered = false;
+            Exception failure = null;
+            recorder.Capture = () =>
+            {
+                try
+                {
+                    Assert.That(BuildCommandBufferBase._lastUpdateFrame, Is.EqualTo(OceanRenderer.FrameCount));
+                    Assert.That(ocean.Scale, Is.EqualTo(scales[transition]));
+                    int change = changes[transition];
+                    Assert.That(ocean._lodTransform.ScaleDifferencePow2, Is.EqualTo(change));
+                    Assert.That(Shader.GetGlobalFloat(OceanRenderer.sp_CrestLodChange), Is.EqualTo(change));
+                    Assert.That(shadows.GetDataTexture(1), Is.SameAs(source));
+                    Assert.That(shadows.DataTexture, Is.Not.SameAs(source));
+                    Assert.That(Time.deltaTime, Is.EqualTo(1f / 60f).Within(.00001f));
+                    RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
+                    var texture = shadows.DataTexture;
+                    var readback = AsyncGPUReadback.Request(texture, 0);
+                    readback.WaitForCompletion();
+                    Assert.That(readback.hasError, Is.False);
+                    int center = 2 * (texture.height / 2 * texture.width + texture.width / 2);
+                    // Test only layers with a valid, same-extent previous slice.
+                    for (int layer = 2; layer <= 4; layer++)
+                    {
+                        int previousLayer = layer + change;
+                        var lod = ocean._lodTransform._renderData[layer].Current;
+                        var prior = ocean._lodTransform._renderData[previousLayer].Previous(1);
+                        Assert.That(lod._texelWidth, Is.EqualTo(prior._texelWidth));
+                        Assert.That(lod._posSnapped, Is.EqualTo(prior._posSnapped));
+                        var value = CascadeSignature(previousLayer);
+                        var bytes = readback.GetData<byte>(layer);
+                        float soft = value.x * (1f - settings._currentFrameWeightSoft);
+                        float hard = value.y * (1f - settings._currentFrameWeightHard);
+                        float error = Mathf.Max(Mathf.Abs(soft - bytes[center]), Mathf.Abs(hard - bytes[center + 1]));
+                        report.AppendLine(FormattableString.Invariant($"{heights[transition]},{ocean.Scale},{change},{layer},{previousLayer},{value.x},{value.y},{bytes[center]},{bytes[center + 1]},{error:F3}"));
+                        Assert.That(error, Is.LessThanOrEqualTo(1f), "History must come from the same world-space scale.");
+                    }
+                    rendered = true;
+                }
+                catch (Exception exception) { failure = exception; }
+            };
+            yield return null;
+            File.WriteAllText($"Evidence/P12-ShadowCascadeTransfer-{SystemInfo.graphicsDeviceType}.txt", report.ToString());
+            if (failure != null) throw failure;
+            Assert.That(rendered, Is.True, "The transition must be measured on the same frame.");
+        }
+    }
+
+    static Vector2Int CascadeSignature(int slice) => new Vector2Int(32 + 24 * slice, 224 - 24 * slice);
 
     static IEnumerator CheckHistory(Camera camera, RenderTexture target, GameObject caster, ShadowHistoryCapture recorder,
         LodDataMgrShadow shadows, SimSettingsShadow shadowSettings, StringBuilder report)
