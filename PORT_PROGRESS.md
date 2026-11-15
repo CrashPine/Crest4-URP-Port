@@ -4,17 +4,17 @@
 
 ## Текущий этап и операции
 
-P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F scoped DONE. G1b mouse controls and G2 live DX11 Editor scoped DONE. **P12 ACTIVE**. P11.4 and the Windows shader follow-up regression are complete. G1a M/N and G1b G/F keyboard delivery remain open. H Intel format scoped DONE and physical XR blocked.
+P00–P10 DONE в bounded/scoped-области PORT_PLAN. P11.1/P11.2/P11.3-A/B/C/D/F/G scoped DONE. **P12 ACTIVE**. P11.4 and the Windows shader follow-up regression are complete. H Intel format scoped DONE and physical XR blocked.
 
 The first P11.4 Release DX11 attempt exited 1 with no fresh summary. Targeted retry on the same binary passed, then Release DX12 passed. The failure archive and accepted reports are separate. Check actual processes and artifact timestamps before any further run.
 
 ## Точное следующее действие
 
-**P12:** the 125+2/API regression and four normal Player smokes passed. Updated Windows archives carry suffix `066a5c0`. Strict Players running in temporary visible windows pass saved and live Custom probe controls on both APIs. The manual render-request failure remains in TEST_RESULTS.md. Both keyboard tests reached a ready DX11 window, timed out with zero keyboard events and closed. Use `Evidence/P11-NavigationInput-run.ps1 -Api DX11` with physical M then N and `Evidence/P11-DebugGuiKeyboard-run.ps1 -Api DX11` with physical G/G/F/F when the user is available. Verify the reports before repeating on DX12. Avoid another synthetic letter-key run. Physical XR still requires a configured device and provider.
+**P12:** the 125+2/API regression and four normal Player smokes passed. Both versioned Windows archives were freshly extracted and verified against their manifests. The four user-driven keyboard runs passed and all test windows have closed. Next audit the remaining explicit-render-request probe defect against the intended camera integration contract. Physical XR still requires a configured device and provider. No repeat of the accepted keyboard, shadow or default demo runs without a related change.
 
 H is bounded: Intel Iris Xe DX11/DX12 actual mask R32_SFloat; same-build NVIDIA DX11 R16_SFloat. XR remains NOT TESTED until a physical display and Unity provider are available. Older mask probe logs include 7 LOD frame warnings and 1 active depth-cache RT release warning each; keep the latter in final resource disposition alongside F JobTempAlloc. No broad P10 replay.
 
-The Ocean_Storm wind control, temporal shadow history, soft edge profile and shadow history transfer through camera scale changes passed focused GPU tests on DX11/DX12. These are test-only additions. The previous 125+2/API regression and Windows archives remain their established checkpoint. No active Unity operation remains. The cascade transfer scope is centers with valid overlapping history. Next prioritize the native keyboard acceptance when physical input is available.
+The Ocean_Storm wind control, temporal shadow history, soft edge profile and shadow history transfer through camera scale changes passed focused GPU tests on DX11/DX12. These are test-only additions. The cascade transfer scope is centers with valid overlapping history. No active Unity operation remains.
 
 F/D/C closed checks не повторять без changed code/конкретного дефекта. Fixture-only — targeted; runtime fixes группировать для P11.4. Никаких simultaneous Editors, не force-close работу. User ранее разрешил normal close/save target Editor; тогда окна уже закрылись до UI input, агент не выполнял close/save/discard.
 

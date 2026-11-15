@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P12: native keyboard and Windows archive extraction (2026-11-15)
+
+Four user-driven Windows Player runs passed without logged errors. On each API, native M/N releases in the focused original Examples window move the sole active child from Albedo (0) to Whirlpool (1) and back. Native G/G toggles the original debug panel from visible to hidden to visible. F/F changes Unity time scale from 1 to 0 and back to 1. The accepted reports and Player logs are in `Evidence/P12-NativeKeyboard-evidence.zip`. Earlier unsuccessful automation and input timeouts remain recorded below.
+
+Fresh extraction of both `066a5c0` Windows archives verified all 326 Development and 201 Release payload files against their embedded SHA-256 manifests. Both licensing files matched the repository, and both original archive digests matched the packaging manifest. See `Evidence/P12-Windows-extraction-066a5c0.json`. This verifies the archive contents. The earlier Windows checkpoint records executable smoke coverage.
+
 ## P12: shadow history through scale changes (2026-11-15)
 
 With the camera moving through ocean scales 8→16→32→8→8, the render graph read distinct, seeded RG8 signatures from the previous texture. The control verified the buffer flip, the signed scale change, and matching world-space centers and texel widths before comparing LOD2–4 on the transition frames. The caster stayed off so the original weights 0.03 and 0.15 decay each source signature toward zero. All 12 sampled layer/state pairs matched within 0.44 UNorm byte on each API, and the reports are byte-identical. The focused transfer test passed on DX11 and the complete three-test shadow fixture passed on DX12, with zero skipped tests. The check covers valid overlapping centers. It does not exercise slice indices outside the valid history range, moving penumbrae or XY resampling. The reports are in `Evidence/P12-ShadowCascadeTransfer-evidence.zip`. All 12 normal build and 36 foreign fingerprints still match.
