@@ -10,7 +10,9 @@ Windows-поставка P12 завершена в пределах провер
 
 ## Следующее действие
 
-**P13.1:** снять исходный контроль для `UnderWaterCurtainGeom` и `UnderWaterMeniscus` на одинаковой камере над и под водой. Текущий `UnderwaterCurtain.shader` содержит Built-in `GrabPass`. Инвентаризация P13.0 завершена, карта исходных входов находится в FEATURE_MATRIX.md. Отдельная сцена `Ocean_LargeWaves` запланирована в P13.4-S. Физический VR/XR исключён из цели.
+**P13.1 ACTIVE:** DX11 подтвердил отсутствие отклика в URP при включении исходных prefab Curtain/Meniscus. Контроль Built-in остался непригодным для сравнения цвета. Точное состояние двух попыток в TEST_RESULTS.md. Unity сейчас закрыт. Инвентаризация P13.0 завершена, `Ocean_LargeWaves` запланирована в P13.4-S.
+
+Следующий шаг: восстановить `LegacyUnderwaterTests.cs` и `.meta` из `Evidence/P13-LegacyUnderwater-DX11-baseline.zip` в `Assets/Crest/URP/Tests/Editor`. Для Built-in убрать поверхность порта из маски камеры и проверить захват оригинального `_BackgroundTexture` и глубины на непрозрачной контрольной геометрии. В URP переиспользовать копию `_BackgroundTexture` из `CrestBackgroundFeature` и проверить, что Curtain рисуется до поверхности океана, а Meniscus остаётся поверх её края. Сначала прогнать класс `LegacyUnderwaterTests` через `-force-d3d11 -testPlatform EditMode -testFilter LegacyUnderwaterTests` без `-nographics`. Контроли над водой, смена положения камеры и сосуществование с современным Renderer входят в P13.1.
 
 ## Состояние артефактов и сохранённые ограничения
 
