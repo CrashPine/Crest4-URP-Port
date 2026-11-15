@@ -193,4 +193,4 @@ P12 strict Windows Player controls pass on both APIs with each optional pipeline
 
 The original demo requirement for changing wave parameters in Ocean_Storm during Play Mode is covered by the focused Storm wind control on both APIs. The seven demo load/render/query checks remain in the Windows regression. Neither check needs another demo run without a relevant change.
 
-P12 shadow follow-up covers history accumulation and decay with original weights in the shadowed interior on DX11/DX12. Preserve the separate spatial penumbra and multi-cascade limits in FEATURE_MATRIX.
+P12 shadow follow-up covers history accumulation and decay at the original weights in the shadowed interior and the effect of the original soft jitter on a measured edge profile on DX11/DX12. Preserve the multi-cascade limit in FEATURE_MATRIX.

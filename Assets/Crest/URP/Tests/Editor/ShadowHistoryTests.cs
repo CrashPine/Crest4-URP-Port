@@ -31,6 +31,13 @@ public class ShadowHistoryTests
 {
     [UnityTest]
     public IEnumerator OcclusionHistoryAccumulatesAndDecaysAtOriginalWeights()
+        => ValidateShadowHistory(false);
+
+    [UnityTest]
+    public IEnumerator SoftJitterWidensTheShadowEdgeAndRestores()
+        => ValidateShadowHistory(true);
+
+    IEnumerator ValidateShadowHistory(bool checkPenumbra)
     {
         bool graphics = OceanRenderer.EnableGraphicsInBatchMode;
         int captureRate = Time.captureFramerate;
@@ -46,7 +53,8 @@ public class ShadowHistoryTests
         var caster = GameObject.CreatePrimitive(PrimitiveType.Cube);
         var receiver = GameObject.CreatePrimitive(PrimitiveType.Plane);
         var recorder = camera.gameObject.AddComponent<ShadowHistoryCapture>();
-        var report = new StringBuilder("RG8 shadow history at LOD0 center. Caster off/on/off, 60 Hz. Default jitter and frame weights.\nstep,frame,caster,soft,hard,expectedSoft,expectedHard,maxByteError\n");
+        var report = new StringBuilder();
+        string reportName = checkPenumbra ? "ShadowPenumbra" : "ShadowHistory";
         try
         {
             Time.captureFramerate = 60;
@@ -91,61 +99,19 @@ public class ShadowHistoryTests
             var shadows = ocean._lodDataShadow;
             Assert.That(shadows, Is.Not.Null);
             Assert.That(shadows.DataTexture.graphicsFormat, Is.EqualTo(GraphicsFormat.R8G8_UNorm));
-            var previous = Vector2Int.zero;
-            var peak = Vector2Int.zero;
-            float maximumError = 0;
-            int previousFrame = -1;
-            for (int step = 0; step < 65; step++)
+            if (checkPenumbra)
             {
-                bool shadowed = step > 0 && step <= 32;
-                caster.SetActive(shadowed);
-                var actual = Vector2Int.zero;
-                int sampleFrame = -1;
-                float delta = 0;
-                Exception failure = null;
-                recorder.Capture = () =>
-                {
-                    try
-                    {
-                        Assert.That(BuildCommandBufferBase._lastUpdateFrame, Is.EqualTo(OceanRenderer.FrameCount));
-                        sampleFrame = Time.frameCount;
-                        delta = Time.deltaTime;
-                        RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
-                        var texture = shadows.DataTexture;
-                        var readback = AsyncGPUReadback.Request(texture, 0);
-                        readback.WaitForCompletion();
-                        Assert.That(readback.hasError, Is.False);
-                        var bytes = readback.GetData<byte>(0);
-                        int center = 2 * (texture.height / 2 * texture.width + texture.width / 2);
-                        actual = new Vector2Int(bytes[center], bytes[center + 1]);
-                    }
-                    catch (Exception exception) { failure = exception; }
-                };
-                yield return null;
-                if (failure != null) throw failure;
-                Assert.That(sampleFrame, Is.GreaterThanOrEqualTo(0));
-                Assert.That(delta, Is.EqualTo(1f / 60f).Within(.00001f));
-                if (step > 0) Assert.That(sampleFrame, Is.EqualTo(previousFrame + 1));
-                previousFrame = sampleFrame;
-                float destination = shadowed ? 255 : 0;
-                float soft = Mathf.Lerp(previous.x, destination, shadowSettings._currentFrameWeightSoft * delta * 60);
-                float hard = Mathf.Lerp(previous.y, destination, shadowSettings._currentFrameWeightHard * delta * 60);
-                float error = Mathf.Max(Mathf.Abs(soft - actual.x), Mathf.Abs(hard - actual.y));
-                maximumError = Mathf.Max(maximumError, error);
-                report.AppendLine(FormattableString.Invariant($"{step},{sampleFrame},{shadowed},{actual.x},{actual.y},{soft:F3},{hard:F3},{error:F3}"));
-                peak = Vector2Int.Max(peak, actual);
-                previous = actual;
+                caster.SetActive(true);
+                yield return CheckPenumbra(ocean, camera, target, recorder, shadows, shadowSettings, report);
             }
-            report.AppendLine(FormattableString.Invariant($"Peak={peak}; final={previous}; maxByteError={maximumError:R}"));
-            Assert.That(peak.x, Is.GreaterThan(100));
-            Assert.That(peak.y, Is.GreaterThan(220));
-            Assert.That(previous.x, Is.LessThan(peak.x));
-            Assert.That(previous.y, Is.LessThan(peak.y));
-            Assert.That(maximumError, Is.LessThanOrEqualTo(1), "Both channels must match the original recurrence within one UNorm byte.");
+            else
+            {
+                yield return CheckHistory(camera, target, caster, recorder, shadows, shadowSettings, report);
+            }
         }
         finally
         {
-            File.WriteAllText($"Evidence/P12-ShadowHistory-{SystemInfo.graphicsDeviceType}.txt", report.ToString());
+            File.WriteAllText($"Evidence/P12-{reportName}-{SystemInfo.graphicsDeviceType}.txt", report.ToString());
             target.Release();
             Object.Destroy(target);
             var serialized = new SerializedObject(ocean);
@@ -158,6 +124,158 @@ public class ShadowHistoryTests
             OceanRenderer.EnableGraphicsInBatchMode = graphics;
         }
         yield return new ExitPlayMode();
+    }
+
+    static IEnumerator CheckHistory(Camera camera, RenderTexture target, GameObject caster, ShadowHistoryCapture recorder,
+        LodDataMgrShadow shadows, SimSettingsShadow shadowSettings, StringBuilder report)
+    {
+        report.AppendLine("RG8 shadow history at LOD0 center. Caster off/on/off, 60 Hz. Default jitter and frame weights.");
+        report.AppendLine("step,frame,caster,soft,hard,expectedSoft,expectedHard,maxByteError");
+        var previous = Vector2Int.zero;
+        var peak = Vector2Int.zero;
+        float maximumError = 0;
+        int previousFrame = -1;
+        for (int step = 0; step < 65; step++)
+        {
+            bool shadowed = step > 0 && step <= 32;
+            caster.SetActive(shadowed);
+            var actual = Vector2Int.zero;
+            int sampleFrame = -1;
+            float delta = 0;
+            Exception failure = null;
+            recorder.Capture = () =>
+            {
+                try
+                {
+                    Assert.That(BuildCommandBufferBase._lastUpdateFrame, Is.EqualTo(OceanRenderer.FrameCount));
+                    sampleFrame = Time.frameCount;
+                    delta = Time.deltaTime;
+                    RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
+                    var texture = shadows.DataTexture;
+                    var readback = AsyncGPUReadback.Request(texture, 0);
+                    readback.WaitForCompletion();
+                    Assert.That(readback.hasError, Is.False);
+                    var bytes = readback.GetData<byte>(0);
+                    int center = 2 * (texture.height / 2 * texture.width + texture.width / 2);
+                    actual = new Vector2Int(bytes[center], bytes[center + 1]);
+                }
+                catch (Exception exception) { failure = exception; }
+            };
+            yield return null;
+            if (failure != null) throw failure;
+            Assert.That(sampleFrame, Is.GreaterThanOrEqualTo(0));
+            Assert.That(delta, Is.EqualTo(1f / 60f).Within(.00001f));
+            if (step > 0) Assert.That(sampleFrame, Is.EqualTo(previousFrame + 1));
+            previousFrame = sampleFrame;
+            float destination = shadowed ? 255 : 0;
+            float soft = Mathf.Lerp(previous.x, destination, shadowSettings._currentFrameWeightSoft * delta * 60);
+            float hard = Mathf.Lerp(previous.y, destination, shadowSettings._currentFrameWeightHard * delta * 60);
+            float error = Mathf.Max(Mathf.Abs(soft - actual.x), Mathf.Abs(hard - actual.y));
+            maximumError = Mathf.Max(maximumError, error);
+            report.AppendLine(FormattableString.Invariant($"{step},{sampleFrame},{shadowed},{actual.x},{actual.y},{soft:F3},{hard:F3},{error:F3}"));
+            peak = Vector2Int.Max(peak, actual);
+            previous = actual;
+        }
+        report.AppendLine(FormattableString.Invariant($"Peak={peak}; final={previous}; maxByteError={maximumError:R}"));
+        Assert.That(peak.x, Is.GreaterThan(100));
+        Assert.That(peak.y, Is.GreaterThan(220));
+        Assert.That(previous.x, Is.LessThan(peak.x));
+        Assert.That(previous.y, Is.LessThan(peak.y));
+        Assert.That(maximumError, Is.LessThanOrEqualTo(1), "Both channels must match the original recurrence within one UNorm byte.");
+    }
+
+    static IEnumerator CheckPenumbra(OceanRenderer ocean, Camera camera, RenderTexture target, ShadowHistoryCapture recorder,
+        LodDataMgrShadow shadows, SimSettingsShadow settings, StringBuilder report)
+    {
+        const int lodIndex = 1;
+        float originalJitter = settings._jitterDiameterSoft;
+        settings._jitterDiameterHard = 0f;
+        var profiles = new Vector2[3][];
+        float[] positions = null;
+        for (int phase = 0; phase < profiles.Length; phase++)
+        {
+            settings._jitterDiameterSoft = phase == 1 ? originalJitter : 0f;
+            shadows.ClearLodData();
+            int samples = 0;
+            var profile = new Vector2[shadows.DataTexture.width];
+            profiles[phase] = profile;
+            for (int frame = 0; frame < 128; frame++)
+            {
+                bool measure = frame >= 112;
+                Exception failure = null;
+                bool rendered = false;
+                recorder.Capture = () =>
+                {
+                    try
+                    {
+                        Assert.That(BuildCommandBufferBase._lastUpdateFrame, Is.EqualTo(OceanRenderer.FrameCount));
+                        RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
+                        rendered = true;
+                        if (measure) SumShadowProfile(shadows.DataTexture, lodIndex, profile);
+                    }
+                    catch (Exception exception) { failure = exception; }
+                };
+                yield return null;
+                if (failure != null) throw failure;
+                Assert.That(rendered, Is.True, "No current-frame shadow render.");
+                if (measure) samples++;
+            }
+            for (int x = 0; x < profile.Length; x++) profile[x] /= samples;
+            var lod = ocean._lodTransform._renderData[lodIndex].Current;
+            var phasePositions = new float[profile.Length];
+            for (int x = 0; x < profile.Length; x++)
+                phasePositions[x] = lod._posSnapped.x + (x + .5f - profile.Length * .5f) * lod._texelWidth;
+            if (positions == null) positions = phasePositions;
+            else Assert.That(phasePositions, Is.EqualTo(positions), "All profiles must use the same world-space samples.");
+        }
+        report.AppendLine(FormattableString.Invariant($"LOD{lodIndex} center-row average of the last 16 of 128 frames per phase; soft jitter 0/{originalJitter:R}/0 m; hard jitter 0 m."));
+        report.AppendLine("worldX,softOff,softOn,softRestored,hardOff,hardOn,hardRestored");
+        int offTransition = 0, onTransition = 0, inside = 0, outside = 0;
+        float hardDifference = 0f, restoreDifference = 0f, centerOcclusion = 255f, outsideOcclusion = 0f;
+        for (int x = 0; x < positions.Length; x++)
+        {
+            float distance = Mathf.Abs(positions[x]);
+            var baseline = profiles[0][x];
+            var jittered = profiles[1][x];
+            var restored = profiles[2][x];
+            report.AppendLine(FormattableString.Invariant($"{positions[x]:F4},{baseline.x:F2},{jittered.x:F2},{restored.x:F2},{baseline.y:F2},{jittered.y:F2},{restored.y:F2}"));
+            if (distance > 22f) continue;
+            hardDifference = Mathf.Max(hardDifference, Mathf.Abs(baseline.y - jittered.y));
+            restoreDifference = Mathf.Max(restoreDifference, (baseline - restored).magnitude);
+            if (distance < 1f)
+            {
+                inside++;
+                centerOcclusion = Mathf.Min(centerOcclusion, jittered.x);
+            }
+            if (distance > 18f)
+            {
+                outside++;
+                outsideOcclusion = Mathf.Max(outsideOcclusion, jittered.x);
+            }
+            if (distance < 3f || distance > 18f) continue;
+            if (baseline.x is > 25f and < 225f) offTransition++;
+            if (jittered.x is > 25f and < 225f) onTransition++;
+        }
+        report.AppendLine(FormattableString.Invariant($"TransitionTexels={offTransition}->{onTransition}; HardMaxDelta={hardDifference:R}; RestoreMaxDelta={restoreDifference:R}; CenterMin={centerOcclusion:R}; ExteriorMax={outsideOcclusion:R}"));
+        File.WriteAllText($"Evidence/P12-ShadowPenumbra-{SystemInfo.graphicsDeviceType}.txt", report.ToString());
+        Assert.That(inside, Is.GreaterThan(0));
+        Assert.That(outside, Is.GreaterThan(0));
+        Assert.That(centerOcclusion, Is.GreaterThan(225f));
+        Assert.That(outsideOcclusion, Is.LessThan(5f));
+        Assert.That(onTransition, Is.GreaterThan(offTransition + 8));
+        Assert.That(hardDifference, Is.LessThanOrEqualTo(1f));
+        Assert.That(restoreDifference, Is.LessThanOrEqualTo(1f));
+    }
+
+    static void SumShadowProfile(RenderTexture texture, int lodIndex, Vector2[] profile)
+    {
+        var readback = AsyncGPUReadback.Request(texture, 0);
+        readback.WaitForCompletion();
+        Assert.That(readback.hasError, Is.False);
+        var bytes = readback.GetData<byte>(lodIndex);
+        int row = texture.height / 2 * texture.width * 2;
+        for (int x = 0; x < profile.Length; x++)
+            profile[x] += new Vector2(bytes[row + x * 2], bytes[row + x * 2 + 1]);
     }
 
     [UnityTearDown]
