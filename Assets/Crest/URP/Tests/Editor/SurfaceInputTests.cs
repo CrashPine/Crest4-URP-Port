@@ -322,40 +322,8 @@ public class SurfaceInputTests
         OceanRenderer.EnableGraphicsInBatchMode = true;
         EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
         yield return new EnterPlayMode();
-        _timeScale = Time.timeScale;
-        Time.timeScale = 0;
+        yield return ConfigureClipScene();
         var ocean = OceanRenderer.Instance;
-        foreach (var fft in Object.FindObjectsByType<ShapeFFT>(FindObjectsSortMode.None)) fft.enabled = false;
-        _camera = Camera.main;
-        _camera.transform.SetPositionAndRotation(new Vector3(0, 10, 0), Quaternion.Euler(90, 0, 0));
-        _camera.orthographic = true;
-        _camera.orthographicSize = 12;
-        var underwater = _camera.GetComponent<UnderwaterRenderer>();
-        if (underwater != null) underwater.enabled = false;
-        _target = new RenderTexture(Size, Size, 24, RenderTextureFormat.ARGB32);
-        _target.Create();
-        var surface = Track(new Material(ocean.OceanMaterial));
-        foreach (string keyword in new[] { "_APPLYNORMALMAPPING_ON", "_FOAM_ON", "_TRANSPARENCY_ON", "_CAUSTICS_ON" }) surface.DisableKeyword(keyword);
-        surface.SetFloat("_Foam", 0);
-        surface.SetFloat("_ApplyNormalMapping", 0);
-        surface.EnableKeyword("_CLIPSURFACE_ON");
-        surface.SetFloat("_ClipSurface", 1);
-        ocean.OceanMaterial = surface;
-        var configuration = new SerializedObject(ocean);
-        configuration.FindProperty("_createFoamSim").boolValue = false;
-        configuration.FindProperty("_createClipSurfaceData").boolValue = true;
-        configuration.ApplyModifiedPropertiesWithoutUndo();
-        var floor = GameObject.Find("Visible refraction reference floor");
-        var floorMaterial = Track(new Material(Shader.Find("Universal Render Pipeline/Unlit")));
-        floorMaterial.SetColor("_BaseColor", Color.magenta);
-        floor.GetComponent<Renderer>().sharedMaterial = floorMaterial;
-        yield return WaitForOceanUpdates(5);
-        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
-        clock._overrideTime = clock._overrideDeltaTime = true;
-        clock._time = clock._deltaTime = 0;
-        ocean.PushTimeProvider(clock);
-        yield return WaitForOceanUpdates(4);
-        Assert.That(ocean.Root.GetComponentsInChildren<OceanChunkRenderer>().Length, Is.GreaterThan(0));
         var baseline = Capture("Baseline");
         Assert.That(Magenta(baseline), Is.EqualTo(0), "Opaque ocean must initially cover the reference floor.");
         string report = $"Evidence/ClipSurface-{SystemInfo.graphicsDeviceType}.txt";
@@ -416,6 +384,163 @@ public class SurfaceInputTests
             File.AppendAllText(report, $"Mode={label}; DisabledPeak={peak}; RestoredChangedPixels={restored}\n");
             Assert.That(peak, Is.LessThan(.0001f));
             Assert.That(restored, Is.LessThan(20));
+        }
+    }
+
+    [UnityTest]
+    public IEnumerator AdvancedClipInputsComposeAndRestore()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        yield return ConfigureClipScene();
+
+        const string prefix = "P13-AdvancedClip";
+        string report = $"Evidence/{prefix}-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "Flat water, fixed time, LOD0 native clip and top-down surface controls.\n");
+        var baseline = Capture("Baseline", prefix);
+        Assert.That(Magenta(baseline), Is.Zero);
+
+        var hull = CreateClipGeometry(PrimitiveType.Cube, "Convex Hull", new Vector3(8, 4, 8));
+        yield return CheckAdvancedClip("Hull", baseline, report, new Vector3(1, 1, 0));
+        hull.transform.position = Vector3.up * 3;
+        yield return CheckAdvancedClip("HullAbove", baseline, report, Vector3.zero);
+        hull.enabled = false;
+
+        var mask = new Texture2D(2, 1, TextureFormat.RGBA32, false, true)
+        {
+            filterMode = FilterMode.Point,
+            wrapMode = TextureWrapMode.Clamp,
+        };
+        try
+        {
+            mask.SetPixels(new[] { Color.red, Color.cyan });
+            mask.Apply();
+            var textured = CreateClipGeometry(PrimitiveType.Plane, "Remove Area Texture", Vector3.one * .8f);
+            textured.GetComponent<Renderer>().sharedMaterial.mainTexture = mask;
+            yield return CheckAdvancedClip("Texture", baseline, report, new Vector3(0, 1, 0));
+            textured.enabled = false;
+            yield return CheckAdvancedClip("TextureDisabled", baseline, report, Vector3.zero);
+        }
+        finally
+        {
+            Object.Destroy(mask);
+        }
+
+        var add = CreateClipPrimitive(-2, false, 0);
+        var subtract = CreateClipPrimitive(2, true, 1);
+        yield return CheckAdvancedClip("OverlappingSdf", baseline, report, new Vector3(.875f, .125f, 0), sdf: true);
+        subtract.enabled = false;
+        yield return CheckAdvancedClip("AddOnly", baseline, report, new Vector3(.875f, .375f, 0), sdf: true);
+        add.enabled = false;
+        yield return CheckAdvancedClip("SdfDisabled", baseline, report, Vector3.zero);
+    }
+
+    IEnumerator ConfigureClipScene()
+    {
+        _timeScale = Time.timeScale;
+        Time.timeScale = 0;
+        var ocean = OceanRenderer.Instance;
+        foreach (var fft in Object.FindObjectsByType<ShapeFFT>(FindObjectsSortMode.None)) fft.enabled = false;
+        _camera = Camera.main;
+        _camera.transform.SetPositionAndRotation(new Vector3(0, 10, 0), Quaternion.Euler(90, 0, 0));
+        _camera.orthographic = true;
+        _camera.orthographicSize = 12;
+        var underwater = _camera.GetComponent<UnderwaterRenderer>();
+        if (underwater != null) underwater.enabled = false;
+        _target = new RenderTexture(Size, Size, 24, RenderTextureFormat.ARGB32);
+        _target.Create();
+        var surface = Track(new Material(ocean.OceanMaterial));
+        foreach (string keyword in new[] { "_APPLYNORMALMAPPING_ON", "_FOAM_ON", "_TRANSPARENCY_ON", "_CAUSTICS_ON" }) surface.DisableKeyword(keyword);
+        surface.SetFloat("_Foam", 0);
+        surface.SetFloat("_ApplyNormalMapping", 0);
+        surface.EnableKeyword("_CLIPSURFACE_ON");
+        surface.SetFloat("_ClipSurface", 1);
+        ocean.OceanMaterial = surface;
+        var configuration = new SerializedObject(ocean);
+        configuration.FindProperty("_createFoamSim").boolValue = false;
+        configuration.FindProperty("_createClipSurfaceData").boolValue = true;
+        configuration.ApplyModifiedPropertiesWithoutUndo();
+        var floor = GameObject.Find("Visible refraction reference floor");
+        var floorMaterial = Track(new Material(Shader.Find("Universal Render Pipeline/Unlit")));
+        floorMaterial.SetColor("_BaseColor", Color.magenta);
+        floor.GetComponent<Renderer>().sharedMaterial = floorMaterial;
+        yield return WaitForOceanUpdates(5);
+        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = true;
+        clock._time = clock._deltaTime = 0;
+        ocean.PushTimeProvider(clock);
+        yield return WaitForOceanUpdates(4);
+        Assert.That(ocean.Root.GetComponentsInChildren<OceanChunkRenderer>().Length, Is.GreaterThan(0));
+    }
+
+    RegisterClipSurfaceInput CreateClipGeometry(PrimitiveType primitive, string shaderName, Vector3 scale)
+    {
+        var owner = GameObject.CreatePrimitive(primitive);
+        owner.SetActive(false);
+        owner.transform.localScale = scale;
+        var shader = Shader.Find("Crest/Inputs/Clip Surface/" + shaderName);
+        Assert.That(shader, Is.Not.Null);
+        owner.GetComponent<Renderer>().sharedMaterial = Track(new Material(shader));
+        var input = owner.AddComponent<RegisterClipSurfaceInput>();
+        var serialized = new SerializedObject(input);
+        serialized.FindProperty("_mode").intValue = (int)RegisterClipSurfaceInput.Mode.Geometry;
+        serialized.ApplyModifiedPropertiesWithoutUndo();
+        owner.SetActive(true);
+        return input;
+    }
+
+    static RegisterClipSurfaceInput CreateClipPrimitive(float x, bool inverted, int order)
+    {
+        var owner = new GameObject(inverted ? "Restore water SDF" : "Clip water SDF");
+        owner.SetActive(false);
+        owner.transform.position = Vector3.right * x;
+        owner.transform.localScale = new Vector3(8, 4, 8);
+        var input = owner.AddComponent<RegisterClipSurfaceInput>();
+        var serialized = new SerializedObject(input);
+        serialized.FindProperty("_inverted").boolValue = inverted;
+        serialized.FindProperty("_order").intValue = order;
+        serialized.ApplyModifiedPropertiesWithoutUndo();
+        owner.SetActive(true);
+        return input;
+    }
+
+    IEnumerator CheckAdvancedClip(string label, Color32[] baseline, string report, Vector3 expected, bool sdf = false)
+    {
+        yield return WaitForOceanUpdates(4);
+        var data = AsyncGPUReadback.Request(OceanRenderer.Instance._lodDataClipSurface.DataTexture, 0, TextureFormat.RFloat);
+        while (!data.done) yield return null;
+        Assert.That(data.hasError, Is.False);
+        float left = ClipSample(data, new Vector2(-3, 0), out var leftTexel);
+        float right = ClipSample(data, new Vector2(3, 0), out var rightTexel);
+        float outside = ClipSample(data, new Vector2(11, 0), out _);
+        var frame = Capture(label, "P13-AdvancedClip");
+        int hole = Magenta(frame);
+        int changes = Different(baseline, frame);
+        File.AppendAllText(report, $"{label}: left={left}, right={right}, outside={outside}, hole={hole}, changed={changes}\n");
+        if (sdf)
+        {
+            expected.x = ExpectedClip(0, leftTexel + Vector2.right * 2);
+            if (label == "OverlappingSdf") expected.x = Mathf.Min(expected.x, 1 - ExpectedClip(0, leftTexel - Vector2.right * 2));
+            expected.y = label == "OverlappingSdf"
+                ? 1 - ExpectedClip(0, rightTexel - Vector2.right * 2)
+                : ExpectedClip(0, rightTexel + Vector2.right * 2);
+        }
+        Assert.That(left, Is.EqualTo(expected.x).Within(.005f), label);
+        Assert.That(right, Is.EqualTo(expected.y).Within(.005f), label);
+        Assert.That(outside, Is.EqualTo(expected.z).Within(.005f), label);
+        Assert.That(Different(baseline, frame, borderOnly: true), Is.Zero, label);
+        if (expected.x > .5f || expected.y > .5f)
+            Assert.That(hole, Is.GreaterThan(500), label);
+        else
+            Assert.That(changes, Is.LessThan(20), label);
+        if (label == "OverlappingSdf")
+        {
+            float overlap = ClipSample(data, Vector2.zero, out var texel);
+            float expectedOverlap = 1 - ExpectedClip(0, texel - Vector2.right * 2);
+            File.AppendAllText(report, $"Overlap={overlap}, expected={expectedOverlap}\n");
+            Assert.That(overlap, Is.EqualTo(expectedOverlap).Within(.005f));
+            Assert.That(overlap, Is.LessThan(.5f));
         }
     }
 

@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.2: additional clip inputs (2026-11-22)
+
+`AdvancedClipInputsComposeAndRestore` passed on DX11 and DX12 with identical counters. In a 192 × 192 top-down view of flat water, a convex hull cut 4,096 pixels. Raising it fully above water cleared the LOD0 field and restored the image. `Remove Area Texture` used red and cyan texels and cut only the red-channel half (2,048 pixels). Ordered inverted SDF restored the overlap with a measured value of 0.2431373 against 0.2447917 from the sampled world position. Disabling the inverted input restored the full 4,096-pixel cut. Removing the remaining input restored the reference image. Control points outside the inputs and the image border stayed unchanged. The existing cube, sphere and geometry fixture also passed on DX11 after sharing the scene setup. [XML, counters and frames](Evidence/P13-AdvancedClip-DX11-DX12.zip).
+
+The first compile attempt accessed an internal input field from the test assembly. The fixture now uses `SerializedObject` to set the geometry mode. [Compile log](Evidence/P13-AdvancedClip-compile-attempt.zip).
+
 ## P13.1: legacy Curtain and Meniscus in URP (2026-11-15)
 
 `LegacyUnderwaterTests` passed 2/2 on DX11 and 2/2 on DX12 in Unity 6000.6.5f1. The original prefab and material assets use the same GUIDs. Curtain has a URP pass which reads the existing graph background and camera depth. Built-in still uses the original named GrabPass. The reference camera excludes the port's ocean surface for the cross-pipeline comparison, and the test primes one frame before reading the legacy material. Water time is fixed and caustics are disabled for these controls. The Built-in and URP RGB captures were byte-exact in the disabled, underwater-enabled, waterline-meniscus and above-water states on both APIs.
