@@ -29,14 +29,13 @@ namespace Crest
 
         PropertyWrapperMPB _mpb;
         Renderer _rend;
-        Mesh _mesh;
-        Bounds _boundsLocal;
+        MeshFilter _filter;
+        bool _hasLocalBounds;
 
         private void Start()
         {
             _rend = GetComponent<Renderer>();
-            _mesh = GetComponent<MeshFilter>().sharedMesh;
-            _boundsLocal = _mesh.bounds;
+            _filter = GetComponent<MeshFilter>();
 
             if (OceanRenderer.Instance != null)
             {
@@ -44,10 +43,23 @@ namespace Crest
             }
         }
 
+        private void OnDisable()
+        {
+            ResetBounds();
+        }
+
+        void ResetBounds()
+        {
+            if (!_hasLocalBounds) return;
+            _rend.ResetLocalBounds();
+            _hasLocalBounds = false;
+        }
+
         private void LateUpdate()
         {
             if (OceanRenderer.Instance == null)
             {
+                ResetBounds();
                 return;
             }
 
@@ -72,6 +84,13 @@ namespace Crest
 
         void LateUpdateBounds()
         {
+            var mesh = _filter.sharedMesh;
+            if (mesh == null)
+            {
+                ResetBounds();
+                return;
+            }
+
             // make sure we're at sea level. we will expand the bounds which only works at sea level
             float y = transform.position.y;
             if (!Mathf.Approximately(y, OceanRenderer.Instance.SeaLevel))
@@ -79,9 +98,10 @@ namespace Crest
                 transform.position += (OceanRenderer.Instance.SeaLevel - y) * Vector3.up;
             }
 
-            var bounds = _boundsLocal;
+            var bounds = mesh.bounds;
             OceanChunkRenderer.ExpandBoundsForDisplacements(transform, ref bounds);
-            _mesh.bounds = bounds;
+            _rend.localBounds = bounds;
+            _hasLocalBounds = true;
 
             if (_drawBounds)
             {

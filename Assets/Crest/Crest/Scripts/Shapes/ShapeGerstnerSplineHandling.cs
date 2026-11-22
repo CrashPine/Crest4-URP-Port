@@ -98,35 +98,38 @@ namespace Crest
 
                 SplineInterpolation.InterpolateCubicPosition(splinePointCount, points, t, out sampledPtsOnSpline[i]);
 
-                var tpts = t * (splinePoints.Length - 1f);
-                var spidx = Mathf.FloorToInt(tpts);
-                var alpha = tpts - spidx;
+                // The closing segment ends at knot zero, just like the cubic hull.
+                var tpts = t * (splinePointCount - 1);
+                var knot = Mathf.FloorToInt(tpts);
+                var alpha = Mathf.SmoothStep(0f, 1f, tpts - knot);
+                var start = splinePoints[knot % splinePoints.Length];
+                var end = splinePoints[Mathf.Min(knot + 1, splinePointCount - 1) % splinePoints.Length];
 
                 // Interpolate default data
                 var splineData0 = 1f;
-                if (splinePoints[spidx].TryGetComponent(out SplinePointData splineDataComp0))
+                if (start.TryGetComponent(out SplinePointData splineDataComp0))
                 {
                     splineData0 = splineDataComp0.GetData().x;
                 }
                 var splineData1 = 1f;
-                if (splinePoints[Mathf.Min(spidx + 1, splinePoints.Length - 1)].TryGetComponent(out SplinePointData splineDataComp1))
+                if (end.TryGetComponent(out SplinePointData splineDataComp1))
                 {
                     splineData1 = splineDataComp1.GetData().x;
                 }
-                radiusMultiplier[i] = Mathf.Lerp(splineData0, splineData1, Mathf.SmoothStep(0f, 1f, alpha));
+                radiusMultiplier[i] = Mathf.Lerp(splineData0, splineData1, alpha);
 
                 // Interpolate custom data
                 var customData0 = customDataDefault;
-                if (splinePoints[spidx].TryGetComponent(out SplinePointCustomData customDataComp0))
+                if (start.TryGetComponent(out SplinePointCustomData customDataComp0))
                 {
                     customData0 = customDataComp0.GetData();
                 }
                 var customData1 = customDataDefault;
-                if (splinePoints[Mathf.Min(spidx + 1, splinePoints.Length - 1)].TryGetComponent(out SplinePointCustomData customDataComp1))
+                if (end.TryGetComponent(out SplinePointCustomData customDataComp1))
                 {
                     customData1 = customDataComp1.GetData();
                 }
-                customData[i] = Vector2.Lerp(customData0, customData1, Mathf.SmoothStep(0f, 1f, alpha));
+                customData[i] = Vector2.Lerp(customData0, customData1, alpha);
             }
 
             float radiusLeft, radiusRight;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.IO;
+using System.Collections.Generic;
 using Crest;
 using NUnit.Framework;
 using UnityEditor;
@@ -12,6 +13,7 @@ using UnityEngine.TestTools;
 public class SplineGeometryTests
 {
     Material _surface, _heightMaterial, _markerMaterial;
+    Mesh _verificationMesh;
     SimSettingsSeaFloorDepth _depthSettings;
     float _timeScale = 1;
     string _report;
@@ -43,6 +45,72 @@ public class SplineGeometryTests
         clock._overrideTime = clock._overrideDeltaTime = true;
         clock._time = clock._deltaTime = 0;
         ocean.PushTimeProvider(clock);
+    }
+
+    [UnityTest]
+    public IEnumerator ClosedSplineInterpolatesPointSpeedAndWidthAcrossTheSeam()
+    {
+        OpenScene();
+        yield return new EnterPlayMode();
+        yield return Configure(true);
+        var owner = new GameObject("Variable flow loop");
+        var spline = owner.AddComponent<Crest.Spline.Spline>();
+        spline.Radius = 2;
+        spline.Subdivisions = 6;
+        spline._offset = Crest.Spline.Spline.Offset.Center;
+        spline._closed = true;
+        float[] speeds = { 1, 3, 5, 2 };
+        float[] widths = { 1, 1.5f, 1, 1.5f };
+        for (int i = 0; i < speeds.Length; i++)
+        {
+            var point = new GameObject($"Knot {i}");
+            point.transform.SetParent(owner.transform, false);
+            var radial = Polar(i * 90) * 8;
+            point.transform.position = new Vector3(radial.x, 0, radial.y);
+            point.AddComponent<Crest.Spline.SplinePoint>();
+            point.AddComponent<SplinePointDataFlow>().FlowVelocity = speeds[i];
+            point.AddComponent<SplinePointData>().RadiusMultiplier = widths[i];
+        }
+
+        owner.AddComponent<RegisterFlowInput>();
+        spline.UpdateSpline();
+        yield return WaitForOceanUpdates(4);
+
+        Vector3[] vertices = null;
+        Assert.That(ShapeGerstnerSplineHandling.GenerateMeshFromSpline<SplinePointDataFlow>(
+            spline, owner.transform, spline.Subdivisions, spline.Radius, Vector2.zero,
+            ref _verificationMesh, out _, out _, ref vertices), Is.True);
+        var data = new List<Vector2>();
+        _verificationMesh.GetUVs(2, data);
+        float firstWidth = Vector3.Distance(vertices[0], vertices[1]);
+        float lastWidth = Vector3.Distance(vertices[^2], vertices[^1]);
+        string report = $"Evidence/P13-ClosedSpline-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, $"StartSpeed={data[0].x:R}; EndSpeed={data[^1].x:R}; StartWidth={firstWidth:R}; EndWidth={lastWidth:R}\n");
+
+        var request = ReadFlow();
+        while (!request.done) yield return null;
+        Assert.That(request.hasError, Is.False);
+        var target = OceanRenderer.Instance._lodDataFlow.DataTexture;
+        var field = request.GetData<Vector2>(0);
+        float maximumError = 0;
+        foreach (float angle in new[] { -3f, 0, 3, 45, 90, 135, 180, 225, 270, 315 })
+        {
+            float segment = Mathf.Repeat(angle, 360) / 90;
+            int knot = Mathf.FloorToInt(segment);
+            float speed = Mathf.Lerp(speeds[knot], speeds[(knot + 1) % speeds.Length], Mathf.SmoothStep(0, 1, segment - knot));
+            var radial = Polar(angle);
+            var expected = new Vector2(-radial.y, radial.x) * speed;
+            var actual = Sample(field, target, radial * 8);
+            float error = Vector2.Distance(expected, actual);
+            maximumError = Mathf.Max(maximumError, error);
+            File.AppendAllText(report, $"Angle={angle:R}; ExpectedSpeed={speed:R}; ActualSpeed={actual.magnitude:R}; VectorError={error:R}\n");
+        }
+
+        Assert.That(data[0].x, Is.EqualTo(speeds[0]));
+        Assert.That(data[^1].x, Is.EqualTo(speeds[0]), "The closing segment must return to knot zero.");
+        Assert.That(firstWidth, Is.EqualTo(2).Within(.03f));
+        Assert.That(lastWidth, Is.EqualTo(firstWidth).Within(.03f));
+        Assert.That(maximumError, Is.LessThan(.15f));
     }
 
     [UnityTest]
@@ -377,6 +445,7 @@ public class SplineGeometryTests
         if (_surface != null) Object.DestroyImmediate(_surface);
         if (_heightMaterial != null) Object.DestroyImmediate(_heightMaterial);
         if (_markerMaterial != null) Object.DestroyImmediate(_markerMaterial);
+        if (_verificationMesh != null) Object.DestroyImmediate(_verificationMesh);
         if (_depthSettings != null) Object.DestroyImmediate(_depthSettings);
     }
 }
