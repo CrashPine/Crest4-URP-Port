@@ -60,6 +60,199 @@ public class OriginalLakesRiversTests
         File.AppendAllText(_stem+".txt",$"Samples={onW.Length}; HeightDelta={heightDelta:R}; FlowDelta={flowDelta:R}; HeightRestoreMax={heightRestore:R}; FlowRestoreMax={flowRestore:R}; ChangedPixels={changed}; RestorePixels={restore}\n");
         Assert.That(heightDelta,Is.GreaterThan(1));Assert.That(flowDelta,Is.GreaterThan(1));Assert.That(heightRestore,Is.LessThan(.002));Assert.That(flowRestore,Is.LessThan(.002));Assert.That(changed,Is.GreaterThan(200));Assert.That(restore,Is.Zero);ocean.PopTimeProvider(clock);
     }
+    [UnityTest, Timeout(240000)]
+    public IEnumerator RiverHeightFlowAndWavesComposeAtFixedPhases()
+    {
+        _capture = Time.captureFramerate;
+        _scale = Time.timeScale;
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/Crest/Crest-Examples/LakesAndRivers/Scenes/LakesAndRivers.unity");
+        yield return new EnterPlayMode();
+
+        Time.captureFramerate = 60;
+        Time.timeScale = 1;
+        _stem = $"Evidence/P13-RiverComposition-{SystemInfo.graphicsDeviceType}";
+        var ocean = OceanRenderer.Instance;
+        var camera = Camera.main;
+        Assert.That(ocean, Is.Not.Null);
+        Assert.That(camera, Is.Not.Null);
+        ocean.ViewCamera = camera;
+        new GameObject("River query pacing").AddComponent<BoatProbesQueryFence>();
+        yield return Settle(60);
+
+        var depthInputs = RegisterLodDataInputBase.GetRegistrar(typeof(LodDataMgrSeaFloorDepth));
+        var flowInputs = RegisterLodDataInputBase.GetRegistrar(typeof(LodDataMgrFlow));
+        var heights = depthInputs.Select(entry => entry.Value).OfType<RegisterHeightInput>().ToArray();
+        var flows = flowInputs.Select(entry => entry.Value).OfType<RegisterFlowInput>().ToArray();
+        Assert.That(heights, Is.Not.Empty);
+        Assert.That(flows, Is.Not.Empty);
+
+        var waves = Object.FindObjectsByType<ShapeWaves>().Where(shape => shape.isActiveAndEnabled).ToArray();
+        Assert.That(waves, Is.Not.Empty, "The original scene must provide its authored waves.");
+
+        var clock = new GameObject("River fixed phase").AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = clock._paused = true;
+        clock._time = 1;
+        ocean.PushTimeProvider(clock);
+        Time.timeScale = 0;
+        camera.GetUniversalAdditionalCameraData().requiresDepthTexture = true;
+        camera.GetUniversalAdditionalCameraData().renderPostProcessing = false;
+        camera.allowMSAA = false;
+        camera.aspect = 16f / 9;
+        yield return Settle();
+        var overview = camera.transform.position;
+        var riverView = FindRiverView(ocean);
+        camera.transform.SetPositionAndRotation(riverView, Quaternion.Euler(90f, 0f, 0f));
+        yield return Settle();
+        _position = camera.transform.position;
+        _rotation = camera.transform.rotation;
+        _target = new RenderTexture(640, 360, 24, RenderTextureFormat.ARGB32);
+        Assert.That(_target.Create(), Is.True);
+        File.WriteAllText(_stem + ".txt",
+            $"HeightInputs={heights.Length}; FlowInputs={flows.Length}; Waves={string.Join(", ", waves.Select(wave => wave.GetType().Name))}; Overview={overview}; RiverCamera={riverView}; LODScale={ocean.Scale}; WindsKph={string.Join(", ", waves.Select(wave => wave.WindSpeed * 3.6f))}; fixed phases 1s and 2s.\n");
+
+        var (depth, flow, wave) = ReadRiverFields(ocean);
+        var frame = Capture(camera, "Phase1");
+        var tiles = ocean.Root.GetComponentsInChildren<OceanChunkRenderer>()
+            .Select(tile => tile.GetComponent<Renderer>()).Where(renderer => renderer != null && !renderer.forceRenderingOff).ToArray();
+        Color32[] withoutSurface;
+        try
+        {
+            foreach (var tile in tiles) tile.forceRenderingOff = true;
+            withoutSurface = Capture(camera, "SurfaceHidden");
+        }
+        finally
+        {
+            foreach (var tile in tiles) tile.forceRenderingOff = false;
+        }
+        int visibleWater = ChangedPixels(frame, withoutSurface);
+        File.AppendAllText(_stem + ".txt", $"SurfacePixels={visibleWater}\n");
+        Assert.That(visibleWater, Is.GreaterThan(200), "The selected river view must contain visible water.");
+        int overlap = 0, heightAndFlow = 0;
+        float concurrentWavePeak = 0;
+        for (int i = 0; i < depth.Length; i++)
+        {
+            if (Mathf.Abs(depth[i].y) <= .02f || new Vector2(flow[i].x, flow[i].y).sqrMagnitude <= .0004f) continue;
+            heightAndFlow++;
+            concurrentWavePeak = Mathf.Max(concurrentWavePeak, Mathf.Abs(wave[i].y));
+            if (Mathf.Abs(wave[i].y) > .02f) overlap++;
+        }
+        File.AppendAllText(_stem + ".txt", $"OverlappingTexels={overlap}; HeightAndFlow={heightAndFlow}; ConcurrentWavePeak={concurrentWavePeak:R}; HeightPeak={depth.Max(v => Mathf.Abs(v.y)):R}; FlowPeak={flow.Max(v => new Vector2(v.x, v.y).magnitude):R}; WavePeak={wave.Max(v => Mathf.Abs(v.y)):R}; TotalTexels={depth.Length}\n");
+        Assert.That(overlap, Is.GreaterThan(0), "Flow, local level and wave height must coexist in the same cascade texels.");
+
+        clock._time = 2;
+        yield return Settle();
+        var (_, _, phase2Wave) = ReadRiverFields(ocean);
+        double temporalWaveDelta = Difference(wave, phase2Wave, WaveHeight);
+        int phasePixels = ChangedPixels(frame, Capture(camera, "Phase2"));
+        File.AppendAllText(_stem + ".txt", $"Phase2WaveDelta={temporalWaveDelta:R}; Phase2ChangedPixels={phasePixels}\n");
+        Assert.That(temporalWaveDelta, Is.GreaterThan(1));
+        Assert.That(phasePixels, Is.GreaterThan(200));
+
+        clock._time = 1;
+        foreach (var input in heights) input.enabled = false;
+        yield return Settle();
+        var (noDepth, flowWithoutHeight, waveWithoutHeight) = ReadRiverFields(ocean);
+        CheckContribution("HeightOff", Difference(depth, noDepth, WaveHeight), flowWithoutHeight, waveWithoutHeight);
+        foreach (var input in heights) input.enabled = true;
+        foreach (var input in flows) input.enabled = false;
+        yield return Settle();
+        var (depthWithoutFlow, noFlow, waveWithoutFlow) = ReadRiverFields(ocean);
+        CheckContribution("FlowOff", Difference(flow, noFlow, FlowVector), depthWithoutFlow, waveWithoutFlow);
+        foreach (var input in flows) input.enabled = true;
+        yield return Settle();
+        Assert.That(depthInputs.Select(entry => entry.Value).OfType<RegisterHeightInput>(), Is.EqualTo(heights));
+        Assert.That(flowInputs.Select(entry => entry.Value).OfType<RegisterFlowInput>(), Is.EqualTo(flows));
+
+        var (restoredDepth, restoredFlow, restoredWave) = ReadRiverFields(ocean);
+        float depthRestore = MaximumDifference(depth, restoredDepth, WaveHeight);
+        float flowRestore = MaximumDifference(flow, restoredFlow, FlowVector);
+        float waveRestore = MaximumDifference(wave, restoredWave, (a, b) => (a - b).magnitude);
+        int restoredPixels = ChangedPixels(frame, Capture(camera, "RestoredPhase1"));
+        File.AppendAllText(_stem + ".txt",
+            $"RestoreDepthMax={depthRestore:R}; RestoreFlowMax={flowRestore:R}; RestoreWaveMax={waveRestore:R}; RestoreChangedPixels={restoredPixels}\n");
+        Assert.That(depthRestore, Is.LessThan(.002f));
+        Assert.That(flowRestore, Is.LessThan(.002f));
+        Assert.That(waveRestore, Is.LessThan(.002f));
+        Assert.That(restoredPixels, Is.Zero);
+
+        void CheckContribution(string phase, double delta, Vector4[] remainingInput, Vector4[] remainingWaves)
+        {
+            float inputPeak = phase == "HeightOff"
+                ? remainingInput.Max(value => new Vector2(value.x, value.y).magnitude)
+                : remainingInput.Max(value => Mathf.Abs(value.y));
+            float wavePeak = remainingWaves.Max(value => Mathf.Abs(value.y));
+            File.AppendAllText(_stem + ".txt", $"{phase}; InputDelta={delta:R}; OtherInputPeak={inputPeak:R}; WavePeak={wavePeak:R}\n");
+            Assert.That(delta, Is.GreaterThan(1), phase);
+            Assert.That(inputPeak, Is.GreaterThan(.02f), phase);
+            Assert.That(wavePeak, Is.GreaterThan(.02f), phase);
+        }
+    }
+
+    static Vector3 FindRiverView(OceanRenderer ocean)
+    {
+        var depth = ocean._lodDataSeaDepths.DataTexture;
+        var flow = ocean._lodDataFlow.DataTexture;
+        Assert.That(flow.width, Is.EqualTo(depth.width));
+        var levels = AsyncGPUReadback.Request(depth, 0, TextureFormat.RGBAFloat);
+        var currents = AsyncGPUReadback.Request(flow, 0, TextureFormat.RGBAFloat);
+        levels.WaitForCompletion();
+        currents.WaitForCompletion();
+        Assert.That(levels.hasError || currents.hasError, Is.False);
+        for (int layer = 0; layer < levels.layerCount; layer++)
+        {
+            var offsets = levels.GetData<Vector4>(layer);
+            var velocities = currents.GetData<Vector4>(layer);
+            int sample = -1;
+            float strongest = .25f;
+            for (int i = 0; i < offsets.Length; i++)
+            {
+                var depthSample = offsets[i];
+                float waterDepth = ocean.SeaLevel + depthSample.y - depthSample.x;
+                if (!float.IsFinite(waterDepth) || waterDepth < .25f || Mathf.Abs(depthSample.y) < .1f) continue;
+                float speed = new Vector2(velocities[i].x, velocities[i].y).sqrMagnitude;
+                if (speed <= strongest) continue;
+                strongest = speed;
+                sample = i;
+            }
+            if (sample < 0) continue;
+
+            var lod = ocean._lodTransform._renderData[layer].Current;
+            var x = lod._posSnapped.x + (sample % depth.width + .5f - depth.width * .5f) * lod._texelWidth;
+            var z = lod._posSnapped.z + (sample / depth.width + .5f - depth.height * .5f) * lod._texelWidth;
+            return new Vector3(x, ocean.SeaLevel + offsets[sample].y + 8f, z);
+        }
+        Assert.Fail("The overview must contain a shared footprint for the authored height and flow.");
+        return default;
+    }
+
+    (Vector4[] depth, Vector4[] flow, Vector4[] wave) ReadRiverFields(OceanRenderer ocean)
+    {
+        var depth = ocean._lodDataSeaDepths.DataTexture;
+        var flow = ocean._lodDataFlow.DataTexture;
+        var wave = ocean._lodDataAnimWaves.DataTexture;
+        Assert.That(flow.width, Is.EqualTo(depth.width));
+        Assert.That(wave.width, Is.EqualTo(depth.width));
+        Assert.That(flow.height, Is.EqualTo(depth.height));
+        Assert.That(wave.height, Is.EqualTo(depth.height));
+        return (Read(depth, true), Read(flow), Read(wave));
+    }
+
+    static IEnumerator Settle(int frames = 16)
+    {
+        for (int frame = 0; frame < frames; frame++) yield return null;
+    }
+
+    static float WaveHeight(Vector4 a, Vector4 b) => Mathf.Abs(a.y - b.y);
+    static float FlowVector(Vector4 a, Vector4 b) => new Vector2(a.x - b.x, a.y - b.y).magnitude;
+    static double Difference(Vector4[] a, Vector4[] b, Func<Vector4, Vector4, float> measure)
+        => a.Zip(b, (left, right) => (double)measure(left, right)).Sum();
+    static float MaximumDifference(Vector4[] a, Vector4[] b, Func<Vector4, Vector4, float> measure)
+        => a.Zip(b, measure).Max();
+    static int ChangedPixels(Color32[] a, Color32[] b)
+        => a.Zip(b, (left, right) => Mathf.Abs(left.r - right.r) + Mathf.Abs(left.g - right.g) + Mathf.Abs(left.b - right.b) > 6)
+            .Count(changed => changed);
+
     [UnityTearDown] public IEnumerator Cleanup()
     {
         OceanRenderer.EnableGraphicsInBatchMode=false;if(Application.isPlaying)yield return new ExitPlayMode();EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);Time.captureFramerate=_capture;Time.timeScale=_scale;if(_target!=null){_target.Release();Object.DestroyImmediate(_target);}

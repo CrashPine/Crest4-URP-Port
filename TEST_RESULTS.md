@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.3: LakesAndRivers with authored FFT waves (2026-11-22)
+
+`RiverHeightFlowAndWavesComposeAtFixedPhases` passed 1/1 on DX11 and 1/1 on DX12. The first overview attempts found 4,669 cells with height and flow but no three-way overlap above the predeclared 0.02 thresholds. Maximum vertical displacement at the overview pose was 2.38e−7 m. The final fixture keeps the scene's original inputs and wind speeds. It selects a river position with measurable flow, height offset and depth, and lowers the camera to 8 m above the local level so the closest simulation cascade can resolve the authored wavelengths.
+
+In the final view all three inputs coexisted in 230,635 cascade texels on both APIs, with a 0.13806 m peak vertical displacement in the shared footprint. Hiding the ocean tiles changed 93,499/93,500 pixels (DX11/DX12). Advancing the fixed FFT phase from 1 to 2 s changed 21,417 pixels on each API. Disabling the height inputs or the flow inputs separately changed their respective fields while the other inputs remained active. Re-enabling in captured draw order and restoring phase 1 returned zero error in the three compared fields and byte-identical PNGs per API. The saved WaterBody and composed Windows Player checks remain in P13.3. [Final XML, counters and frames](Evidence/P13-RiverComposition-DX11-DX12.zip) · [First overview attempt](Evidence/P13-RiverComposition-initial-attempt.zip) · [Overview diagnostics](Evidence/P13-RiverComposition-overview-attempt.zip).
+
 ## P13.2: convex hull displacement and shadow override (2026-11-22)
 
 Both focused tests passed in Editor on DX11 and DX12 with identical counters. Push Water Under Convex Hull produced −1 m vertical displacement at both interior samples and zero at the exterior sample. A top-down camera showed 4,356 pixels of the opaque reference plane at y = −0.5 m under the hull. The image border stayed at baseline and disabling the input restored the native samples and all pixels within the RGB comparison threshold.
