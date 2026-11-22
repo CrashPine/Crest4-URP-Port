@@ -99,12 +99,15 @@ namespace Crest.URP.Diagnostics
         IEnumerator OriginalScenePlayer()
         {
             string test=Argument("-crestOriginalSceneCase","main");
-            int scene=test=="main"?1:test=="boat"||test=="input"?2:test.StartsWith("wakes")?3:test=="threeboats"?4:test=="rivers"?5:6;
+            bool composedRiver = test == "rivers-composed";
+            int scene=test=="main"?1:test=="boat"||test=="input"?2:test.StartsWith("wakes")?3:test=="threeboats"?4:(test=="rivers" || composedRiver)?5:6;
             Directory.CreateDirectory(Argument("-crestProbeImages","."));
             _originalSceneReport=new OriginalSceneReport{unity=Application.unityVersion,api=SystemInfo.graphicsDeviceType.ToString(),gpu=SystemInfo.graphicsDeviceName,test=test,
                 quality=QualitySettings.names[QualitySettings.GetQualityLevel()],focused=Application.isFocused,
                 keyboardPresent=Type.GetType("UnityEngine.InputSystem.Keyboard, Unity.InputSystem")?.GetProperty("current",BindingFlags.Static|BindingFlags.Public)?.GetValue(null)!=null,
                 scope="P11.3-B finite original scene transfer; Forward/PC/1x/640x360. Capture60Hz/query fence and fixed clocks are explicit test controls, not performance/physical-input acceptance."};
+            if (composedRiver)
+                _originalSceneReport.scope = "P13.3 Windows Player with authored FFT, flow and height. Fixed ocean phases and river camera.";
             Time.captureFramerate=60;Time.timeScale=1;_originalScenePacing=true;
             void Configure(Scene loaded,LoadSceneMode mode)
             {
@@ -139,6 +142,7 @@ namespace Crest.URP.Diagnostics
             }
             else if(test=="boat"||test=="threeboats")yield return SceneBoats(camera,test=="threeboats");
             else if(test.StartsWith("wakes"))yield return SceneWakes(camera,test=="wakes-on");
+            else if (composedRiver) yield return SceneComposedRiver(camera);
             else if(test=="rivers"||test=="whirl-isolated")yield return SceneFields(camera,test=="rivers");
             else
             {
@@ -186,6 +190,91 @@ namespace Crest.URP.Diagnostics
             CheckExample(on?energy>.001&&nonzero>100:energy<1e-8,"Wake source contribution");
             if(on)yield return SceneVisibility(camera,FindObjectsByType<Renderer>(FindObjectsSortMode.None).Where(r=>r.GetComponentInParent<OceanRenderer>()==null).ToArray());
         }
+        IEnumerator SceneComposedRiver(Camera camera)
+        {
+            var ocean = OceanRenderer.Instance;
+            var depthRegistrar = RegisterLodDataInputBase.GetRegistrar(typeof(LodDataMgrSeaFloorDepth));
+            var flowRegistrar = RegisterLodDataInputBase.GetRegistrar(typeof(LodDataMgrFlow));
+            var heights = depthRegistrar.Select(entry => entry.Value).OfType<RegisterHeightInput>().ToArray();
+            var flows = flowRegistrar.Select(entry => entry.Value).OfType<RegisterFlowInput>().ToArray();
+            var fft = FindObjectsByType<ShapeFFT>().Count(shape => shape.isActiveAndEnabled);
+            CheckExample(heights.Length > 0 && flows.Length > 0 && fft > 0, "Authored river inputs must be enabled");
+            SceneMeasure("heightInputs", heights.Length);
+            SceneMeasure("flowInputs", flows.Length);
+            SceneMeasure("activeFFT", fft);
+
+            // This is the wet river position measured by the Editor composition fixture.
+            camera.transform.SetPositionAndRotation(new Vector3(26f, -20.97f, 300.67f), Quaternion.Euler(90f, 0, 0));
+            var clock = new GameObject("River test clock").AddComponent<TimeProviderCustom>();
+            clock._overrideTime = clock._overrideDeltaTime = clock._paused = true;
+            clock._time = 1f;
+            ocean.PushTimeProvider(clock);
+            Time.timeScale = 0;
+            yield return SettleRiver();
+
+            var depth = ocean._lodDataSeaDepths.DataTexture;
+            var flow = ocean._lodDataFlow.DataTexture;
+            var wave = ocean._lodDataAnimWaves.DataTexture;
+            CheckExample(depth.width == flow.width && depth.width == wave.width &&
+                depth.height == flow.height && depth.height == wave.height, "River field resolutions");
+            var baseDepth = SceneRead(depth, true);
+            var baseFlow = SceneRead(flow);
+            var baseWave = SceneRead(wave);
+            int overlap = 0;
+            for (int i = 0; i < baseWave.Length; i++)
+            {
+                var current = new Vector2(baseFlow[i].x, baseFlow[i].y);
+                if (Mathf.Abs(baseDepth[i].y) > .02f && current.sqrMagnitude > .0004f && Mathf.Abs(baseWave[i].y) > .02f)
+                    overlap++;
+            }
+            SceneMeasure("overlappingTexels", overlap);
+            CheckExample(overlap > 0, "Height, flow and waves must coexist");
+
+            Color32[] first = null, second = null, restored = null;
+            yield return SceneCapture(() => first = ReadExample(camera, "phase1.png"));
+            clock._time = 2f;
+            yield return SettleRiver();
+            double waveDelta = SceneRead(wave).Zip(baseWave, (a, b) => (double)Mathf.Abs(a.y - b.y)).Sum();
+            yield return SceneCapture(() => second = ReadExample(camera, "phase2.png"));
+            _originalSceneReport.changed = first.Zip(second, (a, b) =>
+                Mathf.Abs(a.r - b.r) + Mathf.Abs(a.g - b.g) + Mathf.Abs(a.b - b.b) > 6).Count(changed => changed);
+            SceneMeasure("phaseWaveDelta", waveDelta);
+            CheckExample(waveDelta > 1 && _originalSceneReport.changed > 200, "Visible wave phase response");
+
+            clock._time = 1f;
+            foreach (var input in heights) input.enabled = false;
+            yield return SettleRiver();
+            double heightDelta = SceneRead(depth, true).Zip(baseDepth, (a, b) => (double)Mathf.Abs(a.y - b.y)).Sum();
+            foreach (var input in heights) input.enabled = true;
+            foreach (var input in flows) input.enabled = false;
+            yield return SettleRiver();
+            double flowDelta = SceneRead(flow).Zip(baseFlow, (a, b) => (double)(a - b).magnitude).Sum();
+            foreach (var input in flows) input.enabled = true;
+            yield return SettleRiver();
+            CheckExample(depthRegistrar.Select(entry => entry.Value).OfType<RegisterHeightInput>().SequenceEqual(heights) &&
+                flowRegistrar.Select(entry => entry.Value).OfType<RegisterFlowInput>().SequenceEqual(flows), "River registration order");
+            SceneMeasure("heightDelta", heightDelta);
+            SceneMeasure("flowDelta", flowDelta);
+            CheckExample(heightDelta > 1 && flowDelta > 1, "Independent height and flow inputs");
+
+            float depthRestore = SceneRead(depth, true).Zip(baseDepth, (a, b) => Mathf.Abs(a.y - b.y)).Max();
+            float flowRestore = SceneRead(flow).Zip(baseFlow, (a, b) => (a - b).magnitude).Max();
+            float waveRestore = SceneRead(wave).Zip(baseWave, (a, b) => (a - b).magnitude).Max();
+            yield return SceneCapture(() => restored = ReadExample(camera, "restored.png"));
+            _originalSceneReport.restoration = first.Zip(restored, (a, b) => !a.Equals(b)).Count(changed => changed);
+            SceneMeasure("heightRestore", depthRestore);
+            SceneMeasure("flowRestore", flowRestore);
+            SceneMeasure("waveRestore", waveRestore);
+            CheckExample(depthRestore < .002f && flowRestore < .002f && waveRestore < .002f &&
+                _originalSceneReport.restoration == 0, "River field and image restoration");
+            ocean.PopTimeProvider(clock);
+        }
+
+        static IEnumerator SettleRiver()
+        {
+            for (int frame = 0; frame < 16; frame++) yield return null;
+        }
+
         IEnumerator SceneFields(Camera camera,bool rivers)
         {
             var ocean=OceanRenderer.Instance;var clock=new ExampleFixedTime();ocean.PushTimeProvider(clock);Time.timeScale=0;

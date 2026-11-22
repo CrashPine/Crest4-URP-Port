@@ -29,6 +29,7 @@ namespace Crest.URP.Editor
         {
             if (Application.unityVersion != "6000.6.5f1") throw new InvalidOperationException("Wrong Unity target.");
             var arguments = Environment.GetCommandLineArgs();
+            bool composedRiver = mode == 2 && Array.IndexOf(arguments, "-crestBuildComposedRiver") >= 0;
             bool activateProbeBox = mode == 9 && Array.IndexOf(arguments, "-crestProbeBoxOnly") >= 0;
             bool activateProbeAtlas = mode == 9 && Array.IndexOf(arguments, "-crestProbeAtlasOnly") >= 0;
             bool restoreQualityPipeline = mode != 9 || activateProbeBox || activateProbeAtlas;
@@ -150,7 +151,7 @@ namespace Crest.URP.Editor
                         "Assets/Crest/Crest-Examples/Whirlpool/Scenes/whirlpool.unity"}:
                         mode==1?new[]{path,"Assets/Crest/Crest-Examples/Examples/Scenes/Examples.unity"}:new[] {path,"Assets/CrestPortDemos/Ocean_Calm.unity","Assets/CrestPortDemos/Ocean_Interactions.unity"},
                     target=BuildTarget.StandaloneWindows64,
-                    locationPathName=mode==9?"Builds/P12-LocalProbes/LocalProbes.exe":mode==8?"Builds/P11-DepthCacheLifecycle/DepthCacheLifecycle.exe":mode==7?"Builds/P11-DebugGui/DebugGui.exe":mode==6?"Builds/P11-NavigationInput/NavigationInput.exe":mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
+                    locationPathName=composedRiver?"Builds/P13-RiverComposition/OriginalScenes.exe":mode==9?"Builds/P12-LocalProbes/LocalProbes.exe":mode==8?"Builds/P11-DepthCacheLifecycle/DepthCacheLifecycle.exe":mode==7?"Builds/P11-DebugGui/DebugGui.exe":mode==6?"Builds/P11-NavigationInput/NavigationInput.exe":mode==5?"Builds/P11-ReflectionModes/ReflectionModes.exe":mode==4?"Builds/P11-CameraStack/CameraStack.exe":mode==3?"Builds/P11-RenderModes/RenderModes.exe":mode==2?"Builds/P11-OriginalScenes/OriginalScenes.exe":mode==1?"Builds/P11-OriginalExamples/OriginalExamples.exe":"Builds/P10-ResourceProbe/ResourceProbe.exe",
                     options=BuildOptions.Development,
                     extraScriptingDefines=new[] {"CREST_RESOURCE_PROBE"}
                 });
