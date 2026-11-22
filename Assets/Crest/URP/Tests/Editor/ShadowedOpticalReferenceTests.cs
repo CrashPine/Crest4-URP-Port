@@ -45,15 +45,27 @@ public class ShadowedOpticalReferenceTests
 
  [UnityTest,Timeout(240000)]
  public IEnumerator OriginalShadowedCausticsAndUnderwaterLightingMatchInteriors()
+  => RunShadowedOptics(volumeOnly: false);
+
+ [UnityTest, Timeout(180000)]
+ public IEnumerator ShadowedCausticsRespectNativeVolumeBoundary()
+  => RunShadowedOptics(volumeOnly: true);
+
+ IEnumerator RunShadowedOptics(bool volumeOnly)
  {
   _pipeline=GraphicsSettings.defaultRenderPipeline;_quality=QualitySettings.renderPipeline;
   _captureRate=Time.captureFramerate;_oldShadows=QualitySettings.shadows;_oldProjection=QualitySettings.shadowProjection;_oldResolution=QualitySettings.shadowResolution;_oldDistance=QualitySettings.shadowDistance;_oldCascades=QualitySettings.shadowCascades;
   OceanRenderer.EnableGraphicsInBatchMode=true;EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
   yield return new EnterPlayMode();Assert.That(Application.isPlaying,Is.True);
-  _report=$"Evidence/ShadowedOpticalReference-{SystemInfo.graphicsDeviceType}.txt";
+  _report = volumeOnly
+   ? $"Evidence/P13-VolumeCaustics-{SystemInfo.graphicsDeviceType}.txt"
+   : $"Evidence/ShadowedOpticalReference-{SystemInfo.graphicsDeviceType}.txt";
+  if (!volumeOnly)
+  {
   File.WriteAllText(_report,"P09.4 shadowed original surface/underwater comparison. Independently cleared/rendered BIRP native shadow map, screen mask and original UpdateShadow LOD shaders vs URP graph/atlas. Matching opaque receiver colour with BIRP ForwardBase shadow receiver (receive strength0); caustic shadow occlusion remains active in original Crest. Independent BIRP render starts with original white screen-shadow fallback, native collector overwrites it when active. Below view uses independently rendered above-water native LOD history copied to previous buffer (same cascade metadata, no cross-pipeline shadow data). Predefined interior max2/mean.05 RGB byte tolerance, exact URP restoration. Analytic caster XZ margin1m, viewport margin.025; both floor and water shadow boundaries excluded for above-water interiors. Whole-frame metrics retained. Hard light, one cascade/distance100/2048, zero jitter/weights1, Time.deltaTime1/60, ocean time1/delta0, flat water, refraction strength0.\n");
   _root=Path.GetFullPath("../../work/crest-upstream/crest/Assets/Crest/Crest/Shaders");
   _sources=JsonUtility.FromJson<Manifest>(File.ReadAllText("Evidence/P09-ShadowedOpticalReference-sources.json")).files.ToDictionary(x=>x.path,x=>x.sha256);
+  }
   _testPipeline=Own(Object.Instantiate((UniversalRenderPipelineAsset)(_quality!=null?_quality:_pipeline)));
   _testPipeline.shadowDistance=100;_testPipeline.shadowCascadeCount=1;_testPipeline.mainLightShadowmapResolution=2048;
   GraphicsSettings.defaultRenderPipeline=_testPipeline;QualitySettings.renderPipeline=_testPipeline;
@@ -69,6 +81,7 @@ public class ShadowedOpticalReferenceTests
   _surface=Own(new Material(_ocean.OceanMaterial));
   foreach(var key in new[]{"_FOAM_ON","_CAUSTICS_ON","_APPLYNORMALMAPPING_ON","_CLIPSURFACE_ON"})_surface.DisableKeyword(key);
   _surface.EnableKeyword("_UNDERWATER_ON");_surface.EnableKeyword("_SHADOWS_ON");_surface.EnableKeyword("_TRANSPARENCY_ON");
+  if (volumeOnly) _surface.SetInt("_CullMode", (int)CullMode.Off);
   _surface.SetFloat("_Underwater",1);_surface.SetFloat("_Shadows",1);_surface.SetFloat("_Transparency",1);_surface.SetFloat("_RefractionStrength",0);
   _surface.SetFloat("_Foam",0);_surface.SetFloat("_Caustics",0);_surface.SetFloat("_ApplyNormalMapping",0);
   _surface.SetVector("_DepthFogDensity",new Vector4(.06f,.035f,.02f,1));_surface.SetColor("_DiffuseShadow",new Color(.025f,.04f,.055f));
@@ -87,6 +100,11 @@ public class ShadowedOpticalReferenceTests
   _clock=_ocean.gameObject.AddComponent<TimeProviderCustom>();_clock._overrideTime=_clock._overrideDeltaTime=true;_clock._time=1;_clock._deltaTime=0;_ocean.PushTimeProvider(_clock);
   _target=Own(new RenderTexture(Width,Height,24,RenderTextureFormat.ARGB32));_target.Create();
   _fog=_camera.gameObject.AddComponent<UnderwaterRenderer>();_fog.EnableShaderAPI=false;_fog._copyOceanMaterialParamsEachFrame=true;
+  if (volumeOnly)
+  {
+   yield return CheckVolumeCaustics();
+   yield break;
+  }
   _originalSurface=Own(new Material(_surface){shader=Load("Ocean.shader","Surface")});_originalSurface.CopyPropertiesFromMaterial(_surface);
   _originalMask=Load("Underwater/Resources/UnderwaterMask.shader","Mask");_originalEffect=Load("Underwater/Resources/UnderwaterEffect.shader","Effect");_originalShadow=Load("Resources/UpdateShadow.shader","Shadow");
   Camera.onPreRender+=PrepareOriginal;Camera.onPreCull+=ShadowPreCull;Camera.onPostRender+=ShadowPostRender;
@@ -105,6 +123,101 @@ public class ShadowedOpticalReferenceTests
   }
   Assert.That(_errors,Is.Empty,"All predefined original-reference comparisons and feature controls must pass.");
  }
+ IEnumerator CheckVolumeCaustics()
+ {
+  const string prefix = "P13-VolumeCaustics";
+  SetView(true);
+  var geometry = Own(GameObject.CreatePrimitive(PrimitiveType.Cube));
+  geometry.name = "Caustics volume";
+  geometry.transform.SetPositionAndRotation(_camera.transform.TransformPoint(new Vector3(-2, 4, 9)),
+   _camera.transform.rotation);
+  geometry.transform.localScale = new Vector3(10, 8, 12);
+  geometry.GetComponent<Renderer>().enabled = false;
+  _fog.enabled = false;
+  _fog._mode = UnderwaterRenderer.Mode.Volume;
+  _fog._volumeGeometry = geometry.GetComponent<MeshFilter>();
+  var fogSettings = new SerializedObject(_fog);
+  fogSettings.FindProperty("_meniscus").boolValue = false;
+  fogSettings.ApplyModifiedPropertiesWithoutUndo();
+  _fog.enabled = true;
+  for (int frame = 0; frame < 12; frame++) yield return null;
+  _shadow = _ocean._lodDataShadow;
+  Assert.That(_shadow, Is.Not.Null);
+
+  File.WriteAllText(_report, "Flat underwater view. Native URP shadow atlas, original caustics and a closed volume. "
+   + "Analytic camera-ray intersection separates guarded floor samples inside the volume, behind its back face, and outside its projection.\n");
+  SetCaustics(false);
+  var litOff = Capture("LitOff", false, prefix);
+  SetCaustics(true);
+  var litOn = Capture("LitOn", false, prefix);
+  _caster.SetActive(true);
+  var shadowOn = Capture("ShadowOn", false, prefix);
+  SetCaustics(false);
+  var shadowOff = Capture("ShadowOff", false, prefix);
+  _caster.SetActive(false);
+  Assert.That(Capture("LitRestored", false, prefix), Is.EqualTo(litOff));
+
+  int litInterior = 0, occludedInterior = 0, behind = 0, exterior = 0;
+  int litResponse = 0, unmaskedResponse = 0, shadowLeaks = 0, behindLeaks = 0, exteriorLeaks = 0;
+  var inner = new Bounds(Vector3.zero, Vector3.one * .92f);
+  var outer = new Bounds(Vector3.zero, Vector3.one * 1.08f);
+  var inverse = geometry.transform.worldToLocalMatrix;
+  for (int i = 0; i < litOn.Length; i++)
+  {
+   if (!Interior(i, out bool occluded)) continue;
+   var ray = _camera.ViewportPointToRay(new Vector3((i % Width + .5f) / Width, (i / Width + .5f) / Height));
+   var floor = ray.GetPoint((-8f - ray.origin.y) / ray.direction.y);
+   var point = inverse.MultiplyPoint3x4(floor);
+   var local = new Ray(inverse.MultiplyPoint3x4(ray.origin), inverse.MultiplyVector(ray.direction));
+   int litDelta = PixelDelta(litOn[i], litOff[i]);
+   int shadowDelta = PixelDelta(shadowOn[i], shadowOff[i]);
+   if (inner.Contains(point))
+   {
+    if (occluded)
+    {
+     occludedInterior++;
+     if (litDelta > 6) unmaskedResponse++;
+     if (shadowDelta > 6) shadowLeaks++;
+    }
+    else
+    {
+     litInterior++;
+     if (shadowDelta > 6) litResponse++;
+    }
+   }
+   else if (point.z > outer.max.z && inner.IntersectRay(local))
+   {
+    behind++;
+    if (litDelta > 6 || shadowDelta > 6) behindLeaks++;
+   }
+   else if (!outer.IntersectRay(local))
+   {
+    exterior++;
+    if (litDelta > 6 || shadowDelta > 6) exteriorLeaks++;
+   }
+  }
+  File.AppendAllText(_report,
+   $"LitInterior={litInterior}; LitResponse={litResponse}; OccludedInterior={occludedInterior}; UnmaskedResponse={unmaskedResponse}; "
+   + $"ShadowLeaks={shadowLeaks}; Behind={behind}; BehindLeaks={behindLeaks}; Exterior={exterior}; ExteriorLeaks={exteriorLeaks}; ExactRestore=True\n");
+  Assert.That(litResponse, Is.GreaterThan(100), "Real shadows must leave nearby lit caustics.");
+  Assert.That(unmaskedResponse, Is.GreaterThan(100), "The same occluded points must respond without the caster.");
+  Assert.That(shadowLeaks, Is.Zero, "Caustics must disappear in hard shadow.");
+  Assert.That(behind, Is.GreaterThan(100));
+  Assert.That(exterior, Is.GreaterThan(100));
+  Assert.That(behindLeaks, Is.Zero, "The volume back face must suppress caustics behind it.");
+  Assert.That(exteriorLeaks, Is.Zero, "Caustics must stay within the projected volume.");
+ }
+
+ void SetCaustics(bool enabled)
+ {
+  if (enabled) _surface.EnableKeyword("_CAUSTICS_ON");
+  else _surface.DisableKeyword("_CAUSTICS_ON");
+  _surface.SetFloat("_Caustics", enabled ? 1 : 0);
+ }
+
+ static int PixelDelta(Color32 a, Color32 b)
+  => Mathf.Abs(a.r - b.r) + Mathf.Abs(a.g - b.g) + Mathf.Abs(a.b - b.b);
+
  void SetView(bool below)
  {
   _below=below;
@@ -227,7 +340,7 @@ public class ShadowedOpticalReferenceTests
   }
   else RenderPipeline.SubmitRenderRequest(_camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});
  }
- Color32[] Capture(string label,bool builtin)
+ Color32[] Capture(string label,bool builtin,string prefix="ShadowedOpticalReference")
  {
   _shadow.ClearLodData();_shadow.BufCopyShadowMap.Clear();
   if(_below)
@@ -242,7 +355,7 @@ public class ShadowedOpticalReferenceTests
   }
   RenderCamera(builtin);
   var prev=RenderTexture.active;var cpu=new Texture2D(Width,Height,TextureFormat.RGBA32,false);
-  try {RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,Width,Height),0,0);cpu.Apply();File.WriteAllBytes($"Evidence/ShadowedOpticalReference-{label}-{SystemInfo.graphicsDeviceType}.png",cpu.EncodeToPNG());return cpu.GetPixels32();}
+  try {RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,Width,Height),0,0);cpu.Apply();File.WriteAllBytes($"Evidence/{prefix}-{label}-{SystemInfo.graphicsDeviceType}.png",cpu.EncodeToPNG());return cpu.GetPixels32();}
   finally {RenderTexture.active=prev;Object.DestroyImmediate(cpu);}
  }
  static int Different(Color32[] a,Color32[] b)=>a.Zip(b,(x,y)=>Math.Abs(x.r-y.r)+Math.Abs(x.g-y.g)+Math.Abs(x.b-y.b)>6?1:0).Sum();

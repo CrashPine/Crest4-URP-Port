@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.4 Shadowed caustics at a closed volume boundary
+
+ShadowedCausticsRespectNativeVolumeBoundary passed 1/1 on DX11 and 1/1 on DX12 with identical counters. The flat-water Editor fixture uses the native URP shadow atlas and a closed Volume. Analytic ray tests classify the floor independently of the rendered mask and exclude ambiguous edges. With the caster present, 4,369 of 5,175 lit interior samples responded to caustics. In the 5,345 occluded samples, 4,838 responded with the caster absent and zero responded with the caster present. Caustics produced zero changes past the RGB threshold in 5,472 samples behind the back face and 15,585 outside the projection. Restoring the first state restored the full frame exactly.
+
+The first layout had no guarded lit interior or exterior samples and failed the positive control. The final layout exposes both while retaining the same assertions. Collision queries are intentionally disabled in this optical fixture and Unity reports that setting. [Passing XML, counters and frames](Evidence/P13-VolumeCaustics-DX11-DX12.zip) · [Initial layout](Evidence/P13-VolumeCaustics-geometry-attempt.zip).
+
 ## P13.4 Transparent fog at native volume faces
 
 TransparentFogRespectsNativePortalAndVolumeFaces passed 1/1 on DX11 and 1/1 on DX12 in Editor with identical measurements. The fixture uses native Portal, Volume and Fly-Through faces, a transparent Crest example material at alpha 0.6 and an opaque receiver. Before the front face, toggling the transparent fog multiplier changed zero pixels. Inside the footprint, toggling it changed 20,736 sampled interior pixels with zero changes in the guarded exterior. The opaque background alone also changed 20,736 interior pixels and zero exterior pixels in each mode.
