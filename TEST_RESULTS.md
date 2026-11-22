@@ -1,6 +1,14 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка: **2026-11-22**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+
+## P13.5 Active origin shift and headless FFT
+
+ActiveDynamicWavesAndFoamMatchUnshiftedSimulation passed 1/1 on DX11 and DX12. Four positive simulation pulses seeded native Add Bump and Override Foam data in Ocean_Calm. With both inputs disabled, a single 32 Hz step ran with and without a native 2,048 m X origin shift. A late observer confirmed one dynamic-wave substep and one foam substep while the shift flag was set. Across all seven slices the largest changes were 0.104919 in wave RG and 0.020508 in foam, and both fields matched the unshifted run exactly at corresponding texels. The maximum cascade-centre difference was 0.000082 m. Fixed LOD scale; the test exercises propagation and decay of source-off history. Three initial fixture scheduling failures are included. [Editor reports and counters](Evidence/P13-ActiveOrigin-DX11-DX12.zip).
+
+The Windows Development Player used `-batchmode -nographics` and the actual Null device. The initial run detected cascade compute-buffer allocations inherited from the original OceanRenderer. The corrected Player loaded the saved BakedFFT profile on startup and after scene reload, with no LOD simulation objects, cascade compute buffers or ocean graphics submissions. On both loads the SHA-256 of all 32,768 serialized half values matched the authored bake. With Unity time paused, TimeProviderNetworked applied offsets −0.125, 1 and 4.125 s, covering negative time and the four-second loop boundary. Thirty public query samples matched the independent scalar reference with maximum errors of 0.000002563 m in height, 0.000003903 in normal, 0.000013598 m/s in vertical velocity and 0.000000009 m in displacement. Horizontal displacement peaked at 0.103657 m. Reload destroyed the previous ocean and released its 16 CPU position arrays. The Player exited successfully with zero errors. [Saved fixtures and before/after Player evidence](Evidence/P13-HeadlessFFT.zip).
+
+After the OceanRenderer change, full EditMode passed 143/143 in batch and 3/3 in Game View on each API. All four invocations exited successfully and skipped zero tests. [Full regression](Evidence/P13-HeadlessRegression-DX11-DX12.zip).
 
 ## P13.4 Shadowed caustics at a closed volume boundary
 

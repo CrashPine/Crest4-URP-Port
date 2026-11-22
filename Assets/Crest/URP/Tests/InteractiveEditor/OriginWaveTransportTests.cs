@@ -17,13 +17,26 @@ using Object = UnityEngine.Object;
 public class OriginWaveShiftObservation : MonoBehaviour
 {
     public bool Armed, Done;
+    public bool ExpectShift = true;
+    public System.Action BeforeSimulation;
+    public System.Action AfterSimulation;
     public Vector3 Origin;
     public int Frame;
     void FixedUpdate()
     {
-        if(Armed && ShiftingOrigin.HasTeleportedThisFrame)
+        if(Armed && (!ExpectShift || ShiftingOrigin.HasTeleportedThisFrame))
         {
             Origin=ShiftingOrigin.TeleportOriginThisFrame; Frame=Time.frameCount; Done=true; Armed=false;
+            BeforeSimulation?.Invoke();
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (Done && AfterSimulation != null && BuildCommandBufferBase._lastUpdateFrame == Time.frameCount)
+        {
+            AfterSimulation();
+            AfterSimulation = null;
         }
     }
 }
@@ -52,6 +65,173 @@ public class OriginWaveTransportTests
     int _capture, _cases, _packets;
     string _report;
     static readonly FieldInfo ResultTime=typeof(QueryBase).GetField("_queryResultsTime",BindingFlags.Instance|BindingFlags.NonPublic);
+
+    sealed class SimulationFields
+    {
+        public Vector2[][] Waves;
+        public float[][] Foam;
+        public Vector3[] Centers;
+    }
+
+    const int SimulationFrequency = 32;
+
+    [UnityTest, Timeout(60000)]
+    public IEnumerator ActiveDynamicWavesAndFoamMatchUnshiftedSimulation()
+    {
+        _scale = Time.timeScale;
+        _capture = Time.captureFramerate;
+        Assert.That(Application.isBatchMode, Is.False, "Requires actual fixed-update and end-of-frame scheduling.");
+        const string scene = "Assets/CrestPortDemos/Ocean_Calm.unity";
+        EditorSceneManager.OpenScene(scene);
+        var game = EditorWindow.GetWindow(typeof(EditorWindow).Assembly.GetType("UnityEditor.GameView"));
+        game.Show();
+        game.Focus();
+        yield return new EnterPlayMode();
+        Time.timeScale = 1;
+        Time.captureFramerate = 60;
+        _report = $"Evidence/P13-ActiveOrigin-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(_report, "Fixed LOD scale; identical local inputs and 32 Hz pulses. Compare dynamic wave RG and foam across all native slices. Both sources disabled for the measured step.\n");
+        SimulationFields controlBefore = null, controlAfter = null;
+        var offset = Vector3.right * 2048;
+        for (int trial = 0; trial < 2; trial++)
+        {
+            if (trial > 0)
+            {
+                yield return SceneManager.LoadSceneAsync(scene);
+                ReleaseAssets();
+            }
+
+            Setup(9, true, 0, offset);
+            _waves.enabled = false;
+            var ocean = OceanRenderer.Instance;
+            var waves = Own(ScriptableObject.CreateInstance<SimSettingsWave>());
+            waves._simulationFrequency = SimulationFrequency;
+            waves._attenuationInShallows = 0;
+            ocean._simSettingsDynamicWaves = waves;
+            ocean._simSettingsFoam._simulationFrequency = SimulationFrequency;
+            ocean._simSettingsFoam._foamFadeRate = 1;
+            var settings = new SerializedObject(ocean);
+            settings.FindProperty("_createDynamicWaveSim").boolValue = true;
+            settings.ApplyModifiedPropertiesWithoutUndo();
+            var bump = GameObject.CreatePrimitive(PrimitiveType.Plane);
+            Object.DestroyImmediate(bump.GetComponent<Collider>());
+            bump.transform.SetParent(_marker, false);
+            bump.transform.localPosition = Vector3.down * 4;
+            var material = Own(new Material(Shader.Find("Crest/Inputs/Dynamic Waves/Add Bump")));
+            material.SetFloat("_Amplitude", 12);
+            material.SetFloat("_Radius", 1.5f);
+            material.SetFloat("_SimDeltaTime", 1f / SimulationFrequency);
+            bump.GetComponent<Renderer>().sharedMaterial = material;
+            var source = bump.AddComponent<RegisterDynWavesInput>();
+            source.enabled = false;
+            _foamSource.enabled = false;
+            yield return Updates(8);
+            ocean.PushTimeProvider(_clock);
+            source.enabled = true;
+            _foamSource.enabled = true;
+
+            for (int step = 0; step < 4; step++)
+                yield return SimulationPulse(false, Vector3.zero);
+            source.enabled = false;
+            _foamSource.enabled = false;
+            yield return Updates(2);
+            var before = ReadSimulationFields(ocean);
+            bool shifting = trial == 1;
+            yield return SimulationPulse(shifting, offset);
+            var after = ReadSimulationFields(ocean);
+            var change = CompareSimulationFields(before, after, shifting ? offset : Vector3.zero);
+            File.AppendAllText(_report, $"Trial={trial}; SimulationFrame={_observer.Frame}; StepSeconds={1f / SimulationFrequency:R}; WaveChange={change.wave:R}; FoamChange={change.foam:R}; CenterError={change.center:R}\n");
+            Assert.That(change.wave, Is.GreaterThan(.01f), "Dynamic wave history must advance after removing the impulse.");
+            Assert.That(change.foam, Is.GreaterThan(.01f), "Foam history must decay after removing its source.");
+            Assert.That(change.center, Is.LessThan(.002f));
+            if (!shifting)
+            {
+                controlBefore = before;
+                controlAfter = after;
+                continue;
+            }
+
+            foreach (var pair in new[] { (controlBefore, before, "Before"), (controlAfter, after, "After") })
+            {
+                var error = CompareSimulationFields(pair.Item1, pair.Item2, pair.Item3 == "Before" ? Vector3.zero : offset);
+                File.AppendAllText(_report, $"Phase={pair.Item3}; MaxWaveRGError={error.wave:R}; MaxFoamError={error.foam:R}; CenterError={error.center:R}\n");
+                Assert.That(error.center, Is.LessThan(.002f), pair.Item3);
+                Assert.That(error.wave, Is.LessThan(.005f), pair.Item3);
+                Assert.That(error.foam, Is.LessThan(.005f), pair.Item3);
+            }
+        }
+    }
+
+    IEnumerator SimulationPulse(bool shift, Vector3 expectedShift)
+    {
+        Assert.That(OceanRenderer.Instance.TimeProvider, Is.SameAs(_clock));
+        _observer.Done = false;
+        _observer.ExpectShift = shift;
+        _observer.BeforeSimulation = () => _clock._deltaTime = 1f / SimulationFrequency;
+        int waveSteps = -1, foamSteps = -1;
+        bool shiftedDuringSimulation = false;
+        _observer.AfterSimulation = () =>
+        {
+            var ocean = OceanRenderer.Instance;
+            waveSteps = ocean._lodDataDynWaves.LastUpdateSubstepCount;
+            foamSteps = ocean._lodDataFoam.LastUpdateSubstepCount;
+            shiftedDuringSimulation = ShiftingOrigin.HasTeleportedThisFrame;
+            _clock._deltaTime = 0;
+        };
+        _observer.Armed = true;
+        _shift.enabled = shift;
+        float deadline = Time.realtimeSinceStartup + 8;
+        while (!_observer.Done && Time.realtimeSinceStartup < deadline)
+            yield return new WaitForFixedUpdate();
+        Assert.That(_observer.Done, Is.True);
+        if (shift) Assert.That(_observer.Origin, Is.EqualTo(expectedShift));
+        yield return new WaitForEndOfFrame();
+        Assert.That(waveSteps, Is.EqualTo(1));
+        Assert.That(foamSteps, Is.EqualTo(1));
+        Assert.That(shiftedDuringSimulation, Is.EqualTo(shift));
+        Assert.That(ShiftingOrigin.HasTeleportedThisFrame, Is.False);
+    }
+
+    static SimulationFields ReadSimulationFields(OceanRenderer ocean)
+    {
+        var waveRead = AsyncGPUReadback.Request(ocean._lodDataDynWaves.DataTexture, 0, TextureFormat.RGFloat);
+        var foamRead = AsyncGPUReadback.Request(ocean._lodDataFoam.DataTexture, 0, TextureFormat.RFloat);
+        waveRead.WaitForCompletion();
+        foamRead.WaitForCompletion();
+        Assert.That(waveRead.hasError || foamRead.hasError, Is.False);
+        int count = ocean.CurrentLodCount;
+        Assert.That(waveRead.layerCount, Is.EqualTo(count));
+        Assert.That(foamRead.layerCount, Is.EqualTo(count));
+        var fields = new SimulationFields { Waves = new Vector2[count][], Foam = new float[count][], Centers = new Vector3[count] };
+        for (int layer = 0; layer < count; layer++)
+        {
+            fields.Waves[layer] = waveRead.GetData<Vector2>(layer).ToArray();
+            fields.Foam[layer] = foamRead.GetData<float>(layer).ToArray();
+            fields.Centers[layer] = ocean._lodTransform._renderData[layer].Current._posSnapped;
+        }
+
+        return fields;
+    }
+
+    static (float wave, float foam, float center) CompareSimulationFields(SimulationFields a, SimulationFields b, Vector3 shift)
+    {
+        float wave = 0, foam = 0, center = 0;
+        for (int layer = 0; layer < a.Centers.Length; layer++)
+        {
+            center = Mathf.Max(center, Vector3.Distance(a.Centers[layer] - shift, b.Centers[layer]));
+            for (int pixel = 0; pixel < a.Waves[layer].Length; pixel++)
+            {
+                var delta = a.Waves[layer][pixel] - b.Waves[layer][pixel];
+                float foamDelta = a.Foam[layer][pixel] - b.Foam[layer][pixel];
+                if (!float.IsFinite(delta.x) || !float.IsFinite(delta.y) || !float.IsFinite(foamDelta))
+                    Assert.Fail($"Non-finite simulation at layer {layer}, texel {pixel}.");
+                wave = Mathf.Max(wave, Mathf.Abs(delta.x), Mathf.Abs(delta.y));
+                foam = Mathf.Max(foam, Mathf.Abs(foamDelta));
+            }
+        }
+
+        return (wave, foam, center);
+    }
 
     [UnityTest,Timeout(60000)]
     public IEnumerator FrozenWaveCompatibilityAndUnforcedFoamHistorySurviveActualShift()

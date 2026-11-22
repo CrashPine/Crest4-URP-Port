@@ -663,17 +663,19 @@ namespace Crest
             }
 
             _perCascadeInstanceData = new BufferedData<PerCascadeInstanceData[]>(BufferSize, () => new PerCascadeInstanceData[LodDataMgr.MAX_LOD_COUNT]);
-            _bufPerCascadeInstanceData = new ComputeBuffer(_perCascadeInstanceData.Current.Length, UnsafeUtility.SizeOf<PerCascadeInstanceData>());
-            Shader.SetGlobalBuffer(sp_perCascadeInstanceData, _bufPerCascadeInstanceData);
-            _bufPerCascadeInstanceDataSource = new ComputeBuffer(_perCascadeInstanceData.Previous(1).Length, UnsafeUtility.SizeOf<PerCascadeInstanceData>());
-            Shader.SetGlobalBuffer(sp_CrestPerCascadeInstanceDataSource, _bufPerCascadeInstanceDataSource);
-
             // The extra LOD accounts for reading off the cascade (eg CurrentIndex + LodChange + 1).
             _cascadeParams = new BufferedData<CascadeParams[]>(BufferSize, () => new CascadeParams[LodDataMgr.MAX_LOD_COUNT + 1]);
-            _bufCascadeDataTgt = new ComputeBuffer(_cascadeParams.Current.Length, UnsafeUtility.SizeOf<CascadeParams>());
-            Shader.SetGlobalBuffer(sp_cascadeData, _bufCascadeDataTgt);
-            _bufCascadeDataSrc = new ComputeBuffer(_cascadeParams.Previous(1).Length, UnsafeUtility.SizeOf<CascadeParams>());
-            Shader.SetGlobalBuffer(sp_CrestCascadeDataSource, _bufCascadeDataSrc);
+            if (!RunningWithoutGPU)
+            {
+                _bufPerCascadeInstanceData = new ComputeBuffer(_perCascadeInstanceData.Current.Length, UnsafeUtility.SizeOf<PerCascadeInstanceData>());
+                Shader.SetGlobalBuffer(sp_perCascadeInstanceData, _bufPerCascadeInstanceData);
+                _bufPerCascadeInstanceDataSource = new ComputeBuffer(_perCascadeInstanceData.Previous(1).Length, UnsafeUtility.SizeOf<PerCascadeInstanceData>());
+                Shader.SetGlobalBuffer(sp_CrestPerCascadeInstanceDataSource, _bufPerCascadeInstanceDataSource);
+                _bufCascadeDataTgt = new ComputeBuffer(_cascadeParams.Current.Length, UnsafeUtility.SizeOf<CascadeParams>());
+                Shader.SetGlobalBuffer(sp_cascadeData, _bufCascadeDataTgt);
+                _bufCascadeDataSrc = new ComputeBuffer(_cascadeParams.Previous(1).Length, UnsafeUtility.SizeOf<CascadeParams>());
+                Shader.SetGlobalBuffer(sp_CrestCascadeDataSource, _bufCascadeDataSrc);
+            }
 
             _lodTransform = new LodTransform();
             _lodTransform.InitLODData(_lodCount, BufferSize);
@@ -1152,25 +1154,27 @@ namespace Crest
 
             LateUpdateResetMaxDisplacementFromShape();
 
-            WritePerFrameMaterialParams();
-
+            if (!RunningWithoutGPU)
+            {
+                WritePerFrameMaterialParams();
 #if UNITY_EDITOR
-            if (EditorApplication.isPlaying || !_showOceanProxyPlane)
+                if (EditorApplication.isPlaying || !_showOceanProxyPlane)
 #endif
-            {
-                _commandbufferBuilder.BuildAndExecute();
-            }
-#if UNITY_EDITOR
-            else
-            {
-                // If we're not running, reset the frame data to avoid validation warnings
-                for (int i = 0; i < _lodTransform._renderData.Length; i++)
                 {
-                    _lodTransform._renderData[i].Current._frame = -1;
-                    _lodTransform._renderData[i].Previous(1)._frame = -1;
+                    _commandbufferBuilder.BuildAndExecute();
                 }
-            }
+#if UNITY_EDITOR
+                else
+                {
+                    // If we're not running, reset the frame data to avoid validation warnings
+                    for (int i = 0; i < _lodTransform._renderData.Length; i++)
+                    {
+                        _lodTransform._renderData[i].Current._frame = -1;
+                        _lodTransform._renderData[i].Previous(1)._frame = -1;
+                    }
+                }
 #endif
+            }
 
             // Wave generators retired during recording can be released after submission.
             FFTCompute.ReleaseRetiredGenerators();
@@ -1616,9 +1620,13 @@ namespace Crest
             _oceanChunkRenderers.Clear();
 
             _bufPerCascadeInstanceData?.Dispose();
+            _bufPerCascadeInstanceData = null;
             _bufCascadeDataTgt?.Dispose();
+            _bufCascadeDataTgt = null;
             _bufCascadeDataSrc?.Dispose();
+            _bufCascadeDataSrc = null;
             _bufPerCascadeInstanceDataSource?.Dispose();
+            _bufPerCascadeInstanceDataSource = null;
 
             _isInitialized = false;
         }

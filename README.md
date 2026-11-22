@@ -73,6 +73,13 @@ MIGRATION.md. Воспроизведение проверки: `Run-Unity.ps1 -A
 -GraphicsAPI DX11 -TestFilter BakedFFTTests` с тем же обязательным `-Editor`,
 что в командах выше (аналогично DX12).
 
+Для проверки сохранённой CPU FFT без графического устройства запустите Editor
+с `-batchmode -quit -force-d3d11 -executeMethod Crest.URP.Editor.ResourceShutdownProbeBuild.BuildHeadlessFFT`
+и укажите этот проект через `-projectPath`. Из корня проекта запустите
+`Builds/P13-HeadlessFFT/HeadlessFFT.exe -batchmode -nographics -crestResourceProbe -crestHeadlessFFT -crestProbeOutput HeadlessFFT.json`.
+Отчёт содержит тип устройства, результаты запросов при первой загрузке и после
+повторного открытия сцены. Путь для отчёта можно задать абсолютным.
+
 
 ## Non-batch lifecycle проверки
 
@@ -89,6 +96,8 @@ MIGRATION.md. Воспроизведение проверки: `Run-Unity.ps1 -A
 `OriginLifecycle-DX11.xml` / `OriginLifecycle-DX12.xml` сохраняют исходный lifecycle
 checkpoint. Для wave phase/foam history использовать `-TestFilter OriginWaveTransportTests`;
 численные отчёты — `OriginWaveTransport-Direct3D11.txt` / `Direct3D12.txt`.
+Активный шаг динамических волн и пены проверяется отдельно фильтром
+`OriginWaveTransportTests.ActiveDynamicWavesAndFoamMatchUnshiftedSimulation`.
 Для всего non-batch набора
 убрать `-TestFilter`. На milestones требуются обе assembly на обоих API: один
 batch XML не подтверждает EOF. Исходный WaitForEndOfFrame не работает в batch,

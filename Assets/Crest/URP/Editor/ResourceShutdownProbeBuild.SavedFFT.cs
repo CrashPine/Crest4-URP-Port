@@ -18,7 +18,10 @@ namespace Crest.URP.Editor
             public string scene,sceneGuid,settingsGuid,dataGuid,spectrumGuid,settingsName,dataName,rawHalfSHA256;
             public int rawHalfCount;public string scope="D1: real GPU FFT bake saved into serialized scene/profile/data; source-off GPU queries are flat controls, not baked/GPU visual parity.";
         }
-        public static void BuildSavedFFT()
+        public static void BuildSavedFFT() => BuildSavedFFT(false);
+        public static void BuildHeadlessFFT() => BuildSavedFFT(true);
+
+        static void BuildSavedFFT(bool headless)
         {
             if(Application.unityVersion!="6000.6.5f1")throw new InvalidOperationException("Wrong Unity target");
             bool graphics=OceanRenderer.EnableGraphicsInBatchMode,strict=PlayerSettings.strictShaderVariantMatching;
@@ -47,6 +50,7 @@ namespace Crest.URP.Editor
                 data=FFTBaker.BakeShapeFFT(fft,folder+"/Choppy.asset");if(data==null)throw new InvalidOperationException("Real FFT bake failed");
                 data.name="Persisted choppy FFT";EditorUtility.SetDirty(data);
                 var settings=ScriptableObject.CreateInstance<SimSettingsAnimatedWaves>();settings.name="Persisted FFT profile";settings.CollisionSource=SimSettingsAnimatedWaves.CollisionSources.ComputeShaderQueries;settings._bakedFFTData=data;
+                if (headless) settings.CollisionSource = SimSettingsAnimatedWaves.CollisionSources.BakedFFT;
                 AssetDatabase.CreateAsset(settings,folder+"/Settings.asset");ocean._simSettingsAnimatedWaves=settings;
                 var clock=ocean.gameObject.AddComponent<TimeProviderCustom>();clock._overrideTime=clock._overrideDeltaTime=true;clock._time=.125f;clock._deltaTime=0;
                 var oceanFields=new SerializedObject(ocean);oceanFields.FindProperty("_timeProvider").objectReferenceValue=clock;oceanFields.ApplyModifiedPropertiesWithoutUndo();
@@ -60,10 +64,11 @@ namespace Crest.URP.Editor
                 File.WriteAllText(folder+"/Resources/CrestSavedFFTManifest.json",JsonUtility.ToJson(manifest,true));
                 AssetDatabase.Refresh();AssetDatabase.SaveAssets();
                 // Keep exact serialized source/GUIDs and bake bytes outside Assets before cleanup.
-                string snapshot="Evidence/P11-SavedFFT-fixture-"+Path.GetFileName(folder);
+                string snapshot = (headless ? "Evidence/P13-HeadlessFFT-fixture-" : "Evidence/P11-SavedFFT-fixture-") + Path.GetFileName(folder);
                 FileUtil.CopyFileOrDirectory(folder,snapshot);File.Copy(folder+".meta",snapshot+".meta");
                 PlayerSettings.strictShaderVariantMatching=true;
-                var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{controlPath,path},target=BuildTarget.StandaloneWindows64,locationPathName="Builds/P11-SavedFFT/SavedFFT.exe",options=BuildOptions.Development,extraScriptingDefines=new[]{"CREST_RESOURCE_PROBE"}});
+                string executable = headless ? "Builds/P13-HeadlessFFT/HeadlessFFT.exe" : "Builds/P11-SavedFFT/SavedFFT.exe";
+                var build=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{controlPath,path},target=BuildTarget.StandaloneWindows64,locationPathName=executable,options=BuildOptions.Development,extraScriptingDefines=new[]{"CREST_RESOURCE_PROBE"}});
                 if(build.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Saved FFT diagnostic build failed");
                 Debug.Log("SAVED_FFT_BUILD_SUCCEEDED bytes="+build.summary.totalSize+" rawHalfSHA256="+hash);
             }

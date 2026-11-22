@@ -55,6 +55,12 @@ namespace Crest.URP.Diagnostics
         IEnumerator Start()
         {
             Application.logMessageReceived += Error;
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-crestHeadlessFFT") >= 0)
+            {
+                yield return GuardOriginalScene(HeadlessFFTPlayer(), RecordSavedFFTFailure);
+                yield break;
+            }
+
             string mode = Argument("-crestProbeMode", "Empty");
             if (mode != "Empty" && mode != "Ocean" && mode != "OceanUnload")
                 throw new ArgumentException("Unknown resource diagnostic mode: " + mode);
@@ -94,7 +100,7 @@ namespace Crest.URP.Diagnostics
             }
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"-crestSavedFFT")>=0)
             {
-                yield return GuardOriginalScene(SavedFFTPlayer(),error=>{if(_savedFFTReport!=null)_savedFFTReport.failure=error.ToString();SaveFFTReport();});yield break;
+                yield return GuardOriginalScene(SavedFFTPlayer(), RecordSavedFFTFailure);yield break;
             }
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"-crestReflectionModes")>=0)
             {

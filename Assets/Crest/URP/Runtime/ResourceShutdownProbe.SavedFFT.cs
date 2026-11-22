@@ -25,6 +25,7 @@ namespace Crest.URP.Diagnostics
             public string state,provider,rawHalfSHA256;public int samples,readyPackets,releasedGPUBufferCount,releasedCPUPositionCount;
             public float maxHeightError,maxNormalError,maxVelocityError,maxDisplacementError,horizontalPeak;
             public bool serializedBinding,oldOceanDestroyed,velocityChecked;
+            public List<float> networkOffsets;
         }
         [Serializable] class SavedFFTReport
         {
@@ -36,6 +37,11 @@ namespace Crest.URP.Diagnostics
         {
             if(_savedFFTReport==null)return;_savedFFTReport.errors=_errors;
             File.WriteAllText(Argument("-crestProbeOutput","SavedFFT.json"),JsonUtility.ToJson(_savedFFTReport,true));
+        }
+        void RecordSavedFFTFailure(Exception error)
+        {
+            if (_savedFFTReport != null) _savedFFTReport.failure = error.ToString();
+            SaveFFTReport();
         }
         SavedFFTRow FFTState(string label)
         {
@@ -108,7 +114,7 @@ namespace Crest.URP.Diagnostics
             }
             row.readyPackets=ready;SaveFFTReport();CheckExample(ready==4&&row.maxHeightError<.01f&&row.maxNormalError<.02f&&row.maxVelocityError<.1f&&row.maxDisplacementError<.0001f,"Recovered source-off GPU/None public queries");
         }
-        IEnumerator CheckSavedCPU(SavedFFTRow row,float[] times)
+        IEnumerator CheckSavedCPU(SavedFFTRow row,float[] times, TimeProviderNetworked networkClock = null)
         {
             row.velocityChecked=true;
             var ocean=OceanRenderer.Instance;var clock=ocean.GetComponent<TimeProviderCustom>();
@@ -117,7 +123,18 @@ namespace Crest.URP.Diagnostics
             var heights=new float[5];var normals=new Vector3[5];var velocities=new Vector3[5];var displacements=new Vector3[5];
             foreach(float time in times)
             {
-                clock._time=time;int ready=0;float deadline=Time.realtimeSinceStartup+15;
+                if (networkClock == null)
+                {
+                    clock._time = time;
+                }
+                else
+                {
+                    networkClock.TimeOffsetToServer = time - Time.time;
+                    row.networkOffsets.Add(networkClock.TimeOffsetToServer);
+                    CheckExample(ocean.TimeProvider == networkClock && Mathf.Abs(ocean.CurrentTime - time) < 1e-5f
+                        && ocean.DeltaTime == 0 && ocean.DeltaTimeDynamics == 0, "Networked ocean time and Unity delta do not match");
+                }
+                int ready=0;float deadline=Time.realtimeSinceStartup+15;
                 while(ready<4&&Time.realtimeSinceStartup<deadline)
                 {
                     yield return null;
@@ -196,6 +213,55 @@ namespace Crest.URP.Diagnostics
         }
         return result;
     }
+
+        IEnumerator HeadlessFFTPlayer()
+        {
+            _savedFFTReport = new SavedFFTReport
+            {
+                unity = Application.unityVersion,
+                api = SystemInfo.graphicsDeviceType.ToString(),
+                gpu = SystemInfo.graphicsDeviceName,
+                scope = "P13.5 Windows -batchmode -nographics. Saved CPU FFT binding on load/reload, networked time offsets, public queries compared to raw half-frame interpolation."
+            };
+            SaveFFTReport();
+            CheckExample(Application.isBatchMode && SystemInfo.graphicsDeviceType == GraphicsDeviceType.Null
+                && OceanRenderer.RunningHeadless && OceanRenderer.RunningWithoutGPU, "Expected a real headless Null-device Player");
+            var manifest = Resources.Load<TextAsset>("CrestSavedFFTManifest");
+            CheckExample(manifest != null, "Missing serialized fixture provenance");
+            _savedFFTReport.provenance = JsonUtility.FromJson<SavedFFTManifest>(manifest.text);
+            Time.timeScale = 0;
+            OceanRenderer previous = null;
+            Array[] previousOwners = null;
+            for (int load = 0; load < 2; load++)
+            {
+                yield return SceneManager.LoadSceneAsync(1);
+                var ocean = OceanRenderer.Instance;
+                CheckExample(ocean != null && ocean.CollisionProvider is CollProviderBakedFFT, "Saved scene must select CPU FFT on enable");
+                CheckExample(ocean._lodDataAnimWaves == null && ocean._lodDataDynWaves == null && ocean._lodDataFoam == null,
+                    "GPU ocean simulation created in headless Player");
+                foreach (string field in new[] { "_bufCascadeDataTgt", "_bufCascadeDataSrc", "_bufPerCascadeInstanceData", "_bufPerCascadeInstanceDataSource" })
+                    CheckExample(SceneGet(ocean, field) == null, "Headless ocean allocated " + field);
+                _savedCamera = Camera.main;
+                var row = FFTState(load == 0 ? "HeadlessLoad" : "HeadlessReload");
+                if (load > 0)
+                {
+                    row.oldOceanDestroyed = previous == null;
+                    CheckExample(row.oldOceanDestroyed, "Previous ocean still exists after scene reload");
+                    row.releasedCPUPositionCount = AssertSavedCPUReleased(previousOwners);
+                }
+                VerifySavedFFTBinding(row);
+                var networkClock = ocean.gameObject.AddComponent<TimeProviderNetworked>();
+                ocean.PushTimeProvider(networkClock);
+                row.networkOffsets = new List<float>();
+                yield return CheckSavedCPU(row, new[] { -.125f, 1f, 4.125f }, networkClock);
+                CheckExample(BuildCommandBufferBase._lastUpdateFrame == -1, "Ocean submitted graphics commands in headless Player");
+                previous = ocean;
+                previousOwners = SavedCPUOwners(ocean.CollisionProvider);
+            }
+            CheckExample(_errors == 0, "Headless Player reported Unity errors");
+            Debug.Log("HEADLESS_FFT_COMPLETED");
+            Application.Quit(0);
+        }
 
         IEnumerator SavedFFTPlayer()
         {

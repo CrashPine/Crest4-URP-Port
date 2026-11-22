@@ -35,6 +35,15 @@ Graphical fixtures should verify that visible ocean chunks exist before interpre
 camera captures; simulation data alone does not establish surface rendering.
 Dedicated-server behavior remains the default.
 
+For a Windows Player launched with `-batchmode -nographics`, assign a
+`SimSettingsAnimatedWaves` profile with collision source `BakedFFT` and a saved
+`FFTBakedData` asset before building. Bake the data in a graphics-enabled Editor.
+The Null-device Player schedules the baked collision queries on the CPU without
+creating cascade compute buffers or submitting the ocean graphics command buffer.
+For a synchronized clock, push a `TimeProviderNetworked` and set its
+`TimeOffsetToServer` to server time minus local Unity time. Reapply a temporary
+provider and its offset to a newly loaded ocean.
+
 ## Existing extension contracts retained
 
 * Simulation time: `ITimeProvider`, `PushTimeProvider`, `PopTimeProvider`; retain a
