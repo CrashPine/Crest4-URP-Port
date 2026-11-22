@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.4 Transparent fog at native volume faces
+
+TransparentFogRespectsNativePortalAndVolumeFaces passed 1/1 on DX11 and 1/1 on DX12 in Editor with identical measurements. The fixture uses native Portal, Volume and Fly-Through faces, a transparent Crest example material at alpha 0.6 and an opaque receiver. Before the front face, toggling the transparent fog multiplier changed zero pixels. Inside the footprint, toggling it changed 20,736 sampled interior pixels with zero changes in the guarded exterior. The opaque background alone also changed 20,736 interior pixels and zero exterior pixels in each mode.
+
+At two positions beyond the back face, the central summed linear RGB delta stayed at 0.106916 for Volume and Fly-Through. Portal increased from 0.143945 to 0.181330 at those same depths. With the camera inside Fly-Through, the central RGB delta was 0.041468. All transparent off–on–off controls restored the full frame exactly. The final suite used flat water and a fixed orthographic view. [XML, measurements and paired frames](Evidence/P13-TransparentVolume-DX11-DX12.zip).
+
 ## P13.4 Moving waterline and meniscus in Windows Player
 
 Both Development Player runs followed the scene camera route at a fixed 60 Hz simulation step and captured the current ocean frame. Entry and exit probes use the measured camera height relative to the waves. The control disables only the meniscus at the waterline and the entire underwater effect at the submerged and above-water poses. Each control is bracketed by two renders of the enabled effect in the same frame.

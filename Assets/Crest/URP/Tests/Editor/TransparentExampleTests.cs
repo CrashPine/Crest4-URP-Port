@@ -51,14 +51,14 @@ public partial class MaskedExampleTests
         if(controlled){_transparentInputs=new TransparentInputs();CameraGraphPassRegistry.Register(_transparentInputs);_publication=new Publication();CameraGraphPassRegistry.Register(_publication);Field("_CrestOceanMaskTexture",(x,y)=>1);Field("_CrestWaterVolumeFrontFaceTexture",(x,y)=>0);Field("_CrestWaterVolumeBackFaceTexture",(x,y)=>0);}
         _transparentLight=new AuxiliaryLightInput();CameraGraphPassRegistry.Register(_transparentLight);
     }
-    Color[] TransparentCapture(string name)
+    Color[] TransparentCapture(string name, bool save = true)
     {
         bool enabled=_camera.enabled;_camera.enabled=true;try{RenderPipeline.SubmitRenderRequest(_camera,new UniversalRenderPipeline.SingleCameraRequest{destination=_target});}finally{_camera.enabled=enabled;}
         var previous=RenderTexture.active;var cpu=new Texture2D(W,H,TextureFormat.RGBAFloat,false,true);var preview=new Texture2D(W,H,TextureFormat.RGBA32,false);
         try
         {
             RenderTexture.active=_target;cpu.ReadPixels(new Rect(0,0,W,H),0,0);cpu.Apply();var values=cpu.GetPixels();
-            preview.SetPixels(values.Select(c=>{var p=c.gamma;p.a=1;return p;}).ToArray());preview.Apply();File.WriteAllBytes($"Evidence/TransparentExamples-{name}-{SystemInfo.graphicsDeviceType}.png",preview.EncodeToPNG());
+            if (save) { preview.SetPixels(values.Select(c=>{var p=c.gamma;p.a=1;return p;}).ToArray());preview.Apply();File.WriteAllBytes($"Evidence/TransparentExamples-{name}-{SystemInfo.graphicsDeviceType}.png",preview.EncodeToPNG()); }
             File.AppendAllText(_report,$"Capture={name}; FogLinear={Shader.IsKeywordEnabled("FOG_LINEAR")}; FogExp={Shader.IsKeywordEnabled("FOG_EXP")}; R0={values[0].r:R}; Centre={values[H/2*W+W/2]}; Alpha={_transparent.GetColor("_Color").a}; Multiplier={_transparent.GetFloat("_FogMultiplier")}\n");return values;
         }
         finally {RenderTexture.active=previous;Object.DestroyImmediate(cpu);Object.DestroyImmediate(preview);}
@@ -164,6 +164,130 @@ public partial class MaskedExampleTests
         File.AppendAllText(_report,$"ActualVolumeChangedInterior={changed}; ChangedOutsideNativeMask={outside}\n");Assert.That(changed,Is.GreaterThan(1000));Assert.That(outside,Is.Zero);
         volume.transform.position+=Vector3.right*2;Assert.That(TransparentChanged(on,TransparentCapture("ActualVolumeMoved")),Is.GreaterThan(1000));volume.transform.position-=Vector3.right*2;Assert.That(TransparentCapture("ActualVolumeRestored"),Is.EqualTo(on));
     }
+    [UnityTest, Timeout(180000)]
+    public IEnumerator TransparentFogRespectsNativePortalAndVolumeFaces()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        foreach (var wave in Object.FindObjectsByType<ShapeWaves>()) wave.enabled = false;
+        TransparentSetup(false);
+        _camera.cullingMask |= 1 << 4;
+        AuxiliaryLight();
+        var ocean = OceanRenderer.Instance;
+        ocean.ViewCamera = _camera;
+        foreach (var renderer in ocean.Root.GetComponentsInChildren<Renderer>()) renderer.forceRenderingOff = true;
+        var surface = Own(new Material(ocean.OceanMaterial));
+        surface.SetVector("_DepthFogDensity", new Vector4(.08f, .08f, .08f, 1));
+        surface.SetInt("_CullMode", (int)CullMode.Off);
+        surface.EnableKeyword("_UNDERWATER_ON");
+        surface.SetFloat("_Underwater", 1);
+        foreach (string keyword in new[] { "_CAUSTICS_ON", "_SHADOWS_ON", "_FOAM_ON", "_SUBSURFACESCATTERING_ON" })
+            surface.DisableKeyword(keyword);
+        ocean.OceanMaterial = surface;
+        var oceanSettings = new SerializedObject(ocean);
+        foreach (string field in new[] { "_createShadowData", "_createFoamSim", "_createClipSurfaceData" })
+            oceanSettings.FindProperty(field).boolValue = false;
+        oceanSettings.ApplyModifiedPropertiesWithoutUndo();
+
+        _camera.transform.position = new Vector3(0, -3, -8);
+        var fog = _camera.gameObject.AddComponent<UnderwaterRenderer>();
+        fog.enabled = false;
+        fog.EnableShaderAPI = true;
+        var fogSettings = new SerializedObject(fog);
+        fogSettings.FindProperty("_meniscus").boolValue = false;
+        fogSettings.ApplyModifiedPropertiesWithoutUndo();
+
+        _transparent.SetColor("_Color", new Color(.6f, .2f, .1f, .6f));
+        var backdrop = Own(GameObject.CreatePrimitive(PrimitiveType.Quad));
+        backdrop.layer = 5;
+        backdrop.transform.position = new Vector3(0, -3, 14);
+        backdrop.transform.localScale = new Vector3(8, 6, 1);
+        var backdropMaterial = Own(new Material(Shader.Find("Universal Render Pipeline/Unlit")));
+        backdropMaterial.SetColor("_BaseColor", new Color(.55f, .6f, .65f, 1));
+        backdrop.GetComponent<Renderer>().sharedMaterial = backdropMaterial;
+
+        var portal = Own(GameObject.CreatePrimitive(PrimitiveType.Quad));
+        portal.transform.position = new Vector3(0, -3, -3);
+        portal.transform.localScale = new Vector3(4, 4, 1);
+        portal.GetComponent<Renderer>().enabled = false;
+        var volume = Own(GameObject.CreatePrimitive(PrimitiveType.Cube));
+        volume.transform.position = new Vector3(0, -3, 0);
+        volume.transform.localScale = new Vector3(4, 4, 6);
+        volume.GetComponent<Renderer>().enabled = false;
+        int center = H / 2 * W + W / 2;
+
+        foreach (var mode in new[] { UnderwaterRenderer.Mode.Portal, UnderwaterRenderer.Mode.Volume,
+                     UnderwaterRenderer.Mode.VolumeFlyThrough })
+        {
+            fog.enabled = false;
+            fog._mode = mode;
+            fog._volumeGeometry = (mode == UnderwaterRenderer.Mode.Portal ? portal : volume).GetComponent<MeshFilter>();
+            fog.enabled = true;
+            for (int frame = 0; frame < 8; frame++) yield return null;
+
+            _quad.GetComponent<Renderer>().enabled = false;
+            fog.enabled = false;
+            var opaqueOff = TransparentCapture(mode + "-OpaqueOff", false);
+            fog.enabled = true;
+            var opaqueOn = TransparentCapture(mode + "-OpaqueOn", false);
+            CheckVolumeFootprint(mode + "-Opaque", opaqueOff, opaqueOn, expectFog: true);
+            _quad.GetComponent<Renderer>().enabled = true;
+
+            CheckVolumeConsumer(mode + "-Before", -4, expectFog: false);
+            float inside = CheckVolumeConsumer(mode + "-Inside", 1, expectFog: true, save: true);
+            float behind = CheckVolumeConsumer(mode + "-Behind", 6, expectFog: true);
+            float farther = CheckVolumeConsumer(mode + "-Farther", 10, expectFog: true);
+            Assert.That(behind, Is.GreaterThan(inside + .005f), mode.ToString());
+            if (mode == UnderwaterRenderer.Mode.Portal)
+                Assert.That(farther, Is.GreaterThan(behind + .005f), "Portal fog continues behind its plane.");
+            else
+                Assert.That(farther, Is.EqualTo(behind).Within(.002f), "Back face caps the fog thickness.");
+        }
+
+        _camera.transform.position = new Vector3(0, -3, 0);
+        for (int frame = 0; frame < 8; frame++) yield return null;
+        CheckVolumeConsumer("FlyThrough-CameraInside", 2, expectFog: true, checkExterior: false, save: true);
+
+        float CheckVolumeConsumer(string label, float z, bool expectFog, bool checkExterior = true, bool save = false)
+        {
+            _quad.transform.position = new Vector3(0, -3, z);
+            _transparent.SetFloat("_FogMultiplier", 0);
+            var off = TransparentCapture(label + "-Off", save);
+            _transparent.SetFloat("_FogMultiplier", 1);
+            var on = TransparentCapture(label + "-On", save);
+            _transparent.SetFloat("_FogMultiplier", 0);
+            var restored = TransparentCapture(label + "-Restored", false);
+            Assert.That(restored, Is.EqualTo(off), label);
+            return CheckVolumeFootprint(label, off, on, expectFog, checkExterior);
+        }
+
+        float CheckVolumeFootprint(string label, Color[] off, Color[] on, bool expectFog, bool checkExterior = true)
+        {
+            int interior = 0, exterior = 0;
+            for (int y = 0; y < H; y++)
+            for (int x = 0; x < W; x++)
+            {
+                int index = y * W + x;
+                if (RgbDelta(on[index], off[index]) <= .01f) continue;
+                float horizontal = Mathf.Abs((x + .5f - W * .5f) * 8f / W);
+                float vertical = Mathf.Abs((y + .5f - H * .5f) * 6f / H);
+                if (horizontal < 1.8f && vertical < 1.8f) interior++;
+                if (horizontal > 2.2f || vertical > 2.2f) exterior++;
+            }
+            float delta = RgbDelta(on[center], off[center]);
+            File.AppendAllText(_report, FormattableString.Invariant(
+                $"{label}: InteriorChanged={interior}; ExteriorChanged={exterior}; CenterDelta={delta:R}\n"));
+            if (expectFog) Assert.That(interior, Is.GreaterThan(1000), label);
+            else Assert.That(TransparentChanged(off, on), Is.Zero, label);
+            if (checkExterior) Assert.That(exterior, Is.Zero, label);
+            return delta;
+        }
+    }
+
+    static float RgbDelta(Color a, Color b)
+        => Mathf.Abs(a.r - b.r) + Mathf.Abs(a.g - b.g) + Mathf.Abs(a.b - b.b);
+
     void TransparentCleanup()
     {
         if(_transparentInputs!=null)CameraGraphPassRegistry.Unregister(_transparentInputs);if(_transparentLight!=null)CameraGraphPassRegistry.Unregister(_transparentLight);_transparentInputs=null;_transparentLight=null;

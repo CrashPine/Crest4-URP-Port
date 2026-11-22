@@ -18,7 +18,7 @@ P13.3 завершён. Исходная LakesAndRivers прошла соста�
 
 P13.4-S завершён. Ocean_LargeWaves сохранена со спектром Пирсона–Московица, лодкой и маршрутом камеры. Оценка H1/3 по 62 волнам составила 4,973 м на DX11/DX12. Пройден маршрут в Editor и отдельный Windows smoke на обоих API.
 
-**P13.4 ACTIVE.** Meniscus и подводный туман на движущейся поверхности Ocean_LargeWaves прошли проверку в Development Windows Player на DX11/DX12. Следующее действие — проверить видимую границу Portal/Volume/Fly-Through в сочетании с прозрачным потребителем Shader API. Взять существующие UnderwaterVolumeTests и CameraSettingsTests за основу. Затем сверить оставшиеся контроли каустик и теней с ShadowedOpticalReferenceTests.
+**P13.4 ACTIVE.** Meniscus и подводный туман на движущейся поверхности Ocean_LargeWaves прошли проверку в Development Windows Player на DX11/DX12. Portal, Volume и Fly-Through прошли проверку прозрачного потребителя Shader API и непрозрачного фона на DX11/DX12. Следующий шаг — проверить влияние реальных теней на каустику внутри подводного объёма и вне его. Взять независимые контроли ShadowedOpticalReferenceTests и границу из UnderwaterVolumeTests, сохранив принятые проверки полноэкранной каустики.
 
 ## Состояние артефактов и сохранённые ограничения
 
