@@ -132,6 +132,60 @@ namespace Crest.URP.Editor
             Debug.Log("CREST_SCENES_GENERATED: fixtures created; rendering is NOT TESTED.");
         }
 
+        [MenuItem("Crest/URP/Create large waves scene")]
+        public static void CreateLargeWavesScene()
+        {
+            const string destination = Root + "/Ocean_LargeWaves";
+            foreach (string suffix in new[] { ".unity", ".mat", "_Spectrum.asset" })
+                if (File.Exists(destination + suffix))
+                    throw new InvalidOperationException("Large-waves asset already exists: " + destination + suffix);
+
+            var scene = EditorSceneManager.OpenScene(Root + "/Ocean_Storm.unity");
+            if (!EditorSceneManager.SaveScene(scene, destination + ".unity", saveAsCopy: true))
+                throw new InvalidOperationException("Could not copy Ocean_Storm.");
+            scene = EditorSceneManager.OpenScene(destination + ".unity");
+
+            var ocean = UnityEngine.Object.FindFirstObjectByType<OceanRenderer>();
+            var fft = UnityEngine.Object.FindFirstObjectByType<ShapeFFT>();
+            var camera = Camera.main;
+            var spectrum = ScriptableObject.CreateInstance<OceanWaveSpectrum>();
+            spectrum.ApplyPiersonMoskowitzSpectrum();
+            spectrum._multiplier = .37f;
+            var spectrumSettings = new SerializedObject(spectrum);
+            spectrumSettings.FindProperty("_model").enumValueIndex = (int)OceanWaveSpectrum.SpectrumModel.PiersonMoskowitz;
+            spectrumSettings.ApplyModifiedPropertiesWithoutUndo();
+            AssetDatabase.CreateAsset(spectrum, destination + "_Spectrum.asset");
+            fft._spectrum = spectrum;
+            var oceanSettings = new SerializedObject(ocean);
+            oceanSettings.FindProperty("_createDynamicWaveSim").boolValue = true;
+            oceanSettings.ApplyModifiedPropertiesWithoutUndo();
+
+            var material = new Material(ocean.OceanMaterial);
+            material.EnableKeyword("_UNDERWATER_ON");
+            material.SetFloat("_Underwater", 1);
+            material.SetFloat("_CullMode", (float)CullMode.Off);
+            AssetDatabase.CreateAsset(material, destination + ".mat");
+            ocean.OceanMaterial = material;
+
+            GameObject.Find("Visible refraction reference floor").transform.position = new Vector3(0, -60, 20);
+            var marker = GameObject.Find("Shadow reference pier");
+            marker.name = "8 m reference post";
+            marker.transform.SetPositionAndRotation(new Vector3(-7, 0, 0), Quaternion.identity);
+            marker.transform.localScale = new Vector3(1, 8, 1);
+
+            var boatPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Crest/Crest-Examples/BoatDev/Data/BoatProbes.prefab");
+            var boat = (GameObject)PrefabUtility.InstantiatePrefab(boatPrefab, scene);
+            boat.transform.position = new Vector3(3, 1, 0);
+
+            camera.transform.SetPositionAndRotation(new Vector3(0, 4, -20), Quaternion.Euler(5, 0, 0));
+            camera.gameObject.AddComponent<UnderwaterRenderer>();
+            camera.gameObject.AddComponent<LargeWaveCameraRoute>();
+            EditorSceneManager.MarkSceneDirty(scene);
+            if (!EditorSceneManager.SaveScene(scene))
+                throw new InvalidOperationException("Could not save " + destination);
+            AssetDatabase.SaveAssets();
+        }
+
         public static void ValidateAssets()
         {
             int failures = 0;
@@ -157,14 +211,19 @@ namespace Crest.URP.Editor
 
         public static void BuildDevelopment() => Build(BuildOptions.Development, "Builds/Development/CrestPort.exe");
         public static void BuildRelease() => Build(BuildOptions.None, "Builds/Release/CrestPort.exe");
-        static void Build(BuildOptions options, string path)
+        public static void BuildLargeWavesDiagnostic() => Build(BuildOptions.Development,
+            "Builds/P13-LargeWaves/CrestPort.exe", Root + "/Ocean_LargeWaves.unity");
+
+        static void Build(BuildOptions options, string path, string diagnosticScene = null)
         {
             if (Application.unityVersion != "6000.6.5f1")
                 throw new InvalidOperationException("Acceptance builds require Unity 6000.6.5f1.");
             ReflectionVariantSetup.Configure();
             PlayerSettings.strictShaderVariantMatching = true;
             var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                scenes = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray(),
+                scenes = diagnosticScene != null
+                    ? new[] { diagnosticScene }
+                    : EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray(),
                 target = BuildTarget.StandaloneWindows64, locationPathName = path, options = options
             });
             if (result.summary.result != BuildResult.Succeeded) throw new Exception("Windows build failed.");

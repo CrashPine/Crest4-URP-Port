@@ -54,6 +54,10 @@ Focused XML не заменяет полный набор. `Verify-Source.ps1` �
 Player предоставляет переключение сцен, ветер, уровень моря и высоту камеры. Smoke-проверка не доказывает полную визуальную эквивалентность или производительность.
 
 
+## Сцена больших волн
+
+Откройте Assets/CrestPortDemos/Ocean_LargeWaves.unity и нажмите Play. Камера автоматически проходит вдоль воды, погружается и поднимается для обзора, затем повторяет маршрут. В сцене есть восьмиметровый ориентир и лодка BoatProbes. Для отдельной Windows-сборки используйте метод Crest.URP.Editor.PortAutomation.BuildLargeWavesDiagnostic. Результат находится в Builds/P13-LargeWaves/CrestPort.exe. Замеры и кадры находятся в TEST_RESULTS.md.
+
 ## Воспроизведение Editor UI стенда
 
 Для проверки с живым океаном используйте `CrestEditorInteractionProbe.PrepareLiveOcean` вместо `Prepare`. В этой сцене Radius и перемещение сплайна меняют текстуру Flow, а Spectrum Multiplier меняет амплитуду Animated Waves. Наблюдения записываются в `Evidence/P11-LiveEditor.jsonl`.
