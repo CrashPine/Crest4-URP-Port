@@ -2,6 +2,13 @@
 
 The Windows x64 integration is tested with Unity 6000.6.5f1, URP 17.6.0 and Render Graph on DX11 and DX12. Use FEATURE_MATRIX.md to check the accepted configurations. VR/XR is outside the current target.
 
+For a project based on the Universal 3D template, import `Assets/Crest` with its
+`.meta` files, including `Assets/Crest.meta`. Add the missing dependencies listed
+in `Packages/manifest.json` from this repository. The complete asset tree includes
+the Crest examples and Editor tests. Keep the target project's active URP asset
+and add the Crest feature to its Universal Renderer. On Windows, use a short
+project path for the initial import so Unity can open the nested URP package files.
+
 The original ocean shader asset and GUID remain in place, so original ocean
 materials resolve to the ported shader. The surface now uses `UniversalForwardOnly`,
 URP Core/Lighting, URP environment lookup and fog. Displacement, LOD snapping, foam,

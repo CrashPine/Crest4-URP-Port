@@ -3,6 +3,7 @@
 // This file is subject to the MIT License as seen in the root of this folder structure (LICENSE)
 
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Crest
 {
@@ -23,12 +24,27 @@ namespace Crest
         CameraClearFlags _oldClearFlags;
         Color _oldBackgroundColor;
         LayerMask _oldCullingMask;
+        bool _ownsWireframe;
+        bool _previousWireframe;
 
         public bool Active => _wireFrame || _enable;
 
-        void Start()
+        void OnEnable()
         {
             _cam = GetComponent<Camera>();
+            RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
+            RenderPipelineManager.endCameraRendering += OnEndCameraRendering;
+        }
+
+        void OnDisable()
+        {
+            RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
+            RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
+            RestoreWireframe();
+        }
+
+        void Start()
+        {
             _oldClearFlags = _cam.clearFlags;
             _oldBackgroundColor = _cam.backgroundColor;
             _oldCullingMask = _cam.cullingMask;
@@ -43,18 +59,37 @@ namespace Crest
 
         void OnPreRender()
         {
-            if (enabled)
-            {
-                GL.wireframe = Active;
-            }
+            if (GraphicsSettings.currentRenderPipeline == null) ApplyWireframe();
         }
 
         void OnPostRender()
         {
-            if (enabled)
-            {
-                GL.wireframe = false;
-            }
+            if (GraphicsSettings.currentRenderPipeline == null) RestoreWireframe();
+        }
+
+        void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+        {
+            if (camera == _cam) ApplyWireframe();
+        }
+
+        void OnEndCameraRendering(ScriptableRenderContext context, Camera camera)
+        {
+            if (camera == _cam) RestoreWireframe();
+        }
+
+        void ApplyWireframe()
+        {
+            if (!Active || _ownsWireframe) return;
+            _previousWireframe = GL.wireframe;
+            _ownsWireframe = true;
+            GL.wireframe = true;
+        }
+
+        void RestoreWireframe()
+        {
+            if (!_ownsWireframe) return;
+            GL.wireframe = _previousWireframe;
+            _ownsWireframe = false;
         }
     }
 }
