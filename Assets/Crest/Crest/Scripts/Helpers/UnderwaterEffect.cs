@@ -18,7 +18,7 @@ namespace Crest
     /// not close to water.
     /// </summary>
     [ExecuteDuringEditMode]
-    [System.Obsolete("No longer supported. UnderwaterEffect has been replaced with UnderwaterRenderer.")]
+    [System.Obsolete("Use UnderwaterRenderer for new scenes.")]
     [AddComponentMenu(Internal.Constants.MENU_PREFIX_SCRIPTS + "Underwater Effect")]
     public partial class UnderwaterEffect : CustomMonoBehaviour
     {
@@ -51,6 +51,8 @@ namespace Crest
 
         PropertyWrapperMPB _mpb;
         Renderer _rend;
+        Camera _camera;
+        Mesh _mesh;
 
         readonly int sp_HeightOffset = Shader.PropertyToID("_HeightOffset");
 
@@ -60,6 +62,7 @@ namespace Crest
         bool isMeniscus;
 
         bool _hasCopiedMaterial;
+        bool _ownsUnderwaterKeyword;
 
         private void Start()
         {
@@ -71,7 +74,9 @@ namespace Crest
 
             // Render before the surface mesh
             _rend.sortingOrder = _overrideSortingOrder ? _overridenSortingOrder : -LodDataMgr.MAX_LOD_COUNT - 1;
-            GetComponent<MeshFilter>().sharedMesh = Mesh2DGrid(0, 2, -0.5f, -0.5f, 1f, 1f, GEOM_HORIZ_DIVISIONS, 1);
+            _mesh = Mesh2DGrid(0, 2, -0.5f, -0.5f, 1f, 1f, GEOM_HORIZ_DIVISIONS, 1);
+            GetComponent<MeshFilter>().sharedMesh = _mesh;
+            _camera = transform.parent != null ? transform.parent.GetComponent<Camera>() : null;
 
             isMeniscus = _rend.sharedMaterial.shader.name.Contains("Meniscus");
 
@@ -92,7 +97,21 @@ namespace Crest
 
         void OnDisable()
         {
-            Shader.DisableKeyword("CREST_UNDERWATER_BEFORE_TRANSPARENT");
+            if (_rend != null) _rend.enabled = false;
+            SetUnderwaterKeyword(false);
+        }
+
+        void OnDestroy()
+        {
+            if (_mesh != null) Helpers.Destroy(_mesh);
+        }
+
+        void SetUnderwaterKeyword(bool enabled)
+        {
+            if (isMeniscus || (!enabled && !_ownsUnderwaterKeyword)) return;
+
+            Helpers.SetGlobalKeyword("CREST_UNDERWATER_BEFORE_TRANSPARENT", enabled);
+            _ownsUnderwaterKeyword = enabled;
         }
 
 #if UNITY_EDITOR
@@ -138,13 +157,15 @@ namespace Crest
 
         private void LateUpdate()
         {
-            if (OceanRenderer.Instance == null || _rend == null || !ShowEffect())
+            var modern = _camera != null ? UnderwaterRenderer.Get(_camera) : null;
+            if (OceanRenderer.Instance == null || _rend == null || (modern != null && modern.isActiveAndEnabled) || !ShowEffect())
             {
                 if (_rend != null)
                 {
                     _rend.enabled = false;
                 }
 
+                SetUnderwaterKeyword(false);
                 return;
             }
 
@@ -159,12 +180,11 @@ namespace Crest
             // but to assume enabled. In the future this could detect if camera is far enough under water, render a simple quad to avoid
             // finding the intersection line.
             _rend.enabled = heightOffset < _maxHeightAboveWater;
+            SetUnderwaterKeyword(_rend.enabled);
 
             if (_rend.enabled)
             {
                 ConfigureMaterial();
-
-                Shader.EnableKeyword("CREST_UNDERWATER_BEFORE_TRANSPARENT");
 
                 // Assign lod0 shape - trivial but bound every frame because lod transform comes from here
                 if (_mpb == null)
@@ -186,6 +206,12 @@ namespace Crest
                     // at different position, as this would then thrash it and negate the priming functionality. We could create a dummy invis GO
                     // with a dummy Renderer which might be enough, but this is hacky enough that we'll wait for it to become a problem
                     // rather than add a pre-emptive hack.
+                    var oceanMaterial = OceanRenderer.Instance.OceanMaterial;
+                    if (oceanMaterial != null)
+                    {
+                        Shader.SetGlobalVector(ShaderIDs.s_CrestDepthFogDensity, oceanMaterial.GetVector(OceanRenderer.ShaderIDs.s_DepthFogDensity));
+                    }
+
                     UnityEngine.Profiling.Profiler.BeginSample("Underwater Sample Spherical Harmonics");
                     LightProbes.GetInterpolatedProbe(transform.position, null, out var sphericalHarmonicsL2);
                     sphericalHarmonicsL2.Evaluate(_sphericalHarmonicsData._shDirections, _sphericalHarmonicsData._ambientLighting);
@@ -289,18 +315,6 @@ namespace Crest
         public bool Validate(OceanRenderer ocean, ValidatedHelper.ShowMessage showMessage)
         {
             var isValid = true;
-
-            if (UnderwaterRenderer.Instance != null)
-            {
-                showMessage
-                (
-                    "Both <i>Underwater Effect</i> (deprecated) and <i>Underwater Renderer</i> are active.",
-                    "Remove the <i>Underwater Effect</i> by removing the entire game object.",
-                    ValidatedHelper.MessageType.Error, this
-                );
-
-                isValid = false;
-            }
 
             // Check that underwater effect is parented to a camera.
             if (!transform.parent || !transform.parent.TryGetComponent<Camera>(out _))

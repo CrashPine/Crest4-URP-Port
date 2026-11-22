@@ -2,13 +2,23 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.1: legacy Curtain and Meniscus in URP (2026-11-15)
+
+`LegacyUnderwaterTests` passed 2/2 on DX11 and 2/2 on DX12 in Unity 6000.6.5f1. The original prefab and material assets use the same GUIDs. Curtain has a URP pass which reads the existing graph background and camera depth. Built-in still uses the original named GrabPass. The reference camera excludes the port's ocean surface for the cross-pipeline comparison, and the test primes one frame before reading the legacy material. Water time is fixed and caustics are disabled for these controls. The Built-in and URP RGB captures were byte-exact in the disabled, underwater-enabled, waterline-meniscus and above-water states on both APIs.
+
+On both APIs, Curtain fog changed 57,600 of 57,600 pixels while preserving the visible opaque panel. Meniscus changed 2,560 pixels at the waterline with `_MeniscusWidth=30` on a 320 × 180 target. Disabling the prefabs, moving the camera above water and enabling the legacy prefabs alongside the modern renderer gave zero pixel differences against their matching controls. Disabling the modern renderer re-enabled the legacy Curtain. With URP ocean tiles visible and the camera 0.2 m below the surface, the water surface contributed 24,155 changed pixels and enabling the legacy pair with the surface visible contributed 32,446. The test also asserts render queues and tile sorting order. The packaged Player is part of P13.7.
+
+The first overlap run recorded 583 differing pixels while both legacy renderers were already disabled and the modern-only reference still had time-dependent inputs. The final fixture freezes time, disables caustics, warms the modern renderer and keeps the exact-equality assertion. [First overlap run](Evidence/P13-LegacyUnderwater-DX11-modern-check-first.zip) · [Passing focused runs](Evidence/P13-LegacyUnderwater-DX11-DX12.zip).
+
+The full DX11 EditMode run passed 131/131 with zero skipped tests, including both legacy fixtures. [Full DX11 report](Evidence/P13-LegacyRegression-DX11.zip).
+
 ## P13.1: legacy Curtain and Meniscus baseline (2026-11-15)
 
 Two focused `LegacyUnderwaterTests` EditMode runs on DX11 compared the original Curtain and Meniscus prefabs with both disabled, both enabled and both disabled again. Camera Y was −3 m. In URP both runs measured zero changed pixels out of 57,600. In the second run the opaque green control geometry was visible and all 57,600 enabled-frame pixels were nonblack. The original prefab pair produced no visible underwater effect in this isolated view.
 
 In Built-in both enabled captures were black. Both disabled captures contained magenta, including the run with tile renderers suppressed and the opaque control panel added. The first XML classified the black frame as a pass based on pixel difference. The second XML rejected it with a nonblack assertion and reported the URP zero difference as a separate failure. There is still no valid Built-in color reference. Near-surface and above-water controls remain pending.
 
-[`P13-LegacyUnderwater-first-baseline.zip`](Evidence/P13-LegacyUnderwater-first-baseline.zip) and [`P13-LegacyUnderwater-DX11-baseline.zip`](Evidence/P13-LegacyUnderwater-DX11-baseline.zip) preserve the XML, Unity logs, frame captures, counters and test source. The failing fixture is archived out of the active suite until implementation resumes. The production runtime and P12 player archives were left at their recorded revision.
+[`P13-LegacyUnderwater-first-baseline.zip`](Evidence/P13-LegacyUnderwater-first-baseline.zip) and [`P13-LegacyUnderwater-DX11-baseline.zip`](Evidence/P13-LegacyUnderwater-DX11-baseline.zip) preserve the XML, Unity logs, frame captures, counters and test source. The failing fixture was archived out of the active suite at this checkpoint. The fixed version is now in the batch suite.
 
 ## P13.0: open release inventory (2026-11-15)
 
@@ -16,7 +26,7 @@ The exact upstream checkout and tag both resolve to `db0658ff0b2e93e4a9e28cc2867
 
 ## P13: source and coverage audit (2026-11-15)
 
-The local Git tag `4.23.0` resolves to `db0658ff0b2e93e4a9e28cc2867509658b0ecc00`. Compared the versioned manual's underwater, clipping, water body and CPU collision workflows with the retained source and the existing test records. The legacy Curtain and Meniscus prefabs are present. `UnderwaterCurtain.shader` is unchanged since import and still uses Built-in `GrabPass`. This is a source-level compatibility gap. The focused runtime baseline is recorded in P13.1 above. The existing modern underwater and meniscus measurements cover a separate path. [Crest Underwater manual](https://crest.readthedocs.io/en/4.23.0/user/underwater.html), [Unity GrabPass compatibility](https://docs.unity3d.com/6000.0/Documentation/Manual/SL-GrabPass.html).
+The local Git tag `4.23.0` resolves to `db0658ff0b2e93e4a9e28cc2867509658b0ecc00`. Compared the versioned manual's underwater, clipping, water body and CPU collision workflows with the retained source and the existing test records. The legacy Curtain and Meniscus prefabs are present. At audit time `UnderwaterCurtain.shader` was unchanged since import and used Built-in `GrabPass`. The focused runtime baseline is recorded in P13.1 above. The existing modern underwater and meniscus measurements cover a separate path. [Crest Underwater manual](https://crest.readthedocs.io/en/4.23.0/user/underwater.html), [Unity GrabPass compatibility](https://docs.unity3d.com/6000.0/Documentation/Manual/SL-GrabPass.html).
 
 Convex Hull and texture clip shaders are present. The recorded clip acceptance covers geometry and primitive controls, and WaterBodyTests also passed Everything Clipped with included areas. The recorded CPU FFT tests ran with a graphics device. No builds or tests were rerun during this audit. VR/XR is excluded from P13 by the user. [Crest Water Exclusion manual](https://crest.readthedocs.io/en/4.23.0/user/clipping.html), [Crest Water Bodies manual](https://crest.readthedocs.io/en/4.23.0/user/water-bodies.html).
 

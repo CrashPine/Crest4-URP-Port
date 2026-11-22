@@ -1,6 +1,6 @@
 # Точка продолжения
 
-Обновлено **2026-11-15**. Unity **6000.6.5f1 / URP 17.6.0**, Windows x64 DX11/DX12, Render Graph. Репозиторий `outputs/Crest4-URP-Port`, ветка `port/unity-6.6-urp`.
+Обновлено **2026-11-22**. Unity **6000.6.5f1 / URP 17.6.0**, Windows x64 DX11/DX12, Render Graph. Репозиторий `outputs/Crest4-URP-Port`, ветка `port/unity-6.6-urp`.
 
 ## Текущий статус
 
@@ -10,9 +10,9 @@ Windows-поставка P12 завершена в пределах провер
 
 ## Следующее действие
 
-**P13.1 ACTIVE:** DX11 подтвердил отсутствие отклика в URP при включении исходных prefab Curtain/Meniscus. Контроль Built-in остался непригодным для сравнения цвета. Точное состояние двух попыток в TEST_RESULTS.md. Unity сейчас закрыт. Инвентаризация P13.0 завершена, `Ocean_LargeWaves` запланирована в P13.4-S.
+P13.1 завершён в Editor. Целевые проверки прошли 2/2 на каждом API, полный DX11 EditMode прошёл 131/131. Поставка Player входит в P13.7.
 
-Следующий шаг: восстановить `LegacyUnderwaterTests.cs` и `.meta` из `Evidence/P13-LegacyUnderwater-DX11-baseline.zip` в `Assets/Crest/URP/Tests/Editor`. Для Built-in убрать поверхность порта из маски камеры и проверить захват оригинального `_BackgroundTexture` и глубины на непрозрачной контрольной геометрии. В URP переиспользовать копию `_BackgroundTexture` из `CrestBackgroundFeature` и проверить, что Curtain рисуется до поверхности океана, а Meniscus остаётся поверх её края. Сначала прогнать класс `LegacyUnderwaterTests` через `-force-d3d11 -testPlatform EditMode -testFilter LegacyUnderwaterTests` без `-nographics`. Контроли над водой, смена положения камеры и сосуществование с современным Renderer входят в P13.1.
+**P13.2 ACTIVE.** Начать с Convex Hull, Remove Area Texture и перекрытия SDF, используя стенд SurfaceInputTests.
 
 ## Состояние артефактов и сохранённые ограничения
 
