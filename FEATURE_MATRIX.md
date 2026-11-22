@@ -15,12 +15,12 @@
 
 | Исходные входы OceanInputs | Принятая область и оставшиеся проверки |
 |---|---|
-| Animated Waves (10), Shape Waves (1) | Global/Geometry Gerstner, спектр, локальные волны и задаваемая геометрией высота имеют проверки. Add From Texture прошёл проверку высоты и трёхкомпонентного смещения. Для Wave Particle и Push Water Under Convex Hull нужен прямой контроль P13.2. Hidden Add Height From Geometry учтён как внутренний путь локальной высоты. |
+| Animated Waves (10), Shape Waves (1) | Global/Geometry Gerstner, спектр, локальные волны и задаваемая геометрией высота имеют проверки. Add From Texture прошёл проверку высоты и трёхкомпонентного смещения. Wave Particle подтверждён по радиальному профилю. Для Push Water Under Convex Hull нужен прямой контроль P13.2. Hidden Add Height From Geometry учтён как внутренний путь локальной высоты. |
 | Dynamic Waves (4) | Add Bump, Dampening и Sphere-Water Interaction покрыты RippleGenerator, Whirlpool и BoatWakes. Старый Object Interaction/Adaptor добавлен в P13.6. |
-| Foam (4), Flow (3), Albedo (1) | Базовые Override Foam, Fixed Direction, сплайновое течение и Albedo Color покрыты измерениями. Карты Flow, Albedo и Foam подтверждены на GPU. Цвета вершин и отдельный сплайновый ввод пены остаются в P13.2, переменные данные закрытого сплайна — в P13.6. |
+| Foam (4), Flow (3), Albedo (1) | Базовые Override Foam, Fixed Direction, сплайновое течение и Albedo Color покрыты измерениями. Карты Flow, Albedo и Foam подтверждены на GPU. Цвета вершин и открытый сплайн пены проверены на DX11/DX12 с отдельным шагом симуляции. Переменные данные закрытого сплайна относятся к P13.6. |
 | Clip Surface (5) | Signed Distance, включение площади и базовое удаление проверены в ClipSurface/WaterBody. P13.2 подтвердил Convex Hull, Remove Area Texture и перекрытие SDF на DX11/DX12 при фиксированном уровне воды. |
 | Depth/cache (4) | Capture, Cached Depths, Copy Depth Buffer Into Cache и Set Base Water Height относятся к принятым проверкам GPU depth, локального уровня и сохранённого EXR. |
-| Shadows (1), All (1), Moved (1) | Нативная история теней принята. Override Shadows и Scale By Factor остаются в P13.2. Hidden/Crest/Moved — совместимость имени старого ассета. |
+| Shadows (1), All (1), Moved (1) | Нативная история теней принята. Scale By Factor подтверждён с Wave Particle. Override Shadows остаётся в P13.2. Hidden/Crest/Moved — совместимость имени старого ассета. |
 
 Исходные сцены Main, Boat, BoatWakes, ThreeBoats, Examples, LakesAndRivers и Whirlpool имеют раздельные Windows-отчёты в TEST_RESULTS. Открыт составной сценарий LakesAndRivers/P13.3. Остальные функции сгруппированы в основной таблице, включая legacy подводный путь, физику, профили, часы, запросы и открытый мир. Сторонняя интеграция Gaia не требуется для работы ядра.
 

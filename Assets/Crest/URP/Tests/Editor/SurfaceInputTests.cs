@@ -552,6 +552,13 @@ public class SurfaceInputTests
     static IEnumerator CheckTextureField(RenderTexture target, int channels, string report, string phase,
         Vector4 negativeX, Vector4 positiveX)
     {
+        return CheckInputField(target, channels, report, phase,
+            world => world.x < 0 ? negativeX : world.x < 4 ? positiveX : Vector4.zero);
+    }
+
+    static IEnumerator CheckInputField(RenderTexture target, int channels, string report, string phase,
+        System.Func<Vector2, Vector4> expectedAt)
+    {
         var request = AsyncGPUReadback.Request(target, 0, TextureFormat.RGBAFloat);
         while (!request.done) yield return null;
         Assert.That(request.hasError, Is.False, phase);
@@ -559,18 +566,77 @@ public class SurfaceInputTests
         var ocean = OceanRenderer.Instance;
         var lod = ocean._lodTransform._renderData[0].Current;
         float texel = 4 * ocean.CalcLodScale(0) / target.width;
-        foreach (var (x, expected) in new[] { (-2f, negativeX), (2f, positiveX), (7f, Vector4.zero) })
+        foreach (float x in new[] { -2f, 2f, 7f })
         {
             var uv = new Vector2(x - lod._posSnapped.x, -lod._posSnapped.z) / texel
                 + new Vector2(target.width * .5f, target.height * .5f);
             int column = Mathf.FloorToInt(uv.x), row = Mathf.FloorToInt(uv.y);
             Assert.That(column, Is.InRange(0, target.width - 1), phase);
             Assert.That(row, Is.InRange(0, target.height - 1), phase);
+            var world = new Vector2(lod._posSnapped.x, lod._posSnapped.z)
+                + new Vector2(column + .5f - target.width * .5f, row + .5f - target.height * .5f) * texel;
+            var expected = expectedAt(world);
             var actual = data[row * target.width + column];
             File.AppendAllText(report, $"{phase} x={x} expected={expected.ToString("F5")} actual={actual.ToString("F5")}\n");
             for (int channel = 0; channel < channels; channel++)
                 Assert.That(actual[channel], Is.EqualTo(expected[channel]).Within(.006f), $"{phase}, x={x}, channel={channel}");
         }
+    }
+
+    [UnityTest]
+    public IEnumerator WaveParticleAndScaleInputComposeAndRestore()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        var ocean = OceanRenderer.Instance;
+        foreach (var shape in Object.FindObjectsByType<ShapeWaves>()) shape.enabled = false;
+        Camera.main.transform.position = new Vector3(0, 10, 0);
+        yield return WaitForOceanUpdates(4);
+        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = true;
+        ocean.PushTimeProvider(clock);
+
+        string report = $"Evidence/P13-WaveInputs-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "Wave Particle radial profile and Scale By Factor, flat water, LOD0.\n");
+        const float radius = 4;
+        const float amplitude = 2;
+        // A four-corner mesh lets Wave Particle expand each corner to its configured radius.
+        var source = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        source.transform.SetPositionAndRotation(Vector3.right, Quaternion.Euler(90f, 0f, 0f));
+        var sourceMaterial = Track(new Material(Shader.Find("Crest/Inputs/Animated Waves/Wave Particle")));
+        sourceMaterial.SetFloat("_Radius", radius);
+        sourceMaterial.SetFloat("_Amplitude", amplitude);
+        source.GetComponent<Renderer>().sharedMaterial = sourceMaterial;
+        var particle = source.AddComponent<RegisterAnimWavesInput>();
+        yield return WaitForOceanUpdates(4);
+
+        Vector4 Profile(Vector2 world)
+        {
+            float radial = Mathf.Max(0, 1 - (world - Vector2.right).sqrMagnitude / (radius * radius));
+            return new Vector4(0, amplitude * radial * radial, 0, 0);
+        }
+
+        var target = ocean._lodDataAnimWaves.DataTexture;
+        yield return CheckInputField(target, 3, report, "Particle", Profile);
+
+        var patch = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        patch.transform.position = Vector3.right * 2;
+        patch.transform.localScale = Vector3.one * .2f;
+        var scaleMaterial = Track(new Material(Shader.Find("Crest/Inputs/All/Scale By Factor")));
+        scaleMaterial.renderQueue = sourceMaterial.renderQueue + 1;
+        scaleMaterial.SetFloat("_Scale", .25f);
+        patch.GetComponent<Renderer>().sharedMaterial = scaleMaterial;
+        var scale = patch.AddComponent<RegisterAnimWavesInput>();
+        yield return WaitForOceanUpdates(4);
+        yield return CheckInputField(target, 3, report, "ParticleScaled",
+            world => world.x > 1 && world.x < 3 ? Profile(world) * .25f : Profile(world));
+        scale.enabled = false;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckInputField(target, 3, report, "ScaleDisabled", Profile);
+        particle.enabled = false;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckInputField(target, 3, report, "ParticleDisabled", _ => Vector4.zero);
     }
 
     IEnumerator ConfigureClipScene()

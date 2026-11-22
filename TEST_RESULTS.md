@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.2: foam geometry and wave scaling (2026-11-22)
+
+VertexColoursAndSplineDepositFoamAndDeregister passed 1/1 on DX11 and 1/1 on DX12 with identical reports. In one 1/30 s step the vertex red gradient produced 0.188721 and 0.313721 against expected 0.188802 and 0.313802. The open spline produced 0.059998 at its center. Moving the spline by 6 m and doubling point weight produced 0.119995 at the new position and zero at the old one. For each disabled input, the full LOD0 slice stayed at zero after clearing accumulated foam and advancing another step. [Foam XML and counters](Evidence/P13-FoamInputs-DX11-DX12.zip).
+
+WaveParticleAndScaleInputComposeAndRestore passed on DX11 and DX12 with identical counters. A particle with radius 4 m and amplitude 2 m matched the radial reference at two interior points. Scale By Factor at 0.25 reduced displacement from 1.73731 to 0.43433 m within its patch and kept the other interior point at 0.41016 m. Disabling the scale restored the particle profile. Disabling the particle cleared both samples. Both fixtures use flat water and native LOD0 fields in Editor. The DX12 run also repeated the texture-input test after sharing the readback code and passed 2/2. [Wave XML and counters](Evidence/P13-WaveInputs-DX11-DX12.zip).
+
 ## P13.2: texture inputs (2026-11-22)
 
 `TextureMapsDriveFlowAlbedoFoamAndDisplacement` passed 1/1 on DX11 and 1/1 on DX12. The fixture read native LOD0 simulation targets at x = −2, +2 and +7 m across ten phases. Flow Map produced (−0.25, 0.25) and (0.5, −0.5) m/s. Albedo reproduced blue and red texels and discarded alpha 0.25 under the 0.5 cutoff. Animated Waves reproduced heights 0.5 and 0.25 m and the full three-component displacement in its second mode. One 1/30 s foam step produced 0.125 and 0.25. Outside samples stayed zero. Flow, albedo and displacement cleared after disabling their inputs. A further foam step after clearing the persistent field and disabling the source produced zero again. This fixture measures flat-water LOD0 values in Editor. [Passing XML and counters](Evidence/P13-TextureInputs-DX11-DX12.zip).

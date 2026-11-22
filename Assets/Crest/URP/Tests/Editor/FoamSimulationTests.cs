@@ -492,6 +492,130 @@ public class FoamSimulationTests
         finally { clock._deltaTime = 0; }
     }
 
+    [UnityTest]
+    public IEnumerator VertexColoursAndSplineDepositFoamAndDeregister()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+
+        var ocean = OceanRenderer.Instance;
+        foreach (var shape in Object.FindObjectsByType<ShapeWaves>()) shape.enabled = false;
+        Camera.main.transform.position = new Vector3(0, 10, 0);
+        _settings = ScriptableObject.CreateInstance<SimSettingsFoam>();
+        _settings._prewarm = false;
+        _settings._waveFoamStrength = 0;
+        _settings._shorelineFoamStrength = 0;
+        _settings._foamFadeRate = 0;
+        _settings._simulationFrequency = 30;
+        ocean._simSettingsFoam = _settings;
+        var clock = new StepClock();
+        yield return WaitForOceanUpdates(4);
+        ocean.PushTimeProvider(clock);
+
+        string report = $"Evidence/P13-FoamInputs-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "One 1/30 s step per phase, flat water, no automatic foam or decay. LOD0, tolerance 0.0015.\n");
+        var plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        var filter = plane.GetComponent<MeshFilter>();
+        var mesh = Object.Instantiate(filter.sharedMesh);
+        try
+        {
+            filter.sharedMesh = mesh;
+            plane.transform.localScale = Vector3.one * .8f;
+            var vertices = mesh.vertices;
+            var colors = new Color[vertices.Length];
+            for (int i = 0; i < vertices.Length; i++)
+                colors[i] = new Color(.5f + .05f * vertices[i].x, 1, .75f, 1);
+            mesh.colors = colors;
+            var shader = Shader.Find("Crest/Inputs/Foam/Add From Vert Colours");
+            Assert.That(shader, Is.Not.Null);
+            var material = new Material(shader);
+            _materials.Add(material);
+            material.SetFloat("_Strength", .5f);
+            plane.GetComponent<Renderer>().sharedMaterial = material;
+            var input = plane.AddComponent<RegisterFoamInput>();
+            yield return WaitForOceanUpdates(3);
+            yield return SampleFoamAfterStep(clock, report, "VertexColours",
+                (new Vector2(-2, 0), x => .25f + .03125f * x.x),
+                (new Vector2(2, 0), x => .25f + .03125f * x.x),
+                (new Vector2(6, 0), _ => 0));
+            input.enabled = false;
+            yield return SampleFoamAfterStep(clock, report, "VertexColoursDisabled");
+        }
+        finally
+        {
+            Object.Destroy(mesh);
+        }
+
+        var owner = new GameObject("Known foam ribbon");
+        var spline = owner.AddComponent<Crest.Spline.Spline>();
+        spline.Radius = 4;
+        spline.Subdivisions = 2;
+        var points = new SplinePointDataFoam[2];
+        for (int i = 0; i < points.Length; i++)
+        {
+            var point = new GameObject($"Foam point {i}");
+            point.transform.SetParent(owner.transform, false);
+            point.transform.localPosition = new Vector3(i == 0 ? -6 : 6, 0, 0);
+            point.AddComponent<Crest.Spline.SplinePoint>();
+            points[i] = point.AddComponent<SplinePointDataFoam>();
+            points[i].FoamAmount = 3;
+        }
+        var splineInput = owner.AddComponent<RegisterFoamInput>();
+        spline.UpdateSpline();
+        yield return WaitForOceanUpdates(3);
+        yield return SampleFoamAfterStep(clock, report, "Spline",
+            (Vector2.zero, _ => .06f), (new Vector2(0, -6), _ => 0));
+        foreach (var point in points)
+        {
+            point.transform.localPosition += Vector3.forward * 6;
+            point.FoamAmount = 6;
+        }
+        spline.UpdateSpline();
+        yield return WaitForOceanUpdates(3);
+        yield return SampleFoamAfterStep(clock, report, "SplineMovedAndIncreased",
+            (new Vector2(0, 6), _ => .12f), (Vector2.zero, _ => 0));
+        splineInput.enabled = false;
+        yield return SampleFoamAfterStep(clock, report, "SplineDisabled");
+    }
+
+    static IEnumerator SampleFoamAfterStep(StepClock clock, string report, string phase,
+        params (Vector2 position, System.Func<Vector2, float> expected)[] samples)
+    {
+        var ocean = OceanRenderer.Instance;
+        var foam = ocean._lodDataFoam;
+        foam.ClearLodData();
+        yield return AdvanceExactSteps(clock, 1);
+        yield return WaitForOceanUpdates(3);
+        var target = foam.DataTexture;
+        var readback = AsyncGPUReadback.Request(target, 0, TextureFormat.RFloat);
+        while (!readback.done) yield return null;
+        Assert.That(readback.hasError, Is.False, phase);
+        var data = readback.GetData<float>(0);
+        if (samples.Length == 0)
+        {
+            float peak = 0;
+            foreach (float value in data) peak = Mathf.Max(peak, Mathf.Abs(value));
+            File.AppendAllText(report, $"{phase} peak={peak:F6}\n");
+            Assert.That(peak, Is.Zero, phase);
+        }
+        var lod = ocean._lodTransform._renderData[0].Current;
+        var offset = new Vector2(target.width * .5f, target.height * .5f);
+        var center = new Vector2(lod._posSnapped.x, lod._posSnapped.z);
+        foreach (var (position, expected) in samples)
+        {
+            var pixel = (position - center) / lod._texelWidth + offset;
+            int x = Mathf.FloorToInt(pixel.x), y = Mathf.FloorToInt(pixel.y);
+            Assert.That(x, Is.InRange(0, target.width - 1), phase);
+            Assert.That(y, Is.InRange(0, target.height - 1), phase);
+            var world = center + (new Vector2(x + .5f, y + .5f) - offset) * lod._texelWidth;
+            float targetValue = expected(world);
+            float actual = data[y * target.width + x];
+            File.AppendAllText(report, $"{phase} {world}: expected={targetValue:F6}, actual={actual:F6}\n");
+            Assert.That(actual, Is.EqualTo(targetValue).Within(.0015f), $"{phase} at {world}");
+        }
+    }
+
     [UnityTearDown]
     public IEnumerator Restore()
     {
