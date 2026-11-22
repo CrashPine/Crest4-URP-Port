@@ -436,6 +436,143 @@ public class SurfaceInputTests
         yield return CheckAdvancedClip("SdfDisabled", baseline, report, Vector3.zero);
     }
 
+    [UnityTest]
+    public IEnumerator TextureMapsDriveFlowAlbedoFoamAndDisplacement()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+
+        var ocean = OceanRenderer.Instance;
+        foreach (var shape in Object.FindObjectsByType<ShapeWaves>()) shape.enabled = false;
+        var surface = Track(new Material(ocean.OceanMaterial));
+        surface.EnableKeyword("_FLOW_ON");
+        surface.SetFloat("_Flow", 1);
+        surface.EnableKeyword("_ALBEDO_ON");
+        surface.SetFloat("_Albedo", 1);
+        ocean.OceanMaterial = surface;
+        Camera.main.transform.position = new Vector3(0, 10, 0);
+        var configuration = new SerializedObject(ocean);
+        configuration.FindProperty("_createFlowSim").boolValue = true;
+        configuration.FindProperty("_createAlbedoData").boolValue = true;
+        configuration.ApplyModifiedPropertiesWithoutUndo();
+        var foamSettings = ScriptableObject.CreateInstance<SimSettingsFoam>();
+        foamSettings._prewarm = false;
+        foamSettings._waveFoamStrength = 0;
+        foamSettings._shorelineFoamStrength = 0;
+        foamSettings._foamFadeRate = 0;
+        foamSettings._simulationFrequency = 30;
+        ocean._simSettingsFoam = foamSettings;
+        var clock = new FoamSimulationTests.StepClock();
+        var map = new Texture2D(2, 1, TextureFormat.RGBAFloat, false, true)
+        {
+            filterMode = FilterMode.Point,
+            wrapMode = TextureWrapMode.Clamp,
+        };
+
+        string report = $"Evidence/P13-TextureInputs-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "Two point-filtered linear texels, flat ocean, LOD0. The built-in plane maps the first texel to positive world X.\n");
+        try
+        {
+            yield return WaitForOceanUpdates(5);
+            ocean.PushTimeProvider(clock);
+
+            var flow = CreateTextureInput<RegisterFlowInput>("Flow/Add Flow Map", "_FlowMap", map,
+                new Color(1, 0, 0, 1), new Color(.25f, .75f, 0, 1));
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataFlow.DataTexture, 2, report, "Flow",
+                new Vector4(-.25f, .25f, 0, 0), new Vector4(.5f, -.5f, 0, 0));
+            flow.enabled = false;
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataFlow.DataTexture, 2, report, "FlowDisabled", Vector4.zero, Vector4.zero);
+
+            var albedo = CreateTextureInput<RegisterAlbedoInput>("Albedo/Color", "_Texture", map, Color.red, Color.blue);
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataAlbedo.DataTexture, 4, report, "Albedo", Color.blue, Color.red);
+            map.SetPixel(1, 0, new Color(0, 0, 1, .25f));
+            map.Apply();
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataAlbedo.DataTexture, 4, report, "AlbedoCutoff", Vector4.zero, Color.red);
+            albedo.enabled = false;
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataAlbedo.DataTexture, 4, report, "AlbedoDisabled", Vector4.zero, Vector4.zero);
+
+            var waves = CreateTextureInput<RegisterAnimWavesInput>("Animated Waves/Add From Texture", "_MainTex", map,
+                new Color(.25f, .5f, .125f, 1), new Color(.5f, .125f, .25f, 1));
+            var waveMaterial = waves.GetComponent<Renderer>().sharedMaterial;
+            waveMaterial.EnableKeyword("_HEIGHTSONLY_ON");
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataAnimWaves.DataTexture, 3, report, "HeightOnly",
+                new Vector4(0, .5f, 0, 0), new Vector4(0, .25f, 0, 0));
+            waveMaterial.DisableKeyword("_HEIGHTSONLY_ON");
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataAnimWaves.DataTexture, 3, report, "Displacement",
+                new Vector4(.5f, .125f, .25f, 0), new Vector4(.25f, .5f, .125f, 0));
+            waves.enabled = false;
+            yield return WaitForOceanUpdates(4);
+            yield return CheckTextureField(ocean._lodDataAnimWaves.DataTexture, 3, report, "DisplacementDisabled", Vector4.zero, Vector4.zero);
+
+            ocean._lodDataFoam.ClearLodData();
+            var foam = CreateTextureInput<RegisterFoamInput>("Foam/Add From Texture", "_MainTex", map,
+                new Color(.25f, 0, 0, 1), new Color(.125f, 0, 0, 1));
+            yield return WaitForOceanUpdates(3);
+            yield return FoamSimulationTests.AdvanceExactSteps(clock, 1);
+            foam.enabled = false;
+            yield return WaitForOceanUpdates(3);
+            yield return CheckTextureField(ocean._lodDataFoam.DataTexture, 1, report, "FoamAfterOneStep",
+                new Vector4(.125f, 0, 0, 0), new Vector4(.25f, 0, 0, 0));
+            ocean._lodDataFoam.ClearLodData();
+            yield return FoamSimulationTests.AdvanceExactSteps(clock, 1);
+            yield return WaitForOceanUpdates(3);
+            yield return CheckTextureField(ocean._lodDataFoam.DataTexture, 1, report, "FoamDisabledAfterClear", Vector4.zero, Vector4.zero);
+        }
+        finally
+        {
+            ocean._simSettingsFoam = null;
+            Object.Destroy(foamSettings);
+            Object.Destroy(map);
+        }
+    }
+
+    T CreateTextureInput<T>(string shaderName, string textureProperty, Texture2D map, Color first, Color second)
+        where T : MonoBehaviour
+    {
+        var shader = Shader.Find("Crest/Inputs/" + shaderName);
+        Assert.That(shader, Is.Not.Null);
+        var material = Track(new Material(shader));
+        map.SetPixels(new[] { first, second });
+        map.Apply();
+        material.SetTexture(textureProperty, map);
+        var owner = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        owner.transform.localScale = Vector3.one * .8f;
+        owner.GetComponent<Renderer>().sharedMaterial = material;
+        return owner.AddComponent<T>();
+    }
+
+    static IEnumerator CheckTextureField(RenderTexture target, int channels, string report, string phase,
+        Vector4 negativeX, Vector4 positiveX)
+    {
+        var request = AsyncGPUReadback.Request(target, 0, TextureFormat.RGBAFloat);
+        while (!request.done) yield return null;
+        Assert.That(request.hasError, Is.False, phase);
+        var data = request.GetData<Vector4>(0);
+        var ocean = OceanRenderer.Instance;
+        var lod = ocean._lodTransform._renderData[0].Current;
+        float texel = 4 * ocean.CalcLodScale(0) / target.width;
+        foreach (var (x, expected) in new[] { (-2f, negativeX), (2f, positiveX), (7f, Vector4.zero) })
+        {
+            var uv = new Vector2(x - lod._posSnapped.x, -lod._posSnapped.z) / texel
+                + new Vector2(target.width * .5f, target.height * .5f);
+            int column = Mathf.FloorToInt(uv.x), row = Mathf.FloorToInt(uv.y);
+            Assert.That(column, Is.InRange(0, target.width - 1), phase);
+            Assert.That(row, Is.InRange(0, target.height - 1), phase);
+            var actual = data[row * target.width + column];
+            File.AppendAllText(report, $"{phase} x={x} expected={expected.ToString("F5")} actual={actual.ToString("F5")}\n");
+            for (int channel = 0; channel < channels; channel++)
+                Assert.That(actual[channel], Is.EqualTo(expected[channel]).Within(.006f), $"{phase}, x={x}, channel={channel}");
+        }
+    }
+
     IEnumerator ConfigureClipScene()
     {
         _timeScale = Time.timeScale;

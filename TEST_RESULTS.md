@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.2: texture inputs (2026-11-22)
+
+`TextureMapsDriveFlowAlbedoFoamAndDisplacement` passed 1/1 on DX11 and 1/1 on DX12. The fixture read native LOD0 simulation targets at x = −2, +2 and +7 m across ten phases. Flow Map produced (−0.25, 0.25) and (0.5, −0.5) m/s. Albedo reproduced blue and red texels and discarded alpha 0.25 under the 0.5 cutoff. Animated Waves reproduced heights 0.5 and 0.25 m and the full three-component displacement in its second mode. One 1/30 s foam step produced 0.125 and 0.25. Outside samples stayed zero. Flow, albedo and displacement cleared after disabling their inputs. A further foam step after clearing the persistent field and disabling the source produced zero again. This fixture measures flat-water LOD0 values in Editor. [Passing XML and counters](Evidence/P13-TextureInputs-DX11-DX12.zip).
+
+The first run lacked Flow and Albedo material keywords. The second used the ocean simulation texel width for Albedo, whose target has its own resolution. The fixture now uses a configured material copy and derives texel width from the sampled target. [Configuration attempt](Evidence/P13-TextureInputs-validation-attempt.zip) · [Sampling attempt](Evidence/P13-TextureInputs-sampling-attempt.zip).
+
 ## P13.2: additional clip inputs (2026-11-22)
 
 `AdvancedClipInputsComposeAndRestore` passed on DX11 and DX12 with identical counters. In a 192 × 192 top-down view of flat water, a convex hull cut 4,096 pixels. Raising it fully above water cleared the LOD0 field and restored the image. `Remove Area Texture` used red and cyan texels and cut only the red-channel half (2,048 pixels). Ordered inverted SDF restored the overlap with a measured value of 0.2431373 against 0.2447917 from the sampled world position. Disabling the inverted input restored the full 4,096-pixel cut. Removing the remaining input restored the reference image. Control points outside the inputs and the image border stayed unchanged. The existing cube, sphere and geometry fixture also passed on DX11 after sharing the scene setup. [XML, counters and frames](Evidence/P13-AdvancedClip-DX11-DX12.zip).

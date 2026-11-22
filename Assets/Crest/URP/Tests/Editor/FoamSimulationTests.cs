@@ -14,7 +14,7 @@ public class FoamSimulationTests
     SimSettingsFoam _settings;
     readonly List<Material> _materials = new List<Material>();
 
-    sealed class StepClock : ITimeProvider
+    internal sealed class StepClock : ITimeProvider
     {
         public int MinimumFrame = -1, ActiveFrame = -1;
         public bool Armed;
@@ -35,7 +35,7 @@ public class FoamSimulationTests
         public float DeltaTimeDynamics => DeltaTime;
     }
 
-    static IEnumerator AdvanceExactSteps(StepClock clock, int requested)
+    internal static IEnumerator AdvanceExactSteps(StepClock clock, int requested)
     {
         Assert.That(OceanRenderer.Instance.TimeProvider, Is.SameAs(clock), "Fixture clock must survive configuration before scheduling steps.");
         float deadline = Time.realtimeSinceStartup + 20;

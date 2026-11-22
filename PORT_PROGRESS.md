@@ -12,7 +12,7 @@ Windows-поставка P12 завершена в пределах провер
 
 P13.1 завершён в Editor. Целевые проверки прошли 2/2 на каждом API, полный DX11 EditMode прошёл 131/131. Поставка Player входит в P13.7.
 
-**P13.2 ACTIVE.** Convex Hull, Remove Area Texture и перекрытие SDF проверены на DX11/DX12. Следующий шаг — проверить карту Flow Map и текстурные входы Albedo, Foam и Animated Waves. Для Flow Map взять существующий GPU-стенд FlowSurfaceTests и сравнить векторы двух заданных областей карты, внешнюю область и результат после отключения входа.
+**P13.2 ACTIVE.** Convex Hull, Remove Area Texture и перекрытие SDF проверены на DX11/DX12. Flow Map и текстурные входы Albedo, Foam и Animated Waves проверены на DX11/DX12. Следующий шаг — усилить проверки пены для цветов вершин и сплайна. Использовать точный шаг симуляции из FoamSimulationTests и контроль внутри и снаружи области ввода. Затем остаются Wave Particle, Push Water Under Convex Hull, Scale By Factor и Override Shadows.
 
 ## Состояние артефактов и сохранённые ограничения
 
