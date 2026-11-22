@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 using Crest;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using Object = UnityEngine.Object;
@@ -96,6 +98,195 @@ public class InputPersistenceTests
         yield return CheckFields("ReenabledAfterReload", true);
         File.AppendAllText(_report, "OldOceanDestroyed=True; OldHeightInputDestroyed=True; FourOldRTsReleased=True; SceneGUIDPreserved=True\n");
     }
+
+    [UnityTest]
+    public IEnumerator SavedWaterBodyRestoresHeightMaterialAndFogAtItsBoundary()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        var scene = EditorSceneManager.OpenScene(BaseScene);
+        string name = "WaterBodyRoundTrip_" + Guid.NewGuid().ToString("N");
+        _folderGuid = AssetDatabase.CreateFolder(Parent, name);
+        _folder = Parent + "/" + name;
+        var ocean = Object.FindFirstObjectByType<OceanRenderer>();
+        foreach (var waves in Object.FindObjectsByType<ShapeWaves>()) waves.enabled = false;
+
+        var baseMaterial = new Material(ocean.OceanMaterial);
+        foreach (string keyword in new[] { "_FOAM_ON", "_TRANSPARENCY_ON", "_CAUSTICS_ON", "_CLIPSURFACE_ON" })
+            baseMaterial.DisableKeyword(keyword);
+        baseMaterial.EnableKeyword("_UNDERWATER_ON");
+        baseMaterial.SetFloat("_Underwater", 1f);
+        baseMaterial.SetFloat("_CullMode", (float)CullMode.Off);
+        baseMaterial.SetVector("_DepthFogDensity", new Vector4(.01f, .01f, .01f, 1));
+        AssetDatabase.CreateAsset(baseMaterial, _folder + "/BaseWater.mat");
+        ocean.OceanMaterial = baseMaterial;
+        ocean._waterBodyCulling = false;
+
+        var bodyMaterial = new Material(baseMaterial);
+        bodyMaterial.SetVector("_DepthFogDensity", new Vector4(.35f, .35f, .35f, 1));
+        AssetDatabase.CreateAsset(bodyMaterial, _folder + "/BodyWater.mat");
+        string bodyMaterialGuid = AssetDatabase.AssetPathToGUID(_folder + "/BodyWater.mat");
+        var bodyObject = new GameObject("Persisted WaterBody");
+        bodyObject.transform.localScale = new Vector3(16, 1, 16);
+        bodyObject.AddComponent<WaterBody>()._overrideMaterial = bodyMaterial;
+
+        var depth = ScriptableObject.CreateInstance<SimSettingsSeaFloorDepth>();
+        depth._allowVaryingWaterLevel = true;
+        AssetDatabase.CreateAsset(depth, _folder + "/Depth.asset");
+        ocean._simSettingsSeaFloorDepth = depth;
+        var clock = ocean.gameObject.AddComponent<TimeProviderCustom>();
+        clock._overrideTime = clock._overrideDeltaTime = clock._paused = true;
+        clock._time = 1;
+        var settings = new SerializedObject(ocean);
+        settings.FindProperty("_timeProvider").objectReferenceValue = clock;
+        settings.FindProperty("_createFoamSim").boolValue = false;
+        settings.FindProperty("_minScale").floatValue = 8;
+        settings.FindProperty("_maxScale").floatValue = 8;
+        settings.ApplyModifiedPropertiesWithoutUndo();
+        var height = CreatePlane("BodyHeight", "Crest/Inputs/Sea Floor Depth/Set Base Water Height Using Geometry", 2);
+        height.transform.localScale = Vector3.one * 1.6f;
+        height.AddComponent<RegisterHeightInput>();
+
+        var camera = Camera.main;
+        camera.transform.SetPositionAndRotation(new Vector3(4, 12, 0), Quaternion.Euler(90, 0, 0));
+        camera.allowHDR = camera.allowMSAA = false;
+        var cameraData = camera.GetUniversalAdditionalCameraData();
+        cameraData.requiresDepthTexture = true;
+        cameraData.renderPostProcessing = false;
+        var fog = camera.GetComponent<UnderwaterRenderer>();
+        if (fog == null) fog = camera.gameObject.AddComponent<UnderwaterRenderer>();
+        fog.EnableShaderAPI = true;
+
+        var wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        wall.name = "Opaque fog control";
+        wall.transform.position = new Vector3(6, -3, 10);
+        wall.transform.localScale = new Vector3(40, 4, 1);
+        var wallMaterial = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+        wallMaterial.SetColor("_BaseColor", new Color(.65f, .45f, .25f));
+        AssetDatabase.CreateAsset(wallMaterial, _folder + "/Wall.mat");
+        wall.GetComponent<Renderer>().sharedMaterial = wallMaterial;
+
+        var scenePath = _folder + "/WaterBody.unity";
+        AssetDatabase.SaveAssets();
+        Assert.That(EditorSceneManager.SaveScene(scene, scenePath), Is.True);
+        string sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+        _report = $"Evidence/P13-SavedWaterBody-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(_report, "Body x/z bounds ±8 m, local level +2 m, base fog density 0.01, body density 0.35. Camera crosses the XZ boundary while underwater.\n");
+
+        yield return new EnterPlayMode();
+        yield return WaitForOceanUpdates(6);
+        var oldOcean = OceanRenderer.Instance;
+        var oldBody = GameObject.Find("Persisted WaterBody").GetComponent<WaterBody>();
+        var oldTarget = oldOcean._lodDataSeaDepths.DataTexture;
+        var before = new Color32[3];
+        yield return CheckSavedWaterBody("BeforeReload", bodyMaterialGuid, before);
+        yield return EditorSceneManager.LoadSceneAsyncInPlayMode(scenePath, new LoadSceneParameters(LoadSceneMode.Single));
+        yield return WaitForOceanUpdates(6);
+        Assert.That(oldOcean == null && oldBody == null && oldTarget == null, Is.True);
+        Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(scenePath));
+        Assert.That(AssetDatabase.AssetPathToGUID(scenePath), Is.EqualTo(sceneGuid));
+        var after = new Color32[3];
+        yield return CheckSavedWaterBody("AfterReload", bodyMaterialGuid, after);
+        for (int i = 0; i < before.Length; i++)
+            Assert.That(ColorDistance(before[i], after[i]), Is.LessThanOrEqualTo(3), $"Reloaded control {i}");
+        File.AppendAllText(_report, "Scene GUID preserved, old body and ocean destroyed, old depth target released, fog samples restored.\n");
+    }
+
+    IEnumerator CheckSavedWaterBody(string phase, string materialGuid, Color32[] fogSamples)
+    {
+        var ocean = OceanRenderer.Instance;
+        var body = GameObject.Find("Persisted WaterBody").GetComponent<WaterBody>();
+        var camera = Camera.main;
+        var fog = camera.GetComponent<UnderwaterRenderer>();
+        Assert.That(AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(body._overrideMaterial)), Is.EqualTo(materialGuid));
+        Assert.That(WaterBody.WaterBodies.Count(entry => entry == body), Is.EqualTo(1));
+        Assert.That(body.AABB.Contains(new Vector3(0, body.AABB.center.y, 0)), Is.True);
+        Assert.That(body.AABB.Contains(new Vector3(12, body.AABB.center.y, 0)), Is.False);
+        var depth = ocean._lodDataSeaDepths.DataTexture;
+        var native = AsyncGPUReadback.Request(depth, 0, TextureFormat.RGFloat);
+        while (!native.done) yield return null;
+        Assert.That(native.hasError, Is.False);
+        float insideHeight = native.GetData<Vector2>(0)[WorldIndex(depth, Vector2.zero)].y;
+        float outsideHeight = native.GetData<Vector2>(0)[WorldIndex(depth, new Vector2(12, 0))].y;
+        Assert.That(insideHeight, Is.EqualTo(2).Within(.01f));
+        Assert.That(outsideHeight, Is.Zero);
+
+        var target = new RenderTexture(320, 180, 24, RenderTextureFormat.ARGB32);
+        var previousCallback = UnderwaterRenderer.AfterCopyMaterial;
+        try
+        {
+            Assert.That(target.Create(), Is.True);
+            camera.aspect = 320f / 180f;
+            camera.orthographic = true;
+            camera.orthographicSize = 9;
+            fog.enabled = false;
+            CaptureWaterBody(camera, target, null);
+            var tiles = ocean.Root.GetComponentsInChildren<OceanChunkRenderer>();
+            int overrides = tiles.Count(tile => tile.Rend.enabled && tile.Rend.sharedMaterial == body._overrideMaterial);
+            int defaults = tiles.Count(tile => tile.Rend.enabled && tile.Rend.sharedMaterial == ocean.OceanMaterial);
+            File.AppendAllText(_report, $"{phase} height={insideHeight}/{outsideHeight}; tile materials={overrides} body, {defaults} default\n");
+            Assert.That(overrides, Is.GreaterThan(0));
+            Assert.That(defaults, Is.GreaterThan(0));
+
+            camera.orthographic = false;
+            int[] fogChanges = new int[3];
+            for (int i = 0; i < fogSamples.Length; i++)
+            {
+                bool inside = i != 1;
+                camera.transform.SetPositionAndRotation(new Vector3(inside ? 0 : 12, -3, 0), Quaternion.identity);
+                fog.enabled = false;
+                yield return WaitForOceanUpdates(3);
+                var control = CaptureWaterBody(camera, target, null);
+
+                Material selected = null;
+                UnderwaterRenderer.AfterCopyMaterial = material => selected = material;
+                fog.enabled = true;
+                yield return WaitForOceanUpdates(3);
+                var file = phase == "AfterReload" && i < 2
+                    ? $"Evidence/P13-SavedWaterBody-{SystemInfo.graphicsDeviceType}-{(inside ? "Inside" : "Outside")}.png" : null;
+                fogSamples[i] = CaptureWaterBody(camera, target, file);
+                var expectedMaterial = inside ? body._overrideMaterial : ocean.OceanMaterial;
+                Assert.That(selected, Is.SameAs(expectedMaterial), $"{phase} view {i}");
+                Vector4 selectedDensity = Shader.GetGlobalVector("_CrestDepthFogDensity");
+                float expectedDensity = inside ? .35f : .01f;
+                Assert.That(selectedDensity.x, Is.EqualTo(expectedDensity).Within(.0001f), $"{phase} view {i}");
+                Assert.That(control.r + control.g + control.b, Is.GreaterThan(50));
+                fogChanges[i] = ColorDistance(control, fogSamples[i]);
+                File.AppendAllText(_report, $"{phase} view={i}; density={selectedDensity.x:F3}; fog RGB delta={fogChanges[i]}; control={control}; output={fogSamples[i]}\n");
+            }
+            Assert.That(fogChanges[0], Is.GreaterThan(fogChanges[1] + 30), phase);
+            Assert.That(fogChanges[1], Is.GreaterThan(0), phase);
+            Assert.That(ColorDistance(fogSamples[0], fogSamples[2]), Is.LessThanOrEqualTo(3), phase);
+        }
+        finally
+        {
+            UnderwaterRenderer.AfterCopyMaterial = previousCallback;
+            target.Release();
+            Object.Destroy(target);
+        }
+    }
+
+    static Color32 CaptureWaterBody(Camera camera, RenderTexture target, string png)
+    {
+        RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
+        var active = RenderTexture.active;
+        var image = new Texture2D(target.width, target.height, TextureFormat.RGBA32, false);
+        try
+        {
+            RenderTexture.active = target;
+            image.ReadPixels(new Rect(0, 0, target.width, target.height), 0, 0);
+            image.Apply();
+            if (png != null) File.WriteAllBytes(png, image.EncodeToPNG());
+            return image.GetPixel(target.width / 2, target.height / 2);
+        }
+        finally
+        {
+            RenderTexture.active = active;
+            Object.Destroy(image);
+        }
+    }
+
+    static int ColorDistance(Color32 first, Color32 second)
+        => Mathf.Abs(first.r - second.r) + Mathf.Abs(first.g - second.g) + Mathf.Abs(first.b - second.b);
 
     GameObject CreatePlane(string label, string shaderName, float height)
     {
