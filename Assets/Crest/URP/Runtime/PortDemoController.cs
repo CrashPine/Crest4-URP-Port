@@ -16,6 +16,11 @@ namespace Crest.URP
     {
         string _pendingCapture;
         bool _smoke;
+#if DEVELOPMENT_BUILD
+        bool _checkWaveCrossing;
+#else
+        const bool _checkWaveCrossing = false;
+#endif
         int _errors;
         string _evidence;
         readonly List<string> _results = new List<string>();
@@ -32,14 +37,17 @@ namespace Crest.URP
         void Awake()
         {
             var args = Environment.GetCommandLineArgs();
-            _smoke = Array.IndexOf(args, "-crestSmoke") >= 0;
+#if DEVELOPMENT_BUILD
+            _checkWaveCrossing = Array.IndexOf(args, "-crestWaveCrossing") >= 0;
+#endif
+            _smoke = Array.IndexOf(args, "-crestSmoke") >= 0 || _checkWaveCrossing;
             var index = Array.IndexOf(args, "-crestEvidence");
             _evidence = index >= 0 && index + 1 < args.Length ? args[index + 1] : Path.Combine(Application.persistentDataPath, "CrestEvidence");
             if (_smoke)
             {
                 OceanRenderer.EnableGraphicsInBatchMode = true;
                 Application.logMessageReceived += RecordError;
-                StartCoroutine(Smoke());
+                if (!_checkWaveCrossing) StartCoroutine(Smoke());
             }
         }
 
@@ -96,6 +104,13 @@ namespace Crest.URP
 
         void LateUpdate()
         {
+#if DEVELOPMENT_BUILD
+            if (_checkWaveCrossing)
+            {
+                CheckWaveCrossing();
+                return;
+            }
+#endif
             if (_pendingCapture == null) return;
             try
             {

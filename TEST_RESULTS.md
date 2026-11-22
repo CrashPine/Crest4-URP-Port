@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.4 Moving waterline and meniscus in Windows Player
+
+Both Development Player runs followed the scene camera route at a fixed 60 Hz simulation step and captured the current ocean frame. Entry and exit probes use the measured camera height relative to the waves. The control disables only the meniscus at the waterline and the entire underwater effect at the submerged and above-water poses. Each control is bracketed by two renders of the enabled effect in the same frame.
+
+On DX11/DX12 the meniscus darkened 999/1,067 pixels on entry at +0.782/+0.780 m relative height and 423/585 pixels on exit at −0.745/−0.185 m. No meniscus pixel brightened past the RGB comparison threshold. At −2 m, the underwater effect changed 229,093/229,043 pixels of the 640 × 360 frame. Above +3 m the control changed zero pixels past the threshold. All eight enabled frames returned to their exact values after restoring the effect. Both Players reported zero errors and no error-pink pixels in the captures. [Player reports, build log and paired frames](Evidence/P13-WaveCrossing-DX11-DX12.zip).
+
 ## P13.4-S Large-waves scene and calibration
 
 Ocean_LargeWaves uses the original FFT, boat probes and URP renderer with an eight-metre reference post. Its own Pierson–Moskowitz spectrum uses an amplitude multiplier of 0.37, with wind 100 km/h at heading 0°. The first calibration at multiplier 3 measured 40.644 m. The boat prefab's wake sources also required enabling dynamic waves in the copied scene. The two initial runs are archived separately. [Initial calibration](Evidence/P13-LargeWaves-first-calibration.zip) · [Initial wake configuration](Evidence/P13-LargeWaves-wake-configuration.zip).
