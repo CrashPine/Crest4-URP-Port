@@ -49,7 +49,20 @@ public class OriginalLakesRiversTests
         for(int i=0;i<16;i++)yield return null;_position=camera.transform.position;_rotation=camera.transform.rotation;
         File.WriteAllText(_stem+".txt",$"Original LakesAndRivers source camera={_position}; Heights={heights.Length}; Flow={flows.Length}; Terrain={Object.FindObjectsByType<Terrain>().Length}; Bodies={Object.FindObjectsByType<WaterBody>().Length}; Clip={ocean.CreateClipSurfaceData}. Original input names="+string.Join(";",heights.Select(h=>h.name))+" / "+string.Join(";",flows.Select(f=>f.name))+". Other ShapeWaves off only in fixture; original terrain/depth retained. Ocean clock1/delta0 +Unity timeScale0, capture60Hz/query fence, depth on/postprocess/MSAA off.\n");
         _target=new RenderTexture(640,360,24,RenderTextureFormat.ARGB32);_target.Create();
-        var onW=Read(ocean._lodDataSeaDepths.DataTexture,true);var onF=Read(ocean._lodDataFlow.DataTexture);var on=Capture(camera,"on");
+        var previous=Capture(camera,"initial");
+        Color32[] on=null;
+        for(int attempt=0;attempt<5;attempt++)
+        {
+            yield return Settle();
+            on=Capture(camera,"on");
+            int changedSincePrevious=previous.Zip(on,(a,b)=>a.Equals(b)?0:1).Sum();
+            File.AppendAllText(_stem+".txt",$"WarmupCapture={attempt}; UnchangedInputDifferentPixels={changedSincePrevious}\n");
+            if(changedSincePrevious==0) break;
+            previous=on;
+            on=null;
+        }
+        Assert.That(on,Is.Not.Null,"The source view must settle with inputs unchanged before the exact restoration check.");
+        var onW=Read(ocean._lodDataSeaDepths.DataTexture,true);var onF=Read(ocean._lodDataFlow.DataTexture);
         foreach(var h in heights)h.enabled=false;foreach(var f in flows)f.enabled=false;for(int i=0;i<16;i++)yield return null;
         var offW=Read(ocean._lodDataSeaDepths.DataTexture,true);var offF=Read(ocean._lodDataFlow.DataTexture);var off=Capture(camera,"off");
         foreach(var h in heights)h.enabled=true;foreach(var f in flows)f.enabled=true;for(int i=0;i<16;i++)yield return null;
