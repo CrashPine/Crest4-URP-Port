@@ -2,6 +2,12 @@
 
 Актуальная сверка: **2026-11-15**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
 
+## P13.2: convex hull displacement and shadow override (2026-11-22)
+
+Both focused tests passed in Editor on DX11 and DX12 with identical counters. Push Water Under Convex Hull produced −1 m vertical displacement at both interior samples and zero at the exterior sample. A top-down camera showed 4,356 pixels of the opaque reference plane at y = −0.5 m under the hull. The image border stayed at baseline and disabling the input restored the native samples and all pixels within the RGB comparison threshold.
+
+Override Shadows wrote bytes (64, 64) and (191, 191) into the LOD0 R8G8_UNorm soft and hard channels for values 0.25 and 0.75. The exterior stayed at zero. With unoccluded atlas input, zero jitter and full current-frame weight, disabling the override restored both channels to zero on the next scheduled render. These results complete the P13.2 Editor checks. [XML, counters and hull frames](Evidence/P13-HullAndShadow-DX11-DX12.zip).
+
 ## P13.2: foam geometry and wave scaling (2026-11-22)
 
 VertexColoursAndSplineDepositFoamAndDeregister passed 1/1 on DX11 and 1/1 on DX12 with identical reports. In one 1/30 s step the vertex red gradient produced 0.188721 and 0.313721 against expected 0.188802 and 0.313802. The open spline produced 0.059998 at its center. Moving the spline by 6 m and doubling point weight produced 0.119995 at the new position and zero at the old one. For each disabled input, the full LOD0 slice stayed at zero after clearing accumulated foam and advancing another step. [Foam XML and counters](Evidence/P13-FoamInputs-DX11-DX12.zip).

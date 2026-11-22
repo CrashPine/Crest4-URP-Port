@@ -639,6 +639,53 @@ public class SurfaceInputTests
         yield return CheckInputField(target, 3, report, "ParticleDisabled", _ => Vector4.zero);
     }
 
+    [UnityTest]
+    public IEnumerator ConvexHullDisplacesWaterAndExposesLocalBoundary()
+    {
+        OceanRenderer.EnableGraphicsInBatchMode = true;
+        EditorSceneManager.OpenScene("Assets/CrestPortDemos/Ocean_Calm.unity");
+        yield return new EnterPlayMode();
+        yield return ConfigureClipScene();
+
+        const string prefix = "P13-HullDisplacement";
+        string report = $"Evidence/{prefix}-{SystemInfo.graphicsDeviceType}.txt";
+        File.WriteAllText(report, "Flat water and a hull spanning x/z ±4 m, bottom y=-1. Opaque magenta reference floor at y=-0.5 m.\n");
+        var floor = GameObject.Find("Visible refraction reference floor");
+        var floorPosition = floor.transform.position;
+        floorPosition.y = -.5f;
+        floor.transform.position = floorPosition;
+        var ocean = OceanRenderer.Instance;
+        var target = ocean._lodDataAnimWaves.DataTexture;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckInputField(target, 3, report, "Baseline", _ => Vector4.zero);
+        var baseline = Capture("Baseline", prefix);
+        Assert.That(Magenta(baseline), Is.Zero);
+
+        var hull = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        hull.transform.localScale = new Vector3(8, 2, 8);
+        var shader = Shader.Find("Crest/Inputs/Animated Waves/Push Water Under Convex Hull");
+        Assert.That(shader, Is.Not.Null);
+        hull.GetComponent<Renderer>().sharedMaterial = Track(new Material(shader));
+        var input = hull.AddComponent<RegisterAnimWavesInput>();
+        yield return WaitForOceanUpdates(4);
+        yield return CheckInputField(target, 3, report, "Hull", world => Mathf.Abs(world.x) < 4
+            ? new Vector4(0, -1, 0, 0) : Vector4.zero);
+        var lowered = Capture("Hull", prefix);
+        int exposed = Magenta(lowered);
+        int border = Different(baseline, lowered, borderOnly: true);
+        File.AppendAllText(report, $"MagentaPixels={exposed}; borderDifferences={border}\n");
+        Assert.That(exposed, Is.InRange(2500, 5500), "Only the local floor should become visible.");
+        Assert.That(lowered[Size * (Size / 2) + Size / 2], Is.EqualTo(new Color32(255, 0, 255, 255)));
+        Assert.That(border, Is.Zero);
+
+        input.enabled = false;
+        yield return WaitForOceanUpdates(4);
+        yield return CheckInputField(target, 3, report, "HullDisabled", _ => Vector4.zero);
+        int restored = Different(baseline, Capture("Restored", prefix));
+        File.AppendAllText(report, $"RestoredDifferences={restored}\n");
+        Assert.That(restored, Is.Zero);
+    }
+
     IEnumerator ConfigureClipScene()
     {
         _timeScale = Time.timeScale;

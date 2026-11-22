@@ -29,7 +29,7 @@ public sealed class ShadowHistoryCapture : MonoBehaviour
 
 public class ShadowHistoryTests
 {
-    enum Control { History, Penumbra, CascadeTransfer }
+    enum Control { History, Penumbra, CascadeTransfer, Override }
 
     [UnityTest]
     public IEnumerator OcclusionHistoryAccumulatesAndDecaysAtOriginalWeights()
@@ -42,6 +42,10 @@ public class ShadowHistoryTests
     [UnityTest]
     public IEnumerator ScaleChangesReadTheMatchingPreviousShadowCascade()
         => ValidateShadowHistory(Control.CascadeTransfer);
+
+    [UnityTest]
+    public IEnumerator GeometryOverridesBothShadowChannels()
+        => ValidateShadowHistory(Control.Override);
 
     IEnumerator ValidateShadowHistory(Control control)
     {
@@ -64,6 +68,7 @@ public class ShadowHistoryTests
         {
             Control.Penumbra => "ShadowPenumbra",
             Control.CascadeTransfer => "ShadowCascadeTransfer",
+            Control.Override => "ShadowOverride",
             _ => "ShadowHistory",
         };
         try
@@ -119,6 +124,10 @@ public class ShadowHistoryTests
             {
                 yield return CheckCascadeTransfer(ocean, camera, target, recorder, shadows, shadowSettings, report);
             }
+            else if (control == Control.Override)
+            {
+                yield return CheckOverride(ocean, camera, target, recorder, shadows, shadowSettings, report);
+            }
             else
             {
                 yield return CheckHistory(camera, target, caster, recorder, shadows, shadowSettings, report);
@@ -126,7 +135,8 @@ public class ShadowHistoryTests
         }
         finally
         {
-            File.WriteAllText($"Evidence/P12-{reportName}-{SystemInfo.graphicsDeviceType}.txt", report.ToString());
+            string milestone = control == Control.Override ? "P13" : "P12";
+            File.WriteAllText($"Evidence/{milestone}-{reportName}-{SystemInfo.graphicsDeviceType}.txt", report.ToString());
             target.Release();
             Object.Destroy(target);
             var serialized = new SerializedObject(ocean);
@@ -139,6 +149,69 @@ public class ShadowHistoryTests
             OceanRenderer.EnableGraphicsInBatchMode = graphics;
         }
         yield return new ExitPlayMode();
+    }
+
+    static IEnumerator CheckOverride(OceanRenderer ocean, Camera camera, RenderTexture target,
+        ShadowHistoryCapture recorder, LodDataMgrShadow shadows, SimSettingsShadow settings, StringBuilder report)
+    {
+        // A full weight returns to the current unoccluded atlas in one update.
+        settings._currentFrameWeightSoft = settings._currentFrameWeightHard = 1;
+        settings._jitterDiameterSoft = settings._jitterDiameterHard = 0;
+        var plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        plane.transform.localScale = Vector3.one * .8f;
+        var shader = Shader.Find("Crest/Inputs/Shadows/Override Shadows");
+        Assert.That(shader, Is.Not.Null);
+        var material = new Material(shader);
+        try
+        {
+            plane.GetComponent<Renderer>().sharedMaterial = material;
+            var input = plane.AddComponent<RegisterShadowInput>();
+            input.enabled = false;
+            report.AppendLine("LOD0 RG8, unoccluded atlas, full current-frame weight, zero jitter. Four scheduled camera renders.");
+            foreach (var (phase, value) in new[] { ("Baseline", 0f), ("Quarter", .25f), ("ThreeQuarters", .75f), ("Disabled", 0f) })
+            {
+                material.SetFloat("_ShadowValue", value);
+                input.enabled = value > 0;
+                // Let registration and the input's Renderer state settle before submitting a camera request.
+                yield return null;
+                Exception failure = null;
+                bool completed = false;
+                recorder.Capture = () =>
+                {
+                    try
+                    {
+                        Assert.That(BuildCommandBufferBase._lastUpdateFrame, Is.EqualTo(OceanRenderer.FrameCount));
+                        RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
+                        var field = shadows.DataTexture;
+                        var lod = ocean._lodTransform._renderData[0].Current;
+                        var readback = AsyncGPUReadback.Request(field, 0);
+                        readback.WaitForCompletion();
+                        Assert.That(readback.hasError, Is.False);
+                        var bytes = readback.GetData<byte>(0);
+                        foreach (float x in new[] { -2f, 2f, 7f })
+                        {
+                            int column = Mathf.FloorToInt((x - lod._posSnapped.x) / lod._texelWidth + field.width * .5f);
+                            int row = Mathf.FloorToInt(-lod._posSnapped.z / lod._texelWidth + field.height * .5f);
+                            int offset = (row * field.width + column) * 2;
+                            int expected = Mathf.Abs(x) < 4 ? Mathf.RoundToInt(value * 255) : 0;
+                            report.AppendLine($"{phase} x={x} soft={bytes[offset]} hard={bytes[offset + 1]} expected={expected}");
+                            Assert.That(bytes[offset], Is.EqualTo(expected), $"{phase} soft at {x}");
+                            Assert.That(bytes[offset + 1], Is.EqualTo(expected), $"{phase} hard at {x}");
+                        }
+                        completed = true;
+                    }
+                    catch (Exception exception) { failure = exception; }
+                };
+                yield return null;
+                if (failure != null) throw failure;
+                Assert.That(completed, Is.True, phase);
+            }
+        }
+        finally
+        {
+            Object.Destroy(plane);
+            Object.Destroy(material);
+        }
     }
 
     static IEnumerator CheckCascadeTransfer(OceanRenderer ocean, Camera camera, RenderTexture target,
