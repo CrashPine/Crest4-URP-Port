@@ -1,395 +1,497 @@
 {
-  "recordedUtc": "2026-11-14T13:43:18.743854+00:00",
+  "recordedUtc": "2026-11-23T09:50:08.093721+00:00",
   "unity": "6000.6.5f1",
   "urp": "17.6.0",
+  "candidateCommit": "2bd0f9c7ba49946ad60eddb75243cc6fd34454f7",
   "strictShaderVariantMatching": true,
+  "validationStatus": "P13.7 full 147 plus Game View 3 per API, ValidateAssets, both builds and four unpacked Player smokes passed.",
+  "evidenceArchive": {
+    "path": "Evidence/P13-Final-Release-evidence.zip",
+    "sha256": "ff36dbf6358c1051ace53f0ae60363b9f7c4c919fb9899578a5c176db62baab4",
+    "bytes": 15463719
+  },
+  "testReports": [
+    {
+      "api": "DX11",
+      "profile": "batch",
+      "total": 147,
+      "startUtc": "2026-11-22 20:27:19Z",
+      "endUtc": "2026-11-22 20:32:44Z",
+      "path": "P13-Final-d3d11-batch.xml",
+      "sha256": "8b0a429dd3a065157c8fef39359f45a214109597952d116b1911674250de789f",
+      "bytes": 181846,
+      "modifiedUtc": "2026-11-22T20:32:44.955775+00:00"
+    },
+    {
+      "api": "DX11",
+      "profile": "interactive",
+      "total": 3,
+      "startUtc": "2026-11-22 20:33:13Z",
+      "endUtc": "2026-11-22 20:33:50Z",
+      "path": "P13-Final-d3d11-interactive.xml",
+      "sha256": "701a7d5d27e42e05f0213d61052a6abfc2cb86d0483aa71c426be9af190608be",
+      "bytes": 4666,
+      "modifiedUtc": "2026-11-22T20:33:51.070977+00:00"
+    },
+    {
+      "api": "DX12",
+      "profile": "batch",
+      "total": 147,
+      "startUtc": "2026-11-22 20:34:10Z",
+      "endUtc": "2026-11-22 20:41:00Z",
+      "path": "P13-Final-d3d12-batch.xml",
+      "sha256": "22512e5c1012969ee78ac46b28557c0483224785c313a7c1866abb88f7341a28",
+      "bytes": 181846,
+      "modifiedUtc": "2026-11-22T20:41:00.654152+00:00"
+    },
+    {
+      "api": "DX12",
+      "profile": "interactive",
+      "total": 3,
+      "startUtc": "2026-11-22 20:41:23Z",
+      "endUtc": "2026-11-22 20:42:03Z",
+      "path": "P13-Final-d3d12-interactive.xml",
+      "sha256": "edfd76cabfec6dae772f471544f300cbbf1a1293957d2f3d891405c7885a5339",
+      "bytes": 4666,
+      "modifiedUtc": "2026-11-22T20:42:03.211812+00:00"
+    }
+  ],
+  "assetValidation": {
+    "path": "P13-Final-ValidateAssets.log",
+    "sha256": "c6131dd4d1c35ea6b51bf95611808cac04e41d923be201ef06f25c004751f94b",
+    "bytes": 49207,
+    "modifiedUtc": "2026-11-22T20:42:29.324693+00:00"
+  },
+  "provenance": {
+    "path": "guid-and-compute.json",
+    "sha256": "899aa53fd560c03fa9f3eb39ecfe891cd26271913852550cc794d1e29d1e0c33",
+    "bytes": 586,
+    "modifiedUtc": "2026-11-22T20:09:25.103698+00:00"
+  },
   "runtimeSources": [
     {
-      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs",
-      "sha256": "C6A6BD0FC89525B1D90A08BA8B486369065C82745BC76B22517B1238E7E07B9C",
-      "bytes": 24711,
-      "modifiedUtc": "2026-10-21T10:51:56.874402+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs",
-      "sha256": "72CED08CD6288A56F2FD9CFEF588ACB477BE2C4294AAF8D8DBBF42F5E06E5BE4",
-      "bytes": 9586,
-      "modifiedUtc": "2026-10-21T10:56:02.458899+00:00"
-    },
-    {
-      "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
-      "sha256": "1629D844522C99E97A0406D45B5EABC245E8A87E54E058DA660A9728F2A2A9C0",
-      "bytes": 6864,
-      "modifiedUtc": "2026-10-30T16:53:19.216955+00:00"
-    },
-    {
-      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
-      "sha256": "A325A07F15071E78794D9E5879E4D34ED80BA140B2C431759A87A6A727F90DD3",
-      "bytes": 7577,
-      "modifiedUtc": "2026-11-04T18:54:46.224198+00:00"
-    },
-    {
-      "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs",
-      "sha256": "E480CC602822626E1BEB109755C668FA239B48E456CDE446315EB2136E5BA38F",
-      "bytes": 6996,
-      "modifiedUtc": "2026-10-21T10:34:36.905539+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Collision/QueryBase.cs",
-      "sha256": "03426F6EDC957F6F5C9D66795B7642B337A79F7CC67E2C810640BC3251472AA6",
-      "bytes": 25407,
-      "modifiedUtc": "2026-10-23T15:43:06.099649+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader",
-      "sha256": "FC83736D349C77C3A84BB70C7D940358A74F482FD526C841A9297EC5C7827BAF",
-      "bytes": 3645,
-      "modifiedUtc": "2026-10-24T15:48:56.148807+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrClipSurface.cs",
-      "sha256": "05977283CB3D5B4D77D38B216AD22E6A3584016EC45966B3A4D0BF52474EBC56",
-      "bytes": 5345,
-      "modifiedUtc": "2026-10-24T20:31:12.493000+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
-      "sha256": "8640F835E21F741C031CED7A5D31500C522CED27965D8C9723554B759C587A70",
-      "bytes": 14739,
-      "modifiedUtc": "2026-10-30T16:55:56.669686+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Shaders/OceanEmission.hlsl",
-      "sha256": "276FE46BA3DDBF518CFB9BF9708779495586CE3E2805A83CE2C6C19B50E86293",
-      "bytes": 10245,
-      "modifiedUtc": "2026-10-26T15:49:34.861203+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Crest.Examples.asmdef",
-      "sha256": "EF53D3D174005FCA96AC06DE00727DE207671FB45CDC928DA3FEBFB55418B52B",
-      "bytes": 974,
-      "modifiedUtc": "2026-10-27T12:34:31.652246+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/CustomPassForCamera.cs",
-      "sha256": "1D742C66478901258D049B01745F548718B305FE4DB538B2FC398745B314B2E3",
-      "bytes": 7916,
-      "modifiedUtc": "2026-10-27T12:28:43.670069+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/MaskFill.cs",
-      "sha256": "75593E71183ECDD89F16C5BCC2B6823D7274AAFEC4DE8115AA1AF3F7565F3D3A",
-      "bytes": 6145,
-      "modifiedUtc": "2026-10-27T09:39:44.053185+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/DepthOnly.shader",
-      "sha256": "CDF8072E51CFA82C28E7A0136B113C1ABEBF93EB944E05D8D7CF6F8E21F6C447",
-      "bytes": 814,
-      "modifiedUtc": "2026-10-27T09:18:23.790181+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/MaskDepth.shader",
-      "sha256": "13D03F669801F435657DC118537E82762B083040FCA6B737AAF38A87615E441D",
-      "bytes": 1705,
-      "modifiedUtc": "2026-10-27T09:18:23.789164+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
-      "sha256": "B9F572EDFF89E7F14DE90726F89011A4E95B4895DAF159182E41DEE15830B4D9",
-      "bytes": 7330,
-      "modifiedUtc": "2026-10-27T09:39:44.058187+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Resources/MaskFill.shader",
-      "sha256": "A39A8581BB21F6F4B2617593115FE57E0963F3FC054F8BC1F98E635CD4ED4721",
-      "bytes": 1761,
-      "modifiedUtc": "2026-10-27T09:18:23.790181+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/SphereGradientBackground.shader",
-      "sha256": "035F0C18C1BF64D4FD6BB49485CD811F2B9F0C2AC2F7A1BFA3A12A851CD038F0",
-      "bytes": 1768,
-      "modifiedUtc": "2026-10-27T09:18:23.791169+00:00"
-    },
-    {
-      "path": "Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs",
-      "sha256": "7DED8D565BA0543D1D1E364D1D9EE2226F487CAD93E09728808F0F640C7329D1",
-      "bytes": 3973,
-      "modifiedUtc": "2026-10-27T09:23:40.835171+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader",
-      "sha256": "F1007BD6A10D6122DA0A25F4E6F1EB00B9D3383217E96367A359FFACDEDB9B26",
-      "bytes": 5419,
-      "modifiedUtc": "2026-10-27T15:46:16.971018+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.Mask.cs",
-      "sha256": "4B76374D5FE398E97CB1DCB0E7A2576EB4FD92C0719113D66DD4788ADC4E768F",
-      "bytes": 19158,
-      "modifiedUtc": "2026-10-30T17:07:51.250255+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs",
-      "sha256": "2F7AFCFB7003736A0B0EC038841B29998BA80A9EB356BDED580D0423597493A5",
-      "bytes": 25222,
-      "modifiedUtc": "2026-10-30T17:07:51.251256+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTCompute.cs",
-      "sha256": "B1351F0AF6490146D37BF72BF7DEF7E37B57608C028923E5966DED38B89ED38F",
-      "bytes": 23788,
-      "modifiedUtc": "2026-11-05T20:00:37.542341+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Shapes/ShapeWaves.cs",
-      "sha256": "9E3CE73B1CA21BC01E31925A13D5315A1BDADB4035566D856B98752F3D69327B",
-      "bytes": 23960,
-      "modifiedUtc": "2026-11-05T15:02:11.237897+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/ShapeFFT.cs",
-      "sha256": "E7993D7F20A3BDE6CFC2443A902F0730695B2804F28B9206048F366D25416B0B",
-      "bytes": 12964,
-      "modifiedUtc": "2026-11-05T15:02:11.238899+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs",
-      "sha256": "9C312D7C38F87CD15BA6411A174E268A41993696D6CB261A017DA6B2E740AD8F",
-      "bytes": 22973,
-      "modifiedUtc": "2026-11-05T15:02:11.238899+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Shared/Scripts/CamController.cs",
-      "sha256": "08A29664A22303844D1C66F483ACD21B4EC67EDA6FF21AF89F61CAD0C7DE9A59",
-      "bytes": 9994,
-      "modifiedUtc": "2026-11-06T11:28:32.338716+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/ExamplesController.cs",
-      "sha256": "56826C4F8312A702AB28B7EBDD8B15656AA2DD6C596A8839E66B0C38203F2B5A",
-      "bytes": 3903,
-      "modifiedUtc": "2026-11-06T11:28:32.338716+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/LodData/RegisterClipSurfaceInput.cs",
-      "sha256": "3ED3239073E36D9A2B74C22F635EFEE81EE0E6121931B9A876B2CC60E63E169C",
-      "bytes": 13577,
-      "modifiedUtc": "2026-11-06T15:28:13.213195+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs",
-      "sha256": "CE561BECEB85ECC2B968F57EB7FC1B40F0116BCC0ADE4ED1BBD0F9712BACCA10",
-      "bytes": 18119,
-      "modifiedUtc": "2026-11-13T12:37:06.465760+00:00"
-    },
-    {
-      "path": "Assets/Crest/Crest/Scripts/LodData/OceanDepthCache.cs",
-      "sha256": "09EE9D7ED6A7DD54B14BEB35B7DEAFC05A7225FBED616C9466D5A5A1019FD405",
-      "bytes": 38355,
-      "modifiedUtc": "2026-11-13T17:36:26.304558+00:00"
+      "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
+      "sha256": "65749376906a83eae650c8e9a957da707c136da7475445739b396ac2a406d466",
+      "bytes": 3990
     },
     {
       "path": "Assets/Crest/Crest-Examples/BoatDev/Scripts/BoatAlignNormal.cs",
-      "sha256": "98A70DFC7FFF6D6057CCAEA4C6CDD79C55B58E8A149ADE6041CE8AF5C9627B8B",
-      "bytes": 9828,
-      "modifiedUtc": "2026-11-06T16:10:21.287865+00:00"
+      "sha256": "98a70dfc7fff6d6057ccaea4c6cdd79c55b58e8a149ade6041ce8af5c9627b8b",
+      "bytes": 9828
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Crest.Examples.asmdef",
+      "sha256": "ef53d3d174005fca96ac06de00727de207671fb45cdc928da3febfb55418b52b",
+      "bytes": 974
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
+      "sha256": "2c90eacc266dcb536bf7d020bc3dc39dc13c838d03360a6522a467f08a4379a8",
+      "bytes": 4149
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/CustomPassForCamera.cs",
+      "sha256": "1d742c66478901258d049b01745f548718b305fe4db538b2fc398745b314b2e3",
+      "bytes": 7916
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/ExamplesController.cs",
+      "sha256": "56826c4f8312a702ab28b7ebdd8b15656aa2dd6c596a8839e66b0c38203f2b5a",
+      "bytes": 3903
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Scripts/MaskFill.cs",
+      "sha256": "75593e71183ecdd89f16c5bcc2b6823d7274aafec4de8115aa1af3f7565f3d3a",
+      "bytes": 6145
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/DepthOnly.shader",
+      "sha256": "cdf8072e51cfa82c28e7a0136b113c1abebf93eb944e05d8d7cf6f8e21f6c447",
+      "bytes": 814
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/MaskDepth.shader",
+      "sha256": "13d03f669801f435657dc118537e82762b083040fca6b737aaf38a87615e441d",
+      "bytes": 1705
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Masked.shader",
+      "sha256": "b9f572edff89e7f14de90726f89011a4e95b4895daf159182e41dee15830b4d9",
+      "bytes": 7330
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/Resources/MaskFill.shader",
+      "sha256": "a39a8581bb21f6f4b2617593115fe57e0963f3fc054f8bc1f98e635cd4ed4721",
+      "bytes": 1761
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Examples/Shaders/SphereGradientBackground.shader",
+      "sha256": "035f0c18c1bf64d4fd6bb49485cd811f2b9f0c2ac2f7a1bfa3a12a851cd038f0",
+      "bytes": 1768
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Prefabs/Skybox/Materials/SkyboxHorizon_Mat.mat",
+      "sha256": "39322a20a70251309f23a217666741a13b9ac03a5f3af964f38d75a0a0b6de4f",
+      "bytes": 10765
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Terrain/Materials/TerrainLit.mat",
+      "sha256": "89dcf52ba5b9fd9fa4f060d0fa7c33a079e1f3a4b77e556d3508657acfc30b3f",
+      "bytes": 3877
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Main/Materials/NavalMine.mat",
+      "sha256": "fb08ff960ea60853b9af173c1a847037f9e718057d7f57e972bfb15659f2487a",
+      "bytes": 4100
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Main/Models/Island0/Materials/blockout.mat",
+      "sha256": "9982bbb32d990a8aa13ac489bfa8966476d5fe84cbcb58c5e26ee5e3ea350822",
+      "bytes": 4107
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
+      "sha256": "bfcc3b6b286a68d3024f8bf2981929b87531fd845e3a9451655782e1ec68c766",
+      "bytes": 4068
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Materials/White.mat",
+      "sha256": "9ccd5961f202adb3e4bc7e247abbbfa23d3751dd6ad1d85e922da22af1c2e8fd",
+      "bytes": 4059
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Scripts/CamController.cs",
+      "sha256": "08a29664a22303844d1c66f483acd21b4ec67eda6ff21af89f61cad0c7de9a59",
+      "bytes": 9994
+    },
+    {
+      "path": "Assets/Crest/Crest-Examples/Shared/Shaders/ExampleUnderwaterTransparentSurfaceShader.shader",
+      "sha256": "f1007bd6a10d6122da0a25f4e6f1eb00b9d3383217e96367a359ffacdedb9b26",
+      "bytes": 5419
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Collision/QueryBase.cs",
+      "sha256": "03426f6edc957f6f5c9d66795b7642b337a79f7cc67e2c810640bc3251472aa6",
+      "bytes": 25407
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Helpers/OceanDebugGUI.cs",
+      "sha256": "ce561beceb85ecc2b968f57eb7fc1b40f0116bcc0ade4ed1bbd0f9712bacca10",
+      "bytes": 18119
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Helpers/RenderAlphaOnSurface.cs",
+      "sha256": "127fd4020067af6870cb726c2d61cde7a61628e10a3bbe00132f9ea01084b34e",
+      "bytes": 3773
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Helpers/RenderWireFrame.cs",
+      "sha256": "15f13ec50f783d9753e6dc57fae01076b5e2165146e684047af0f6a865c37a7a",
+      "bytes": 3021
     },
     {
       "path": "Assets/Crest/Crest/Scripts/Interaction/BoatProbes.cs",
-      "sha256": "38E2D58A8BE9F20904EF60FF3078B843DBBAFD17DED22D46E84F4606F3AD1057",
-      "bytes": 9956,
-      "modifiedUtc": "2026-11-06T16:10:21.289376+00:00"
+      "sha256": "38e2d58a8be9f20904ef60ff3078b843dbbafd17ded22d46e84f4606f3ad1057",
+      "bytes": 9956
     },
     {
-      "path": "ProjectSettings/GraphicsSettings.asset",
-      "sha256": "F24917F55CBE137AA18AC83CEAE1DC271D7E72FE518E29158F16F4BA7BF1A65A",
-      "bytes": 3007,
-      "modifiedUtc": "2026-11-06T20:49:42.806913+00:00"
+      "path": "Assets/Crest/Crest/Scripts/LodData/LodDataMgrClipSurface.cs",
+      "sha256": "05977283cb3d5b4d77d38b216ad22e6a3584016ec45966b3a4d0bf52474ebc56",
+      "bytes": 5345
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/OceanDepthCache.cs",
+      "sha256": "09ee9d7ed6a7dd54b14beb35b7deafc05a7225fbed616c9466d5a5a1019fd405",
+      "bytes": 38355
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/LodData/RegisterClipSurfaceInput.cs",
+      "sha256": "3ed3239073e36d9a2b74c22f635efee81ee0e6121931b9a876b2cc60e63e169c",
+      "bytes": 13577
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/OceanRenderer.cs",
+      "sha256": "4e0914a1ace8749bfc4a93f7271571918287db70f59648b65d31f07daf3bab04",
+      "bytes": 95096
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.URP.cs",
+      "sha256": "2366be32cb8be168682bb7b1c964bfd6558223663d6a48bd8674286b3d7033a3",
+      "bytes": 9766
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Reflection/OceanPlanarReflection.cs",
+      "sha256": "c6a6bd0fc89525b1d90a08ba8b486369065c82745bc76b22517b1238e7e07b9c",
+      "bytes": 24711
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/FFTCompute.cs",
+      "sha256": "b1351f0af6490146d37bf72bf7def7e37b57608c028923e5966ded38b89ed38f",
+      "bytes": 23788
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/FFT/ShapeFFT.cs",
+      "sha256": "e7993d7f20a3bde6cfc2443a902f0730695b2804f28b9206048f366d25416b0b",
+      "bytes": 12964
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/ShapeGerstner.cs",
+      "sha256": "9c312d7c38f87cd15ba6411a174e268a41993696d6cb261a017da6b2e740ad8f",
+      "bytes": 22973
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/ShapeGerstnerSplineHandling.cs",
+      "sha256": "ef72544a8bdc3c78f3c836f6c4a774661a489741d9fd84134808c77bd4559d40",
+      "bytes": 15340
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Shapes/ShapeWaves.cs",
+      "sha256": "9e3ce73b1ca21bc01e31925a13d5315a1bdadb4035566d856b98752f3d69327b",
+      "bytes": 23960
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.Mask.cs",
+      "sha256": "4b76374d5fe398e97cb1dcb0e7a2576eb4fd92c0719113d66dd4788adc4e768f",
+      "bytes": 19158
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.URP.cs",
+      "sha256": "8640f835e21f741c031ced7a5d31500c522ced27965d8c9723554b759c587a70",
+      "bytes": 14739
+    },
+    {
+      "path": "Assets/Crest/Crest/Scripts/Underwater/UnderwaterRenderer.cs",
+      "sha256": "2f7afcfb7003736a0b0ec038841b29998ba80a9eb356bded580d0423597493a5",
+      "bytes": 25222
     },
     {
       "path": "Assets/Crest/Crest/Shaders/Ocean.shader",
-      "sha256": "202021D6578D22EC6D7008873F41505F0E0BA2032DF907CAAD379B308FC85396",
-      "bytes": 32904,
-      "modifiedUtc": "2026-11-14T13:16:25.296764+00:00"
+      "sha256": "5e32cfaff756d112b7ac42dd448c18988fcf5ef16b09f31e8ce8544e1a4b3292",
+      "bytes": 32907
+    },
+    {
+      "path": "Assets/Crest/Crest/Shaders/OceanEmission.hlsl",
+      "sha256": "276fe46ba3ddbf518cfb9bf9708779495586ce3e2805a83ce2c6c19b50e86293",
+      "bytes": 10245
+    },
+    {
+      "path": "Assets/Crest/Crest/Shaders/OceanInputs/Resources/AnimWavesGerstner.shader",
+      "sha256": "fc83736d349c77c3a84bb70c7d940358a74f482fd526c841a9297ec5c7827baf",
+      "bytes": 3645
     },
     {
       "path": "Assets/Crest/Crest/Shaders/OceanReflection.hlsl",
-      "sha256": "2DC48C76C121DC6C57C749400D551068C3417760833C61E08B0513287D2D39DC",
-      "bytes": 5782,
-      "modifiedUtc": "2026-11-14T13:16:25.299154+00:00"
+      "sha256": "cdd0bc5e854bbe5993b57e123825e53e9ac89b2b2afcfc911bcfe509331c1513",
+      "bytes": 5785
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CameraGraphPassRegistry.cs",
+      "sha256": "7ded8d565ba0543d1d1e364d1d9ee2226f487cad93e09728808f0f640c7329d1",
+      "bytes": 3973
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/CrestBackgroundFeature.cs",
+      "sha256": "1629d844522c99e97a0406d45b5eabc245e8a87e54e058da660a9728f2a2a9c0",
+      "bytes": 6864
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.Reflection.cs",
+      "sha256": "162df6cffa27a6b200c7292947d071eb2391a6159937cb95dde32a9ed3c6a13e",
+      "bytes": 7126
+    },
+    {
+      "path": "Assets/Crest/URP/Runtime/PortDemoController.cs",
+      "sha256": "6dd902aad635041dd23175bede3c97fcf9ce42de7d0f013685dcc99cad49cbc2",
+      "bytes": 8018
+    },
+    {
+      "path": "Assets/CrestPortDemos/Ocean_LargeWaves.unity",
+      "sha256": "2f3b5c846a7661449aa53cb7433478201c3d683138b3d061b30f437a65ee4248",
+      "bytes": 26941
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "4eeb957270ebbe8dd6ba9a8c7fe132ce7ca2a9336105b115f5e954f1100da9fe",
+      "bytes": 1018
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "e73297e7d3b50f72984e05e10d8e25205c7bcc174ca927a6966199cf0d062ec8",
+      "bytes": 3089
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "6127fe9cf0715c275935bed3ba1ebc9c38e329ecbfc6abf3af7a5d1daf3626f8",
+      "bytes": 27422
     }
   ],
   "builds": [
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "sha256": "86E77A1F4FE6FFEB5B0DDEA6DC574B1F42408240E80101DF17D2AB4B46652ED5",
-      "bytes": 288256,
-      "modifiedUtc": "2026-11-13T22:50:27.770996+00:00"
+      "sha256": "7db7ba9d5f358b831fe2940a45f88ab79e45460349a19dc1d8d945a9529b5522",
+      "bytes": 288768
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
-      "sha256": "96B3B4918DFC75BA78F6437372509D83D5CF111C125F624801FA1F6D6C1E096C",
-      "bytes": 22528,
-      "modifiedUtc": "2026-11-14T13:38:44.351490+00:00"
+      "sha256": "198132cbca7ad5470823f9badadb9b2cff97015dd8f2147da2f84405bf5bc3cb",
+      "bytes": 27136
     },
     {
       "configuration": "Development",
       "assembly": "CrestPort_Data/Managed/Crest.Examples.dll",
-      "sha256": "45A620182221E190DF0E49D25F0A60469F739CBAB9C1120FA414A5B2BA658E0F",
-      "bytes": 36352,
-      "modifiedUtc": "2026-11-13T17:31:33.087630+00:00"
+      "sha256": "ebbde46660bc9f29519355d59cdf02489571a398baba8396257bba8aed60bbe6",
+      "bytes": 36352
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.dll",
-      "sha256": "AEC9B3DA1C4DFE23AD4C71823A352C66B412DF369B82308CE5B1BE47C4853D4F",
-      "bytes": 284160,
-      "modifiedUtc": "2026-11-13T22:50:52.561926+00:00"
+      "sha256": "5461780744470965c2b4b12d1cd3abbaad5d5b019d4ca1244720f23473d02c12",
+      "bytes": 284672
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.URP.dll",
-      "sha256": "E62E90977747A4DA21135F1C102C2A392B23B887AAAABEA9D8156F2D0B4CBC2D",
-      "bytes": 22528,
-      "modifiedUtc": "2026-11-14T13:39:39.712325+00:00"
+      "sha256": "446750d9ac4c4e2eab99d7f7032726bdb21320dbf6fe57dec823cc6c5322d4b3",
+      "bytes": 23040
     },
     {
       "configuration": "Release",
       "assembly": "CrestPort_Data/Managed/Crest.Examples.dll",
-      "sha256": "1DE3179A735A5F3F107DD948D4112E5F4BB1E0B038D1A8EF79379028CEF6AD66",
-      "bytes": 36352,
-      "modifiedUtc": "2026-11-13T17:31:59.925503+00:00"
+      "sha256": "587926843808faa0989bee35949c7e833dcad563d991bc1a8e5ad104c1dffde2",
+      "bytes": 35840
     }
   ],
-  "limitation": "Acceptance covers the recorded Windows scope. See TEST_RESULTS for outstanding keyboard, physical XR and warning coverage.",
   "packedAssets": [
     {
       "configuration": "Development",
       "path": "CrestPort_Data/resources.assets",
-      "bytes": 1117380,
-      "modifiedUtc": "2026-11-14T13:38:34.908550+00:00",
-      "sha256": "F086168D2C93FE5B15B368450075440DBF2CC6A428F14436A8B594B0F2B99688"
+      "sha256": "f086168d2c93fe5b15b368450075440dbf2cc6a428f14436a8b594b0f2b99688",
+      "bytes": 1117380
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/sharedassets0.assets",
-      "bytes": 642400,
-      "modifiedUtc": "2026-11-14T13:38:34.914746+00:00",
-      "sha256": "725C33FE7008FA66ECF050D7D5DD54DA833C074E190D6E8B9985EA34B13DD772"
+      "sha256": "4ac45a3c7fda5da78a6bb4f6eaa81870ba0611a7692cfe6b5d4698e1f2e4c70f",
+      "bytes": 642400
     },
     {
       "configuration": "Development",
       "path": "CrestPort_Data/globalgamemanagers",
-      "bytes": 95716,
-      "modifiedUtc": "2026-11-14T13:38:34.916769+00:00",
-      "sha256": "B678AFC5E6612A9053E0FE30F34CF0D5EE5152D53AD61E23C57A379CC42F8D84"
+      "sha256": "dd536b7021d1340dbad9330398f609ed8405ab0e718df7201771a315dd22f41e",
+      "bytes": 95764
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/resources.assets",
-      "bytes": 1117380,
-      "modifiedUtc": "2026-11-14T13:39:36.290795+00:00",
-      "sha256": "EB8D740C93F288B56F42FA0318E92AB068A0A065C098F88715DEA3B959DD4825"
+      "sha256": "f086168d2c93fe5b15b368450075440dbf2cc6a428f14436a8b594b0f2b99688",
+      "bytes": 1117380
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/sharedassets0.assets",
-      "bytes": 642400,
-      "modifiedUtc": "2026-11-14T13:39:36.285724+00:00",
-      "sha256": "6DC26119E7A94084CB59828B67C3FACB1C948588BF2D4865FC1C3674F6A9E9F7"
+      "sha256": "c13d25d47451854f123b55aee0903e2c59a6d48b3d5d1c14dc118bcabb88bdec",
+      "bytes": 642400
     },
     {
       "configuration": "Release",
       "path": "CrestPort_Data/globalgamemanagers",
-      "bytes": 95716,
-      "modifiedUtc": "2026-11-14T13:39:36.294003+00:00",
-      "sha256": "0ED274E57CF563B2F8821B7EFDFE9AFC1F0F2F453291F868D167CEE74B86C4B1"
+      "sha256": "7cbbc2fd210f18eab48421b7b242c7b961587105752f4939adb1e82b5cbe9fb9",
+      "bytes": 95764
     }
   ],
-  "validationStatus": "P11.4 full 125 plus interactive 2 per API, asset validation, both builds and four Player smokes passed.",
   "smokes": [
     {
       "configuration": "Development",
       "graphicsAPI": "DX11",
-      "report": {
-        "path": "Evidence/Player-Development-DX11/player-smoke.txt",
-        "sha256": "7D656ACC00C136D8D33391F0F2A8FE5C9055FD53D1179D9773280184EE33EBD0",
-        "bytes": 1176,
-        "modifiedUtc": "2026-11-14T13:40:57.759181+00:00"
-      },
       "errors": 0,
+      "report": {
+        "path": "Player-Development-DX11/player-smoke.txt",
+        "sha256": "0937b1f1bb2ac6fba3d852bddd502f0bf6ad09874e4607758f3d817a8d184f2f",
+        "bytes": 1177,
+        "modifiedUtc": "2026-11-23T09:48:03.967268+00:00"
+      },
+      "playerLog": {
+        "path": "Player-Development-DX11/Player.log",
+        "sha256": "2a04e6427a057ca157c262b001e1c519b625d5df19b8c82a9b7d2b67f361b1f1",
+        "bytes": 6039,
+        "modifiedUtc": "2026-11-23T09:48:04.086453+00:00"
+      },
       "images": [
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Buoyancy.png",
-          "sha256": "326909A175045B0E9CC5348ADE099726C1FCBE9D6CD8B7D9A5B546DF5CA629C8",
-          "bytes": 524096,
-          "modifiedUtc": "2026-11-14T13:40:42.009504+00:00"
+          "path": "Player-Development-DX11/Ocean_Buoyancy.png",
+          "sha256": "a780f0c88505f4293ed3c25b8f8dc72cd3d7d875edef3c9de1a4dcef83c4977f",
+          "bytes": 525215,
+          "modifiedUtc": "2026-11-23T09:47:48.632458+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Calm.png",
-          "sha256": "7BFABC6AFA26470C8FF020B21A2E8B90FF607C89C9A20F7E94258E3EAB3AC26C",
-          "bytes": 549762,
-          "modifiedUtc": "2026-11-14T13:40:26.435469+00:00"
+          "path": "Player-Development-DX11/Ocean_Calm.png",
+          "sha256": "3aa139227f0ea817ac50bef3f604251a46f1e56a7d087edf03ee8758d22a049f",
+          "bytes": 549393,
+          "modifiedUtc": "2026-11-23T09:47:33.338236+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Interactions.png",
-          "sha256": "D40118E20EFE88F0CC87C204780302A50DDD7CF44639A14AEBA2ECBF0A91233D",
-          "bytes": 549825,
-          "modifiedUtc": "2026-11-14T13:40:47.207551+00:00"
+          "path": "Player-Development-DX11/Ocean_Interactions.png",
+          "sha256": "52ccf06db4bbf8d19000fae7b1632a662f3b01664b967c2eaf9e3ba36b1e545f",
+          "bytes": 550980,
+          "modifiedUtc": "2026-11-23T09:47:53.738400+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Reflections.png",
-          "sha256": "9B5C173108E9E2EAE4FF54BEED9A9F043D3D19A80E27292E999B42304CFDFA1D",
-          "bytes": 543510,
-          "modifiedUtc": "2026-11-14T13:40:57.556209+00:00"
+          "path": "Player-Development-DX11/Ocean_Reflections.png",
+          "sha256": "5b7a92ccb8dc8246fde131f9b0b5aa5b01997ea79ed7cf5202d5adb7330c619a",
+          "bytes": 537638,
+          "modifiedUtc": "2026-11-23T09:48:03.891614+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Storm.png",
-          "sha256": "54E377BAB9D4AB76AD852517DA9ED004A2EFC0C50B05641D1CCC6173F979F5DD",
-          "bytes": 510345,
-          "modifiedUtc": "2026-11-14T13:40:36.820862+00:00"
+          "path": "Player-Development-DX11/Ocean_Storm.png",
+          "sha256": "40afea07bc169d96a2fac3eff9481a8fd7d7896ce6fb6ec3433b7ff79bcabd83",
+          "bytes": 508110,
+          "modifiedUtc": "2026-11-23T09:47:43.542632+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Underwater.png",
-          "sha256": "5F4268E1280AB89B7705A206EE9BB1882C412A4750D396F0BE49F5D82A211CDF",
-          "bytes": 102707,
-          "modifiedUtc": "2026-11-14T13:40:52.425764+00:00"
+          "path": "Player-Development-DX11/Ocean_Underwater.png",
+          "sha256": "e00a7e807cb88e8df9410cb7d4f7d35a2ab2f197a5d95d479d37f881c26449a7",
+          "bytes": 103098,
+          "modifiedUtc": "2026-11-23T09:47:58.847692+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/Ocean_Waves.png",
-          "sha256": "1C6782EB195B95C945FB7B8045D3C343C0212F62799BDB0AFB5CB927834C1A1A",
-          "bytes": 601635,
-          "modifiedUtc": "2026-11-14T13:40:31.636984+00:00"
+          "path": "Player-Development-DX11/Ocean_Waves.png",
+          "sha256": "4e6572b9fd08151df637e7083588605c984b0b89544e2f58f516e3ecad9b00f3",
+          "bytes": 601657,
+          "modifiedUtc": "2026-11-23T09:47:38.445386+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/ReflectionOptions-Distance-100.png",
-          "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
+          "path": "Player-Development-DX11/ReflectionOptions-Distance-100.png",
+          "sha256": "26a05ce1bd0bd073d8dbefb1419bc895d61009fc7bbdedccc359a0115914e1d5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-14T13:40:57.646372+00:00"
+          "modifiedUtc": "2026-11-23T09:48:03.926205+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/ReflectionOptions-Distance-20.png",
-          "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
+          "path": "Player-Development-DX11/ReflectionOptions-Distance-20.png",
+          "sha256": "e1f5aea9ef72c484121196b6c6f61fd964629be9daa3a4a006a846eb49a177cb",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-14T13:40:57.675370+00:00"
+          "modifiedUtc": "2026-11-23T09:48:03.937421+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/ReflectionOptions-Pixel-lights.png",
-          "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
+          "path": "Player-Development-DX11/ReflectionOptions-Pixel-lights.png",
+          "sha256": "de836d43fd60214c0e0251e38c4e30f3b6d112dfad7ab7de579313673de7fbbd",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-14T13:40:57.719734+00:00"
+          "modifiedUtc": "2026-11-23T09:48:03.951011+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX11/ReflectionOptions-Vertex-lights.png",
-          "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
+          "path": "Player-Development-DX11/ReflectionOptions-Vertex-lights.png",
+          "sha256": "b815919d9cb19a9ddd289da4d909875b6c20c75c5a0575d7e616ad63717879b3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-14T13:40:57.749847+00:00"
+          "modifiedUtc": "2026-11-23T09:48:03.964757+00:00"
         }
       ],
+      "reflectionReport": {
+        "path": "Player-Development-DX11/reflection-options.txt",
+        "sha256": "d281652ea03ed147edf6b05531c7d685a42f9b8012a8aa195cc09b11a5b9ab45",
+        "bytes": 105,
+        "modifiedUtc": "2026-11-23T09:48:03.965763+00:00"
+      },
       "warnings": {
         "Persistent allocates": 0,
         "JobTempAlloc": 0,
@@ -397,98 +499,98 @@
         "RenderData validation failed": 0,
         "Releasing render texture that is set to be RenderTexture.active!": 0,
         "D3D12PipelineLibrary must be recreated": 0
-      },
-      "playerLog": {
-        "path": "Evidence/Player-Development-DX11/Player.log",
-        "sha256": "1D73B81C7203E404B9D5B22135583CCC0A2B513A842DEAD83DDF3C3051C7B17E",
-        "bytes": 5978,
-        "modifiedUtc": "2026-11-14T13:40:58.020448+00:00"
-      },
-      "reflectionReport": {
-        "path": "Evidence/Player-Development-DX11/reflection-options.txt",
-        "sha256": "D281652EA03ED147EDF6B05531C7D685A42F9B8012A8AA195CC09B11A5B9AB45",
-        "bytes": 105,
-        "modifiedUtc": "2026-11-14T13:40:57.757185+00:00"
       }
     },
     {
       "configuration": "Development",
       "graphicsAPI": "DX12",
-      "report": {
-        "path": "Evidence/Player-Development-DX12/player-smoke.txt",
-        "sha256": "E219B879B1CAF53717ED9C178E2A538DBA925B57DE00BB85E67A91C2B909DE48",
-        "bytes": 1172,
-        "modifiedUtc": "2026-11-14T13:41:37.741114+00:00"
-      },
       "errors": 0,
+      "report": {
+        "path": "Player-Development-DX12/player-smoke.txt",
+        "sha256": "8d64a9770147c7811a68255ef57adce78899ef64fe37f212227accdb8219046b",
+        "bytes": 1181,
+        "modifiedUtc": "2026-11-23T09:48:40.834038+00:00"
+      },
+      "playerLog": {
+        "path": "Player-Development-DX12/Player.log",
+        "sha256": "b01238665ee9dd321bd46e7adbc17ba8dd90d90d82fbf12193aed57dfd67709f",
+        "bytes": 6158,
+        "modifiedUtc": "2026-11-23T09:48:41.020074+00:00"
+      },
       "images": [
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Buoyancy.png",
-          "sha256": "550CF5274459194ED7BD8E4763276D7F842126FBDBB1748E9831904908BE4CAE",
-          "bytes": 527174,
-          "modifiedUtc": "2026-11-14T13:41:21.837815+00:00"
+          "path": "Player-Development-DX12/Ocean_Buoyancy.png",
+          "sha256": "e96b336044dac056f499cffa46d8b54efd465dd89bc9d752e532540eb96c34b9",
+          "bytes": 529276,
+          "modifiedUtc": "2026-11-23T09:48:25.534460+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Calm.png",
-          "sha256": "A901F465F712A708AE71A1E1223BB0C20756D45DDCF947CCD32A8BDF1E941482",
-          "bytes": 546340,
-          "modifiedUtc": "2026-11-14T13:41:06.350389+00:00"
+          "path": "Player-Development-DX12/Ocean_Calm.png",
+          "sha256": "677dd796597016f4f8ae1bbd3ebd9e029da2384f60c7a949cded8a85286bcd28",
+          "bytes": 550040,
+          "modifiedUtc": "2026-11-23T09:48:10.357267+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Interactions.png",
-          "sha256": "66688C2D5A9CA93671643A56B214120AE97AFF5683B0BCE338063F73BF7E2475",
-          "bytes": 547221,
-          "modifiedUtc": "2026-11-14T13:41:27.006293+00:00"
+          "path": "Player-Development-DX12/Ocean_Interactions.png",
+          "sha256": "04d15be5c987da09989fc106145906cbde53a33fe1c752fb3cc7238584d9f5c4",
+          "bytes": 541944,
+          "modifiedUtc": "2026-11-23T09:48:30.589794+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Reflections.png",
-          "sha256": "C63CAFCEB79F7D248805553BD6BD764282EB4EBA86410AD5BB556F163F864870",
-          "bytes": 536383,
-          "modifiedUtc": "2026-11-14T13:41:37.378581+00:00"
+          "path": "Player-Development-DX12/Ocean_Reflections.png",
+          "sha256": "1210e9abcca1986e8e80a4b0f2db172abcff6c31354d67b85fc8fc18b655fb70",
+          "bytes": 535458,
+          "modifiedUtc": "2026-11-23T09:48:40.724452+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Storm.png",
-          "sha256": "39935B72F4E67D0AC4B76338155F85F4D290B9CE27B441C3908788EBE0482598",
-          "bytes": 509182,
-          "modifiedUtc": "2026-11-14T13:41:16.691055+00:00"
+          "path": "Player-Development-DX12/Ocean_Storm.png",
+          "sha256": "828deba07db6220e41726a565a6ae0b785d67c92df81a569d76eea2eac8dfae6",
+          "bytes": 509599,
+          "modifiedUtc": "2026-11-23T09:48:20.481503+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Underwater.png",
-          "sha256": "B6C2D69AFBCC212FD8BBC94B7DA14001364300920F60399B47213B8C812A1D37",
-          "bytes": 102417,
-          "modifiedUtc": "2026-11-14T13:41:32.227883+00:00"
+          "path": "Player-Development-DX12/Ocean_Underwater.png",
+          "sha256": "21099d4d2d14d6773c632d63df0451a6ab78866564047a817b31fd8857fdf8ae",
+          "bytes": 100526,
+          "modifiedUtc": "2026-11-23T09:48:35.671957+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/Ocean_Waves.png",
-          "sha256": "B4182F0F6242F61D44400C48DC7F7A094761E9973843DA6E02A29D8E918FBCB2",
-          "bytes": 601431,
-          "modifiedUtc": "2026-11-14T13:41:11.512724+00:00"
+          "path": "Player-Development-DX12/Ocean_Waves.png",
+          "sha256": "9cbe0444f26afab0686ed06381b60934800e0dda66bd9b85b2f3a70b9bf790d7",
+          "bytes": 602216,
+          "modifiedUtc": "2026-11-23T09:48:15.415396+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/ReflectionOptions-Distance-100.png",
-          "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
+          "path": "Player-Development-DX12/ReflectionOptions-Distance-100.png",
+          "sha256": "26a05ce1bd0bd073d8dbefb1419bc895d61009fc7bbdedccc359a0115914e1d5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-14T13:41:37.558904+00:00"
+          "modifiedUtc": "2026-11-23T09:48:40.778867+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/ReflectionOptions-Distance-20.png",
-          "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
+          "path": "Player-Development-DX12/ReflectionOptions-Distance-20.png",
+          "sha256": "e1f5aea9ef72c484121196b6c6f61fd964629be9daa3a4a006a846eb49a177cb",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-14T13:41:37.624091+00:00"
+          "modifiedUtc": "2026-11-23T09:48:40.795500+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/ReflectionOptions-Pixel-lights.png",
-          "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
+          "path": "Player-Development-DX12/ReflectionOptions-Pixel-lights.png",
+          "sha256": "de836d43fd60214c0e0251e38c4e30f3b6d112dfad7ab7de579313673de7fbbd",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-14T13:41:37.681669+00:00"
+          "modifiedUtc": "2026-11-23T09:48:40.814870+00:00"
         },
         {
-          "path": "Evidence/Player-Development-DX12/ReflectionOptions-Vertex-lights.png",
-          "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
+          "path": "Player-Development-DX12/ReflectionOptions-Vertex-lights.png",
+          "sha256": "b815919d9cb19a9ddd289da4d909875b6c20c75c5a0575d7e616ad63717879b3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-14T13:41:37.735015+00:00"
+          "modifiedUtc": "2026-11-23T09:48:40.831906+00:00"
         }
       ],
+      "reflectionReport": {
+        "path": "Player-Development-DX12/reflection-options.txt",
+        "sha256": "d281652ea03ed147edf6b05531c7d685a42f9b8012a8aa195cc09b11a5b9ab45",
+        "bytes": 105,
+        "modifiedUtc": "2026-11-23T09:48:40.832907+00:00"
+      },
       "warnings": {
         "Persistent allocates": 0,
         "JobTempAlloc": 0,
@@ -496,98 +598,98 @@
         "RenderData validation failed": 0,
         "Releasing render texture that is set to be RenderTexture.active!": 0,
         "D3D12PipelineLibrary must be recreated": 0
-      },
-      "playerLog": {
-        "path": "Evidence/Player-Development-DX12/Player.log",
-        "sha256": "185A3D2C843096A1F74B2C2495120F561A642929B50090BD7F82BD20834D494A",
-        "bytes": 6097,
-        "modifiedUtc": "2026-11-14T13:41:38.129147+00:00"
-      },
-      "reflectionReport": {
-        "path": "Evidence/Player-Development-DX12/reflection-options.txt",
-        "sha256": "D281652EA03ED147EDF6B05531C7D685A42F9B8012A8AA195CC09B11A5B9AB45",
-        "bytes": 105,
-        "modifiedUtc": "2026-11-14T13:41:37.739014+00:00"
       }
     },
     {
       "configuration": "Release",
       "graphicsAPI": "DX11",
-      "report": {
-        "path": "Evidence/Player-Release-DX11/player-smoke.txt",
-        "sha256": "47165C059EDFD60F04CF338144EC402712441B1B8A6F0703B597BFF274734BEE",
-        "bytes": 1174,
-        "modifiedUtc": "2026-11-14T13:42:32.666289+00:00"
-      },
       "errors": 0,
+      "report": {
+        "path": "Player-Release-DX11/player-smoke.txt",
+        "sha256": "49d924af4c92ac9a39c582000b8018e07b38a54c45a863628909035554000785",
+        "bytes": 1179,
+        "modifiedUtc": "2026-11-23T09:49:17.684879+00:00"
+      },
+      "playerLog": {
+        "path": "Player-Release-DX11/Player.log",
+        "sha256": "f04c74f1b4591657c2a5089137716a7c9d8cd3d2a5fcd5b9e475554469946965",
+        "bytes": 4310,
+        "modifiedUtc": "2026-11-23T09:49:18.764366+00:00"
+      },
       "images": [
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Buoyancy.png",
-          "sha256": "7563EAC628B2E353068B5E69BDC8D679326184E2619AD45C7A9F097E1930162D",
-          "bytes": 525238,
-          "modifiedUtc": "2026-11-14T13:42:16.965913+00:00"
+          "path": "Player-Release-DX11/Ocean_Buoyancy.png",
+          "sha256": "b605eb001251adb72aeb0a287208f4b9a0de3a8b7d0276edfdc222ec0cdfb868",
+          "bytes": 525337,
+          "modifiedUtc": "2026-11-23T09:49:02.340373+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Calm.png",
-          "sha256": "6C9D425B5E498BFDBDB9C6B12B593B6F9D3B783279AEAC0438863410BB1AB865",
-          "bytes": 549103,
-          "modifiedUtc": "2026-11-14T13:42:01.407189+00:00"
+          "path": "Player-Release-DX11/Ocean_Calm.png",
+          "sha256": "3b0b35419fea92f75497c32a553142fd733abbafa6a192c0ba9dea7f3df58c57",
+          "bytes": 549310,
+          "modifiedUtc": "2026-11-23T09:48:47.061810+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Interactions.png",
-          "sha256": "44C89687BECB28EB03CEE811C978EAE239B6623463E79A77FA30B1D230B6CCD6",
-          "bytes": 548984,
-          "modifiedUtc": "2026-11-14T13:42:22.158114+00:00"
+          "path": "Player-Release-DX11/Ocean_Interactions.png",
+          "sha256": "3f6266b36d230b7eed871503794e6a69505795f63e8e41642f14b180375f9a7f",
+          "bytes": 551142,
+          "modifiedUtc": "2026-11-23T09:49:07.449121+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Reflections.png",
-          "sha256": "F041F1C86BBBA97B93120521F109E09B5326E916117AFBD4B238D1BEDC35ED23",
-          "bytes": 543495,
-          "modifiedUtc": "2026-11-14T13:42:32.486376+00:00"
+          "path": "Player-Release-DX11/Ocean_Reflections.png",
+          "sha256": "073bb1e922e968852df267896481bab5e2e84abc0034cc313e6ad9ae5ad09916",
+          "bytes": 537061,
+          "modifiedUtc": "2026-11-23T09:49:17.604923+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Storm.png",
-          "sha256": "F5DAD3F54CE3AB6930B646CFFA3E8B185C61C436F2563C88AF6D8F1862A20FEA",
-          "bytes": 509519,
-          "modifiedUtc": "2026-11-14T13:42:11.790841+00:00"
+          "path": "Player-Release-DX11/Ocean_Storm.png",
+          "sha256": "eb0e387ee405157b4347dd589cf9ed707641fcd1a649b7489b3d4ae775819445",
+          "bytes": 508622,
+          "modifiedUtc": "2026-11-23T09:48:57.251870+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Underwater.png",
-          "sha256": "2E2023C1D2A023AAE46733D1AE440D10F61272EA7A534B1CD4DB440B7741B9C5",
-          "bytes": 102248,
-          "modifiedUtc": "2026-11-14T13:42:27.363005+00:00"
+          "path": "Player-Release-DX11/Ocean_Underwater.png",
+          "sha256": "988c201fe35baa2e0548d48860d2cc8c30fe27d10c84a17800092f505260362f",
+          "bytes": 102510,
+          "modifiedUtc": "2026-11-23T09:49:12.553309+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/Ocean_Waves.png",
-          "sha256": "E44D19ADD59EF797BECA9FA95C421E336C917DB1B0F0D9ADE86CF96AF146215D",
-          "bytes": 601477,
-          "modifiedUtc": "2026-11-14T13:42:06.606085+00:00"
+          "path": "Player-Release-DX11/Ocean_Waves.png",
+          "sha256": "c5aa0e610068e522a3d1d3fee80f77675bdd6f8fbf7320bbf8f8de07aea93136",
+          "bytes": 601613,
+          "modifiedUtc": "2026-11-23T09:48:52.158177+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/ReflectionOptions-Distance-100.png",
-          "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
+          "path": "Player-Release-DX11/ReflectionOptions-Distance-100.png",
+          "sha256": "26a05ce1bd0bd073d8dbefb1419bc895d61009fc7bbdedccc359a0115914e1d5",
           "bytes": 1685,
-          "modifiedUtc": "2026-11-14T13:42:32.571160+00:00"
+          "modifiedUtc": "2026-11-23T09:49:17.643473+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/ReflectionOptions-Distance-20.png",
-          "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
+          "path": "Player-Release-DX11/ReflectionOptions-Distance-20.png",
+          "sha256": "e1f5aea9ef72c484121196b6c6f61fd964629be9daa3a4a006a846eb49a177cb",
           "bytes": 1505,
-          "modifiedUtc": "2026-11-14T13:42:32.599074+00:00"
+          "modifiedUtc": "2026-11-23T09:49:17.655031+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/ReflectionOptions-Pixel-lights.png",
-          "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
+          "path": "Player-Release-DX11/ReflectionOptions-Pixel-lights.png",
+          "sha256": "de836d43fd60214c0e0251e38c4e30f3b6d112dfad7ab7de579313673de7fbbd",
           "bytes": 4076,
-          "modifiedUtc": "2026-11-14T13:42:32.636281+00:00"
+          "modifiedUtc": "2026-11-23T09:49:17.670020+00:00"
         },
         {
-          "path": "Evidence/Player-Release-DX11/ReflectionOptions-Vertex-lights.png",
-          "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
+          "path": "Player-Release-DX11/ReflectionOptions-Vertex-lights.png",
+          "sha256": "b815919d9cb19a9ddd289da4d909875b6c20c75c5a0575d7e616ad63717879b3",
           "bytes": 1544,
-          "modifiedUtc": "2026-11-14T13:42:32.658783+00:00"
+          "modifiedUtc": "2026-11-23T09:49:17.681874+00:00"
         }
       ],
+      "reflectionReport": {
+        "path": "Player-Release-DX11/reflection-options.txt",
+        "sha256": "d281652ea03ed147edf6b05531c7d685a42f9b8012a8aa195cc09b11a5b9ab45",
+        "bytes": 105,
+        "modifiedUtc": "2026-11-23T09:49:17.683879+00:00"
+      },
       "warnings": {
         "Persistent allocates": 0,
         "JobTempAlloc": 0,
@@ -595,140 +697,98 @@
         "RenderData validation failed": 0,
         "Releasing render texture that is set to be RenderTexture.active!": 0,
         "D3D12PipelineLibrary must be recreated": 0
-      },
-      "playerLog": {
-        "path": "Evidence/Player-Release-DX11/Player.log",
-        "sha256": "3BDF5F2AB6DBB1197DF667BCDB6FBD09A72D10378EC2AF13C6F5D4CC2546ACFF",
-        "bytes": 4254,
-        "modifiedUtc": "2026-11-14T13:42:33.811117+00:00"
-      },
-      "reflectionReport": {
-        "path": "Evidence/Player-Release-DX11/reflection-options.txt",
-        "sha256": "D281652EA03ED147EDF6B05531C7D685A42F9B8012A8AA195CC09B11A5B9AB45",
-        "bytes": 105,
-        "modifiedUtc": "2026-11-14T13:42:32.663873+00:00"
       }
     },
     {
       "configuration": "Release",
       "graphicsAPI": "DX12",
-      "report": {
-        "path": "Evidence/Player-Release-DX12/player-smoke.txt",
-        "sha256": "CDEED8B16481012292FC9C1117A0DD0E2E40816743674638E89D2A1502135FF4",
-        "bytes": 1173,
-        "modifiedUtc": "2026-11-14T13:43:14.185015+00:00"
-      },
       "errors": 0,
-      "images": [
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Buoyancy.png",
-          "sha256": "825E9A5FAB4C8327C7715D4E99B6B5B5F239EA03CF1215CDA855159FBACEFD9C",
-          "bytes": 526438,
-          "modifiedUtc": "2026-11-14T13:42:58.332880+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Calm.png",
-          "sha256": "7F4BD2DBC08C01C4CD3712C7D4B95311E442E17C88912AB4BE555456FDA0D61A",
-          "bytes": 546653,
-          "modifiedUtc": "2026-11-14T13:42:42.871373+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Interactions.png",
-          "sha256": "551EE54D76F8F79068A3D8BA71E1270CDC7E8A777EA82D210B05BEE8EBBA3CA0",
-          "bytes": 548761,
-          "modifiedUtc": "2026-11-14T13:43:03.482997+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Reflections.png",
-          "sha256": "AE2C992B94CF7AB218C981EE66E4242BD8DB69A9D7030996B520CB020611F6AF",
-          "bytes": 536327,
-          "modifiedUtc": "2026-11-14T13:43:13.856918+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Storm.png",
-          "sha256": "B5A8F5B4D6A143FE50D901AEFF460C2449EC3B0A9A73BB8B3BACF443DC66C955",
-          "bytes": 509198,
-          "modifiedUtc": "2026-11-14T13:42:53.194421+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Underwater.png",
-          "sha256": "70283C28A6EB99031F9D888081664F190BFE573204F46E56E277ECD1EDCA57E8",
-          "bytes": 102496,
-          "modifiedUtc": "2026-11-14T13:43:08.695140+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/Ocean_Waves.png",
-          "sha256": "5C2DB1AE344F59CFECD56F31A488E92AECF8782F58CCD35D9F04734A2E6D4CA0",
-          "bytes": 602245,
-          "modifiedUtc": "2026-11-14T13:42:48.028462+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/ReflectionOptions-Distance-100.png",
-          "sha256": "26A05CE1BD0BD073D8DBEFB1419BC895D61009FC7BBDEDCCC359A0115914E1D5",
-          "bytes": 1685,
-          "modifiedUtc": "2026-11-14T13:43:14.018504+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/ReflectionOptions-Distance-20.png",
-          "sha256": "E1F5AEA9EF72C484121196B6C6F61FD964629BE9DAA3A4A006A846EB49A177CB",
-          "bytes": 1505,
-          "modifiedUtc": "2026-11-14T13:43:14.071469+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/ReflectionOptions-Pixel-lights.png",
-          "sha256": "DE836D43FD60214C0E0251E38C4E30F3B6D112DFAD7AB7DE579313673DE7FBBD",
-          "bytes": 4076,
-          "modifiedUtc": "2026-11-14T13:43:14.128835+00:00"
-        },
-        {
-          "path": "Evidence/Player-Release-DX12/ReflectionOptions-Vertex-lights.png",
-          "sha256": "B815919D9CB19A9DDD289DA4D909875B6C20C75C5A0575D7E616AD63717879B3",
-          "bytes": 1544,
-          "modifiedUtc": "2026-11-14T13:43:14.178485+00:00"
-        }
-      ],
-      "warnings": {
-        "Persistent allocates": 0,
-        "JobTempAlloc": 0,
-        "evictable": 0,
-        "RenderData validation failed": 0,
-        "Releasing render texture that is set to be RenderTexture.active!": 0,
-        "D3D12PipelineLibrary must be recreated": 0
+      "report": {
+        "path": "Player-Release-DX12/player-smoke.txt",
+        "sha256": "1ef24ec1a58c80b1a3c64ec8c33e81492f53ffab2c1e151d70168eab8f898272",
+        "bytes": 1180,
+        "modifiedUtc": "2026-11-23T09:49:56.312831+00:00"
       },
       "playerLog": {
-        "path": "Evidence/Player-Release-DX12/Player.log",
-        "sha256": "92C9935B723A586E1F9C3CE78420978833628BBC7D00AF1AEBA3E870D2FA7575",
-        "bytes": 4376,
-        "modifiedUtc": "2026-11-14T13:43:15.337781+00:00"
+        "path": "Player-Release-DX12/Player.log",
+        "sha256": "51d567f60c3024f4a9288541e3f0d54240010acda5c5b4f0e7d68608fd25dd55",
+        "bytes": 4432,
+        "modifiedUtc": "2026-11-23T09:49:57.401281+00:00"
       },
+      "images": [
+        {
+          "path": "Player-Release-DX12/Ocean_Buoyancy.png",
+          "sha256": "8081fbfed197ee123c7e6fb7d957af45acdb2cad2f3640928e1aca27440faba7",
+          "bytes": 526240,
+          "modifiedUtc": "2026-11-23T09:49:41.034060+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/Ocean_Calm.png",
+          "sha256": "2a3ac68d42c910c3b74a2e5ebabfada305f21e2cea22bfd2029cd0aede3a8c96",
+          "bytes": 549646,
+          "modifiedUtc": "2026-11-23T09:49:25.825764+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/Ocean_Interactions.png",
+          "sha256": "c6351009e3057d5c5e8f8822aef50456aaadaac8ca8c08f197b29bd69e589055",
+          "bytes": 541992,
+          "modifiedUtc": "2026-11-23T09:49:46.088854+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/Ocean_Reflections.png",
+          "sha256": "f0b90ca6e66e895bbcd7835298f7f44f6cfc179a1734016688882427875dc887",
+          "bytes": 536188,
+          "modifiedUtc": "2026-11-23T09:49:56.215331+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/Ocean_Storm.png",
+          "sha256": "7512823fff658eba8e746f712095ebd49df9b258f21378cc5c001653dbf247f7",
+          "bytes": 508180,
+          "modifiedUtc": "2026-11-23T09:49:35.978991+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/Ocean_Underwater.png",
+          "sha256": "d38f4462c6a7135c20ede4fd87fac7e82caa1b35a17f97f3f7ee65fc8a09bf6e",
+          "bytes": 102022,
+          "modifiedUtc": "2026-11-23T09:49:51.164910+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/Ocean_Waves.png",
+          "sha256": "a62826bece19b4a338be7149d5538701e72cb78a08d093170840bdb89eca2e7c",
+          "bytes": 602016,
+          "modifiedUtc": "2026-11-23T09:49:30.910409+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/ReflectionOptions-Distance-100.png",
+          "sha256": "26a05ce1bd0bd073d8dbefb1419bc895d61009fc7bbdedccc359a0115914e1d5",
+          "bytes": 1685,
+          "modifiedUtc": "2026-11-23T09:49:56.262316+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/ReflectionOptions-Distance-20.png",
+          "sha256": "e1f5aea9ef72c484121196b6c6f61fd964629be9daa3a4a006a846eb49a177cb",
+          "bytes": 1505,
+          "modifiedUtc": "2026-11-23T09:49:56.277356+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/ReflectionOptions-Pixel-lights.png",
+          "sha256": "de836d43fd60214c0e0251e38c4e30f3b6d112dfad7ab7de579313673de7fbbd",
+          "bytes": 4076,
+          "modifiedUtc": "2026-11-23T09:49:56.294874+00:00"
+        },
+        {
+          "path": "Player-Release-DX12/ReflectionOptions-Vertex-lights.png",
+          "sha256": "b815919d9cb19a9ddd289da4d909875b6c20c75c5a0575d7e616ad63717879b3",
+          "bytes": 1544,
+          "modifiedUtc": "2026-11-23T09:49:56.310294+00:00"
+        }
+      ],
       "reflectionReport": {
-        "path": "Evidence/Player-Release-DX12/reflection-options.txt",
-        "sha256": "D281652EA03ED147EDF6B05531C7D685A42F9B8012A8AA195CC09B11A5B9AB45",
+        "path": "Player-Release-DX12/reflection-options.txt",
+        "sha256": "d281652ea03ed147edf6b05531c7d685a42f9b8012a8aa195cc09b11a5b9ab45",
         "bytes": 105,
-        "modifiedUtc": "2026-11-14T13:43:14.184112+00:00"
-      }
-    }
-  ],
-  "buildLogs": [
-    {
-      "path": "Evidence/Development-DX11.log",
-      "sha256": "26CBDDBB832036DF3432997A36508FD4D50D4DE976B6ADEE22B4C9E2D7000D02",
-      "bytes": 627068,
-      "modifiedUtc": "2026-11-14T13:39:04.007356+00:00",
-      "warnings": {
-        "Persistent allocates": 0,
-        "JobTempAlloc": 0,
-        "evictable": 0,
-        "RenderData validation failed": 0,
-        "Releasing render texture that is set to be RenderTexture.active!": 0,
-        "D3D12PipelineLibrary must be recreated": 0
-      }
-    },
-    {
-      "path": "Evidence/Release-DX11.log",
-      "sha256": "22D5ED30086FAF372F397106404173F06BA2241370C89FB67526BF75B514184B",
-      "bytes": 623274,
-      "modifiedUtc": "2026-11-14T13:39:58.188676+00:00",
+        "modifiedUtc": "2026-11-23T09:49:56.311819+00:00"
+      },
       "warnings": {
         "Persistent allocates": 0,
         "JobTempAlloc": 0,
@@ -739,393 +799,104 @@
       }
     }
   ],
-  "materialSources": [
+  "packages": [
     {
-      "path": "Assets/Crest/Crest-Examples/BoatDev/Materials/BoatGray.mat",
-      "sha256": "B056B3A8918A13FD1C79C91DC6BE0E635398B0948B83F0C95C272D355ECE8886",
-      "bytes": 3849,
-      "modifiedUtc": "2026-10-26T22:20:45.151136+00:00",
-      "guid": "f1d75fa3c8725bf438b99c229b0d6734"
+      "configuration": "Development",
+      "path": "Builds/Crest4-URP-Windows-Development-2bd0f9c.zip",
+      "files": 328,
+      "bytes": 74550565,
+      "sha256": "e82c93365b844e5d1c101b7ebcf7dd4fa2bca942605310191bf621c861e91a83"
     },
     {
-      "path": "Assets/Crest/Crest-Examples/Examples/Materials/Examples_Material_TransparentPrimitive.mat",
-      "sha256": "645FE3F9916615B95D9A4CF5BC07EE69B62FE7676CE3F62B609E1BFA8A548593",
-      "bytes": 4006,
-      "modifiedUtc": "2026-11-06T15:46:10+00:00",
-      "guid": "ecfe7530e35f6ef4599de91f34369545"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Prefabs/Skybox/Materials/SkyboxHorizon_Mat.mat",
-      "sha256": "17E5CE5C496450434D13A4F4DE9352D1A0EBE911231E5C698DA45E34E02A4601",
-      "bytes": 10411,
-      "modifiedUtc": "2026-10-26T22:20:45.206906+00:00",
-      "guid": "1a2b9cdb7c003454785f9381181bce36"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/LakesAndRivers/Terrain/Materials/TerrainLit.mat",
-      "sha256": "50D145374DDA8439BD2936EAD9F3DE4556333178ADE61C65B898E2890A0419B0",
-      "bytes": 3737,
-      "modifiedUtc": "2026-10-26T22:20:45.254103+00:00",
-      "guid": "0b6d251ba3ab07a45beb3c4a6ac4b68b"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Main/Materials/NavalMine.mat",
-      "sha256": "C4DE344F65DE4C0217642FAB9DFB773C210B41FD49C1E0FC047E651C98F36E7D",
-      "bytes": 3958,
-      "modifiedUtc": "2026-10-26T22:20:45.171991+00:00",
-      "guid": "8439bb68f15c44c8db3c54d02367d07d"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Main/Models/Island0/Materials/blockout.mat",
-      "sha256": "5E51F8ADC35C23AB3DFA485A931DB4D766B981D8EBB89398431F9B580EF2C2E5",
-      "bytes": 3966,
-      "modifiedUtc": "2026-10-26T22:21:15.556969+00:00",
-      "guid": "76f4b78cccd43fd4280c9e3cc7a59650"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Shared/Materials/OffWhite.mat",
-      "sha256": "ED107E4897AE5307ECFBB8D2DFA59110DC91C93D7862C01479C58AD187FAA06D",
-      "bytes": 3927,
-      "modifiedUtc": "2026-11-06T15:46:10+00:00",
-      "guid": "95e214cf788f645edbb5bed42ff8d653"
-    },
-    {
-      "path": "Assets/Crest/Crest-Examples/Shared/Materials/White.mat",
-      "sha256": "7FD46DEEE47DF672D82256BDDC3B52AD8B6B20FF306D3E704AFFEA3DADF40D99",
-      "bytes": 3918,
-      "modifiedUtc": "2026-10-26T22:20:45.222927+00:00",
-      "guid": "4d86ba26ab6f348dd899f0320d78bf11"
+      "configuration": "Release",
+      "path": "Builds/Crest4-URP-Windows-Release-2bd0f9c.zip",
+      "files": 203,
+      "bytes": 42891681,
+      "sha256": "a1870e358a561ac60933ec01d4b4b5753f1841d685b27f511a51198e81c76417"
     }
   ],
-  "previousOpticalBuildCheckpoint": {
-    "path": "Evidence/P09-Optical-Build-checkpoint.json",
-    "sha256": "4F24A924D57A8D44E03E0DCFCB1DB0BEB1BDE36EE917B6D6CA0A7EE2E4E49C86",
-    "bytes": 18448,
-    "modifiedUtc": "2026-10-26T16:03:34.406190+00:00"
-  },
-  "previousMaterialBuildCheckpoint": {
-    "path": "Evidence/P09-Material-Build-checkpoint.json",
-    "sha256": "E180A87A5D19AF56EF6219F7B3EE7DBB2FD6EBF12C90AA3CB87D92AAA83BD4B1",
-    "bytes": 23827,
-    "modifiedUtc": "2026-10-27T12:40:36.875828+00:00"
-  },
-  "previousMaskedBuildCheckpoint": {
-    "path": "Evidence/P09-MaskedExamples-Build-checkpoint.json",
-    "sha256": "9277FCD87AE4C566801AA0628120FB0529DB8E6A157BF0B1170A8360B8FD7AEF",
-    "bytes": 27845,
-    "modifiedUtc": "2026-10-27T17:30:57.071704+00:00"
-  },
-  "previousColdBuildArchive": {
-    "path": "Evidence/P10-ColdBindings-before-milestone.zip",
-    "entry": "Evidence/Build-checkpoint.json"
-  },
-  "previousNormalCheckpoint": {
-    "path": "Evidence/P12-ProbeRegression-previous-build.json"
-  },
-  "testReports": [
-    {
-      "path": "Evidence/EditMode-DX11.xml",
-      "sha256": "DC5EC78FDAF26E5EC9CB587DE334EE60650E5212041C72FD97720F38526F91CA",
-      "bytes": 163872,
-      "modifiedUtc": "2026-11-14T13:25:09.819326+00:00",
-      "api": "DX11",
-      "interactive": false,
-      "total": 125,
-      "result": "Passed",
-      "warnings": {
-        "Persistent allocates": 0,
-        "JobTempAlloc": 0,
-        "evictable": 0,
-        "RenderData validation failed": 0,
-        "Releasing render texture that is set to be RenderTexture.active!": 0,
-        "D3D12PipelineLibrary must be recreated": 0
-      }
+  "editorLogWarnings": {
+    "P13-Final-d3d11-batch.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
     },
-    {
-      "path": "Evidence/EditMode-DX11-interactive.xml",
-      "sha256": "5A722B4688C2AB733CFB6F73CC0AC1D42A3AC8EF04096A53AF2577277FCD57EF",
-      "bytes": 4019,
-      "modifiedUtc": "2026-11-14T13:36:14.391001+00:00",
-      "api": "DX11",
-      "interactive": true,
-      "total": 2,
-      "result": "Passed",
-      "warnings": {
-        "Persistent allocates": 0,
-        "JobTempAlloc": 0,
-        "evictable": 0,
-        "RenderData validation failed": 0,
-        "Releasing render texture that is set to be RenderTexture.active!": 0,
-        "D3D12PipelineLibrary must be recreated": 0
-      }
+    "P13-Final-d3d11-interactive.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
     },
-    {
-      "path": "Evidence/EditMode-DX12.xml",
-      "sha256": "F4DE827EA1A46EBCA93592E82DBD87586B1E1C5A92920782F4992C1010A03E9C",
-      "bytes": 163872,
-      "modifiedUtc": "2026-11-14T13:34:47.383835+00:00",
-      "api": "DX12",
-      "interactive": false,
-      "total": 125,
-      "result": "Passed",
-      "warnings": {
-        "Persistent allocates": 0,
-        "JobTempAlloc": 0,
-        "evictable": 0,
-        "RenderData validation failed": 0,
-        "Releasing render texture that is set to be RenderTexture.active!": 0,
-        "D3D12PipelineLibrary must be recreated": 0
-      }
+    "P13-Final-d3d12-batch.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
     },
-    {
-      "path": "Evidence/EditMode-DX12-interactive.xml",
-      "sha256": "C600A779B16E24CDEBBB2BC74DA2BCCE2FFFAA251BF048599790756A15607C0F",
-      "bytes": 4020,
-      "modifiedUtc": "2026-11-14T13:37:17.205963+00:00",
-      "api": "DX12",
-      "interactive": true,
-      "total": 2,
-      "result": "Passed",
-      "warnings": {
-        "Persistent allocates": 0,
-        "JobTempAlloc": 0,
-        "evictable": 0,
-        "RenderData validation failed": 0,
-        "Releasing render texture that is set to be RenderTexture.active!": 0,
-        "D3D12PipelineLibrary must be recreated": 0
-      }
+    "P13-Final-d3d12-interactive.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
+    },
+    "P13-Final-Development-build.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
+    },
+    "P13-Final-Development-interrupted.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
+    },
+    "P13-Final-Release-build.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
+    },
+    "P13-Final-RiverBaseline-d3d11.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
+    },
+    "P13-Final-RiverBaseline-d3d12.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
+    },
+    "P13-Final-ValidateAssets.log": {
+      "Persistent allocates": 0,
+      "JobTempAlloc": 0,
+      "evictable": 0,
+      "RenderData validation failed": 0,
+      "Releasing render texture that is set to be RenderTexture.active!": 0,
+      "D3D12PipelineLibrary must be recreated": 0
     }
-  ],
-  "assetValidation": {
-    "path": "Evidence/ValidateAssets-DX11.log",
-    "sha256": "73689DE80E8B604B510E693CF6ACA8486F3254C53C098BBBD6A76626C3F0E058",
-    "bytes": 47576,
-    "modifiedUtc": "2026-11-14T13:37:40.802509+00:00"
   },
-  "evidenceArchive": {
-    "path": "Evidence/P12-ProbeRegression-evidence.zip",
-    "sha256": "CA92314E76717AB01660B83F2D278FE4578BE90BF6BEBD3BDFDD9361E4722E23",
-    "bytes": 35692535,
-    "modifiedUtc": "2026-11-14T13:43:40.866173+00:00"
-  },
-  "archivedSideEffects": {
-    "restoredHistorical": [
-      "Evidence/AsyncQueryDelay-Direct3D11.txt",
-      "Evidence/AsyncQueryDelay-Direct3D12.txt",
-      "Evidence/BakedFFT-Direct3D11.txt",
-      "Evidence/BakedFFT-Direct3D12.txt",
-      "Evidence/BakedIntegration-Direct3D11.txt",
-      "Evidence/BakedIntegration-Direct3D12.txt",
-      "Evidence/Buoyancy-Direct3D11.txt",
-      "Evidence/Buoyancy-Direct3D12.txt",
-      "Evidence/DynamicWaves-Direct3D11.txt",
-      "Evidence/DynamicWaves-Direct3D12.txt",
-      "Evidence/ExampleBake-Direct3D11.txt",
-      "Evidence/ExampleBake-Direct3D12.txt",
-      "Evidence/ExampleBake-on-Direct3D11.png",
-      "Evidence/ExampleBake-on-Direct3D12.png",
-      "Evidence/ExampleBake-restored-Direct3D11.png",
-      "Evidence/ExampleBake-restored-Direct3D12.png",
-      "Evidence/Gerstner-Direct3D12.txt",
-      "Evidence/Ocean_Reflections-Direct3D11-queries.txt",
-      "Evidence/Ocean_Reflections-Direct3D11.png",
-      "Evidence/Ocean_Reflections-Direct3D12-queries.txt",
-      "Evidence/Ocean_Reflections-Direct3D12.png",
-      "Evidence/Ocean_Underwater-Direct3D11-queries.txt",
-      "Evidence/Ocean_Underwater-Direct3D11.png",
-      "Evidence/Ocean_Underwater-Direct3D12-queries.txt",
-      "Evidence/Ocean_Underwater-Direct3D12.png",
-      "Evidence/Ocean_Waves-Direct3D11-queries.txt",
-      "Evidence/Ocean_Waves-Direct3D11.png",
-      "Evidence/Ocean_Waves-Direct3D12-queries.txt",
-      "Evidence/Ocean_Waves-Direct3D12.png",
-      "Evidence/OriginWaveTransport-Direct3D11.txt",
-      "Evidence/OriginalBoat-Direct3D11.txt",
-      "Evidence/OriginalBoat-Direct3D12.txt",
-      "Evidence/OriginalBoat-after-throttle-Direct3D11.png",
-      "Evidence/OriginalBoat-after-throttle-Direct3D12.png",
-      "Evidence/OriginalBoat-hull-off-Direct3D11.png",
-      "Evidence/OriginalBoat-hull-off-Direct3D12.png",
-      "Evidence/OriginalBoat-on-Direct3D11.png",
-      "Evidence/OriginalBoat-on-Direct3D12.png",
-      "Evidence/OriginalBoat-repeat-Direct3D11.png",
-      "Evidence/OriginalBoat-repeat-Direct3D12.png",
-      "Evidence/OriginalBoat-restored-Direct3D11.png",
-      "Evidence/OriginalBoat-restored-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-fill-off-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-fill-off-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-on-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-on-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-repeat-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-repeat-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-restored-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-DynamicWavesReflections-restored-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-River-fill-off-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-River-fill-off-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-River-on-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-River-on-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-River-repeat-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-River-repeat-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-River-restored-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-River-restored-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-Transparent-fog-off-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-Transparent-fog-off-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-Transparent-on-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-Transparent-on-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-Transparent-restored-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-Transparent-restored-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-UnderwaterLighting-attenuated-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-UnderwaterLighting-attenuated-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-off-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-off-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-restored-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-UnderwaterLighting-environment-restored-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-fill-off-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-fill-off-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-on-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-on-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-repeat-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-repeat-Direct3D12.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-restored-Direct3D11.png",
-      "Evidence/OriginalExamples-Control-VaryingWaterLevel-restored-Direct3D12.png",
-      "Evidence/OriginalExamples-Controls-Direct3D11.txt",
-      "Evidence/OriginalExamples-Controls-Direct3D12.txt",
-      "Evidence/OriginalExamples-Direct3D11.json",
-      "Evidence/OriginalExamples-Direct3D11/00-Albedo.png",
-      "Evidence/OriginalExamples-Direct3D11/01-Whirlpool.png",
-      "Evidence/OriginalExamples-Direct3D11/02-Wake.png",
-      "Evidence/OriginalExamples-Direct3D11/03-River.png",
-      "Evidence/OriginalExamples-Direct3D11/04-ComplexObjectWaterInteraction.png",
-      "Evidence/OriginalExamples-Direct3D11/05-Ripple.png",
-      "Evidence/OriginalExamples-Direct3D11/06-WavesPatch.png",
-      "Evidence/OriginalExamples-Direct3D11/07-AnimatedObjectWaterInteraction.png",
-      "Evidence/OriginalExamples-Direct3D11/08-Clipping.png",
-      "Evidence/OriginalExamples-Direct3D11/09-Flow.png",
-      "Evidence/OriginalExamples-Direct3D11/10-ScaleWaves.png",
-      "Evidence/OriginalExamples-Direct3D11/11-DynamicWavesReflections.png",
-      "Evidence/OriginalExamples-Direct3D11/12-Buoyancy.png",
-      "Evidence/OriginalExamples-Direct3D11/13-FoamOverride.png",
-      "Evidence/OriginalExamples-Direct3D11/14-ShadowOverride.png",
-      "Evidence/OriginalExamples-Direct3D11/15-VaryingWaterLevel.png",
-      "Evidence/OriginalExamples-Direct3D11/16-TrailRenderer.png",
-      "Evidence/OriginalExamples-Direct3D11/17-ParticleRenderer.png",
-      "Evidence/OriginalExamples-Direct3D11/18-UnderwaterLighting.png",
-      "Evidence/OriginalExamples-Direct3D11/19-PushWaterBelowGeometry.png",
-      "Evidence/OriginalExamples-Direct3D11/20-WaveParticle.png",
-      "Evidence/OriginalExamples-Direct3D11/21-WaveComparison.png",
-      "Evidence/OriginalExamples-Direct3D11/22-TransparentObjectUnderwater.png",
-      "Evidence/OriginalExamples-Direct3D11/23-AudioFromHeightEvents.png",
-      "Evidence/OriginalExamples-Direct3D12.json",
-      "Evidence/OriginalExamples-Direct3D12/00-Albedo.png",
-      "Evidence/OriginalExamples-Direct3D12/01-Whirlpool.png",
-      "Evidence/OriginalExamples-Direct3D12/02-Wake.png",
-      "Evidence/OriginalExamples-Direct3D12/03-River.png",
-      "Evidence/OriginalExamples-Direct3D12/04-ComplexObjectWaterInteraction.png",
-      "Evidence/OriginalExamples-Direct3D12/05-Ripple.png",
-      "Evidence/OriginalExamples-Direct3D12/06-WavesPatch.png",
-      "Evidence/OriginalExamples-Direct3D12/07-AnimatedObjectWaterInteraction.png",
-      "Evidence/OriginalExamples-Direct3D12/08-Clipping.png",
-      "Evidence/OriginalExamples-Direct3D12/09-Flow.png",
-      "Evidence/OriginalExamples-Direct3D12/10-ScaleWaves.png",
-      "Evidence/OriginalExamples-Direct3D12/11-DynamicWavesReflections.png",
-      "Evidence/OriginalExamples-Direct3D12/12-Buoyancy.png",
-      "Evidence/OriginalExamples-Direct3D12/13-FoamOverride.png",
-      "Evidence/OriginalExamples-Direct3D12/14-ShadowOverride.png",
-      "Evidence/OriginalExamples-Direct3D12/15-VaryingWaterLevel.png",
-      "Evidence/OriginalExamples-Direct3D12/16-TrailRenderer.png",
-      "Evidence/OriginalExamples-Direct3D12/17-ParticleRenderer.png",
-      "Evidence/OriginalExamples-Direct3D12/18-UnderwaterLighting.png",
-      "Evidence/OriginalExamples-Direct3D12/19-PushWaterBelowGeometry.png",
-      "Evidence/OriginalExamples-Direct3D12/20-WaveParticle.png",
-      "Evidence/OriginalExamples-Direct3D12/21-WaveComparison.png",
-      "Evidence/OriginalExamples-Direct3D12/22-TransparentObjectUnderwater.png",
-      "Evidence/OriginalExamples-Direct3D12/23-AudioFromHeightEvents.png",
-      "Evidence/OriginalLakesRivers-Direct3D11.txt",
-      "Evidence/OriginalLakesRivers-Direct3D12.txt",
-      "Evidence/OriginalMain-Direct3D11-geometry-off.png",
-      "Evidence/OriginalMain-Direct3D11.png",
-      "Evidence/OriginalMain-Direct3D11.txt",
-      "Evidence/OriginalMain-Direct3D12-geometry-off.png",
-      "Evidence/OriginalMain-Direct3D12.png",
-      "Evidence/OriginalMain-Direct3D12.txt",
-      "Evidence/OriginalRendererFlags.txt",
-      "Evidence/OriginalThreeBoats-Direct3D11.txt",
-      "Evidence/OriginalThreeBoats-Direct3D12.txt",
-      "Evidence/OriginalThreeBoats-hulls-off-Direct3D11.png",
-      "Evidence/OriginalThreeBoats-hulls-off-Direct3D12.png",
-      "Evidence/OriginalThreeBoats-on-Direct3D11.png",
-      "Evidence/OriginalThreeBoats-on-Direct3D12.png",
-      "Evidence/OriginalThreeBoats-repeat-Direct3D11.png",
-      "Evidence/OriginalThreeBoats-repeat-Direct3D12.png",
-      "Evidence/OriginalThreeBoats-restored-Direct3D11.png",
-      "Evidence/OriginalThreeBoats-restored-Direct3D12.png",
-      "Evidence/OriginalWakes-Direct3D11.txt",
-      "Evidence/OriginalWakes-Direct3D12.txt",
-      "Evidence/OriginalWakes-False-Direct3D12.png",
-      "Evidence/OriginalWakes-Isolation-Direct3D11.txt",
-      "Evidence/OriginalWakes-Isolation-Direct3D12.txt",
-      "Evidence/OriginalWakes-True-Direct3D12.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D11-off.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D11-on.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D11-restored.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D11.txt",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D12-off.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D12-on.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D12-restored.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle0-Direct3D12.txt",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-off.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-on.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11-restored.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D11.txt",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D12-off.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D12-on.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D12-restored.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle1-Direct3D12.txt",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D11-off.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D11-on.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D11-restored.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D11.txt",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D12-off.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D12-on.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D12-restored.png",
-      "Evidence/OriginalWakes-Visibility-toggle-cycle2-Direct3D12.txt",
-      "Evidence/OriginalWhirlpool-Combined-Direct3D11-native.png",
-      "Evidence/OriginalWhirlpool-Combined-Direct3D12-native.png",
-      "Evidence/OriginalWhirlpool-Direct3D11-off.png",
-      "Evidence/OriginalWhirlpool-Direct3D11-on.png",
-      "Evidence/OriginalWhirlpool-Direct3D11-restored.png",
-      "Evidence/OriginalWhirlpool-Direct3D11.txt",
-      "Evidence/OriginalWhirlpool-Direct3D12-off.png",
-      "Evidence/OriginalWhirlpool-Direct3D12-on.png",
-      "Evidence/OriginalWhirlpool-Direct3D12-restored.png",
-      "Evidence/OriginalWhirlpool-Direct3D12.txt",
-      "Evidence/P10-BakedLifetime-Direct3D11.txt",
-      "Evidence/P10-BakedLifetime-Direct3D12.txt",
-      "Evidence/P11-Fill-Direct3D11.txt",
-      "Evidence/P11-Fill-Direct3D12.txt",
-      "Evidence/P11-Whirlpool-Direct3D11-trial0-lod0.bin",
-      "Evidence/P11-Whirlpool-Direct3D11-trial1-lod0.bin",
-      "Evidence/P11-Whirlpool-Direct3D11-trial2-lod0.bin",
-      "Evidence/P11-Whirlpool-Direct3D11-trial3-lod0.bin",
-      "Evidence/QueryContract-Direct3D11.txt",
-      "Evidence/QueryContract-Direct3D12.txt",
-      "Evidence/RayQuery-Direct3D11.txt",
-      "Evidence/RayQuery-Direct3D12.txt",
-      "Evidence/ReflectionOptions-Main-pixel-after-Direct3D11.png",
-      "Evidence/ReflectionOptions-Main-pixel-after-Direct3D12.png",
-      "Evidence/ReflectionOptions-Main-pixel-before-Direct3D11.png",
-      "Evidence/ReflectionOptions-Main-pixel-before-Direct3D12.png",
-      "Evidence/ReflectionOptions-Main-shadow-after-Direct3D11.png",
-      "Evidence/ReflectionOptions-Main-shadow-after-Direct3D12.png",
-      "Evidence/ReflectionOptions-Main-shadow-before-Direct3D11.png",
-      "Evidence/ReflectionOptions-Main-shadow-before-Direct3D12.png",
-      "Evidence/ReflectionOptions-Resized-main-Direct3D11.png",
-      "Evidence/ReflectionOptions-Resized-main-Direct3D12.png",
-      "Evidence/ResourceLifecycle-Direct3D11.txt",
-      "Evidence/ResourceLifecycle-Direct3D12.txt",
-      "Evidence/ResourceLifecycle-QueryRecovery-Direct3D11.txt",
-      "Evidence/ResourceLifecycle-QueryRecovery-Direct3D12.txt"
-    ],
-    "newEvidence": []
-  }
+  "previousCheckpoint": "P12 validated checkpoint in git history; see P12-Windows-packages-066a5c0.json",
+  "limitation": "Windows native DX11/DX12 Render Graph and listed cases. VR excluded. Driver residency limits in TEST_RESULTS.md."
 }

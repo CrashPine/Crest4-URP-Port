@@ -1,7 +1,7 @@
 # План выполнения порта Crest 4
 
 Единственный список задач и их очередности. Дата ревизии: 2026-11-15.
-Цель: полноценный перенос функций открытого Crest 4.23.0 на **Unity 6000.6.5f1 / URP 17.6.0**, Windows x64, DX11/DX12, Render Graph. VR/XR исключён пользователем из критериев завершения. Эталон — открытый релиз `4.23.0` (`db0658ff0b2e93e4a9e28cc2867509658b0ecc00`). Коммерческие пакеты и сторонние интеграции за рамками эталона. P12 фиксирует рабочую Windows-поставку. Приёмка функций по новому объёму продолжается в P13.
+Цель: полноценный перенос функций открытого Crest 4.23.0 на **Unity 6000.6.5f1 / URP 17.6.0**, Windows x64, DX11/DX12, Render Graph. VR/XR исключён пользователем из критериев завершения. Эталон — открытый релиз `4.23.0` (`db0658ff0b2e93e4a9e28cc2867509658b0ecc00`). Коммерческие пакеты и сторонние интеграции за рамками эталона. P12 фиксирует рабочую Windows-поставку. Приёмка согласованного настольного объёма P13 завершена.
 
 ## Как продолжать
 
@@ -21,7 +21,7 @@
 | P02 | DONE | Исправлено переполнение GPU-query очереди; regression test и реальные player runs подтвердили восстановление. |
 | P03 | DONE | Созданы 7 демо; Development/Release собраны и проверены на DX11/DX12. Проверены spectrum, FFT, Gerstner, flow, dynamic input, buoyancy, depth, shadow readback, 12 reload cycles. Точные результаты — TEST_RESULTS.md. |
 
-## Контрольные этапы P04–P12 и текущий P13
+## Контрольные этапы P04–P12 и P13
 
 | ID | Статус | Конкретное действие | Критерий закрытия / зависимости |
 |---|---|---|---|
@@ -34,7 +34,7 @@
 | P10 | DONE (bounded scope; measurement limits recorded) | Required resource families inventoried, identified allocation/lifetime/cold-binding/capture-order defects corrected. Current normal full117+interactive2/API/both builds/4 smokes unchanged. StableGpu ordinary-frame A–B–A completed on both APIs with raw focus/render/time/clock telemetry. Draw deltas restore exactly; isolated GPU cost rejected by predeclared gates. | Full GPU/FPS/physical VRAM/Intel/XR acceptance is not claimed. DX12 remained focused but baseline drift12.2%/clock median spread51.6%; DX11 focus loss/clock spread29.2%. External measurement limitations recorded, not source defects declared fixed. Historical evictable warning NOT REPRODUCED/not fixed; NonLocal attribution unresolved. |
 | P11 | DONE (Windows checkpoint) | Windows-регрессия и пересборка Development/Release завершены. Принятые конфигурации и ограничения описаны в матрице. | 125 batch и 2 Game View на каждом API, 4 запуска Player, ValidateAssets, 597 проверок исходных GUID/compute. |
 | P12 | DONE (Windows delivery) | Версионные архивы Windows распакованы и проверены. Дополнительная приёмка клавиатуры и локальных отражений завершена на DX11/DX12. | Границы этой поставки зафиксированы в FEATURE_MATRIX. |
-| P13 | ACTIVE | Довести функциональную эквивалентность открытому релизу в настольной конфигурации без VR. | Выполнить порядок и критерии ниже. |
+| P13 | DONE | Завершена приёмка открытых функций в согласованной конфигурации Windows DX11/DX12 без VR. | Кандидат 2bd0f9c и проверенные архивы связаны в Evidence/Build-checkpoint.json. |
 
 ## P13 — приёмка открытых функций Crest без VR
 
@@ -52,7 +52,7 @@
 | P13.4 | DONE | **Оптика и подводные переходы.** На Ocean_LargeWaves пройти движущуюся поверхность обычной камерой Player и проверить meniscus. Для границы объёма, opaque/transparent Shader API, каустики с тенями и Portal/Volume/Fly-Through добавить только недостающие причинные контроли. Использовать уже принятые тесты полного экрана и стеков как базу. |
 | P13.5 | DONE | **Большой мир и автономная симуляция.** Проверить сдвиг начала координат с активными динамическими волнами и пеной или зафиксировать расхождение с исходным Crest. В отдельном запуске Windows `-nographics` загрузить сохранённый FFT bake, проверить CPU-запросы и сетевой провайдер времени с заданным смещением. Подтвердить запуск, отсутствие зависимости от GPU и повторную загрузку без добавления сетевого транспорта. |
 | P13.6 | DONE | **Интеграция и ресурсы.** Проверить импорт и сохранение исходной сцены в чистом URP-проекте по MIGRATION.md. Проверить оставшиеся доступные режимы Inspector и сериализации, переменные данные на закрытом сплайне, OceanSampleHeightEvents, VisualiseRayTrace, вспомогательные RenderAlphaOnSurface/RenderWireFrame и взаимодействие через старый ObjectWaterInteractionAdaptor. Существующие проверки профилей, часов и основных запросов засчитываются. По ресурсам проверить изменённые пути и воспроизводимые сигналы из P10/P11. |
-| P13.7 | ACTIVE | **Финальная регрессия и поставка.** На кандидатном коммите выполнить полный набор Editor и Game View на DX11/DX12, ValidateAssets, сверку GUID/compute и 4 запуска Development/Release. Проверить обновлённые архивы после распаковки. P13 закрывается, когда у всех функций в согласованном объёме есть принятое доказательство, а отклонения ограничены условиями самого исходного Crest или явно указанной целевой платформы. Непроверенный режим или подтверждённая регрессия в этом объёме оставляет P13 открытым. |
+| P13.7 | DONE | **Финальная регрессия и поставка.** На кандидатном коммите выполнить полный набор Editor и Game View на DX11/DX12, ValidateAssets, сверку GUID/compute и 4 запуска Development/Release. Проверить обновлённые архивы после распаковки. P13 закрывается, когда у всех функций в согласованном объёме есть принятое доказательство, а отклонения ограничены условиями самого исходного Crest или явно указанной целевой платформы. Непроверенный режим или подтверждённая регрессия в этом объёме оставляет P13 открытым. |
 
 ### Сцена Ocean_LargeWaves
 

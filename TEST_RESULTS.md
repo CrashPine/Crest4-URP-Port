@@ -1,6 +1,12 @@
 # Результаты проверок
 
-Актуальная сверка: **2026-11-22**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop; Intel Iris Xe дополнительно проверен в P11.3-H. Это единственный документ с итогами измерений; очередь работ находится в PORT_PLAN.md.
+Актуальная сверка **2026-11-23**. Unity **6000.6.5f1** (`3ff58d469c8a`), URP **17.6.0**, Windows x64, Render Graph. Основной GPU — NVIDIA RTX 3050 Ti Laptop. Intel Iris Xe дополнительно проверен в P11.3-H. Очередь работ находится в PORT_PLAN.md.
+
+## P13.7 Final Windows release verification
+
+Candidate `2bd0f9c` passed 147/147 batch EditMode and 3/3 Game View tests per API, with zero failed or skipped tests. ValidateAssets reported zero asset errors. All 597 GUID/compute checks passed. Three previously recorded sprite metadata normalizations retained the original GUIDs. Development and Release built with strict shader variant matching and were packaged from the exported tracked candidate.
+
+Both archives were extracted and every payload file matched its SHA-256 manifest. All four runs used the extracted executables on the requested DX11 or DX12 device. Each run loaded seven scenes, returned live height samples, captured the current LOD frame in all seven scenes and passed the reflection option controls. All four reported zero errors. The recorded Editor and Player logs contain none of the tracked JobTempAlloc, Persistent, active RenderTexture release or stale RenderData warnings. These observations cover the tested runs and retain the driver measurement limits from P10. [Candidate and package fingerprints](Evidence/Build-checkpoint.json) · [Full reports, logs and captures](Evidence/P13-Final-Release-evidence.zip).
 
 ## P13.6 Closed spline data and surface alpha
 

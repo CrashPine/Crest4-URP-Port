@@ -1,6 +1,6 @@
 # Crest 4 → Unity 6000.6.5f1 / URP 17.6.0
 
-Рабочий порт открытого Crest 4.23.0. **Windows x64 проверен на DX11 и DX12 с URP Render Graph.** Текущие сборки предоставляют проверенный набор функций. Полнота открытого Crest без VR остаётся целью [этапа P13](PORT_PLAN.md#p13--приёмка-открытых-функций-crest-без-vr). Что уже подтверждено и какие режимы требуют работы, указано в [матрице](FEATURE_MATRIX.md).
+Порт открытого Crest 4.23.0 для **Windows x64, DX11 и DX12 с URP Render Graph**. Настольная приёмка P13 завершена в согласованном объёме без VR. Сценарии и границы проверок приведены в [матрице](FEATURE_MATRIX.md).
 
 ## Навигация — у каждого документа одна роль
 
@@ -20,7 +20,7 @@
 
 - `Assets/Crest/Crest`: исходное ядро и изменения порта.
 - `Assets/Crest/URP`: Render Graph feature, automation, demos controller, тесты.
-- `Assets/CrestPortDemos`: семь сцен и их настройки URP; не перегенерировать поверх ручных изменений.
+- `Assets/CrestPortDemos` содержит семь сцен Windows-сборки, отдельную сцену `Ocean_LargeWaves` и настройки URP.
 - `Tools`: воспроизводимые команды проверки и сборки.
 - `Evidence`: XML, численные отчёты, PNG и локальные raw logs. Старые/failed результаты не являются текущей приёмкой.
 - `Builds/Development` и `Builds/Release`: локальные Windows builds; состояние относительно текущего кода указано в PORT_PROGRESS.
@@ -30,7 +30,7 @@
 
 ## Воспроизведение
 
-Проверенные Windows-сборки лежат в `Builds/Crest4-URP-Windows-Development-066a5c0.zip` и `Builds/Crest4-URP-Windows-Release-066a5c0.zip`. Распакуйте выбранный архив целиком и запустите `CrestPort.exe`. SHA-256 архивов записаны в `Evidence/P12-Windows-packages-066a5c0.json`, а контрольные суммы файлов находятся в каждом архиве.
+Проверенные Windows-сборки лежат в `Builds/Crest4-URP-Windows-Development-2bd0f9c.zip` и `Builds/Crest4-URP-Windows-Release-2bd0f9c.zip`. Распакуйте выбранный архив целиком и запустите `CrestPort.exe`. SHA-256 архивов записаны в `Evidence/Build-checkpoint.json`, а контрольные суммы файлов находятся в `SHA256.json` внутри каждого архива.
 
 Открыть проект Unity 6000.6.5f1. Renderer в `Assets/CrestPortDemos` содержит CrestBackgroundFeature; Render Graph, depth и intermediate camera color необходимы.
 
